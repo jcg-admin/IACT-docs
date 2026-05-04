@@ -321,7 +321,7 @@ Ejemplo Completo Inicial
 
  actor "Usuario" as usuario
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  ' ===================================
@@ -395,7 +395,7 @@ Ejemplos
 
  ' Sistemas externos
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDatosUsuarios
  actor "Sistema de Email" as email
  actor "Sistema de Inventario" as inventario
 
@@ -418,7 +418,7 @@ Por ahora, solo declarar todos los actores:
 
  ' Actores secundarios (proporcionan soporte)
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDatosUsuarios
  actor "Sistema de Email" as email
 
 Ejemplo Completo: Módulo de Autenticación
@@ -440,7 +440,7 @@ Ejemplo Completo: Módulo de Autenticación
 
  ' Actores secundarios
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  ' ===================================
@@ -529,7 +529,7 @@ Ejemplo Completo: Módulo de Autenticación
 
  actor "Usuario" as usuario
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  ' ===================================
@@ -620,7 +620,7 @@ Ejemplo 1: UC-BACK-001 Iniciar Sesión
 
  ' Actores secundarios: UC usa LDAP y DB
  UC001 --> ldap
- UC001 --> db
+ UC001 --> BaseDatosUsuarios
 
 **Interpretación**: - **Usuario** es el actor primario (ejecuta el caso
 de uso) - **LDAP** y **DB** son actores secundarios (proporcionan
@@ -635,7 +635,7 @@ Ejemplo 2: UC-BACK-004 Recuperar Contraseña
  usuario --> UC004
 
  ' Actores secundarios: UC usa DB y Email
- UC004 --> db
+ UC004 --> BaseDatosUsuarios
  UC004 --> email
 
 **Interpretación**: - **Usuario** ejecuta la recuperación de contraseña
@@ -650,7 +650,7 @@ ERROR Común
  ' INCORRECTO: Todas las flechas en la misma dirección
  usuario --> UC001
  ldap --> UC001 ← ERROR: Implica que LDAP también ejecuta el caso de uso
- db --> UC001 ← ERROR: Implica que DB también ejecuta el caso de uso
+ BaseDatosUsuarios --> UC001 ← ERROR: Implica que DB también ejecuta el caso de uso
 
 Esto implicaría que Usuario, LDAP y DB son todos actores primarios, lo
 cual es incorrecto.
@@ -673,7 +673,7 @@ Ejemplo Completo: Módulo de Autenticación
 
  actor "Usuario" as usuario
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  ' ===================================
@@ -701,17 +701,17 @@ Ejemplo Completo: Módulo de Autenticación
 
  ' Actores secundarios para UC001: Iniciar Sesión
  UC001 --> ldap
- UC001 --> db
+ UC001 --> BaseDeDatosDeUsuarios
 
  ' Actores secundarios para UC003: Cambiar Contraseña
- UC003 --> db
+ UC003 --> BaseDeDatosDeUsuarios
 
  ' Actores secundarios para UC004: Recuperar Contraseña
- UC004 --> db
+ UC004 --> BaseDeDatosDeUsuarios
  UC004 --> email
 
  ' Actores secundarios para UC005: Configurar 2FA
- UC005 --> db
+ UC005 --> BaseDeDatosDeUsuarios
 
  @enduml
 
@@ -829,7 +829,7 @@ Ejemplo: Módulo de Autenticación con Include
 
  actor "Usuario" as usuario
  actor "Sistema de Autenticación LDAP" as ldap
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
 
  rectangle "Sistema IACT - Módulo de Autenticación" {
  usecase "Iniciar Sesión" as UC001
@@ -849,7 +849,7 @@ Ejemplo: Módulo de Autenticación con Include
 
  ' Actores secundarios
  UC006 --> ldap
- UC006 --> db
+ UC006 --> BaseDeDatosDeUsuarios
 
  @enduml
 
@@ -867,7 +867,7 @@ Ejemplo: Módulo de Gestión con Extend
  skinparam packageStyle rectangle
 
  actor "Administrador de Usuarios" as admin
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
 
  rectangle "Sistema IACT - Módulo de Gestión de Usuarios" {
  usecase "Registrar Usuario en Sistema" as UC010
@@ -883,8 +883,8 @@ Ejemplo: Módulo de Gestión con Extend
  UC015 .> UC010 : <<extend>>
 
  ' Actores secundarios
- UC010 --> db
- UC011 --> db
+ UC010 --> BaseDeDatosDeUsuarios
+ UC011 --> BaseDeDatosDeUsuarios
 
  note right of UC015
  Solo si el administrador
@@ -1497,7 +1497,7 @@ Archivo: UCD-BACK-003-modulo-auditoria.puml
 
  actor "Auditor" as auditor
  actor "Gerente de Auditoría" as gerente
- actor "Base de Datos de Transacciones" as db
+ actor "Base de Datos de Transacciones" as BaseDeDatosDeTransacciones
  actor "Sistema de Reportes" as reportes
 
  ' ===================================
@@ -1531,11 +1531,11 @@ Archivo: UCD-BACK-003-modulo-auditoria.puml
  UC_CSV .> UC020 : <<extend>>
 
  ' Actores secundarios
- UC020 --> db
+ UC020 --> BaseDeDatosDeTransacciones
  UC020 --> reportes
- UC021 --> db
- UC022 --> db
- UC023 --> db
+ UC021 --> BaseDeDatosDeTransacciones
+ UC022 --> BaseDeDatosDeTransacciones
+ UC023 --> BaseDeDatosDeTransacciones
 
  ' ===================================
  ' NOTAS

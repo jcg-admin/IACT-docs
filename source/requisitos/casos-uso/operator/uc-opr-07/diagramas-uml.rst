@@ -13,11 +13,11 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "request_break" as request_break
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_07\nBreak" as UC
-   usecase "UC_OPR_01\nState change" as S
+   usecase "UC_OPR_07\nBreak" as UcOpr07
+   usecase "UC_OPR_01\nState change" as UcOpr01
  }
- request_break --> UC
- UC ..> S : <<include>>
+ request_break --> UcOpr07
+ UcOpr07 ..> UcOpr01 : <<include>>
  @enduml
 
 8.2 Actividad

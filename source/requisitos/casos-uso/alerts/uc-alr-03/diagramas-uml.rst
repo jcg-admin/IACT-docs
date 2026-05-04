@@ -14,11 +14,11 @@ Parte 8 — Diagramas UML
  actor "acknowledge_alert" as acknowledge_alert
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_03\nReconocer" as UC03
-   usecase "Bulk ack" as BA
+   usecase "Bulk ack" as BulkAck
  }
  acknowledge_alert --> UC03
- acknowledge_alert --> BA
- BA ..> UC03 : <<include>>
+ acknowledge_alert --> BulkAck
+ BulkAck ..> UC03 : <<include>>
  @enduml
 
 8.2 Actividad

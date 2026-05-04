@@ -19,14 +19,14 @@ Parte 8 — Diagramas UML
  rectangle "MOD_Reports" {
    usecase "UC_RPT_02\nRealtime Metrics" as UC02
    usecase "Suscribir stream" as SUB
-   usecase "Throttle" as TH
-   usecase "Heartbeat" as HB
+   usecase "Throttle" as Throttle
+   usecase "Heartbeat" as Heartbeat
  }
 
  view_kpis --> UC02
  UC02 ..> SUB : <<include>>
- UC02 ..> TH : <<include>>
- UC02 ..> HB : <<include>>
+ UC02 ..> Throttle : <<include>>
+ UC02 ..> Heartbeat : <<include>>
  SUB --> Analyticsstream
 
  note bottom

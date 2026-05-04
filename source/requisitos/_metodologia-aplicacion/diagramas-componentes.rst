@@ -222,7 +222,7 @@ ORM o tablas de otra app rompen el contrato.
    skinparam componentStyle rectangle
 
    package "Cliente (navegador del supervisor)" {
-     [iact-admin.bundle.js] as UI
+     [iact-admin.bundle.js] as IactAdminBundleJs
    }
 
    package "Apache + mod_wsgi" {
@@ -251,7 +251,7 @@ ORM o tablas de otra app rompen el contrato.
      [etl_runner.py] as ETL
    }
 
-   UI --> WSGI : HTTPS
+   IactAdminBundleJs --> WSGI : HTTPS
    WSGI --> auth_app
    WSGI --> perm_app
    WSGI --> rpt_app
@@ -1037,7 +1037,7 @@ corporativos externos:
    skinparam rectangleBorderColor<<sistema>> #1E40AF
    skinparam rectangleBackgroundColor<<externo>> #E0F2F1
 
-   actor Supervisor as S
+   actor Supervisor as Supervisor
    actor Auditor as Aud
    actor "Operador ETL" as OETL
 
@@ -1047,7 +1047,7 @@ corporativos externos:
    rectangle "BD operativa\n(call center)" as BDO <<externo>>
    rectangle "IVR-host" as IVR <<externo>>
 
-   S --> IACT : consulta dashboards,\nreconoce alertas
+   Supervisor --> IACT : consulta dashboards,\nreconoce alertas
    Aud --> IACT : consulta auditoria,\nverifica SoD
    OETL --> IACT : monitorea ventana ETL
 
@@ -1264,8 +1264,8 @@ declarar las relaciones:
 .. code-block:: text
 
    ' Mejor:
-   rectangle "Servicio de listados\n[Software System]" as LS
-   Supervisor --> LS : consulta titulos
+   rectangle "Servicio de listados\n[Software System]" as ServicioListados
+   Supervisor --> ServicioListados : consulta titulos
 
    ' Peor:
    "Servicio de listados\n[Software System]" --> ...
@@ -1801,7 +1801,7 @@ de ``iact.wsgi`` en sus apps Django:
    title IACT C4 — Component view (iact.wsgi)
 
    actor "Supervisor\n[Person]" as Supervisor
-   rectangle "Browser\n[Container]" as B <<c4_container>>
+   rectangle "Browser\n[Container]" as Browser <<c4_container>>
 
    package "iact.wsgi" {
      rectangle "auth_app\n[Django app]\nIdentificacion + sesion" as Auth <<c4_component>>
@@ -1818,10 +1818,10 @@ de ``iact.wsgi`` en sus apps Django:
    database "audit_log\n[Container]" as Audit <<c4_container>>
    rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
 
-   Supervisor --> B
-   B --> Auth : POST /login\n[HTTPS]
-   B --> Rpt : consultas de reporte\n[HTTPS]
-   B --> Alr : reconocer alerta\n[HTTPS]
+   Supervisor --> Browser
+   Browser --> Auth : POST /login\n[HTTPS]
+   Browser --> Rpt : consultas de reporte\n[HTTPS]
+   Browser --> Alr : reconocer alerta\n[HTTPS]
 
    Auth --> LDAP : autentica\n[LDAPS]
    Auth --> Redis : sesion (CNST_002)
@@ -2223,10 +2223,10 @@ mostrar el punto de conexión exacto.
 
    @startuml
 
-   component "Apache" as A
-   component "mod_wsgi" as W
+   component "Apache" as Apache
+   component "mod_wsgi" as mod_wsgi
 
-   A -- W : carga / ejecuta
+   Apache -- mod_wsgi : carga / ejecuta
    @enduml
 
 16.7 Realización de interfaz

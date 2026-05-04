@@ -77,30 +77,30 @@ responder en ≤ 10 s (CNST_017). Tres objetos relevantes:
 
    @startuml
 
-   robust "Navegador" as N
-   robust "Backend"  as B
-   robust "BD analytics" as DB
+   robust "Navegador" as Navegador
+   robust "Backend"  as Backend
+   robust "BD analytics" as BdAnalytics
 
    @0
-   N is ocioso
-   B is ocioso
-   DB is ocioso
+   Navegador is ocioso
+   Backend is ocioso
+   BdAnalytics is ocioso
 
    @1
-   N is esperando
-   B is consulta
-   DB is query
+   Navegador is esperando
+   Backend is consulta
+   BdAnalytics is query
 
    @5
-   DB is ocioso
-   B is serializa
+   BdAnalytics is ocioso
+   Backend is serializa
 
    @7
-   B is ocioso
-   N is renderizando
+   Backend is ocioso
+   Navegador is renderizando
 
    @9
-   N is ocioso
+   Navegador is ocioso
 
    highlight 0 to 10 #LightYellow : SLA CNST_017
 

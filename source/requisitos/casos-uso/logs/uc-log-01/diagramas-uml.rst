@@ -14,10 +14,10 @@ Parte 8 — Diagramas UML
  actor "view_application_logs" as view_application_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nLogs Sistema" as UC01
-   usecase "Tail SSE" as T
+   usecase "Tail SSE" as TailSse
  }
  view_application_logs --> UC01
- UC01 ..> T : <<extend>>
+ UC01 ..> TailSse : <<extend>>
  @enduml
 
 8.2 Actividad

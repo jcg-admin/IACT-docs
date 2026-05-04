@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "view_own_call_history" as view_own_call_history
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_09\nMy History" as UC
+   usecase "UC_OPR_09\nMy History" as UcOpr09
  }
- view_own_call_history --> UC
+ view_own_call_history --> UcOpr09
  @enduml
 
 8.2 Actividad

@@ -15,11 +15,11 @@ Parte 8 — Diagramas UML
  actor "answer_inbound_calls" as answer_inbound_calls
  actor "Caller" as Caller
  rectangle "MOD_Supervision" {
-   usecase "UC_SUP_01\nMonitor" as UC
+   usecase "UC_SUP_01\nMonitor" as UcSup01
  }
- monitor_live_calls --> UC
- UC --> answer_inbound_calls
- UC --> Caller
+ monitor_live_calls --> UcSup01
+ UcSup01 --> answer_inbound_calls
+ UcSup01 --> Caller
  @enduml
 
 8.2 Actividad

@@ -61,13 +61,13 @@ de palo) y **línea asociativa**.
    @startuml
 
    left to right direction
-   actor "Actor\n(figura de palo)" as A
+   actor "Actor\n(figura de palo)" as Actor
 
    rectangle "Límite del sistema (rectángulo)" {
-     usecase "Caso de uso\n(elipse)" as UC
+     usecase "Caso de uso\n(elipse)" as CasoDeUso
    }
 
-   A --> UC : línea asociativa
+   Actor --> CasoDeUso : línea asociativa
    @enduml
 
 2.2 Posicionamiento
@@ -82,15 +82,15 @@ beneficia** a la derecha (puede ser el mismo).
    @startuml
 
    left to right direction
-   actor "Actor\niniciador" as A1
-   actor "Actor\nbeneficiario" as A2
+   actor "Actor\niniciador" as Actor
+   actor "Actor\nbeneficiario" as Actor
 
    rectangle "Sistema" {
-     usecase "Caso de uso" as UC
+     usecase "Caso de uso" as CasoDeUso
    }
 
-   A1 --> UC : inicia
-   UC --> A2 : se beneficia
+   Actor --> CasoDeUso : inicia
+   CasoDeUso --> Actor : se beneficia
    @enduml
 
 ----
@@ -140,8 +140,8 @@ internos y externos.
 
    actor Operador
    actor Supervisor
-   actor "Admin\nAcceso"     as AA
-   actor "Admin\nPipeline"   as AP
+   actor "Admin\nAcceso"     as Admin
+   actor "Admin\nPipeline"   as Admin
    actor Auditor
    actor "Sistema /\nScheduler" as Sched
    actor "IVR\nConmutador"  as IVR
@@ -169,9 +169,9 @@ internos y externos.
    Supervisor --> RPT04
    Supervisor --> ALR03
 
-   AA         --> ACC01
-   AP         --> PIP01
-   AP         --> PIP04
+   Admin         --> ACC01
+   Admin         --> PIP01
+   Admin         --> PIP04
    Auditor    --> AUD01
    Auditor    --> AUD03
 
@@ -343,15 +343,15 @@ al caso primario.
    @startuml
 
    left to right direction
-   actor "Admin\nPipeline" as AP
+   actor "Admin\nPipeline" as Admin
 
    rectangle "IACT" {
      usecase "UC_PIP_04\nSolicitar reintento\n(BASE)"           as P4
      usecase "UC_PIP_04b\nReintentar con\nparámetros ajustados" as P4B
    }
 
-   AP --> P4
-   AP --> P4B
+   Admin --> P4
+   Admin --> P4B
 
    P4B --|> P4
 
@@ -379,14 +379,14 @@ para mostrar la jerarquía de roles del proyecto.
    actor Usuario
    actor Operador
    actor Supervisor
-   actor "Admin Acceso"   as AA
-   actor "Admin Pipeline" as AP
+   actor "Admin Acceso"   as AdminAcceso
+   actor "Admin Pipeline" as AdminPipeline
    actor Auditor
 
    Usuario <|-- Operador
    Usuario <|-- Supervisor
-   Usuario <|-- AA
-   Usuario <|-- AP
+   Usuario <|-- AdminAcceso
+   Usuario <|-- AdminPipeline
    Usuario <|-- Auditor
 
    note right of Usuario
@@ -415,8 +415,8 @@ módulo del catálogo modular.
    left to right direction
    actor Operador
    actor Supervisor
-   actor "Admin Acceso"   as AA
-   actor "Admin Pipeline" as AP
+   actor "Admin Acceso"   as AdminAcceso
+   actor "Admin Pipeline" as AdminPipeline
    actor Auditor
 
    rectangle "IACT" {
@@ -466,10 +466,10 @@ módulo del catálogo modular.
    Operador   --> R1
    Supervisor --> R4
    Supervisor --> AL3
-   AA         --> AC1
-   AA         --> AC5
-   AP         --> P1
-   AP         --> P4
+   AdminAcceso         --> AC1
+   AdminAcceso         --> AC5
+   AdminPipeline         --> P1
+   AdminPipeline         --> P4
    Auditor    --> AU1
    @enduml
 
@@ -842,7 +842,7 @@ relaciones de casos de uso reconocido en UML:
    - ``Actor -- UC``
    - Vínculo entre actor y UC.
  * - Asociación dirigida actor → UC
-   - ``Actor --> UC``
+   - ``Actor --> CasoDeUso``
    - El actor inicia el UC; el UC no inicia al
      actor.
  * - ``<<include>>``

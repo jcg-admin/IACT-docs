@@ -14,13 +14,13 @@ Parte 8 — Diagramas UML
  actor "Caller" as Caller
  actor "answer_inbound_calls" as answer_inbound_calls
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_04\nCallback" as UC
-   usecase "UC_OPR_03\nDial" as D
+   usecase "UC_CLI_04\nCallback" as UcCli04
+   usecase "UC_OPR_03\nDial" as UcOpr03
  }
- Caller --> UC
- UC --> answer_inbound_calls
- answer_inbound_calls --> D
- D ..> UC : consume CallbackEntry
+ Caller --> UcCli04
+ UcCli04 --> answer_inbound_calls
+ answer_inbound_calls --> UcOpr03
+ UcOpr03 ..> UcCli04 : consume CallbackEntry
  @enduml
 
 8.2 Actividad

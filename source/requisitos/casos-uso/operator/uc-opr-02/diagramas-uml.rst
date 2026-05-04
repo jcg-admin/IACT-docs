@@ -14,10 +14,10 @@ Parte 8 — Diagramas UML
  actor "answer_inbound_calls" as answer_inbound_calls
  actor "CallRouter" as Callrouter
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_02\nAnswer" as UC
+   usecase "UC_OPR_02\nAnswer" as UcOpr02
  }
- answer_inbound_calls --> UC
- Callrouter --> UC
+ answer_inbound_calls --> UcOpr02
+ Callrouter --> UcOpr02
  @enduml
 
 8.2 Actividad

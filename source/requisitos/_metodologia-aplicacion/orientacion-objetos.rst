@@ -596,20 +596,20 @@ operación.
 
    @startuml
 
-   participant ":Operador"   as O
-   participant ":Dashboard"  as D
-   participant ":Reporte"    as R
-   participant ":SecRules"   as SR
-   participant ":BDAnalytics" as BD
+   participant ":Operador"   as Operador
+   participant ":Dashboard"  as Dashboard
+   participant ":Reporte"    as Reporte
+   participant ":SecRules"   as SecRules
+   participant ":BDAnalytics" as BDAnalytics
 
-   O  -> D  : 1. abrirDashboard()
-   D  -> R  : 2. generar(filtros)
-   R  -> SR : 3. verificarPermiso(view_dashboard)
-   SR --> R : 4. autorizado + segmento del usuario
-   R  -> BD : 5. SELECT con filtro de segmento
-   BD --> R : 6. filas
-   R  --> D : 7. resultados
-   D  --> O : 8. dashboard renderizado
+   Operador  -> Dashboard  : 1. abrirDashboard()
+   Dashboard  -> Reporte  : 2. generar(filtros)
+   Reporte  -> SecRules : 3. verificarPermiso(view_dashboard)
+   SecRules --> Reporte : 4. autorizado + segmento del usuario
+   Reporte  -> BDAnalytics : 5. SELECT con filtro de segmento
+   BDAnalytics --> Reporte : 6. filas
+   Reporte  --> Dashboard : 7. resultados
+   Dashboard  --> Operador : 8. dashboard renderizado
    @enduml
 
 6.2 Solicitar reintento ETL — UC_PIP_04
@@ -619,17 +619,17 @@ operación.
 
    @startuml
 
-   participant ":AdminPipeline" as AP
+   participant ":AdminPipeline" as AdminPipeline
    participant ":SupervisorETL" as Sup
    participant ":SchedulerETL" as Sch
-   participant ":AuditLog"     as AL
+   participant ":AuditLog"     as AuditLog
 
-   AP  -> Sup  : 1. solicitarReintento(ejecucion_id)
+   AdminPipeline  -> Sup  : 1. solicitarReintento(ejecucion_id)
    Sup -> Sup  : 2. validarEstado(FALLIDA)
    Sup -> Sch  : 3. enqueueReintento(jobId)
    Sch --> Sup : 4. jobEncolado
-   Sup -> AL   : 5. registrar(REINTENTO_SOLICITADO)
-   Sup --> AP  : 6. confirmación + ETA
+   Sup -> AuditLog   : 5. registrar(REINTENTO_SOLICITADO)
+   Sup --> AdminPipeline  : 6. confirmación + ETA
    @enduml
 
 6.3 Múltiples interfaces, mismo mensaje
@@ -770,12 +770,12 @@ interfaces**:
 
    skinparam packageStyle rectangle
    rectangle "Orientación a Objetos en IACT" as OOP {
-     rectangle "1. ABSTRACCIÓN\nLlamada / Métrica / Función\nsin ruido físico"             as P1
-     rectangle "2. HERENCIA\nUsuario → Operador,\nSupervisor, Auditor..."                  as P2
-     rectangle "3. POLIMORFISMO\ncalcularValor() por métrica\nexportar() por formato"      as P3
-     rectangle "4. ENCAPSULAMIENTO\ngenerar() público,\nsegmentación interna"              as P4
-     rectangle "5. MENSAJES\nOperador → Dashboard\n→ Reporte → SecRules → BD"              as P5
-     rectangle "6. ASOCIACIONES\nUsuario 1:1 Sesion;\nGrupo *:* Funcion (agregación);\nEjecucionETL 1:* ErrorETL (composición)" as P6
+     rectangle "1. ABSTRACCIÓN\nLlamada / Métrica / Función\nsin ruido físico"             as 1AbstracciN
+     rectangle "2. HERENCIA\nUsuario → Operador,\nSupervisor, Auditor..."                  as 2Herencia
+     rectangle "3. POLIMORFISMO\ncalcularValor() por métrica\nexportar() por formato"      as 3Polimorfismo
+     rectangle "4. ENCAPSULAMIENTO\ngenerar() público,\nsegmentación interna"              as 4Encapsulamiento
+     rectangle "5. MENSAJES\nOperador → Dashboard\n→ Reporte → SecRules → BD"              as 5Mensajes
+     rectangle "6. ASOCIACIONES\nUsuario 1:1 Sesion;\nGrupo *:* Funcion (agregación);\nEjecucionETL 1:* ErrorETL (composición)" as 6Asociaciones
    }
    @enduml
 

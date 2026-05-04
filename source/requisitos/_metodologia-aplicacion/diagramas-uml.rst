@@ -709,7 +709,7 @@ integra ésta con todas las demás clases.
 
    @startuml
 
-   object "llamada_001 : Llamada" as L {
+   object "llamada_001 : Llamada" as Llamada001Llamada {
      id = 4732112
      centro_id = 7
      campana_id = 22
@@ -827,29 +827,29 @@ Owners / Analistas.
    @startuml
 
    actor Operador
-   participant ":Frontend\n(React)"   as F
-   participant ":Backend\n(Django)"   as B
-   participant ":SecRules"            as SR
-   participant ":AuditLog"            as AL
-   participant ":BD Analytics"        as DB
+   participant ":Frontend\n(React)"   as Frontend
+   participant ":Backend\n(Django)"   as Backend
+   participant ":SecRules"            as SecRules
+   participant ":AuditLog"            as AuditLog
+   participant ":BD Analytics"        as BdAnalytics
 
-   Operador -> F  : 1. Click "Ver Dashboard"
-   F -> B         : 2. GET /api/reports/dashboard
+   Operador -> Frontend  : 1. Click "Ver Dashboard"
+   Frontend -> Backend         : 2. GET /api/reports/dashboard
 
-   B -> SR        : 3. verificarPermiso(view_dashboard)
+   Backend -> SecRules        : 3. verificarPermiso(view_dashboard)
 
    alt Permiso aprobado
-     SR --> B     : 4a. autorizado + segmento
-     B -> AL      : 5. registrar(VIEW_DASHBOARD)
-     B -> DB      : 6. SELECT con filtro de segmento
-     DB --> B     : 7. filas
-     B --> F      : 8. {datos, métricas, ts}
-     F --> Operador : 9. dashboard renderizado
+     SecRules --> Backend     : 4a. autorizado + segmento
+     Backend -> AuditLog      : 5. registrar(VIEW_DASHBOARD)
+     Backend -> BdAnalytics      : 6. SELECT con filtro de segmento
+     BdAnalytics --> Backend     : 7. filas
+     Backend --> Frontend      : 8. {datos, métricas, ts}
+     Frontend --> Operador : 9. dashboard renderizado
    else Permiso denegado
-     SR --> B     : 4b. denegado
-     B -> AL      : 5. registrar(VIEW_DASHBOARD_DENIED)
-     B --> F      : 6. {error: 403}
-     F --> Operador : 7. ✗ "Sin permiso"
+     SecRules --> Backend     : 4b. denegado
+     Backend -> AuditLog      : 5. registrar(VIEW_DASHBOARD_DENIED)
+     Backend --> Frontend      : 6. {error: 403}
+     Frontend --> Operador : 7. ✗ "Sin permiso"
    end
    @enduml
 
@@ -909,19 +909,19 @@ Owners / Analistas.
    allowmixing
 
    actor Supervisor
-   object ":Alerta"        as A
-   object ":SecRules"      as SR
-   object ":BuzonInterno"  as BI
-   object ":AuditLog"      as AL
-   object ":Suscriptores"  as S
+   object ":Alerta"        as Alerta
+   object ":SecRules"      as SecRules
+   object ":BuzonInterno"  as BuzonInterno
+   object ":AuditLog"      as AuditLog
+   object ":Suscriptores"  as Suscriptores
 
-   Supervisor -> SR : "1: verificarPermiso(ack_alert)"
-   SR -> Supervisor : "2: autorizado"
-   Supervisor -> A  : "3: reconocer()"
-   A -> A           : "4: actualizar estado"
-   A -> AL          : "5: registrar(ALERT_ACK)"
-   A -> BI          : "6: notificarSuscriptores()"
-   BI -> S          : "7: entregar mensaje\n(buzón, no email)"
+   Supervisor -> SecRules : "1: verificarPermiso(ack_alert)"
+   SecRules -> Supervisor : "2: autorizado"
+   Supervisor -> Alerta  : "3: reconocer()"
+   Alerta -> Alerta           : "4: actualizar estado"
+   Alerta -> AuditLog          : "5: registrar(ALERT_ACK)"
+   Alerta -> BuzonInterno          : "6: notificarSuscriptores()"
+   BuzonInterno -> Suscriptores          : "7: entregar mensaje\n(buzón, no email)"
    @enduml
 
 **Aplicación:** DOC-20 (UC_NOT + UC_ALR). Sin email per
@@ -937,7 +937,7 @@ CNST_001.
    @startuml
 
    package "Frontend (React + Webpack)" {
-     component "UI Components\nDashboards, Reportes" as UI
+     component "UI Components\nDashboards, Reportes" as UiComponents
      component "Redux Store\nState Management"      as Redux
      component "HTTP Client\nAxios + JWT"           as HTTP
    }
@@ -952,7 +952,7 @@ CNST_001.
      component "Audit Service\nInmutable"            as AUD
    }
 
-   database "MySQL Analytics\nDatos IVR + RBAC + Audit" as DB
+   database "MySQL Analytics\nDatos IVR + RBAC + Audit" as MysqlAnalytics
 
    package "Infraestructura externa" {
      component "IVR Conmutador\n(read-only)" as IVR
@@ -960,8 +960,8 @@ CNST_001.
      component "Buzón Interno\n(no email)"   as Buzon
    }
 
-   UI    --> Redux : state
-   UI    --> HTTP  : fetch / post
+   UiComponents    --> Redux : state
+   UiComponents    --> HTTP  : fetch / post
    HTTP  --> REST  : REST + JWT
 
    REST  --> Auth : usa
@@ -971,12 +971,12 @@ CNST_001.
    REST  --> PIP  : usa
    REST  --> AUD  : usa
 
-   Auth --> DB : queries
-   RBAC --> DB : queries
-   RPT  --> DB : queries
-   ALR  --> DB : queries
-   PIP  --> DB : queries
-   AUD  --> DB : append-only
+   Auth --> MysqlAnalytics : queries
+   RBAC --> MysqlAnalytics : queries
+   RPT  --> MysqlAnalytics : queries
+   ALR  --> MysqlAnalytics : queries
+   PIP  --> MysqlAnalytics : queries
+   AUD  --> MysqlAnalytics : append-only
 
    PIP   ..> IVR   : ETL nocturno (read-only)
    PIP   ..> Sched : programación

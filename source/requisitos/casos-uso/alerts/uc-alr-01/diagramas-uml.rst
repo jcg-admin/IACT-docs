@@ -15,13 +15,13 @@ Parte 8 — Diagramas UML
  actor "AlertEvaluator" as Alertevaluator
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales" as UC01
-   usecase "Test rule\n(dry-run)" as DR
-   usecase "Reload" as RL
+   usecase "Test rule\n(dry-run)" as TestRule
+   usecase "Reload" as Reload
  }
  configure_team_alerts --> UC01
- configure_team_alerts --> DR
- UC01 ..> RL : <<include>>
- RL --> Alertevaluator
+ configure_team_alerts --> TestRule
+ UC01 ..> Reload : <<include>>
+ Reload --> Alertevaluator
  @enduml
 
 8.2 Actividad

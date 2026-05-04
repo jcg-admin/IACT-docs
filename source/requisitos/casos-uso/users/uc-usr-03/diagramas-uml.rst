@@ -21,8 +21,8 @@ Parte 8 — Diagramas UML
 
  rectangle "MOD_Users" {
    usecase "UC_USR_03\nModificar Usuario" as UC03
-   usecase "Validar transicion\nde state" as TS
-   usecase "Validar email\nunico" as EU
+   usecase "Validar transicion\nde state" as ValidarTransicion
+   usecase "Validar email\nunico" as ValidarEmail
    usecase "UPDATE User\nparcial" as UPD
    usecase "Cerrar Sessions\nactivas" as CSE
    usecase "Notificar via\nInternalMailbox" as NOT
@@ -30,8 +30,8 @@ Parte 8 — Diagramas UML
  }
 
  ADMIN --> UC03
- UC03 ..> TS : <<include>>
- UC03 ..> EU : <<extend (si email cambia)>>
+ UC03 ..> ValidarTransicion : <<include>>
+ UC03 ..> ValidarEmail : <<extend (si email cambia)>>
  UC03 ..> UPD : <<include>>
  UC03 ..> CSE : <<extend (si state→BLOCKED)>>
  UC03 ..> NOT : <<extend (politica)>>
@@ -40,7 +40,7 @@ Parte 8 — Diagramas UML
  Sistema --> EMI
  EMI --> view_audit_log
 
- note bottom of TS
+ note bottom of ValidarTransicion
    P-11 anti-self-state-change
  end note
  note bottom of CSE

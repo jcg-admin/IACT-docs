@@ -17,10 +17,10 @@ Parte 8 — Diagramas UML
  actor "Mailbox" as Mailbox
  rectangle "MOD_Audit" {
    usecase "UC_AUD_04\nGenerar Reporte" as UC04
-   usecase "Verify" as V
+   usecase "Verify" as Verify
  }
  generate_compliance_report --> UC04
- generate_compliance_report --> V
+ generate_compliance_report --> Verify
  UC04 --> Complianceworker
  Complianceworker --> HmacSigner
  Complianceworker --> Mailbox

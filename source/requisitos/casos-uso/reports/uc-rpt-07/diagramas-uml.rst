@@ -18,14 +18,14 @@ Parte 8 — Diagramas UML
  rectangle "MOD_Reports" {
    usecase "UC_RPT_07\nProgramar" as UC07
    usecase "Crear/Update" as CRUD
-   usecase "Auto execute" as AE
+   usecase "Auto execute" as AutoExecute
    usecase "UC_RPT_04\nExport" as EXP
  }
 
  schedule_report --> UC07
  UC07 ..> CRUD : <<include>>
- Scheduler ..> AE : <<include>>
- AE ..> EXP : <<include>>
+ Scheduler ..> AutoExecute : <<include>>
+ AutoExecute ..> EXP : <<include>>
  @enduml
 
 8.2 Diagrama de actividad (creacion)

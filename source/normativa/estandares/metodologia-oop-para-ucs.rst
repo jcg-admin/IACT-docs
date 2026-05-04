@@ -309,19 +309,19 @@ Las asociaciones representan **relaciones formales** entre UCs.
    @startuml
 
    left to right direction
-   usecase "UC_ACC_02\nLogin"                  as A
-   usecase "UC_ACC_04\nRenovar Token"          as B
-   usecase "UC_ORD_01\nCrear Orden"            as C
-   usecase "UC_PAG_01\nProcesar Pago"          as D
-   usecase "UC_ORD_06\nSolicitar Devolución"   as E
-   usecase "UC_LOG_06\nCrear Devolución"       as F
-   usecase "UC_CAT_06\nVer Detalles"           as G
-   usecase "UC_CAT_01\nVer Catálogo"           as H
+   usecase "UC_ACC_02\nLogin"                  as UcAcc02Login
+   usecase "UC_ACC_04\nRenovar Token"          as UcAcc04RenovarToken
+   usecase "UC_ORD_01\nCrear Orden"            as UcOrd01CrearOrden
+   usecase "UC_PAG_01\nProcesar Pago"          as UcPag01ProcesarPago
+   usecase "UC_ORD_06\nSolicitar Devolución"   as UcOrd06SolicitarDevolucion
+   usecase "UC_LOG_06\nCrear Devolución"       as UcLog06CrearDevolucion
+   usecase "UC_CAT_06\nVer Detalles"           as UcCat06VerDetalles
+   usecase "UC_CAT_01\nVer Catálogo"           as UcCat01VerCatalogo
 
-   A ..> B : <<include>>
-   C ..> D : <<include>>
-   E ..> F : <<extend>>
-   G --> H : depende de
+   UcAcc02Login ..> UcAcc04RenovarToken : <<include>>
+   UcOrd01CrearOrden ..> UcPag01ProcesarPago : <<include>>
+   UcOrd06SolicitarDevolucion ..> UcLog06CrearDevolucion : <<extend>>
+   UcCat06VerDetalles --> UcCat01VerCatalogo : depende de
    @enduml
 
 ----
@@ -416,30 +416,30 @@ Este ejemplo aplica las seis dimensiones a un UC crítico.
    @startuml
 
    package "INTERFAZ PÚBLICA (Frontend)" as Front {
-     component "Formulario Checkout" as UI
+     component "Formulario Checkout" as FormularioCheckout
      component "Botón Confirmar"     as Btn
    }
 
    package "LÓGICA PRIVADA (Backend)" as Back {
      component "Validar datos"        as Val
      component "Calcular totales"     as Calc
-     component "Guardar en BD"        as DB
+     component "Guardar en BD"        as GuardarEnBd
      component "Registrar auditoría"  as Aud
    }
 
    package "SERVICIOS EXTERNOS" as Ext {
-     component "Stripe API"  as S
-     component "Email Service" as E
+     component "Stripe API"  as StripeApi
+     component "Email Service" as EmailService
    }
 
-   UI -> Btn : submit
+   FormularioCheckout -> Btn : submit
    Btn -> Back : llama (interfaz pública)
    Back ..> Val  : <<protegido>>
    Back ..> Calc : <<protegido>>
-   Back ..> DB   : <<protegido>>
+   Back ..> GuardarEnBd   : <<protegido>>
    Back ..> Aud  : <<protegido>>
-   Back -> S : HTTPS
-   Back -> E : HTTPS
+   Back -> StripeApi : HTTPS
+   Back -> EmailService : HTTPS
    @enduml
 
 4.3 Envío de mensajes — secuencia
@@ -450,23 +450,23 @@ Este ejemplo aplica las seis dimensiones a un UC crítico.
    @startuml
 
    actor Cliente
-   participant ":Frontend" as F
-   participant ":Backend"  as B
-   participant ":Logística" as L
-   participant ":Stripe"   as S
-   participant ":Email"    as E
+   participant ":Frontend" as Frontend
+   participant ":Backend"  as Backend
+   participant ":Logística" as LogStica
+   participant ":Stripe"   as Stripe
+   participant ":Email"    as Email
 
-   Cliente -> F : confirmar compra
-   F -> B       : POST /orders
-   B -> L       : consultar envío
-   L --> B      : opciones disponibles
-   B -> S       : procesar pago
-   S --> B      : pago aprobado
-   B -> B       : crear orden (interno)
-   B -> E       : enviar confirmación
-   E --> B      : email enviado
-   B --> F      : orden creada
-   F --> Cliente : mostrar confirmación
+   Cliente -> Frontend : confirmar compra
+   Frontend -> Backend       : POST /orders
+   Backend -> LogStica       : consultar envío
+   LogStica --> Backend      : opciones disponibles
+   Backend -> Stripe       : procesar pago
+   Stripe --> Backend      : pago aprobado
+   Backend -> Backend       : crear orden (interno)
+   Backend -> Email       : enviar confirmación
+   Email --> Backend      : email enviado
+   Backend --> Frontend      : orden creada
+   Frontend --> Cliente : mostrar confirmación
    @enduml
 
 4.4 Polimorfismo — variantes de Order

@@ -27,10 +27,10 @@ Distribucion fisica de nodos y artefactos para UC_INC_RPT_01.
  node "Apache + mod_wsgi" as WebServer {
    artifact "Django App" as App
  }
- database "MariaDB" as DB
+ database "MariaDB" as MariaDB
 
  Client --> WebServer : HTTPS
- WebServer --> DB : TCP / SQL
+ WebServer --> MariaDB : TCP / SQL
 
  @enduml
 

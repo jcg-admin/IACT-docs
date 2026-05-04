@@ -24,16 +24,16 @@ Parte 8 — Diagramas UML
    usecase "UC_PERM_03\nGrant excepcional" as PERM03
  }
  rectangle "Backend compartido" {
-   usecase "POST exceptional-permissions" as BE
+   usecase "POST exceptional-permissions" as PostExceptionalPermissions
  }
 
  grant_exceptional_permission --> ACC08
  grant_exceptional_permission --> PERM03
- ACC08 --> BE : delega
- PERM03 --> BE : delega
- BE --> view_audit_log : AuditEvent\nhigh-priority
+ ACC08 --> PostExceptionalPermissions : delega
+ PERM03 --> PostExceptionalPermissions : delega
+ PostExceptionalPermissions --> view_audit_log : AuditEvent\nhigh-priority
 
- note bottom of BE
+ note bottom of PostExceptionalPermissions
    Funcion: grant_exceptional_permission
    Mailbox HARD, justification + expires_at
    obligatorios, audit reforzado.

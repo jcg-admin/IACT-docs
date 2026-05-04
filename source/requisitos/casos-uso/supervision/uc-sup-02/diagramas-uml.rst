@@ -13,11 +13,11 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "barge_in_calls" as barge_in_calls
  rectangle "MOD_Supervision" {
-   usecase "UC_SUP_02\nBarge-in" as UC
-   usecase "Take over" as TO
+   usecase "UC_SUP_02\nBarge-in" as UcSup02
+   usecase "Take over" as TakeOver
  }
- barge_in_calls --> UC
- UC ..> TO : <<extend>>
+ barge_in_calls --> UcSup02
+ UcSup02 ..> TakeOver : <<extend>>
  @enduml
 
 8.2 Actividad

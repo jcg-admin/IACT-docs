@@ -241,13 +241,13 @@ Plantilla del bloque (siempre presente):
     @startuml
 
     left to right direction
-    actor "[Actor]" as A
+    actor "[Actor]" as Actor
     rectangle "[Sistema o Subsistema]" {
-      usecase "[Nombre del UC]" as UC
+      usecase "[Nombre del UC]" as CasoDeUso
       usecase "[Otro UC incluido]" as UCInc
     }
-    A --> UC
-    UC ..> UCInc : <<include>>
+    Actor --> CasoDeUso
+    CasoDeUso ..> UCInc : <<include>>
     @enduml
 
 3.6 Sección 5 — Diagrama de estados (PlantUML)
@@ -310,16 +310,16 @@ Sólo si interactúan más de 2 componentes.
     @startuml
 
     actor Usuario
-    participant ":Frontend" as F
-    participant ":Backend"  as B
-    participant ":BD"       as DB
+    participant ":Frontend" as Frontend
+    participant ":Backend"  as Backend
+    participant ":BD"       as BaseDatos
 
-    Usuario -> F  : acción
-    F -> B        : POST /api/...
-    B -> DB       : query
-    DB --> B      : resultado
-    B --> F       : respuesta
-    F --> Usuario : confirmación
+    Usuario -> Frontend  : acción
+    Frontend -> Backend        : POST /api/...
+    Backend -> BaseDatos : query
+    BaseDatos --> Backend      : resultado
+    Backend --> Frontend       : respuesta
+    Frontend --> Usuario : confirmación
     @enduml
 
 3.9 Sección 8 — Diagrama de clases (PlantUML)

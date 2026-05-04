@@ -337,7 +337,7 @@ explícitas:
 
    actor Browser
    participant "Sign Up Service" as SUS
-   participant "User Service" as US
+   participant "User Service" as UserService
    queue Kafka
    @enduml
 
@@ -372,7 +372,7 @@ es **UC_AUTH_01** (login del supervisor):
    title UC_AUTH_01 — Login del supervisor
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    participant "perm_app" as Perm
    database "ldap-corporativo" as LDAP
@@ -550,13 +550,13 @@ página de login:
    title UC_AUTH_01 — primer intercambio
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
 
-   Supervisor -> B : abre URL del panel
-   B -> Auth : GET /login
-   Auth --> B : 200 OK (formulario login)
-   B --> Supervisor : muestra formulario
+   Supervisor -> Browser : abre URL del panel
+   Browser -> Auth : GET /login
+   Auth --> Browser : 200 OK (formulario login)
+   Browser --> Supervisor : muestra formulario
    @enduml
 
 Lectura:
@@ -633,13 +633,13 @@ CNST_017:
    title UC_RPT_01 — primer intercambio dashboard
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "rpt_app" as Rpt
 
-   Supervisor -> B : selecciona dashboard
-   B -> Rpt : GET /dashboard?segmento=N
-   Rpt --> B : 200 OK (HTML + datos)
-   B --> Supervisor : renderiza dashboard
+   Supervisor -> Browser : selecciona dashboard
+   Browser -> Rpt : GET /dashboard?segmento=N
+   Rpt --> Browser : 200 OK (HTML + datos)
+   Browser --> Supervisor : renderiza dashboard
    note right of Rpt
      SLA CNST_017: respuesta <= 10s
    end note
@@ -700,27 +700,27 @@ de credenciales:
    title UC_AUTH_01 — Login con bifurcacion happy/unhappy
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    database "ldap-corporativo" as LDAP
    database "Redis" as Redis
    database "audit_log" as Audit
 
-   Supervisor -> B : envia credenciales
-   B -> Auth : POST /login (user, pass)
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth : POST /login (user, pass)
    Auth -> Auth : validar formato
 
    alt [credenciales invalidas]
      Auth -> Audit : registrar intento fallido (CNST_011)
-     Auth --> B : 401 Unauthorized
-     B --> Supervisor : muestra error
+     Auth --> Browser : 401 Unauthorized
+     Browser --> Supervisor : muestra error
    else [credenciales validas]
      Auth -> LDAP : authenticate(user, pass)
      LDAP --> Auth : OK + atributos
      Auth -> Redis : crear sesion (CNST_002)
      Auth -> Audit : registrar acceso exitoso
-     Auth --> B : 302 Redirect (panel)
-     B --> Supervisor : muestra panel
+     Auth --> Browser : 302 Redirect (panel)
+     Browser --> Supervisor : muestra panel
    end
    @enduml
 
@@ -997,19 +997,19 @@ flujo principal espere acuse:
    title UC_AUTH_01 — registro auditable async (CNST_025)
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    participant "log_app" as Log
    database "Redis" as Redis
    database "audit_log" as Audit
 
-   Supervisor -> B : envia credenciales
-   B -> Auth : POST /login
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth : POST /login
    Auth -> Redis : crear sesion (CNST_002)
    Auth ->> Audit : registrar evento (async)
    Auth ->> Log : notificar buzon supervisor (async, CNST_001)
-   Auth --> B : 302 Redirect (panel)
-   B --> Supervisor : muestra panel
+   Auth --> Browser : 302 Redirect (panel)
+   Browser --> Supervisor : muestra panel
    @enduml
 
 Análisis:
@@ -1145,28 +1145,28 @@ con activaciones encajadas:
    title UC_AUTH_01 — activaciones encajadas
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    database "ldap-corporativo" as LDAP
    database "Redis" as Redis
    database "audit_log" as Audit
 
-   Supervisor -> B : envia credenciales
-   B -> Auth ++ : POST /login
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth ++ : POST /login
 
    Auth -> Auth : validar formato
 
    alt [credenciales invalidas]
      Auth ->> Audit : registrar intento (CNST_011)
-     Auth --> B -- : 401 Unauthorized
+     Auth --> Browser -- : 401 Unauthorized
    else [credenciales validas]
      Auth -> LDAP ++ : authenticate(user, pass)
      LDAP --> Auth -- : OK + atributos
      Auth -> Redis : crear sesion (CNST_002)
      Auth ->> Audit : registrar acceso
-     Auth --> B -- : 302 Redirect (panel)
+     Auth --> Browser -- : 302 Redirect (panel)
    end
-   B --> Supervisor : muestra panel
+   Browser --> Supervisor : muestra panel
    @enduml
 
 Lectura del diagrama
@@ -1314,13 +1314,13 @@ disparado desde una app es consumido por
    title UC_AUTH_01 — fan-out auditable
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    participant "log_app" as Log
    database "audit_log" as Audit
 
-   Supervisor -> B : envia credenciales
-   B -> Auth : POST /login
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth : POST /login
 
    Auth ->> Audit : registrar evento (CNST_025)
    note right of Audit
@@ -1331,8 +1331,8 @@ disparado desde una app es consumido por
    Auth ->> Log : notificar buzon supervisor
    note over Log : entrega via buzon interno (CNST_001)
 
-   Auth --> B : 302 Redirect (panel)
-   B --> Supervisor : muestra panel
+   Auth --> Browser : 302 Redirect (panel)
+   Browser --> Supervisor : muestra panel
    @enduml
 
 Análisis:
@@ -1439,21 +1439,21 @@ Aplicado a UC_AUTH_01 con ``autonumber``:
    autonumber
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    database "ldap-corporativo" as LDAP
    database "Redis" as Redis
    database "audit_log" as Audit
 
-   Supervisor -> B : envia credenciales
-   B -> Auth : POST /login
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth : POST /login
    Auth -> Auth : validar formato
    Auth -> LDAP : authenticate(user, pass)
    LDAP --> Auth : OK + atributos
    Auth -> Redis : crear sesion (CNST_002)
    Auth ->> Audit : registrar acceso (CNST_025)
-   Auth --> B : 302 Redirect (panel)
-   B --> Supervisor : muestra panel
+   Auth --> Browser : 302 Redirect (panel)
+   Browser --> Supervisor : muestra panel
    @enduml
 
 Referirse al diagrama es directo: *"el paso 4 es la
@@ -1679,27 +1679,27 @@ Para IACT, la combinación más robusta es:
    @startuml
 
    actor Operador
-   participant ":Frontend"   as F
-   participant ":Backend"    as B
-   participant ":SecRules"   as SR
-   participant ":BDAnalytics" as BD
-   participant ":AuditLog"   as AL
+   participant ":Frontend"   as Frontend
+   participant ":Backend"    as Backend
+   participant ":SecRules"   as SecRules
+   participant ":BDAnalytics" as BDAnalytics
+   participant ":AuditLog"   as AuditLog
 
-   Operador -> F   : 1. clic "Ver Dashboard"        (simple)
-   F -> B          : 2. GET /api/dashboard          (sincrónico)
-   activate B
-   B -> SR         : 3. verificarPermiso(view_dashboard)\n  (sincrónico)
-   activate SR
-   SR --> B        : 4. autorizado + segmento
-   deactivate SR
-   B -> BD         : 5. SELECT con filtro segmento  (sincrónico)
-   activate BD
-   BD --> B        : 6. filas
-   deactivate BD
-   B ->> AL        : 7. registrar(VIEW_DASHBOARD)   (asincrónico,\n     CNST_025)
-   B --> F         : 8. {datos, métricas, ts}
-   deactivate B
-   F --> Operador  : 9. dashboard renderizado
+   Operador -> Frontend   : 1. clic "Ver Dashboard"        (simple)
+   Frontend -> Backend          : 2. GET /api/dashboard          (sincrónico)
+   activate Backend
+   Backend -> SecRules         : 3. verificarPermiso(view_dashboard)\n  (sincrónico)
+   activate SecRules
+   SecRules --> Backend        : 4. autorizado + segmento
+   deactivate SecRules
+   Backend -> BDAnalytics         : 5. SELECT con filtro segmento  (sincrónico)
+   activate BDAnalytics
+   BDAnalytics --> Backend        : 6. filas
+   deactivate BDAnalytics
+   Backend ->> AuditLog        : 7. registrar(VIEW_DASHBOARD)   (asincrónico,\n     CNST_025)
+   Backend --> Frontend         : 8. {datos, métricas, ts}
+   deactivate Backend
+   Frontend --> Operador  : 9. dashboard renderizado
    @enduml
 
 ----
@@ -1717,13 +1717,13 @@ condiciones alternativas.
 
    @startuml
 
-   actor "Admin\nPipeline" as AP
+   actor "Admin\nPipeline" as Admin
    participant ":SupervisorETL" as Sup
    participant ":SchedulerETL"  as Sch
-   participant ":BDAnalytics"   as BD
-   participant ":AuditLog"      as AL
+   participant ":BDAnalytics"   as BDAnalytics
+   participant ":AuditLog"      as AuditLog
 
-   AP -> Sup  : abrirSupervision()
+   Admin -> Sup  : abrirSupervision()
    activate Sup
 
    Sup -> Sch : ultimoRun()
@@ -1731,20 +1731,20 @@ condiciones alternativas.
    Sch --> Sup : run_id, fecha_inicio, estado
    deactivate Sch
 
-   Sup -> BD  : SELECT errores WHERE run_id=?
-   activate BD
-   BD --> Sup : []  (sin errores)
-   deactivate BD
+   Sup -> BDAnalytics  : SELECT errores WHERE run_id=?
+   activate BDAnalytics
+   BDAnalytics --> Sup : []  (sin errores)
+   deactivate BDAnalytics
 
-   Sup -> AL  : registrar(VIEW_ETL_STATUS)
-   activate AL
-   AL --> Sup : ok
-   deactivate AL
+   Sup -> AuditLog  : registrar(VIEW_ETL_STATUS)
+   activate AuditLog
+   AuditLog --> Sup : ok
+   deactivate AuditLog
 
-   Sup --> AP : panel ETL: estado OK,\nprox_ejecucion=02:00 AM
+   Sup --> Admin : panel ETL: estado OK,\nprox_ejecucion=02:00 AM
    deactivate Sup
 
-   note over AP,AL
+   note over Admin,AuditLog
      Escenario feliz:
      última ejecución exitosa,
      CNST_008 ventana 6-12h
@@ -1769,50 +1769,50 @@ en uno solo, usando ``alt`` / ``else`` (condiciones) y
    @startuml
 
    actor Usuario
-   participant ":Frontend"     as F
-   participant ":AuthService"  as A
-   participant ":SecRules"     as SR
-   participant ":SessionStore" as SS
-   participant ":AuditLog"     as AL
+   participant ":Frontend"     as Frontend
+   participant ":AuthService"  as AuthService
+   participant ":SecRules"     as SecRules
+   participant ":SessionStore" as SessionStore
+   participant ":AuditLog"     as AuditLog
 
-   Usuario -> F : 1. submit (email, password)
-   F -> A       : 2. POST /api/auth/login
-   activate A
+   Usuario -> Frontend : 1. submit (email, password)
+   Frontend -> AuthService       : 2. POST /api/auth/login
+   activate AuthService
 
-   A -> SR : 3. verificarThrottling(IP)\n   (CNST_011: 5 / 5min)
+   AuthService -> SecRules : 3. verificarThrottling(IP)\n   (CNST_011: 5 / 5min)
 
    alt [throttling alcanzado]
-     SR --> A : 4a. denegado
-     A ->> AL : 5a. registrar(LOGIN_BLOCKED_IP)
-     A --> F  : 6a. {error: "IP bloqueada"}
-     F --> Usuario : 7a. ✗ "Intentos máximos"
+     SecRules --> AuthService : 4a. denegado
+     AuthService ->> AuditLog : 5a. registrar(LOGIN_BLOCKED_IP)
+     AuthService --> Frontend  : 6a. {error: "IP bloqueada"}
+     Frontend --> Usuario : 7a. ✗ "Intentos máximos"
    else [throttling ok]
-     SR --> A : 4b. autorizado
+     SecRules --> AuthService : 4b. autorizado
 
-     A -> SS  : 5b. validarCredenciales(email, hash)
+     AuthService -> SessionStore  : 5b. validarCredenciales(email, hash)
 
      alt [credenciales válidas]
-       SS --> A : 6b1. user_record (is_active=true)
+       SessionStore --> AuthService : 6b1. user_record (is_active=true)
 
        alt [sesión existente — CNST_002]
-         A -> SS : 7b1. invalidarSesionAnterior()
-         SS --> A : 7b2. ok
+         AuthService -> SessionStore : 7b1. invalidarSesionAnterior()
+         SessionStore --> AuthService : 7b2. ok
        end
 
-       A -> SS  : 8b. crearSesion(user_id, segmento)
-       SS --> A : 9b. session_id, jwt
-       A ->> AL : 10b. registrar(LOGIN_SUCCESS)
-       A --> F  : 11b. {jwt, refresh_token, user}
-       F --> Usuario : 12b. ✓ Redirect /dashboard
+       AuthService -> SessionStore  : 8b. crearSesion(user_id, segmento)
+       SessionStore --> AuthService : 9b. session_id, jwt
+       AuthService ->> AuditLog : 10b. registrar(LOGIN_SUCCESS)
+       AuthService --> Frontend  : 11b. {jwt, refresh_token, user}
+       Frontend --> Usuario : 12b. ✓ Redirect /dashboard
      else [credenciales inválidas]
-       SS --> A : 6c. user_not_found
-       A -> SS  : 7c. incrementarIntentos(IP)
-       A ->> AL : 8c. registrar(LOGIN_FAILED)
-       A --> F  : 9c. {error: "Credenciales"}
-       F --> Usuario : 10c. ✗ Mostrar error
+       SessionStore --> AuthService : 6c. user_not_found
+       AuthService -> SessionStore  : 7c. incrementarIntentos(IP)
+       AuthService ->> AuditLog : 8c. registrar(LOGIN_FAILED)
+       AuthService --> Frontend  : 9c. {error: "Credenciales"}
+       Frontend --> Usuario : 10c. ✗ Mostrar error
      end
    end
-   deactivate A
+   deactivate AuthService
    @enduml
 
 ----
@@ -1827,34 +1827,34 @@ La **altura** de la activación representa la **duración**.
 
    @startuml
 
-   participant ":Backend" as B
-   participant ":CacheRedis" as C
-   participant ":BDAnalytics" as BD
+   participant ":Backend" as Backend
+   participant ":CacheRedis" as CacheRedis
+   participant ":BDAnalytics" as BDAnalytics
 
-   B -> C : GET reporte:dash:user_42
-   activate C
-   note left of C
+   Backend -> CacheRedis : GET reporte:dash:user_42
+   activate CacheRedis
+   note left of CacheRedis
      Cache lookup
      ~5 ms
    end note
-   C --> B : MISS
-   deactivate C
+   CacheRedis --> Backend : MISS
+   deactivate CacheRedis
 
-   B -> BD : SELECT métricas WHERE segmento=?
-   activate BD
-   note right of BD
+   Backend -> BDAnalytics : SELECT métricas WHERE segmento=?
+   activate BDAnalytics
+   note right of BDAnalytics
      Query con filtro
      CNST_008 ~ 800 ms
    end note
-   BD --> B : filas
-   deactivate BD
+   BDAnalytics --> Backend : filas
+   deactivate BDAnalytics
 
-   B -> C : SET reporte:dash:user_42 TTL=300
-   activate C
-   C --> B : ok
-   deactivate C
+   Backend -> CacheRedis : SET reporte:dash:user_42 TTL=300
+   activate CacheRedis
+   CacheRedis --> Backend : ok
+   deactivate CacheRedis
 
-   note over B
+   note over Backend
      Total ≈ 850 ms
      ≤ CNST_017 (10 s) ✓
    end note
@@ -1877,29 +1877,29 @@ vertical indica el momento de creación.
    @startuml
 
    actor Usuario
-   participant ":AuthService" as A
-   participant ":SessionStore" as SS
+   participant ":AuthService" as AuthService
+   participant ":SessionStore" as SessionStore
 
-   Usuario -> A : login(email, password)
-   activate A
-   A -> A : validarCredenciales()
+   Usuario -> AuthService : login(email, password)
+   activate AuthService
+   AuthService -> AuthService : validarCredenciales()
 
-   create participant ":Sesion" as S
-   A -> S : <<create>> nueva(user_id, segmento)
-   activate S
-   S -> S : generarTokenJWT()
-   S -> S : generarTokenRefresh()
-   S --> A : token + session_id
+   create participant ":Sesion" as Sesion
+   AuthService -> Sesion : <<create>> nueva(user_id, segmento)
+   activate Sesion
+   Sesion -> Sesion : generarTokenJWT()
+   Sesion -> Sesion : generarTokenRefresh()
+   Sesion --> AuthService : token + session_id
 
-   A -> SS : guardar(session)
-   activate SS
-   SS --> A : ok
-   deactivate SS
+   AuthService -> SessionStore : guardar(session)
+   activate SessionStore
+   SessionStore --> AuthService : ok
+   deactivate SessionStore
 
-   A --> Usuario : {jwt, refresh}
-   deactivate A
+   AuthService --> Usuario : {jwt, refresh}
+   deactivate AuthService
 
-   note right of S
+   note right of Sesion
      Objeto Sesion creado
      en este punto del tiempo.
      Vive hasta logout o
@@ -1924,34 +1924,34 @@ vida.
    @startuml
 
    actor Usuario
-   participant ":Frontend"     as F
-   participant ":AuthService"  as A
-   participant ":Sesion"       as S
-   participant ":AuditLog"     as AL
+   participant ":Frontend"     as Frontend
+   participant ":AuthService"  as AuthService
+   participant ":Sesion"       as Sesion
+   participant ":AuditLog"     as AuditLog
 
-   Usuario -> F : clic "Cerrar sesión"
-   F -> A       : POST /api/auth/logout
-   activate A
+   Usuario -> Frontend : clic "Cerrar sesión"
+   Frontend -> AuthService       : POST /api/auth/logout
+   activate AuthService
 
-   A -> S : invalidar()
-   activate S
-   S -> S : marcarRevocada()
-   S --> A : ok
-   deactivate S
+   AuthService -> Sesion : invalidar()
+   activate Sesion
+   Sesion -> Sesion : marcarRevocada()
+   Sesion --> AuthService : ok
+   deactivate Sesion
 
-   A ->> AL : registrar(LOGOUT)
+   AuthService ->> AuditLog : registrar(LOGOUT)
 
-   destroy S
-   note over S
+   destroy Sesion
+   note over Sesion
      Objeto Sesion destruido —
      tokens marcados revocados,
      entrada eliminada del
      SessionStore.
    end note
 
-   A --> F : {ok}
-   deactivate A
-   F --> Usuario : redirigir a /login
+   AuthService --> Frontend : {ok}
+   deactivate AuthService
+   Frontend --> Usuario : redirigir a /login
    @enduml
 
 ----
@@ -1974,26 +1974,26 @@ expandir cada función hasta llegar a las atómicas.
 
    @startuml
 
-   participant ":SecRules"  as SR
-   participant ":BDAnalytics" as BD
+   participant ":SecRules"  as SecRules
+   participant ":BDAnalytics" as BDAnalytics
 
-   [-> SR : verificarPermiso(usuario, "manage_users")
-   activate SR
+   [-> SecRules : verificarPermiso(usuario, "manage_users")
+   activate SecRules
 
-   SR -> BD : SELECT funciones_implicadas("manage_users")
-   activate BD
-   BD --> SR : [view_users, create_users, modify_users, deactivate_users]
-   deactivate BD
+   SecRules -> BDAnalytics : SELECT funciones_implicadas("manage_users")
+   activate BDAnalytics
+   BDAnalytics --> SecRules : [view_users, create_users, modify_users, deactivate_users]
+   deactivate BDAnalytics
 
    loop para cada función implicada
-     SR -> SR : verificarPermiso(usuario, sub_funcion)
-     activate SR
-     SR --> SR : true | false
-     deactivate SR
+     SecRules -> SecRules : verificarPermiso(usuario, sub_funcion)
+     activate SecRules
+     SecRules --> SecRules : true | false
+     deactivate SecRules
    end
 
-   SR -->] : true (todas las atómicas\nestán autorizadas)
-   deactivate SR
+   SecRules -->] : true (todas las atómicas\nestán autorizadas)
+   deactivate SecRules
    @enduml
 
 ----
@@ -2261,43 +2261,43 @@ Política IACT para ``par``
 
    @startuml
 
-   actor "Admin\nPipeline" as AP
+   actor "Admin\nPipeline" as Admin
    participant ":SupervisorETL" as Sup
    participant ":SchedulerETL" as Sch
-   participant ":BDAnalytics" as BD
-   participant ":AuditLog" as AL
+   participant ":BDAnalytics" as BDAnalytics
+   participant ":AuditLog" as AuditLog
 
-   AP -> Sup : solicitarReintento(run_id)
+   Admin -> Sup : solicitarReintento(run_id)
    activate Sup
 
    loop [intentos < 3 AND estado != EXITOSA]
      Sup -> Sch : enqueueReintento(run_id, intentos)
      activate Sch
-     Sch -> BD : ejecutarCarga()
-     activate BD
+     Sch -> BDAnalytics : ejecutarCarga()
+     activate BDAnalytics
 
      alt [carga exitosa]
-       BD --> Sch : commit_ok
+       BDAnalytics --> Sch : commit_ok
        Sch --> Sup : EXITOSA
-       Sup ->> AL : registrar(ETL_RETRY_SUCCESS)
+       Sup ->> AuditLog : registrar(ETL_RETRY_SUCCESS)
      else [error temporal — timeout IVR]
-       BD --> Sch : timeout
+       BDAnalytics --> Sch : timeout
        Sch --> Sup : CON_ERRORES (temporal)
-       Sup ->> AL : registrar(ETL_RETRY_FAILED_TEMP)
+       Sup ->> AuditLog : registrar(ETL_RETRY_FAILED_TEMP)
      else [error permanente]
-       BD --> Sch : ERROR_PERM
+       BDAnalytics --> Sch : ERROR_PERM
        Sch --> Sup : ERROR_PERMANENTE
-       Sup ->> AL : registrar(ETL_RETRY_FAILED_PERM)
+       Sup ->> AuditLog : registrar(ETL_RETRY_FAILED_PERM)
      end
-     deactivate BD
+     deactivate BDAnalytics
      deactivate Sch
    end
 
    alt [estado == EXITOSA]
-     Sup --> AP : ✓ ETL recuperado
+     Sup --> Admin : ✓ ETL recuperado
    else [3 intentos fallidos]
-     Sup ->> AL : registrar(ETL_RETRY_GAVE_UP)
-     Sup --> AP : ✗ Requiere intervención manual
+     Sup ->> AuditLog : registrar(ETL_RETRY_GAVE_UP)
+     Sup --> Admin : ✗ Requiere intervención manual
    end
    deactivate Sup
    @enduml
@@ -2315,72 +2315,72 @@ loop + asincrónico + auditoría inmutable.
    @startuml
 
    actor Supervisor
-   participant ":Frontend"      as F
-   participant ":Backend"       as B
-   participant ":SecRules"      as SR
-   participant ":Reporte"       as R
-   participant ":BDAnalytics"   as BD
-   participant ":ExportQueue"   as EQ
-   participant ":BuzonInterno"  as BI
-   participant ":AuditLog"      as AL
+   participant ":Frontend"      as Frontend
+   participant ":Backend"       as Backend
+   participant ":SecRules"      as SecRules
+   participant ":Reporte"       as Reporte
+   participant ":BDAnalytics"   as BDAnalytics
+   participant ":ExportQueue"   as ExportQueue
+   participant ":BuzonInterno"  as BuzonInterno
+   participant ":AuditLog"      as AuditLog
 
    == UC_RPT_04: Exportar reporte ==
 
-   Supervisor -> F : clic "Exportar (Excel)"
-   F -> B          : POST /api/reports/{id}/export?fmt=xlsx
-   activate B
+   Supervisor -> Frontend : clic "Exportar (Excel)"
+   Frontend -> Backend          : POST /api/reports/{id}/export?fmt=xlsx
+   activate Backend
 
-   B -> SR : verificarPermiso(export_excel)\n           + throttling CNST_020
+   Backend -> SecRules : verificarPermiso(export_excel)\n           + throttling CNST_020
    alt [permiso denegado o throttling]
-     SR --> B : denegado
-     B ->> AL : registrar(EXPORT_DENIED)
-     B --> F  : 403
-     F --> Supervisor : ✗ "Sin permiso o límite del día"
-     deactivate B
+     SecRules --> Backend : denegado
+     Backend ->> AuditLog : registrar(EXPORT_DENIED)
+     Backend --> Frontend  : 403
+     Frontend --> Supervisor : ✗ "Sin permiso o límite del día"
+     deactivate Backend
    else [autorizado]
-     SR --> B : ok + segmento
+     SecRules --> Backend : ok + segmento
 
-     B -> R : aplicarFiltrosSegmento(BR_012, CNST_008)
-     activate R
-     R -> BD : SELECT con filtro
-     activate BD
-     BD --> R : filas
-     deactivate BD
+     Backend -> Reporte : aplicarFiltrosSegmento(BR_012, CNST_008)
+     activate Reporte
+     Reporte -> BDAnalytics : SELECT con filtro
+     activate BDAnalytics
+     BDAnalytics --> Reporte : filas
+     deactivate BDAnalytics
 
      alt [filas ≤ 10k → síncrono]
-       create participant ":Archivo" as A
-       R -> A : <<create>> generarXLSX(filas)
-       activate A
-       A --> R : archivo
-       deactivate A
-       R ->> AL : registrar(EXPORT_OK)
-       R --> B  : url_descarga
-       B --> F  : url
-       F --> Supervisor : descarga directa
-       deactivate R
+       create participant ":Archivo" as Archivo
+       Reporte -> Archivo : <<create>> generarXLSX(filas)
+       activate Archivo
+       Archivo --> Reporte : archivo
+       deactivate Archivo
+       Reporte ->> AuditLog : registrar(EXPORT_OK)
+       Reporte --> Backend  : url_descarga
+       Backend --> Frontend  : url
+       Frontend --> Supervisor : descarga directa
+       deactivate Reporte
      else [filas > 10k → asincrónico CNST_019]
-       R -> EQ : encolar(filtros, fmt, supervisor_id)
-       activate EQ
-       EQ --> R : job_id
-       deactivate EQ
-       R ->> AL : registrar(EXPORT_QUEUED)
-       R --> B  : job_id
-       B --> F  : "Procesando, te avisaremos"
-       F --> Supervisor : aviso
+       Reporte -> ExportQueue : encolar(filtros, fmt, supervisor_id)
+       activate ExportQueue
+       ExportQueue --> Reporte : job_id
+       deactivate ExportQueue
+       Reporte ->> AuditLog : registrar(EXPORT_QUEUED)
+       Reporte --> Backend  : job_id
+       Backend --> Frontend  : "Procesando, te avisaremos"
+       Frontend --> Supervisor : aviso
 
-       deactivate R
+       deactivate Reporte
 
        loop [hasta job listo]
-         EQ -> EQ : procesar(job)
-         activate EQ
+         ExportQueue -> ExportQueue : procesar(job)
+         activate ExportQueue
        end
-       deactivate EQ
+       deactivate ExportQueue
 
-       EQ ->> BI : entregar(supervisor_id,\n            "Tu export está listo")
-       BI ->> Supervisor : aviso al buzón\n(CNST_001)
+       ExportQueue ->> BuzonInterno : entregar(supervisor_id,\n            "Tu export está listo")
+       BuzonInterno ->> Supervisor : aviso al buzón\n(CNST_001)
      end
    end
-   deactivate B
+   deactivate Backend
    @enduml
 
 ----
@@ -2687,20 +2687,20 @@ El equivalente IACT del flujo cerrado del libro
    autonumber
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
    database "ldap-corporativo" as LDAP
    database "Redis" as Redis
    database "audit_log" as Audit
    participant "log_app" as Log
 
-   Supervisor -> B : abre URL del panel
-   B -> Auth ++ : GET /login
-   Auth --> B -- : 200 OK (formulario)
-   B --> Supervisor : muestra formulario
+   Supervisor -> Browser : abre URL del panel
+   Browser -> Auth ++ : GET /login
+   Auth --> Browser -- : 200 OK (formulario)
+   Browser --> Supervisor : muestra formulario
 
-   Supervisor -> B : envia credenciales
-   B -> Auth ++ : POST /login (user, pass)
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth ++ : POST /login (user, pass)
    Auth -> Auth : validar formato
 
    alt [credenciales invalidas]
@@ -2709,8 +2709,8 @@ El equivalente IACT del flujo cerrado del libro
        CNST_011 throttling:
        max 5 intentos / 5 min
      end note
-     Auth --> B -- : 401 Unauthorized
-     B --> Supervisor : muestra error
+     Auth --> Browser -- : 401 Unauthorized
+     Browser --> Supervisor : muestra error
    else [credenciales validas]
      Auth -> LDAP ++ : authenticate(user, pass)
      LDAP --> Auth -- : OK + atributos
@@ -2720,8 +2720,8 @@ El equivalente IACT del flujo cerrado del libro
      end note
      Auth ->> Audit : registrar acceso (CNST_025)
      Auth ->> Log : notificar buzon (CNST_001)
-     Auth --> B -- : 302 Redirect (panel)
-     B --> Supervisor : muestra panel
+     Auth --> Browser -- : 302 Redirect (panel)
+     Browser --> Supervisor : muestra panel
    end
    @enduml
 
@@ -3011,9 +3011,9 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   actor "Supervisor" as S
+   actor "Supervisor" as Supervisor
    participant "auth_app" as Auth
-   S -> Auth : envia credenciales
+   Supervisor -> Auth : envia credenciales
    @enduml
 
 17.2 Participante (servicio Django)
@@ -3079,9 +3079,9 @@ el documento que corresponda.
 
    @startuml
    participant "alr_app" as Alr
-   entity "Alerta" as A
-   Alr -> A : reconocer(supervisor)
-   A --> Alr : nuevo estado
+   entity "Alerta" as Alerta
+   Alr -> Alerta : reconocer(supervisor)
+   Alerta --> Alr : nuevo estado
    @enduml
 
 17.7 Activación inline
@@ -3092,11 +3092,11 @@ el documento que corresponda.
    @startuml
    actor S as Supervisor
    participant "auth_app" as Auth
-   database "Redis" as R
+   database "Redis" as Redis
 
    S -> Auth ++ : POST /login
-   Auth -> R : crear sesion (CNST_002)
-   R --> Auth : ok
+   Auth -> Redis : crear sesion (CNST_002)
+   Redis --> Auth : ok
    Auth --> S -- : 302 panel
    @enduml
 
@@ -3106,11 +3106,11 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "rpt_app" as Rpt
 
-   B -> Rpt : GET /dashboard
-   Rpt --> B : 200 OK (HTML + datos)
+   Browser -> Rpt : GET /dashboard
+   Rpt --> Browser : 200 OK (HTML + datos)
    @enduml
 
 17.9 Mensaje asíncrono — fire-and-forget
@@ -3149,12 +3149,12 @@ el documento que corresponda.
    autonumber
 
    actor Supervisor
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
 
-   Supervisor -> B : envia credenciales
-   B -> Auth : POST /login
-   Auth --> B : 302 Redirect
+   Supervisor -> Browser : envia credenciales
+   Browser -> Auth : POST /login
+   Auth --> Browser : 302 Redirect
    @enduml
 
 17.12 Bifurcación ``alt`` / ``else``
@@ -3253,10 +3253,10 @@ el documento que corresponda.
 
    @startuml
    participant "auth_app" as Auth
-   database "Redis" as R
+   database "Redis" as Redis
 
-   Auth -> R : crear sesion
-   note left of R
+   Auth -> Redis : crear sesion
+   note left of Redis
      CNST_002:
      una sola sesion activa
      por usuario
@@ -3269,12 +3269,12 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   participant "Browser" as B
+   participant "Browser" as Browser
    participant "auth_app" as Auth
 
-   B -> Auth : POST /login
+   Browser -> Auth : POST /login
 
-   note over B, Auth
+   note over Browser, Auth
      CNST_011 throttling:
      max 5 intentos / 5 min
    end note
@@ -3288,8 +3288,8 @@ el documento que corresponda.
    @startuml
    participant "auth_app" as Auth
 
-   create participant ":Sesion" as S
-   Auth -> S : <<create>> nueva(user_id)
+   create participant ":Sesion" as Sesion
+   Auth -> Sesion : <<create>> nueva(user_id)
    @enduml
 
 17.20 Destrucción de objeto
@@ -3299,10 +3299,10 @@ el documento que corresponda.
 
    @startuml
    participant "auth_app" as Auth
-   participant ":Sesion" as S
+   participant ":Sesion" as Sesion
 
-   Auth -> S : caducar()
-   destroy S
+   Auth -> Sesion : caducar()
+   destroy Sesion
    @enduml
 
 17.21 Plantilla completa para nuevo UC
@@ -3322,15 +3322,15 @@ el UC objetivo:
    actor "Actor" as ActorRol
    participant "App emisora" as Emisor
    participant "App receptora" as Receptor
-   database "BD destino" as BD
+   database "BD destino" as BdDestino
    database "audit_log" as Audit
 
    ActorRol -> Emisor ++ : disparador
 
    alt [precondicion ok]
      Emisor -> Receptor : operacion principal
-     Receptor -> BD : persistir resultado
-     BD --> Receptor : ack
+     Receptor -> BdDestino : persistir resultado
+     BdDestino --> Receptor : ack
      Receptor --> Emisor : ok
      Emisor ->> Audit : registrar evento (CNST_025)
      Emisor --> ActorRol -- : exito

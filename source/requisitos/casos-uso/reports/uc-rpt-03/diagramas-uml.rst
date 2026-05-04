@@ -16,15 +16,15 @@ Parte 8 — Diagramas UML
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_03\nHistoricos" as UC03
-   usecase "Filtros + grupos" as F
-   usecase "Comparative" as C
-   usecase "Cache" as CA
+   usecase "Filtros + grupos" as FiltrosGrupos
+   usecase "Comparative" as Comparative
+   usecase "Cache" as Cache
  }
 
  view_reports --> UC03
- UC03 ..> F : <<include>>
- UC03 ..> C : <<extend>>
- UC03 ..> CA : <<include>>
+ UC03 ..> FiltrosGrupos : <<include>>
+ UC03 ..> Comparative : <<extend>>
+ UC03 ..> Cache : <<include>>
  @enduml
 
 8.2 Diagrama de actividad

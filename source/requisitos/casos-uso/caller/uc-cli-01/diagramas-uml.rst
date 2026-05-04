@@ -14,12 +14,12 @@ Parte 8 — Diagramas UML
  actor "Caller" as Caller
  actor "Telephony" as Telephony
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_01\nIniciar llamada" as UC
+   usecase "UC_CLI_01\nIniciar llamada" as UcCli01
    usecase "UC_CLI_02\nNavegar IVR" as IVR
  }
- Caller --> UC
- UC --> Telephony
- UC ..> IVR : <<include>>
+ Caller --> UcCli01
+ UcCli01 --> Telephony
+ UcCli01 ..> IVR : <<include>>
  @enduml
 
 8.2 Actividad

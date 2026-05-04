@@ -22,7 +22,7 @@ Parte 8 — Diagramas UML
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_05\nGestionar Sesiones" as UC05
    usecase "Listar Sessions" as LST
-   usecase "Cerrar Session\nindividual" as C1
+   usecase "Cerrar Session\nindividual" as CerrarSession
    usecase "Cerrar todas\nlas del User" as CALL
    usecase "Notificar\n(opcional)" as NOT
    usecase "AuditEvent\nSESSION_CLOSED" as EMI
@@ -30,11 +30,11 @@ Parte 8 — Diagramas UML
 
  ADMIN --> UC05
  UC05 ..> LST : <<extend>>
- UC05 ..> C1 : <<extend>>
+ UC05 ..> CerrarSession : <<extend>>
  UC05 ..> CALL : <<extend>>
- C1 ..> EMI : <<include>>
+ CerrarSession ..> EMI : <<include>>
  CALL ..> EMI : <<include>>
- C1 ..> NOT : <<extend>>
+ CerrarSession ..> NOT : <<extend>>
  CALL ..> NOT : <<extend>>
  NOT --> USER
  Sistema --> EMI

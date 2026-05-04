@@ -20,14 +20,14 @@ Parte 8 — Diagramas UML
    usecase "UC_PERM_08\nGenerar Menu" as UC08
    usecase "UC_PERM_07\nbulk check" as UC07
    usecase "FunctionRegistry\nlookup" as REG
-   usecase "MenuCache" as MC
+   usecase "MenuCache" as MenuCache
  }
 
  UserAutenticado --> Frontend
  Frontend --> UC08
  UC08 ..> UC07 : <<include>>
  UC08 ..> REG : <<include>>
- UC08 ..> MC : <<include>>
+ UC08 ..> MenuCache : <<include>>
 
  note bottom of UC08
    El menu filtra UI; la seguridad

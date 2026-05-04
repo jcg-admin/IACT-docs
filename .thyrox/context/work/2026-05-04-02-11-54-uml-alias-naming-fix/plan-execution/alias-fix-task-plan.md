@@ -28,7 +28,7 @@ Corregir todos los aliases PlantUML crípticos conforme D-ALIAS-001..003 y STD_0
 
 ## Bloque B — diagramas-uml-sistema.rst (prioridad alta)
 
-- [ ] **T-004** Corregir 13 aliases en `source/arquitectura-tecnica/diagramas-uml-sistema.rst`
+- [x] **T-004** Corregir 13 aliases en `source/arquitectura-tecnica/diagramas-uml-sistema.rst`
 
   Tabla de correcciones:
 
@@ -89,7 +89,7 @@ Corregir todos los aliases PlantUML crípticos conforme D-ALIAS-001..003 y STD_0
 
 ## Bloque F — Validación final
 
-- [ ] **T-008** Ejecutar validación grep del STD_011
+- [x] **T-008** Ejecutar validación grep del STD_011
 
   ```bash
   grep -rn " as [A-Z][A-Z]\?$\| as [a-z][a-z]\?$" \

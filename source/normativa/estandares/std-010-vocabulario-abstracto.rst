@@ -277,8 +277,8 @@ del catálogo (D-DIAG-001). No son nombres institucionales.
 .. code-block:: plantuml
 
    ' CORRECTO
-   actor "view_reports" as U
-   actor "assign_functions" as A
+   actor "view_reports" as view_reports
+   actor "assign_functions" as assign_functions
 
    ' PROHIBIDO
    actor "Analista de Datos" as U

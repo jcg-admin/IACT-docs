@@ -14,10 +14,10 @@ Parte 8 — Diagramas UML
  actor "view_pipeline_status" as view_pipeline_status
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nSupervisar ETL" as UC01
-   usecase "Ver errores ETL" as DR
+   usecase "Ver errores ETL" as VerErroresEtl
  }
  view_pipeline_status --> UC01
- UC01 ..> DR : <<extend>>
+ UC01 ..> VerErroresEtl : <<extend>>
  @enduml
 
 8.2 Actividad

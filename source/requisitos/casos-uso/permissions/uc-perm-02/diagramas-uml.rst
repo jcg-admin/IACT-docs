@@ -24,15 +24,15 @@ Parte 8 — Diagramas UML
    usecase "UC_PERM_02\nRevocar AGR\n(catalogo)" as PERM02
  }
  cloud "Backend compartido" {
-   usecase "DELETE /api/users/{id}/\naccess-groups/{agr_id}/" as BE
+   usecase "DELETE /api/users/{id}/\naccess-groups/{agr_id}/" as DeleteApiUsersId
  }
 
  revoke_function_group --> ACC02
  revoke_function_group --> PERM02
- ACC02 --> BE : delega
- PERM02 --> BE : delega
+ ACC02 --> DeleteApiUsersId : delega
+ PERM02 --> DeleteApiUsersId : delega
 
- note right of BE
+ note right of DeleteApiUsersId
    Funcion: revoke_function_group
    AuditEvent: AGR_REVOKED
  end note

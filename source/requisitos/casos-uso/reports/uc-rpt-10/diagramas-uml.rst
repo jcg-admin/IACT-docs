@@ -15,11 +15,11 @@ Parte 8 — Diagramas UML
  rectangle "MOD_Reports" {
    usecase "UC_RPT_10\nGuardar Vista" as UC10
    usecase "Aplicar vista" as APP
-   usecase "Clone" as CL
+   usecase "Clone" as Clone
  }
  UserAutenticado --> UC10
  UserAutenticado --> APP
- UserAutenticado --> CL
+ UserAutenticado --> Clone
  @enduml
 
 8.2 Actividad (crear)

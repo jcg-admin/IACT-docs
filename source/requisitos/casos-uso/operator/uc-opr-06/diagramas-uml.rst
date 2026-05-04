@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "enter_call_disposition" as enter_call_disposition
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_06\nDisposition" as UC
+   usecase "UC_OPR_06\nDisposition" as UcOpr06
  }
- enter_call_disposition --> UC
+ enter_call_disposition --> UcOpr06
  @enduml
 
 8.2 Actividad

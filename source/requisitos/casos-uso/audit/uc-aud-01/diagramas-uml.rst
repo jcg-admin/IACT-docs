@@ -14,10 +14,10 @@ Parte 8 — Diagramas UML
  actor "view_audit_log" as view_audit_log
  rectangle "MOD_Audit" {
    usecase "UC_AUD_01\nConsultar Auditoria" as UC01
-   usecase "UC_PERM_09\nMeta-audit" as M
+   usecase "UC_PERM_09\nMeta-audit" as UcPerm09
  }
  view_audit_log --> UC01
- UC01 ..> M : <<include>>
+ UC01 ..> UcPerm09 : <<include>>
  @enduml
 
 8.2 Actividad

@@ -178,19 +178,19 @@ Ejemplos IACT:
    allowmixing
 
    actor Backend
-   object ":SecRules"           as SR
+   object ":SecRules"           as SecRules
    object ":CatalogoFunciones"  as Cat
-   object ":Usuario_grupos"     as UG
-   object ":PermisosTemporales" as PT
-   object ":AuditoriaPermiso"   as AP
+   object ":Usuario_grupos"     as UsuarioGrupos
+   object ":PermisosTemporales" as PermisosTemporales
+   object ":AuditoriaPermiso"   as AuditoriaPermiso
 
-   Backend -> SR : "1: verificar_permiso(\n   user, fn)"
-   SR -> Cat     : "1.1: existe_funcion(fn)?"
-   SR -> UG      : "1.2: [funcion_existe]\n   buscar_via_grupo(\n   user, fn)"
-   SR -> PT      : "1.3: [no_via_grupo]\n   buscar_excepcional(\n   user, fn,\n   vigente_hoy)"
-   SR -> AP      : "1.4: [permiso_resuelto]\n   registrar(\n   PERMISO_OK)"
-   SR -> AP      : "1.5: [no_resuelto]\n   registrar(\n   PERMISO_DENEGADO)"
-   SR -> Backend : "2: bool resultado"
+   Backend -> SecRules : "1: verificar_permiso(\n   user, fn)"
+   SecRules -> Cat     : "1.1: existe_funcion(fn)?"
+   SecRules -> UsuarioGrupos      : "1.2: [funcion_existe]\n   buscar_via_grupo(\n   user, fn)"
+   SecRules -> PermisosTemporales      : "1.3: [no_via_grupo]\n   buscar_excepcional(\n   user, fn,\n   vigente_hoy)"
+   SecRules -> AuditoriaPermiso      : "1.4: [permiso_resuelto]\n   registrar(\n   PERMISO_OK)"
+   SecRules -> AuditoriaPermiso      : "1.5: [no_resuelto]\n   registrar(\n   PERMISO_DENEGADO)"
+   SecRules -> Backend : "2: bool resultado"
    @enduml
 
 ----
@@ -224,16 +224,16 @@ Ejemplos IACT:
    allowmixing
 
    object ":Scheduler"     as Sch
-   object ":ReporteProg"   as RP
-   object ":SecRules"      as SR
-   object ":BDAnalytics"   as BD
-   object ":BuzonInterno"  as BI
+   object ":ReporteProg"   as ReporteProg
+   object ":SecRules"      as SecRules
+   object ":BDAnalytics"   as BDAnalytics
+   object ":BuzonInterno"  as BuzonInterno
 
-   Sch -> RP : "1: [* reporte en\n   programados_pendientes]\n   ejecutar(reporte)"
-   RP -> SR  : "1.1: verificar_permiso_owner()"
-   RP -> BD  : "1.2: aplicar_segmento(\n   owner, CNST_008)"
-   RP -> BD  : "1.3: ejecutar_query()"
-   RP -> BI  : "1.4: notificar(\n   owner, archivo_listo)"
+   Sch -> ReporteProg : "1: [* reporte en\n   programados_pendientes]\n   ejecutar(reporte)"
+   ReporteProg -> SecRules  : "1.1: verificar_permiso_owner()"
+   ReporteProg -> BDAnalytics  : "1.2: aplicar_segmento(\n   owner, CNST_008)"
+   ReporteProg -> BDAnalytics  : "1.3: ejecutar_query()"
+   ReporteProg -> BuzonInterno  : "1.4: notificar(\n   owner, archivo_listo)"
    @enduml
 
 ----
@@ -254,19 +254,19 @@ una línea discontinua etiquetada con el estereotipo
    @startuml
    allowmixing
 
-   object "sesion : Sesion\n[Anonima]"  as S1
-   object ":AuthService"                as A
-   object ":SessionStore"               as SS
-   object "sesion : Sesion\n[Activa]"   as S2
+   object "sesion : Sesion\n[Anonima]"  as SesionSesion
+   object ":AuthService"                as AuthService
+   object ":SessionStore"               as SessionStore
+   object "sesion : Sesion\n[Activa]"   as SesionSesion
 
    actor Usuario
 
-   Usuario -> A : "1: login(email, pass)"
-   A -> SS      : "2: validar_credenciales()"
-   SS -> A      : "3: ok + segmento"
-   A -> S1      : "4: invalidar_anonima()"
-   A -> S2      : "5: crear_activa(token)"
-   S1 ..> S2    : "<<se_transforma_en>>"
+   Usuario -> AuthService : "1: login(email, pass)"
+   AuthService -> SessionStore      : "2: validar_credenciales()"
+   SessionStore -> AuthService      : "3: ok + segmento"
+   AuthService -> SesionSesion      : "4: invalidar_anonima()"
+   AuthService -> SesionSesion      : "5: crear_activa(token)"
+   SesionSesion ..> SesionSesion    : "<<se_transforma_en>>"
    @enduml
 
 ----
@@ -295,16 +295,16 @@ Ejemplos IACT:
    @startuml
    allowmixing
 
-   object ":Reporte"      as R
-   object ":Calculadora"  as C
-   object ":BDAnalytics"  as BD
+   object ":Reporte"      as Reporte
+   object ":Calculadora"  as Calculadora
+   object ":BDAnalytics"  as BDAnalytics
 
-   R -> C  : "1: tasaAbandono :=\n   calcular_tasa_abandono(\n   periodo, segmento)"
-   C -> BD : "1.1: total :=\n   contar_llamadas(\n   periodo, segmento)"
-   C -> BD : "1.2: abandonadas :=\n   contar_llamadas(\n   periodo, segmento,\n   resultado=ABANDONADA)"
-   C -> R  : "1.3: tasaAbandono =\n   abandonadas / total\n   × 100"
+   Reporte -> Calculadora  : "1: tasaAbandono :=\n   calcular_tasa_abandono(\n   periodo, segmento)"
+   Calculadora -> BDAnalytics : "1.1: total :=\n   contar_llamadas(\n   periodo, segmento)"
+   Calculadora -> BDAnalytics : "1.2: abandonadas :=\n   contar_llamadas(\n   periodo, segmento,\n   resultado=ABANDONADA)"
+   Calculadora -> Reporte  : "1.3: tasaAbandono =\n   abandonadas / total\n   × 100"
 
-   note right of C
+   note right of Calculadora
      BR_016 — fórmula:
        (abandonadas / total) × 100
      Filtrado siempre por
@@ -332,24 +332,24 @@ Ejemplo IACT: ``Usuario``, ``Reporte``, ``EventoAuditoria``.
 
    @startuml
    allowmixing
-   object ":Backend" as B <<active>>
+   object ":Backend" as Backend <<active>>
    object ":Scheduler" as Sch <<active>>
-   object ":EvaluadorAlertas" as EA <<active>>
+   object ":EvaluadorAlertas" as EvaluadorAlertas <<active>>
    object ":SupervisorETL" as Sup <<active>>
-   object ":BDAnalytics"                  as BD
-   object ":AuditLog"                     as AL
-   object ":BuzonInterno"                 as BI
+   object ":BDAnalytics"                  as BDAnalytics
+   object ":AuditLog"                     as AuditLog
+   object ":BuzonInterno"                 as BuzonInterno
 
-   B   -> BD  : "consultar"
+   Backend   -> BDAnalytics  : "consultar"
    Sch -> Sup : "disparar_carga()"
-   Sup -> BD  : "INSERT filas"
-   EA  -> BD  : "evaluar_metrica()"
-   EA  -> BI  : "notificar_alerta()"
-   B   -> AL  : "registrar()"
-   Sup -> AL  : "registrar()"
-   EA  -> AL  : "registrar()"
+   Sup -> BDAnalytics  : "INSERT filas"
+   EvaluadorAlertas  -> BDAnalytics  : "evaluar_metrica()"
+   EvaluadorAlertas  -> BuzonInterno  : "notificar_alerta()"
+   Backend   -> AuditLog  : "registrar()"
+   Sup -> AuditLog  : "registrar()"
+   EvaluadorAlertas  -> AuditLog  : "registrar()"
 
-   note right of EA
+   note right of EvaluadorAlertas
      Tres objetos activos en
      paralelo: Backend (atendiendo
      requests), Scheduler+
@@ -406,22 +406,22 @@ Sólo después se publica el cierre en el panel general.
    allowmixing
 
    actor Supervisor
-   object ":Alerta"        as A
-   object ":SecRules"      as SR
-   object ":AuditLog"      as AL
-   object ":BuzonInterno"  as BI
-   object ":Suscriptores"  as S
-   object ":PanelGeneral"  as PG
+   object ":Alerta"        as Alerta
+   object ":SecRules"      as SecRules
+   object ":AuditLog"      as AuditLog
+   object ":BuzonInterno"  as BuzonInterno
+   object ":Suscriptores"  as Suscriptores
+   object ":PanelGeneral"  as PanelGeneral
 
-   Supervisor -> SR : "1: verificar_permiso(\n   ack_alert)"
-   Supervisor -> A  : "2: reconocer()"
-   A          -> AL : "2.1: registrar(\n   ALERT_ACK)"
-   A          -> BI : "2.2: notificar(\n   suscriptores)"
-   BI         -> S  : "2.2.1: entregar(buzon)"
+   Supervisor -> SecRules : "1: verificar_permiso(\n   ack_alert)"
+   Supervisor -> Alerta  : "2: reconocer()"
+   Alerta          -> AuditLog : "2.1: registrar(\n   ALERT_ACK)"
+   Alerta          -> BuzonInterno : "2.2: notificar(\n   suscriptores)"
+   BuzonInterno         -> Suscriptores  : "2.2.1: entregar(buzon)"
 
-   A          -> PG : "2.1, 2.2 /\n   3: publicar_cierre()"
+   Alerta          -> PanelGeneral : "2.1, 2.2 /\n   3: publicar_cierre()"
 
-   note right of A
+   note right of Alerta
      El mensaje 3 (publicar cierre)
      espera a que se completen 2.1
      (auditoría) Y 2.2 (notificación
@@ -444,43 +444,43 @@ sincronización, objetos activos / pasivos.
    allowmixing
    actor Supervisor
 
-   object ":Backend" as B <<active>>
-   object ":SecRules"               as SR
-   object ":Reporte"                as R
-   object ":BDAnalytics"            as BD
-   object ":ExportQueue" as EQ <<active>>
-   object ":Archivo"                as F
-   object ":BuzonInterno"           as BI
-   object ":AuditLog"               as AL
+   object ":Backend" as Backend <<active>>
+   object ":SecRules"               as SecRules
+   object ":Reporte"                as Reporte
+   object ":BDAnalytics"            as BDAnalytics
+   object ":ExportQueue" as ExportQueue <<active>>
+   object ":Archivo"                as Archivo
+   object ":BuzonInterno"           as BuzonInterno
+   object ":AuditLog"               as AuditLog
 
-   Supervisor -> B  : "1: solicitar_export(\n   reporte_id, fmt)"
-   B          -> SR : "1.1: verificar_permiso(\n   export_<fmt>)"
-   B          -> SR : "1.2: validar_throttling(\n   CNST_020)"
+   Supervisor -> Backend  : "1: solicitar_export(\n   reporte_id, fmt)"
+   Backend          -> SecRules : "1.1: verificar_permiso(\n   export_<fmt>)"
+   Backend          -> SecRules : "1.2: validar_throttling(\n   CNST_020)"
 
-   B  -> R   : "[autorizado] 2: aplicar_filtros(\n   filtros, segmento)"
-   R  -> BD  : "2.1: aplicar_segmento(\n   BR_012, CNST_008)"
-   R  -> BD  : "2.2: estimar_filas := count()"
+   Backend  -> Reporte   : "[autorizado] 2: aplicar_filtros(\n   filtros, segmento)"
+   Reporte  -> BDAnalytics  : "2.1: aplicar_segmento(\n   BR_012, CNST_008)"
+   Reporte  -> BDAnalytics  : "2.2: estimar_filas := count()"
 
-   B  -> F   : "[filas <= 10k] 3a: <<create>>\n   generar_sincrono(fmt)"
-   F  -> BD  : "3a.1: ejecutar_query()"
-   F  -> B   : "3a.2: archivo_listo"
+   Backend  -> Archivo   : "[filas <= 10k] 3a: <<create>>\n   generar_sincrono(fmt)"
+   Archivo  -> BDAnalytics  : "3a.1: ejecutar_query()"
+   Archivo  -> Backend   : "3a.2: archivo_listo"
 
-   B  -> EQ  : "[filas > 10k] 3b: encolar(\n   reporte_id, fmt, supervisor_id)"
-   EQ -> EQ  : "3b.1: [* job en cola]\n   procesar(job)"
-   EQ -> BI  : "3b.2: entregar(supervisor,\n   archivo_listo)"
-   BI -> Supervisor : "3b.3: aviso buzón\n   (CNST_001)"
+   Backend  -> ExportQueue  : "[filas > 10k] 3b: encolar(\n   reporte_id, fmt, supervisor_id)"
+   ExportQueue -> ExportQueue  : "3b.1: [* job en cola]\n   procesar(job)"
+   ExportQueue -> BuzonInterno  : "3b.2: entregar(supervisor,\n   archivo_listo)"
+   BuzonInterno -> Supervisor : "3b.3: aviso buzón\n   (CNST_001)"
 
-   B  -> AL  : "1.1, 2 / 4: registrar(\n   EXPORT_ACTION,\n   resultado)"
-   B  -> Supervisor : "5: respuesta(url | aviso)"
+   Backend  -> AuditLog  : "1.1, 2 / 4: registrar(\n   EXPORT_ACTION,\n   resultado)"
+   Backend  -> Supervisor : "5: respuesta(url | aviso)"
 
-   note right of EQ
+   note right of ExportQueue
      ExportQueue es objeto activo:
      procesa jobs en background,
      escribe en BuzonInterno cuando
      termina (CNST_019). Borde grueso.
    end note
 
-   note right of AL
+   note right of AuditLog
      Sincronización: el registro 4
      en AuditLog espera a que se
      completen 1.1 (verificación)
@@ -521,17 +521,17 @@ sincronización, objetos activos / pasivos.
    allowmixing
 
    actor Operador
-   object ":Frontend"   as F
-   object ":Backend"    as B
-   object ":SecRules"   as SR
-   object ":BDAnalytics" as BD
-   object ":AuditLog"   as AL
+   object ":Frontend"   as Frontend
+   object ":Backend"    as Backend
+   object ":SecRules"   as SecRules
+   object ":BDAnalytics" as BDAnalytics
+   object ":AuditLog"   as AuditLog
 
-   Operador -> F  : "1"
-   F        -> B  : "2"
-   B        -> SR : "3"
-   B        -> BD : "4"
-   B        -> AL : "5"
+   Operador -> Frontend  : "1"
+   Frontend        -> Backend  : "2"
+   Backend        -> SecRules : "3"
+   Backend        -> BDAnalytics : "4"
+   Backend        -> AuditLog : "5"
    @enduml
 
 11.3 Cuándo usar cada una
@@ -677,10 +677,10 @@ real. Copiar y adaptar al UC nuevo.
    @startuml
    allowmixing
 
-   object ":Supervisor" as S
-   object ":Browser" as B
+   object ":Supervisor" as Supervisor
+   object ":Browser" as Browser
 
-   S -- B : opera
+   Supervisor -- Browser : opera
    @enduml
 
 14.2 Self-link
@@ -691,9 +691,9 @@ real. Copiar y adaptar al UC nuevo.
    @startuml
    allowmixing
 
-   object ":EvaluadorAlertas" as E
+   object ":EvaluadorAlertas" as EvaluadorAlertas
 
-   E -- E : "1: revisar_umbrales()"
+   EvaluadorAlertas -- EvaluadorAlertas : "1: revisar_umbrales()"
    @enduml
 
 14.3 Forward síncrono numerado
@@ -704,10 +704,10 @@ real. Copiar y adaptar al UC nuevo.
    @startuml
    allowmixing
 
-   object ":Browser" as B
+   object ":Browser" as Browser
    object ":auth_app" as Auth
 
-   B -> Auth : "1: POST /login"
+   Browser -> Auth : "1: POST /login"
    @enduml
 
 14.4 Forward asíncrono
@@ -747,14 +747,14 @@ real. Copiar y adaptar al UC nuevo.
    @startuml
    allowmixing
 
-   object ":Browser" as B
+   object ":Browser" as Browser
    object ":auth_app" as Auth
-   object ":Redis" as R
+   object ":Redis" as Redis
 
-   B -> Auth : "1: POST /login"
-   Auth -> R : "1.1: crear_sesion()"
-   R --> Auth : "1.2: session_id"
-   Auth --> B : "1.3: 302 panel"
+   Browser -> Auth : "1: POST /login"
+   Auth -> Redis : "1.1: crear_sesion()"
+   Redis --> Auth : "1.2: session_id"
+   Auth --> Browser : "1.3: 302 panel"
    @enduml
 
 14.7 Mensaje con guarda condicional
@@ -794,10 +794,10 @@ real. Copiar y adaptar al UC nuevo.
    allowmixing
 
    object ":auth_app" as Auth
-   object ":Sesion" as S
+   object ":Sesion" as Sesion
 
-   Auth -> S : "1: caducar()"
-   note right of S
+   Auth -> Sesion : "1: caducar()"
+   note right of Sesion
      estado: activa → caducada
      CNST_002
    end note
@@ -812,9 +812,9 @@ real. Copiar y adaptar al UC nuevo.
    allowmixing
 
    object ":rpt_app" as Rpt
-   object ":Reporte" as R
+   object ":Reporte" as Reporte
 
-   Rpt -> R : "1: tarea_id := exportar(req)"
+   Rpt -> Reporte : "1: tarea_id := exportar(req)"
    @enduml
 
 14.11 Sincronización — UC_ALR_03
@@ -825,17 +825,17 @@ real. Copiar y adaptar al UC nuevo.
    @startuml
    allowmixing
 
-   object ":Supervisor" as S
+   object ":Supervisor" as Supervisor
    object ":alr_app" as Alr
    object ":audit_log" as Audit
    object ":log_app" as Log
-   object ":Alerta" as A
+   object ":Alerta" as Alerta
 
-   S -> Alr : "1: reconocer(alerta_id)"
+   Supervisor -> Alr : "1: reconocer(alerta_id)"
    Alr -> Audit : "1.1: registrar(CNST_025)"
    Alr -> Log : "1.2: notificar(CNST_001)"
-   Alr -> A : "1.3: cambiar_estado(reconocida)"
-   note right of A
+   Alr -> Alerta : "1.3: cambiar_estado(reconocida)"
+   note right of Alerta
      estado: publicada → reconocida
    end note
    @enduml
@@ -852,13 +852,13 @@ real. Copiar y adaptar al UC nuevo.
    object ":Actor" as Actor
    object ":AppEmisora" as Emisor
    object ":AppReceptora" as Receptor
-   object ":BD" as BD
+   object ":BD" as BaseDatos
    object ":audit_log" as Audit
 
    Actor -> Emisor : "1: disparador()"
    Emisor -> Receptor : "1.1: operacion_principal(req)"
-   Receptor -> BD : "1.1.1: persistir(datos)"
-   BD --> Receptor : "1.1.2: ack"
+   Receptor -> BaseDatos : "1.1.1: persistir(datos)"
+   BaseDatos --> Receptor : "1.1.2: ack"
    Receptor --> Emisor : "1.1.3: ok"
    Emisor -> Audit : "1.2: registrar_evento(CNST_025)"
    Emisor --> Actor : "1.3: exito"

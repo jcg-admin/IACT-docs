@@ -78,32 +78,32 @@ Flujo de Enforcement RBAC
 
  @startuml
 
- actor "Usuario" as U
- participant "Endpoint" as E
- participant "AuthGuard" as AG
- participant "FunctionCheck" as FC
- database "AssignmentRepo" as AR
- participant "SoDValidator" as SV
- participant "Handler" as H
+ actor "Usuario" as Usuario
+ participant "Endpoint" as Endpoint
+ participant "AuthGuard" as AuthGuard
+ participant "FunctionCheck" as FunctionCheck
+ database "AssignmentRepo" as AssignmentRepo
+ participant "SoDValidator" as SoDValidator
+ participant "Handler" as Handler
 
- U -> E : HTTP request + JWT
- E -> AG : validar token
- AG -> AG : decodificar JWT
+ Usuario -> Endpoint : HTTP request + JWT
+ Endpoint -> AuthGuard : validar token
+ AuthGuard -> AuthGuard : decodificar JWT
  alt token invalido
-   AG --> U : 401 Unauthorized
+   AuthGuard --> Usuario : 401 Unauthorized
  else token valido
-   AG -> FC : verificar funcion requerida
-   FC -> AR : consultar funciones efectivas\n(directas + via grupo)
-   AR --> FC : conjunto de funciones activas
+   AuthGuard -> FunctionCheck : verificar funcion requerida
+   FunctionCheck -> AssignmentRepo : consultar funciones efectivas\n(directas + via grupo)
+   AssignmentRepo --> FunctionCheck : conjunto de funciones activas
    alt funcion ausente
-     FC --> U : 403 Forbidden
+     FunctionCheck --> Usuario : 403 Forbidden
    else funcion presente
-     FC -> SV : verificar SoD\n(no conflicto en conjunto)
+     FunctionCheck -> SoDValidator : verificar SoD\n(no conflicto en conjunto)
      alt viola SoD
-       SV --> U : 409 SoD Violation
+       SoDValidator --> Usuario : 409 SoD Violation
      else SoD ok
-       FC -> H : ejecutar handler
-       H --> U : 200 / 201 response
+       FunctionCheck -> Handler : ejecutar handler
+       Handler --> Usuario : 200 / 201 response
      end
    end
  end

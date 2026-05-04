@@ -32,16 +32,16 @@ Parte 8 — Diagramas UML
  }
 
  cloud "Backend compartido" {
-   usecase "POST /api/users/\n{id}/access-groups/" as BE
+   usecase "POST /api/users/\n{id}/access-groups/" as PostApiUsers
    note bottom: Funcion: assign_function_groups
  }
 
  assign_function_groups --> ACC04
  assign_function_groups --> PERM01
- ACC04 --> BE : delega
- PERM01 --> BE : delega
+ ACC04 --> PostApiUsers : delega
+ PERM01 --> PostApiUsers : delega
 
- note right of BE
+ note right of PostApiUsers
    Implementacion comun (UC_ACC_04 backing).
    AuditEvent AGR_ASSIGNED no distingue
    origen UI.

@@ -14,14 +14,14 @@ Parte 8 — Diagramas UML
  actor "view_infrastructure_logs" as view_infrastructure_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_05\nLogs Infraestructura" as UC05
-   usecase "Filtrar por\nhosts" as FH
-   usecase "Filtrar por\nnivel severity" as FS
-   usecase "Tail SSE\n(streaming)" as T
+   usecase "Filtrar por\nhosts" as FiltrarHosts
+   usecase "Filtrar por\nnivel severity" as FiltrarSeverity
+   usecase "Tail SSE\n(streaming)" as TailSse
  }
  view_infrastructure_logs --> UC05
- UC05 ..> FH : <<extend>>
- UC05 ..> FS : <<extend>>
- UC05 ..> T : <<extend>>
+ UC05 ..> FiltrarHosts : <<extend>>
+ UC05 ..> FiltrarSeverity : <<extend>>
+ UC05 ..> TailSse : <<extend>>
  @enduml
 
 8.2 Actividad

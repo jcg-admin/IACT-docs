@@ -1300,9 +1300,9 @@ función:
 
    Usuario --> Grupo : asignado_a
    Usuario --> PermisoExcepcional : tiene
-   note "{xor} para una misma\nfunción atómica" as N
-   Grupo .. N
-   PermisoExcepcional .. N
+   note "{xor} para una misma\nfunción atómica" as NotaXor
+   Grupo .. NotaXor
+   PermisoExcepcional .. NotaXor
    @enduml
 
 ----

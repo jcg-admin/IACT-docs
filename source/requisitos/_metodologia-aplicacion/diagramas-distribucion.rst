@@ -230,12 +230,12 @@ y el ``iact.wsgi`` que sirve la SPA.
 
    actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
 
-   rectangle "Browser\n[Navegador del supervisor]\n\nCliente de la SPA en intranet" as B <<c4_container>>
+   rectangle "Browser\n[Navegador del supervisor]\n\nCliente de la SPA en intranet" as Browser <<c4_container>>
 
    rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]\n\nServe la SPA y expone\nla API REST del backend" as WSGI <<c4_container>>
 
-   Supervisor --> B : opera el panel\n[uso directo]
-   B --> WSGI : consulta dashboards,\nreconoce alertas\n[HTTPS intranet]
+   Supervisor --> Browser : opera el panel\n[uso directo]
+   Browser --> WSGI : consulta dashboards,\nreconoce alertas\n[HTTPS intranet]
    @enduml
 
 Diferencias con el ejemplo del libro
@@ -405,7 +405,7 @@ Aplicación a IACT — Container view con frontera
    actor "Supervisor\n[Person]" as Supervisor
 
    package "IACT" {
-     rectangle "Browser\n[Navegador del supervisor]" as B <<c4_container>>
+     rectangle "Browser\n[Navegador del supervisor]" as Browser <<c4_container>>
      rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as WSGI <<c4_container>>
      database "Redis\n[Sesiones + throttling]" as Redis <<c4_container>>
      database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
@@ -416,8 +416,8 @@ Aplicación a IACT — Container view con frontera
    database "bd-operativa\n[External, read-only]" as BDO <<c4_externo>>
    rectangle "ivr-host\n[External]" as IVR <<c4_externo>>
 
-   Supervisor --> B : opera el panel
-   B --> WSGI : consulta dashboards\n[HTTPS intranet]
+   Supervisor --> Browser : opera el panel
+   Browser --> WSGI : consulta dashboards\n[HTTPS intranet]
    WSGI --> Redis : sesiones y throttling\n[Redis Protocol]
    WSGI --> BDA : lee/escribe analytics\n[MySQL TCP]
    WSGI --> Audit : registra eventos\n[MySQL TCP append-only]
@@ -554,7 +554,7 @@ El equivalente IACT de la vista final del libro
    actor "Supervisor\n[Person]" as Supervisor
 
    package "IACT" {
-     rectangle "Browser\n[Navegador del supervisor]" as B <<c4_container>>
+     rectangle "Browser\n[Navegador del supervisor]" as Browser <<c4_container>>
      rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as WSGI <<c4_container>>
      database "Redis\n[Sesiones + throttling]" as Redis <<c4_container>>
      database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
@@ -567,8 +567,8 @@ El equivalente IACT de la vista final del libro
      rectangle "ivr-host\n[External]" as IVR <<c4_externo>>
    }
 
-   Supervisor -down-> B : opera el panel
-   B -down-> WSGI : consulta dashboards\n[HTTPS intranet]
+   Supervisor -down-> Browser : opera el panel
+   Browser -down-> WSGI : consulta dashboards\n[HTTPS intranet]
    WSGI -down-> Redis : sesiones y throttling\n[Redis Protocol]
    WSGI -down-> BDA : lee/escribe analytics\n[MySQL TCP]
    WSGI -down-> Audit : registra eventos\n[MySQL TCP append-only]
@@ -694,7 +694,7 @@ flechas que cruzan la frontera:
    actor "Supervisor\n[Person]" as Supervisor
 
    package "IACT" {
-     rectangle "Browser" as B <<c4_container>>
+     rectangle "Browser" as Browser <<c4_container>>
      rectangle "iact.wsgi" as WSGI <<c4_container>>
      database "Redis" as Redis <<c4_container>>
      database "bd_analytics" as BDA <<c4_container>>
@@ -705,8 +705,8 @@ flechas que cruzan la frontera:
    database "bd-operativa" as BDO <<c4_externo>>
    rectangle "ivr-host" as IVR <<c4_externo>>
 
-   Supervisor --> B
-   B --> WSGI
+   Supervisor --> Browser
+   Browser --> WSGI
    WSGI --> Redis
    WSGI --> BDA
    WSGI --> Audit
@@ -880,7 +880,7 @@ Container view IACT con sync vs async
    actor "Supervisor\n[Person]" as Supervisor
 
    package "IACT" {
-     rectangle "Browser" as B <<c4_container>>
+     rectangle "Browser" as Browser <<c4_container>>
      rectangle "iact.wsgi\n[Django + mod_wsgi]" as WSGI <<c4_container>>
      database "Redis" as Redis <<c4_container>>
      database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
@@ -892,8 +892,8 @@ Container view IACT con sync vs async
    database "bd-operativa" as BDO <<c4_externo>>
 
    ' Sync (linea continua)
-   Supervisor --> B
-   B --> WSGI : consulta dashboards\n[HTTPS intranet]
+   Supervisor --> Browser
+   Browser --> WSGI : consulta dashboards\n[HTTPS intranet]
    WSGI --> Redis : sesion / throttling\n[Redis Protocol]
    WSGI --> BDA : lee/escribe analytics\n[MySQL TCP]
    WSGI ---> LDAP : autentica\n[LDAPS]
@@ -1389,11 +1389,11 @@ arquitectura de despliegue es deliberadamente simple.
 
    @startuml
 
-   node "puesto-supervisor\n<<computadora>>" as PS {
-     artifact "Navegador (intranet)" as BR
+   node "puesto-supervisor\n<<computadora>>" as PuestoSupervisor {
+     artifact "Navegador (intranet)" as NavegadorIntranet
    }
 
-   node "vm-iact\n<<servidor>>" as VM {
+   node "vm-iact\n<<servidor>>" as VmIact {
      node "Apache + mod_wsgi" as APACHE {
        artifact "iact.wsgi" as WSGI
        artifact "auth_app, perm_app,\nrpt_app, alr_app,\npip_app, aud_app, log_app" as APPS
@@ -1411,7 +1411,7 @@ arquitectura de despliegue es deliberadamente simple.
 
    node "ivr-host\n<<servidor>>" as IVR
 
-   BR -down-> APACHE : HTTPS (intranet)
+   NavegadorIntranet -down-> APACHE : HTTPS (intranet)
    APACHE -down-> UIBUNDLE : sirve estaticos
    APPS -right-> REDIS : sesiones (CNST_002)\nthrottling (CNST_011)
    APPS -down-> BDA : lectura/escritura
@@ -1503,7 +1503,7 @@ contiene y a qué interfaz corresponden (cruce con H12).
 
    @startuml
 
-   node "vm-iact" as VM {
+   node "vm-iact" as VmIact {
      node "Apache + mod_wsgi" {
        artifact "iact.wsgi"
        artifact "auth_app — IAutenticacion"
@@ -1778,7 +1778,7 @@ En IACT:
 
    @startuml
 
-   node "vm-iact" as VM
+   node "vm-iact" as VmIact
    @enduml
 
 11.2 Device node con execution environment anidado
@@ -1788,7 +1788,7 @@ En IACT:
 
    @startuml
 
-   node "vm-iact" as VM {
+   node "vm-iact" as VmIact {
      node "Apache + mod_wsgi" as Apache
    }
    @enduml
@@ -1817,7 +1817,7 @@ En IACT:
    node "vm-iact" {
      database "bd_analytics" as BDA
      database "audit_log" as Audit
-     database "Redis" as R
+     database "Redis" as Redis
    }
    @enduml
 
@@ -1828,10 +1828,10 @@ En IACT:
 
    @startuml
 
-   node "puesto-supervisor" as PS
-   node "vm-iact" as VM
+   node "puesto-supervisor" as PuestoSupervisor
+   node "vm-iact" as VmIact
 
-   PS -- VM : HTTPS (intranet)
+   PuestoSupervisor -- VmIact : HTTPS (intranet)
    @enduml
 
 11.6 Asociación dirigida
@@ -1841,10 +1841,10 @@ En IACT:
 
    @startuml
 
-   node "vm-iact" as VM
+   node "vm-iact" as VmIact
    node "ldap-corporativo" as LDAP
 
-   VM --> LDAP : LDAPS\n(autenticacion)
+   VmIact --> LDAP : LDAPS\n(autenticacion)
    @enduml
 
 11.7 Dependencia entre nodos
@@ -1854,10 +1854,10 @@ En IACT:
 
    @startuml
 
-   node "vm-iact" as VM
+   node "vm-iact" as VmIact
    database "bd-operativa\n(read-only)" as BDO
 
-   VM ..> BDO : depende de\n(CNST_007)
+   VmIact ..> BDO : depende de\n(CNST_007)
    @enduml
 
 11.8 Puertos en frontera
@@ -1867,14 +1867,14 @@ En IACT:
 
    @startuml
 
-   node "vm-iact" as VM {
+   node "vm-iact" as VmIact {
      port p_https
      port p_ldap
    }
-   node "puesto-supervisor" as PS
+   node "puesto-supervisor" as PuestoSupervisor
    node "ldap-corporativo" as LDAP
 
-   PS -- p_https
+   PuestoSupervisor -- p_https
    p_ldap -- LDAP
    @enduml
 
@@ -1888,11 +1888,11 @@ En IACT:
 
    actor Supervisor
 
-   node "puesto-supervisor" as PS {
+   node "puesto-supervisor" as PuestoSupervisor {
      artifact "Browser"
    }
 
-   node "vm-iact" as VM {
+   node "vm-iact" as VmIact {
      node "Apache + mod_wsgi" {
        artifact "iact.wsgi"
      }
@@ -1904,10 +1904,10 @@ En IACT:
    node "ldap-corporativo" as LDAP
    database "bd-operativa\n(read-only)" as BDO
 
-   Supervisor -- PS
-   PS --> VM : HTTPS (intranet)
-   VM --> LDAP : LDAPS
-   VM ..> BDO : SQL read-only\n(CNST_007)
+   Supervisor -- PuestoSupervisor
+   PuestoSupervisor --> VmIact : HTTPS (intranet)
+   VmIact --> LDAP : LDAPS
+   VmIact ..> BDO : SQL read-only\n(CNST_007)
    @enduml
 
 11.10 Plantilla — vista de despliegue IACT
@@ -1918,26 +1918,26 @@ En IACT:
    @startuml
    title Deployment — <ambito>
 
-   actor "<Actor>" as A
+   actor "<Actor>" as Actor
 
    node "<device cliente>" as Cliente {
      artifact "<bundle / cliente>"
    }
 
-   node "vm-iact" as VM {
-     node "<execution environment>" as EE {
+   node "vm-iact" as VmIact {
+     node "<execution environment>" as ExecutionEnvironment {
        artifact "<artifact 1>"
        artifact "<artifact 2>"
      }
-     database "<BD interna>" as DB
+     database "<BD interna>" as BdInterna
    }
 
    node "<sistema externo>" as Ext
 
-   A -- Cliente
-   Cliente --> VM : <protocolo>
-   VM --> Ext : <protocolo>
-   VM ..> Ext : <dependencia opcional>
+   Actor -- Cliente
+   Cliente --> VmIact : <protocolo>
+   VmIact --> Ext : <protocolo>
+   VmIact ..> Ext : <dependencia opcional>
    @enduml
 
 11.11 Cómo usar la galería

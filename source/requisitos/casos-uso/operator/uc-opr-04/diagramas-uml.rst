@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "hold_calls" as hold_calls
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_04\nHold/Unhold" as UC
+   usecase "UC_OPR_04\nHold/Unhold" as UcOpr04
  }
- hold_calls --> UC
+ hold_calls --> UcOpr04
  @enduml
 
 8.2 Actividad

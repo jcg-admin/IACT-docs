@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "make_outbound_calls" as make_outbound_calls
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_03\nOutbound" as UC
+   usecase "UC_OPR_03\nOutbound" as UcOpr03
  }
- make_outbound_calls --> UC
+ make_outbound_calls --> UcOpr03
  @enduml
 
 8.2 Actividad

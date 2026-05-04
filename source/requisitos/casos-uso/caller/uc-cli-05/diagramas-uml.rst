@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "Caller" as Caller
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_05\nCSAT" as UC
+   usecase "UC_CLI_05\nCSAT" as UcCli05
  }
- Caller --> UC
+ Caller --> UcCli05
  @enduml
 
 8.2 Actividad

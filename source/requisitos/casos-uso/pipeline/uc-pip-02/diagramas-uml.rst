@@ -14,12 +14,12 @@ Parte 8 — Diagramas UML
  actor "view_pipeline_errors" as view_pipeline_errors
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_02\nErrores ETL" as UC02
-   usecase "Filtrar por trimestre" as FT
-   usecase "Filtrar por period" as FP
+   usecase "Filtrar por trimestre" as FiltrarPorTrimestre
+   usecase "Filtrar por period" as FiltrarPorPeriod
  }
  view_pipeline_errors --> UC02
- UC02 ..> FT : <<extend>>
- UC02 ..> FP : <<extend>>
+ UC02 ..> FiltrarPorTrimestre : <<extend>>
+ UC02 ..> FiltrarPorPeriod : <<extend>>
  @enduml
 
 8.2 Actividad

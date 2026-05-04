@@ -18,12 +18,12 @@ Parte 8 — Diagramas UML
  rectangle "MOD_Reports" {
    usecase "UC_RPT_11\nCompartir" as UC11
    usecase "Aplicar share" as APP
-   usecase "Mailbox notify" as N
+   usecase "Mailbox notify" as MailboxNotify
  }
 
  share_report --> UC11
- UC11 ..> N : <<include>>
- N --> Mailboxservice
+ UC11 ..> MailboxNotify : <<include>>
+ MailboxNotify --> Mailboxservice
  ReceptorUser --> APP
  APP ..> UC11 : <<extend>>
  @enduml
