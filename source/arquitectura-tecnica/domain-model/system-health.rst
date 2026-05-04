@@ -48,4 +48,3 @@ retencion CNST-024 compartida.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-logs`

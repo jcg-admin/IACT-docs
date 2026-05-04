@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Calls
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -39,6 +39,15 @@ sobre esta entidad.
    + transferred : Boolean
  }
 
+ class Campaign {
+   + campaign_id : String
+   + name : String
+   + service_type : String
+   + region : String
+ }
+
+ Call "*" -- "1" Campaign
+
  note bottom of Call
    CNST-007: BD operativa de solo lectura.
    Sin operaciones de escritura desde IACT.
@@ -48,5 +57,4 @@ sobre esta entidad.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-calls`
  :doc:`/arquitectura-tecnica/domain-model/campaign`

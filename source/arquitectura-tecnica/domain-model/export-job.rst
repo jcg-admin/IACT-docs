@@ -68,5 +68,4 @@ estan delegados al ADR de implementacion.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-reports`
  :doc:`/arquitectura-tecnica/domain-model/report`

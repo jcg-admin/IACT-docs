@@ -57,5 +57,4 @@ Por D-05 vive en el bounded context Logs por cohesion con MOD_Logs.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-logs`
  :doc:`/arquitectura-tecnica/domain-model/metric`

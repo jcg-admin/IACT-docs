@@ -50,5 +50,4 @@ no se elimina (BR-009 v2.0.0).
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-reports`
  :doc:`/arquitectura-tecnica/domain-model/report`

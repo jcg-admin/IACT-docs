@@ -44,12 +44,6 @@ high-level, vistas, modelos de datos y diagramas.
 
  modulos/index
 
-.. toctree::
- :maxdepth: 2
- :caption: Catálogos del sistema
-
- catalogos/index
-
 .. note::
 
  Este cajon esta en construccion incremental. Los siguientes

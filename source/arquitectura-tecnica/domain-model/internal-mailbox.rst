@@ -45,5 +45,4 @@ usuario pasan por este buzon interno.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-auth`
  :doc:`/arquitectura-tecnica/domain-model/user`

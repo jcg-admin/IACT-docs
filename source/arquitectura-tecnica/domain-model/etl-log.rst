@@ -51,5 +51,4 @@ Registro de log de una ejecucion del Servicio ETL. Vinculado a
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-logs`
  :doc:`/arquitectura-tecnica/domain-model/etl-ejecucion`

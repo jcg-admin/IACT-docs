@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Reports
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -56,18 +56,52 @@ los 17 UCs del cluster RPT.
    ARCHIVED
  }
 
+ class Metric {
+   + metric_id : UUID
+   + name : MetricName
+ }
+
+ class ExportJob {
+   + job_id : UUID
+   + report_id : UUID
+   + state : JobState
+ }
+
+ class ScheduledReport {
+   + schedule_id : UUID
+   + report_id : UUID
+   + state : ScheduleState
+ }
+
+ class SavedView {
+   + view_id : UUID
+   + report_id : UUID
+   + state : ViewState
+ }
+
  Report -- ReportScope
  Report -- ReportState
+ Report "1" *-- "1..*" Metric            : compone
+ Report "1" -- "0..*" ExportJob
+ Report "1" -- "0..*" ScheduledReport
+ Report "1" -- "0..*" SavedView
 
  note right of Report
    D-10: scope es atributo, no subclase.
+   Los 7 ReportScope cubren los 17 UCs del cluster RPT.
+ end note
+
+ note right of ExportJob
+   CNST-019 v3.0.0: cola asincrona abstracta.
+   CNST-020 v3.0.0: throttling abstracto.
+   BR-011 v2.0.0: limites delegados a CNST.
  end note
 
  @enduml
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-reports`
+ :doc:`/arquitectura-tecnica/domain-model/metric`
  :doc:`/arquitectura-tecnica/domain-model/export-job`
  :doc:`/arquitectura-tecnica/domain-model/scheduled-report`
  :doc:`/arquitectura-tecnica/domain-model/saved-view`

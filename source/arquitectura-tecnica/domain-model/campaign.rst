@@ -41,5 +41,4 @@ una ``Campaign``.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-calls`
  :doc:`/arquitectura-tecnica/domain-model/call`

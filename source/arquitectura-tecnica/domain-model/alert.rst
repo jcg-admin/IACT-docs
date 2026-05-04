@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Alerts
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -46,17 +46,37 @@ alerts). La transicion queda auditada (CNST-025).
    DISABLED
  }
 
+ class Threshold {
+   + threshold_id : UUID
+   + metric_id : UUID
+   + value : Double
+   + severity : Severity
+ }
+
+ class Subscription {
+   + subscription_id : UUID
+   + alert_id : UUID
+   + state : SubscriptionState
+ }
+
  Alert -- AlertState
+ Alert "*" -- "1" Threshold
+ Alert "1" -- "0..*" Subscription
 
  note right of Alert
    D-02: closed-loop alerts.
    CNST-025: transicion ACTIVE -> ACKNOWLEDGED auditada.
  end note
 
+ note right of Subscription
+   D-03: tres operaciones separadas
+   (subscribe / unsubscribe / configure_severity)
+   para SoD a nivel RBAC.
+ end note
+
  @enduml
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-alerts`
  :doc:`/arquitectura-tecnica/domain-model/threshold`
  :doc:`/arquitectura-tecnica/domain-model/subscription`

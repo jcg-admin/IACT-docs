@@ -50,6 +50,5 @@ Metrica de negocio del call center. Distinta de ``TechnicalMetric``
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-reports`
  :doc:`/arquitectura-tecnica/domain-model/report`
  :doc:`/arquitectura-tecnica/domain-model/technical-metric`

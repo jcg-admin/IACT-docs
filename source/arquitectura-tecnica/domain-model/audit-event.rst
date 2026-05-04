@@ -68,4 +68,3 @@ representan como valores del enum ``EventType``, no como subclases.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-audit`

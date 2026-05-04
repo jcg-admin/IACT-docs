@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -46,12 +46,23 @@ o REVOKED.
    REVOKED
  }
 
+ class FunctionGroup {
+   + group_id : UUID
+   + name : String
+ }
+
+ class AccessGroup {
+   + agr_id : String
+   + name : String
+ }
+
  Assignment -- AssignmentState
+ Assignment "*" -- "1" FunctionGroup : (cuando group_ref = grupo)
+ Assignment "*" -- "1" AccessGroup   : (cuando group_ref = AGR)
 
  @enduml
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-rbac`
  :doc:`/arquitectura-tecnica/domain-model/function-group`
  :doc:`/arquitectura-tecnica/domain-model/access-group`

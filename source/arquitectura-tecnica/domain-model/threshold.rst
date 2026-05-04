@@ -51,5 +51,4 @@ se genera una ``Alert``.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-alerts`
  :doc:`/arquitectura-tecnica/domain-model/alert`

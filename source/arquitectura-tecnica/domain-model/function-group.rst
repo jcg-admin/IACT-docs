@@ -48,7 +48,6 @@ individualmente.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-rbac`
  :doc:`/arquitectura-tecnica/domain-model/function`
  :doc:`/arquitectura-tecnica/domain-model/access-group`
  :doc:`/arquitectura-tecnica/domain-model/assignment`

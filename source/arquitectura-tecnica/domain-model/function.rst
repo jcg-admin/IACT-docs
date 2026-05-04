@@ -53,6 +53,5 @@ via ``AccessGroup``.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-rbac`
  :doc:`/arquitectura-tecnica/domain-model/function-group`
  :doc:`/arquitectura-tecnica/domain-model/separation-rule`

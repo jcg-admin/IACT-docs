@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: DomainModel
  :estado: Vigente
- :version: 2.0.0
+ :version: 2.1.0
  :fecha_creacion: 2026-05-03
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -22,26 +22,13 @@ los diagramas canónicos en ``bounded-contexts/``.
 
 Granularidad: una clase por archivo. Los diagramas de cada clase
 incluyen sus atributos canonicos, metodos, enums propios y relaciones
-directas con otras clases.
+directas con otras clases del mismo bounded context.
 
 .. toctree::
  :maxdepth: 1
  :caption: Overview
 
  overview
-
-.. toctree::
- :maxdepth: 1
- :caption: Diagramas por Bounded Context
-
- bc-auth
- bc-rbac
- bc-calls
- bc-reports
- bc-pipeline-etl
- bc-alerts
- bc-audit
- bc-logs
 
 .. toctree::
  :maxdepth: 1

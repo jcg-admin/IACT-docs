@@ -59,5 +59,4 @@ o por timeout.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-auth`
  :doc:`/arquitectura-tecnica/domain-model/user`

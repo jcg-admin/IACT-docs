@@ -51,5 +51,4 @@ definir la frecuencia de generacion. Se desactiva, no se elimina
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-reports`
  :doc:`/arquitectura-tecnica/domain-model/report`

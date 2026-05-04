@@ -123,27 +123,21 @@ vigentes tras el programa Z (modelo-rbac-improvement):
 
 ----
 
-3. Diagramas por bounded context
-=================================
+3. Diagramas por clase
+======================
 
-Un diagrama por bounded context. Para navegar los diagramas
-individuales usar el indice a continuacion:
+Un archivo por clase de dominio (26 clases en 8 bounded contexts).
+Cada archivo incluye atributos canonicos, metodos, enums propios y
+relaciones directas con otras clases del mismo bounded context.
+
+Ver indice completo en :doc:`domain-model/index`.
 
 .. toctree::
  :maxdepth: 1
- :caption: Bounded Contexts — Modelo de Dominio
+ :caption: Domain Model — Overview
 
  domain-model/overview
- domain-model/bc-auth
- domain-model/bc-rbac
- domain-model/bc-calls
- domain-model/bc-reports
- domain-model/bc-pipeline-etl
- domain-model/bc-alerts
- domain-model/bc-audit
- domain-model/bc-logs
 
-----
 ----
 
 4. Cobertura UC × clase

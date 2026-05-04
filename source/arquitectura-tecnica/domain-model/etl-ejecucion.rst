@@ -61,4 +61,3 @@ El Scheduler es infraestructura, no dominio.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-pipeline-etl`

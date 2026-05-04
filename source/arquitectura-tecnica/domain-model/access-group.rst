@@ -40,6 +40,5 @@ tener un ``AccessGroup`` primario y asignaciones adicionales via
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-rbac`
  :doc:`/arquitectura-tecnica/domain-model/assignment`
  :doc:`/arquitectura-tecnica/domain-model/function-group`

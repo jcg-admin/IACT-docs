@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Auth
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -50,17 +50,45 @@ v2.0.0).
    BLOCKED
  }
 
+ class Session {
+   + session_id : UUID
+   + state : SessionState
+ }
+
+ class InternalMailbox {
+   + mailbox_id : UUID
+   + owner_user_id : UUID
+ }
+
+ enum SessionState {
+   ACTIVE
+   CLOSED
+   EXPIRED
+ }
+
  User -- UserState
+ User "1" -- "0..*" Session            : posee
+ User "1" -- "1"    InternalMailbox    : posee
+ Session -- SessionState
 
  note bottom of User
    BR-009 v2.0.0: desactivar, no eliminar.
    primary_access_group_id referencia AGR-001..012.
  end note
 
+ note bottom of Session
+   CNST-002: timeout de sesion.
+   CNST-003: una sola sesion activa por usuario.
+ end note
+
+ note bottom of InternalMailbox
+   CNST-001: buzon interno unicamente,
+   sin canal de email externo.
+ end note
+
  @enduml
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-auth`
  :doc:`/arquitectura-tecnica/domain-model/session`
  :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`

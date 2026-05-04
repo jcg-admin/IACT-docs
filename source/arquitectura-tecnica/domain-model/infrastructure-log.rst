@@ -52,4 +52,3 @@ de retencion CNST-024.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/domain-model/bc-logs`
