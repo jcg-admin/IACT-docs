@@ -580,6 +580,17 @@ archivos textuales de los otros 8 módulos no son obligatorios en esta ubicació
 módulo en una tabla, pero esa misma información ya vive en `requisitos/casos-uso/`
 con sus specs completas. Es duplicación de trazabilidad.
 
+**Confirmado (verificado con find):** `requisitos/casos-uso/` ya tiene los 13
+subdominios completos, incluyendo `admin/`:
+```
+access/, admin/, alerts/, audit/, auth/, caller/, logs/,
+operator/, permissions/, pipeline/, reports/, supervision/, users/
+```
+Los 8 archivos `modulos/*/casos-uso.rst` son una tabla-resumen de UCs cuyo
+contenido canónico ya existe en `requisitos/casos-uso/{dominio}/`. No añaden
+información nueva — son redundancia de trazabilidad. T-042 confirmará caso por
+caso antes de eliminar.
+
 ### H-14 — use-case-view/ y uc-module-view/ son redundantes: UC-indexado vs módulo-indexado [ALTA]
 
 `arquitectura-tecnica/` tiene **dos directorios de Use Case View** con diferente

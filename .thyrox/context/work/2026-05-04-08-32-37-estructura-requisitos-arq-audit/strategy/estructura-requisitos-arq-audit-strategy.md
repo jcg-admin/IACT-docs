@@ -45,10 +45,29 @@ reestructuran al nivel correcto:
 | Implementation View | 80 per-UC (12 únicos) | 12 `mod-*.rst` por módulo |
 | Domain Model | 170 archivos mezclados | `overview.rst` + 8 BC de `bounded-contexts/`; eliminar per-UC |
 
-### SD-02: Domain Model → consolidar bounded-contexts
+### SD-02: Domain Model → un archivo por clase
 
-`arquitectura-tecnica/bounded-contexts/` es el verdadero Domain Model global
-del sistema (overview 25 clases, 8 BC diagramas). Se mueve a `domain-model/`.
+`arquitectura-tecnica/domain-model/` debe tener granularidad de clase, no de
+bounded context. La estructura objetivo es:
+
+- `overview.rst` — diagrama global: 25 clases en 7 BCs con sus relaciones
+- Un archivo por cada clase canónica del dominio (26 archivos):
+  - Auth: `user.rst`, `session.rst`, `internal-mailbox.rst`
+  - RBAC: `function.rst`, `function-group.rst`, `access-group.rst`,
+    `assignment.rst`, `exceptional-permission.rst`, `separation-rule.rst`
+  - Calls: `call.rst`, `campaign.rst`
+  - Reports: `report.rst`, `metric.rst`, `export-job.rst`,
+    `scheduled-report.rst`, `saved-view.rst`
+  - Pipeline ETL: `etl-ejecucion.rst`
+  - Alerts: `alert.rst`, `threshold.rst`, `subscription.rst`
+  - Audit: `audit-event.rst`
+  - Logs: `application-log.rst`, `etl-log.rst`, `infrastructure-log.rst`,
+    `system-health.rst`, `technical-metric.rst`
+
+Los archivos `bounded-context-*.rst` de `bounded-contexts/` contienen el
+diagrama multi-clase del BC — se usan como **fuente** para extraer las clases
+individuales, no se mueven tal cual (no conservan el prefijo "bounded-context").
+
 Los 160 archivos per-UC actuales en `domain-model/` se relocalizan a los UC
 specs o se eliminan si ya están duplicados ahí.
 

@@ -56,8 +56,20 @@ Análisis de base: `discover/estructura-requisitos-arq-audit-analysis.md`
 
 ## BLOQUE B — Domain Model (H-07 + H-09)
 
-**Objetivo:** `domain-model/` contiene el overview global + 8 bounded-context diagrams.
-`bounded-contexts/` eliminado. Los 160 per-UC reubicados en UC specs.
+**Objetivo:** `domain-model/` tiene `overview.rst` + un archivo por clase (26 archivos).
+Sin prefijo "bounded-context". `bounded-contexts/` eliminado.
+Los 160 per-UC reubicados en UC specs o eliminados si duplicados.
+
+**Clases por BC (fuente: bounded-context-*.rst):**
+- Auth (3): User, Session, InternalMailbox
+- RBAC (6): Function, FunctionGroup, AccessGroup, Assignment,
+  ExceptionalPermission, SeparationRule
+- Calls (2): Call, Campaign
+- Reports (5): Report, Metric, ExportJob, ScheduledReport, SavedView
+- Pipeline ETL (1): ETLEjecucion
+- Alerts (3): Alert, Threshold, Subscription
+- Audit (1): AuditEvent
+- Logs (5): ApplicationLog, ETLLog, InfrastructureLog, SystemHealth, TechnicalMetric
 
 - [ ] [T-008] Auditar los 160 archivos per-UC de `domain-model/` (80 `{uc}-domain-model.rst`
   + 80 `{uc}-estado.rst`). Para cada UC verificar si ya existe un diagrama equivalente
@@ -65,26 +77,36 @@ Análisis de base: `discover/estructura-requisitos-arq-audit-analysis.md`
   Generar lista: (a) duplicados directos, (b) a migrar, (c) ya cubiertos.
   `Dependencias: ninguna`
 
-- [ ] [T-009] Mover los 10 archivos de `bounded-contexts/` a `domain-model/`.
-  Actualizar `arquitectura-tecnica/modelo-dominio-iact.rst` (toctree apuntaba
-  a `bounded-contexts/` — actualizar 1 sola referencia interna).
+- [ ] [T-009] Crear los 26 archivos de clase en `domain-model/` extrayendo cada clase
+  del bounded-context correspondiente. Naming: kebab-case del nombre de la clase
+  (User → `user.rst`, ExceptionalPermission → `exceptional-permission.rst`).
+  Cada archivo: metadata, título = nombre de la clase, diagrama PlantUML con
+  solo esa clase + sus enums + relaciones directas. Aplicar STD-011.
   `Dependencias: ninguna`
 
-- [ ] [T-010] Actualizar `domain-model/index.rst` para reflejar la nueva estructura:
-  overview + 8 bounded-context diagrams. Describir el view correctamente.
-  `Dependencias: T-009`
+- [ ] [T-010] Mover `bounded-contexts/overview.rst` a `domain-model/overview.rst`.
+  Actualizar referencias (`modelo-dominio-iact.rst` apuntaba a
+  `bounded-contexts/overview`).
+  `Dependencias: ninguna`
 
-- [ ] [T-011] Para los archivos per-UC de `domain-model/` que NO tienen equivalente
-  en los UC specs: mover `{uc}-estado.rst` al directorio
-  `requisitos/casos-uso/{dominio}/{uc}/diagramas-uml/` correspondiente.
-  `Dependencias: T-008`
+- [ ] [T-011] Actualizar `domain-model/index.rst`: toctree con `overview.rst` +
+  los 26 archivos de clase organizados por BC en secciones. Describir el
+  Domain Model view correctamente (25 entidades canónicas en 7 BCs).
+  `Dependencias: T-009, T-010`
 
-- [ ] [T-012] Eliminar los archivos per-UC de `domain-model/` que ya tienen equivalente
-  en los UC specs (duplicados confirmados en T-008). Verificar referencias cruzadas = 0.
+- [ ] [T-012] Eliminar `arquitectura-tecnica/bounded-contexts/` completo
+  (ya integrado — overview en T-010, clases en T-009). Actualizar cualquier
+  referencia cruzada remanente.
+  `Dependencias: T-009, T-010, T-011`
+
+- [ ] [T-013] Para los archivos per-UC de `domain-model/` sin equivalente en UC specs:
+  mover `{uc}-estado.rst` a `requisitos/casos-uso/{dominio}/{uc}/diagramas-uml/`.
+  Eliminar duplicados confirmados en T-008.
   `Dependencias: T-008, T-011`
 
-- [ ] [T-013] Verificar build sin errores relacionados con `domain-model/` y `bounded-contexts/`.
-  `Dependencias: T-010, T-012`
+- [ ] [T-013b] Verificar build sin errores relacionados con `domain-model/`
+  y `bounded-contexts/`.
+  `Dependencias: T-012, T-013`
 
 ---
 
@@ -287,7 +309,7 @@ RACI en `normativa/gobernanza/`.
 | Bloque | H resueltos | Archivos eliminados (aprox.) | Archivos creados (aprox.) |
 |--------|-------------|------------------------------|---------------------------|
 | A — Use Case View | H-14 | ~81 (per-UC + uc-module-view) | 0 (ya existen en uc-module-view) |
-| B — Domain Model | H-07, H-09 | ~160 per-UC | 0 (bounded-contexts ya existen) |
+| B — Domain Model | H-07, H-09 | ~169 (per-UC + 9 bounded-context files) | 27 (overview + 26 por clase) |
 | C — Deploy View | H-10 | 77 | 3 |
 | D — Design View | H-11 | 148 | 12 |
 | E — Implementation View | H-12 | 68 | 12 |
