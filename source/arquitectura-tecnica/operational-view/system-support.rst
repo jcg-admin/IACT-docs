@@ -109,7 +109,7 @@ Metricas de salud del sistema
  * - ``SystemHealth.memory_usage_pct``
    - Uso de memoria RAM. Alert si supera umbral configurado.
  * - ``SystemHealth.services_status``
-   - Estado de servicios clave (Django app, ETL service,
+   - Estado de servicios clave (Django REST Framework app, ETL service,
      PostgreSQL, conexion IVR). Map<String, String>.
  * - ``TechnicalMetric`` (RESPONSE_TIME)
    - Tiempo de respuesta de la aplicacion. Agregacion periodica.

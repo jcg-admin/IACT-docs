@@ -12,9 +12,9 @@
 
 .. _at-implementationview-index:
 
-==========================================
+=============================================
 Implementation View — Vista de Implementacion
-==========================================
+=============================================
 
 Componentes y paquetes de codigo del sistema IACT por modulo funcional.
 Cada archivo muestra el diagrama canonico del modulo: capas reales
@@ -36,8 +36,9 @@ Granularidad: un diagrama canonico por modulo funcional.
  mod-admin
  mod-alerts
  mod-audit
- mod-etl-monitoring
- mod-sys-logs
- mod-vis-reports
- mod-operator-calls
+ mod-pipeline
+ mod-logs
+ mod-reports
+ mod-operator
+ mod-caller
  mod-supervision

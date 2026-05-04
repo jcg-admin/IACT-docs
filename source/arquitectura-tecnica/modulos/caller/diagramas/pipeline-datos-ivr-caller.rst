@@ -16,8 +16,9 @@
 Pipeline de Datos IVR — Caller a Analitica
 ==========================================
 
-Pipeline de Datos IVR — Caller a Analitica
-============================================
+Flujo completo desde la llamada del ciudadano hasta la Base Analitica IVR:
+captura en PBX, almacenamiento en tablas historico (solo lectura para IACT),
+extraccion nocturna via ETL y evaluacion de alertas sobre los datos cargados.
 
 .. uml::
  :caption: Componentes de MOD_Caller — desde la llamada hasta la Base Analitica.

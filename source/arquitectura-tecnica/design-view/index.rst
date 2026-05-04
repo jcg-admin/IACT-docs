@@ -32,14 +32,15 @@ caso de uso individual.
  :caption: Modulos funcionales
 
  mod-auth
- mod-user-identity
+ mod-users
  mod-access
  mod-permissions
  mod-admin
  mod-alerts
  mod-audit
- mod-etl-monitoring
- mod-sys-logs
- mod-vis-reports
- mod-operator-calls
+ mod-pipeline
+ mod-logs
+ mod-reports
+ mod-operator
+ mod-caller
  mod-supervision

@@ -25,7 +25,7 @@ Frontera del sistema
 
 **Dentro de la frontera IACT:**
 
-- Aplicacion Django (12 modulos funcionales: Auth, Users, Access, Permissions,
+- Aplicacion Django REST Framework (12 modulos funcionales: Auth, Users, Access, Permissions,
   Reports, Alerts, Pipeline, Audit, Logs, Operator, Supervision, Caller)
 - Servicio ETL (extraccion de datos IVR, transformacion, carga en BDPropia)
 - Almacen de Datos propio (PostgreSQL — tablas operacionales de IACT)

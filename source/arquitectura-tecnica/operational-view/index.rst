@@ -43,7 +43,7 @@ del pipeline ETL y soporte en produccion.
    - Soporte en produccion: monitoreo del pipeline ETL, diagnostico
      de alertas, consulta de logs, dashboard de salud del sistema.
  * - :doc:`system-installation`
-   - Instalacion y bootstrap: despliegue inicial, migraciones Django,
+   - Instalacion y bootstrap: despliegue inicial, migraciones Django REST Framework,
      carga de datos iniciales RBAC, verificacion del sistema.
 
 .. toctree::

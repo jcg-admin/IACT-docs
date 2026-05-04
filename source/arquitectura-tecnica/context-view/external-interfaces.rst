@@ -100,7 +100,7 @@ Flujo de datos entre interfaces
 
  rectangle "Sistema IACT" as IACT {
    rectangle "ETL Service" as ETL
-   rectangle "IACT App\n(Django)" as App
+   rectangle "IACT App\n(Django REST Framework)" as App
    database "Almacen de Datos\n(PostgreSQL IACT)" as BDPropia
  }
 

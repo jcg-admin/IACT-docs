@@ -17,7 +17,7 @@ Domain Model — Vista Logica
 ===========================
 
 Modelo de dominio canonico del sistema IACT. Contiene un archivo por
-cada clase de dominio (26 clases en 7 bounded contexts) extraidas de
+cada clase de dominio (26 clases en 8 bounded contexts) extraidas de
 los diagramas canónicos en ``bounded-contexts/``.
 
 Granularidad: una clase por archivo. Los diagramas de cada clase

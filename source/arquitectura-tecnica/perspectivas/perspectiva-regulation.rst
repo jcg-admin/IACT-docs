@@ -127,20 +127,20 @@ Diagrama — cadena de auditoria
  skinparam shadowing false
 
  participant "Usuario\n(cualquier rol)" as USUARIO
- participant "DRF\nAPI" as API
- participant "RBAC\nMiddleware" as RBAC
- participant "Business\nLogic" as BL
- participant "AuditEvent\n(append-only)" as AUDIT
+ participant "DRF\nAPI" as DRF_API
+ participant "RBAC\nMiddleware" as RBAC_MIDDLEWARE
+ participant "Business\nLogic" as BUSINESS_LOGIC
+ participant "AuditEvent\n(append-only)" as AUDIT_EVENT
 
- USUARIO -> API : peticion con JWT
- API -> RBAC : verificar funcion atomica
- RBAC -> BL : autorizado
- BL -> AUDIT : generar AuditEvent\n(usuario, accion, timestamp,\nentidad, estado anterior/nuevo)
- AUDIT --> BL : AuditEvent persistido\n(CNST-025: inmutable)
- BL --> API : respuesta
- API --> USUARIO : resultado
+ USUARIO -> DRF_API : peticion con JWT
+ DRF_API -> RBAC_MIDDLEWARE : verificar funcion atomica
+ RBAC_MIDDLEWARE -> BUSINESS_LOGIC : autorizado
+ BUSINESS_LOGIC -> AUDIT_EVENT : generar AuditEvent\n(usuario, accion, timestamp,\nentidad, estado anterior/nuevo)
+ AUDIT_EVENT --> BUSINESS_LOGIC : AuditEvent persistido\n(CNST-025: inmutable)
+ BUSINESS_LOGIC --> DRF_API : respuesta
+ DRF_API --> USUARIO : resultado
 
- note over AUDIT
+ note over AUDIT_EVENT
    Append-only.
    No UPDATE, no DELETE.
    Auditable por AGR_AUDITOR.

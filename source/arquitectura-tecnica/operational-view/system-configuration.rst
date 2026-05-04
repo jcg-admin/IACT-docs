@@ -38,7 +38,7 @@ Stack tecnologico inmutable
    - Fuente de datos del IVR. **Solo lectura** (P-01, CNST-007).
      IACT nunca escribe en esta base.
  * - **APScheduler**
-   - Disparador del pipeline ETL. Embebido en el proceso Django.
+   - Disparador del pipeline ETL. Embebido en el proceso Django REST Framework.
      No Celery, no workers externos.
 
 .. warning::

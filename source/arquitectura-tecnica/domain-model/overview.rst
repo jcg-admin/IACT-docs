@@ -51,8 +51,8 @@ MODELO DOMINIO IACT
 1. Proposito y alcance
 ======================
 
-Este documento materializa las **25 clases canonicas** del dominio
-IACT distribuidas en **siete bounded contexts** (Auth, RBAC, Calls,
+Este documento materializa las **26 clases canonicas** del dominio
+IACT distribuidas en **ocho bounded contexts** (Auth, RBAC, Calls,
 Reports & Metrics, Pipeline ETL, Alerts, Audit, Logs). Cada clase
 incluye atributos relevantes, operaciones de negocio, restricciones
 canonicas (BR/CNST en versiones vigentes) y trazabilidad a los UCs

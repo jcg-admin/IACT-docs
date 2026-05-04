@@ -104,7 +104,7 @@ sus componentes fisicos.
    - Solo afecta al pipeline ETL. Si el IVR no esta disponible, el
      ETL falla (P-04) pero el resto del sistema continua operando.
  * - **APScheduler**
-   - Embebido en el proceso Django. Si el proceso se reinicia, el
+   - Embebido en el proceso Django REST Framework. Si el proceso se reinicia, el
      scheduler se reinicia automaticamente con el siguiente arrange.
      No persiste estado entre reinicios.
 
@@ -164,7 +164,7 @@ Procedimiento de recovery
    - Sistema completamente inoperativo. Recovery desde respaldo.
      Ejecutar migraciones si es necesario tras recovery.
      Ver :doc:`/arquitectura-tecnica/operational-view/system-installation`.
- * - **Proceso Django caido**
+ * - **Proceso DRF caido**
    - Reiniciar proceso (APScheduler se restaura automaticamente).
      Verificar ``ApplicationLog`` y ``SystemHealth`` tras reinicio.
 
