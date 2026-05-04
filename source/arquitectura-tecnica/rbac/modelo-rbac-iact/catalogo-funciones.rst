@@ -154,7 +154,7 @@ Modelo RBAC IACT — Catalogo de Funciones
    - Asigna grupos de funciones
  * - `view_separation_rules`
    - access:view_sod
-   - UC-043
+   - UC_ADM_01
    - Ve reglas SoD configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
  * - `create_function_group`
    - access:create_group
@@ -178,11 +178,11 @@ Modelo RBAC IACT — Catalogo de Funciones
    - Revoca grupo asignado a usuario (NUEVA v5.3.0)
  * - `update_separation_rule`
    - access:update_sod
-   - UC-043
+   - UC_ADM_01
    - Actualiza parámetros de regla SoD existente (NUEVA v5.4.0 — split SRP de ACC-005)
  * - `disable_separation_rule`
    - access:disable_sod
-   - UC-043
+   - UC_ADM_01
    - Desactiva regla SoD temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
 
 
@@ -650,4 +650,59 @@ legal de compliance. El sistema emite el tono automáticamente.
 
 **Nota v5.5.0:**
 Módulo nuevo derivado del análisis de UC_SUP_01..03.
+
+----
+
+3.11 MOD_Admin (3 funciones) — NUEVO v5.6.0
+--------------------------------------------
+
+Plano de configuracion del modelo RBAC: gestiona QUE funciones, grupos del
+sistema y reglas SoD EXISTEN. Diferenciado de MOD_Access (asignaciones) y
+MOD_Permissions (verificacion runtime). Actor principal: ``admin_sistema``
+(AGR-009).
+
+.. list-table::
+ :widths: 30 25 15 30
+ :header-rows: 1
+
+ * - Función
+   - Capacidad
+   - UC
+   - Descripción
+ * - `create_separation_rule`
+   - adm:create_sod
+   - UC_ADM_01
+   - Crea nueva regla SoD declarando el par de conjuntos de funciones
+     mutuamente excluyentes. Complementa ``update_separation_rule`` y
+     ``disable_separation_rule`` para el ciclo de vida completo.
+     (NUEVA v5.6.0 — extend ACC module)
+ * - `manage_function_catalog`
+   - adm:manage_catalog
+   - UC_ADM_02
+   - CRUD sobre definiciones de funciones atomicas: nombre, descripcion,
+     scope, modulo, estado activo/inactivo. Requiere migracion de datos
+     y control de versiones del catalogo. (NUEVA v5.6.0 — nueva ADM)
+ * - `assign_functions_to_group`
+   - access:assign_to_group
+   - UC_ADM_03, UC_PERM_06
+   - Asigna funciones a un grupo predefinido del sistema (scope AGR-001..012,
+     solo ``admin_sistema``) o custom (scope AGR custom,
+     ``admin_seguridad``). Reutilizada de MOD_Permissions.
+
+
+**CAMBIO v5.6.0:**
+- ADM-001 NUEVA ``create_separation_rule`` (extiende modulo ACC)
+- ADM-002 NUEVA ``manage_function_catalog`` (nuevo modulo ADM)
+- ADM-003 ``assign_functions_to_group`` reutilizada de PERM con scope extendido
+
+**CNST aplicables:**
+- CNST-029: Modelo RBAC Flat — toda modificacion al catalogo se audita
+- BR-007: SoD — ``create_separation_rule`` requiere par de conjuntos validos
+- MOD_Audit: Toda operacion ADM genera evento de alta criticidad
+
+**Nota v5.6.0:**
+Modulo nuevo — formaliza el plano de configuracion RBAC que existia
+implicito en referencias de arquitectura (arquitectura-sistema.rst,
+despliegue-multicliente.rst) pero sin definicion formal de UCs ni
+funciones RBAC propias.
 

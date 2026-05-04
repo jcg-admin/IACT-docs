@@ -14,10 +14,11 @@
 Casos de Uso
 ============
 
-Catalogo de Casos de Uso del sistema IACT v4.0.0 organizado en 12 modulos
+Catalogo de Casos de Uso del sistema IACT v4.0.0 organizado en 13 modulos
 funcionales. La decision arquitectonica de coexistencia ACC ↔ PERM
 (Hipotesis 1 aprobada) se materializa en los modulos MOD_Access (vista
-funcional) y MOD_Permissions (vista tecnica granular).
+funcional) y MOD_Permissions (vista tecnica granular). MOD_Admin (nuevo
+v5.6.0) cubre el plano de configuracion del modelo RBAC.
 
 Modulos
 -------
@@ -29,6 +30,7 @@ Modulos
  users/index
  access/index
  permissions/index
+ admin/index
  reports/index
  alerts/index
  pipeline/index

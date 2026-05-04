@@ -28,6 +28,7 @@ su especificacion completa en :doc:`/requisitos/casos-uso/index`.
  mod-users
  mod-access
  mod-permissions
+ mod-admin
  mod-reports
  mod-alerts
  mod-pipeline

@@ -193,11 +193,11 @@ Sin excepciones. El modelo Flat es absoluto.
    - Asignar Funciones a Usuario
  * - UC-011
    - Gestionar Permisos por Agrupador
- * - UC-079
+ * - UC_ACC_03
    - Consultar Permisos Efectivos
- * - UC-080
-   - Gestionar Catalogo de Agrupadores
- * - UC-081
+ * - UC_ADM_03
+   - Gestionar Catalogo de Agrupadores del Sistema
+ * - UC_ADM_02
    - Gestionar Catalogo de Funciones
 
 ----
