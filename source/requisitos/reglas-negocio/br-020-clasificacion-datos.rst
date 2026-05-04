@@ -234,72 +234,27 @@ La clasificación de datos garantiza:
 5.1 Decorador de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/core/security/classification.py
- 
- from enum import Enum
- 
- class DataClassification(Enum):
- """BR_020: Niveles de clasificación de datos."""
- PUBLIC = 'PUBLIC'
- INTERNAL = 'INTERNAL'
- CONFIDENTIAL = 'CONFIDENTIAL'
- RESTRICTED = 'RESTRICTED'
- 
- def classified(level: DataClassification):
- 
- Decorador que marca campos/métodos con su clasificación.
- 
- def decorator(func_or_field):
- func_or_field._classification = level
- return func_or_field
- return decorator
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 5.2 Modelo con Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/users/models.py
- 
- class User(AbstractBaseUser):
- # CONFIDENCIAL - Datos de usuario
- username = models.CharField(max_length=150, unique=True)
- email = models.EmailField
- 
- # RESTRINGIDO - Credenciales
- password = models.CharField(max_length=128) # Hash
- 
- # INTERNO - Metadatos
- created_at = models.DateTimeField(auto_now_add=True)
- 
- class Meta:
- # BR_020: Clasificación de la entidad
- classification = DataClassification.CONFIDENTIAL
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 5.3 Sanitización en Logs
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/core/logging/sanitizer.py
- 
- SENSITIVE_FIELDS = [
- 'password', 'token', 'secret', 'api_key',
- 'email', 'phone', 'ssn'
- ]
- 
- def sanitize_log_data(data: dict) -> dict:
- 
- BR_020: Sanitiza datos sensibles antes de loguear.
- 
- sanitized = data.copy
- for key in sanitized:
- if any(field in key.lower for field in SENSITIVE_FIELDS):
- sanitized[key] = '***REDACTED***'
- return sanitized
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 ----
 
 6. Trazabilidad

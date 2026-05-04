@@ -123,199 +123,27 @@ Archivos en otras apps que UC_AUTH_01 toca:
 11.4 Modelo Django de Session (extracto)
 ========================================
 
-.. code-block:: python
+.. note::
 
-   # apps/sessions/models.py
-   from django.db import models
-   import uuid
-
-   class Session(models.Model):
-       SESSION_STATES = [
-           ('ACTIVE',  'Active'),
-           ('CLOSED',  'Closed'),
-           ('EXPIRED', 'Expired'),
-       ]
-
-       CLOSE_REASONS = [
-           ('USER_LOGOUT',  'User logout'),
-           ('SUPERSEDED',   'Superseded by new login'),
-           ('ADMIN_CLOSE',  'Admin closed'),
-           ('EXPIRED',      'Expired by timeout'),
-       ]
-
-       session_id        = models.UUIDField(primary_key=True,
-                                            default=uuid.uuid4)
-       user              = models.ForeignKey('users.User',
-                                            on_delete=models.PROTECT)
-       state             = models.CharField(max_length=10,
-                                            choices=SESSION_STATES,
-                                            default='ACTIVE')
-       started_at        = models.DateTimeField(auto_now_add=True)
-       last_activity_at  = models.DateTimeField(auto_now=True)
-       expires_at        = models.DateTimeField()
-       client_info       = models.JSONField(null=True, blank=True)
-       closed_at         = models.DateTimeField(null=True, blank=True)
-       close_reason      = models.CharField(max_length=20,
-                                            choices=CLOSE_REASONS,
-                                            null=True, blank=True)
-
-       class Meta:
-           indexes = [
-               models.Index(fields=['user', 'state']),
-               models.Index(fields=['expires_at']),
-           ]
-
+ Los detalles de implementacion de este requisito estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 11.5 LoginView (esqueleto)
 ==========================
 
-.. code-block:: python
+.. note::
 
-   # apps/auth_app/views.py
-   from rest_framework.views import APIView
-   from rest_framework.response import Response
-   from rest_framework import status
-   from django.db import transaction
-   from .serializers import LoginSerializer
-   from .services import AuthService
-   from .throttles import AnonLoginThrottle, UserLoginThrottle
-   from .exceptions import (InvalidCredentials, AccountBlocked,
-                            AccountInactive)
-
-   class LoginView(APIView):
-       authentication_classes = []   # publico
-       permission_classes = []
-       throttle_classes = [AnonLoginThrottle, UserLoginThrottle]
-
-       def post(self, request):
-           serializer = LoginSerializer(data=request.data)
-           serializer.is_valid(raise_exception=True)
-
-           service = AuthService()
-
-           try:
-               result = service.authenticate(
-                   username      = serializer.validated_data['username'],
-                   password      = serializer.validated_data['password'],
-                   client_info   = serializer.validated_data.get('client_info'),
-                   ip            = self._client_ip(request),
-                   user_agent    = request.META.get('HTTP_USER_AGENT', ''),
-               )
-           except InvalidCredentials:
-               return Response(
-                   {'error': {'code': 'INVALID_CREDENTIALS',
-                              'message': 'Credenciales invalidas'}},
-                   status=status.HTTP_401_UNAUTHORIZED)
-           except AccountBlocked:
-               return Response(
-                   {'error': {'code': 'ACCOUNT_BLOCKED',
-                              'message': 'Cuenta bloqueada'}},
-                   status=status.HTTP_403_FORBIDDEN)
-           except AccountInactive:
-               return Response(
-                   {'error': {'code': 'ACCOUNT_INACTIVE',
-                              'message': 'Cuenta inactiva'}},
-                   status=status.HTTP_403_FORBIDDEN)
-
-           return Response(result, status=status.HTTP_200_OK)
-
-       @staticmethod
-       def _client_ip(request):
-           xff = request.META.get('HTTP_X_FORWARDED_FOR')
-           return (xff.split(',')[0].strip() if xff
-                   else request.META.get('REMOTE_ADDR', ''))
-
+ Los detalles de implementacion de este requisito estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 11.6 AuthService (esqueleto)
 ============================
 
-.. code-block:: python
+.. note::
 
-   # apps/auth_app/services.py
-   from django.db import transaction
-   from django.utils import timezone
-   from datetime import timedelta
-   from .strategies import LocalPasswordStrategy
-   from .exceptions import (InvalidCredentials, AccountBlocked,
-                            AccountInactive)
-   from apps.users.models import User
-   from apps.sessions.models import Session
-   from apps.audit.models import AuditEvent
-   from apps.mailbox.services import deliver_message
-
-   SESSION_TTL_MINUTES = 15   # CNST-005
-
-   class AuthService:
-       def __init__(self, strategy=None):
-           self.strategy = strategy or LocalPasswordStrategy()
-
-       def authenticate(self, *, username, password,
-                        client_info, ip, user_agent):
-           # Paso 7: localizar User
-           try:
-               user = User.objects.get(username=username)
-           except User.DoesNotExist:
-               self._audit_failed(None, ip, user_agent,
-                                  'USER_NOT_FOUND')
-               raise InvalidCredentials()
-
-           # Paso 8: validar state
-           if user.state == 'BLOCKED':
-               self._audit_event(user, ip, user_agent,
-                                 'LOGIN_BLOCKED')
-               raise AccountBlocked()
-           if user.state == 'INACTIVE':
-               self._audit_event(user, ip, user_agent,
-                                 'LOGIN_INACTIVE')
-               raise AccountInactive()
-
-           # Paso 9: verificar password
-           if not self.strategy.verify(user, password):
-               self._audit_failed(user, ip, user_agent,
-                                  'BAD_PASSWORD')
-               raise InvalidCredentials()
-
-           # Pasos 10-14: transaccion atomica
-           with transaction.atomic():
-               # Paso 10: cerrar Sessions previas (CNST-004)
-               previous = Session.objects.select_for_update().filter(
-                   user=user, state='ACTIVE')
-               for prev in previous:
-                   prev.state = 'CLOSED'
-                   prev.closed_at = timezone.now()
-                   prev.close_reason = 'SUPERSEDED'
-                   prev.save()
-                   self._audit_event(user, ip, user_agent,
-                                     'SESSION_CLOSED',
-                                     {'session_id': str(prev.session_id),
-                                      'cause': 'SUPERSEDED'})
-                   if prev.client_info != client_info:
-                       deliver_message(
-                           user, body='Tu sesion en otro dispositivo se cerro.')
-
-               # Paso 11: crear Session
-               new_session = Session.objects.create(
-                   user=user,
-                   state='ACTIVE',
-                   expires_at=timezone.now() + timedelta(
-                       minutes=SESSION_TTL_MINUTES),
-                   client_info=client_info,
-               )
-
-               # Paso 13: AuditEvent LOGIN
-               self._audit_event(user, ip, user_agent,
-                                 'LOGIN',
-                                 {'session_id': str(new_session.session_id)})
-
-               # Paso 14: actualizar User.last_login_at
-               user.last_login_at = timezone.now()
-               user.save(update_fields=['last_login_at'])
-
-           # Paso 12: generar tokens (fuera de la transaccion)
-           tokens = self._issue_jwt(user, new_session)
-           return self._build_response(user, new_session, tokens)
-
-       # ... metodos _audit_event, _audit_failed,
-       # _issue_jwt, _build_response
-
+ Los detalles de implementacion de este requisito estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 11.7 Frontend (React)
 =====================
 

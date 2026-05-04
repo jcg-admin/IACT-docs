@@ -153,33 +153,11 @@ El bloqueo por intentos fallidos protege contra:
 4.1 Modelo Django
 ^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/users/models.py
- 
- class User(AbstractBaseUser):
- failed_attempts = models.IntegerField(default=0)
- locked_until = models.DateTimeField(null=True, blank=True)
- 
- def is_locked(self):
- """BR_015: Verifica si cuenta está bloqueada."""
- if self.locked_until and self.locked_until > timezone.now:
- return True
- return False
- 
- def register_failed_attempt(self):
- """BR_015: Registra intento fallido."""
- self.failed_attempts += 1
- if self.failed_attempts >= 5:
- self.locked_until = timezone.now + timedelta(minutes=30)
- self.save
- 
- def reset_failed_attempts(self):
- """BR_015: Reinicia contador tras login exitoso."""
- self.failed_attempts = 0
- self.locked_until = None
- self.save
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 ----
 
 5. Trazabilidad

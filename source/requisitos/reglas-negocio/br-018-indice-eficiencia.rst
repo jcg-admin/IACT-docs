@@ -187,39 +187,11 @@ El Índice de Eficiencia es importante porque:
 4.2 Modelo Django
 ^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/reports/services/kpi_calculator.py
- 
- class KPICalculator:
- 
- Calculador de KPIs que implementa BR_018.
- 
- 
- @staticmethod
- def calcular_indice_eficiencia(fecha_inicio, fecha_fin, centro_id=None):
- 
- BR_018: Calcula índice de eficiencia.
- 
- Returns:
- Decimal: Porcentaje con 2 decimales
- 
- queryset = Llamada.objects.filter(
- fecha__range=(fecha_inicio, fecha_fin)
- )
- 
- if centro_id:
- queryset = queryset.filter(centro_id=centro_id)
- 
- total = queryset.count
- if total == 0:
- return Decimal('0.00')
- 
- atendidas = queryset.filter(estado='ATENDIDA').count
- 
- indice = (Decimal(atendidas) / Decimal(total)) * 100
- return indice.quantize(Decimal('0.01'))
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 ----
 
 5. Trazabilidad

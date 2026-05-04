@@ -103,24 +103,11 @@ consistentes en toda la aplicación (BR_016/017/018).
    ConfiguracionAlertas --> ConfiguracionAlertas : _instancia
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class ConfiguracionAlertas:
-       _instancia = None
-
-       def __new__(cls):
-           if cls._instancia is None:
-               cls._instancia = super().__new__(cls)
-               cls._instancia._cargar()
-           return cls._instancia
-
-       def _cargar(self):
-           # Cargar umbrales BR_016/017/018 desde DB o settings
-           self.umbrales = {"abandono": 0.10, "ttr_seg": 30}
-
-       def umbral(self, metrica):
-           return self.umbrales[metrica]
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 Notas IACT:
 
 - En Django, ``django.conf.settings`` ya es un singleton de
@@ -154,25 +141,11 @@ agregador, pero comparte la interfaz ``IReporte``.
    ReporteFactory ..> IReporte : crea
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class ReporteFactory:
-       _registro = {}
-
-       @classmethod
-       def registrar(cls, tipo, clase):
-           cls._registro[tipo] = clase
-
-       @classmethod
-       def crear(cls, tipo, params):
-           if tipo not in cls._registro:
-               raise ValueError(f"Tipo de reporte desconocido: {tipo}")
-           return cls._registro[tipo](params)
-
-   ReporteFactory.registrar("volumen", ReporteVolumen)
-   ReporteFactory.registrar("abandono", ReporteAbandono)
-   ReporteFactory.registrar("sod", ReporteSoDCompliance)
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 4. Builder — ConfiguracionExport
 ================================
 
@@ -181,47 +154,11 @@ opcionales: rango (CNST_031, máximo 6 meses), formato,
 incluir agregaciones, destinatarios del buzón interno
 (CNST_001).
 
-.. code-block:: python
+.. note::
 
-   class ConfiguracionExport:
-       def __init__(self, reporte_id):
-           self.reporte_id = reporte_id
-           self.rango = None
-           self.formato = "csv"
-           self.incluir_agregados = False
-           self.destinatarios = []
-
-   class ConfiguracionExportBuilder:
-       def __init__(self, reporte_id):
-           self._cfg = ConfiguracionExport(reporte_id)
-
-       def rango(self, desde, hasta):
-           if (hasta - desde).days > 183:  # CNST_031
-               raise ValueError("rango supera 6 meses (CNST_031)")
-           self._cfg.rango = (desde, hasta)
-           return self
-
-       def formato(self, fmt):
-           if fmt not in ("csv", "xlsx", "json"):
-               raise ValueError(f"formato no soportado: {fmt}")
-           self._cfg.formato = fmt
-           return self
-
-       def con_agregados(self):
-           self._cfg.incluir_agregados = True
-           return self
-
-       def destinatario_buzon(self, user_id):
-           self._cfg.destinatarios.append(user_id)
-           return self
-
-       def build(self):
-           if self._cfg.rango is None:
-               raise ValueError("rango es obligatorio")
-           if not self._cfg.destinatarios:
-               raise ValueError("al menos un destinatario CNST_001")
-           return self._cfg
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 5. Adapter — LDAPUserAdapter
 ============================
 
@@ -251,20 +188,11 @@ expone atributos LDAP estándar (``cn``, ``mail``,
    LDAPUserAdapter ..> User : produce
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class LDAPUserAdapter:
-       def __init__(self, ldap_entry):
-           self.entry = ldap_entry
-
-       def a_user(self):
-           return User(
-               username=self.entry.cn,
-               email=self.entry.mail,
-               grupos=[g.split(",")[0].split("=")[1]
-                       for g in self.entry.memberOf],
-           )
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 Solo cambia el adapter si LDAP cambia de schema; el resto de
 ``auth_app`` permanece estable.
 
@@ -291,55 +219,22 @@ que conocer todas las dependencias.
    ExportarReporteFacade --> aud_app
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class ExportarReporteFacade:
-       def __init__(self, perm, rpt, log, aud):
-           self.perm = perm
-           self.rpt = rpt
-           self.log = log
-           self.aud = aud
-
-       def ejecutar(self, user, cfg):
-           if not self.perm.verificar(user, "exportar_reporte"):
-               self.aud.registrar(user, "export_denegado", cfg)
-               raise PermisoDenegado()
-           if not self.rpt.cuota_disponible(user):  # CNST_020
-               raise CuotaAgotada()
-           tarea_id = self.rpt.encolar_export(cfg)  # CNST_019 async
-           self.log.notificar_buzon(cfg.destinatarios,
-                                    f"export {tarea_id} encolado")
-           self.aud.registrar(user, "export_iniciado",
-                              {"tarea": tarea_id})
-           return tarea_id
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 7. Decorator — @requiere_permiso
 =================================
 
 **Problema.** Toda vista de IACT debe validar permiso y SoD
 (CNST_030) antes de ejecutar lógica de negocio.
 
-.. code-block:: python
+.. note::
 
-   from functools import wraps
-
-   def requiere_permiso(funcion_id):
-       def deco(view):
-           @wraps(view)
-           def wrapper(request, *args, **kwargs):
-               if not perm_app.verificar(request.user, funcion_id):
-                   aud_app.registrar(request.user,
-                                     "acceso_denegado",
-                                     {"funcion": funcion_id})
-                   return HttpResponseForbidden()
-               return view(request, *args, **kwargs)
-           return wrapper
-       return deco
-
-   @requiere_permiso("exportar_reporte")
-   def vista_exportar(request):
-       ...
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 Variantes IACT:
 
 - ``@requiere_sod(rol_a, rol_b)`` para CNST_030.
@@ -378,28 +273,11 @@ duplicado, los eventos de dominio se publican y
    Bus --> Observer
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class Bus:
-       _instance = None
-       def __new__(cls):
-           if cls._instance is None:
-               cls._instance = super().__new__(cls)
-               cls._instance.observers = []
-           return cls._instance
-       def suscribir(self, observer):
-           self.observers.append(observer)
-       def publicar(self, evento):
-           for o in self.observers:
-               o.notificar(evento)
-
-   class AuditObserver:
-       def notificar(self, evento):
-           AuditLog.objects.create(**evento.to_dict())
-
-   bus = Bus()
-   bus.suscribir(AuditObserver())
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 Regla IACT: ``AuditObserver`` no se puede desuscribir en
 runtime — eso violaría CNST_025.
 
@@ -428,20 +306,11 @@ algoritmo de serialización cambia, el resto del flujo no.
    ExportadorReporte --> FormatoExport
    @enduml
 
-.. code-block:: python
+.. note::
 
-   class CSVExport:
-       def serializar(self, datos):
-           ...
-   class XLSXExport:
-       def serializar(self, datos):
-           ...
-   class ExportadorReporte:
-       def __init__(self, formato):
-           self.formato = formato
-       def ejecutar(self, datos):
-           return self.formato.serializar(datos)
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 Agregar un nuevo formato no toca ``ExportadorReporte``,
 ``rpt_app`` ni el facade — solo se registra una nueva
 estrategia.
@@ -455,26 +324,11 @@ se materializa con clases ``EstadoSesion`` /
 disparan eventos al ``Bus`` para que el ``AuditObserver``
 los persista.
 
-.. code-block:: python
+.. note::
 
-   class EstadoAlerta:
-       def reconocer(self, alerta, user): raise NotImplementedError
-       def cerrar(self, alerta, user): raise NotImplementedError
-
-   class AlertaPublicada(EstadoAlerta):
-       def reconocer(self, alerta, user):
-           alerta.cambiar_estado(AlertaReconocida(user))
-           bus.publicar(EventoReconocida(alerta, user))
-       def cerrar(self, alerta, user):
-           raise TransicionInvalida("publicada → cerrada no permitida")
-
-   class AlertaReconocida(EstadoAlerta):
-       def reconocer(self, alerta, user):
-           raise TransicionInvalida("ya reconocida")
-       def cerrar(self, alerta, user):
-           alerta.cambiar_estado(AlertaCerrada(user))
-           bus.publicar(EventoCerrada(alerta, user))
-
+ La implementacion del patron sigue la estructura mostrada en el
+ diagrama UML. Los detalles de codigo van en el repositorio fuente,
+ no en la especificacion.
 11. Patrones vs principios SOLID
 ================================
 
