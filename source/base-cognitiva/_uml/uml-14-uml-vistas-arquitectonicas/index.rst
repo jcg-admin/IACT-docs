@@ -39,3 +39,4 @@ UML 14: UML para Vistas Arquitectónicas
  vistas-y-viewpoints
  perspectivas-arquitectonicas
  arquitecto-y-proceso
+ proceso-definicion-arquitectonica
