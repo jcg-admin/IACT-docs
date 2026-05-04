@@ -1,23 +1,44 @@
 ```yml
 type: Estado de Sesión
-version: 3.5
-updated_at: 2026-05-04 14:30:00
+version: 3.6
+updated_at: 2026-05-04 15:03:00
 cold_boot: false
-current_epic: 16
-epic_name: estructura-requisitos-arq-audit
-current_work: .thyrox/context/work/2026-05-04-08-32-37-estructura-requisitos-arq-audit
-stage: track
-stage_number: 11
-current_phase: Phase 11 — TRACK/EVALUATE
+current_epic: 17
+epic_name: uml-coverage-housekeeping
+current_work: .thyrox/context/work/2026-05-04-15-00-00-uml-coverage-housekeeping
+stage: discover
+stage_number: 1
+current_phase: Phase 1 — DISCOVER
 flow: thyrox
-methodology_step: thyrox:track
+methodology_step: thyrox:discover
 blockers: []
-last_completed_phase: ÉPICA 15 pipeline-uc-deepening — Stage 1 DISCOVER completado (2026-05-02)
-next_decision_required: "Q-01: ¿Existe BD PostgreSQL para tablas operacionales Django? Q-02: ¿Hay tabla de tracking de runs ETL en MariaDB? Estas respuestas determinan el contenido de las correcciones en modelo-dual.rst y uc-pip-01."
-stage_sync_required: true
+last_completed_phase: ÉPICA 16 uml-arq-coverage-audit — Stage 1 DISCOVER completado (2026-05-04)
+next_decision_required: "Aprobación de WP-1 (context-view), WP-2 (operational-view), WP-3 (housekeeping), WP-4 (perspectivas) antes de ejecutar"
+stage_sync_required: false
 ```
 
 # IACT-docs — Estado de Sesión
+
+## Resumen 2026-05-04
+
+ÉPICA 16 (uml-arq-coverage-audit) completada — Stage 1 DISCOVER.
+
+Análisis de cobertura `base-cognitiva/_uml` vs `arquitectura-tecnica/` completado.
+6 gaps identificados, 4 WPs correctivos definidos:
+
+- **WP-1** `2026-05-04-14-59-45-uml-coverage-context-view` — ALTA — Crear viewpoint Context
+- **WP-2** `2026-05-04-15-00-30-uml-coverage-operational-view` — ALTA — Crear viewpoint Operational
+- **WP-3** `2026-05-04-15-00-00-uml-coverage-housekeeping` — BAJA — Cleanup: rm stub, fix títulos, fix PlantUML
+- **WP-4** `2026-05-04-15-01-00-uml-coverage-perspectivas` — MEDIA — Perspectivas arquitectónicas
+
+Secuencia recomendada: WP-3 → WP-1 → WP-2 → WP-4
+
+Activo: WP-3 (housekeeping — menor riesgo, cambios localizados)
+
+## Repositorio
+
+- **Branch:** `claude/review-ucs-work-state-phwmj`
+- **Working tree:** con cambios pendientes de commit
 
 ## Resumen 2026-04-29
 
