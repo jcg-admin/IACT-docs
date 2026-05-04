@@ -164,26 +164,31 @@ Relación con los diagramas actuales en IACT
    - Observación
  * - Functional
    - Use Case View
-   - ``use-case-view/`` tiene diagramas de casos de uso ✓.
-     Faltan diagramas de componentes y clases a nivel
-     funcional.
+   - ``use-case-view/`` tiene 13 ``mod-*.rst`` canónicos
+     (uno por módulo funcional). ✓ Reestructurado (WP
+     estructura-requisitos-arq-audit, Bloque A).
  * - Information
    - Domain Model
-   - ``domain-model/`` cubre estructura de datos (Class ✓,
-     un archivo por clase canonica). Ciclo de vida de datos
-     (State ✓ en UC specs ``diagramas-uml/``).
-     Faltan Activity para data flow.
+   - ``domain-model/`` tiene ``overview.rst`` + 26 archivos
+     de clase canónica (uno por clase) + 8 ``bc-*.rst`` BC
+     diagrams. ✓ Reestructurado (Bloque B).
  * - Concurrency
    - Process View
-   - ``process-view/`` tiene Activity pero solo flujo
-     genérico UC — no modela concurrencia real. H-15.
+   - ``process-view/`` tiene 4 diagramas de concurrencia
+     real: ETL pipeline, alertas paralelas, sesiones JWT,
+     dashboard. ✓ Reestructurado (Bloque F, antes H-15).
  * - Development
    - Implementation + Design View
-   - ``implementation-view/`` (Package ✓),
-     ``design-view/`` (Sequence ✓ pero boilerplate).
+   - ``implementation-view/`` 12 ``mod-*.rst`` canónicos
+     con stack de 5 capas. ``design-view/`` 12 ``mod-*.rst``
+     con secuencias reales por módulo. ✓ Reestructurado
+     (Bloques D y E).
  * - Deployment
    - Deployment View (+1)
-   - ``deploy-view/`` (Deployment ✓ pero boilerplate H-10).
+   - ``deploy-view/`` tiene 3 variantes canónicas:
+     ``deploy-estandar.rst``, ``deploy-auth-cache.rst``,
+     ``deploy-etl.rst``. ✓ Reestructurado (Bloque C,
+     antes H-10).
  * - Operational
    - Sin vista dedicada
    - No existe viewpoint Operational en IACT actualmente.
