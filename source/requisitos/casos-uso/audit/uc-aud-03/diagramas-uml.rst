@@ -74,7 +74,7 @@ Parte 8 — Diagramas UML
  actor "export_audit_log" as U
  participant "AuditExportEndpoint" as EP
  participant "ExportWorker" as W
- database "audit_log\n(PostgreSQL)" as DB
+ database "Repositorio de Auditoria" as DB
  participant "InternalMailbox" as MB
 
  U -> EP : POST /audit/export/ {filters}

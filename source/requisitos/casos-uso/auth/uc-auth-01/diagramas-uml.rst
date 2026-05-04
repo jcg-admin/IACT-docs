@@ -67,7 +67,7 @@ participantes principales del backend.
 
  actor       Usuario as U
  participant "Interfaz de Usuario" as F
- participant "LoginView\n(Django)" as V
+ participant "Servicio de Autenticacion" as V
  participant "AuthService" as Svc
  database    "Base de Datos\n(User, Session,\nAuditEvent)" as BD
 
