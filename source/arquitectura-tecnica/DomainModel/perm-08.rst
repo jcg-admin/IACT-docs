@@ -35,6 +35,24 @@ conceptual para :doc:`/requisitos/casos-uso/permissions/uc-perm-08/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_PERM_08 — Generar Menu Dinamico — Estado de Permiso
+
+ @startuml
+ hide empty description
+
+ [*] --> Solicitado : crear solicitud
+ Solicitado --> EnRevision : iniciar revision
+ EnRevision --> Aprobado : aprobar
+ EnRevision --> Denegado : denegar
+ Aprobado --> Activo : activar permiso
+ Activo --> Revocado : revocar
+ Denegado --> [*] : cerrar solicitud
+ Revocado --> [*] : archivar
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

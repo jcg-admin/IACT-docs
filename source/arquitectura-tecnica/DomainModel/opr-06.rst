@@ -35,6 +35,22 @@ conceptual para :doc:`/requisitos/casos-uso/operator/uc-opr-06/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_OPR_06 — Ingresar Disposition — Estado de AccionOperador
+
+ @startuml
+ hide empty description
+
+ [*] --> Iniciada : operador ejecuta accion
+ Iniciada --> Procesando : sistema valida RBAC
+ Procesando --> Completada : accion exitosa
+ Procesando --> Fallida : error / sin permiso
+ Completada --> [*] : registrar en auditoria
+ Fallida --> [*] : registrar error
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

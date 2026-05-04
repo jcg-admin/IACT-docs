@@ -25,26 +25,50 @@ UC_USR_03 tecnicamente.
  @startuml
 
  actor "update_users" as update_users
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB" as BaseDatos <<sql>>
+ participant "Interfaz de Usuarios" as Iface <<frontend>>
+ participant "Servicio de Usuarios" as SvcNode <<api>>
+ database "Almacen de Datos" as Store <<sql>>
 
- update_users -> Frontend : solicitar
- activate Frontend
+ update_users -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> update_users : renderizar vista
- deactivate Frontend
+ Iface --> update_users : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_USR_03 — Modificar Usuario — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":update_users" as Actor
+ object ":Interfaz de Usuarios" as Iface
+ object ":Servicio de Usuarios" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

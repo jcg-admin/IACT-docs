@@ -25,26 +25,50 @@ UC_AUD_04 tecnicamente.
  @startuml
 
  actor "generate_compliance_report" as generate_compliance_report
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB (audit_log)" as BaseDatos <<sql>>
+ participant "Interfaz de Auditoria" as Iface <<frontend>>
+ participant "Servicio de Auditoria" as SvcNode <<api>>
+ database "MariaDB (audit_log)" as Store <<sql>>
 
- generate_compliance_report -> Frontend : solicitar
- activate Frontend
+ generate_compliance_report -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> generate_compliance_report : renderizar vista
- deactivate Frontend
+ Iface --> generate_compliance_report : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_AUD_04 — Generar Reporte de Compliance — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":generate_compliance_report" as Actor
+ object ":Interfaz de Auditoria" as Iface
+ object ":Servicio de Auditoria" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

@@ -25,26 +25,50 @@ UC_LOG_03 tecnicamente.
  @startuml
 
  actor "search_logs" as search_logs
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB / Sistema" as BaseDatos <<sql>>
+ participant "Interfaz de Logs" as Iface <<frontend>>
+ participant "Servicio de Logs" as SvcNode <<api>>
+ database "MariaDB / Sistema" as Store <<sql>>
 
- search_logs -> Frontend : solicitar
- activate Frontend
+ search_logs -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> search_logs : renderizar vista
- deactivate Frontend
+ Iface --> search_logs : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_LOG_03 — Buscar Logs — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":search_logs" as Actor
+ object ":Interfaz de Logs" as Iface
+ object ":Servicio de Logs" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

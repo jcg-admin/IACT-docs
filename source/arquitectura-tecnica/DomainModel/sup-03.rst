@@ -35,6 +35,22 @@ conceptual para :doc:`/requisitos/casos-uso/supervision/uc-sup-03/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_SUP_03 — Mensaje Broadcast al Equipo — Estado de SesionSupervision
+
+ @startuml
+ hide empty description
+
+ [*] --> Abierta : supervisor ingresa
+ Abierta --> Monitoreando : ver metricas activas
+ Monitoreando --> Interviniendo : accion correctiva
+ Interviniendo --> Monitoreando : accion completada
+ Monitoreando --> Cerrada : supervisor sale
+ Cerrada --> [*] : registrar sesion
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

@@ -19,16 +19,18 @@ UC_USR_01 — Crear Usuario: Deployment View
 Distribucion fisica de nodos y artefactos para UC_USR_01.
 
 .. uml::
- :caption: UC_USR_01 — Deployment View
+ :caption: UC_USR_01 — Crear Usuario — Deployment View
 
  @startuml
 
- node "React Frontend" as NodoFront
- node "Django API" as NodoAPI
- database "MariaDB" as NodoBD
+ node "Cliente Web" as Client
+ node "Apache + mod_wsgi" as WebServer {
+   artifact "Django App" as App
+ }
+ database "MariaDB" as DB
 
- NodoFront --> NodoAPI : HTTPS / REST
- NodoAPI --> NodoBD : TCP / SQL
+ Client --> WebServer : HTTPS
+ WebServer --> DB : TCP / SQL
 
  @enduml
 

@@ -25,26 +25,50 @@ UC_SUP_01 tecnicamente.
  @startuml
 
  actor "monitor_live_calls" as monitor_live_calls
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB (tbl_historico_*)" as BaseDatos <<sql>>
+ participant "Interfaz de Supervision" as Iface <<frontend>>
+ participant "Servicio de Supervision" as SvcNode <<api>>
+ database "MariaDB (tbl_historico_*)" as Store <<sql>>
 
- monitor_live_calls -> Frontend : solicitar
- activate Frontend
+ monitor_live_calls -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> monitor_live_calls : renderizar vista
- deactivate Frontend
+ Iface --> monitor_live_calls : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_SUP_01 — Monitorear Llamada — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":monitor_live_calls" as Actor
+ object ":Interfaz de Supervision" as Iface
+ object ":Servicio de Supervision" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

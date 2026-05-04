@@ -19,16 +19,18 @@ UC_CLI_02 — Navegar IVR: Deployment View
 Distribucion fisica de nodos y artefactos para UC_CLI_02.
 
 .. uml::
- :caption: UC_CLI_02 — Deployment View
+ :caption: UC_CLI_02 — Navegar IVR — Deployment View
 
  @startuml
 
- node "PBX Telefonia" as NodoFront
- node "IVR Asterisk" as NodoAPI
- database "MariaDB (tbl_historico_*)" as NodoBD
+ node "Cliente Web" as Client
+ node "Apache + mod_wsgi" as WebServer {
+   artifact "Django App" as App
+ }
+ database "MariaDB" as DB
 
- NodoFront --> NodoAPI : HTTPS / REST
- NodoAPI --> NodoBD : TCP / SQL
+ Client --> WebServer : HTTPS
+ WebServer --> DB : TCP / SQL
 
  @enduml
 

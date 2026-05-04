@@ -35,6 +35,22 @@ conceptual para :doc:`/requisitos/casos-uso/operator/uc-opr-02/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_OPR_02 — Atender Llamada Entrante — Estado de AccionOperador
+
+ @startuml
+ hide empty description
+
+ [*] --> Iniciada : operador ejecuta accion
+ Iniciada --> Procesando : sistema valida RBAC
+ Procesando --> Completada : accion exitosa
+ Procesando --> Fallida : error / sin permiso
+ Completada --> [*] : registrar en auditoria
+ Fallida --> [*] : registrar error
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

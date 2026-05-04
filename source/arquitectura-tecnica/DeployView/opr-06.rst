@@ -19,16 +19,18 @@ UC_OPR_06 — Ingresar Disposition: Deployment View
 Distribucion fisica de nodos y artefactos para UC_OPR_06.
 
 .. uml::
- :caption: UC_OPR_06 — Deployment View
+ :caption: UC_OPR_06 — Ingresar Disposition — Deployment View
 
  @startuml
 
- node "Softphone WebRTC" as NodoFront
- node "Django API" as NodoAPI
- database "MariaDB (tbl_historico_*)" as NodoBD
+ node "Cliente Web" as Client
+ node "Apache + mod_wsgi" as WebServer {
+   artifact "Django App" as App
+ }
+ database "MariaDB" as DB
 
- NodoFront --> NodoAPI : HTTPS / REST
- NodoAPI --> NodoBD : TCP / SQL
+ Client --> WebServer : HTTPS
+ WebServer --> DB : TCP / SQL
 
  @enduml
 

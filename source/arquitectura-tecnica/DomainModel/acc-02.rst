@@ -35,6 +35,22 @@ conceptual para :doc:`/requisitos/casos-uso/access/uc-acc-02/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_ACC_02 — Revocar Funciones — Estado de FuncionAsignada
+
+ @startuml
+ hide empty description
+
+ [*] --> Pendiente : solicitar asignacion
+ Pendiente --> Asignada : aprobar asignacion
+ Asignada --> Activa : activar
+ Activa --> Revocada : revocar funcion
+ Pendiente --> [*] : rechazar solicitud
+ Revocada --> [*] : eliminar registro
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

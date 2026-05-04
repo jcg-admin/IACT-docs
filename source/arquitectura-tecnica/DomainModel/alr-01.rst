@@ -35,6 +35,23 @@ conceptual para :doc:`/requisitos/casos-uso/alerts/uc-alr-01/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_ALR_01 — Configurar Umbrales de Alertas — Estado de Alerta
+
+ @startuml
+ hide empty description
+
+ [*] --> Disparada : condicion detectada
+ Disparada --> Activa : notificar usuario
+ Activa --> Reconocida : usuario reconoce
+ Reconocida --> Resuelta : resolver causa
+ Resuelta --> [*] : cerrar alerta
+ Activa --> Escalada : timeout sin reconocer
+ Escalada --> Reconocida : reconocer escalada
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

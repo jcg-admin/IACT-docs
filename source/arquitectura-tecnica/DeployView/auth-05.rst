@@ -19,16 +19,20 @@ UC_AUTH_05 — Gestionar Sesiones: Deployment View
 Distribucion fisica de nodos y artefactos para UC_AUTH_05.
 
 .. uml::
- :caption: UC_AUTH_05 — Deployment View
+ :caption: UC_AUTH_05 — Gestionar Sesiones — Deployment View
 
  @startuml
 
- node "React Frontend" as NodoFront
- node "Django API" as NodoAPI
- database "MariaDB" as NodoBD
+ node "Cliente Web" as Client
+ node "Apache + mod_wsgi" as WebServer {
+   artifact "Django App" as App
+ }
+ database "MariaDB" as DB
+ node "Redis" as Cache
 
- NodoFront --> NodoAPI : HTTPS / REST
- NodoAPI --> NodoBD : TCP / SQL
+ Client --> WebServer : HTTPS
+ WebServer --> DB : TCP / SQL
+ WebServer --> Cache : TCP / Redis
 
  @enduml
 

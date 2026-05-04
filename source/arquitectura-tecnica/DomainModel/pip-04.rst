@@ -35,6 +35,24 @@ conceptual para :doc:`/requisitos/casos-uso/pipeline/uc-pip-04/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_PIP_04 — Solicitar Reintento de Pipeline — Estado de ETLRun
+
+ @startuml
+ hide empty description
+
+ [*] --> Programado : agendar ejecucion
+ Programado --> Ejecutando : sp_etl_maestro inicia
+ Ejecutando --> Completado : todas las etapas OK
+ Ejecutando --> Fallido : error en etapa
+ Completado --> [*] : registrar en etl_runs
+ Fallido --> Reintento : politica de reintento
+ Reintento --> Ejecutando : reintentar
+ Reintento --> [*] : agotar reintentos
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

@@ -35,6 +35,21 @@ conceptual para :doc:`/requisitos/casos-uso/audit/uc-aud-04/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_AUD_04 — Generar Reporte de Compliance — Estado de RegistroAuditoria
+
+ @startuml
+ hide empty description
+
+ [*] --> Capturado : evento de negocio ocurre
+ Capturado --> Indexado : almacenar en BD
+ Indexado --> Consultable : indice disponible
+ Consultable --> Archivado : politica de retencion
+ Archivado --> [*] : purgar segun CNST
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

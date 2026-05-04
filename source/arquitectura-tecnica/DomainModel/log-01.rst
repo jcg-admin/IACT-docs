@@ -35,6 +35,21 @@ conceptual para :doc:`/requisitos/casos-uso/logs/uc-log-01/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_LOG_01 — Consultar Logs del Sistema — Estado de EntradaLog
+
+ @startuml
+ hide empty description
+
+ [*] --> Generado : evento tecnico ocurre
+ Generado --> Almacenado : escribir en log
+ Almacenado --> Consultable : indice disponible
+ Consultable --> Archivado : rotacion de logs
+ Archivado --> [*] : purgar segun retencion
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

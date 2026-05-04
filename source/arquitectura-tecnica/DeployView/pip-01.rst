@@ -19,16 +19,18 @@ UC_PIP_01 — Supervisar ETL: Deployment View
 Distribucion fisica de nodos y artefactos para UC_PIP_01.
 
 .. uml::
- :caption: UC_PIP_01 — Deployment View
+ :caption: UC_PIP_01 — Supervisar ETL — Deployment View
 
  @startuml
 
- node "DisparadorETL" as NodoFront
- node "MariaDB (etl_runs)" as NodoAPI
- database "MariaDB (sp_etl_*)" as NodoBD
+ node "Cliente Web" as Client
+ node "Apache + mod_wsgi" as WebServer {
+   artifact "DisparadorETL" as App
+ }
+ database "MariaDB" as DB
 
- NodoFront --> NodoAPI : HTTPS / REST
- NodoAPI --> NodoBD : TCP / SQL
+ Client --> WebServer : HTTPS
+ WebServer --> DB : SP call / TCP
 
  @enduml
 

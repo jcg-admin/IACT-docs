@@ -35,6 +35,22 @@ conceptual para :doc:`/requisitos/casos-uso/users/uc-usr-03/index`.
 
  @enduml
 
+
+.. uml::
+ :caption: UC_USR_03 — Modificar Usuario — Estado de User
+
+ @startuml
+ hide empty description
+
+ [*] --> Creado : crear usuario
+ Creado --> Activo : activar cuenta
+ Activo --> Suspendido : suspender
+ Suspendido --> Activo : reactivar
+ Activo --> Desactivado : dar de baja
+ Desactivado --> [*] : eliminar definitivo
+
+ @enduml
+
 .. seealso::
 
  :doc:`/arquitectura-tecnica/modelo-dominio-iact`

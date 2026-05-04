@@ -25,26 +25,50 @@ UC_LOG_07 tecnicamente.
  @startuml
 
  actor "view_technical_metrics" as view_technical_metrics
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB / Sistema" as BaseDatos <<sql>>
+ participant "Interfaz de Logs" as Iface <<frontend>>
+ participant "Servicio de Logs" as SvcNode <<api>>
+ database "MariaDB / Sistema" as Store <<sql>>
 
- view_technical_metrics -> Frontend : solicitar
- activate Frontend
+ view_technical_metrics -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> view_technical_metrics : renderizar vista
- deactivate Frontend
+ Iface --> view_technical_metrics : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_LOG_07 — Ver Metricas Tecnicas — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":view_technical_metrics" as Actor
+ object ":Interfaz de Logs" as Iface
+ object ":Servicio de Logs" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

@@ -25,26 +25,50 @@ UC_PERM_01 tecnicamente.
  @startuml
 
  actor "assign_function_groups" as assign_function_groups
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB" as BaseDatos <<sql>>
+ participant "Interfaz de Permisos" as Iface <<frontend>>
+ participant "Servicio de Permisos" as SvcNode <<api>>
+ database "Almacen de Datos" as Store <<sql>>
 
- assign_function_groups -> Frontend : solicitar
- activate Frontend
+ assign_function_groups -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> assign_function_groups : renderizar vista
- deactivate Frontend
+ Iface --> assign_function_groups : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_PERM_01 — Asignar Grupo a Usuario — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":assign_function_groups" as Actor
+ object ":Interfaz de Permisos" as Iface
+ object ":Servicio de Permisos" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 

@@ -25,26 +25,50 @@ UC_ALR_03 tecnicamente.
  @startuml
 
  actor "acknowledge_alert" as acknowledge_alert
- participant "React Frontend" as Frontend <<frontend>>
- participant "Django API" as APIServer <<api>>
- database "MariaDB" as BaseDatos <<sql>>
+ participant "Interfaz de Alertas" as Iface <<frontend>>
+ participant "Servicio de Alertas" as SvcNode <<api>>
+ database "Almacen de Datos" as Store <<sql>>
 
- acknowledge_alert -> Frontend : solicitar
- activate Frontend
+ acknowledge_alert -> Iface : solicitar
+ activate Iface
 
- Frontend -> APIServer : POST/GET endpoint
- activate APIServer
+ Iface -> SvcNode : POST/GET endpoint
+ activate SvcNode
 
- APIServer -> BaseDatos : query / SP
- activate BaseDatos
- BaseDatos --> APIServer : resultado
- deactivate BaseDatos
+ SvcNode -> Store : query / SP
+ activate Store
+ Store --> SvcNode : resultado
+ deactivate Store
 
- APIServer --> Frontend : respuesta JSON
- deactivate APIServer
+ SvcNode --> Iface : respuesta JSON
+ deactivate SvcNode
 
- Frontend --> acknowledge_alert : renderizar vista
- deactivate Frontend
+ Iface --> acknowledge_alert : renderizar vista
+ deactivate Iface
+
+ @enduml
+
+
+.. uml::
+ :caption: UC_ALR_03 — Reconocer Alerta — Comunicacion entre Objetos
+
+ @startuml
+
+ object ":acknowledge_alert" as Actor
+ object ":Interfaz de Alertas" as Iface
+ object ":Servicio de Alertas" as Svc
+ object ":Repositorio" as Repo
+ object ":Almacen de Datos" as Store
+
+ Actor -> Iface : 1: solicitar accion
+ Iface -> Svc : 2: invocar endpoint
+ Svc -> Svc : 3: validar RBAC
+ Svc -> Repo : 4: ejecutar operacion
+ Repo -> Store : 5: query / SP
+ Store --> Repo : 6: resultado
+ Repo --> Svc : 7: entidad
+ Svc --> Iface : 8: respuesta
+ Iface --> Actor : 9: renderizar
 
  @enduml
 
