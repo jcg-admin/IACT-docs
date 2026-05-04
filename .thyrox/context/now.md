@@ -1,10 +1,10 @@
 ```yml
 type: Estado de Sesión
-version: 3.7
-updated_at: 2026-05-04 16:43:48
+version: 3.8
+updated_at: 2026-05-04 17:00:00
 cold_boot: false
-current_epic: 18
-epic_name: arq-tecnica-deep-audit
+current_epic: 20
+epic_name: broken-refs-audit
 current_work: .thyrox/context/work/2026-05-04-16-37-01-broken-refs-audit
 stage: execute
 stage_number: 10
@@ -12,9 +12,9 @@ current_phase: Phase 10 — EXECUTE
 flow: thyrox
 methodology_step: thyrox:execute
 blockers: []
-last_completed_phase: "ÉPICA 18 — F-01..F-06 corregidos, commiteados (297dc0a) y pusheados (2026-05-04)"
-next_decision_required: "F-07 (system-view/ sin toctree principal) — decisión arquitectónica del ejecutor antes de actuar"
-stage_sync_required: true
+last_completed_phase: "broken-refs-audit — R-01/R-02/R-03 corregidos (8f9926d). Build: 14 warnings → 0 warnings."
+next_decision_required: "R-04 (31 title overlines) y R-05 (33 duplicate labels) — abrir WPs independientes"
+stage_sync_required: false
 ```
 
 # IACT-docs — Estado de Sesión
