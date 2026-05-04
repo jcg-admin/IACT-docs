@@ -502,6 +502,43 @@ específicos (flujo-principal, actividad, secuencia con pasos concretos).
 2. Cada diagrama canónico muestra el patrón de interacción del módulo
 3. Eliminar los 160 archivos per-UC redundantes
 
+### H-12 — implementation-view/ tiene 80 archivos para 12 diagramas únicos [ALTA]
+
+`arquitectura-tecnica/implementation-view/` contiene **81 archivos** (80 UCs + index).
+
+**Resultado del análisis por hash MD5:** 12 hashes únicos — exactamente 1 por módulo.
+Todos los UCs del mismo módulo comparten el mismo diagrama idéntico.
+
+| Módulo | Archivos UC | Diagrama único |
+|---|---|---|
+| MOD_Reports | 16 | 1 |
+| MOD_Calls / Operator | 10 | 1 |
+| MOD_Permissions | 10 | 1 |
+| MOD_Access | 7 | 1 |
+| MOD_Logs | 7 | 1 |
+| MOD_Auth | 5 | 1 |
+| MOD_Alerts | 5 | 1 |
+| MOD_Caller | 5 | 1 |
+| MOD_Users | 4 | 1 |
+| MOD_Audit | 4 | 1 |
+| MOD_Pipeline | 4 | 1 |
+| MOD_Supervision | 3 | 1 |
+
+**Total verificado:** 68/80 archivos son redundantes (mismo diagrama del módulo repetido).
+
+**Diferencia clave vs. deploy-view y design-view:** el agrupamiento es semánticamente
+correcto — la vista de implementación ES por módulo, no por UC. El diagrama
+`package "MOD_X" { View/Serializer → Service/Repository → ORM/SP }` describe
+correctamente la estructura de implementación de cada módulo.
+
+El problema es únicamente la multiplicación innecesaria: 80 archivos UC-indexados
+para 12 diagramas de módulo.
+
+**Solución correcta:** 12 archivos canónicos (uno por módulo), reemplazando los
+80 per-UC. La estructura ya existe en `modulos/*/componentes.rst` — los diagramas
+de `implementation-view/` podrían consolidarse allí o vivir como archivos
+`implementation-view/mod-{nombre}.rst` (análogo a `uc-module-view/mod-{nombre}.rst`).
+
 ---
 
 ## 10. Preguntas de diseño para la fase STRATEGY
@@ -549,3 +586,4 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `arquitectura-tecnica/bounded-contexts/` | ✓ DIAG puro — es el verdadero domain model | Consolidar en `domain-model/`; eliminar directorio (H-09) |
 | `arquitectura-tecnica/deploy-view/` (80 archivos) | ⚠ 71/80 son copia idéntica del mismo diagrama | Reducir a 3 diagramas canónicos por variante de infra (H-10) |
 | `arquitectura-tecnica/design-view/` (160 archivos) | ⚠ 160/160 boilerplate genérico; 4 pasos idénticos en todos los archivos | Reducir a ~12 diagramas canónicos por módulo (H-11) |
+| `arquitectura-tecnica/implementation-view/` (80 archivos) | ⚠ 12 diagramas únicos reales; 68 redundantes — agrupación correcta es por módulo | Reducir a 12 archivos `mod-{nombre}.rst` (H-12) |
