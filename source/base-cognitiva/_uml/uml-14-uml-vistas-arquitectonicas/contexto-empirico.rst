@@ -68,9 +68,9 @@ Los siete viewpoints de Rozanski et al.
 ========================================
 
 El catálogo completo incluye el viewpoint **Context** (transversal)
-más seis viewpoints especializados. Las definiciones a continuación
-son las del libro original (*Software Systems Architecture*, Rozanski
-& Woods, 2ª ed.).
+más seis viewpoints especializados. Las definiciones canónicas
+completas del libro original están en :doc:`vistas-y-viewpoints`
+(Tabla 3-1). A continuación se incluyen para referencia directa:
 
 .. list-table::
  :header-rows: 1
@@ -154,87 +154,11 @@ son las del libro original (*Software Systems Architecture*, Rozanski
 Importancia de los viewpoints por tipo de sistema
 ===================================================
 
-No todos los viewpoints tienen la misma relevancia para cada tipo
-de sistema de información. La siguiente tabla resume la importancia
-relativa de cada viewpoint para cinco tipos de sistema
-representativos (Rozanski & Woods, Cap. 3):
-
-.. list-table:: Importancia de viewpoints por tipo de sistema
- :header-rows: 2
- :stub-columns: 1
- :widths: 18 14 14 14 14 14 12
-
- * - Tipo de sistema
-   - OLTP\ [#f1]_
-   - Cálculo/MW\ [#f2]_
-   - DSS/MIS\ [#f3]_
-   - Web vol.\ alto\ [#f4]_
-   - Pkg. Empresa\ [#f5]_
-   -
- * - Viewpoint
-   -
-   -
-   -
-   -
-   -
-   -
- * - **Context**
-   - Alta
-   - Baja
-   - Alta
-   - Media
-   - Media
-   -
- * - **Functional**
-   - Alta
-   - Alta
-   - Baja
-   - Alta
-   - Alta
-   -
- * - **Information**
-   - Media
-   - Baja
-   - Alta
-   - Media
-   - Media
-   -
- * - **Concurrency**
-   - Baja
-   - Alta
-   - Baja
-   - Media
-   - Variable
-   -
- * - **Development**
-   - Alta
-   - Alta
-   - Baja
-   - Alta
-   - Alta
-   -
- * - **Deployment**
-   - Alta
-   - Alta
-   - Alta
-   - Alta
-   - Alta
-   -
- * - **Operational**
-   - Variable
-   - Baja
-   - Media
-   - Media
-   - Alta
-   -
-
-.. rubric:: Notas
-
-.. [#f1] OLTP: Sistema de información transaccional en línea
-.. [#f2] Cálculo/MW: Servicio de cálculo o middleware
-.. [#f3] DSS/MIS: Sistema de soporte de decisiones / información gerencial
-.. [#f4] Web vol. alto: Sitio web de alto volumen
-.. [#f5] Pkg. Empresa: Paquete de software empresarial (ERP, etc.)
+La tabla completa de importancia relativa por tipo de sistema
+(Tabla 3-2 de Rozanski & Woods, Cap. 3) se encuentra en
+:doc:`vistas-y-viewpoints`. La tabla incluye 5 tipos de sistema:
+OLTP, Cálculo/Middleware, DSS/MIS, Web de alto volumen y
+Paquete empresarial.
 
 Relevancia para IACT
 ----------------------

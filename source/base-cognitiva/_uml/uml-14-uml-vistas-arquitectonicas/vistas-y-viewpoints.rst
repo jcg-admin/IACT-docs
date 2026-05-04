@@ -328,46 +328,73 @@ Riesgos y pitfalls
 Catálogo de viewpoints (Rozanski & Woods)
 ==========================================
 
-Rozanski & Woods proponen un catálogo de **siete viewpoints
-core** para arquitecturas de sistemas de información.
+La Parte III del libro presenta el catálogo de siete viewpoints
+core para arquitecturas de sistemas de información: Context,
+Functional, Information, Concurrency, Development, Deployment y
+Operational. Aunque los viewpoints son en gran medida disjuntos,
+es conveniente agruparlos como se muestra en Figura 3-2.
 
-.. list-table::
+.. list-table:: Tabla 3-1 — Catálogo de viewpoints (Rozanski & Woods)
  :header-rows: 1
- :widths: 20 80
+ :widths: 18 82
 
  * - Viewpoint
-   - Descripción
+   - Definición
  * - **Context**
-   - Describe las relaciones, dependencias e interacciones
-     entre el sistema y su entorno (personas, sistemas y
-     entidades externas con las que interactúa). Es el
-     viewpoint "envolvente" que informa el scope y contenido
-     de todos los demás.
+   - Describe las relaciones, dependencias e interacciones entre
+     el sistema y su entorno: las personas, sistemas y entidades
+     externas con las que interactúa. La vista Context será de
+     interés para muchos stakeholders y juega un papel importante
+     en ayudarles a entender las responsabilidades del sistema y
+     cómo se relaciona con su organización.
  * - **Functional**
-   - Describe la estructura funcional del sistema: los
-     elementos funcionales que lo componen, sus
-     responsabilidades, interfaces e interacciones primarias.
+   - Describe los elementos funcionales *runtime* del sistema,
+     sus responsabilidades, interfaces e interacciones primarias.
+     Una vista Functional es la piedra angular de la mayoría de
+     las ADs y suele ser la primera que los stakeholders leen.
+     Impulsa la forma de otras estructuras del sistema (información,
+     concurrencia, despliegue) y tiene un impacto significativo
+     en propiedades de calidad como la capacidad de cambio, la
+     seguridad y el rendimiento en tiempo de ejecución.
  * - **Information**
-   - Describe cómo el sistema almacena, manipula, gestiona
-     y distribuye información: estructura, flujo y ciclo de
-     vida de los datos.
+   - Describe cómo el sistema almacena, manipula, gestiona y
+     distribuye información. El objetivo de casi cualquier sistema
+     informático es manipular información de alguna forma, y este
+     viewpoint desarrolla una vista completa pero de alto nivel de
+     la estructura estática de los datos y el flujo de información.
+     El objetivo del análisis es responder las grandes preguntas
+     sobre contenido, estructura, propiedad, latencia, referencias
+     y migración de datos.
  * - **Concurrency**
-   - Describe la estructura de concurrencia del sistema:
-     mapeo de elementos funcionales a unidades concurrentes,
-     mecanismos de comunicación y sincronización.
+   - Describe la estructura de concurrencia del sistema y mapea
+     los elementos funcionales a unidades de concurrencia para
+     identificar claramente qué partes del sistema pueden ejecutarse
+     concurrentemente y cómo se coordina y controla esto. Conlleva
+     la creación de modelos que muestren las estructuras de proceso
+     e hilo que el sistema usará y los mecanismos de comunicación
+     entre procesos para coordinar su operación.
  * - **Development**
-   - Describe la arquitectura que soporta el proceso de
-     desarrollo: organización del código, dependencias de
-     módulos, estándares de diseño, plataformas y
-     herramientas de build/test.
+   - Describe la arquitectura que soporta el proceso de desarrollo
+     de software. Las vistas Development comunican los aspectos de
+     la arquitectura de interés para los stakeholders involucrados
+     en construir, probar, mantener y mejorar el sistema.
  * - **Deployment**
-   - Describe el entorno en el que el sistema se despliega:
-     hardware, infraestructura de red, requisitos de
-     capacidad y despliegue de los elementos software.
+   - Describe el entorno en el que el sistema se desplegará y las
+     dependencias que el sistema tiene sobre él. Esta vista captura
+     el entorno hardware que el sistema necesita (nodos de
+     procesamiento, interconexiones de red e instalaciones de
+     almacenamiento), los requisitos del entorno técnico para cada
+     elemento y el mapeo de los elementos software al entorno de
+     ejecución que los ejecutará.
  * - **Operational**
-   - Describe cómo el sistema se opera, administra y
-     soporta en su entorno de producción: monitorización,
-     migración, configuración, soporte y administración.
+   - Describe cómo el sistema será operado, administrado y soportado
+     cuando esté en ejecución en su entorno de producción. Para
+     todos los sistemas salvo los más simples, instalar, gestionar
+     y operar el sistema es una tarea significativa que debe
+     considerarse y planificarse en tiempo de diseño. El objetivo
+     es identificar estrategias a nivel de sistema para abordar los
+     concerns operacionales de los stakeholders e identificar
+     soluciones que los aborden.
 
 Agrupación de viewpoints
 --------------------------
@@ -436,9 +463,92 @@ serán más importantes que otros. La selección adecuada depende de:
   arquitecto)
 - El tiempo disponible y otras restricciones
 
+Aunque es difícil generalizar, la siguiente tabla lista la
+importancia relativa que cada vista tiene para algunos tipos
+típicos de sistemas de información. Se recomienda usar esta tabla
+como punto de partida al elegir las vistas a incluir en la AD:
+
+.. list-table:: Tabla 3-2 — Vistas más importantes para tipos típicos de sistema
+ :header-rows: 2
+ :stub-columns: 1
+ :widths: 18 14 14 14 14 14 12
+
+ * - Tipo de sistema
+   - OLTP\ [#t1]_
+   - Cálculo/MW\ [#t2]_
+   - DSS/MIS\ [#t3]_
+   - Web vol. alto\ [#t4]_
+   - Pkg. empresa\ [#t5]_
+   -
+ * - Viewpoint
+   -
+   -
+   -
+   -
+   -
+   -
+ * - **Context**
+   - Alta
+   - Baja
+   - Alta
+   - Media
+   - Media
+   -
+ * - **Functional**
+   - Alta
+   - Alta
+   - Baja
+   - Alta
+   - Alta
+   -
+ * - **Information**
+   - Media
+   - Baja
+   - Alta
+   - Media
+   - Media
+   -
+ * - **Concurrency**
+   - Baja
+   - Alta
+   - Baja
+   - Media
+   - Variable
+   -
+ * - **Development**
+   - Alta
+   - Alta
+   - Baja
+   - Alta
+   - Alta
+   -
+ * - **Deployment**
+   - Alta
+   - Alta
+   - Alta
+   - Alta
+   - Alta
+   -
+ * - **Operational**
+   - Variable
+   - Baja
+   - Media
+   - Media
+   - Alta
+   -
+
+.. rubric:: Notas de tabla
+
+.. [#t1] OLTP: Sistema de información transaccional en línea
+.. [#t2] Cálculo/MW: Servicio de cálculo o middleware
+.. [#t3] DSS/MIS: Sistema de soporte de decisiones / información gerencial
+.. [#t4] Web vol. alto: Sitio web de alto volumen de usuarios
+.. [#t5] Pkg. empresa: Paquete de software empresarial (ERP, etc.)
+
 La selección correcta de vistas para un contexto específico
 requiere experiencia y análisis de los concerns más importantes
-que afectan a la arquitectura concreta.
+que afectan a la arquitectura concreta. Ver análisis IACT en
+:doc:`contexto-empirico`.
 
 ----
 
