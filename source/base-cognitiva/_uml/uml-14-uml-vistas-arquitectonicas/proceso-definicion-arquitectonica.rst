@@ -271,24 +271,31 @@ Las tablas 7-1 a 7-5 describen cada actividad en detalle:
  :widths: 20 80
 
  * - **Objetivo**
-   - Definir claramente los límites del comportamiento y
-     responsabilidades del sistema, y el contexto operacional y
-     organizacional dentro del cual el sistema existe.
+   - Delimitar claramente el comportamiento y las responsabilidades
+     del sistema, y el contexto operacional y organizacional dentro
+     del cual el sistema existe.
  * - **Entradas**
-   - Necesidades y visión del adquirente; estrategia organizacional;
-     arquitectura IT empresarial.
+   - Necesidades y visión de los adquirentes; estrategia
+     organizacional; arquitectura IT del entorno.
+
+     *En IACT:* requisitos de las instituciones; normativa
+     aplicable (CNST-007, Ley N); arquitectura IT existente
+     (IVR legacy, bases de datos institucionales).
  * - **Salidas**
-   - Declaraciones iniciales de los objetivos del sistema y qué está
-     incluido y excluido de sus responsabilidades, junto con una
-     definición inicial del contexto del sistema. Pueden capturarse
-     en un borrador de la vista Context.
+   - Declaraciones iniciales de los objetivos del sistema y qué
+     está incluido y excluido de sus responsabilidades, junto con
+     una definición inicial del contexto. Pueden capturarse en un
+     borrador de la vista Context.
+
+     *En IACT:* alcance (gestión de acciones ciudadanas), restricción
+     fundamental (IVR es fuente de datos externa, solo lectura),
+     borrador de vista Context con IVR como actor externo.
  * - **Notas**
    - Este paso es principalmente un proceso de comprender los
      objetivos estratégicos y organizacionales y cómo el sistema
-     ayuda a cumplirlos, junto con un análisis para entender con
-     qué otros sistemas necesita interactuar. El scope definido
-     aquí puede cambiar (sujeto al acuerdo de los stakeholders)
-     durante la definición de arquitectura.
+     ayuda a cumplirlos, junto con un análisis de qué otros sistemas
+     necesita integrar. El scope puede cambiar durante la definición
+     de arquitectura con acuerdo de los stakeholders.
 
 .. list-table:: Tabla 7-2 — Comprometer a los Stakeholders
  :header-rows: 0
@@ -301,15 +308,19 @@ Las tablas 7-1 a 7-5 describen cada actividad en detalle:
    - Scope y contexto del borrador de la vista Context; estructura
      organizacional.
  * - **Salidas**
-   - Definición de cada grupo de stakeholders, con una o más personas
-     nombradas y comprometidas que representarán al grupo.
+   - Definición de cada grupo de stakeholders, con una o más
+     personas nombradas y comprometidas que representarán al grupo.
+
+     *En IACT:* grupos AGR_ADMIN, AGR_OPERADOR, AGR_AUDITOR
+     con representantes nombrados por institución participante.
  * - **Notas**
-   - Este paso implica entender el contexto organizacional en el que
-     se trabaja e identificar las personas clave que se verán
-     afectadas por el sistema. Se comienza a conocer a sus
-     representantes y a construir una relación de trabajo con ellos.
-     Los concerns definidos aquí pueden cambiar durante la
-     definición de arquitectura.
+   - Implica entender el contexto organizacional e identificar las
+     personas clave que se verán afectadas por el sistema.
+     En IACT los tres grupos tienen concerns muy distintos:
+     AGR_ADMIN define permisos RBAC, AGR_OPERADOR ejecuta acciones,
+     AGR_AUDITOR requiere trazabilidad regulatoria. Identificarlos
+     temprano evita conflictos posteriores en la definición de
+     concerns.
 
 .. list-table:: Tabla 7-3 — Capturar los Concerns de Primera Pasada
  :header-rows: 0
@@ -317,59 +328,75 @@ Las tablas 7-1 a 7-5 describen cada actividad en detalle:
 
  * - **Objetivo**
    - Comprender claramente los concerns que cada grupo de stakeholders
-     tiene sobre el sistema y las prioridades que asignan a cada
-     concern.
+     tiene sobre el sistema y las prioridades que asignan a cada uno.
  * - **Entradas**
    - Lista de stakeholders; scope y contexto.
  * - **Salidas**
    - Definición inicial de un conjunto de concerns priorizados para
      cada grupo de stakeholders.
+
+     *En IACT:* RBAC granular (AGR_ADMIN), disponibilidad del
+     pipeline ETL (AGR_OPERADOR), trazabilidad regulatoria y
+     cobertura CNST-007 (AGR_AUDITOR), separación IVR read-only
+     y seguridad de datos (instituciones adquirentes).
  * - **Notas**
-   - Este paso suele comenzar con las reuniones iniciales con
-     stakeholders. Normalmente implica una serie de presentaciones
-     y reuniones con representantes de cada grupo que permiten
-     explicar qué se pretende lograr y que los stakeholders
-     expliquen sus intereses en el sistema. Los concerns pueden
-     cambiar durante la definición de arquitectura.
+   - Suele comenzar con las reuniones iniciales con stakeholders.
+     En IACT, los concerns suelen estar en conflicto: seguridad
+     (acceso mínimo) vs. operabilidad (acceso amplio). Estos
+     conflictos se capturan en `normativa/restricciones/cnst-*.rst`
+     y orientan los compromisos arquitectónicos.
 
 .. list-table:: Tabla 7-4 — Definir la Arquitectura
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Crear la AD para el sistema.
+   - Crear la AD del sistema documentando las decisiones
+     arquitectónicas que satisfacen los concerns identificados.
  * - **Entradas**
-   - Lista de stakeholders; scope y contexto.
+   - Lista de stakeholders; concerns priorizados; restricciones
+     conocidas.
+
+     *En IACT:* H-01..H-15 del WP de auditoría; CNST-007 y
+     restricciones de seguridad; normativa regulatoria.
  * - **Salidas**
-   - AD; directrices y restricciones.
+   - AD completa; directrices y restricciones para la construcción.
+
+     *En IACT:* `arquitectura-tecnica/` con las 6 vistas 5+1
+     (Domain Model, Use Case View, Design View, Implementation
+     View, Process View, Deployment View); STD-011 y ADR-GOB-*
+     como directrices.
  * - **Notas**
-   - Esta actividad se describe en detalle en la sección
-     "Architecture Definition Activities" del capítulo original.
-     Es la actividad central del proceso.
+   - Actividad central del proceso. Se describe en detalle en la
+     sección de Architecture Definition Activities de este
+     capítulo. En IACT se implementa en Stages 4-7 de THYROX
+     (CONSTRAINTS, STRATEGY, PLAN, DESIGN/SPECIFY).
 
 .. list-table:: Tabla 7-5 — Crear el Sistema Esqueleto (opcional)
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Paso opcional para crear una implementación funcional (aunque
-     limitada) de la arquitectura que pueda evolucionar hacia el
-     sistema entregado durante la fase de construcción del ciclo
-     de vida.
+   - Paso opcional para crear una implementación funcional limitada
+     de la arquitectura que pueda evolucionar hacia el sistema
+     entregado durante la construcción.
  * - **Entradas**
    - AD; directrices y restricciones asociadas.
  * - **Salidas**
-   - Un sistema funcional limitado que ilustra que el sistema puede
+   - Sistema funcional limitado que ilustra que el sistema puede
      abordar al menos uno de sus escenarios.
+
+     *En IACT:* flujo completo de acción ciudadana con RBAC +
+     auditoría demostrado en un entorno de integración controlado.
  * - **Notas**
    - Si se tiene el tiempo y los recursos, forma un puente efectivo
      entre la definición de arquitectura y la construcción de
-     software. Permite al arquitecto y a los desarrolladores
-     construir un sistema funcional que pueda ejecutar al menos un
-     escenario funcional simple. El sistema esqueleto actúa como
-     validación de la arquitectura (y una prueba de credibilidad
-     importante para muchos stakeholders) así como un marco de
-     trabajo para la fase de construcción de software.
+     software. El sistema esqueleto actúa como validación de la
+     arquitectura y prueba de credibilidad ante los stakeholders.
+
+     *En IACT:* corresponde al Stage 9 PILOT/VALIDATE de THYROX.
+     Valida que el modelo RBAC granular es operable y que la
+     integración IVR read-only funciona según lo descrito en la AD.
 
 **Entradas al proceso:**
 
@@ -450,154 +477,268 @@ Tablas de detalle — pasos del proceso iterativo
  :widths: 20 80
 
  * - **Objetivo**
-   - Asegurar que se tienen todos los inputs necesarios para
-     comenzar a definir la arquitectura y que estos son coherentes
-     y completos en la medida de lo posible.
+   - Comprender, validar y refinar los inputs disponibles para
+     producir una línea base sólida antes de comenzar a diseñar.
  * - **Entradas**
-   - Concerns de los stakeholders; scope y contexto; cualquier
-     restricción arquitectónica conocida; arquitecturas existentes.
+   - Inputs brutos del proceso: scope y contexto del borrador de
+     vista Context; concerns de los stakeholders.
+
+     *En IACT:* hallazgos H-01..H-15 del WP de auditoría
+     (`2026-05-04-08-32-37`); restricciones CNST-*.
+ * - **Actividades**
+   - Tomar los inputs brutos, resolver inconsistencias entre ellos,
+     responder preguntas abiertas y profundizar donde sea necesario
+     para producir una línea base acordada por los stakeholders clave.
+
+     *En IACT:* reconciliar conflictos entre concerns de
+     AGR_ADMIN (RBAC restrictivo) y AGR_OPERADOR (acceso
+     operacional amplio); validar que CNST-007 es compatible
+     con los requisitos de disponibilidad del pipeline ETL.
  * - **Salidas**
-   - Conjunto consolidado y priorizado de concerns, scope, contexto
-     y restricciones, acordado entre los stakeholders.
+   - Inputs consolidados con inconsistencias mayores resueltas,
+     preguntas abiertas respondidas y áreas que requieren
+     exploración adicional identificadas.
+
+     *En IACT:* H-14 (uc-module-view/ vs use-case-view/) y H-15
+     (misclasificación de process-view/) marcados como áreas
+     de exploración prioritaria en Stage 5 STRATEGY.
  * - **Notas**
-   - Es probable que los concerns sean incompletos e inconsistentes
-     en esta etapa. El objetivo es identificar los concerns más
-     importantes y asegurarse de que hay suficiente información para
-     comenzar a definir la arquitectura.
+   - Es infrecuente recibir un set de inputs consistente y acordado.
+     Este paso llena las lagunas, resuelve inconsistencias y obtiene
+     acuerdo formal de los stakeholders clave antes de avanzar.
 
 .. list-table:: Tabla 7-7 — Paso 2: Identificar Escenarios
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Identificar un conjunto de escenarios que cubran los concerns
-     más importantes y que puedan usarse para dirigir y evaluar el
-     diseño de la arquitectura.
+   - Identificar un conjunto de escenarios que ilustren los requisitos
+     más importantes del sistema y permitan evaluar propuestas
+     arquitectónicas.
  * - **Entradas**
-   - Concerns priorizados de los stakeholders; scope y contexto.
- * - **Salidas**
-   - Conjunto de escenarios arquitectónicos priorizados que ilustran
-     los aspectos más importantes del sistema propuesto.
- * - **Notas**
-   - Los escenarios son casos de uso, escenarios de calidad u otras
-     descripciones de las respuestas esperadas del sistema. Son una
-     herramienta poderosa para asegurar que la arquitectura aborda
-     los concerns de los stakeholders y para evaluar si lo hace.
+   - Inputs consolidados (según el estado actual).
+ * - **Actividades**
+   - Producir escenarios que caractericen los atributos más
+     importantes requeridos de la arquitectura y que puedan usarse
+     para evaluar qué tan bien una arquitectura propuesta satisface
+     los requisitos funcionales y de propiedades de calidad.
 
-.. list-table:: Tabla 7-8 — Paso 3: Identificar Estilos Arquitectónicos Relevantes
+     *En IACT:* escenarios funcionales (UC-RBAC: asignación
+     de permisos por AGR_ADMIN; UC-ETL: carga de datos IVR;
+     UC-ACCION: registro de acción ciudadana) y escenarios
+     de calidad (disponibilidad del pipeline ETL ante fallo
+     de IVR; trazabilidad ante auditoría regulatoria).
+ * - **Salidas**
+   - Escenarios arquitectónicos priorizados para el sistema.
+
+     *En IACT:* set de escenarios cubriendo RBAC granular,
+     pipeline ETL, integración IVR read-only y auditoría.
+ * - **Notas**
+   - Un escenario describe una situación que el sistema
+     probablemente enfrentará. Puede identificarse para comportamiento
+     funcional ("¿Cómo registra IACT una acción ciudadana?") o
+     propiedades de calidad ("¿Cómo mantiene IACT trazabilidad ante
+     un fallo del pipeline ETL?").
+
+.. list-table:: Tabla 7-8 — Paso 3: Identificar Estilos Arquitectónicos
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Identificar los estilos arquitectónicos que son adecuados para
-     el sistema en cuestión y que pueden usarse para guiar el diseño.
+   - Identificar uno o más estilos arquitectónicos probados que
+     puedan servir de base para la organización general del sistema.
  * - **Entradas**
-   - Concerns y escenarios priorizados; scope y contexto.
- * - **Salidas**
-   - Uno o más estilos arquitectónicos candidatos que podrían aplicarse
-     al sistema y criterios para evaluarlos.
- * - **Notas**
-   - Un estilo arquitectónico es un patrón de alto nivel que define
-     cómo organizar los elementos de un sistema. Ejemplos: cliente-
-     servidor, arquitectura en capas, arquitectura orientada a
-     servicios, arquitectura dirigida por eventos, microservicios.
+   - Inputs consolidados; escenarios arquitectónicos.
+ * - **Actividades**
+   - Revisar catálogos de estilos arquitectónicos; considerar
+     organizaciones que hayan funcionado bien en sistemas similares;
+     identificar los relevantes para la arquitectura según se
+     entiende actualmente.
 
-.. list-table:: Tabla 7-9 — Paso 4: Producir una Arquitectura Candidata
+     *En IACT:* sistemas con perfil OLTP + DSS + alta disponibilidad
+     + regulatorio sugieren arquitectura en capas (separación
+     RBAC/dominio/persistencia), orientada a eventos (pipeline ETL
+     asíncrono), y puertos-y-adaptadores para aislar la fuente IVR
+     read-only del núcleo de negocio.
+ * - **Salidas**
+   - Estilos arquitectónicos a considerar como base para las
+     principales estructuras del sistema.
+
+     *En IACT:* layered + event-driven + hexagonal (ports and
+     adapters para IVR); ADR-GOB-* documentará la elección.
+ * - **Notas**
+   - Usar un estilo arquitectónico probado permite reutilizar
+     conocimiento que ha demostrado efectividad en situaciones
+     anteriores, reduciendo el riesgo de introducir ideas no
+     probadas.
+
+.. list-table:: Tabla 7-9 — Paso 4: Crear Vistas Arquitectónicas
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Crear una arquitectura candidata que aborde los concerns
-     priorizados de los stakeholders.
+   - Crear una arquitectura de primera pasada que refleje los
+     concerns arquitectónicos primarios y sirva como base para
+     evaluación y refinamiento posteriores.
  * - **Entradas**
-   - Concerns y escenarios priorizados; estilos arquitectónicos
-     candidatos; restricciones.
+   - Inputs consolidados (según el estado actual); estilos
+     arquitectónicos, viewpoints y perspectivas relevantes.
+ * - **Actividades**
+   - Producir un set inicial de vistas arquitectónicas para definir
+     las ideas arquitectónicas iniciales, usando guía de los
+     viewpoints y perspectivas y los estilos arquitectónicos
+     relevantes.
+
+     *En IACT:* generar borradores de las 6 vistas del modelo
+     5+1 (Domain Model, Use Case View, Design View,
+     Implementation View, Process View real, Deployment View)
+     aplicando los viewpoints Rozanski: Functional, Information,
+     Concurrency, Development, Deployment, Operational.
  * - **Salidas**
-   - Versión preliminar de la AD: modelos de las vistas más
-     importantes, con los elementos principales y sus relaciones.
+   - Borradores de vistas arquitectónicas.
+
+     *En IACT:* primeros diagramas en `arquitectura-tecnica/`
+     con los elementos principales de cada vista 5+1; posibles
+     lagunas o inconsistencias son esperables en esta etapa.
  * - **Notas**
-   - Es probable que la arquitectura candidata sea incompleta y
-     requiera refinamiento. El objetivo es tener suficiente
-     detalle para poder explorar opciones y evaluar con los
-     stakeholders.
+   - Aunque los borradores pueden contener lagunas,
+     inconsistencias o errores, forman el punto de partida para
+     el trabajo arquitectónico más detallado. No esperar perfección
+     en esta etapa.
 
 .. list-table:: Tabla 7-10 — Paso 5: Explorar las Opciones Arquitectónicas
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Identificar y evaluar las principales opciones arquitectónicas
-     disponibles para los aspectos más importantes o inciertos del
-     diseño.
+   - Explorar las distintas posibilidades arquitectónicas del sistema
+     y tomar las decisiones arquitectónicas clave.
  * - **Entradas**
-   - Arquitectura candidata; concerns y escenarios priorizados.
- * - **Salidas**
-   - Evaluación de las opciones disponibles y justificación de
-     las decisiones tomadas.
- * - **Notas**
-   - Es raro que exista una única solución a un problema. Cuando
-     hay varias soluciones potenciales, el análisis debe revelar
-     las fortalezas y debilidades de cada una y justificar la
-     solución elegida. Puede implicar prototipos, spikes técnicos
-     o análisis formales.
+   - Inputs consolidados; borradores de vistas arquitectónicas;
+     escenarios arquitectónicos, viewpoints y perspectivas.
+ * - **Actividades**
+   - Aplicar los escenarios a los borradores para demostrar que son
+     factibles y no tienen problemas ocultos. Tomar las áreas de
+     riesgo o incertidumbre y explorarlas. Donde haya más de una
+     solución posible, evaluar fortalezas y debilidades de cada
+     una y seleccionar la mejor.
 
-.. list-table:: Tabla 7-11 — Paso 6: Evaluar la Arquitectura con los Stakeholders
+     *En IACT:* aplicar el escenario UC-RBAC sobre el borrador
+     de Use Case View para verificar que la granularidad de
+     permisos es modelable; explorar H-14 (¿qué queda en
+     use-case-view/ vs qué se migra de uc-module-view/?) y
+     H-15 (¿qué diagramas de process-view/ corresponden a
+     Use Case View vs cuáles al Concurrency viewpoint real?).
+ * - **Salidas**
+   - Vistas arquitectónicas más detalladas o precisas para las
+     partes del sistema donde se exploraron opciones.
+
+     *En IACT:* resolución documentada de H-14 y H-15 con
+     decisión ADR-GOB-* sobre reclasificación de vistas.
+ * - **Notas**
+   - El objetivo de este paso es rellenar lagunas, eliminar
+     inconsistencias y proporcionar el detalle necesario. La
+     exploración puede implicar prototipos o spikes técnicos para
+     las áreas de mayor incertidumbre.
+
+.. list-table:: Tabla 7-11 — Paso 6: Evaluar la Arquitectura
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Asegurar que la arquitectura candidata aborda los concerns de
-     todos los stakeholders de manera satisfactoria.
+   - Evaluar la arquitectura con los stakeholders clave, capturar
+     problemas o deficiencias y obtener su aceptación.
  * - **Entradas**
-   - Arquitectura candidata; concerns y escenarios priorizados.
+   - Inputs consolidados; vistas arquitectónicas y outputs de
+     perspectivas.
+ * - **Actividades**
+   - Evaluar la arquitectura con una colección representativa de
+     stakeholders. Capturar y acordar mejoras o comentarios sobre
+     los modelos.
+
+     *En IACT:* revisión con AGR_ADMIN (verificar modelado
+     RBAC granular), AGR_AUDITOR (verificar trazabilidad
+     regulatoria y cobertura CNST-007), representantes de
+     instituciones (verificar integración IVR read-only).
  * - **Salidas**
-   - Lista de comentarios, preguntas y concerns de los stakeholders
-     sobre la arquitectura. Confirmación (o no) de que la arquitectura
-     satisface los concerns de los stakeholders.
+   - Comentarios de la revisión arquitectónica — conformidades
+     y no-conformidades por grupo de stakeholders.
+
+     *En IACT:* lista de observaciones sobre las vistas 5+1
+     con prioridad por grupo (bloqueante / importante / menor).
  * - **Notas**
-   - Esta evaluación puede ser formal (p.ej. ATAM — Architecture
-     Tradeoff Analysis Method) o informal. En cualquier caso, deben
-     implicarse los stakeholders clave y deben tenerse en cuenta sus
-     concerns antes de finalizar la arquitectura.
+   - El objetivo global es confirmar que los concerns de los
+     stakeholders están cubiertos y que la arquitectura es de
+     calidad. Puede requerirse trabajo para alcanzar consenso cuando
+     los concerns de distintos grupos conflicten entre sí.
 
 .. list-table:: Tabla 7-12 — Paso 7A: Revisar la Arquitectura
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Modificar la arquitectura candidata para abordar los comentarios
-     y concerns surgidos de la evaluación con los stakeholders.
+   - Abordar los concerns surgidos durante la evaluación para producir
+     una arquitectura que mejor cumpla sus objetivos.
  * - **Entradas**
-   - Arquitectura candidata; lista de comentarios y concerns de los
-     stakeholders.
+   - Vistas arquitectónicas; comentarios de la revisión
+     arquitectónica; estilos, viewpoints y perspectivas relevantes.
+ * - **Actividades**
+   - Tomar los resultados de la evaluación arquitectónica y
+     abordarlos para producir una arquitectura mejorada. Este paso
+     normalmente implica análisis funcional, uso de viewpoints y
+     perspectivas, y prototipado.
+
+     *En IACT:* incorporar feedback de AGR_AUDITOR sobre
+     trazabilidad en la vista Process View real; actualizar
+     la vista Deployment View para reflejar restricciones
+     de red CNST-007; refinar el modelo RBAC en Design View.
  * - **Salidas**
-   - Arquitectura candidata revisada.
+   - Vistas arquitectónicas revisadas; áreas para investigación
+     adicional (opcional).
+
+     *En IACT:* vistas 5+1 actualizadas en `arquitectura-tecnica/`
+     tras incorporar los comentarios de revisión.
  * - **Notas**
-   - Este paso y el 7B (revisar requisitos) están íntimamente
-     relacionados. Revisar la arquitectura puede sugerir cambios
-     en los requisitos y viceversa. Todos los cambios deben
-     revisarse y ratificarse con los stakeholders.
+   - Este paso se realiza concurrente y colaborativamente con el 7B
+     (Revisar Requisitos). Los dos pasos retroalimentan al Paso 5
+     (Explorar opciones). Revisar la arquitectura puede sugerir
+     cambios en los requisitos y viceversa.
 
 .. list-table:: Tabla 7-13 — Paso 7B: Revisar los Requisitos
  :header-rows: 0
  :widths: 20 80
 
  * - **Objetivo**
-   - Actualizar los requisitos y concerns para reflejar una
-     comprensión más profunda del sistema resultante de la
-     definición de arquitectura.
+   - Considerar los cambios en los requisitos originales que pueden
+     ser necesarios a la luz de la evaluación arquitectónica.
  * - **Entradas**
-   - Requisitos y concerns actuales; cambios identificados en
-     el paso 7A.
+   - Vistas arquitectónicas; comentarios de la revisión
+     arquitectónica.
+ * - **Actividades**
+   - El trabajo realizado puede revelar requisitos inadecuados,
+     inconsistentes o inviables de implementar. En ese caso,
+     revisar los requisitos con los stakeholders y obtener su
+     acuerdo sobre las revisiones necesarias.
+
+     *En IACT:* si la vista Process View (concurrencia ETL)
+     revela que ciertos requisitos de disponibilidad entran
+     en conflicto con restricciones de la fuente IVR read-only,
+     este paso reconcilia los BReqs afectados con las
+     instituciones. Si H-15 muestra que los UC-flow actuales
+     no son Process View real, actualizar `requisitos/` para
+     reclasificarlos como comportamiento funcional.
  * - **Salidas**
-   - Requisitos y concerns actualizados, acordados con los
-     stakeholders.
+   - Requisitos revisados (si los hay).
+
+     *En IACT:* actualizaciones en `source/requisitos/casos-uso/`
+     y `source/requisitos/business-requirements/` para reflejar
+     las decisiones tomadas en la revisión arquitectónica.
  * - **Notas**
-   - Los requisitos nunca son estáticos. A medida que la
-     arquitectura se define con más detalle, suelen surgir
-     inconsistencias, ambigüedades o lagunas en los requisitos.
-     Actualizar los requisitos en este punto mantiene la
-     coherencia entre la AD y la especificación del sistema.
+   - Este paso se realiza concurrente y colaborativamente con el 7A
+     (Revisar Arquitectura). Los dos pasos retroalimentan al Paso 5
+     (Explorar opciones). Los requisitos nunca son estáticos:
+     la definición arquitectónica revela inconsistencias y lagunas
+     que deben reconciliarse con los stakeholders.
 
 ----
 
