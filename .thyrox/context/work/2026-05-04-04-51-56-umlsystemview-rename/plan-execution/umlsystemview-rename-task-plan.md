@@ -16,7 +16,7 @@ auto-descriptivos que reflejen el contenido del diagrama.
 
 ## Bloque A — Verificar headings y definir nombres finales
 
-- [ ] **T-001** Leer heading principal de cada archivo genérico para confirmar
+- [x] **T-001** Leer heading principal de cada archivo genérico para confirmar
   nombre correcto:
   - `casos-uso.rst`, `clases.rst`, `componentes.rst`, `comunicacion.rst`
   - `despliegue.rst`, `maquina-estados.rst`, `secuencia.rst`
@@ -25,7 +25,7 @@ auto-descriptivos que reflejen el contenido del diagrama.
 
 ## Bloque B — Renombrar archivos
 
-- [ ] **T-002** `git mv` de los 7 archivos:
+- [x] **T-002** `git mv` de los 7 archivos:
   - `casos-uso.rst` → `casos-uso-sistema-iact.rst`
   - `clases.rst` → `clases-sistema-iact.rst`
   - `componentes.rst` → `componentes-sistema-iact.rst`
@@ -38,15 +38,15 @@ auto-descriptivos que reflejen el contenido del diagrama.
 
 ## Bloque C — Actualizar referencias
 
-- [ ] **T-003** Actualizar `UMLSystemView/index.rst` toctree con nuevos nombres
-- [ ] **T-004** Buscar y actualizar cualquier `:doc:` referencia a estos archivos
+- [x] **T-003** Actualizar `UMLSystemView/index.rst` toctree con nuevos nombres
+- [x] **T-004** Buscar y actualizar cualquier `:doc:` referencia a estos archivos
   en el resto del repo
 
 ---
 
 ## Bloque D — Verificación
 
-- [ ] **T-005** Confirmar que no queden archivos con nombres genéricos:
+- [x] **T-005** Confirmar que no queden archivos con nombres genéricos:
   ```bash
   ls source/arquitectura-tecnica/UMLSystemView/ | grep -E "^(casos-uso|clases|componentes|comunicacion|despliegue|maquina-estados|secuencia)\.rst"
   ```
