@@ -4962,3 +4962,16 @@ writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/flujo-principal
 writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/flujos-alternos
 writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/implementacion-tecnica
 writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/index
+writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/informacion-general
+writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/patrones-diseno
+writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/requisitos-no-funcionales
+writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-03/testing
+writing output... [ 54%] requisitos/casos-uso/caller/uc-cli-04/actores-precondiciones
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/criterios-aceptacion
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/datos-involucrados
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/actividad
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/caso-de-uso
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/estado
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/index
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/secuencia
+writing output... [ 55%] requisitos/casos-uso/caller/uc-cli-04/excepciones
