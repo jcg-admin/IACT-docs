@@ -19,3 +19,14 @@ UC_ADM_02 — Gestionar Catalogo de Funciones
  :maxdepth: 1
 
  informacion-general
+ actores-precondiciones
+ flujo-principal
+ flujos-alternos
+ excepciones
+ requisitos-no-funcionales
+ datos-involucrados
+ diagramas-uml/index
+ criterios-aceptacion
+ patrones-diseno
+ implementacion-tecnica
+ testing

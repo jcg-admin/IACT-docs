@@ -44,12 +44,12 @@ los nuevos UC specs completos.
 
 ## Bloque D — UC specs completas para MOD_Admin
 
-- [ ] **T-010** `admin/uc-adm-01/`: crear 10 archivos faltantes de spec
+- [x] **T-010** `admin/uc-adm-01/`: crear 10 archivos faltantes de spec
   (actores-precondiciones, criterios-aceptacion, datos-involucrados,
   excepciones, flujo-principal, flujos-alternos, implementacion-tecnica,
   patrones-diseno, requisitos-no-funcionales, testing). Actualizar index.rst.
-- [ ] **T-011** `admin/uc-adm-02/`: idem 10 archivos.
-- [ ] **T-012** `admin/uc-adm-03/`: idem 10 archivos.
+- [x] **T-011** `admin/uc-adm-02/`: idem 10 archivos.
+- [x] **T-012** `admin/uc-adm-03/`: idem 10 archivos.
 
 ## Bloque E — Cierre
 

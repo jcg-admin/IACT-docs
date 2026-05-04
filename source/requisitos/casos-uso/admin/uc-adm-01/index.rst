@@ -19,3 +19,14 @@ UC_ADM_01 — Gestionar Ciclo de Vida de Reglas SoD
  :maxdepth: 1
 
  informacion-general
+ actores-precondiciones
+ flujo-principal
+ flujos-alternos
+ excepciones
+ requisitos-no-funcionales
+ datos-involucrados
+ diagramas-uml/index
+ criterios-aceptacion
+ patrones-diseno
+ implementacion-tecnica
+ testing
