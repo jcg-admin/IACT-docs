@@ -1,0 +1,6011 @@
+{
+  "P1": {
+    "labels": [
+      "1\\nAutenticacion\\nJWT",
+      "1\\nAutenticacion JWT",
+      "Supervisar ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 48,
+        "text": "rectangle \"1\\nAutenticacion\\nJWT\" as P1"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 48,
+        "text": "rectangle \"1\\nAutenticacion JWT\" as P1"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 49,
+        "text": "usecase \"Supervisar ETL\"      as P1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P2": {
+    "labels": [
+      "2\\nDashboard IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 49,
+        "text": "rectangle \"2\\nDashboard IVR\" as P2"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 49,
+        "text": "rectangle \"2\\nDashboard IVR\" as P2"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P3": {
+    "labels": [
+      "3\\nCierre de\\nSesion",
+      "3\\nCierre de Sesion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 50,
+        "text": "rectangle \"3\\nCierre de\\nSesion\" as P3"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 50,
+        "text": "rectangle \"3\\nCierre de Sesion\" as P3"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P4": {
+    "labels": [
+      "4\\nGestion\\nPipeline ETL",
+      "Solicitar reintento",
+      "UC_PIP_04\\nSolicitar reintento\\n(BASE)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 51,
+        "text": "rectangle \"4\\nGestion\\nPipeline ETL\" as P4"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 51,
+        "text": "rectangle \"4\\nGestion\\nPipeline ETL\" as P4"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 50,
+        "text": "usecase \"Solicitar reintento\" as P4"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-pip-04-con-reintento-parametrizado.rst",
+        "line": 12,
+        "text": "usecase \"UC_PIP_04\\nSolicitar reintento\\n(BASE)\"           as P4"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P5": {
+    "labels": [
+      "5\\nConsulta\\nde Logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 52,
+        "text": "rectangle \"5\\nConsulta\\nde Logs\" as P5"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 52,
+        "text": "rectangle \"5\\nConsulta\\nde Logs\" as P5"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P6": {
+    "labels": [
+      "6\\nMOD Reports\\n(Reportes IVR)",
+      "6\\nMOD Reports"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 53,
+        "text": "rectangle \"6\\nMOD Reports\\n(Reportes IVR)\" as P6"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 53,
+        "text": "rectangle \"6\\nMOD Reports\" as P6"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P7": {
+    "labels": [
+      "7\\nBase Analitica\\nIVR",
+      "7\\nServicio de\\nReportes\\nsp_rpt_*"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 54,
+        "text": "rectangle \"7\\nBase Analitica\\nIVR\" as P7"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 54,
+        "text": "rectangle \"7\\nServicio de\\nReportes\\nsp_rpt_*\" as P7"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P8": {
+    "labels": [
+      "8\\nAlertas y\\nNotificaciones",
+      "8\\nAlertas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 55,
+        "text": "rectangle \"8\\nAlertas y\\nNotificaciones\" as P8"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 55,
+        "text": "rectangle \"8\\nAlertas\" as P8"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P9": {
+    "labels": [
+      "9\\nResolver\\nSegmento\\nUC_INC_RPT_01",
+      "9\\nResolver Segmento\\nUC_INC_RPT_01"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 56,
+        "text": "rectangle \"9\\nResolver\\nSegmento\\nUC_INC_RPT_01\" as P9"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 56,
+        "text": "rectangle \"9\\nResolver Segmento\\nUC_INC_RPT_01\" as P9"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P10": {
+    "labels": [
+      "10\\nAuditoria\\nde Acceso",
+      "10\\nAuditoria",
+      "UC_PERM_10\\nConsultar Auditoria\\nde Permisos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst",
+        "line": 57,
+        "text": "rectangle \"10\\nAuditoria\\nde Acceso\" as P10"
+      },
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 57,
+        "text": "rectangle \"10\\nAuditoria\" as P10"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 50,
+        "text": "usecase \"UC_PERM_10\\nConsultar Auditoria\\nde Permisos\" as P10"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "IACT": {
+    "labels": [
+      "1\\n  Sistema IACT\\n  (Analisis IVR Calls)",
+      "Sistema IACT",
+      "IACT\\n[Software System]",
+      "IACT\\n[Software System]\\n\\nPlataforma de analitica\\nde call center",
+      "IACT\\n(Plataforma de analitica\\nde call center)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-0-contexto.rst",
+        "line": 44,
+        "text": "rectangle \"  1\\n  Sistema IACT\\n  (Analisis IVR Calls)  \" as IACT"
+      },
+      {
+        "file": "source/arquitectura-tecnica/context-view/context-diagram.rst",
+        "line": 71,
+        "text": "rectangle \"  Sistema IACT  \" as IACT #EEF4FF {"
+      },
+      {
+        "file": "source/arquitectura-tecnica/context-view/external-interfaces.rst",
+        "line": 101,
+        "text": "rectangle \"Sistema IACT\" as IACT {"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 13,
+        "text": "rectangle \"IACT\\n[Software System]\" as IACT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 30,
+        "text": "rectangle \"IACT\\n[Software System]\\n\\nPlataforma de analitica\\nde call center\" as IACT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact.rst",
+        "line": 23,
+        "text": "rectangle \"IACT\\n[Software System]\\n\\nPlataforma de analitica\\nde call center\" as IACT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact.rst",
+        "line": 35,
+        "text": "rectangle \"IACT\\n[Software System]\\n\\nPlataforma de analitica\\nde call center\" as IACT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-context-de-iact.rst",
+        "line": 23,
+        "text": "rectangle \"IACT\\n(Plataforma de analitica\\nde call center)\" as IACT <<sistema>>"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "DS1": {
+    "labels": [
+      "etl_runs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 59,
+        "text": "database \"etl_runs\" as DS1"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "DS2": {
+    "labels": [
+      "base_ivr_*"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 60,
+        "text": "database \"base_ivr_*\" as DS2"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "DS3": {
+    "labels": [
+      "audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 61,
+        "text": "database \"audit_log\" as DS3"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "DS4": {
+    "labels": [
+      "auth_session"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst",
+        "line": 62,
+        "text": "database \"auth_session\" as DS4"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "IVR": {
+    "labels": [
+      "BD Operativa IVR\\n(MariaDB — solo lectura)",
+      "IVR\\nConmutador",
+      "IVR-host\\n[External System]",
+      "IVR-host\\n[External System]\\n\\nEventos de telefonia\\n(read-only)",
+      "IVR-host",
+      "ivr-host",
+      "ivr-host\\n[External]",
+      "ivr-host\\n<<servidor>>",
+      "IVR Conmutador\\n(read-only)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/context-view/context-diagram.rst",
+        "line": 68,
+        "text": "database \"BD Operativa IVR\\n(MariaDB — solo lectura)\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 20,
+        "text": "actor \"IVR\\nConmutador\"  as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 34,
+        "text": "rectangle \"IVR-host\\n[External System]\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact.rst",
+        "line": 39,
+        "text": "rectangle \"IVR-host\\n[External System]\\n\\nEventos de telefonia\\n(read-only)\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-context-de-iact.rst",
+        "line": 27,
+        "text": "rectangle \"IVR-host\" as IVR <<externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 35,
+        "text": "[IVR (read-only)] as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-ajuste-de-rangos.rst",
+        "line": 27,
+        "text": "rectangle \"ivr-host\" as IVR <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-con-frontera.rst",
+        "line": 21,
+        "text": "rectangle \"ivr-host\\n[External]\" as IVR <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-final.rst",
+        "line": 25,
+        "text": "rectangle \"ivr-host\\n[External]\" as IVR <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 28,
+        "text": "node \"ivr-host\\n<<servidor>>\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/boundary-integracion-externa-read-only.rst",
+        "line": 8,
+        "text": "boundary \"ivr-host\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 27,
+        "text": "component \"IVR Conmutador\\n(read-only)\" as IVR"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-distribucion-despliegue-del-proyecto-iact.rst",
+        "line": 22,
+        "text": "node \"IVR Conmutador\" <<dispositivo>> as IVR {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ETL": {
+    "labels": [
+      "Servicio\\nETL",
+      "ETL Service",
+      "Carga ETL\\nnocturna",
+      ":etl_runner",
+      "etl_runner.py\\n(cron, ventana\\nCNST_006/008)",
+      "etl_runner"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/context-view/context-diagram.rst",
+        "line": 73,
+        "text": "rectangle \"Servicio\\nETL\" as ETL"
+      },
+      {
+        "file": "source/arquitectura-tecnica/context-view/external-interfaces.rst",
+        "line": 102,
+        "text": "rectangle \"ETL Service\" as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 33,
+        "text": "usecase \"Carga ETL\\nnocturna\"            as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/mensaje-en-bucle.rst",
+        "line": 9,
+        "text": "object \":etl_runner\" as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 36,
+        "text": "[etl_runner.py] as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 20,
+        "text": "artifact \"etl_runner.py\\n(cron, ventana\\nCNST_006/008)\" as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/boundary-integracion-externa-read-only.rst",
+        "line": 7,
+        "text": "participant \"etl_runner\" as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/ciclo-loop-con-guarda.rst",
+        "line": 7,
+        "text": "participant \"etl_runner\" as ETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/salida-temprana-break.rst",
+        "line": 7,
+        "text": "participant \"etl_runner\" as ETL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "A": {
+    "labels": [
+      "Auth"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 160,
+        "text": "package \"Auth\" as A {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "R": {
+    "labels": [
+      "RBAC (subsume PERM)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 166,
+        "text": "package \"RBAC (subsume PERM)\" as R {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "C": {
+    "labels": [
+      "Calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 175,
+        "text": "package \"Calls\" as C {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "P": {
+    "labels": [
+      "Reports & Metrics"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 180,
+        "text": "package \"Reports & Metrics\" as P {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "E": {
+    "labels": [
+      "Pipeline ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 188,
+        "text": "package \"Pipeline ETL\" as E {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "L": {
+    "labels": [
+      "Alerts"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 192,
+        "text": "package \"Alerts\" as L {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "D": {
+    "labels": [
+      "Audit"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 198,
+        "text": "package \"Audit\" as D {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "G": {
+    "labels": [
+      "Logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/domain-model/overview.rst",
+        "line": 202,
+        "text": "package \"Logs\" as G {"
+      }
+    ],
+    "type": "SINGLE_LETTER"
+  },
+  "VIEW": {
+    "labels": [
+      "view_alerts\\n(consulta)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/alerts/diagramas/componentes-mod-alerts.rst",
+        "line": 26,
+        "text": "component \"view_alerts\\n(consulta)\" as VIEW"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "HIST": {
+    "labels": [
+      "AlertEvent\\n(historico alertas)",
+      "tbl_historico_detalle\\ntbl_historico_clientes\\n(Repositorio PbxIvr — solo lectura para IACT)",
+      "tbl_historico_detalle\\ntbl_historico_clientes\\n(Repositorio IVR)",
+      "Verificar historial\\n(no reuso)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/alerts/diagramas/componentes-mod-alerts.rst",
+        "line": 31,
+        "text": "database \"AlertEvent\\n(historico alertas)\" as HIST"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/caller/diagramas/pipeline-datos-ivr-caller.rst",
+        "line": 31,
+        "text": "database \"tbl_historico_detalle\\ntbl_historico_clientes\\n(Repositorio PbxIvr — solo lectura para IAC"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline.rst",
+        "line": 31,
+        "text": "database \"tbl_historico_detalle\\ntbl_historico_clientes\\n(Repositorio IVR)\" as HIST"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 19,
+        "text": "usecase \"Verificar historial\\n(no reuso)\" as HIST"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "AREP": {
+    "labels": [
+      "audit_log\\n(PostgreSQL — append-only)",
+      "AssignmentRepository"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/audit/diagramas/flujo-emision-evento-auditoria.rst",
+        "line": 26,
+        "text": "database \"audit_log\\n(PostgreSQL — append-only)\" as AREP"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-secuencia-detalle.rst",
+        "line": 13,
+        "text": "participant \"AssignmentRepository\" as AREP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "AUTH": {
+    "labels": [
+      "ARQ_MOD_001\\nAutenticación",
+      "Servicio\\nde Autenticación",
+      "Autenticacion JWT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/auth/diagramas/diagrama-contexto-dependencias.rst",
+        "line": 24,
+        "text": "component \"ARQ_MOD_001\\nAutenticación\" as AUTH"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/auth/diagramas/flujo-autenticacion.rst",
+        "line": 25,
+        "text": "participant \"Servicio\\nde Autenticación\" as AUTH"
+      },
+      {
+        "file": "source/arquitectura-tecnica/system-view/maquina-estados-sistema-iact.rst",
+        "line": 34,
+        "text": "state \"Autenticacion JWT\" as AUTH"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RBAC": {
+    "labels": [
+      "ARQ_MOD_003\\nControl de Acceso\\n(RBAC)",
+      "RBAC Service\\nFunciones, Grupos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/auth/diagramas/diagrama-contexto-dependencias.rst",
+        "line": 26,
+        "text": "component \"ARQ_MOD_003\\nControl de Acceso\\n(RBAC)\" as RBAC"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 17,
+        "text": "component \"RBAC Service\\nFunciones, Grupos\"     as RBAC"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "USERS": {
+    "labels": [
+      "Repositorio\\nde Usuarios",
+      "Users con AGR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/auth/diagramas/flujo-autenticacion.rst",
+        "line": 26,
+        "text": "participant \"Repositorio\\nde Usuarios\" as USERS"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-06/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"Users con AGR\" as USERS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ANAL": {
+    "labels": [
+      "base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/caller/diagramas/pipeline-datos-ivr-caller.rst",
+        "line": 34,
+        "text": "database \"base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica)\" as ANAL"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline.rst",
+        "line": 32,
+        "text": "database \"base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica)\" as ANAL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ALERT": {
+    "labels": [
+      "AlertEvaluator\\n(BR-016 tasa abandono)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/caller/diagramas/pipeline-datos-ivr-caller.rst",
+        "line": 37,
+        "text": "component \"AlertEvaluator\\n(BR-016 tasa abandono)\" as ALERT"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "SCHED": {
+    "labels": [
+      "ETLScheduler\\n(tarea programada)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline.rst",
+        "line": 29,
+        "text": "component \"ETLScheduler\\n(tarea programada)\" as SCHED"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RUNS": {
+    "labels": [
+      "etl_runs\\n(registro de ejecuciones)",
+      "Historico runs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline.rst",
+        "line": 33,
+        "text": "database \"etl_runs\\n(registro de ejecuciones)\" as RUNS"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"Historico runs\" as RUNS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "AUDIT": {
+    "labels": [
+      "audit_log\\n(PostgreSQL)",
+      "audit_log\\n(immutable, CNST_025)",
+      "audit_log\\n(MySQL,\\nimmutable CNST_025)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline.rst",
+        "line": 34,
+        "text": "database \"audit_log\\n(PostgreSQL)\" as AUDIT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 29,
+        "text": "database \"audit_log\\n(immutable, CNST_025)\" as AUDIT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 19,
+        "text": "database \"audit_log\\n(MySQL,\\nimmutable CNST_025)\" as AUDIT"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "DEST": {
+    "labels": [
+      "base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica — escribible)",
+      "base_ivr_clientes\\n(telefono_hashed)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/etl-monitoring/diagramas/flujo-etl-nocturno.rst",
+        "line": 27,
+        "text": "database \"base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica — escribible)\" as DEST"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-17/diagramas-uml/flujo-de-anonimizacion-etl.rst",
+        "line": 9,
+        "text": "component \"base_ivr_clientes\\n(telefono_hashed)\" as DEST"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "DISP": {
+    "labels": [
+      "DispositionService\\n(enter_call_disposition)",
+      "DispositionEndpoint\\n(/api/v1/disposition/)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator.rst",
+        "line": 28,
+        "text": "component \"DispositionService\\n(enter_call_disposition)\" as DISP"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/operator/diagramas/secuencia-atencion-llamada-entrante.rst",
+        "line": 27,
+        "text": "participant \"DispositionEndpoint\\n(/api/v1/disposition/)\" as DISP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "DASH": {
+    "labels": [
+      "PerformanceDashboard\\n(view_own_performance_dashboard)",
+      "Dashboard IACT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator.rst",
+        "line": 29,
+        "text": "component \"PerformanceDashboard\\n(view_own_performance_dashboard)\" as DASH"
+      },
+      {
+        "file": "source/arquitectura-tecnica/system-view/maquina-estados-sistema-iact.rst",
+        "line": 39,
+        "text": "state \"Dashboard IACT\" as DASH {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "SESS": {
+    "labels": [
+      "auth_session\\n(PostgreSQL)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator.rst",
+        "line": 32,
+        "text": "database \"auth_session\\n(PostgreSQL)\" as SESS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "STATE": {
+    "labels": [
+      "agent_state\\n(cache)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator.rst",
+        "line": 34,
+        "text": "database \"agent_state\\n(cache)\" as STATE"
+      },
+      {
+        "file": "source/arquitectura-tecnica/modulos/supervision/diagramas/componentes-mod-supervision.rst",
+        "line": 32,
+        "text": "database \"agent_state\\n(cache)\" as STATE"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "TONE": {
+    "labels": [
+      "ComplianceToneEmitter\\n(tono obligatorio)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/supervision/diagramas/componentes-mod-supervision.rst",
+        "line": 28,
+        "text": "component \"ComplianceToneEmitter\\n(tono obligatorio)\" as TONE"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ADMIN": {
+    "labels": [
+      "create_users",
+      "reset_password",
+      "view_all_active_sessions",
+      "view_assignments",
+      "update_users"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/user-identity/diagramas/secuencia-creacion-usuario.rst",
+        "line": 24,
+        "text": "actor \"create_users\" as ADMIN"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"reset_password\" as ADMIN"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"view_all_active_sessions\" as ADMIN"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"view_assignments\" as ADMIN"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"create_users\" as ADMIN"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"update_users\" as ADMIN"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RPTS": {
+    "labels": [
+      "apps.reports\\n(API views)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/vis-reports/diagramas/componentes-mod-reports.rst",
+        "line": 24,
+        "text": "component \"apps.reports\\n(API views)\" as RPTS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "IVRDB": {
+    "labels": [
+      "base_ivr_detalle\\nbase_ivr_clientes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/modulos/vis-reports/diagramas/secuencia-sp-rpt-flujo-completo.rst",
+        "line": 28,
+        "text": "database \"base_ivr_detalle\\nbase_ivr_clientes\" as IVRDB"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "F_SESS": {
+    "labels": [
+      "view_all_active_sessions"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 31,
+        "text": "artifact \"view_all_active_sessions\" as F_SESS"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_CU": {
+    "labels": [
+      "create_users"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 35,
+        "text": "artifact \"create_users\" as F_CU"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_LU": {
+    "labels": [
+      "list_users"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 36,
+        "text": "artifact \"list_users\" as F_LU"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_UU": {
+    "labels": [
+      "update_users"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 37,
+        "text": "artifact \"update_users\" as F_UU"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_DU": {
+    "labels": [
+      "deactivate_users"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 38,
+        "text": "artifact \"deactivate_users\" as F_DU"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_AF": {
+    "labels": [
+      "assign_functions"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 42,
+        "text": "artifact \"assign_functions\" as F_AF"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_RF": {
+    "labels": [
+      "revoke_functions"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 43,
+        "text": "artifact \"revoke_functions\" as F_RF"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VA": {
+    "labels": [
+      "view_assignments"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 44,
+        "text": "artifact \"view_assignments\" as F_VA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_AFG": {
+    "labels": [
+      "assign_function_groups"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 45,
+        "text": "artifact \"assign_function_groups\" as F_AFG"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_RFG": {
+    "labels": [
+      "revoke_function_group"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 46,
+        "text": "artifact \"revoke_function_group\" as F_RFG"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MAG": {
+    "labels": [
+      "create_function_group"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 47,
+        "text": "artifact \"create_function_group\" as F_MAG"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MAGC": {
+    "labels": [
+      "assign_functions_to_group"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 48,
+        "text": "artifact \"assign_functions_to_group\" as F_MAGC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VSR": {
+    "labels": [
+      "view_separation_rules"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 49,
+        "text": "artifact \"view_separation_rules\" as F_VSR"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VAA": {
+    "labels": [
+      "view_audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 50,
+        "text": "artifact \"view_audit_log\" as F_VAA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VON": {
+    "labels": [
+      "view_own_navigation"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 51,
+        "text": "artifact \"view_own_navigation\" as F_VON"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VD": {
+    "labels": [
+      "view_dashboard"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 55,
+        "text": "artifact \"view_dashboard\" as F_VD"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VR": {
+    "labels": [
+      "view_reports"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 56,
+        "text": "artifact \"view_reports\" as F_VR"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VK": {
+    "labels": [
+      "view_kpis"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 57,
+        "text": "artifact \"view_kpis\" as F_VK"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VCH": {
+    "labels": [
+      "view_charts"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 58,
+        "text": "artifact \"view_charts\" as F_VCH"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_FR": {
+    "labels": [
+      "filter_reports"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 59,
+        "text": "artifact \"filter_reports\" as F_FR"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_ECSV": {
+    "labels": [
+      "export_csv"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 60,
+        "text": "artifact \"export_csv\" as F_ECSV"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_EXL": {
+    "labels": [
+      "export_excel"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 61,
+        "text": "artifact \"export_excel\" as F_EXL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_EPDF": {
+    "labels": [
+      "export_pdf"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 62,
+        "text": "artifact \"export_pdf\" as F_EPDF"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_SCH": {
+    "labels": [
+      "schedule_report"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 63,
+        "text": "artifact \"schedule_report\" as F_SCH"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_SV": {
+    "labels": [
+      "save_view"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 64,
+        "text": "artifact \"save_view\" as F_SV"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_SHR": {
+    "labels": [
+      "share_report"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 65,
+        "text": "artifact \"share_report\" as F_SHR"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VEE": {
+    "labels": [
+      "view_pipeline_status"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 69,
+        "text": "artifact \"view_pipeline_status\" as F_VEE"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VEER": {
+    "labels": [
+      "view_pipeline_errors"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 70,
+        "text": "artifact \"view_pipeline_errors\" as F_VEER"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VDD": {
+    "labels": [
+      "view_data_availability"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 71,
+        "text": "artifact \"view_data_availability\" as F_VDD"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_RE": {
+    "labels": [
+      "request_pipeline_retry"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 72,
+        "text": "artifact \"request_pipeline_retry\" as F_RE"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MAT": {
+    "labels": [
+      "configure_team_alerts"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 76,
+        "text": "artifact \"configure_team_alerts\" as F_MAT"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_ACA": {
+    "labels": [
+      "acknowledge_alert"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 78,
+        "text": "artifact \"acknowledge_alert\" as F_ACA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VAH": {
+    "labels": [
+      "view_alert_history"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 79,
+        "text": "artifact \"view_alert_history\" as F_VAH"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VGA": {
+    "labels": [
+      "view_audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 83,
+        "text": "artifact \"view_audit_log\" as F_VGA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_SA": {
+    "labels": [
+      "search_audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 84,
+        "text": "artifact \"search_audit_log\" as F_SA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_EA": {
+    "labels": [
+      "export_audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 85,
+        "text": "artifact \"export_audit_log\" as F_EA"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_GCR": {
+    "labels": [
+      "generate_compliance_report"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 86,
+        "text": "artifact \"generate_compliance_report\" as F_GCR"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VSL": {
+    "labels": [
+      "view_application_logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 87,
+        "text": "artifact \"view_application_logs\" as F_VSL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VEL": {
+    "labels": [
+      "view_etl_logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 88,
+        "text": "artifact \"view_etl_logs\" as F_VEL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_SL": {
+    "labels": [
+      "search_logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 89,
+        "text": "artifact \"search_logs\" as F_SL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_EL": {
+    "labels": [
+      "export_logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 90,
+        "text": "artifact \"export_logs\" as F_EL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VIL": {
+    "labels": [
+      "view_infrastructure_logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 91,
+        "text": "artifact \"view_infrastructure_logs\" as F_VIL"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VSS": {
+    "labels": [
+      "view_system_health"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 92,
+        "text": "artifact \"view_system_health\" as F_VSS"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VTM": {
+    "labels": [
+      "view_technical_metrics"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 93,
+        "text": "artifact \"view_technical_metrics\" as F_VTM"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MLC": {
+    "labels": [
+      "monitor_live_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 97,
+        "text": "artifact \"monitor_live_calls\" as F_MLC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_BIC": {
+    "labels": [
+      "barge_in_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 98,
+        "text": "artifact \"barge_in_calls\" as F_BIC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_BTM": {
+    "labels": [
+      "broadcast_team_messages"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 99,
+        "text": "artifact \"broadcast_team_messages\" as F_BTM"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MOAS": {
+    "labels": [
+      "manage_own_agent_state"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 103,
+        "text": "artifact \"manage_own_agent_state\" as F_MOAS"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_AIC": {
+    "labels": [
+      "answer_inbound_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 104,
+        "text": "artifact \"answer_inbound_calls\" as F_AIC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_MOC": {
+    "labels": [
+      "make_outbound_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 105,
+        "text": "artifact \"make_outbound_calls\" as F_MOC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_HC": {
+    "labels": [
+      "hold_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 106,
+        "text": "artifact \"hold_calls\" as F_HC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_TC": {
+    "labels": [
+      "transfer_calls"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 107,
+        "text": "artifact \"transfer_calls\" as F_TC"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_ECD": {
+    "labels": [
+      "enter_call_disposition"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 108,
+        "text": "artifact \"enter_call_disposition\" as F_ECD"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_RBK": {
+    "labels": [
+      "request_break"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 109,
+        "text": "artifact \"request_break\" as F_RBK"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VOPD": {
+    "labels": [
+      "view_own_performance_dashboard"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 110,
+        "text": "artifact \"view_own_performance_dashboard\" as F_VOPD"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_VOCH": {
+    "labels": [
+      "view_own_call_history"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 111,
+        "text": "artifact \"view_own_call_history\" as F_VOCH"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "F_ROM": {
+    "labels": [
+      "read_own_mailbox"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/rbac/rbac-funciones-por-modulo.rst",
+        "line": 112,
+        "text": "artifact \"read_own_mailbox\" as F_ROM"
+      }
+    ],
+    "type": "F_ABBREV"
+  },
+  "UC_AUTH": {
+    "labels": [
+      "Autenticar JWT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 37,
+        "text": "usecase \"Autenticar JWT\" as UC_AUTH"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_ACC": {
+    "labels": [
+      "Acceder a\\nModulos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 38,
+        "text": "usecase \"Acceder a\\nModulos\" as UC_ACC"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_DASH": {
+    "labels": [
+      "Ver Dashboard IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 39,
+        "text": "usecase \"Ver Dashboard IVR\" as UC_DASH"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_RPT": {
+    "labels": [
+      "Ver Reportes IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 40,
+        "text": "usecase \"Ver Reportes IVR\" as UC_RPT"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_INC": {
+    "labels": [
+      "Resolver Segmento\\nUC_INC_RPT_01"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 41,
+        "text": "usecase \"Resolver Segmento\\nUC_INC_RPT_01\" as UC_INC"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_R13": {
+    "labels": [
+      "Ver Llamadas\\nAbandonadas\\n(sp_rpt_llamadas_abandonadas)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 42,
+        "text": "usecase \"Ver Llamadas\\nAbandonadas\\n(sp_rpt_llamadas_abandonadas)\" as UC_R13"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_R15": {
+    "labels": [
+      "Ver\\nTransferencias\\n(sp_rpt_centros_transferencia)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 43,
+        "text": "usecase \"Ver\\nTransferencias\\n(sp_rpt_centros_transferencia)\" as UC_R15"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_R16": {
+    "labels": [
+      "Ver Menus IVR\\n(sp_rpt_menu_redirigidos)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 44,
+        "text": "usecase \"Ver Menus IVR\\n(sp_rpt_menu_redirigidos)\" as UC_R16"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_R17": {
+    "labels": [
+      "Ver Clientes\\nUnicos\\n(sp_rpt_clientes)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 45,
+        "text": "usecase \"Ver Clientes\\nUnicos\\n(sp_rpt_clientes)\" as UC_R17"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_PIP": {
+    "labels": [
+      "Gestionar\\nPipeline ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 46,
+        "text": "usecase \"Gestionar\\nPipeline ETL\" as UC_PIP"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_DISP": {
+    "labels": [
+      "Ver Disponibilidad\\nde Datos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 47,
+        "text": "usecase \"Ver Disponibilidad\\nde Datos\" as UC_DISP"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_LOG": {
+    "labels": [
+      "Consultar Logs\\n(view_audit_log)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 48,
+        "text": "usecase \"Consultar Logs\\n(view_audit_log)\" as UC_LOG"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_RBAC": {
+    "labels": [
+      "Gestionar\\nFunciones RBAC"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 49,
+        "text": "usecase \"Gestionar\\nFunciones RBAC\" as UC_RBAC"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "UC_LOGOUT": {
+    "labels": [
+      "Cerrar Sesion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/casos-uso-sistema-iact.rst",
+        "line": 50,
+        "text": "usecase \"Cerrar Sesion\" as UC_LOGOUT"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "COMP_RVG": {
+    "labels": [
+      "<<System>>\\nview_reports\\n(view_reports / view_dashboard)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 33,
+        "text": "component \"<<System>>\\nview_reports\\n(view_reports / view_dashboard)\" as COMP_RVG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_REQ": {
+    "labels": [
+      "<<artifact>>\\nReport Request Buffer\\n(JWT + trimestre)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 34,
+        "text": "artifact \"<<artifact>>\\nReport Request Buffer\\n(JWT + trimestre)\" as ART_REQ"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "COMP_BACK": {
+    "labels": [
+      "<<System>>\\nBackend IACT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 37,
+        "text": "component \"<<System>>\\nBackend IACT\" as COMP_BACK {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SVC_OUTER": {
+    "labels": [
+      "Suggestion\\nServicio de Reportes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 38,
+        "text": "component \"Suggestion\\nServicio de Reportes\" as SVC_OUTER {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R1": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_llamadas_abandonadas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 39,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_llamadas_abandonadas\" as ART_R1"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R2": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_centros_transferencia"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 40,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_centros_transferencia\" as ART_R2"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R3": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_menu_redirigidos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 41,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_menu_redirigidos\" as ART_R3"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R4": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_clientes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 42,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_clientes\" as ART_R4"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R5": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_centros_xsegmento"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 43,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_centros_xsegmento\" as ART_R5"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R6": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_menu_centro"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 44,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_menu_centro\" as ART_R6"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_R7": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_cMENU_ERROR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 45,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_cMENU_ERROR\" as ART_R7"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SVC_AUTH": {
+    "labels": [
+      "<<process>>\\nAuthService\\n(JWT + RBAC)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 47,
+        "text": "component \"<<process>>\\nAuthService\\n(JWT + RBAC)\" as SVC_AUTH"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SVC_SEG": {
+    "labels": [
+      "<<process>>\\nSegmentResolver\\n(DID_MAP)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 48,
+        "text": "component \"<<process>>\\nSegmentResolver\\n(DID_MAP)\" as SVC_SEG"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SVC_ETL": {
+    "labels": [
+      "<<process>>\\nDisparadorETL\\n(management command)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 49,
+        "text": "component \"<<process>>\\nDisparadorETL\\n(management command)\" as SVC_ETL"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_MARIA": {
+    "labels": [
+      "<<subsystem>>\\nMariaDB 10.1.48"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 52,
+        "text": "database \"<<subsystem>>\\nMariaDB 10.1.48\" as DB_MARIA {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_HIST": {
+    "labels": [
+      "tbl_historico_*\\n(Repositorio IVR)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 53,
+        "text": "artifact \"tbl_historico_*\\n(Repositorio IVR)\" as ART_HIST"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_BASE": {
+    "labels": [
+      "base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 54,
+        "text": "artifact \"base_ivr_detalle\\nbase_ivr_clientes\\n(Base Analitica)\" as ART_BASE"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_PG": {
+    "labels": [
+      "<<subsystem>>\\nPostgreSQL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 58,
+        "text": "database \"<<subsystem>>\\nPostgreSQL\" as DB_PG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_USERS": {
+    "labels": [
+      "auth_user\\n(AccessGroup / AccessFunction)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 59,
+        "text": "artifact \"auth_user\\n(AccessGroup / AccessFunction)\" as ART_USERS"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_AUDIT": {
+    "labels": [
+      "audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/componentes-sistema-iact.rst",
+        "line": 60,
+        "text": "artifact \"audit_log\" as ART_AUDIT"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "CLI_RVG": {
+    "labels": [
+      "view_reports\\nos WINDOWS / MacOS"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 33,
+        "text": "node \"view_reports\\nos WINDOWS / MacOS\" as CLI_RVG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "BR_RVG": {
+    "labels": [
+      "<<app>>\\nNavegador (Chrome / Firefox)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 34,
+        "text": "node \"<<app>>\\nNavegador (Chrome / Firefox)\" as BR_RVG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_RVG": {
+    "labels": [
+      "<<artifact>>\\nUser_View\\n(JWT + view_reports)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 35,
+        "text": "artifact \"<<artifact>>\\nUser_View\\n(JWT + view_reports)\" as ART_RVG"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "CLI_PAG": {
+    "labels": [
+      "request_pipeline_retry\\nos WINDOWS / Linux"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 39,
+        "text": "node \"request_pipeline_retry\\nos WINDOWS / Linux\" as CLI_PAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "BR_PAG": {
+    "labels": [
+      "<<app>>\\nNavegador (Chrome / Firefox)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 40,
+        "text": "node \"<<app>>\\nNavegador (Chrome / Firefox)\" as BR_PAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_PAG": {
+    "labels": [
+      "<<artifact>>\\nUser_View\\n(JWT + view_pipeline_status)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 41,
+        "text": "artifact \"<<artifact>>\\nUser_View\\n(JWT + view_pipeline_status)\" as ART_PAG"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "CLI_UAG": {
+    "labels": [
+      "assign_functions\\nos WINDOWS"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 45,
+        "text": "node \"assign_functions\\nos WINDOWS\" as CLI_UAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "BR_UAG": {
+    "labels": [
+      "<<app>>\\nNavegador (Chrome / Firefox)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 46,
+        "text": "node \"<<app>>\\nNavegador (Chrome / Firefox)\" as BR_UAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_UAG": {
+    "labels": [
+      "<<artifact>>\\nUser_View\\n(JWT + assign_functions)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 47,
+        "text": "artifact \"<<artifact>>\\nUser_View\\n(JWT + assign_functions)\" as ART_UAG"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_SRV": {
+    "labels": [
+      "<<server>>\\nServidor IACT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 51,
+        "text": "node \"<<server>>\\nServidor IACT\" as NODE_SRV {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "MOD_RPT": {
+    "labels": [
+      "MOD_Reports\\n(view_reports / view_dashboard)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 53,
+        "text": "node \"MOD_Reports\\n(view_reports / view_dashboard)\" as MOD_RPT {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_S1": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_centros_xsegmento"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 54,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_centros_xsegmento\" as ART_S1"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_S2": {
+    "labels": [
+      "<<artifact>>\\nsp_rpt_llamadas_abandonadas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 55,
+        "text": "artifact \"<<artifact>>\\nsp_rpt_llamadas_abandonadas\" as ART_S2"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "MOD_ETL": {
+    "labels": [
+      "MOD_Pipeline ETL\\n(view_pipeline_status / request_pipeline_retry)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 58,
+        "text": "node \"MOD_Pipeline ETL\\n(view_pipeline_status / request_pipeline_retry)\" as MOD_ETL {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_E1": {
+    "labels": [
+      "<<artifact>>\\nsp_etl_maestro"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 59,
+        "text": "artifact \"<<artifact>>\\nsp_etl_maestro\" as ART_E1"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_E2": {
+    "labels": [
+      "<<artifact>>\\netl_runs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 60,
+        "text": "artifact \"<<artifact>>\\netl_runs\" as ART_E2"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "MOD_LOG": {
+    "labels": [
+      "MOD_Logs\\n(view_audit_log)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 63,
+        "text": "node \"MOD_Logs\\n(view_audit_log)\" as MOD_LOG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_L1": {
+    "labels": [
+      "<<artifact>>\\naudit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 64,
+        "text": "artifact \"<<artifact>>\\naudit_log\" as ART_L1"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "MOD_ADM": {
+    "labels": [
+      "MOD_Admin\\n(assign_functions / create_users)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 67,
+        "text": "node \"MOD_Admin\\n(assign_functions / create_users)\" as MOD_ADM {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_A1": {
+    "labels": [
+      "<<artifact>>\\nAccessGroup"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 68,
+        "text": "artifact \"<<artifact>>\\nAccessGroup\" as ART_A1"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_A2": {
+    "labels": [
+      "<<artifact>>\\nAccessFunction"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 69,
+        "text": "artifact \"<<artifact>>\\nAccessFunction\" as ART_A2"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_DB": {
+    "labels": [
+      "Database"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 74,
+        "text": "node \"Database\" as NODE_DB {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_IVR": {
+    "labels": [
+      "<<artifact>>\\nbase_ivr_detalle\\nbase_ivr_clientes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 75,
+        "text": "artifact \"<<artifact>>\\nbase_ivr_detalle\\nbase_ivr_clientes\" as DB_IVR"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_AUTH": {
+    "labels": [
+      "<<artifact>>\\nauth_user\\naudit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 76,
+        "text": "artifact \"<<artifact>>\\nauth_user\\naudit_log\" as DB_AUTH"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_HIST": {
+    "labels": [
+      "<<artifact>>\\ntbl_historico_*",
+      "tbl_historico_*"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-multicliente.rst",
+        "line": 77,
+        "text": "artifact \"<<artifact>>\\ntbl_historico_*\" as DB_HIST"
+      },
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 51,
+        "text": "artifact \"tbl_historico_*\" as DB_HIST"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_APP": {
+    "labels": [
+      "<<server>>\\nServidor de Aplicacion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 34,
+        "text": "node \"<<server>>\\nServidor de Aplicacion\" as NODE_APP {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "ART_WSGI": {
+    "labels": [
+      "<<artifact>>\\niact-app.wsgi"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 38,
+        "text": "artifact \"<<artifact>>\\niact-app.wsgi\" as ART_WSGI"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_MARIA": {
+    "labels": [
+      "<<database system>>\\nMariaDB 10.1.48"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 42,
+        "text": "node \"<<database system>>\\nMariaDB 10.1.48\" as NODE_MARIA {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SCH_BASE": {
+    "labels": [
+      "Website data\\nbase_ivr"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 43,
+        "text": "node \"Website data\\nbase_ivr\" as SCH_BASE {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SCH_ETL": {
+    "labels": [
+      "ETL control\\netl_control"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 47,
+        "text": "node \"ETL control\\netl_control\" as SCH_ETL {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_ETLR": {
+    "labels": [
+      "etl_runs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 48,
+        "text": "artifact \"etl_runs\" as DB_ETLR"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SCH_FUENTE": {
+    "labels": [
+      "IVR source\\nivr_fuente"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 50,
+        "text": "node \"IVR source\\nivr_fuente\" as SCH_FUENTE {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_PG": {
+    "labels": [
+      "<<database system>>\\nPostgreSQL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 54,
+        "text": "node \"<<database system>>\\nPostgreSQL\" as NODE_PG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "SCH_PG": {
+    "labels": [
+      "operational\\niact_operational"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 55,
+        "text": "node \"operational\\niact_operational\" as SCH_PG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_USERS": {
+    "labels": [
+      "auth_user\\nAccessGroup / AccessFunction"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 56,
+        "text": "artifact \"auth_user\\nAccessGroup / AccessFunction\" as DB_USERS"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "DB_AUDIT": {
+    "labels": [
+      "audit_log"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 57,
+        "text": "artifact \"audit_log\" as DB_AUDIT"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_RVG": {
+    "labels": [
+      "<<client>>\\nview_reports\\n(PC / Navegador)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 63,
+        "text": "node \"<<client>>\\nview_reports\\n(PC / Navegador)\" as NODE_RVG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "BROWSER_RVG": {
+    "labels": [
+      "<<app>>\\nNavegador Web"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 64,
+        "text": "node \"<<app>>\\nNavegador Web\" as BROWSER_RVG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "NODE_PAG": {
+    "labels": [
+      "<<client>>\\nrequest_pipeline_retry\\n(PC / Navegador)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 70,
+        "text": "node \"<<client>>\\nrequest_pipeline_retry\\n(PC / Navegador)\" as NODE_PAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "BROWSER_PAG": {
+    "labels": [
+      "<<app>>\\nNavegador Web"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/despliegue-sistema-iact.rst",
+        "line": 71,
+        "text": "node \"<<app>>\\nNavegador Web\" as BROWSER_PAG {"
+      }
+    ],
+    "type": "PREFIX_ABBREV"
+  },
+  "FINAL": {
+    "labels": [
+      "Cierre de Sesion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/maquina-estados-sistema-iact.rst",
+        "line": 77,
+        "text": "state \"Cierre de Sesion\" as FINAL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "S1": {
+    "labels": [
+      "Recibir Solicitud ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-etl.rst",
+        "line": 35,
+        "text": "state \"Recibir Solicitud ETL\" as S1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "S3": {
+    "labels": [
+      "Verificar Resultado"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-etl.rst",
+        "line": 54,
+        "text": "state \"Verificar Resultado\" as S3"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "SUCC": {
+    "labels": [
+      "ETL Exitoso"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-etl.rst",
+        "line": 59,
+        "text": "state \"ETL Exitoso\" as SUCC"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "R1": {
+    "labels": [
+      "Solicitar Reporte",
+      "Ver dashboard"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-reporte.rst",
+        "line": 34,
+        "text": "state \"Solicitar Reporte\" as R1"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 40,
+        "text": "usecase \"Ver dashboard\"       as R1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R2": {
+    "labels": [
+      "Resolver Segmento\\nUC_INC_RPT_01"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-reporte.rst",
+        "line": 39,
+        "text": "state \"Resolver Segmento\\nUC_INC_RPT_01\" as R2"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R4": {
+    "labels": [
+      "Llamar sp_rpt_*",
+      "Exportar reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-reporte.rst",
+        "line": 63,
+        "text": "state \"Llamar sp_rpt_*\" as R4"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 41,
+        "text": "usecase \"Exportar reporte\"    as R4"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R5": {
+    "labels": [
+      "Renderizar Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/system-view/submaquina-reporte.rst",
+        "line": 68,
+        "text": "state \"Renderizar Reporte\" as R5"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "AC01": {
+    "labels": [
+      "UC_ACC_01\\nAsignar Funciones\\na Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 40,
+        "text": "usecase \"UC_ACC_01\\nAsignar Funciones\\na Usuario\" as AC01"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC02": {
+    "labels": [
+      "UC_ACC_02\\nRevocar Funciones\\nde Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 41,
+        "text": "usecase \"UC_ACC_02\\nRevocar Funciones\\nde Usuario\" as AC02"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC03": {
+    "labels": [
+      "UC_ACC_03\\nConsultar Permisos\\nEfectivos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 42,
+        "text": "usecase \"UC_ACC_03\\nConsultar Permisos\\nEfectivos\" as AC03"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC04": {
+    "labels": [
+      "UC_ACC_04\\nAsignar Agrupador\\na Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 43,
+        "text": "usecase \"UC_ACC_04\\nAsignar Agrupador\\na Usuario\" as AC04"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC05": {
+    "labels": [
+      "UC_ACC_05\\nGestionar Reglas SoD"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 44,
+        "text": "usecase \"UC_ACC_05\\nGestionar Reglas SoD\" as AC05"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC08": {
+    "labels": [
+      "UC_ACC_08\\nOtorgar Permiso\\nTemporal Excepcional"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 45,
+        "text": "usecase \"UC_ACC_08\\nOtorgar Permiso\\nTemporal Excepcional\" as AC08"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC09": {
+    "labels": [
+      "UC_ACC_09\\nAuditar Cambios\\nde Acceso"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-access.rst",
+        "line": 46,
+        "text": "usecase \"UC_ACC_09\\nAuditar Cambios\\nde Acceso\" as AC09"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "ADM01": {
+    "labels": [
+      "UC_ADM_01\\nGestionar Ciclo\\nde Vida de Reglas SoD"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-admin.rst",
+        "line": 50,
+        "text": "usecase \"UC_ADM_01\\nGestionar Ciclo\\nde Vida de Reglas SoD\" as ADM01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ADM02": {
+    "labels": [
+      "UC_ADM_02\\nGestionar Catalogo\\nde Funciones"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-admin.rst",
+        "line": 51,
+        "text": "usecase \"UC_ADM_02\\nGestionar Catalogo\\nde Funciones\" as ADM02"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ADM03": {
+    "labels": [
+      "UC_ADM_03\\nGestionar Catalogo\\nde Agrupadores del Sistema"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-admin.rst",
+        "line": 52,
+        "text": "usecase \"UC_ADM_03\\nGestionar Catalogo\\nde Agrupadores del Sistema\" as ADM03"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "AL01": {
+    "labels": [
+      "UC_ALR_01\\nConfigurar Umbrales\\nde Alertas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 38,
+        "text": "usecase \"UC_ALR_01\\nConfigurar Umbrales\\nde Alertas\" as AL01"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AL02": {
+    "labels": [
+      "UC_ALR_02\\nVer Alertas Activas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 39,
+        "text": "usecase \"UC_ALR_02\\nVer Alertas Activas\" as AL02"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AL03": {
+    "labels": [
+      "UC_ALR_03\\nReconocer Alerta"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 40,
+        "text": "usecase \"UC_ALR_03\\nReconocer Alerta\" as AL03"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AL04": {
+    "labels": [
+      "UC_ALR_04\\nVer Historial\\nde Alertas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 41,
+        "text": "usecase \"UC_ALR_04\\nVer Historial\\nde Alertas\" as AL04"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AL05": {
+    "labels": [
+      "UC_ALR_05\\nNotificacion\\nAutomatica ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 42,
+        "text": "usecase \"UC_ALR_05\\nNotificacion\\nAutomatica ETL\" as AL05"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "MOTOR": {
+    "labels": [
+      "Motor de Alertas\\n(automatico)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-alerts.rst",
+        "line": 43,
+        "text": "usecase \"Motor de Alertas\\n(automatico)\" as MOTOR"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "A01": {
+    "labels": [
+      "UC_AUD_01\\nVer Auditoria\\nGeneral",
+      "UC_AUTH_01\\nIniciar Sesion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-audit.rst",
+        "line": 38,
+        "text": "usecase \"UC_AUD_01\\nVer Auditoria\\nGeneral\" as A01"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 36,
+        "text": "usecase \"UC_AUTH_01\\nIniciar Sesion\" as A01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "A02": {
+    "labels": [
+      "UC_AUD_02\\nBuscar en\\nAuditoria",
+      "UC_AUTH_02\\nCerrar Sesion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-audit.rst",
+        "line": 39,
+        "text": "usecase \"UC_AUD_02\\nBuscar en\\nAuditoria\" as A02"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 37,
+        "text": "usecase \"UC_AUTH_02\\nCerrar Sesion\" as A02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "A03": {
+    "labels": [
+      "UC_AUD_03\\nExportar\\nAuditoria",
+      "UC_AUTH_03\\nRecuperar Contrasena"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-audit.rst",
+        "line": 40,
+        "text": "usecase \"UC_AUD_03\\nExportar\\nAuditoria\" as A03"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 38,
+        "text": "usecase \"UC_AUTH_03\\nRecuperar Contrasena\" as A03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "A04": {
+    "labels": [
+      "UC_AUD_04\\nGenerar Reporte\\nCompliance",
+      "UC_AUTH_04\\nCambiar Contrasena"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-audit.rst",
+        "line": 41,
+        "text": "usecase \"UC_AUD_04\\nGenerar Reporte\\nCompliance\" as A04"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 39,
+        "text": "usecase \"UC_AUTH_04\\nCambiar Contrasena\" as A04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "A05": {
+    "labels": [
+      "UC_AUTH_05\\nGestionar Sesiones"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 40,
+        "text": "usecase \"UC_AUTH_05\\nGestionar Sesiones\" as A05"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P08": {
+    "labels": [
+      "UC_PERM_08\\nGenerar Menu Dinamico\\n[view_own_navigation]",
+      "UC_PERM_08\\nGenerar Menu\\nDinamico\\n[view_own_navigation]"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-auth.rst",
+        "line": 41,
+        "text": "usecase \"UC_PERM_08\\nGenerar Menu Dinamico\\n[view_own_navigation]\" as P08"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 48,
+        "text": "usecase \"UC_PERM_08\\nGenerar Menu\\nDinamico\\n[view_own_navigation]\" as P08"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "C01": {
+    "labels": [
+      "UC_CLI_01\\nLlamar al\\nSistema IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-caller.rst",
+        "line": 35,
+        "text": "usecase \"UC_CLI_01\\nLlamar al\\nSistema IVR\" as C01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "C02": {
+    "labels": [
+      "UC_CLI_02\\nNavegar Menu\\nIVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-caller.rst",
+        "line": 36,
+        "text": "usecase \"UC_CLI_02\\nNavegar Menu\\nIVR\" as C02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "C03": {
+    "labels": [
+      "UC_CLI_03\\nEsperar en Cola\\nde Atencion"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-caller.rst",
+        "line": 37,
+        "text": "usecase \"UC_CLI_03\\nEsperar en Cola\\nde Atencion\" as C03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "C04": {
+    "labels": [
+      "UC_CLI_04\\nRecibir\\nCallback"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-caller.rst",
+        "line": 38,
+        "text": "usecase \"UC_CLI_04\\nRecibir\\nCallback\" as C04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "C05": {
+    "labels": [
+      "UC_CLI_05\\nResponder Encuesta\\nCSAT post-llamada\\n[offer_csat_post_call]"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-caller.rst",
+        "line": 39,
+        "text": "usecase \"UC_CLI_05\\nResponder Encuesta\\nCSAT post-llamada\\n[offer_csat_post_call]\" as C05"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L01": {
+    "labels": [
+      "UC_LOG_01\\nVer Logs\\ndel Sistema"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 41,
+        "text": "usecase \"UC_LOG_01\\nVer Logs\\ndel Sistema\" as L01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L02": {
+    "labels": [
+      "UC_LOG_02\\nVer Logs ETL\\n(etl_runs)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 42,
+        "text": "usecase \"UC_LOG_02\\nVer Logs ETL\\n(etl_runs)\" as L02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L03": {
+    "labels": [
+      "UC_LOG_03\\nBuscar Logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 43,
+        "text": "usecase \"UC_LOG_03\\nBuscar Logs\" as L03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L04": {
+    "labels": [
+      "UC_LOG_04\\nExportar Logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 44,
+        "text": "usecase \"UC_LOG_04\\nExportar Logs\" as L04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L05": {
+    "labels": [
+      "UC_LOG_05\\nVer Logs de\\nInfraestructura"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 45,
+        "text": "usecase \"UC_LOG_05\\nVer Logs de\\nInfraestructura\" as L05"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L06": {
+    "labels": [
+      "UC_LOG_06\\nVer Estado\\ndel Sistema"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 46,
+        "text": "usecase \"UC_LOG_06\\nVer Estado\\ndel Sistema\" as L06"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "L07": {
+    "labels": [
+      "UC_LOG_07\\nVer Metricas\\nTecnicas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-logs.rst",
+        "line": 47,
+        "text": "usecase \"UC_LOG_07\\nVer Metricas\\nTecnicas\" as L07"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O01": {
+    "labels": [
+      "UC_OPR_01\\nCambiar Estado\\ndel Agente"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 44,
+        "text": "usecase \"UC_OPR_01\\nCambiar Estado\\ndel Agente\" as O01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O02": {
+    "labels": [
+      "UC_OPR_02\\nAtender Llamada\\nEntrante"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 45,
+        "text": "usecase \"UC_OPR_02\\nAtender Llamada\\nEntrante\" as O02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O03": {
+    "labels": [
+      "UC_OPR_03\\nIniciar Llamada\\nOutbound"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 46,
+        "text": "usecase \"UC_OPR_03\\nIniciar Llamada\\nOutbound\" as O03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O04": {
+    "labels": [
+      "UC_OPR_04\\nHold/Unhold\\nLlamada"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 47,
+        "text": "usecase \"UC_OPR_04\\nHold/Unhold\\nLlamada\" as O04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O05": {
+    "labels": [
+      "UC_OPR_05\\nTransferir\\nLlamada"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 48,
+        "text": "usecase \"UC_OPR_05\\nTransferir\\nLlamada\" as O05"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O06": {
+    "labels": [
+      "UC_OPR_06\\nDisposicion\\npost-Llamada"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 49,
+        "text": "usecase \"UC_OPR_06\\nDisposicion\\npost-Llamada\" as O06"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O07": {
+    "labels": [
+      "UC_OPR_07\\nTomar Break"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 50,
+        "text": "usecase \"UC_OPR_07\\nTomar Break\" as O07"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O08": {
+    "labels": [
+      "UC_OPR_08\\nVer Dashboard\\nde Desempeno"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 51,
+        "text": "usecase \"UC_OPR_08\\nVer Dashboard\\nde Desempeno\" as O08"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O09": {
+    "labels": [
+      "UC_OPR_09\\nVer Historial\\nde Llamadas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 52,
+        "text": "usecase \"UC_OPR_09\\nVer Historial\\nde Llamadas\" as O09"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "O10": {
+    "labels": [
+      "UC_OPR_10\\nVer Buzon\\nde Mensajes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-operator.rst",
+        "line": 53,
+        "text": "usecase \"UC_OPR_10\\nVer Buzon\\nde Mensajes\" as O10"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P01": {
+    "labels": [
+      "UC_PERM_01\\nAsignar Grupo\\na Usuario",
+      "UC_PIP_01\\nVer Estado ETL\\n(etl_runs)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 41,
+        "text": "usecase \"UC_PERM_01\\nAsignar Grupo\\na Usuario\" as P01"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-pipeline.rst",
+        "line": 39,
+        "text": "usecase \"UC_PIP_01\\nVer Estado ETL\\n(etl_runs)\" as P01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P02": {
+    "labels": [
+      "UC_PERM_02\\nRevocar Grupo\\na Usuario",
+      "UC_PIP_02\\nVer Errores ETL\\n(etl_runs.estado=fallido)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 42,
+        "text": "usecase \"UC_PERM_02\\nRevocar Grupo\\na Usuario\" as P02"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-pipeline.rst",
+        "line": 40,
+        "text": "usecase \"UC_PIP_02\\nVer Errores ETL\\n(etl_runs.estado=fallido)\" as P02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P03": {
+    "labels": [
+      "UC_PERM_03\\nConceder Permiso\\nExcepcional",
+      "UC_PIP_03\\nVer Disponibilidad\\nde Datos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 43,
+        "text": "usecase \"UC_PERM_03\\nConceder Permiso\\nExcepcional\" as P03"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-pipeline.rst",
+        "line": 41,
+        "text": "usecase \"UC_PIP_03\\nVer Disponibilidad\\nde Datos\" as P03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P04": {
+    "labels": [
+      "UC_PERM_04\\nRevocar Permiso\\nExcepcional",
+      "UC_PIP_04\\nReintentar ETL\\n(sp_etl_historico)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 44,
+        "text": "usecase \"UC_PERM_04\\nRevocar Permiso\\nExcepcional\" as P04"
+      },
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-pipeline.rst",
+        "line": 42,
+        "text": "usecase \"UC_PIP_04\\nReintentar ETL\\n(sp_etl_historico)\" as P04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P05": {
+    "labels": [
+      "UC_PERM_05\\nCrear / Modificar /\\nRetirar Grupo"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 45,
+        "text": "usecase \"UC_PERM_05\\nCrear / Modificar /\\nRetirar Grupo\" as P05"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P06": {
+    "labels": [
+      "UC_PERM_06\\nAsignar Funciones\\na Grupo"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 46,
+        "text": "usecase \"UC_PERM_06\\nAsignar Funciones\\na Grupo\" as P06"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P07": {
+    "labels": [
+      "UC_PERM_07\\nVerificar Permiso\\nde Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 47,
+        "text": "usecase \"UC_PERM_07\\nVerificar Permiso\\nde Usuario\" as P07"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "P09": {
+    "labels": [
+      "UC_PERM_09\\nAuditar Acceso\\n(write side)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-permissions.rst",
+        "line": 49,
+        "text": "usecase \"UC_PERM_09\\nAuditar Acceso\\n(write side)\" as P09"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "AUTO": {
+    "labels": [
+      "Ejecutar ETL\\nAutomatico\\n(sp_etl_maestro)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-pipeline.rst",
+        "line": 43,
+        "text": "usecase \"Ejecutar ETL\\nAutomatico\\n(sp_etl_maestro)\" as AUTO"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "R01": {
+    "labels": [
+      "UC_RPT_01\\nVer Dashboard IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 42,
+        "text": "usecase \"UC_RPT_01\\nVer Dashboard IVR\" as R01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R02": {
+    "labels": [
+      "UC_RPT_02\\nVer Metricas\\nTiempo Real"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 43,
+        "text": "usecase \"UC_RPT_02\\nVer Metricas\\nTiempo Real\" as R02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R03": {
+    "labels": [
+      "UC_RPT_03\\nVer Reportes\\nHistoricos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 44,
+        "text": "usecase \"UC_RPT_03\\nVer Reportes\\nHistoricos\" as R03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R04": {
+    "labels": [
+      "UC_RPT_04\\nExportar Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 45,
+        "text": "usecase \"UC_RPT_04\\nExportar Reporte\" as R04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R07": {
+    "labels": [
+      "UC_RPT_07\\nProgramar Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 46,
+        "text": "usecase \"UC_RPT_07\\nProgramar Reporte\" as R07"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R08": {
+    "labels": [
+      "UC_RPT_08\\nVer Reportes\\nProgramados"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 47,
+        "text": "usecase \"UC_RPT_08\\nVer Reportes\\nProgramados\" as R08"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R10": {
+    "labels": [
+      "UC_RPT_10\\nGuardar Vista"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 48,
+        "text": "usecase \"UC_RPT_10\\nGuardar Vista\" as R10"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R11": {
+    "labels": [
+      "UC_RPT_11\\nCompartir Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 49,
+        "text": "usecase \"UC_RPT_11\\nCompartir Reporte\" as R11"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R12": {
+    "labels": [
+      "UC_RPT_12\\nReporte de Agentes\\n(sp_rpt_centros_xsegmento)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 50,
+        "text": "usecase \"UC_RPT_12\\nReporte de Agentes\\n(sp_rpt_centros_xsegmento)\" as R12"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R13": {
+    "labels": [
+      "UC_RPT_13\\nReporte de Colas\\n(sp_rpt_llamadas_abandonadas)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 51,
+        "text": "usecase \"UC_RPT_13\\nReporte de Colas\\n(sp_rpt_llamadas_abandonadas)\" as R13"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R14": {
+    "labels": [
+      "UC_RPT_14\\nReporte de Campanas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 52,
+        "text": "usecase \"UC_RPT_14\\nReporte de Campanas\" as R14"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R15": {
+    "labels": [
+      "UC_RPT_15\\nReporte de\\nTransferencias\\n(sp_rpt_centros_transferencia)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 53,
+        "text": "usecase \"UC_RPT_15\\nReporte de\\nTransferencias\\n(sp_rpt_centros_transferencia)\" as R15"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R16": {
+    "labels": [
+      "UC_RPT_16\\nReporte de Menus IVR\\n(sp_rpt_menu_redirigidos)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 54,
+        "text": "usecase \"UC_RPT_16\\nReporte de Menus IVR\\n(sp_rpt_menu_redirigidos)\" as R16"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "R17": {
+    "labels": [
+      "UC_RPT_17\\nReporte de Clientes\\nUnicos\\n(sp_rpt_clientes)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-reports.rst",
+        "line": 55,
+        "text": "usecase \"UC_RPT_17\\nReporte de Clientes\\nUnicos\\n(sp_rpt_clientes)\" as R17"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "S01": {
+    "labels": [
+      "UC_SUP_01\\nMonitorear Llamadas\\nen Vivo"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-supervision.rst",
+        "line": 37,
+        "text": "usecase \"UC_SUP_01\\nMonitorear Llamadas\\nen Vivo\" as S01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "S02": {
+    "labels": [
+      "UC_SUP_02\\nIntervenir en\\nLlamada\\n(barge in)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-supervision.rst",
+        "line": 38,
+        "text": "usecase \"UC_SUP_02\\nIntervenir en\\nLlamada\\n(barge in)\" as S02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "S03": {
+    "labels": [
+      "UC_SUP_03\\nEnviar Mensaje\\nal Equipo"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-supervision.rst",
+        "line": 39,
+        "text": "usecase \"UC_SUP_03\\nEnviar Mensaje\\nal Equipo\" as S03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U01": {
+    "labels": [
+      "UC_USR_01\\nCrear Usuario",
+      "UC_RPT_01\\nVer Dashboard"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-users.rst",
+        "line": 37,
+        "text": "usecase \"UC_USR_01\\nCrear Usuario\" as U01"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 13,
+        "text": "usecase \"UC_RPT_01\\nVer Dashboard\"             as U01"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U02": {
+    "labels": [
+      "UC_USR_02\\nConsultar Usuarios",
+      "UC_RPT_02\\nVer Métricas Tiempo Real"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-users.rst",
+        "line": 38,
+        "text": "usecase \"UC_USR_02\\nConsultar Usuarios\" as U02"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 14,
+        "text": "usecase \"UC_RPT_02\\nVer Métricas Tiempo Real\"  as U02"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U03": {
+    "labels": [
+      "UC_USR_03\\nModificar Usuario",
+      "UC_RPT_03\\nVer Reportes Históricos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-users.rst",
+        "line": 39,
+        "text": "usecase \"UC_USR_03\\nModificar Usuario\" as U03"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 15,
+        "text": "usecase \"UC_RPT_03\\nVer Reportes Históricos\"   as U03"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U04": {
+    "labels": [
+      "UC_USR_04\\nEliminar Usuario\\n(baja logica)",
+      "UC_RPT_04\\nExportar Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/arquitectura-tecnica/use-case-view/mod-users.rst",
+        "line": 40,
+        "text": "usecase \"UC_USR_04\\nEliminar Usuario\\n(baja logica)\" as U04"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 16,
+        "text": "usecase \"UC_RPT_04\\nExportar Reporte\"          as U04"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "PA": {
+    "labels": [
+      "Acceso & RBAC"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 8,
+        "text": "package \"Acceso & RBAC\" as PA {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PL": {
+    "labels": [
+      "Llamadas / IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 17,
+        "text": "package \"Llamadas / IVR\" as PL {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PR": {
+    "labels": [
+      "Reportes / Métricas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 25,
+        "text": "package \"Reportes / Métricas\" as PR {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PE": {
+    "labels": [
+      "Pipeline ETL",
+      "PermissionsEngine"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 32,
+        "text": "package \"Pipeline ETL\" as PE {"
+      },
+      {
+        "file": "source/requisitos/casos-uso/admin/uc-adm-03/diagramas-uml/impacto.rst",
+        "line": 9,
+        "text": "participant \"PermissionsEngine\" as PE"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PN": {
+    "labels": [
+      "Alertas / Notificaciones"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 39,
+        "text": "package \"Alertas / Notificaciones\" as PN {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PD": {
+    "labels": [
+      "Auditoría"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/analisis-dominio/conversion-a-clases-vista-global-del-dominio.rst",
+        "line": 46,
+        "text": "package \"Auditoría\" as PD {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "A1": {
+    "labels": [
+      "Iniciar sesión",
+      "UC_AUTH_01\\nIniciar sesión\\n(BASE)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 21,
+        "text": "usecase \"Iniciar sesión\"  as A1"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-auth-01-con-variante-2fa.rst",
+        "line": 12,
+        "text": "usecase \"UC_AUTH_01\\nIniciar sesión\\n(BASE)\"       as A1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "A2": {
+    "labels": [
+      "Cerrar sesión"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 22,
+        "text": "usecase \"Cerrar sesión\"   as A2"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U1": {
+    "labels": [
+      "CRUD usuarios"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 26,
+        "text": "usecase \"CRUD usuarios\" as U1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "AC1": {
+    "labels": [
+      "Asignar funciones"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 30,
+        "text": "usecase \"Asignar funciones\"   as AC1"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AC5": {
+    "labels": [
+      "Gestionar SoD"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 31,
+        "text": "usecase \"Gestionar SoD\"       as AC5"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "PE7": {
+    "labels": [
+      "Verificar permiso"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 35,
+        "text": "usecase \"Verificar permiso\"   as PE7"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "PE8": {
+    "labels": [
+      "Generar menú\\ndinámico"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 36,
+        "text": "usecase \"Generar menú\\ndinámico\" as PE8"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AL3": {
+    "labels": [
+      "Reconocer alerta"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 45,
+        "text": "usecase \"Reconocer alerta\"    as AL3"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "AU1": {
+    "labels": [
+      "Consultar auditoría"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 54,
+        "text": "usecase \"Consultar auditoría\" as AU1"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "L1": {
+    "labels": [
+      "Consultar logs"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/agrupamiento-con-paquetes.rst",
+        "line": 58,
+        "text": "usecase \"Consultar logs\"      as L1"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "AUTH01": {
+    "labels": [
+      "UC_AUTH_01\\nIniciar sesión",
+      "UC_AUTH_01\\nLogin"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 23,
+        "text": "usecase \"UC_AUTH_01\\nIniciar sesión\"     as AUTH01"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact.rst",
+        "line": 17,
+        "text": "usecase \"UC_AUTH_01\\nLogin\" as AUTH01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT01": {
+    "labels": [
+      "UC_RPT_01\\nVer dashboard"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 24,
+        "text": "usecase \"UC_RPT_01\\nVer dashboard\"       as RPT01"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 18,
+        "text": "usecase \"UC_RPT_01\\nVer dashboard\"          as RPT01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT04": {
+    "labels": [
+      "UC_RPT_04\\nExportar reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 25,
+        "text": "usecase \"UC_RPT_04\\nExportar reporte\"    as RPT04"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte.rst",
+        "line": 12,
+        "text": "usecase \"UC_RPT_04\\nExportar reporte\"  as RPT04"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 20,
+        "text": "usecase \"UC_RPT_04\\nExportar reporte\"        as RPT04"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ALR03": {
+    "labels": [
+      "UC_ALR_03\\nReconocer alerta"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 26,
+        "text": "usecase \"UC_ALR_03\\nReconocer alerta\"    as ALR03"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ACC01": {
+    "labels": [
+      "UC_ACC_01\\nAsignar funciones"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 27,
+        "text": "usecase \"UC_ACC_01\\nAsignar funciones\"   as ACC01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PERM07": {
+    "labels": [
+      "UC_PERM_07\\nVerificar permiso"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 28,
+        "text": "usecase \"UC_PERM_07\\nVerificar permiso\"  as PERM07"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 23,
+        "text": "usecase \"UC_PERM_07\\nVerificar permiso\"      as PERM07"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PIP01": {
+    "labels": [
+      "UC_PIP_01\\nSupervisar ETL",
+      "UC_PIP_01\\nCarga ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 29,
+        "text": "usecase \"UC_PIP_01\\nSupervisar ETL\"      as PIP01"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact.rst",
+        "line": 15,
+        "text": "usecase \"UC_PIP_01\\nCarga ETL\" as PIP01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PIP04": {
+    "labels": [
+      "UC_PIP_04\\nSolicitar reintento",
+      "UC_PIP_04\\nSolicitar reintento ETL"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 30,
+        "text": "usecase \"UC_PIP_04\\nSolicitar reintento\" as PIP04"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 22,
+        "text": "usecase \"UC_PIP_04\\nSolicitar reintento ETL\" as PIP04"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "AUD01": {
+    "labels": [
+      "UC_AUD_01\\nConsultar auditoría"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 31,
+        "text": "usecase \"UC_AUD_01\\nConsultar auditoría\" as AUD01"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 21,
+        "text": "usecase \"UC_AUD_01\\nConsultar auditoría\"     as AUD01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "AUD03": {
+    "labels": [
+      "UC_AUD_03\\nExportar auditoría",
+      "UC_AUD_03\\nConsultar audit"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel.rst",
+        "line": 32,
+        "text": "usecase \"UC_AUD_03\\nExportar auditoría\"  as AUD03"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact.rst",
+        "line": 18,
+        "text": "usecase \"UC_AUD_03\\nConsultar audit\" as AUD03"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT03": {
+    "labels": [
+      "UC_RPT_03\\nVer reportes\\nhistóricos\\n.. extension points ..\\nresultados listados\\nen pantalla",
+      "UC_RPT_03\\nVer reportes\\nhistóricos",
+      "UC_RPT_03\\nVer reportes\\nhistóricos\\n(BASE)",
+      "UC_RPT_03\\nVer reportes históricos"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-03-ver-reportes-historicos-extendido.rst",
+        "line": 12,
+        "text": "usecase \"UC_RPT_03\\nVer reportes\\nhistóricos\\n.. extension points ..\\nresultados listados\\nen pantal"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte.rst",
+        "line": 13,
+        "text": "usecase \"UC_RPT_03\\nVer reportes\\nhistóricos\"   as RPT03"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/extension-en-iact-ver-historico-con-filtros.rst",
+        "line": 16,
+        "text": "usecase \"UC_RPT_03\\nVer reportes\\nhistóricos\\n(BASE)\"           as RPT03"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/inclusion-en-iact-crear-orden-no-permisos-si.rst",
+        "line": 19,
+        "text": "usecase \"UC_RPT_03\\nVer reportes históricos\" as RPT03"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT09": {
+    "labels": [
+      "UC_RPT_09\\nConfigurar filtros",
+      "UC_RPT_09\\nConfigurar\\nfiltros\\n(EXTIENDE)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-03-ver-reportes-historicos-extendido.rst",
+        "line": 13,
+        "text": "usecase \"UC_RPT_09\\nConfigurar filtros\"          as RPT09"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/extension-en-iact-ver-historico-con-filtros.rst",
+        "line": 17,
+        "text": "usecase \"UC_RPT_09\\nConfigurar\\nfiltros\\n(EXTIENDE)\"            as RPT09"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT10": {
+    "labels": [
+      "UC_RPT_10\\nGuardar vista",
+      "UC_RPT_10\\nGuardar vista\\n(EXTIENDE)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-03-ver-reportes-historicos-extendido.rst",
+        "line": 14,
+        "text": "usecase \"UC_RPT_10\\nGuardar vista\"               as RPT10"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/extension-en-iact-ver-historico-con-filtros.rst",
+        "line": 18,
+        "text": "usecase \"UC_RPT_10\\nGuardar vista\\n(EXTIENDE)\"                  as RPT10"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "RPT11": {
+    "labels": [
+      "UC_RPT_11\\nCompartir reporte",
+      "UC_RPT_11\\nCompartir reporte\\n(EXTIENDE)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-03-ver-reportes-historicos-extendido.rst",
+        "line": 15,
+        "text": "usecase \"UC_RPT_11\\nCompartir reporte\"           as RPT11"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-especificacion/extension-en-iact-ver-historico-con-filtros.rst",
+        "line": 19,
+        "text": "usecase \"UC_RPT_11\\nCompartir reporte\\n(EXTIENDE)\"              as RPT11"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PERM": {
+    "labels": [
+      "UC_PERM_07\\nVerificar permiso\\n+ throttling\\nCNST_020"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte.rst",
+        "line": 14,
+        "text": "usecase \"UC_PERM_07\\nVerificar permiso\\n+ throttling\\nCNST_020\"            as PERM"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-detallada-con-interfaces-lollipop.rst",
+        "line": 12,
+        "text": "[perm_app] as PERM"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "SEG": {
+    "labels": [
+      "Aplicar filtro\\nsegmento\\n(BR_012,\\nCNST_008)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte.rst",
+        "line": 15,
+        "text": "usecase \"Aplicar filtro\\nsegmento\\n(BR_012,\\nCNST_008)\"                    as SEG"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "AUD": {
+    "labels": [
+      "Registrar en\\nAuditLog\\n(CNST_025)",
+      "Audit Service\\nInmutable"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte.rst",
+        "line": 16,
+        "text": "usecase \"Registrar en\\nAuditLog\\n(CNST_025)\"                               as AUD"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-detallada-con-interfaces-lollipop.rst",
+        "line": 13,
+        "text": "[aud_app] as AUD"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 21,
+        "text": "component \"Audit Service\\nInmutable\"            as AUD"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "OETL": {
+    "labels": [
+      "Operador ETL",
+      "Operador ETL\\n[Person]"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact.rst",
+        "line": 12,
+        "text": "actor \"Operador ETL\" as OETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 28,
+        "text": "actor \"Operador ETL\\n[Person]\" as OETL"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-context-de-iact.rst",
+        "line": 21,
+        "text": "actor \"Operador ETL\" as OETL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RPT07": {
+    "labels": [
+      "UC_RPT_07\\nReporte programado"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact.rst",
+        "line": 16,
+        "text": "usecase \"UC_RPT_07\\nReporte programado\" as RPT07"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "UC1": {
+    "labels": [
+      "Comprar gaseosa"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-visual-maquina-de-gaseosas-referencia-generica.rst",
+        "line": 17,
+        "text": "usecase \"Comprar gaseosa\"      as UC1"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC2": {
+    "labels": [
+      "Reabastecer"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-visual-maquina-de-gaseosas-referencia-generica.rst",
+        "line": 18,
+        "text": "usecase \"Reabastecer\"          as UC2"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC3": {
+    "labels": [
+      "Recolectar el dinero"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-visual-maquina-de-gaseosas-referencia-generica.rst",
+        "line": 19,
+        "text": "usecase \"Recolectar el dinero\" as UC3"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "BDO": {
+    "labels": [
+      ":bd_operativa",
+      "BD operativa\\n[External System]",
+      "BD operativa\\n[External System]\\n\\nDatos del call center\\n(read-only)",
+      "BD operativa\\n(call center)",
+      "bd_operativa\\n(read-only, CNST_007)",
+      "bd-operativa",
+      "bd-operativa\\n[External, read-only]",
+      "bd-operativa\\n(read-only)",
+      "bd-operativa\\n(read-only,\\nCNST_007)",
+      "bd_operativa"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/mensaje-en-bucle.rst",
+        "line": 10,
+        "text": "object \":bd_operativa\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 33,
+        "text": "rectangle \"BD operativa\\n[External System]\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact.rst",
+        "line": 38,
+        "text": "rectangle \"BD operativa\\n[External System]\\n\\nDatos del call center\\n(read-only)\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-context-de-iact.rst",
+        "line": 26,
+        "text": "rectangle \"BD operativa\\n(call center)\" as BDO <<externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 27,
+        "text": "database \"bd_operativa\\n(read-only, CNST_007)\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-ajuste-de-rangos.rst",
+        "line": 26,
+        "text": "database \"bd-operativa\" as BDO <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-con-frontera.rst",
+        "line": 20,
+        "text": "database \"bd-operativa\\n[External, read-only]\" as BDO <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-final.rst",
+        "line": 24,
+        "text": "database \"bd-operativa\\n[External, read-only]\" as BDO <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/container-view-iact-con-sync-vs-async.rst",
+        "line": 21,
+        "text": "database \"bd-operativa\" as BDO <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/dependencia-entre-nodos.rst",
+        "line": 9,
+        "text": "database \"bd-operativa\\n(read-only)\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-combinada-iact-minimalista.rst",
+        "line": 25,
+        "text": "database \"bd-operativa\\n(read-only)\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 26,
+        "text": "database \"bd-operativa\\n(read-only,\\nCNST_007)\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/ciclo-loop-con-guarda.rst",
+        "line": 8,
+        "text": "database \"bd_operativa\" as BDO"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/salida-temprana-break.rst",
+        "line": 8,
+        "text": "database \"bd_operativa\" as BDO"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "LDAP": {
+    "labels": [
+      ":ldap-corporativo",
+      "LDAP corporativo\\n[External System]",
+      "LDAP corporativo\\n[External System]\\n\\nDirectorio de usuarios",
+      "ldap-corporativo\\n[External]",
+      "LDAP corporativo",
+      "ldap-corporativo",
+      "ldap-corporativo\\n<<servidor>>"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/reverse-stimulus-request-respuesta.rst",
+        "line": 10,
+        "text": "object \":ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact-continuacion.rst",
+        "line": 32,
+        "text": "rectangle \"LDAP corporativo\\n[External System]\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/construccion-incremental-iact.rst",
+        "line": 37,
+        "text": "rectangle \"LDAP corporativo\\n[External System]\\n\\nDirectorio de usuarios\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/ejemplo-iact-component-view-de-iact-wsgi.rst",
+        "line": 29,
+        "text": "rectangle \"ldap-corporativo\\n[External]\" as LDAP <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-context-de-iact.rst",
+        "line": 25,
+        "text": "rectangle \"LDAP corporativo\" as LDAP <<externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 34,
+        "text": "[LDAP corporativo] as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-ajuste-de-rangos.rst",
+        "line": 25,
+        "text": "rectangle \"ldap-corporativo\" as LDAP <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-con-frontera.rst",
+        "line": 19,
+        "text": "rectangle \"ldap-corporativo\\n[External]\" as LDAP <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-final.rst",
+        "line": 23,
+        "text": "rectangle \"ldap-corporativo\\n[External]\" as LDAP <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/asociacion-dirigida.rst",
+        "line": 9,
+        "text": "node \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/container-view-iact-con-sync-vs-async.rst",
+        "line": 20,
+        "text": "rectangle \"ldap-corporativo\" as LDAP <<c4_externo>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/puertos-en-frontera.rst",
+        "line": 13,
+        "text": "node \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-combinada-iact-minimalista.rst",
+        "line": 24,
+        "text": "node \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 24,
+        "text": "node \"ldap-corporativo\\n<<servidor>>\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/bifurcacion-alt-else.rst",
+        "line": 8,
+        "text": "database \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/equivalente-iact-del-ejemplo-del-libro-2.rst",
+        "line": 16,
+        "text": "database \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/equivalente-iact-del-flujo-del-libro-1.rst",
+        "line": 18,
+        "text": "database \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/equivalente-iact-del-flujo-del-libro.rst",
+        "line": 18,
+        "text": "database \"ldap-corporativo\" as LDAP"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/resultado-consolidado-del-capitulo.rst",
+        "line": 18,
+        "text": "database \"ldap-corporativo\" as LDAP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "BDA": {
+    "labels": [
+      "bd_analytics\\n[Container]",
+      "bd_analytics",
+      "bd_analytics\\n[MySQL]",
+      "bd_analytics\\n(MySQL)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/ejemplo-iact-component-view-de-iact-wsgi.rst",
+        "line": 27,
+        "text": "database \"bd_analytics\\n[Container]\" as BDA <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-detallada-con-interfaces-lollipop.rst",
+        "line": 15,
+        "text": "database \"bd_analytics\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 28,
+        "text": "database \"bd_analytics\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-ajuste-de-rangos.rst",
+        "line": 21,
+        "text": "database \"bd_analytics\" as BDA <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-con-frontera.rst",
+        "line": 15,
+        "text": "database \"bd_analytics\\n[MySQL]\" as BDA <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-final.rst",
+        "line": 18,
+        "text": "database \"bd_analytics\\n[MySQL]\" as BDA <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/container-view-iact-con-sync-vs-async.rst",
+        "line": 15,
+        "text": "database \"bd_analytics\\n[MySQL]\" as BDA <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/database-dentro-de-un-nodo.rst",
+        "line": 9,
+        "text": "database \"bd_analytics\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-combinada-iact-minimalista.rst",
+        "line": 20,
+        "text": "database \"bd_analytics\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 18,
+        "text": "database \"bd_analytics\\n(MySQL)\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/ciclo-loop-con-guarda.rst",
+        "line": 9,
+        "text": "database \"bd_analytics\" as BDA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-secuencias/database-bd-persistente.rst",
+        "line": 8,
+        "text": "database \"bd_analytics\" as BDA"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RPT": {
+    "labels": [
+      "Reports Service\\nMétricas, Export"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-detallada-con-interfaces-lollipop.rst",
+        "line": 11,
+        "text": "[rpt_app] as RPT"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 18,
+        "text": "component \"Reports Service\\nMétricas, Export\"   as RPT"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "LOG": {
+    "labels": [],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-detallada-con-interfaces-lollipop.rst",
+        "line": 14,
+        "text": "[log_app] as LOG"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "WSGI": {
+    "labels": [
+      "iact.wsgi",
+      "iact.wsgi\\n[Django + mod_wsgi sobre Apache]",
+      "iact.wsgi\\n[Django + mod_wsgi]",
+      "iact.wsgi\\n[Django + mod_wsgi sobre Apache]\\n\\nServe la SPA y expone\\nla API REST del backend"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 14,
+        "text": "[iact.wsgi] as WSGI"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-ajuste-de-rangos.rst",
+        "line": 19,
+        "text": "rectangle \"iact.wsgi\" as WSGI <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-con-frontera.rst",
+        "line": 13,
+        "text": "rectangle \"iact.wsgi\\n[Django + mod_wsgi sobre Apache]\" as WSGI <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/aplicacion-a-iact-container-view-final.rst",
+        "line": 16,
+        "text": "rectangle \"iact.wsgi\\n[Django + mod_wsgi sobre Apache]\" as WSGI <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/container-view-iact-con-sync-vs-async.rst",
+        "line": 13,
+        "text": "rectangle \"iact.wsgi\\n[Django + mod_wsgi]\" as WSGI <<c4_container>>"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/primer-paso-del-container-iact-actor-y-los-dos-primeros-cont.rst",
+        "line": 19,
+        "text": "rectangle \"iact.wsgi\\n[Django + mod_wsgi sobre Apache]\\n\\nServe la SPA y expone\\nla API REST del bac"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 14,
+        "text": "artifact \"iact.wsgi\" as WSGI"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "REDIS": {
+    "labels": [
+      "Redis\\n(sesiones, throttling)",
+      "Redis"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-componentes/vista-fisica-global-de-iact.rst",
+        "line": 30,
+        "text": "database \"Redis\\n(sesiones, throttling)\" as REDIS"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 17,
+        "text": "node \"Redis\" as REDIS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "APPS": {
+    "labels": [
+      "auth_app, perm_app,\\nrpt_app, alr_app,\\npip_app, aud_app, log_app"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-distribucion/vista-de-despliegue-global-iact.rst",
+        "line": 15,
+        "text": "artifact \"auth_app, perm_app,\\nrpt_app, alr_app,\\npip_app, aud_app, log_app\" as APPS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ABT": {
+    "labels": [
+      "AbortadaPorError",
+      "AbortadoFlowFinal"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-estados/flow-final-abort-anormal.rst",
+        "line": 13,
+        "text": "state \"AbortadaPorError\" as ABT #FFAAAA"
+      },
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-estados/plantilla-ciclo-de-vida-de-un-objeto-iact.rst",
+        "line": 25,
+        "text": "state \"AbortadoFlowFinal\" as ABT #FFAAAA"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "U07": {
+    "labels": [
+      "UC_RPT_07\\nProgramar Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 17,
+        "text": "usecase \"UC_RPT_07\\nProgramar Reporte\"         as U07"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U08": {
+    "labels": [
+      "UC_RPT_08\\nVer Programados"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 18,
+        "text": "usecase \"UC_RPT_08\\nVer Programados\"           as U08"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U09": {
+    "labels": [
+      "UC_RPT_09\\nConfigurar Filtros"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 19,
+        "text": "usecase \"UC_RPT_09\\nConfigurar Filtros\"        as U09"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U10": {
+    "labels": [
+      "UC_RPT_10\\nGuardar Vista"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 20,
+        "text": "usecase \"UC_RPT_10\\nGuardar Vista\"             as U10"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U11": {
+    "labels": [
+      "UC_RPT_11\\nCompartir Reporte"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 21,
+        "text": "usecase \"UC_RPT_11\\nCompartir Reporte\"         as U11"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U12": {
+    "labels": [
+      "UC_RPT_12\\nReporte Agentes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 22,
+        "text": "usecase \"UC_RPT_12\\nReporte Agentes\"           as U12"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U13": {
+    "labels": [
+      "UC_RPT_13\\nReporte Colas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 23,
+        "text": "usecase \"UC_RPT_13\\nReporte Colas\"             as U13"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "U14": {
+    "labels": [
+      "UC_RPT_14\\nReporte Campañas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-casos-de-uso-uc-rpt-reportes-14-ucs.rst",
+        "line": 24,
+        "text": "usecase \"UC_RPT_14\\nReporte Campañas\"          as U14"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "HTTP": {
+    "labels": [
+      "HTTP Client\\nAxios + JWT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 11,
+        "text": "component \"HTTP Client\\nAxios + JWT\"           as HTTP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "REST": {
+    "labels": [
+      "REST API\\nViewSets"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 15,
+        "text": "component \"REST API\\nViewSets\"                  as REST"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "ALR": {
+    "labels": [
+      "Alerts Service\\nUmbrales, Notif"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 19,
+        "text": "component \"Alerts Service\\nUmbrales, Notif\"     as ALR"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "PIP": {
+    "labels": [
+      "ETL Supervisor\\nestado, reintento"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-componentes-arquitectura-del-sistema-iact.rst",
+        "line": 20,
+        "text": "component \"ETL Supervisor\\nestado, reintento\"   as PIP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "DB": {
+    "labels": [],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/diagramas-uml/diagrama-de-distribucion-despliegue-del-proyecto-iact.rst",
+        "line": 18,
+        "text": "node \"BD Analytics\" <<procesador>> as DB {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "OOP": {
+    "labels": [
+      "Orientación a Objetos en IACT"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/_metodologia-aplicacion/orientacion-objetos/resumen-visual-de-los-6-principios.rst",
+        "line": 9,
+        "text": "rectangle \"Orientación a Objetos en IACT\" as OOP {"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC01": {
+    "labels": [
+      "UC_ACC_01\\nAsignar Funciones",
+      "UC_ALR_01\\nConfigurar Umbrales",
+      "UC_AUD_01\\nConsultar Auditoria",
+      "UC_AUTH_01\\nIniciar Sesion",
+      "UC_LOG_01\\nLogs Sistema",
+      "UC_OPR_01\\nCambiar Estado",
+      "UC_PIP_01\\nSupervisar ETL",
+      "UC_RPT_01\\nVer Dashboard IVR",
+      "UC_USR_01\\nCrear Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_ACC_01\\nAsignar Funciones\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-01/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_ALR_01\\nConfigurar Umbrales\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/audit/uc-aud-01/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_AUD_01\\nConsultar Auditoria\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 22,
+        "text": "usecase \"UC_AUTH_01\\nIniciar Sesion\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-01/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_01\\nLogs Sistema\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/operator/uc-opr-01/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_OPR_01\\nCambiar Estado\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/pipeline/uc-pip-01/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_PIP_01\\nSupervisar ETL\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_RPT_01\\nVer Dashboard IVR\" as UC01"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_USR_01\\nCrear Usuario\" as UC01"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "VUSER": {
+    "labels": [
+      "Validar User destino"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Validar User destino\" as VUSER"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "VFUN": {
+    "labels": [
+      "Validar funciones\\n(existen + activas)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 19,
+        "text": "usecase \"Validar funciones\\n(existen + activas)\" as VFUN"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "IDEM": {
+    "labels": [
+      "Filtrar idempotente"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Filtrar idempotente\" as IDEM"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "VSOD": {
+    "labels": [
+      "Validar SoD\\n(CNST-005)",
+      "Validar SoD\\nwrite-time",
+      "Validar SoD\\ncascade"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 21,
+        "text": "usecase \"Validar SoD\\n(CNST-005)\" as VSOD"
+      },
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"Validar SoD\\nwrite-time\" as VSOD"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-06/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"Validar SoD\\ncascade\" as VSOD"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "CACHE": {
+    "labels": [
+      "Invalidar cache\\npermisos",
+      "Invalidar cache",
+      "Invalidar cache\\nde reglas",
+      "Cache lookup"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 23,
+        "text": "usecase \"Invalidar cache\\npermisos\" as CACHE"
+      },
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 22,
+        "text": "usecase \"Invalidar cache\" as CACHE"
+      },
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Invalidar cache\" as CACHE"
+      },
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 22,
+        "text": "usecase \"Invalidar cache\\nde reglas\" as CACHE"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"Cache lookup\" as CACHE"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC02": {
+    "labels": [
+      "UC_ACC_02\\nRevocar Funciones",
+      "UC_ALR_02\\nAlertas Activas",
+      "UC_AUD_02\\nBuscar",
+      "UC_AUTH_02\\nCerrar Sesion",
+      "UC_LOG_02\\nLogs ETL",
+      "UC_PIP_02\\nErrores ETL",
+      "UC_RPT_02\\nRealtime Metrics",
+      "UC_USR_02\\nConsultar Usuarios"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_ACC_02\\nRevocar Funciones\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-02/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_ALR_02\\nAlertas Activas\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/audit/uc-aud-02/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_AUD_02\\nBuscar\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_AUTH_02\\nCerrar Sesion\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-02/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_02\\nLogs ETL\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/pipeline/uc-pip-02/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_PIP_02\\nErrores ETL\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"UC_RPT_02\\nRealtime Metrics\" as UC02"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_USR_02\\nConsultar Usuarios\" as UC02"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "P11": {
+    "labels": [
+      "Validar P-11\\nanti-self-revoke",
+      "Validar P-11\\nanti-self-elimination"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Validar P-11\\nanti-self-revoke\" as P11"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Validar P-11\\nanti-self-elimination\" as P11"
+      }
+    ],
+    "type": "LETRA_NUMERO"
+  },
+  "CALC": {
+    "labels": [
+      "Calcular post-revoke\\n+ warnings"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Calcular post-revoke\\n+ warnings\" as CALC"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC03": {
+    "labels": [
+      "UC_ACC_03\\nConsultar Permisos",
+      "UC_ALR_03\\nAck inline",
+      "UC_ALR_03\\nReconocer",
+      "UC_AUD_03\\nExportar Audit Log",
+      "UC_AUTH_03\\nRecuperar Contrasena",
+      "UC_LOG_03\\nBuscar Logs",
+      "UC_PIP_03\\nDisponibilidad\\nde Datos",
+      "UC_RPT_03\\nHistoricos",
+      "UC_USR_03\\nModificar Usuario"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_ACC_03\\nConsultar Permisos\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-02/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_ALR_03\\nAck inline\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-03/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_ALR_03\\nReconocer\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/audit/uc-aud-03/diagramas-uml/caso-de-uso.rst",
+        "line": 12,
+        "text": "usecase \"UC_AUD_03\\nExportar Audit Log\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_AUTH_03\\nRecuperar Contrasena\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-03/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_03\\nBuscar Logs\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/pipeline/uc-pip-03/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_PIP_03\\nDisponibilidad\\nde Datos\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "usecase \"UC_RPT_03\\nHistoricos\" as UC03"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_USR_03\\nModificar Usuario\" as UC03"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "CONS": {
+    "labels": [
+      "Consolidar\\n+ metadata origen"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Consolidar\\n+ metadata origen\" as CONS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "AUDS": {
+    "labels": [
+      "Audit selectivo\\nP-16",
+      "Audit P-16\\nselectivo",
+      "Audit selectivo\\n(P-16)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 22,
+        "text": "usecase \"Audit selectivo\\nP-16\" as AUDS"
+      },
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-09/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Audit P-16\\nselectivo\" as AUDS"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 19,
+        "text": "usecase \"Audit selectivo\\n(P-16)\" as AUDS"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC04": {
+    "labels": [
+      "UC_ACC_04\\nAsignar AGR",
+      "UC_ALR_04\\nHistorial",
+      "UC_AUD_04\\nGenerar Reporte",
+      "UC_AUTH_04\\nCambiar\\nContrasena",
+      "UC_AUTH_04\\nCambiar Contrasena",
+      "UC_LOG_04\\nExportar Logs",
+      "UC_PERM_04\\nRevocar\\nExceptional",
+      "UC_PIP_04\\nReintentar ETL",
+      "UC_RPT_04\\nExport",
+      "UC_USR_04\\nEliminar Usuario\\n(baja logica)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_ACC_04\\nAsignar AGR\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-04/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_ALR_04\\nHistorial\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/audit/uc-aud-04/diagramas-uml/caso-de-uso.rst",
+        "line": 13,
+        "text": "usecase \"UC_AUD_04\\nGenerar Reporte\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 23,
+        "text": "usecase \"UC_AUTH_04\\nCambiar\\nContrasena\"  as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_AUTH_04\\nCambiar Contrasena\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-04/diagramas-uml/caso-de-uso.rst",
+        "line": 12,
+        "text": "usecase \"UC_LOG_04\\nExportar Logs\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_04\\nRevocar\\nExceptional\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/pipeline/uc-pip-04/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_PIP_04\\nReintentar ETL\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"UC_RPT_04\\nExport\" as UC04"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_USR_04\\nEliminar Usuario\\n(baja logica)\" as UC04"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "VAGR": {
+    "labels": [
+      "Validar AGR\\nexiste + ACTIVE"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"Validar AGR\\nexiste + ACTIVE\" as VAGR"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC05": {
+    "labels": [
+      "UC_ACC_05\\nGestionar SoD",
+      "UC_ALR_05\\nSubscriptions",
+      "UC_AUTH_05\\nGestionar Sesiones",
+      "UC_LOG_05\\nLogs Infraestructura"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_ACC_05\\nGestionar SoD\" as UC05"
+      },
+      {
+        "file": "source/requisitos/casos-uso/alerts/uc-alr-05/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_ALR_05\\nSubscriptions\" as UC05"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 17,
+        "text": "usecase \"UC_AUTH_05\\nGestionar Sesiones\" as UC05"
+      },
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-05/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_05\\nLogs Infraestructura\" as UC05"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UCCRE": {
+    "labels": [
+      "Crear regla",
+      "UC_PERM_05\\nCreate AGR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Crear regla\" as UCCRE"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"UC_PERM_05\\nCreate AGR\" as UCCRE"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UCMOD": {
+    "labels": [
+      "Modificar regla",
+      "UC_PERM_05\\nModify AGR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 19,
+        "text": "usecase \"Modificar regla\" as UCMOD"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_05\\nModify AGR\" as UCMOD"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UCRET": {
+    "labels": [
+      "Retirar regla",
+      "UC_PERM_05\\nRetire AGR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Retirar regla\" as UCRET"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"UC_PERM_05\\nRetire AGR\" as UCRET"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC08": {
+    "labels": [
+      "UC_ACC_08\\nPermiso Temporal",
+      "UC_PERM_08\\nGenerar Menu",
+      "UC_RPT_08\\nList scheduled"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_ACC_08\\nPermiso Temporal\" as UC08"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"UC_PERM_08\\nGenerar Menu\" as UC08"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "usecase \"UC_RPT_08\\nList scheduled\" as UC08"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC09": {
+    "labels": [
+      "UC_ACC_09\\nAuditar Cambios",
+      "UC_PERM_09\\nAuditar Acceso",
+      "UC_RPT_09\\nGestionar filtros"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/access/uc-acc-09/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"UC_ACC_09\\nAuditar Cambios\" as UC09"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-09/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_09\\nAuditar Acceso\" as UC09"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-09/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_09\\nGestionar filtros\" as UC09"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "EP": {
+    "labels": [
+      "SystemGroupEndpoint"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/admin/uc-adm-03/diagramas-uml/impacto.rst",
+        "line": 8,
+        "text": "participant \"SystemGroupEndpoint\" as EP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UR": {
+    "labels": [
+      "UserRepo"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/admin/uc-adm-03/diagramas-uml/impacto.rst",
+        "line": 10,
+        "text": "participant \"UserRepo\" as UR"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC_RPT_04": {
+    "labels": [],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/audit/uc-aud-03/implementacion-tecnica.rst",
+        "line": 14,
+        "text": "same shape as UC_RPT_04"
+      }
+    ],
+    "type": "UC_PREFIX"
+  },
+  "USER": {
+    "labels": [
+      "User",
+      "User afectado",
+      "User\\nautenticado",
+      "Nuevo User",
+      "User modificado",
+      "User eliminado"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-02/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"User\" as USER"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"User afectado\" as USER <<beneficiario>>"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 11,
+        "text": "actor \"User\\nautenticado\" as USER"
+      },
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"User afectado\" as USER <<beneficiario>>"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-01/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"Nuevo User\" as USER <<beneficiario>>"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"User modificado\" as USER <<beneficiario>>"
+      },
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"User eliminado\" as USER <<receptor>>"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "COMP": {
+    "labels": [
+      "Validar complejidad"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 18,
+        "text": "usecase \"Validar complejidad\" as COMP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "FULL": {
+    "labels": [
+      "Sesion scope pleno"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-estados-user-first-login-scope.rst",
+        "line": 10,
+        "text": "state \"Sesion scope pleno\" as FULL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "CALL": {
+    "labels": [
+      "Cerrar todas\\nlas del User"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 20,
+        "text": "usecase \"Cerrar todas\\nlas del User\" as CALL"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC06": {
+    "labels": [
+      "UC_LOG_06\\nEstado Sistema",
+      "UC_PERM_06\\nComposicion AGR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-06/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_06\\nEstado Sistema\" as UC06"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-06/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_06\\nComposicion AGR\" as UC06"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC07": {
+    "labels": [
+      "UC_LOG_07\\nMetricas",
+      "UC_PERM_07\\nVerificar Permiso",
+      "UC_PERM_07\\nbulk check",
+      "UC_RPT_07\\nProgramar"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/logs/uc-log-07/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_LOG_07\\nMetricas\" as UC07"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_07\\nVerificar Permiso\" as UC07"
+      },
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-08/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 15,
+        "text": "usecase \"UC_PERM_07\\nbulk check\" as UC07"
+      },
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 13,
+        "text": "usecase \"UC_RPT_07\\nProgramar\" as UC07"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "ACC04": {
+    "labels": [
+      "UC_ACC_04\\nAsignar AGR\\n(desde User)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-01/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 15,
+        "text": "usecase \"UC_ACC_04\\nAsignar AGR\\n(desde User)\" as ACC04"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PERM01": {
+    "labels": [
+      "UC_PERM_01\\nAsignar Grupo\\n(desde catalogo AGR)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-01/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 19,
+        "text": "usecase \"UC_PERM_01\\nAsignar Grupo\\n(desde catalogo AGR)\" as PERM01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ACC02": {
+    "labels": [
+      "UC_ACC_02\\nRevocar\\n(generico)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-02/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 15,
+        "text": "usecase \"UC_ACC_02\\nRevocar\\n(generico)\" as ACC02"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PERM02": {
+    "labels": [
+      "UC_PERM_02\\nRevocar AGR\\n(catalogo)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-02/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 18,
+        "text": "usecase \"UC_PERM_02\\nRevocar AGR\\n(catalogo)\" as PERM02"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "ACC08": {
+    "labels": [
+      "UC_ACC_08\\nGrant excepcional"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-03/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 15,
+        "text": "usecase \"UC_ACC_08\\nGrant excepcional\" as ACC08"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "PERM03": {
+    "labels": [
+      "UC_PERM_03\\nGrant excepcional"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-03/diagramas-uml/diagrama-de-coexistencia-acc-perm.rst",
+        "line": 18,
+        "text": "usecase \"UC_PERM_03\\nGrant excepcional\" as PERM03"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "MENU": {
+    "labels": [
+      "view_own_navigation"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 12,
+        "text": "actor \"view_own_navigation\" as MENU"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "BULK": {
+    "labels": [
+      "Bulk check"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 16,
+        "text": "usecase \"Bulk check\" as BULK"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "RPTNN": {
+    "labels": [
+      "UC_RPT_NN\\n(cualquier reporte)"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-inc-rpt-01/diagramas-uml/caso-de-uso-relacion-de-inclusion.rst",
+        "line": 10,
+        "text": "usecase \"UC_RPT_NN\\n(cualquier reporte)\" as RPTNN"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "INC01": {
+    "labels": [
+      "UC_INC_RPT_01\\nResolver Segmento"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-inc-rpt-01/diagramas-uml/caso-de-uso-relacion-de-inclusion.rst",
+        "line": 11,
+        "text": "usecase \"UC_INC_RPT_01\\nResolver Segmento\" as INC01"
+      }
+    ],
+    "type": "ABBREV_NUMERO"
+  },
+  "CRUD": {
+    "labels": [
+      "Crear/Update"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-07/diagramas-uml/diagrama-de-caso-de-uso.rst",
+        "line": 14,
+        "text": "usecase \"Crear/Update\" as CRUD"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC10": {
+    "labels": [
+      "UC_RPT_10\\nGuardar Vista"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-10/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_RPT_10\\nGuardar Vista\" as UC10"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC11": {
+    "labels": [
+      "UC_RPT_11\\nCompartir"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-11/diagramas-uml/caso-de-uso.rst",
+        "line": 13,
+        "text": "usecase \"UC_RPT_11\\nCompartir\" as UC11"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "USRD": {
+    "labels": [
+      "view_reports"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-12/diagramas-uml/caso-de-uso.rst",
+        "line": 9,
+        "text": "actor \"view_reports\" as USRD"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  },
+  "UC12": {
+    "labels": [
+      "UC_RPT_12\\nReporte Agentes"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-12/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_12\\nReporte Agentes\" as UC12"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC13": {
+    "labels": [
+      "UC_RPT_13\\nReporte Abandono"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-13/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_13\\nReporte Abandono\" as UC13"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC14": {
+    "labels": [
+      "UC_RPT_14\\nReporte Campanas"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-14/diagramas-uml/caso-de-uso.rst",
+        "line": 10,
+        "text": "usecase \"UC_RPT_14\\nReporte Campanas\" as UC14"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC15": {
+    "labels": [
+      "UC_RPT_15\\nReporte Transferencias"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-15/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_15\\nReporte Transferencias\" as UC15"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC16": {
+    "labels": [
+      "UC_RPT_16\\nReporte Menus IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-16/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_16\\nReporte Menus IVR\" as UC16"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UC17": {
+    "labels": [
+      "UC_RPT_17\\nClientes Unicos IVR"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/reports/uc-rpt-17/diagramas-uml/caso-de-uso.rst",
+        "line": 11,
+        "text": "usecase \"UC_RPT_17\\nClientes Unicos IVR\" as UC17"
+      }
+    ],
+    "type": "ABBREV_2_NUMERO"
+  },
+  "UREP": {
+    "labels": [
+      "UserRepository"
+    ],
+    "occurrences": [
+      {
+        "file": "source/requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-secuencia-detalle.rst",
+        "line": 12,
+        "text": "participant \"UserRepository\" as UREP"
+      }
+    ],
+    "type": "ABREV_CORTA"
+  }
+}
