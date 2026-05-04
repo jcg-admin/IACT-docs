@@ -14,7 +14,7 @@
 Casos de Uso
 ============
 
-Catalogo de Casos de Uso del sistema IACT v4.0.0 organizado en 9 modulos
+Catalogo de Casos de Uso del sistema IACT v4.0.0 organizado en 12 modulos
 funcionales. La decision arquitectonica de coexistencia ACC ↔ PERM
 (Hipotesis 1 aprobada) se materializa en los modulos MOD_Access (vista
 funcional) y MOD_Permissions (vista tecnica granular).

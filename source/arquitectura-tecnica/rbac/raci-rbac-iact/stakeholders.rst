@@ -32,7 +32,7 @@ RACI RBAC IACT — Stakeholders
 
 Los 6 stakeholders agrupan los **10 Actores Tipicos** documentados
 en :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` § 4.1
-(catalogo de grupos AGR-001..010). El mapeo es 1-N: un
+(catalogo de grupos AGR-001..012). El mapeo es 1-N: un
 stakeholder puede agrupar multiples Actores Tipicos.
 
 .. list-table::

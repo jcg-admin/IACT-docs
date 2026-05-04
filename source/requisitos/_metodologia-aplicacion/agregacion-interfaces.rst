@@ -83,7 +83,7 @@ partes pueden existir **independientemente**.
      existir sin pertenecer a ningún grupo;
      pertenece a múltiples grupos
      simultáneamente (predefinidos
-     AGR-001..010 y/o creados via
+     AGR-001..012 y/o creados via
      UC_PERM_05). Si un grupo se elimina,
      las funciones siguen vivas en el
      catálogo de 74 funciones (CNST_029).

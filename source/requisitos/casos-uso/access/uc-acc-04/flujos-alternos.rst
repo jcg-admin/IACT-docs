@@ -33,7 +33,7 @@ NOW()+1y (politica).
 
 **Activador**: ``access_group_id`` apunta a un
 AGR custom (creado via UC_PERM_05) en vez de
-predefinido AGR-001..010.
+predefinido AGR-001..012.
 
 **Diferencia**: ninguna en procesamiento.
 AuditEvent payload incluye

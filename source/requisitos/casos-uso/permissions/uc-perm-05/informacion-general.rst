@@ -22,7 +22,7 @@ Parte 1 — Informacion general de UC_PERM_05
 =============
 
 CRUD del catalogo de AGRs custom (codigo
-distinto de ``AGR-001..010`` predefinidos).
+distinto de ``AGR-001..012`` predefinidos).
 Casos:
 
 - Onboarding de un nuevo perfil
@@ -50,7 +50,7 @@ funciones contiene).
   (display_name, description).
 - Retirar AGR (state RETIRED, soft).
 - Validacion: code unico, no colisiona con
-  predefinidos AGR-001..010.
+  predefinidos AGR-001..012.
 
 1.3.2 OUT
 ---------

@@ -629,7 +629,7 @@ Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
    - ``user_id``, ``expires_at``
  * - Códigos de funciones (capabilities)
    - Inglés
-   - ``manage_sessions``, ``view_reports``, ``export_csv``
+   - ``view_own_sessions``, ``view_reports``, ``export_csv``
  * - Nombres de grupos (system y custom)
    - Inglés con sufijo ``_group``
    - ``basic_operator_group``, ``auditor_group``

@@ -119,7 +119,7 @@ revisor humano.
 
 **Aplicabilidad a custom groups (decision D-RBAC-7):**
 
-Las 3 reglas SoD aplican TANTO a system groups (AGR-001..010) como a
+Las 3 reglas SoD aplican TANTO a system groups (AGR-001..012) como a
 **custom groups** creados via UC_PERM_05. La validacion runtime
 verifica las funciones contenidas en cualquier grupo, sin distincion
 de origen (predefinido o creable). Esto previene que admin tech

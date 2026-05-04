@@ -252,7 +252,7 @@ UC_AUTH_01:
 ------------------------------
 
 - El ``User`` tiene al menos un ``Assignment``
-  vigente con un ``AccessGroup`` (AGR-001..010)
+  vigente con un ``AccessGroup`` (AGR-001..012)
   o con un ``FunctionGroup`` que le otorgue al
   menos una funcion. De lo contrario login
   exitoso pero el usuario veria UI vacia (no

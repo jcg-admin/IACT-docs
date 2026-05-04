@@ -80,7 +80,7 @@ El modelo RBAC del proyecto IACT es:
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
 3. **Catalogo cerrado** — **74 funciones atomicas** (modelo v5.5.0)
-   distribuidas en **11 modulos** funcionales (MOD_Auth,
+   distribuidas en **12 modulos** funcionales (MOD_Auth,
    MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
    MOD_Audit, MOD_Logs, MOD_Operator, MOD_Supervision + MOD_Caller).
    Bumps v5.2.1 → v5.3.0 → v5.4.0 → v5.5.0 (ver §6
@@ -154,7 +154,7 @@ naturaleza transversal.
 El modelo v5.5.0 (vigente, en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`) declara:
 
-- **74 funciones** distribuidas en 11 modulos:
+- **74 funciones** distribuidas en 12 modulos:
   Auth=4, Users=9, Access=12, Pipeline=4, Reports=11, Alerts=10,
   Audit=4, Logs=7, Operator=10, Supervision=3 + Caller (sin RBAC).
 - **12 grupos** AGR-001..AGR-012.
@@ -256,7 +256,7 @@ La matriz RACI:
 - Cubre las 74 funciones por modulo (MOD_Auth, MOD_Users,
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
-- Cubre los 10 grupos predefinidos AGR-001..AGR-010.
+- Cubre los 12 grupos predefinidos AGR-001..AGR-012.
 - Cubre las 3 reglas SoD SOD-001..003.
 - Cubre las operaciones de gobernanza del modelo
   (agregar/eliminar funcion, crear grupo custom, etc.).

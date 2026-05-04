@@ -4,7 +4,7 @@
 RACI RBAC IACT — RACI por Grupo
 =================================
 
-4. RACI por grupo predefinido (AGR-001..010)
+4. RACI por grupo predefinido (AGR-001..012)
 ============================================
 
 .. list-table::

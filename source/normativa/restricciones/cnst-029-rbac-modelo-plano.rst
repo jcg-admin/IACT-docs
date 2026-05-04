@@ -72,7 +72,7 @@ en permisos efectivos opacos al revisor.
 
 - Unidad atomica: **Funcion** (vocabulario canonico,
   :doc:`cnst-033-vocabulario-unificado-rbac`). Una accion concreta
-  expresada como verbo+recurso, ej. ``manage_sessions``,
+  expresada como verbo+recurso, ej. ``view_own_sessions``,
   ``view_reports``, ``export_csv``.
 - **Grupo de Permisos**: conjunto de funciones asignables como bloque.
 - **Asignacion**: usuario en N grupos. No hay asignacion directa de

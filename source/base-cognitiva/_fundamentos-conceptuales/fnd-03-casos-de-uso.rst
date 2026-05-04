@@ -24,7 +24,7 @@ FND_03: Casos de Uso
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
  "Sin Pretensiones" del modelo vigente v5.5.0: 74 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ atomicas + 12 grupos predefinidos AGR-001..AGR-012 + 3 reglas SoD.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`

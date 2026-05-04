@@ -409,16 +409,16 @@ toda documentación nueva del proyecto (formalizado en
  * - **Función**
    - Capacidad atómica del sistema RBAC: una acción concreta
      verificable expresada como verbo+recurso (``view_audit_log``,
-     ``manage_sessions``, ``export_csv``). En código: ``Function``
+     ``view_own_sessions``, ``export_csv``). En código: ``Function``
      (modelo Django, en inglés). Sustituye al término "Capacidad"
      del sistema PERM granular (D-RBAC-1).
  * - **Grupo de Permisos**
    - Set de funciones asignables como bloque. Puede ser
-     **predefinido** (system group AGR-001..010, inmutable) o
+     **predefinido** (system group AGR-001..012, inmutable) o
      **creable** dinámicamente por admin via
      :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  * - **Agrupador**
-   - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
+   - Sinónimo de "Grupo predefinido AGR-001..012" (terminología
      del modelo legacy v5.2.1). Equivalente a system group.
  * - **Permiso Excepcional**
    - Asignación directa de funciones a un usuario fuera de grupos,

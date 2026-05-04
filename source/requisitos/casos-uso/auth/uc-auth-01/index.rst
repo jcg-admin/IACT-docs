@@ -23,8 +23,9 @@ UC_AUTH_01 — Iniciar Sesion
  Producida por el WP
  ``2026-05-01-07-00-34-uc-auth-01-spec-completa``
  en cumplimiento de la directiva del ejecutor
- (2026-05-01) — los 61 UCs adoptan estructura
- de 12 partes en archivos separados.
+ (2026-05-01) — los 61 UCs base adoptan estructura
+ de 12 partes en archivos separados (+ 19 OPR/SUP/CLI
+ incorporados en v5.5.0 con la misma estructura).
 
  Reemplaza al monolitico ``uc-auth-01/index.rst``
  v4.0.0 (eliminado).

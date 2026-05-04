@@ -51,7 +51,7 @@ Desde el sistema:
   mixtos).
 - Hashear bcrypt cost 12.
 - Crear ``User`` y opcionalmente asignar
-  ``AccessGroup`` (AGR-001..010) inicial.
+  ``AccessGroup`` (AGR-001..012) inicial.
 - Emitir ``InternalMessage`` con username +
   contrasena temporal.
 - Emitir ``AuditEvent USER_CREATED``.

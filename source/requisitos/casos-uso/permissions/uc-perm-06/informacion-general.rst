@@ -56,7 +56,7 @@ write-time considerando el delta.
 ---------
 
 - Crear AGR → UC_PERM_05.
-- Modificar predefinidos AGR-001..010 →
+- Modificar predefinidos AGR-001..012 →
   prohibido.
 - Asignar AGR a User → UC_PERM_01.
 

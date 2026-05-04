@@ -576,11 +576,9 @@ Para cada UC del catálogo IACT, el análisis de dominio produce:
 
 .. note::
 
-   El conteo vigente del catálogo es **61 UCs**
-   (verificado por
-   ``find source/requisitos/casos-uso/ -name 'uc-*.rst'``
-   y por el WP
-   ``2026-05-01-02-01-06-domain-model-canonization``).
+   El conteo al momento de este WP era **61 UCs** base.
+   El catálogo vigente es **80 UCs** (v5.5.0, 12 módulos — ver
+   :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`).
    La cifra "97" que aparecía en versiones previas
    de este encabezado era estimación inflada sin
    respaldo documental. Esta cifra puede evolucionar

@@ -32,8 +32,8 @@ formal:
 **Vista funcional (MOD_Access — modelo conceptual v5.2.1):**
 
 - Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index``.
-- Catalogo cerrado: 74 funciones atomicas + 10 grupos predefinidos
-  AGR-001..AGR-010 + 3 reglas SoD.
+- Catalogo cerrado: 74 funciones atomicas + 12 grupos predefinidos
+  AGR-001..AGR-012 + 3 reglas SoD.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
 - Casos de uso: UC_ACC_01..UC_ACC_09 (admin no-tech asigna
   agrupadores predefinidos al usuario).
@@ -157,7 +157,7 @@ actualizados:
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
   — fija vocabulario canonico "Funcion" (D-RBAC-1, D-RBAC-6).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-  enriquecido con catalogo de los 10 grupos AGR-001..010 +
+  enriquecido con catalogo de los 12 grupos AGR-001..012 +
   distincion system vs custom (D-RBAC-4).
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
   enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
@@ -200,7 +200,7 @@ Decisiones Relacionadas
  * - D-RBAC-3
    - AuditoriaPermiso vs AuditLog — tablas separadas
  * - D-RBAC-4
-   - Grupos: system inmutables (AGR-001..010) + custom creables
+   - Grupos: system inmutables (AGR-001..012) + custom creables
  * - D-RBAC-5
    - Crear CNST_032 Menu Dinamico Obligatorio
  * - D-RBAC-6

@@ -23,7 +23,7 @@ Parte 5 — Excepciones
 =================================
 
 400 PREDEFINED_NOT_MUTABLE para
-PATCH/DELETE sobre AGR-001..010.
+PATCH/DELETE sobre AGR-001..012.
 
 5.5 EX-05: AGR ya RETIRED (PATCH/DELETE)
 ========================================

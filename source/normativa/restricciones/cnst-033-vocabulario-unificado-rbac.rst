@@ -156,7 +156,7 @@ el de la columna izquierda**.
    - ``user_id``, ``expires_at``
  * - Codigos de funciones (capabilities)
    - Ingles
-   - ``manage_sessions``, ``view_reports``
+   - ``view_own_sessions``, ``view_reports``
  * - Comentarios, docstrings, help_text
    - Espanol
    - ``"""Grupo de funciones que se asignan juntas."""``
@@ -212,7 +212,7 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
  class Function(models.Model):
  """Funcion atomica del sistema RBAC."""
  code = models.CharField(max_length=50)
- help_text = "Identificador unico de la funcion (ej: manage_sessions)"
+ help_text = "Identificador unico de la funcion (ej: view_own_sessions)"
 
  # INCORRECTO (vocabulario mezclado)
  class Capacidad(models.Model):

@@ -39,7 +39,7 @@ RACI RBAC IACT — RACI sobre Gobernanza
    - A
    - I
    - I
- * - Modificar grupo system (AGR-001..010)
+ * - Modificar grupo system (AGR-001..012)
    - —
    - C
    - —

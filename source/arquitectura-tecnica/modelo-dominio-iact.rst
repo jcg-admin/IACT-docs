@@ -338,7 +338,7 @@ mismas entidades; no introduce clases adicionales.
  }
 
  class AccessGroup {
-   + agr_id : String          <<AGR-001..010>>
+   + agr_id : String          <<AGR-001..012>>
    + name : String            <<p.ej. agr_supervisor>>
    + profile_description : String
    --
@@ -937,7 +937,7 @@ throughput, error rate, CPU, memoria); esta mide negocio
 El WP que produjo este modelo verifico cobertura **bidireccional al
 100 %**:
 
-- **UC -> clase**: los 61 UCs vigentes en
+- **UC -> clase**: los 80 UCs vigentes en
   ``source/requisitos/casos-uso/`` operan sobre al menos una clase
   del modelo.
 - **Clase -> UC**: las 25 clases del modelo aparecen como sujeto u
@@ -1069,7 +1069,7 @@ para este modelo. Resumen de su impacto sobre las clases:
   bump del modelo RBAC a v5.5.0 con 74 funciones, decisiones
   D-01..D-11.
 - ``2026-04-30-00-44-07-rbac-missing-ucs-discovery`` (Z.2.A):
-  clasificacion de los 61 UCs en cinco categorias.
+  clasificacion de los 61 UCs base en cinco categorias (+ 19 OPR/SUP/CLI en v5.5.0).
 - ``2026-04-29-14-56-40-std007-rename-cleanup``: migracion de
   nomenclatura kebab-case en 315 archivos del corpus.
 

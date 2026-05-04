@@ -128,4 +128,4 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
   (corregido de espanol en v5.2.0).
 - :doc:`/gestion/evidencia/rbac-historia/modelo-rbac-v4-0-roles-jerarquicos-deprecado`
   documenta los "bundles" v4.0 (10 predefinidos) que dieron
-  origen a los AGR-001..010 vigentes.
+  origen a los AGR-001..012 vigentes.

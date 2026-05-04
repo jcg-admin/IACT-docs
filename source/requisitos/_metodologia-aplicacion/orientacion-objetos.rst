@@ -185,9 +185,9 @@ dominio (per
      tiempo promedio de espera, índice de eficiencia).
  * - **Función**
    - Capacidad atómica del RBAC (``view_dashboard``,
-     ``manage_sessions``, ``export_csv``, etc.). 42 en total.
+     ``view_own_sessions``, ``export_csv``, etc.). 74 en total.
  * - **Grupo de funciones**
-   - Conjunto agrupado de funciones (predefinido AGR-001..010
+   - Conjunto agrupado de funciones (predefinido AGR-001..012
      o creable por admin).
  * - **Permiso temporal / excepcional**
    - Asignación con justificación + vencimiento ≤ 6 meses.
@@ -714,7 +714,7 @@ interfaces**:
    note right of Funcion
      Una función (capacidad atómica)
      puede ser parte de varios grupos
-     (predefinidos AGR-001..010 o
+     (predefinidos AGR-001..012 o
      creados via UC_PERM_05). Si un
      grupo se elimina, las funciones
      siguen existiendo en el catálogo.

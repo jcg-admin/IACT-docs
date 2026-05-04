@@ -31,7 +31,7 @@ Para crear:
 
 - ``code`` provisto, valido (regex
   ``^[a-z][a-z0-9_]+_group$``), no colisiona
-  con predefinidos AGR-001..010 ni otro AGR
+  con predefinidos AGR-001..012 ni otro AGR
   custom ACTIVE.
 - ``display_name`` y ``description``
   provistos.

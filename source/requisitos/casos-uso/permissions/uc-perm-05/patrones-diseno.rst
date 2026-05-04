@@ -34,7 +34,7 @@ Parte 10 — Patrones de diseno
 **Aplica a**: AGRs ``is_predefined=true``
 NO se modifican via UC_PERM_05. Defensa
 contra alteracion accidental del catalogo
-estandar (AGR-001..010 son contrato del
+estandar (AGR-001..012 son contrato del
 sistema).
 
 10.3.2 P-47 Retire-without-cascade
@@ -65,7 +65,7 @@ mantienen hasta revocacion explicita.
      P-36
  * - P-46 Predefined Inmutable
    - IACT
-   - AGR-001..010 inmutable
+   - AGR-001..012 inmutable
  * - P-47 Retire-without-cascade
    - IACT
    - retiro NO revoca Assignments

@@ -605,9 +605,9 @@ detalle:
    sistema, cómo se relacionan entre sí y cómo conectan
    con funciones externas al alcance?
 
-   En IACT: 9 módulos UC (AUTH, USR, ACC, PERM, RPT,
-   ALR, PIP, AUD, LOG) con sus 74 funciones atómicas y
-   los enganches con LDAP, BD operativa e IVR.
+   En IACT: 12 módulos UC (AUTH, USR, ACC, PERM, RPT,
+   ALR, PIP, AUD, LOG, OPR, SUP, CLI) con sus 74 funciones
+   atómicas y los enganches con LDAP, BD operativa e IVR.
 3. **Interfaz de usuario** — ¿cómo navegará el usuario,
    cómo se verá el sistema, qué controles especiales
    pueden ser necesarios?

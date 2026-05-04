@@ -49,7 +49,7 @@ El proposito desde el punto de vista del usuario
 es **acceder funcionalmente al sistema** —
 visualizar dashboards, gestionar reportes,
 consultar auditoria, supervisar el ETL, segun el
-``AccessGroup`` (AGR-001..010) al que pertenece.
+``AccessGroup`` (AGR-001..012) al que pertenece.
 Los tokens JWT que el sistema genera son el
 **mecanismo**, no el resultado de valor.
 

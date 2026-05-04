@@ -14,7 +14,7 @@
 Modulos Arquitectonicos
 =======================
 
-Definicion arquitectonica de los **11 modulos funcionales** del sistema
+Definicion arquitectonica de los **12 modulos funcionales** del sistema
 IACT. Cada ``ARQ_MOD_NNN`` documenta el proposito, responsabilidades,
 componentes internos, interfaces, dependencias y consideraciones
 tecnicas del modulo correspondiente.
