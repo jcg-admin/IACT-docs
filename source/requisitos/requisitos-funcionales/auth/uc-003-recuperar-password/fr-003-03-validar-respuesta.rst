@@ -107,7 +107,7 @@ FR-003.03: Validar respuesta de seguridad
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
   - CNST-009: Auditoría (registrar intentos)
 
 **Límites:**

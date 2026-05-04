@@ -40,7 +40,7 @@ PASSWORD_RESET para alertas de seguridad.
 10.1.4 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: pipeline DRF authentication →
+**Aplica a**: pipeline plataforma de API authentication →
 permission (AGR-006) → throttle → view.
 
 10.1.5 Template Method
@@ -154,7 +154,7 @@ usuario solicitante en self-service.
    - AuditEvent → consumers
  * - Chain of Responsibility
    - GoF
-   - DRF middleware
+   - plataforma de API middleware
  * - Template Method
    - GoF
    - Validacion → transaccion

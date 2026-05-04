@@ -47,7 +47,7 @@ Responsabilidades posteriores:
   ``first_login=true`` → FA-01 → forzar
   UC_AUTH_04).
 
-2.2.2 Sistema (Backend Django)
+2.2.2 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:
@@ -115,7 +115,7 @@ PASSWORD_RESET para detectar:
 2.3.1 Sistema disponible
 ------------------------
 
-- Backend Django respondiendo en
+- Backend respondiendo en
   ``/api/users/{id}/reset-password/``.
 - BD Base de Datos accesible.
 - HTTPS configurado.

@@ -73,7 +73,7 @@ PASO 4 — POST /api/users/
 PASO 5 — Validar JWT + RBAC
 ---------------------------
 
-DRF middleware valida JWT. ``HasCreateUsers``
+plataforma de API middleware valida JWT. ``HasCreateUsers``
 permission verifica ``create_users`` en AGRs del
 admin. Si falla, EX-01 (403).
 
@@ -85,7 +85,7 @@ PASO 6 — Validar datos + email unico
  :header-rows: 0
 
  * - **Accion**
-   - Serializer DRF valida formato email y
+   - Serializer plataforma de API valida formato email y
      campos. Backend hace
      ``User.objects.filter(email=email).exists()``
  * - **Sistema**

@@ -60,7 +60,7 @@ UC_AUTH_02 los conozca.
 10.1.4 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: cadena de validacion DRF —
+**Aplica a**: cadena de validacion plataforma de API —
 authentication classes → permission classes →
 throttle classes → view. Cada eslabon decide
 rechazar o pasar al siguiente.
@@ -141,7 +141,7 @@ state.
    - AuditEvent → consumers
  * - Chain of Responsibility
    - GoF
-   - DRF middleware pipeline
+   - plataforma de API middleware pipeline
  * - P-02 Idempotencia
    - IACT
    - FA-02

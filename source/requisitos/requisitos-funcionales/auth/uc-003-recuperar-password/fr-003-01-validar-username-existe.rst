@@ -104,7 +104,7 @@ FR-003.01: Validar username existe
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF (no revelar existencia de usuarios)
+  - CNST-005: Seguridad plataforma de API (no revelar existencia de usuarios)
 
 **Consideraciones de Seguridad:**
 

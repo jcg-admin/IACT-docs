@@ -91,7 +91,7 @@ constraints que los gobiernan.
      nunca password ni tokens.
  * - **Validacion de input**
    - CNST-012 — toda entrada del cliente pasa
-     por DRF Serializer antes de llegar a la
+     por plataforma de API Serializer antes de llegar a la
      logica del UC.
 
 6.3 Confiabilidad
@@ -246,21 +246,21 @@ constraints que los gobiernan.
  * - CNST-003
    - Sesiones persistidas en BD — la ``Session``
      se persiste en Base de Datos, no en memoria de
-     Django.
+     la plataforma.
  * - CNST-004
    - Sesion unica por usuario — gobernada en
      paso 10 del flujo principal.
  * - CNST-005
    - Timeout 15 min — gobierna ``Session.expires_at``.
  * - CNST-009
-   - Autenticacion DRF obligatoria — el endpoint
-     usa el framework de DRF.
+   - Autenticacion plataforma de API obligatoria — el endpoint
+     usa el framework de plataforma de API.
  * - CNST-011
    - Throttling endpoints publicos — paso 6.
  * - CNST-012
    - Validacion via Serializer — paso 5.
  * - CNST-013
-   - Manejo estandarizado de excepciones DRF —
+   - Manejo estandarizado de excepciones plataforma de API —
      todas las respuestas 4xx/5xx siguen el
      shape de error estandar.
  * - CNST-016

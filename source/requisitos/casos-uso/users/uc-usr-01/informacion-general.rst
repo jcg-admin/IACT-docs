@@ -116,7 +116,7 @@ alimenta:
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-001 prohibicion email/SMTP;
      CNST-002 buzon obligatorio;
-     CNST-009 autenticacion DRF;
+     CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado;
      CNST-025 auditoria inmutable;
      CNST-026 sin PII;

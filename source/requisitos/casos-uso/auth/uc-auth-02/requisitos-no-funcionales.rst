@@ -129,4 +129,4 @@ el cuello de botella en login).
  * - **Dispositivos**
    - Desktop + tablet (no mobile native)
  * - **Backend API**
-   - Framework de API REST, Django 4.2+
+   - Framework de API REST, la plataforma 4.2+

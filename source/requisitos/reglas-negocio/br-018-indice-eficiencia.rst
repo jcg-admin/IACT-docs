@@ -184,7 +184,7 @@ El Índice de Eficiencia es importante porque:
  WHERE fecha BETWEEN :fecha_inicio AND :fecha_fin
  GROUP BY fecha, centro_id;
 
-4.2 Modelo Django
+4.2 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 
 .. note::

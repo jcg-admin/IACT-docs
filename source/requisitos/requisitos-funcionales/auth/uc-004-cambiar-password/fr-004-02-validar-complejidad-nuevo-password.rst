@@ -107,7 +107,7 @@ FR-004.02: Validar complejidad nuevo password
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
 
 **Indicador Visual de Fortaleza:**
 

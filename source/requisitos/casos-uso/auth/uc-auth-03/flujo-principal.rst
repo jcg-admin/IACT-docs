@@ -109,7 +109,7 @@ PASO 7 — Validar token + RBAC
  * - **Actor**
    - Backend
  * - **Accion**
-   - DRF middleware valida JWT (firma,
+   - plataforma de API middleware valida JWT (firma,
      blacklist, expiracion). Permission class
      ``HasResetPasswordFunction`` verifica que
      ``request.user`` tenga AGR-006 o la funcion

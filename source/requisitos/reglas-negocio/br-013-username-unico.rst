@@ -250,7 +250,7 @@ La regla se considera cumplida cuando:
 7. Implementación Técnica
 -------------------------
 
-7.1 Modelo Django
+7.1 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -291,7 +291,7 @@ Referencias
 
 - FND_02: Reglas de Negocio
 - UC_USR_01: Crear Usuario
-- CNST_005: Seguridad DRF Checklist
+- CNST_005: Seguridad plataforma de API Checklist
 
 ----
 

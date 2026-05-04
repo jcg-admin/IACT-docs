@@ -69,7 +69,7 @@ de nueva sesion en otro dispositivo (CNST-004).
 - Recoleccion de credenciales en formulario
   ``/login`` servido por HTTPS.
 - Validacion de formato y completitud de input
-  vía DRF Serializer (CNST-012).
+  vía plataforma de API Serializer (CNST-012).
 - Throttling de intentos por usuario / IP
   (CNST-011: 5 intentos / 5 minutos).
 - Verificacion de existencia y estado del
@@ -84,7 +84,7 @@ de nueva sesion en otro dispositivo (CNST-004).
   persistencia de ``Session`` en BD (CNST-003).
 - Emision de ``AuditEvent`` ``LOGIN`` inmutable
   (CNST-025).
-- Manejo estandarizado de excepciones DRF
+- Manejo estandarizado de excepciones plataforma de API
   (CNST-013): respuestas 4xx con error_code y
   estructura JSON consistente.
 - Respuestas con manejo de errores (UC-AUTH-01:
@@ -158,9 +158,9 @@ FA-02.
      buzon interno obligatorio; CNST-003
      sesiones persistidas en BD; CNST-004 sesion
      unica por usuario; CNST-005 timeout 15 min;
-     CNST-009 autenticacion DRF; CNST-011
+     CNST-009 autenticacion plataforma de API; CNST-011
      throttling endpoints publicos; CNST-013
-     manejo estandarizado excepciones DRF;
+     manejo estandarizado excepciones plataforma de API;
      CNST-025 auditoria inmutable.
  * - **Funcion RBAC**
    - publica (no requiere funcion previa);

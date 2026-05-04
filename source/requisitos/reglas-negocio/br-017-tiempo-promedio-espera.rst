@@ -187,7 +187,7 @@ El TPE es un KPI crítico porque:
  AND estado = 'ATENDIDA' -- Solo llamadas atendidas
  GROUP BY fecha, centro_id;
 
-4.2 Modelo Django
+4.2 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 
 .. note::

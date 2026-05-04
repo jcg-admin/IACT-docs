@@ -109,7 +109,7 @@ FR-001.02: Validar credenciales
  
 - **CNST aplicables:**
   - CNST-002: Gestión de sesiones en BD
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
 
 **Notas de Seguridad:**
 

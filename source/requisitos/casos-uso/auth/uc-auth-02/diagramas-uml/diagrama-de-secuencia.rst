@@ -8,7 +8,7 @@
 
  actor Usuario as Usuario
  participant "Interfaz de Usuario" as InterfazDeUsuario
- participant "LogoutView\n(DRF)" as Logoutview
+ participant "LogoutView" as Logoutview
  participant "AuthService" as Authservice
  database "Base de Datos\n(analitica)" as BaseDeDatos
  database "Blacklist\n(cache/BD)" as Blacklist

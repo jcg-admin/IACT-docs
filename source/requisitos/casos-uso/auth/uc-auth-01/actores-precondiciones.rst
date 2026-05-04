@@ -86,7 +86,7 @@ iniciarla.
 2.2 Actores Secundarios
 =======================
 
-2.2.1 Sistema (Backend Django)
+2.2.1 Sistema (Backend)
 ------------------------------
 
 .. list-table::
@@ -99,7 +99,7 @@ iniciarla.
    - Validacion automatica + persistencia +
      auditoria
  * - **Responsabilidades**
-   - Recibir request HTTPS, validar via DRF
+   - Recibir request HTTPS, validar via plataforma de API
      Serializer (CNST-012), aplicar throttling
      (CNST-011), buscar ``User`` en BD, verificar
      password (hash criptografico), aplicar CNST-004 sesion
@@ -200,7 +200,7 @@ UC_AUTH_01:
 2.3.1 Sistema disponible
 ------------------------
 
-- Backend Django respondiendo en
+- Backend respondiendo en
   ``/api/auth/login/``.
 - BD analitica Base de Datos accesible y consistente.
 - HTTPS configurado (sin HTTP plano —

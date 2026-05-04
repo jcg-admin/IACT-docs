@@ -110,7 +110,7 @@ los módulos.
 ^^^^^^^^^^^^^^
 
 - **Estatica/Dinamica**: Estática
-- **Automatizable**: Sí — modelo Django sin operación delete
+- **Automatizable**: Sí — modelo de datos sin operación delete
   física; middleware de DB con permisos restringidos.
 - **Alcance**: TODOS los módulos del sistema (MOD_Users,
   MOD_Alerts, MOD_Access, MOD_Audit, MOD_Logs, MOD_Reports,
@@ -234,7 +234,7 @@ delete del registro.
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Modelos Django de TODOS los módulos implementan soft delete
+1. Modelos de datos de TODOS los módulos implementan soft delete
    (campo ``status`` o ``end_date`` según entidad).
 2. NO existe operación DELETE en API pública para registros de
    negocio.

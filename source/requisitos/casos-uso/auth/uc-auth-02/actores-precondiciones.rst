@@ -39,7 +39,7 @@ explicita.
 2.2 Actores Secundarios
 =======================
 
-2.2.1 Sistema (Backend Django)
+2.2.1 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:
@@ -99,7 +99,7 @@ uso de los usuarios.
 2.3.1 Sistema disponible
 ------------------------
 
-- Backend Django respondiendo en
+- Backend respondiendo en
   ``/api/auth/logout/``.
 - BD analitica Base de Datos accesible y consistente.
 - HTTPS configurado (ADR-DEVOPS-001).

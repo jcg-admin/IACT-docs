@@ -79,7 +79,7 @@ PASO 3 — Frontend envia request
      header ``Authorization: Bearer <access-token>``
      y body opcional con ``refresh_token``
  * - **Sistema responde**
-   - Backend recibe request en ``LogoutView``
+   - Backend recibe request en ``Vista de cierre de sesion``
  * - **CNST**
    - HTTPS obligatorio; CNST-009 autenticacion;
      CNST-013 manejo estandarizado
@@ -94,14 +94,14 @@ PASO 4 — Backend valida token
  * - **Actor**
    - Backend
  * - **Accion**
-   - DRF middleware valida firma JWT, expiracion,
+   - plataforma de API middleware valida firma JWT, expiracion,
      no en blacklist
  * - **Sistema responde**
    - Si valido, extrae ``user_id`` y
      ``session_id`` del payload. Si invalido,
      va a EX-01 (401).
  * - **CNST**
-   - CNST-009 autenticacion DRF
+   - CNST-009 autenticacion plataforma de API
 
 PASO 5 — Localizar Session activa
 ---------------------------------

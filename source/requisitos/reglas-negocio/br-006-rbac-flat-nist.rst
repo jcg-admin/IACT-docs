@@ -133,7 +133,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
    - Descripcion de Aplicacion
  * - MOD_Access
    - Implementa modelo RBAC con 74 funciones atomicas
- * - Middleware DRF
+ * - Middleware de API
    - Valida permisos por funcion, no por rol
  * - Base Analytics
    - Tablas: funciones, agrupadores, user_funciones
@@ -163,7 +163,7 @@ Sin excepciones. El modelo Flat es absoluto.
  * - CNST
    - Relacion
  * - CNST-005
-   - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
+   - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
  * - :ref:`cnst-012`
    - Modelo RBAC Flat consolidado: 74 funciones, 12 grupos, 3 reglas SoD,
      permisos temporales con vencimiento. Implementa esta BR.

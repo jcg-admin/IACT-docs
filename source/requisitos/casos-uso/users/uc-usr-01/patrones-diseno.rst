@@ -42,7 +42,7 @@ FA-02) sobrescriben pasos especificos.
 10.1.4 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: pipeline DRF
+**Aplica a**: pipeline plataforma de API
 authentication → permission(create_users)
 → throttle → serializer validation → view.
 
@@ -162,7 +162,7 @@ InternalMailbox.
    - Flujo rigido
  * - Chain of Responsibility
    - GoF
-   - DRF middleware
+   - plataforma de API middleware
  * - Observer
    - GoF
    - AuditEvent

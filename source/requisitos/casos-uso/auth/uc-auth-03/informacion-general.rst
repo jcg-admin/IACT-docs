@@ -118,7 +118,7 @@ no es el actor principal — es beneficiario.
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-001 prohibicion email/SMTP/canal
      externo; CNST-002 buzon interno
-     obligatorio; CNST-009 autenticacion DRF;
+     obligatorio; CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado; CNST-025
      auditoria inmutable.
  * - **Funcion RBAC**

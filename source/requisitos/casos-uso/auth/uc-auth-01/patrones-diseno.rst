@@ -31,7 +31,7 @@ Implementaciones concretas:
 - ``LDAPStrategy`` — futura.
 - ``SSOStrategy`` — futura.
 
-El ``LoginView`` de Django delega al strategy
+El ``Vista de autenticacion`` de la plataforma delega al strategy
 configurado, sin conocer detalles.
 
 **Beneficio**: agregar nuevos mecanismos sin
@@ -50,8 +50,8 @@ cada vista produce duplicacion.
 
 **Solucion**: decorador
 ``@throttle_classes([AnonRateThrottle,
-UserRateThrottle])`` de DRF aplicado al
-``LoginView``.
+UserRateThrottle])`` de plataforma de API aplicado al
+``Vista de autenticacion``.
 
 **Beneficio**: la logica de throttling vive en
 una sola clase; cualquier cambio en la politica

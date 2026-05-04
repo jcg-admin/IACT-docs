@@ -33,7 +33,7 @@ desbloquear su sesion.
 2.2 Actores Secundarios
 =======================
 
-2.2.1 Sistema (Backend Django)
+2.2.1 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:
@@ -87,7 +87,7 @@ detectar:
 2.3.1 Sistema disponible
 ------------------------
 
-- Backend Django respondiendo en
+- Backend respondiendo en
   ``/api/auth/change-password/``.
 - BD Base de Datos accesible.
 - HTTPS configurado.

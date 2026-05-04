@@ -37,7 +37,7 @@ Receptor pasivo. Si su Session se cierra:
 - Recibe (si politica) un InternalMessage
   notificando el cierre administrativo
 
-2.2.2 Sistema (Backend Django)
+2.2.2 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:

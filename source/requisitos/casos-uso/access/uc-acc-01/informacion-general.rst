@@ -122,7 +122,7 @@ continua**. Disparadores tipicos:
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-005 enforcement SoD en tiempo de
      asignacion;
-     CNST-009 autenticacion DRF;
+     CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado;
      CNST-025 auditoria inmutable;
      CNST-026 sin PII en payload.

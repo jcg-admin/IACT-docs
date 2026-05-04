@@ -39,7 +39,7 @@ Receptor pasivo durante el flujo. Posteriormente:
 - Inicia sesion via UC_AUTH_01 → detectara
   first_login → forzar UC_AUTH_04.
 
-2.2.2 Sistema (Backend Django)
+2.2.2 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:

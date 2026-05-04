@@ -81,7 +81,7 @@ PASO 4 — POST /api/auth/change-password/
 PASO 5 — Validar JWT
 --------------------
 
-DRF middleware valida firma, expiracion,
+plataforma de API middleware valida firma, expiracion,
 blacklist. Extrae ``user_id``, ``session_id``.
 Si invalido, EX-01 (401).
 

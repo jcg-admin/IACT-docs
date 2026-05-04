@@ -150,7 +150,7 @@ El bloqueo por intentos fallidos protege contra:
 4. Implementación Técnica
 -------------------------
 
-4.1 Modelo Django
+4.1 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -163,7 +163,7 @@ El bloqueo por intentos fallidos protege contra:
 5. Trazabilidad
 ---------------
 
-- **Origen**: CNST_005 (Seguridad DRF Checklist)
+- **Origen**: CNST_005 (Seguridad plataforma de API Checklist)
 - **UC Relacionados**: UC_AUTH_01 (FA-1: Usuario bloqueado)
 - **CNST**: CNST_005
 

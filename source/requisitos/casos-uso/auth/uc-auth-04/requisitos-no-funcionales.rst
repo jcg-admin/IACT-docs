@@ -53,7 +53,7 @@ Parte 6 — Requisitos no funcionales
      diseno; el delay defensivo aleatorio
      adiciona resistencia a timing
  * - **CSRF**
-   - DRF con SessionAuthentication: CSRF
+   - plataforma de API con SessionAuthentication: CSRF
      token; con JWT-only: opt-out documentado
 
 6.3 Confiabilidad
@@ -140,7 +140,7 @@ Parte 6 — Requisitos no funcionales
 
 - CNST-003 sesiones persistidas: PASO 12 hace
   UPDATE en BD (no solo invalidacion en cache)
-- CNST-009 autenticacion DRF
+- CNST-009 autenticacion plataforma de API
 - CNST-013 manejo estandarizado de excepciones
 - CNST-025 auditoria inmutable
 - CNST-026 sin PII en payload

@@ -161,7 +161,7 @@ EX-06: Datos malformados
  :header-rows: 0
 
  * - **Activador**
-   - PASO 5 — DRF Serializer rechaza el body
+   - PASO 5 — plataforma de API Serializer rechaza el body
      (campo faltante, tipo invalido, longitud
      fuera de rango)
  * - **Status HTTP**

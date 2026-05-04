@@ -108,8 +108,8 @@ PASO 4 — Frontend envia request
    - HTTP POST a ``/api/auth/login/`` con body
      JSON ``{username, password, client_info?}``
  * - **Sistema responde**
-   - Backend Django recibe la request en la vista
-     ``LoginView`` (CNST-009 autenticacion DRF)
+   - Backend recibe la request en la vista
+     ``Vista de autenticacion`` (CNST-009 autenticacion plataforma de API)
  * - **Headers requeridos**
    - ``Content-Type: application/json``;
      ``X-Forwarded-For`` o equivalente para IP real
@@ -127,7 +127,7 @@ PASO 5 — Backend valida formato
  * - **Actor**
    - Backend
  * - **Accion**
-   - DRF Serializer valida tipo y rango de cada
+   - plataforma de API Serializer valida tipo y rango de cada
      campo
  * - **Sistema responde**
    - Si valido pasa a paso 6; si no, retorna

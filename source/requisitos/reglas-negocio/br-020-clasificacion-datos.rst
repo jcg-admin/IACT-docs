@@ -215,7 +215,7 @@ La clasificación de datos garantiza:
 
  * - Componente
    - Aplicación
- * - Modelos Django
+ * - Modelos de datos
    - Anotación de clasificación en campos
  * - Serializers
    - Exclusión de campos según rol
