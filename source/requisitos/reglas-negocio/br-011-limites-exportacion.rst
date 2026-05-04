@@ -165,8 +165,8 @@ disponibles, no por formato.
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: cualquiera con función ``RPT-004/005/006`` (export por
-  formato), ``AUD-003`` (export audit) o ``LOG-002`` (export logs).
+- **Roles**: cualquiera con función ``export_csv``, ``export_excel``,
+  ``export_pdf``, ``export_audit_log`` o ``export_logs``.
 - **Impacto**: si exceden concurrent o daily quota, el job es
   rechazado con mensaje informativo y código 429.
 

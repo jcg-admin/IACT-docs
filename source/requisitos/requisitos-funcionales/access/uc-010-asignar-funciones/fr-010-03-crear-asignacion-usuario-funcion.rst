@@ -103,9 +103,9 @@ FR-010.03: Crear asignación usuario-función
  ENTONCES se registran las funciones en BD y auditoría
  
  Escenario 1: Asignación directa de función
- DADO función ACC-003 seleccionada directamente
+ DADO función view_assignments seleccionada directamente
  CUANDO se confirma asignación
- ENTONCES existe registro con function_code = 'ACC-003'
+ ENTONCES existe registro con function_code = 'view_assignments'
  Y grouper_code = NULL
  Y assigned_by = ID del admin actual
  

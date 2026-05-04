@@ -78,16 +78,16 @@ FR-011.03: Recalcular permisos efectivos
  ENTONCES indica claramente qué permisos se perderán
  
  Escenario 1: Preview de pérdida de permisos
- DADO usuario con REP-001, REP-002, USR-001
- CUANDO se selecciona revocar REP-001
+ DADO usuario con view_reports, view_dashboard, create_users
+ CUANDO se selecciona revocar view_reports
  ENTONCES preview muestra:
- - REP-001: SE REVOCARÁ
- - REP-002: Se mantiene
- - USR-001: Se mantiene
+ - view_reports: SE REVOCARÁ
+ - view_dashboard: Se mantiene
+ - create_users: Se mantiene
  
  Escenario 2: Permisos que se pierden
- DADO función REP-001 otorga permiso "ver reportes"
- CUANDO se revoca REP-001
+ DADO función view_reports otorga permiso "ver reportes"
+ CUANDO se revoca view_reports
  ENTONCES preview indica "Perderá acceso a: Ver Reportes"
  
  Escenario 3: Aplicación inmediata
@@ -98,7 +98,7 @@ FR-011.03: Recalcular permisos efectivos
  
  Escenario 4: Usuario con sesión activa
  DADO usuario navegando en módulo de reportes
- CUANDO se le revoca REP-001
+ CUANDO se le revoca view_reports
  ENTONCES al siguiente request ve mensaje "Sin permiso"
  Y es redirigido a pantalla permitida
 

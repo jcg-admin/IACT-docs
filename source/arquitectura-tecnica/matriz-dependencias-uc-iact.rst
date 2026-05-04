@@ -461,77 +461,77 @@ exportacion, programacion, vistas guardadas, instancias por scope.
  * - UC_RPT_01 Ver Dashboard
    - CRITICO
    - 5
-   - RPT-001 ``view_reports``
+   - ``view_reports``
    - ``Report`` (scope=GENERAL)
  * - UC_RPT_02 Ver Metricas Tiempo Real
    - ALTO
    - 4
-   - RPT-002 ``view_dashboard``
+   - ``view_dashboard``
    - ``Report``
  * - UC_RPT_03 Ver Reportes Historicos
    - ALTO
    - 4
-   - RPT-003 ``filter_reports``
+   - ``filter_reports``
    - ``Report``
  * - UC_RPT_04 Exportar Reporte (Larman)
    - ALTO
    - 6
-   - RPT-004/005/006
+   - ``export_csv`` / ``export_excel`` / ``export_pdf``
    - ``ExportJob``
  * - UC_RPT_07 Programar Reporte
    - MEDIO
    - 3
-   - RPT-009 ``schedule_report`` (restaurada)
+   - ``schedule_report``
    - ``ScheduledReport``
  * - UC_RPT_08 Ver Reportes Programados
    - MEDIO
    - 2
-   - RPT-001 (filtrada)
+   - ``view_reports`` (filtrada)
    - ``ScheduledReport``
  * - UC_RPT_09 Configurar Filtros
    - BAJO
    - 2
-   - RPT-003 (preset)
+   - ``filter_reports`` (preset)
    - ``Report``
  * - UC_RPT_10 Guardar Vista
    - BAJO
    - 2
-   - RPT-010 ``save_view``
+   - ``save_view``
    - ``SavedView``
  * - UC_RPT_11 Compartir Reporte
    - MEDIO
    - 3
-   - RPT-010 ``share_report``
+   - ``share_report``
    - ``Report``, ``InternalMailbox``
  * - UC_RPT_12 Ver Reporte Agentes
    - MEDIO
    - 2
-   - RPT-001 (variante AGENTS)
+   - ``view_reports`` (variante AGENTS)
    - ``Report``, ``Call``
  * - UC_RPT_13 Ver Reporte Colas
    - MEDIO
    - 2
-   - RPT-001 (variante QUEUES)
+   - ``view_reports`` (variante QUEUES)
    - ``Report``, ``Call``
  * - UC_RPT_14 Ver Reporte Campanas
    - MEDIO
    - 2
-   - RPT-001 (variante CAMPAIGNS)
+   - ``view_reports`` (variante CAMPAIGNS)
    - ``Report``, ``Campaign``
  * - UC_RPT_15 Reporte Transferencias Centro
    - MEDIO
    - 3
-   - RPT-001 (instancia D-10)
+   - ``view_reports`` (instancia D-10)
    - ``Report`` (scope=TRANSFERENCES)
  * - UC_RPT_16 Reporte Menus IVR
    - MEDIO
    - 3
-   - RPT-001 (instancia D-10)
+   - ``view_reports`` (instancia D-10)
    - ``Report`` (scope=IVR_MENUS)
  * - UC_RPT_17 Reporte Clientes Unicos
    - MEDIO
    - 3
-   - RPT-001 (instancia D-10)
+   - ``view_reports`` (instancia D-10)
    - ``Report`` (scope=UNIQUE_CLIENTS)
 
 2.6 Cluster ALR (5 UCs)
@@ -1354,7 +1354,7 @@ FunctionGroup, ExceptionalPermission). Materializa ADR-GOB-008.
 
 **Patron P-06 — Larman Consolidation** (2 UCs):
 Un solo UC (UC_RPT_04 "Exportar Reporte") con flujos alternativos
-por formato; tres funciones RBAC distintas (RPT-004/005/006) para
+por formato; tres funciones RBAC distintas (export_csv / export_excel / export_pdf) para
 SoD. Capa UC y capa RBAC son ortogonales. Mismo patron en
 UC_ALR_05.
 

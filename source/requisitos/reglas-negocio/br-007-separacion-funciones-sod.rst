@@ -225,9 +225,9 @@ documentada del sponsor y registro en auditoria.
 
 ::
 
- SOD_001: USR-001 (crear usuario) vs ACC-001 (asignar funcion admin)
- SOD_002: AUD-001 (ver auditoria) vs AUD-004 (exportar auditoria)
- SOD_003: PIP-001 (ejecutar ETL) vs PIP-004 (modificar config ETL)
+ SOD_001: create_users vs assign_functions
+ SOD_002: view_audit_log vs export_audit_log
+ SOD_003: view_pipeline_status vs request_pipeline_retry
 
 ----
 

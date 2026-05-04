@@ -147,7 +147,7 @@ FA-02.
  :header-rows: 0
 
  * - **BReq origen**
-   - BRQ-AUTH-001 — el sistema debe permitir
+   - BRQ-view_own_sessions — el sistema debe permitir
      autenticacion segura de usuarios con
      credenciales username + password.
  * - **Reglas de Negocio**
@@ -164,7 +164,7 @@ FA-02.
      CNST-025 auditoria inmutable.
  * - **Funcion RBAC**
    - publica (no requiere funcion previa);
-     post-login el ``User`` recibe AUTH-001
+     post-login el ``User`` recibe view_own_sessions
      ``view_own_sessions`` que habilita
      UC_AUTH_05 sobre sus propias Sessions.
  * - **UC Relacionados**

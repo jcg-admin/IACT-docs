@@ -275,16 +275,16 @@ siguiendo la filosofia Sin Pretensiones:
 
  AGRUPADOR FUNCIONES UC TIPICOS
  
- AGR-001: administrador_usuarios USR-001 a USR-010 UC-006 a UC-009
- AGR-002: visor_usuarios USR-005, USR-006 UC-009
- AGR-003: analista_reportes RPT-001 a RPT-008 UC-017 a UC-024
- AGR-004: visor_dashboard RPT-001, RPT-007/08 UC-025 a UC-030
- AGR-005: gestor_alertas ALR-001 a ALR-006 UC-036 a UC-040
- AGR-006: supervisor_equipo USR-005/06, RPT-001 UC-009, UC-017
- AGR-007: auditor AUD-001 a AUD-004 UC-060 a UC-063
- AGR-008: admin_seguridad ACC-001 a ACC-006 UC-010, UC-043-047
- AGR-009: admin_sistema PIP-*, LOG-*, config UC-050-053, UC-070-072
- AGR-010: operador_etl PIP-001 a PIP-004 UC-050 a UC-053
+ AGR-001: administrador_usuarios (manage_users, ...) UC-006 a UC-009
+ AGR-002: visor_usuarios (search_users, block_users) UC-009
+ AGR-003: analista_reportes (view_reports..view_charts) UC-017 a UC-024
+ AGR-004: visor_dashboard (view_reports, view_kpis, view_charts) UC-025 a UC-030
+ AGR-005: gestor_alertas (view_alerts, ...) UC-036 a UC-040
+ AGR-006: supervisor_equipo (search_users, block_users, view_reports) UC-009, UC-017
+ AGR-007: auditor (view_audit_log, ...) UC-060 a UC-063
+ AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC-043-047
+ AGR-009: admin_sistema (view_pipeline_status, ...) UC-050-053, UC-070-072
+ AGR-010: operador_etl (view_pipeline_status, ...) UC-050 a UC-053
 
  ACTOR ESPECIAL:
  - TIEMPO: Para procesos batch (ETL nocturno) - UC-050

@@ -58,7 +58,7 @@ administrativa.
  VOCABULARIO:
  - RBAC: Role-Based Access Control
  - Flat: Sin jerarquia de herencia entre roles
- - Funcion atomica: Permiso indivisible (ej: USR-001)
+ - Funcion atomica: Permiso indivisible (ej: create_users)
  - Agrupador: Conjunto de funciones para asignacion conveniente
 
  REGLA:

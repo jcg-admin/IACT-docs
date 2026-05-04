@@ -110,14 +110,14 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
 - ``R`` (Responsible) por funcion siguen el grupo AGR cuyo
   Proposito declarado en v5.2.1 incluye esa funcion. Por ejemplo:
 
-  - ``view_reports`` (RPT-001): R = Op (incluye AGR-002
+  - ``view_reports``: R = Op (incluye AGR-002
     "Analista que puede aplicar filtros pero no exportar" + AGR-003
     "Supervisor" + AGR-004 "Data Analyst") y AdmNT (AGR-006 que
     para administracion ve reportes propios).
-  - ``view_audit_log`` (AUD-001): R = Aud unico porque AGR-008
+  - ``view_audit_log``: R = Aud unico porque AGR-008
     tiene SoD declarado contra otros admin groups
     (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
-  - ``view_separation_rules`` (ACC-005): R = AdmT, C = AdmNT/Aud
+  - ``view_separation_rules``: R = AdmT, C = AdmNT/Aud
     porque modificar reglas SoD afecta directamente la
     administracion no-tech (y es auditable).
 

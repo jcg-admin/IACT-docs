@@ -393,7 +393,7 @@ Analistas ejecutan consultas de reportes sin restricciones, causando:
 
 As-Is:
 
-Cualquier usuario con permiso RPT-001 puede ejecutar cualquier
+Cualquier usuario con permiso view_reports puede ejecutar cualquier
 consulta sin limites de volumen. Sistema intenta ejecutar y si
 tarda mucho (>30 seg), devuelve timeout.
 
@@ -498,7 +498,7 @@ CA-1: Sistema calcula count antes de ejecutar query principal
 
 **Dado:**
 
-- Usuario autenticado con permiso RPT-001.
+- Usuario autenticado con permiso view_reports.
 - Usuario solicita reporte trimestral con parámetros: Trimestre Q3,
   Año 2024, Segmento OP.
 
@@ -717,7 +717,7 @@ Restringe:
 Aplica cuando:
 - Momento: Usuario solicita generar reporte
 - Contexto: count(registros) mayor 10,000
-- Actor: Cualquier usuario con permiso RPT-001
+- Actor: Cualquier usuario con permiso view_reports
 
 Validacion:
 

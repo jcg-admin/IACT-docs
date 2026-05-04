@@ -31,13 +31,12 @@ mismas entidades; no introduce clases adicionales.
  @startuml
 
  class Function {
-   + function_id : String   <<p.ej. RPT-001>>
    + name : String          <<p.ej. view_reports>>
    + description : String
    + module : Module
    --
    + register()             <<sistema>>
-   + view()                 <<ACC-003>>
+   + view()                 <<view_assignments>>
  }
 
  class FunctionGroup {

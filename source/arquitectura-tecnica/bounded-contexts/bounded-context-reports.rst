@@ -38,9 +38,9 @@ con un atributo ``scope`` enumerado, no como subclases.
    + owner_user_id : UUID
    + state : ReportState
    --
-   + view()                <<RPT-001>>
-   + filter()              <<RPT-003>>
-   + share()               <<RPT-010 share_report>>
+   + view()                <<view_reports>>
+   + filter()              <<filter_reports>>
+   + share()               <<share_report>>
    + export()              <<delega en ExportJob>>
  }
 
@@ -51,7 +51,7 @@ con un atributo ``scope`` enumerado, no como subclases.
    + unit : String
    --
    + compute()
-   + view()                <<RPT-002>>
+   + view()                <<view_dashboard>>
  }
 
  class ExportJob {
@@ -79,7 +79,7 @@ con un atributo ``scope`` enumerado, no como subclases.
    + last_run_at : DateTime
    + state : ScheduleState
    --
-   + create()             <<RPT-009 schedule_report>>
+   + create()             <<schedule_report>>
    + modify()
    + disable()            <<BR-009>>
  }
@@ -92,7 +92,7 @@ con un atributo ``scope`` enumerado, no como subclases.
    + name : String
    + state : ViewState
    --
-   + save()               <<RPT-010 save_view>>
+   + save()               <<save_view>>
    + load()
    + deactivate()         <<BR-009>>
  }

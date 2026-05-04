@@ -15,31 +15,26 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - AUTH-001
-   - `view_own_sessions`
+ * - `view_own_sessions`
    - auth:view_own_sessions
    - UC-005
    - Ve sesiones activas propias del usuario (RENAME v5.4.0 desde ``manage_sessions`` — SRP scope propio)
- * - AUTH-002
-   - `close_user_session`
+ * - `close_user_session`
    - auth:close_session
    - UC-005
    - Cierra sesión de otro usuario
- * - AUTH-003
-   - `reset_password`
+ * - `reset_password`
    - auth:reset_password
    - UC-003
    - Genera contraseña temporal
- * - AUTH-004
-   - `view_all_active_sessions`
+ * - `view_all_active_sessions`
    - auth:view_all_sessions
    - UC-005
    - Ve TODAS las sesiones activas del sistema (RENAME v5.4.0 desde ``view_active_sessions`` — SRP scope sistema; admin)
@@ -64,56 +59,46 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - USR-001
-   - `create_users`
+ * - `create_users`
    - users:create
    - UC-006
    - Crea nuevos usuarios
- * - USR-002
-   - `update_users`
+ * - `update_users`
    - users:update
    - UC-007
    - Modifica datos de usuarios
- * - USR-003
-   - `deactivate_users`
+ * - `deactivate_users`
    - users:deactivate
    - UC-008
    - Baja lógica de usuarios (RENAME v5.4.0 desde ``delete_users`` — semántica soft delete; BR-009 global)
- * - USR-004
-   - `list_users`
+ * - `list_users`
    - users:list
    - UC-009
    - Lista usuarios con filtros
- * - USR-005
-   - `search_users`
+ * - `search_users`
    - users:search
    - UC-009
    - Busca usuarios por criterios
- * - USR-006
-   - `block_users`
+ * - `block_users`
    - users:block
    - UC-007
    - Bloquea acceso de usuario
- * - USR-007
-   - `unblock_users`
+ * - `unblock_users`
    - users:unblock
    - UC-007
    - Desbloquea usuario
- * - USR-008
-   - `reactivate_users`
+ * - `reactivate_users`
    - users:reactivate
    - UC-007
    - Reactiva usuario inactivo
- * - USR-009
-   - `view_users`
+ * - `view_users`
    - users:view
    - UC-009
    - Consulta información de usuarios
@@ -144,71 +129,58 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - ACC-001
-   - `assign_functions`
+ * - `assign_functions`
    - access:assign
    - UC-010, UC-042
    - Asigna funciones a usuarios
- * - ACC-002
-   - `revoke_functions`
+ * - `revoke_functions`
    - access:revoke
    - UC-010
    - Revoca funciones de usuarios
- * - ACC-003
-   - `view_assignments`
+ * - `view_assignments`
    - access:view
    - UC-011, UC-044
    - Ve asignaciones de funciones
- * - ACC-004
-   - `assign_function_groups`
+ * - `assign_function_groups`
    - access:assign_group
    - UC-010
    - Asigna grupos de funciones
- * - ACC-005
-   - `view_separation_rules`
+ * - `view_separation_rules`
    - access:view_sod
    - UC-043
    - Ve reglas SoD configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
- * - ACC-006
-   - `create_function_group`
+ * - `create_function_group`
    - access:create_group
    - UC_PERM_05
    - Crea grupo de funciones custom (admin tech) (NUEVA v5.3.0)
- * - ACC-007
-   - `assign_functions_to_group`
+ * - `assign_functions_to_group`
    - access:assign_to_group
    - UC_PERM_06
    - Asigna funciones a un grupo (custom o predefinido) (NUEVA v5.3.0)
- * - ACC-008
-   - `grant_exceptional_permission`
+ * - `grant_exceptional_permission`
    - access:grant_exceptional
    - UC_PERM_03
    - Otorga permiso temporal excepcional con justificación (CNST-031) (NUEVA v5.3.0)
- * - ACC-009
-   - `revoke_exceptional_permission`
+ * - `revoke_exceptional_permission`
    - access:revoke_exceptional
    - UC_PERM_04
    - Revoca permiso excepcional antes del vencimiento (NUEVA v5.3.0)
- * - ACC-010
-   - `revoke_function_group`
+ * - `revoke_function_group`
    - access:revoke_group
    - UC_PERM_02
    - Revoca grupo asignado a usuario (NUEVA v5.3.0)
- * - ACC-011
-   - `update_separation_rule`
+ * - `update_separation_rule`
    - access:update_sod
    - UC-043
    - Actualiza parámetros de regla SoD existente (NUEVA v5.4.0 — split SRP de ACC-005)
- * - ACC-012
-   - `disable_separation_rule`
+ * - `disable_separation_rule`
    - access:disable_sod
    - UC-043
    - Desactiva regla SoD temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
@@ -240,31 +212,26 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - PIP-001
-   - `view_pipeline_status`
+ * - `view_pipeline_status`
    - pipeline:view_status
    - UC-050
    - Ve estado actual del ETL
- * - PIP-002
-   - `view_pipeline_errors`
+ * - `view_pipeline_errors`
    - pipeline:view_errors
    - UC-051
    - Consulta errores del ETL
- * - PIP-003
-   - `view_data_availability`
+ * - `view_data_availability`
    - pipeline:availability
    - UC-052
    - Ve disponibilidad de datos
- * - PIP-004
-   - `request_pipeline_retry`
+ * - `request_pipeline_retry`
    - pipeline:retry
    - UC-053
    - Solicita reintento de ETL
@@ -288,66 +255,54 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - RPT-001
-   - `view_reports`
+ * - `view_reports`
    - reports:view
    - UC-017, UC-018, UC-019
    - Ve reportes tabulares
- * - RPT-002
-   - `view_dashboard`
+ * - `view_dashboard`
    - reports:dashboard
    - UC-025
    - Ve dashboard principal
- * - RPT-003
-   - `filter_reports`
+ * - `filter_reports`
    - reports:filter
    - UC-020, UC-021
    - Aplica filtros a reportes
- * - RPT-004
-   - `export_csv`
+ * - `export_csv`
    - reports:export_csv
    - UC-022
    - Exporta a CSV (límite: 100K registros)
- * - RPT-005
-   - `export_excel`
+ * - `export_excel`
    - reports:export_excel
    - UC-023
    - Exporta a Excel (límite: 50K registros)
- * - RPT-006
-   - `export_pdf`
+ * - `export_pdf`
    - reports:export_pdf
    - UC-024
    - Exporta a PDF (límite: 10K registros)
- * - RPT-007
-   - `view_kpis`
+ * - `view_kpis`
    - reports:kpis
    - UC-025
    - Ve KPIs estáticos
- * - RPT-008
-   - `view_charts`
+ * - `view_charts`
    - reports:charts
    - UC-027, UC-028, UC-029
    - Ve gráficos predefinidos
- * - RPT-009
-   - `schedule_report`
+ * - `schedule_report`
    - reports:schedule
    - UC_RPT_07
    - Programa generación automática de reportes (NUEVA v5.3.0 — restaura ``programa_reportes`` v5.0_1/v5.1)
- * - RPT-010
-   - `save_view`
+ * - `save_view`
    - reports:save_view
    - UC_RPT_10
    - Persiste configuración de filtros como vista personalizada (NUEVA v5.3.0)
- * - RPT-011
-   - `share_report`
+ * - `share_report`
    - reports:share
    - UC_RPT_11
    - Comparte reporte con otros usuarios via URL/buzón interno (NUEVA v5.3.0 — restaura ``comparte_reportes`` v5.0_1/v5.1)
@@ -355,7 +310,7 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 **CAMBIO v5.3.0:**
 
-- Agregadas 3 funciones nuevas (RPT-009..011): ``schedule_report``,
+- Agregadas 3 funciones nuevas: ``schedule_report``,
   ``save_view``, ``share_report``.
 - ``schedule_report`` y ``share_report`` son **restauraciones** del
   catálogo v5.0_1/v5.1 (eliminadas erróneamente en v5.1.1).
@@ -405,61 +360,50 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - ALR-001
-   - `view_alerts`
+ * - `view_alerts`
    - alerts:view
    - UC-039
    - Ve alertas propias
- * - ALR-002
-   - `configure_alerts`
+ * - `configure_alerts`
    - alerts:configure
    - UC-036
    - Configura alertas personales
- * - ALR-003
-   - `configure_team_alerts`
+ * - `configure_team_alerts`
    - alerts:config_team
    - UC-040
    - Configura alertas de equipo
- * - ALR-004
-   - `pause_alerts`
+ * - `pause_alerts`
    - alerts:pause
    - UC-038
    - Pausa alertas temporalmente
- * - ALR-005
-   - `disable_alerts`
+ * - `disable_alerts`
    - alerts:disable
    - UC-038
    - Desactiva alerta (toggle on/off; BR-009 global) (RENAME v5.4.0 desde ``delete_alerts`` — no eliminar)
- * - ALR-006
-   - `view_alert_history`
+ * - `view_alert_history`
    - alerts:history
    - UC-039
    - Ve historial de alertas
- * - ALR-007
-   - `acknowledge_alert`
+ * - `acknowledge_alert`
    - alerts:acknowledge
    - uc-alr-03
    - Reconoce alerta (state transition ACTIVE → ACKNOWLEDGED) (NUEVA v5.4.0 — closed-loop alerts)
- * - ALR-008
-   - `subscribe_to_alert`
+ * - `subscribe_to_alert`
    - alerts:subscribe
    - uc-alr-05
    - Suscribe usuario a tipo de alerta (NUEVA v5.4.0 — split SRP suscripciones)
- * - ALR-009
-   - `unsubscribe_from_alert`
+ * - `unsubscribe_from_alert`
    - alerts:unsubscribe
    - uc-alr-05
    - Desuscribe usuario de tipo de alerta (NUEVA v5.4.0 — split SRP suscripciones)
- * - ALR-010
-   - `configure_subscription_severity`
+ * - `configure_subscription_severity`
    - alerts:config_severity
    - uc-alr-05
    - Configura nivel mínimo de severidad para notificación (NUEVA v5.4.0 — split SRP suscripciones)
@@ -487,31 +431,26 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - AUD-001
-   - `view_audit_log`
+ * - `view_audit_log`
    - audit:view
    - UC-061
    - Ve registros de auditoría
- * - AUD-002
-   - `search_audit_log`
+ * - `search_audit_log`
    - audit:search
    - UC-061
    - Busca en auditoría
- * - AUD-003
-   - `export_audit_log`
+ * - `export_audit_log`
    - audit:export
    - UC-063
    - Exporta registros de auditoría
- * - AUD-004
-   - `generate_compliance_report`
+ * - `generate_compliance_report`
    - audit:compliance
    - UC-062
    - Genera reporte de cumplimiento
@@ -535,46 +474,38 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 
 .. list-table::
- :widths: 20 20 20 20 20
+ :widths: 25 25 20 30
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - LOG-001
-   - `view_application_logs`
+ * - `view_application_logs`
    - logs:view_app
    - uc-log-01
    - Ve logs de aplicación (errores 500, INFO/WARN/ERROR, tracebacks) (RENAME v5.4.0 desde ``view_technical_logs`` — SRP, ya no genérico)
- * - LOG-002
-   - `export_logs`
+ * - `export_logs`
    - logs:export
    - uc-log-04
    - Exporta paquete de logs a CSV/JSON
- * - LOG-003
-   - `search_logs`
+ * - `search_logs`
    - logs:search
    - uc-log-03
    - Busca logs por criterios (timestamp, severity, source) (NUEVA v5.3.0)
- * - LOG-004
-   - `view_etl_logs`
+ * - `view_etl_logs`
    - logs:view_etl
    - uc-log-02
    - Ve logs específicos del proceso ETL (sync IVR→Analytics, métricas carga) (NUEVA v5.4.0 — SRP)
- * - LOG-005
-   - `view_infrastructure_logs`
+ * - `view_infrastructure_logs`
    - logs:view_infra
    - uc-log-05
    - Ve logs de infraestructura (timeouts, up/down, conectividad DB) (NUEVA v5.4.0 — SRP)
- * - LOG-006
-   - `view_system_health`
+ * - `view_system_health`
    - logs:view_health
    - uc-log-06
    - Ve estado de salud del sistema y servicios externos (UP/DOWN/DEGRADED) (NUEVA v5.4.0 — gap UC_081)
- * - LOG-007
-   - `view_technical_metrics`
+ * - `view_technical_metrics`
    - logs:view_metrics
    - uc-log-07
    - Ve métricas técnicas agregadas (CPU, memoria, latencia P95) (NUEVA v5.4.0 — gap UC_083)
@@ -616,61 +547,50 @@ Estas funciones se auto-otorgan al activar el perfil de operador;
 la granularidad permite restricciones futuras por servicio o turno.
 
 .. list-table::
- :widths: 15 30 25 10 20
+ :widths: 30 25 10 35
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - OPR-001
-   - `manage_own_agent_state`
+ * - `manage_own_agent_state`
    - operator:agent_state
    - UC_OPR_01
    - Cambia propio estado de disponibilidad (available/busy/break/offline)
- * - OPR-002
-   - `answer_inbound_calls`
+ * - `answer_inbound_calls`
    - operator:answer
    - UC_OPR_02
    - Atiende llamada entrante asignada por el enrutador
- * - OPR-003
-   - `make_outbound_calls`
+ * - `make_outbound_calls`
    - operator:dial_out
    - UC_OPR_03
    - Realiza llamada saliente autorizada
- * - OPR-004
-   - `hold_calls`
+ * - `hold_calls`
    - operator:hold
    - UC_OPR_04
    - Pone en espera o retoma llamada activa
- * - OPR-005
-   - `transfer_calls`
+ * - `transfer_calls`
    - operator:transfer
    - UC_OPR_05
    - Transfiere llamada a otro agente o cola
- * - OPR-006
-   - `enter_call_disposition`
+ * - `enter_call_disposition`
    - operator:disposition
    - UC_OPR_06
    - Registra resultado de la llamada (disposition code)
- * - OPR-007
-   - `request_break`
+ * - `request_break`
    - operator:break
    - UC_OPR_07
    - Solicita pausa autorizada (break/lunch/training)
- * - OPR-008
-   - `view_own_performance_dashboard`
+ * - `view_own_performance_dashboard`
    - operator:own_dashboard
    - UC_OPR_08
    - Consulta propio dashboard de métricas de desempeño
- * - OPR-009
-   - `view_own_call_history`
+ * - `view_own_call_history`
    - operator:own_history
    - UC_OPR_09
    - Consulta historial personal de llamadas atendidas/realizadas
- * - OPR-010
-   - `read_own_mailbox`
+ * - `read_own_mailbox`
    - operator:mailbox
    - UC_OPR_10
    - Consulta el buzón de mensajes internos del agente (InternalMailbox)
@@ -696,27 +616,23 @@ agentes y llamadas activas. Requieren asignación explícita
 (no auto-otorgadas como MOD_Operator).
 
 .. list-table::
- :widths: 15 30 25 10 20
+ :widths: 30 25 10 35
  :header-rows: 1
 
- * - ID
-   - Función
+ * - Función
    - Capacidad
    - UC
    - Descripción
- * - SUP-001
-   - `monitor_live_calls`
+ * - `monitor_live_calls`
    - supervision:monitor
    - UC_SUP_01
    - Escucha llamada activa en modo silent (sin intervención)
      o whisper (habla solo al agente, cliente no oye)
- * - SUP-002
-   - `barge_in_calls`
+ * - `barge_in_calls`
    - supervision:barge_in
    - UC_SUP_02
    - Interviene en llamada activa habilitando canal tripartito
- * - SUP-003
-   - `broadcast_team_messages`
+ * - `broadcast_team_messages`
    - supervision:broadcast
    - UC_SUP_03
    - Envía mensaje de texto a todos los agentes del equipo

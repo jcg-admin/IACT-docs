@@ -128,9 +128,7 @@ cuando forman parte de un codename. ``ETL`` → ``pipeline``,
 Los ``function_id`` son codigos de catalogo para trazabilidad
 documental. No son identificadores de autorizacion en runtime.
 
-**Formato:** ``{MODULO}-{NNN}``
-
-**Ejemplo:** ``AUTH-001``, ``RPT-004``, ``AUD-002``
+**Formato:** ``{MODULO}-{NNN}`` (uso interno de BD — no aparece en codigo de autorizacion)
 
 Los modulos validos son:
 
@@ -350,7 +348,7 @@ INCORRECTO:
    def calculate_effective_functions(user: User) -> Set[str]:
        """
        Returns:
-           Set de function_id: {'RPT-001', 'RPT-002', ...}
+           Set de codenames: {'view_reports', 'view_dashboard', ...}
        """
 
 CORRECTO:
@@ -404,22 +402,17 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - AUTH-001
-   - ``manage_sessions``
+ * - ``manage_sessions``
    - Gestiona sesiones activas
- * - AUTH-002
-   - ``close_user_session``
+ * - ``close_user_session``
    - Cierra la sesion de un usuario especifico
- * - AUTH-003
-   - ``reset_password``
+ * - ``reset_password``
    - Resetea la contrasena de un usuario
- * - AUTH-004
-   - ``view_active_sessions``
+ * - ``view_active_sessions``
    - Visualiza las sesiones activas del sistema
 
 5.2 MOD_Users
@@ -427,37 +420,27 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - USR-001
-   - ``create_users``
+ * - ``create_users``
    - Crea nuevos usuarios en el sistema
- * - USR-002
-   - ``update_users``
+ * - ``update_users``
    - Modifica datos de usuarios existentes
- * - USR-003
-   - ``delete_users``
+ * - ``delete_users``
    - Elimina usuarios del sistema
- * - USR-004
-   - ``list_users``
+ * - ``list_users``
    - Lista el catalogo de usuarios
- * - USR-005
-   - ``search_users``
+ * - ``search_users``
    - Busca usuarios por criterios
- * - USR-006
-   - ``block_users``
+ * - ``block_users``
    - Bloquea el acceso de un usuario
- * - USR-007
-   - ``unblock_users``
+ * - ``unblock_users``
    - Desbloquea el acceso de un usuario
- * - USR-008
-   - ``reactivate_users``
+ * - ``reactivate_users``
    - Reactiva un usuario inactivo
- * - USR-009
-   - ``view_users``
+ * - ``view_users``
    - Visualiza el detalle de un usuario
 
 5.3 MOD_Access
@@ -465,25 +448,19 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - ACC-001
-   - ``assign_functions``
+ * - ``assign_functions``
    - Asigna funciones directas a un usuario
- * - ACC-002
-   - ``revoke_functions``
+ * - ``revoke_functions``
    - Revoca funciones directas de un usuario
- * - ACC-003
-   - ``view_assignments``
+ * - ``view_assignments``
    - Visualiza las asignaciones de funciones
- * - ACC-004
-   - ``assign_function_groups``
+ * - ``assign_function_groups``
    - Asigna grupos de funciones a un usuario
- * - ACC-005
-   - ``manage_separation_rules``
+ * - ``manage_separation_rules``
    - Gestiona las reglas de separacion de funciones
 
 5.4 MOD_Pipeline
@@ -491,22 +468,17 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - PIP-001
-   - ``view_pipeline_status``
+ * - ``view_pipeline_status``
    - Visualiza el estado del pipeline de datos
- * - PIP-002
-   - ``view_pipeline_errors``
+ * - ``view_pipeline_errors``
    - Visualiza los errores del pipeline de datos
- * - PIP-003
-   - ``view_data_availability``
+ * - ``view_data_availability``
    - Visualiza la disponibilidad de datos
- * - PIP-004
-   - ``request_pipeline_retry``
+ * - ``request_pipeline_retry``
    - Solicita reintento de ejecucion del pipeline
 
 5.5 MOD_Reports
@@ -514,34 +486,25 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - RPT-001
-   - ``view_reports``
+ * - ``view_reports``
    - Visualiza el listado de reportes
- * - RPT-002
-   - ``view_dashboard``
+ * - ``view_dashboard``
    - Visualiza el dashboard principal
- * - RPT-003
-   - ``filter_reports``
+ * - ``filter_reports``
    - Aplica filtros sobre reportes
- * - RPT-004
-   - ``export_csv``
+ * - ``export_csv``
    - Exporta datos en formato CSV
- * - RPT-005
-   - ``export_excel``
+ * - ``export_excel``
    - Exporta datos en formato Excel
- * - RPT-006
-   - ``export_pdf``
+ * - ``export_pdf``
    - Exporta datos en formato PDF
- * - RPT-007
-   - ``view_kpis``
+ * - ``view_kpis``
    - Visualiza indicadores clave de desempeno
- * - RPT-008
-   - ``view_charts``
+ * - ``view_charts``
    - Visualiza graficos del sistema
 
 5.6 MOD_Alerts
@@ -549,28 +512,21 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - ALR-001
-   - ``view_alerts``
+ * - ``view_alerts``
    - Visualiza las alertas del sistema
- * - ALR-002
-   - ``configure_alerts``
+ * - ``configure_alerts``
    - Configura alertas propias
- * - ALR-003
-   - ``configure_team_alerts``
+ * - ``configure_team_alerts``
    - Configura alertas del equipo
- * - ALR-004
-   - ``pause_alerts``
+ * - ``pause_alerts``
    - Pausa alertas activas
- * - ALR-005
-   - ``delete_alerts``
+ * - ``delete_alerts``
    - Elimina alertas del sistema
- * - ALR-006
-   - ``view_alert_history``
+ * - ``view_alert_history``
    - Visualiza el historial de alertas
 
 5.7 MOD_Audit
@@ -578,22 +534,17 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - AUD-001
-   - ``view_audit_log``
+ * - ``view_audit_log``
    - Visualiza el log de auditoria
- * - AUD-002
-   - ``search_audit_log``
+ * - ``search_audit_log``
    - Busca registros en el log de auditoria
- * - AUD-003
-   - ``export_audit_log``
+ * - ``export_audit_log``
    - Exporta el log de auditoria
- * - AUD-004
-   - ``generate_compliance_report``
+ * - ``generate_compliance_report``
    - Genera reportes de cumplimiento normativo
 
 5.8 MOD_Logs
@@ -601,16 +552,13 @@ de autorizacion en runtime.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 35 65
 
- * - ID
-   - Codename
+ * - Codename
    - Descripcion
- * - LOG-001
-   - ``view_technical_logs``
+ * - ``view_technical_logs``
    - Visualiza logs tecnicos del sistema
- * - LOG-002
-   - ``export_logs``
+ * - ``export_logs``
    - Exporta logs tecnicos del sistema
 
 ----
@@ -628,35 +576,25 @@ Catalogo completo de valores ``name`` del modelo
  * - ID
    - Nombre
    - Descripcion
- * - AGR-001
-   - ``basic_operator_group``
+ * - ``basic_operator_group``
    - Visualizacion basica del sistema
- * - AGR-002
-   - ``report_viewer_group``
+ * - ``report_viewer_group``
    - Visualizacion completa de reportes
- * - AGR-003
-   - ``quality_supervisor_group``
+ * - ``quality_supervisor_group``
    - Supervision de calidad de datos
- * - AGR-004
-   - ``data_exporter_group``
+ * - ``data_exporter_group``
    - Exportacion de datos del sistema
- * - AGR-005
-   - ``alert_manager_group``
+ * - ``alert_manager_group``
    - Gestion de alertas del sistema
- * - AGR-006
-   - ``user_admin_group``
+ * - ``user_admin_group``
    - Administracion de usuarios
- * - AGR-007
-   - ``permission_admin_group``
+ * - ``permission_admin_group``
    - Administracion de permisos y asignaciones
- * - AGR-008
-   - ``auditor_group``
+ * - ``auditor_group``
    - Acceso completo de auditoria
- * - AGR-009
-   - ``pipeline_admin_group``
+ * - ``pipeline_admin_group``
    - Administracion del pipeline de datos
- * - AGR-010
-   - ``system_admin_group``
+ * - ``system_admin_group``
    - Administracion completa del sistema
 
 ----
@@ -674,14 +612,11 @@ Catalogo completo de valores ``name`` del modelo
  * - ID
    - Nombre
    - Descripcion
- * - SOD-001
-   - ``pipeline_audit_separation``
+ * - ``pipeline_audit_separation``
    - Separa administracion de pipeline de funciones de auditoria
- * - SOD-002
-   - ``user_audit_separation``
+ * - ``user_audit_separation``
    - Separa administracion de usuarios de funciones de auditoria
- * - SOD-003
-   - ``access_audit_separation``
+ * - ``access_audit_separation``
    - Separa administracion de accesos de funciones de auditoria
 
 ----

@@ -352,7 +352,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_04_Exportar_CSV.rst`` (489 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-004 (exporta_csv)
+:Función RBAC: export_csv
 :Precondición: Verificar ``COUNT(registros) <= 100,000`` (BR_011)
 
 **Flujo Normal - Paso de Validación:**
@@ -404,7 +404,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_05_Exportar_Excel.rst`` (450 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-005 (exporta_excel)
+:Función RBAC: export_excel
 :Precondición: Verificar ``COUNT(registros) <= 50,000`` (BR_011)
 
 **Diferencia con CSV:**
@@ -420,7 +420,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_06_Exportar_PDF.rst`` (427 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-006 (exporta_pdf)
+:Función RBAC: export_pdf
 :Precondición: Verificar ``COUNT(registros) <= 10,000`` (BR_011)
 
 **Diferencia con otros formatos:**

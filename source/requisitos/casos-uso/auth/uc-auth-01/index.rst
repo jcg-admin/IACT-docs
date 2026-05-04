@@ -58,7 +58,7 @@ dependen de esta sesion via T-01).
  * - **Actor Principal**
    - Usuario (cualquier registrado)
  * - **Funcion RBAC**
-   - publica (post-login establece AUTH-001 ``view_own_sessions``)
+   - publica (post-login establece view_own_sessions ``view_own_sessions``)
  * - **Clase de Dominio primaria**
    - ``Session``
  * - **Clases secundarias**
@@ -71,7 +71,7 @@ Documentos vinculados
   v1.0.0 — clases ``User``, ``Session``,
   ``InternalMailbox``, ``AuditEvent``.
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
-  v5.5.0 — funciones AUTH-001..004.
+  v5.5.0 — funciones view_own_sessions..004.
 - :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`
   v1.0.0 — criticidad, transversales T-01/02/03,
   patrones de diseno aplicables.

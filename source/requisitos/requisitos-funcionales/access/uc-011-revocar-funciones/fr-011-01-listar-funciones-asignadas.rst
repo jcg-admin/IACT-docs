@@ -94,8 +94,8 @@ FR-011.01: Listar funciones asignadas al usuario
  Y tiene icono de agrupador
  
  Escenario 3: Función no revocable
- DADO último usuario con ACC-001
- CUANDO se muestra ACC-001 en su lista
+ DADO último usuario con assign_functions
+ CUANDO se muestra assign_functions en su lista
  ENTONCES está deshabilitada para selección
  Y tooltip indica "No se puede revocar: único admin con esta función"
  

@@ -86,15 +86,15 @@ FR-010.04: Calcular permisos efectivos
  ENTONCES muestra preview completo de accesos resultantes
  
  Escenario 1: Preview de permisos
- DADO selección de función REP-001 (ver reportes)
+ DADO selección de función view_reports
  CUANDO se calcula preview
  ENTONCES se muestra: MOD_Reports - READ
  Y se marca como "NUEVO" (no lo tenía antes)
  
  Escenario 2: Permisos existentes
- DADO usuario con USR-001 (crear usuarios)
+ DADO usuario con create_users
  CUANDO se calcula preview
- ENTONCES USR-001 se muestra como "ACTUAL"
+ ENTONCES create_users se muestra como "ACTUAL"
  Y nuevos permisos como "NUEVO"
  
  Escenario 3: Permisos vía agrupador

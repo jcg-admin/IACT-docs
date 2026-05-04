@@ -463,8 +463,8 @@ toda documentación nueva del proyecto (formalizado en
      ETL); (b) la visibilidad funcional ya queda cubierta por
      la combinación **AGR (perfil operativo) + MOD (categoría
      de información) + Función (acción específica)**. Las dos
-     funciones que operaban sobre segmentos (USR-010
-     ``asigna_segmento`` y ACC-006 ``gestiona_segmentos``) se
+     funciones que operaban sobre segmentos (manage_user_segments
+     ``asigna_segmento`` y create_function_group ``gestiona_segmentos``) se
      eliminaron en la transición v5.1.1 → v5.2.0 (44 → 42
      funciones). NO usar este término en docs nuevas.
 

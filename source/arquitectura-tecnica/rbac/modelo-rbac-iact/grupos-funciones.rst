@@ -108,12 +108,12 @@ AGR-001 basic_operator_group
 
 .. code-block:: text
 
- AUTH-001: view_own_sessions
- AUTH-004: view_all_active_sessions
- RPT-001: view_reports
- RPT-002: view_dashboard
- RPT-007: view_kpis
- RPT-008: view_charts
+ view_own_sessions
+ view_all_active_sessions
+ view_reports
+ view_dashboard
+ view_kpis
+ view_charts
 
 
 **Propósito:** Usuario básico que solo visualiza información.
@@ -129,8 +129,8 @@ AGR-002 report_viewer_group
 .. code-block:: text
 
  Todas de AGR-001 +
- RPT-003: filter_reports
- USR-009: view_users
+ filter_reports
+ view_users
 
 
 **Propósito:** Analista que puede aplicar filtros pero no exportar.
@@ -146,9 +146,9 @@ AGR-003 quality_supervisor_group
 .. code-block:: text
 
  Todas de AGR-002 +
- ALR-001: view_alerts
- ALR-002: configure_alerts
- ALR-006: view_alert_history
+ view_alerts
+ configure_alerts
+ view_alert_history
 
 
 **Propósito:** Supervisor con capacidad de configurar alertas propias.
@@ -164,9 +164,9 @@ AGR-004 data_exporter_group
 .. code-block:: text
 
  Todas de AGR-003 +
- RPT-004: export_csv
- RPT-005: export_excel
- RPT-006: export_pdf
+ export_csv
+ export_excel
+ export_pdf
 
 
 **Propósito:** Analista autorizado para exportar con límites CNST-007.
@@ -181,12 +181,12 @@ AGR-005 alert_manager_group
 
 .. code-block:: text
 
- ALR-001: view_alerts
- ALR-002: configure_alerts
- ALR-003: configure_team_alerts
- ALR-004: pause_alerts
- ALR-005: disable_alerts
- ALR-006: view_alert_history
+ view_alerts
+ configure_alerts
+ configure_team_alerts
+ pause_alerts
+ disable_alerts
+ view_alert_history
 
 
 **Propósito:** Gestor de alertas de equipo/departamento.
@@ -201,15 +201,15 @@ AGR-006 user_admin_group
 
 .. code-block:: text
 
- USR-001: create_users
- USR-002: update_users
- USR-003: deactivate_users
- USR-004: list_users
- USR-005: search_users
- USR-006: block_users
- USR-007: unblock_users
- USR-008: reactivate_users
- USR-009: view_users
+ create_users
+ update_users
+ deactivate_users
+ list_users
+ search_users
+ block_users
+ unblock_users
+ reactivate_users
+ view_users
 
 
 **Propósito:** Administración completa de identidades.
@@ -226,11 +226,11 @@ AGR-007 permission_admin_group
 
 .. code-block:: text
 
- ACC-001: assign_functions
- ACC-002: revoke_functions
- ACC-003: view_assignments
- ACC-004: assign_function_groups
- ACC-005: view_separation_rules
+ assign_functions
+ revoke_functions
+ view_assignments
+ assign_function_groups
+ view_separation_rules
 
 
 **Propósito:** Administración de RBAC.
@@ -247,10 +247,10 @@ AGR-008 auditor_group
 
 .. code-block:: text
 
- AUD-001: view_audit_log
- AUD-002: search_audit_log
- AUD-003: export_audit_log
- AUD-004: generate_compliance_report
+ view_audit_log
+ search_audit_log
+ export_audit_log
+ generate_compliance_report
 
 
 **Propósito:** Auditoría y compliance.
@@ -270,10 +270,10 @@ AGR-009 pipeline_admin_group
 
 .. code-block:: text
 
- PIP-001: view_pipeline_status
- PIP-002: view_pipeline_errors
- PIP-003: view_data_availability
- PIP-004: request_pipeline_retry
+ view_pipeline_status
+ view_pipeline_errors
+ view_data_availability
+ request_pipeline_retry
 
 
 **Propósito:** Administración de ETL.
@@ -290,12 +290,12 @@ AGR-010 system_admin_group
 
 .. code-block:: text
 
- AUTH-001: view_own_sessions
- AUTH-002: close_user_session
- AUTH-003: reset_password
- AUTH-004: view_all_active_sessions
- LOG-001: view_application_logs
- LOG-002: export_logs
+ view_own_sessions
+ close_user_session
+ reset_password
+ view_all_active_sessions
+ view_application_logs
+ export_logs
 
 
 **Propósito:** Administración técnica del sistema.
@@ -310,16 +310,16 @@ AGR-011 call_center_operator_group
 
 .. code-block:: text
 
- OPR-001: manage_own_agent_state
- OPR-002: answer_inbound_calls
- OPR-003: make_outbound_calls
- OPR-004: hold_calls
- OPR-005: transfer_calls
- OPR-006: enter_call_disposition
- OPR-007: request_break
- OPR-008: view_own_performance_dashboard
- OPR-009: view_own_call_history
- OPR-010: read_own_mailbox
+ manage_own_agent_state
+ answer_inbound_calls
+ make_outbound_calls
+ hold_calls
+ transfer_calls
+ enter_call_disposition
+ request_break
+ view_own_performance_dashboard
+ view_own_call_history
+ read_own_mailbox
 
 
 **Propósito:** Conjunto base de acciones para agentes del call center.
@@ -335,9 +335,9 @@ AGR-012 call_center_supervisor_group
 
 .. code-block:: text
 
- SUP-001: monitor_live_calls
- SUP-002: barge_in_calls
- SUP-003: broadcast_team_messages
+ monitor_live_calls
+ barge_in_calls
+ broadcast_team_messages
  Todas las funciones de AGR-003 (quality_supervisor_group)
 
 
