@@ -31,6 +31,12 @@ ADR-BACK-005: Middleware y Decoradores para Permisos Granulares
  implemente, sustituir ``capacidad`` -> ``function`` en toda la
  narrativa de este ADR.
 
+ Clases renombradas (CIA-RBAC-002 DEC-005): ``GranularPermission``
+ -> ``FunctionPermission``; ``GranularPermissionMixin`` ->
+ ``FunctionPermissionMixin``. Los ejemplos de codigo en este ADR
+ conservan los nombres legacy por ser referencia historica
+ preservada.
+
 ----
 
 Estado y metadata
