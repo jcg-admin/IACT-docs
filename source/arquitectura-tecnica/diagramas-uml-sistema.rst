@@ -189,15 +189,15 @@ conforme al catalogo de funciones del sistema.
  :maxdepth: 1
  :caption: Diagramas del sistema IACT
 
- UMLSystemView/casos-uso-sistema-iact
- UMLSystemView/clases-sistema-iact
- UMLSystemView/actividad-flujo-principal
- UMLSystemView/actividad-autenticacion
- UMLSystemView/maquina-estados-sistema-iact
- UMLSystemView/secuencia-sistema-iact
- UMLSystemView/comunicacion-sistema-iact
- UMLSystemView/componentes-sistema-iact
- UMLSystemView/despliegue-sistema-iact
- UMLSystemView/submaquina-etl
- UMLSystemView/submaquina-reporte
- UMLSystemView/despliegue-multicliente
+ uml-system-view/casos-uso-sistema-iact
+ uml-system-view/clases-sistema-iact
+ uml-system-view/actividad-flujo-principal
+ uml-system-view/actividad-autenticacion
+ uml-system-view/maquina-estados-sistema-iact
+ uml-system-view/secuencia-sistema-iact
+ uml-system-view/comunicacion-sistema-iact
+ uml-system-view/componentes-sistema-iact
+ uml-system-view/despliegue-sistema-iact
+ uml-system-view/submaquina-etl
+ uml-system-view/submaquina-reporte
+ uml-system-view/despliegue-multicliente

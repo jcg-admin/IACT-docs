@@ -27,25 +27,25 @@ por UC desde una perspectiva arquitectonica.
  * - Vista
    - Tipo
    - Descripcion
- * - :doc:`DomainModel/index`
+ * - :doc:`domain-model/index`
    - Vista Logica
    - Entidades del dominio y relaciones para el UC.
      Diagrama de clases (conceptual) + estados.
- * - :doc:`DesignView/index`
+ * - :doc:`design-view/index`
    - Vista de Diseno
    - Clases con detalle de diseno, secuencias, colaboracion.
      Como el sistema resuelve el UC tecnicamente.
- * - :doc:`ImplementationView/index`
+ * - :doc:`implementation-view/index`
    - Vista de Implementacion
    - Componentes y paquetes. Organizacion del codigo.
- * - :doc:`UseCaseView/index`
+ * - :doc:`use-case-view/index`
    - Vista de Casos de Uso
    - Diagrama UC con actores RBAC, includes y extends.
      Une todas las demas vistas.
- * - :doc:`ProcessView/index`
+ * - :doc:`process-view/index`
    - Vista de Procesos
    - Actividades y secuencias. Concurrencia, sincronizacion.
- * - :doc:`DeployView/index`
+ * - :doc:`deploy-view/index`
    - Vista de Despliegue
    - Distribucion fisica. Nodos, artefactos, comunicacion.
 
@@ -55,9 +55,9 @@ por UC desde una perspectiva arquitectonica.
  :maxdepth: 2
  :caption: Vistas arquitectonicas
 
- DomainModel/index
- DesignView/index
- ImplementationView/index
- UseCaseView/index
- ProcessView/index
- DeployView/index
+ domain-model/index
+ design-view/index
+ implementation-view/index
+ use-case-view/index
+ process-view/index
+ deploy-view/index

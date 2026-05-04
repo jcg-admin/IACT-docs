@@ -96,6 +96,6 @@ Un diagrama por archivo.
  :maxdepth: 1
  :caption: Diagramas
 
- ArquitecturaSistema/arquitectura-general
- ArquitecturaSistema/dfd-nivel-0-contexto
- ArquitecturaSistema/dfd-nivel-1-subprocesos
+ arquitectura-sistema/arquitectura-general
+ arquitectura-sistema/dfd-nivel-0-contexto
+ arquitectura-sistema/dfd-nivel-1-subprocesos
