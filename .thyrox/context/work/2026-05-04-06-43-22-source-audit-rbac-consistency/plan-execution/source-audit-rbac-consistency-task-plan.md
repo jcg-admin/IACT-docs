@@ -37,7 +37,7 @@ Un hallazgo accionable identificado (F-01). Ver
   `GranularPermission` → `FunctionPermission` y
   `GranularPermissionMixin` → `FunctionPermissionMixin`
   (CIA-RBAC-002 DEC-005) al bloque `.. note::` existente.
-- [ ] **T-005** Commit y push
+- [x] **T-005** Commit y push
 
 ---
 
