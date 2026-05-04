@@ -41,6 +41,7 @@ de la conexion ``ivr``:
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 Este patron se repite para cada uno de los 7 SPs de reporte.
 Las vistas de API reciben el resultado como lista de diccionarios y
 lo serializan directamente.

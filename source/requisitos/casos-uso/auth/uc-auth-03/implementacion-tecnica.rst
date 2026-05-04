@@ -45,6 +45,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.4 ResetPasswordView
 ======================
 
@@ -53,6 +54,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.5 PasswordGenerator (Strategy)
 =================================
 
@@ -61,6 +63,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.6 AuthService.reset_password
 ===============================
 
@@ -69,6 +72,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.7 URL routing
 ================
 
@@ -77,6 +81,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.8 Throttling
 ===============
 
@@ -85,6 +90,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.9 Frontend
 =============
 

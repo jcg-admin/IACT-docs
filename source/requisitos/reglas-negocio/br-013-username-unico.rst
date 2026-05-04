@@ -258,6 +258,7 @@ La regla se considera cumplida cuando:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 7.2 Validación en Serializer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -266,6 +267,7 @@ La regla se considera cumplida cuando:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 ----
 
 8. Historial de Cambios

@@ -82,6 +82,7 @@ Ver :doc:`etl-pipeline`.
  Los detalles de implementacion de este modelo estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 Las vistas de reportes IVR no usan modelos ORM — consultan
 directamente via ``cursor.callproc()`` sobre la conexion ``ivr``
 (Almacen de Datos). Ver :doc:`/arquitectura-tecnica/modulos/vis-reports/componentes`.

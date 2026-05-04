@@ -19,6 +19,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.2 Tabla function_groups
 -------------------------
 
@@ -29,6 +30,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.3 Tabla function_group_membership
 -----------------------------------
 
@@ -39,6 +41,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.4 Tabla user_function_assignments
 -----------------------------------
 
@@ -49,6 +52,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 **CAMBIO v5.2.1:** ``assigned_at`` (NO ``assigned_date``, convención ``*_at`` para datetime)
 
 
@@ -62,6 +66,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 **CAMBIO v5.2.1:** ``assigned_at`` (convención datetime)
 
 
@@ -75,6 +80,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.7 Tabla function_separation_rule_details
 ------------------------------------------
 
@@ -85,6 +91,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 **CAMBIO v5.2.1:** ``rule_group`` (NO ``separation_group``, más conciso)
 
 
@@ -98,6 +105,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.9 Datos Iniciales - 12 Grupos
 -------------------------------
 
@@ -108,6 +116,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 8.10 Datos Iniciales - 3 Reglas SoD
 -----------------------------------
 
@@ -118,6 +127,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 ----
 
 
@@ -136,6 +146,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 9.2 Service (appsaccessservices.py)
 -----------------------------------
 
@@ -146,6 +157,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 9.3 Decorator (appsaccessdecorators.py)
 ---------------------------------------
 
@@ -156,6 +168,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 9.4 Middleware (appsaccessmiddleware.py)
 ----------------------------------------
 
@@ -166,6 +179,7 @@ Modelo RBAC IACT — Implementacion
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 9.5 Management Command
 ----------------------
 

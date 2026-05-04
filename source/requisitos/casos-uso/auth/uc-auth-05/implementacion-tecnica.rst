@@ -32,6 +32,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.3 SessionListView
 ====================
 
@@ -40,6 +41,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.4 SessionFilter
 ==================
 
@@ -48,6 +50,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.5 SessionSerializer (sin PII)
 ================================
 
@@ -56,6 +59,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.6 SessionCloseView
 =====================
 
@@ -64,6 +68,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.7 CloseAllSessionsView
 =========================
 
@@ -72,6 +77,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.8 SessionService
 ===================
 
@@ -80,6 +86,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.9 URLs
 =========
 
@@ -88,6 +95,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.10 Settings
 ==============
 
@@ -96,6 +104,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.11 Frontend
 ==============
 

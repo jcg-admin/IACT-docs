@@ -158,6 +158,7 @@ El bloqueo por intentos fallidos protege contra:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 ----
 
 5. Trazabilidad

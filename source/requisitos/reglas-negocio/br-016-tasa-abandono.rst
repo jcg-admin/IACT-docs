@@ -134,6 +134,7 @@ los valores vacios a ``'VACIO'``.
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 **Volumenes de referencia (Q3 2025, Nacional A):**
 
 - ``VACIO``: ~8-9% del total de llamadas.

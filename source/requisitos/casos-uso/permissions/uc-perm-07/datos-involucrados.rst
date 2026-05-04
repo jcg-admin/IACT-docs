@@ -46,6 +46,7 @@ Key:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 Value:
 
 .. note::
@@ -53,6 +54,7 @@ Value:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 TTL: ``min(default_ttl, remaining_validity)``
 = 60s typical, < 60s si concesion proxima a
 expirar.
@@ -80,6 +82,7 @@ Stack-agnostico, una sola peticion:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 Nota: representacion conceptual; cada motor
 expresa esto en su dialecto. Lo importante es
 que sea **una** ida-vuelta a BD.

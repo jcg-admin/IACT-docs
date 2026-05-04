@@ -239,6 +239,7 @@ La clasificación de datos garantiza:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 5.2 Modelo con Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -247,6 +248,7 @@ La clasificación de datos garantiza:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 5.3 Sanitización en Logs
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -255,6 +257,7 @@ La clasificación de datos garantiza:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 ----
 
 6. Trazabilidad

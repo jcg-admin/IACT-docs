@@ -193,6 +193,7 @@ La política de retención de 2 años:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 5.2 Tarea Programada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -201,6 +202,7 @@ La política de retención de 2 años:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 5.3 Scheduler de tareas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -209,6 +211,7 @@ La política de retención de 2 años:
  Los detalles de implementacion de esta regla estan delegados
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
+
 ----
 
 6. Trazabilidad

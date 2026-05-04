@@ -51,6 +51,7 @@ Modelo RBAC IACT — Catalogo de Funciones
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 ----
 
 3.2 MOD_Users (9 funciones)
@@ -121,6 +122,7 @@ Modelo RBAC IACT — Catalogo de Funciones
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 ----
 
 3.3 MOD_Access (12 funciones)

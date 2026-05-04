@@ -48,6 +48,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.4 AuthService.logout (esqueleto)
 ===================================
 
@@ -56,6 +57,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.5 TokenInvalidator (Strategy)
 ================================
 
@@ -64,6 +66,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.6 Modelo Session
 ===================
 
@@ -72,6 +75,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.7 URL routing
 ================
 
@@ -80,6 +84,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.8 Frontend — estructura
 ==========================
 
@@ -136,6 +141,7 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.11 Cron de purga de blacklist
 ================================
 
@@ -144,4 +150,5 @@ Parte 11 — Implementacion tecnica
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 Cronjob: cada hora.

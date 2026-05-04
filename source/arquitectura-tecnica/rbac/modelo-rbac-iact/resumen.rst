@@ -46,6 +46,7 @@ Modelo RBAC IACT — Resumen
  Los detalles de implementacion de esta operacion estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 ----
 
 12. RESUMEN

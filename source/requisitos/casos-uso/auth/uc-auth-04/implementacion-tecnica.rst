@@ -37,6 +37,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.4 ChangePasswordView
 =======================
 
@@ -45,6 +46,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.5 PasswordPolicyValidator
 ============================
 
@@ -53,6 +55,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.6 AuthService.change_password
 ================================
 
@@ -61,6 +64,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.7 PasswordHistory model
 ==========================
 
@@ -69,6 +73,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.8 URL + throttling
 =====================
 
@@ -77,6 +82,7 @@ algoritmo-de-hash, React).
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.9 Frontend hook
 ==================
 

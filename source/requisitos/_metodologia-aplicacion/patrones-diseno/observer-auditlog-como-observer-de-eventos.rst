@@ -33,5 +33,6 @@ duplicado, los eventos de dominio se publican y
  La implementacion del patron sigue la estructura mostrada en el
  diagrama UML. Los detalles de codigo van en el repositorio fuente,
  no en la especificacion.
+
 Regla IACT: ``AuditObserver`` no se puede desuscribir en
 runtime — eso violaría CNST_025.

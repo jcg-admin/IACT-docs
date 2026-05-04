@@ -128,6 +128,7 @@ Archivos en otras apps que UC_AUTH_01 toca:
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.5 LoginView (esqueleto)
 ==========================
 
@@ -136,6 +137,7 @@ Archivos en otras apps que UC_AUTH_01 toca:
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.6 AuthService (esqueleto)
 ============================
 
@@ -144,6 +146,7 @@ Archivos en otras apps que UC_AUTH_01 toca:
  Los detalles de implementacion de este requisito estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 11.7 Frontend (React)
 =====================
 

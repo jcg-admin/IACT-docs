@@ -25,6 +25,7 @@ consistentes en toda la aplicación (BR_016/017/018).
  La implementacion del patron sigue la estructura mostrada en el
  diagrama UML. Los detalles de codigo van en el repositorio fuente,
  no en la especificacion.
+
 Notas IACT:
 
 - En Django, ``django.conf.settings`` ya es un singleton de

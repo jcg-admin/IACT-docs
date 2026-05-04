@@ -41,6 +41,7 @@ accedida via ``cursor.execute`` / ``cursor.callproc``.
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 **ETLEjecucionRepo** — Repositorio Python sobre cursor
 
 .. note::
@@ -48,6 +49,7 @@ accedida via ``cursor.execute`` / ``cursor.callproc``.
  Los detalles de implementacion de este componente estan en el
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
+
 ----
 
 APIs Expuestas

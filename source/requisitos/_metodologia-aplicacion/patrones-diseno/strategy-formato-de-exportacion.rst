@@ -28,6 +28,7 @@ algoritmo de serialización cambia, el resto del flujo no.
  La implementacion del patron sigue la estructura mostrada en el
  diagrama UML. Los detalles de codigo van en el repositorio fuente,
  no en la especificacion.
+
 Agregar un nuevo formato no toca ``ExportadorReporte``,
 ``rpt_app`` ni el facade — solo se registra una nueva
 estrategia.
