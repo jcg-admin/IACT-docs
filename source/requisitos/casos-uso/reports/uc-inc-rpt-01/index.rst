@@ -12,4 +12,4 @@ UC_INC_RPT_01 — Resolver Segmento
  flujo-principal
  datos-involucrados
  implementacion-tecnica
- diagramas-uml
+ diagramas-uml/index
