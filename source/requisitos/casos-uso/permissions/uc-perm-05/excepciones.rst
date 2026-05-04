@@ -10,7 +10,7 @@ Parte 5 — Excepciones
 401.
 
 5.2 EX-02: Sin create_function_group
-===================================
+====================================
 
 403 + AuditEvent UNAUTHORIZED.
 

@@ -63,6 +63,7 @@ Los estándares cubren:
  std-007-convencion-naming
  std-008-naming-identificadores
  std-009-profesional-documentacion
+ std-010-vocabulario-abstracto
 
 .. toctree::
  :maxdepth: 1

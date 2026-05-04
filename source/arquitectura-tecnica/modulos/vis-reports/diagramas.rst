@@ -20,14 +20,16 @@ Flujo de Acceso a Visualizaciones
  :JWT + RBAC: verificar view_reports;
 
  if (Sin permiso?) then (si)
-   :403 Forbidden; stop
+   :403 Forbidden;
+   stop
  endif
 
  :SegmentResolver.resolve(user_id);
  :Mapear DIDs RBAC a segmentos IVR;
 
  if (Sin segmentos?) then (si)
-   :400 USER_WITHOUT_SEGMENT; stop
+   :400 USER_WITHOUT_SEGMENT;
+   stop
  endif
 
  :cursor.callproc(sp_rpt_*, [trimestre, segmentos]);
@@ -39,10 +41,12 @@ Flujo de Acceso a Visualizaciones
      :Notificar via InternalMailbox;
      stop
    else (no exporta)
-     :Retornar dataset al frontend; stop
+     :Retornar dataset al frontend;
+   stop
    endif
  else (solo view)
-   :Retornar dataset filtrado por segmentos; stop
+   :Retornar dataset filtrado por segmentos;
+   stop
  endif
 
  @enduml
