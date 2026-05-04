@@ -45,12 +45,23 @@ incorrecta de `@require_function` en 3 archivos, actualizar índices.
 
 ## Bloque D — Reemplazo completo CIA-RBAC-002 v2.0.0
 
-- [ ] **T-015** Reemplazar CIA-RBAC-002 con versión completa (16 secciones):
+- [x] **T-015** Reemplazar CIA-RBAC-002 con versión completa (16 secciones):
   catálogo completo por módulo, tabla de comportamiento backends,
   registro de riesgos, DAG de dependencias, lecciones del análisis,
   mapa de archivos afectados. Corregir referencias ADR (→ adr-gob-010),
   paths RST correctos, sin markdown links en código.
-- [ ] **T-016** Commit y push
+- [x] **T-016** Commit y push
+
+---
+
+## Bloque E — Reemplazo completo ADR-GOB-010 v2.0.0
+
+- [ ] **T-017** Reemplazar ADR-GOB-010 con versión completa (10 secciones):
+  tabla de dominios/ciclos de vida, drivers D1-D6, evaluación de opciones
+  contra drivers, consecuencias en tres categorías, criterios de revisión
+  C1-C3, trazabilidad completa. Corregir número (009→010), markdown links
+  en código, paths inexistentes en trazabilidad.
+- [ ] **T-018** Commit y push
 
 ---
 
