@@ -79,4 +79,4 @@ o verificacion (MOD_Permissions).
 .. seealso::
 
  :doc:`/arquitectura-tecnica/use-case-view/mod-admin`
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/catalogo-funciones`
+ :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`

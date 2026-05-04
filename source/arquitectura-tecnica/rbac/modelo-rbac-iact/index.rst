@@ -29,18 +29,24 @@ Las reglas operativas formales viven en:
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod` — CNST_030
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses` — CNST_031
 
+Especificacion de negocio RBAC (movida a requisitos):
+
+- :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` — catalogo de funciones
+- :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones` — grupos de funciones
+- :doc:`/requisitos/reglas-negocio/rbac/sod` — separacion de deberes
+- :doc:`/requisitos/reglas-negocio/rbac/mapeo-uc` — mapeo UC→funcion
+
+Matriz RACI (movida a normativa):
+:doc:`/normativa/gobernanza/raci-rbac/index`
+
 .. toctree::
  :maxdepth: 1
- :caption: Modelo RBAC IACT
+ :caption: Modelo RBAC IACT — Arquitectura
 
  filosofia
  arquitectura
- catalogo-funciones
- grupos-funciones
- sod
  permisos-temporales
  modelo-datos
  implementacion
- mapeo-uc
  diagramas/index
  resumen

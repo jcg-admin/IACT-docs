@@ -45,3 +45,11 @@ Catálogo
  br-018-indice-eficiencia
  br-019-retencion-2-anios
  br-020-clasificacion-datos
+
+Especificacion RBAC
+-------------------
+
+.. toctree::
+ :maxdepth: 1
+
+ rbac/index

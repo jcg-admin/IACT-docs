@@ -249,7 +249,7 @@ para el analisis comparativo completo.
 La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 **matriz RACI** sobre las funciones del sistema. Esa propuesta
 **se materializo** en este WP — ver
-:doc:`/arquitectura-tecnica/rbac/raci-rbac-iact/index`.
+:doc:`/normativa/gobernanza/raci-rbac/index`.
 
 La matriz RACI:
 

@@ -66,6 +66,15 @@ Estructura por dominio
 - :doc:`adr-gob-007-trazabilidad-artefactos-requisitos` — matrices
   de trazabilidad bidireccional entre BR/UC/FR/CNST.
 
+RACI — Gobernanza RBAC
+----------------------
+
+.. toctree::
+ :maxdepth: 1
+ :caption: RACI RBAC
+
+ raci-rbac/index
+
 Convenciones
 ------------
 
