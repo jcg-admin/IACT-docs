@@ -4498,3 +4498,16 @@ writing output... [ 36%] requisitos/business-requirements/breq-002-reduccion-tie
 writing output... [ 36%] requisitos/business-requirements/breq-003-decisiones-basadas-datos
 writing output... [ 36%] requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria
 writing output... [ 36%] requisitos/business-requirements/breq-005-integridad-trazabilidad-datos
+writing output... [ 37%] requisitos/business-requirements/breq-006-operacion-continua-sla
+writing output... [ 37%] requisitos/business-requirements/breq-007-integracion-ivr-operacional
+writing output... [ 37%] requisitos/business-requirements/breq-008-comunicaciones-internas-controladas
+writing output... [ 37%] requisitos/business-requirements/index
+writing output... [ 37%] requisitos/casos-uso/access/index
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/actores-precondiciones
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/criterios-aceptacion
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/datos-involucrados
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-actividad
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-estados-assignment
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-secuencia
+writing output... [ 37%] requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-sod-validation
