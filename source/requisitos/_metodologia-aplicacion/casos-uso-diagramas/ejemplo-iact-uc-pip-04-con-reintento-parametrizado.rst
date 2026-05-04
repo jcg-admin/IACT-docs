@@ -1,0 +1,30 @@
+7.2 Ejemplo IACT — UC_PIP_04 con reintento parametrizado
+--------------------------------------------------------
+
+.. uml::
+
+   @startuml
+
+   left to right direction
+   actor "Admin\nPipeline" as Admin
+
+   rectangle "IACT" {
+     usecase "UC_PIP_04\nSolicitar reintento\n(BASE)"           as P4
+     usecase "UC_PIP_04b\nReintentar con\nparámetros ajustados" as P4B
+   }
+
+   Admin --> P4
+   Admin --> P4B
+
+   P4B --|> P4
+
+   note right of P4B
+     UC_PIP_04b HEREDA de UC_PIP_04:
+       + permite ajustar la ventana
+         CNST_008 (6-12h) si la
+         ejecución original falló por
+         timeout o conexión IVR.
+   end note
+   @enduml
+
+----

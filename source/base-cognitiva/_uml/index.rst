@@ -53,25 +53,25 @@ Catálogo
  :maxdepth: 1
  :caption: Guía rápida
 
- cuando-usar-cada-diagrama
+ cuando-usar-cada-diagrama/index
 
 .. toctree::
  :maxdepth: 1
  :caption: Lecciones (Schmuller adaptado)
 
- uml-01-introduccion
- uml-02-orientacion-objetos
- uml-03-uso-orientacion-objetos
- uml-04-uso-relaciones
- uml-05-agregacion-composicion-interfaces
- uml-06-introduccion-casos-uso
- uml-07-diagramas-casos-uso
- uml-08-diagramas-estados
- uml-09-diagramas-secuencias
- uml-10-diagramas-colaboraciones
- uml-11-diagramas-actividades
- uml-12-diagramas-componentes
- uml-13-diagramas-distribucion
+ uml-01-introduccion/index
+ uml-02-orientacion-objetos/index
+ uml-03-uso-orientacion-objetos/index
+ uml-04-uso-relaciones/index
+ uml-05-agregacion-composicion-interfaces/index
+ uml-06-introduccion-casos-uso/index
+ uml-07-diagramas-casos-uso/index
+ uml-08-diagramas-estados/index
+ uml-09-diagramas-secuencias/index
+ uml-10-diagramas-colaboraciones/index
+ uml-11-diagramas-actividades/index
+ uml-12-diagramas-componentes/index
+ uml-13-diagramas-distribucion/index
 
 Convención
 ==========
