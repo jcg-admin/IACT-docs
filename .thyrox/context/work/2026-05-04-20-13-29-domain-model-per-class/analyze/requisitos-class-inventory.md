@@ -12,9 +12,18 @@ version: 1.0.0
 
 ## Metodología
 
-Corpus analizado: 1918 archivos RST en `source/requisitos/`. 571 contienen
+**Corpus total:** 1918 archivos RST en `source/requisitos/`. 571 contienen
 bloques `.. uml::` con PlantUML. Extracción de `class ClassName` via grep;
-62 nombres únicos encontrados. Clasificación en 3 categorías:
+62 nombres únicos en el corpus completo.
+
+**Corpus relevante:** El directorio `_metodologia-aplicacion/` contiene
+ilustraciones didácticas de patrones UML (ejemplos con `Ave`, `Pinguino`,
+`Circulo`, `Universidad`, jerarquías de herencia, singletons de config).
+Estas clases NO son specs del sistema — son figuras pedagógicas. Se excluyen.
+
+Filtrando solo `casos-uso/` (especificaciones reales de UCs): **51 clases únicas**.
+
+Clasificación en 3 categorías:
 
 - **CANÓNICO** — ya existe en `domain-model/` como archivo individual
 - **IMPLEMENTACIÓN** — servicio, repositorio, hook, DTO, o artefacto técnico
@@ -53,7 +62,7 @@ bloques `.. uml::` con PlantUML. Extracción de `class ClassName` via grep;
 | EtlEjecucion | `domain-model/etl-ejecucion.rst` | ETL |
 | EtlLog | `domain-model/etl-log.rst` | ETL |
 
-**Total: 26 clases canónicas** (26 archivos clase + `overview.rst` + `index.rst` = 28 archivos en domain-model/).
+**Total: 10 de las 51 clases de casos-uso/ son canónicas** (todas con archivo individual en domain-model/). El domain-model tiene 26 clases totales — las 16 restantes no aparecen en casos-uso/ (pertenecen a BCs de infraestructura/ETL documentados solo en arquitectura-tecnica/).
 
 ---
 
