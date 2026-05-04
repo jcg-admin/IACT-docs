@@ -52,7 +52,7 @@ FR-003.04: Generar password temporal
  El proceso de generación:
  
  1. Genera password aleatorio criptográficamente seguro
- 2. Hashea el password con bcrypt
+ 2. Genera hash seguro del password
  3. Actualiza el hash en tabla ``users``
  4. Muestra password en pantalla (una sola vez)
  5. Marca cuenta para forzar cambio (FR-003.05)

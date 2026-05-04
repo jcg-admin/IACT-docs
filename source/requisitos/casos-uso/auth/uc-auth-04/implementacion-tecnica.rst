@@ -8,7 +8,7 @@ Parte 11 — Implementacion tecnica
 ==========
 
 Mismo que UC_AUTH_01..03 (Django/DRF, MySQL,
-bcrypt, React).
+algoritmo-de-hash, React).
 
 11.2 Estructura backend
 =======================

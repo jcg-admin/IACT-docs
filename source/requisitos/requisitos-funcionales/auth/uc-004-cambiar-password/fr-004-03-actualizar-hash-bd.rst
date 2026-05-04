@@ -51,7 +51,7 @@ FR-004.03: Actualizar hash en BD
 
  El proceso de actualización:
  
- 1. Genera hash bcrypt del nuevo password (cost=12)
+ 1. Genera hash seguro del nuevo password con el costo configurado
  2. Guarda hash anterior en tabla ``password_history``
  3. Actualiza campo ``password_hash`` en tabla ``users``
  4. Actualiza ``password_changed_at = NOW``
@@ -121,7 +121,7 @@ FR-004.03: Actualizar hash en BD
    - Valor
    - Notas
  * - Algoritmo
-   - bcrypt
+   - Algoritmo de hash seguro
    - Estándar industria
  * - Cost Factor
    - 12

@@ -8,7 +8,7 @@ Referencia tecnica para la fase de
 implementacion del UC. Stack canonico,
 estructura de archivos backend / frontend,
 endpoints, modelos. Las cifras concretas (TTL
-de tokens, costo de bcrypt, limites de
+de tokens, costo de hash, limites de
 throttling) viven en los CNST y futuros ADRs
 de implementacion, no aqui.
 
@@ -34,7 +34,7 @@ mod_wsgi):
  * - **Autenticacion**
    - DRF SimpleJWT (CNST-009)
  * - **Hashing**
-   - bcrypt (libreria nativa de Django o
+   - algoritmo de hash (libreria de la plataforma o
      ``passlib``)
  * - **Cache**
    - Django DatabaseCache (no Redis ni

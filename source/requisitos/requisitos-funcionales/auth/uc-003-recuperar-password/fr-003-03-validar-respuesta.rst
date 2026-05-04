@@ -114,7 +114,7 @@ FR-003.03: Validar respuesta de seguridad
 
 - Máximo 3 intentos por sesión de recuperación
 - Bloqueo de 30 minutos tras 3 fallos
-- Respuesta hasheada con bcrypt (no almacenada en texto plano)
+- Respuesta almacenada como hash seguro (no en texto plano)
 
 ----
 

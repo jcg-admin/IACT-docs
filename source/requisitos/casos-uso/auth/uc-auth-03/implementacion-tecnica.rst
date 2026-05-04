@@ -12,7 +12,7 @@ Parte 11 — Implementacion tecnica
  :header-rows: 0
 
  * - **Backend**
-   - Django 4.2+, DRF 3.14+, bcrypt
+   - Django 4.2+, DRF 3.14+, algoritmo-de-hash
  * - **BD**
    - MySQL 8.0
  * - **Generacion entropica**

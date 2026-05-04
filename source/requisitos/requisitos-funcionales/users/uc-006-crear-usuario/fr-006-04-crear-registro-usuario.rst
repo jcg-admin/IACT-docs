@@ -74,7 +74,7 @@ FR-006.04: Crear registro de usuario en BD
       - Normalizado (lowercase)
     * - password_hash
       - VARCHAR(255)
-      - Hash bcrypt del temporal
+      - Hash seguro del temporal
     * - security_question
       - VARCHAR(200)
       - Pregunta seleccionada

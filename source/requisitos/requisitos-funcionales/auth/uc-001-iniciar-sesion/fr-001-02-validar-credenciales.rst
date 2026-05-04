@@ -60,9 +60,9 @@ FR-001.02: Validar credenciales
 
 **Algoritmo de Hash:**
 
- - Algoritmo: bcrypt
+ - Algoritmo: hash seguro con sal (ver ADR de implementacion)
  - Cost factor: 12
- - Salt: generado automáticamente por bcrypt
+ - Sal: generada automaticamente por el algoritmo
 
 ----
 
