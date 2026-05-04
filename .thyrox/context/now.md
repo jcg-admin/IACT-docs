@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
-version: 3.6
-updated_at: 2026-05-04 16:14:59
+version: 3.7
+updated_at: 2026-05-04 17:30:00
 cold_boot: false
 current_epic: 18
 epic_name: arq-tecnica-deep-audit
 current_work: .thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit
-stage: discover
-stage_number: 1
-current_phase: Phase 1 — DISCOVER
+stage: execute
+stage_number: 10
+current_phase: Phase 10 — EXECUTE
 flow: thyrox
-methodology_step: thyrox:discover
+methodology_step: thyrox:execute
 blockers: []
-last_completed_phase: "ÉPICA 17 — WP-1 context-view, WP-2 operational-view, WP-3 housekeeping, WP-4 perspectivas — todos completados y pusheados (2026-05-04)"
-next_decision_required: "Aprobación de hallazgos F-01..F-06 para proceder con correcciones"
+last_completed_phase: "ÉPICA 18 — F-01..F-06 corregidos, commiteados (297dc0a) y pusheados (2026-05-04)"
+next_decision_required: "F-07 (system-view/ sin toctree principal) — decisión arquitectónica del ejecutor antes de actuar"
 stage_sync_required: false
 ```
 
@@ -22,21 +22,22 @@ stage_sync_required: false
 ## Resumen 2026-05-04 (ÉPICA 18 — arq-tecnica-deep-audit)
 
 Análisis profundo de los 214 archivos RST de `source/arquitectura-tecnica/`
-ejecutado en 6 capas adversariales. 7 hallazgos documentados en:
+ejecutado en 6 capas adversariales. 7 hallazgos documentados. Correcciones
+F-01..F-06 aplicadas y pusheadas en commit `297dc0a`.
 
 `.thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit/discover/arq-tecnica-deep-audit-analysis.md`
 
-### Hallazgos activos
+### Hallazgos — estado final
 
-| ID | Severidad | Descripción |
-|---|---|---|
-| F-01 | CRÍTICA | Naming inconsistente: 5 módulos con nombres distintos entre use-case-view, design-view e implementation-view |
-| F-02 | ALTA | mod-caller ausente en design-view e implementation-view |
-| F-03 | ALTA | "Django" sin "REST Framework" en 6 archivos |
-| F-04 | ALTA | BC count incorrecto: "7" y "25 clases" en lugar de "8" y "26" |
-| F-05 | MEDIA | Aliases cortos (API, BL, RBAC, AUDIT) en perspectiva-regulation.rst |
-| F-06 | MEDIA | Doble título idéntico en pipeline-datos-ivr-caller.rst |
-| F-07 | BAJA | system-view/ sin toctree principal (pre-existing, fuera de scope) |
+| ID | Severidad | Descripción | Estado |
+|---|---|---|---|
+| F-01 | CRÍTICA | Naming inconsistente: 5 módulos en design-view/implementation-view | ✓ CORREGIDO |
+| F-02 | ALTA | mod-caller ausente en design-view e implementation-view | ✓ CORREGIDO |
+| F-03 | ALTA | "Django" sin "REST Framework" en 6 archivos | ✓ CORREGIDO |
+| F-04 | ALTA | BC count incorrecto: 7→8, 25→26 clases | ✓ CORREGIDO |
+| F-05 | MEDIA | Aliases cortos en perspectiva-regulation.rst | ✓ CORREGIDO |
+| F-06 | MEDIA | Doble título en pipeline-datos-ivr-caller.rst | ✓ CORREGIDO |
+| F-07 | BAJA | system-view/ sin toctree principal (pre-existing) | PENDIENTE decisión ejecutor |
 
 ### WPs anteriores completados (ÉPICA 17)
 
@@ -48,7 +49,7 @@ ejecutado en 6 capas adversariales. 7 hallazgos documentados en:
 ## Repositorio
 
 - **Branch:** `claude/review-ucs-work-state-phwmj`
-- **HEAD:** `85c8780` (sincronizado con origin)
+- **HEAD:** `297dc0a` (sincronizado con origin)
 - **Working tree:** clean
 
 # IACT-docs — Estado de Sesión
