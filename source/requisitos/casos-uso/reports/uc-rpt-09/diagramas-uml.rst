@@ -12,13 +12,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User autenticado" as USR
+ actor "User autenticado" as UserAutenticado
  rectangle "MOD_Reports" {
    usecase "UC_RPT_09\nGestionar filtros" as UC09
    usecase "Aplicar filtro" as APP
  }
- USR --> UC09
- USR --> APP
+ UserAutenticado --> UC09
+ UserAutenticado --> APP
  @enduml
 
 8.2 Diagrama de actividad

@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_application_logs" as USR
+ actor "view_application_logs" as view_application_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nLogs Sistema" as UC01
    usecase "Tail SSE" as T
  }
- USR --> UC01
+ view_application_logs --> UC01
  UC01 ..> T : <<extend>>
  @enduml
 
@@ -42,13 +42,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Apps" as A
- component "Log shipper" as S
- component "LogStore" as L
- component "PIIScanner" as P
- A --> S
- S --> P
- P --> L
+ component "Apps" as Apps
+ component "Log shipper" as LogShipper
+ component "LogStore" as Logstore
+ component "PIIScanner" as Piiscanner
+ Apps --> LogShipper
+ LogShipper --> Piiscanner
+ Piiscanner --> Logstore
  @enduml
 
 8.4 Tail
@@ -57,12 +57,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- queue "LogStore" as L
- U -> E: GET tail (SSE)
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ queue "LogStore" as LogStore
+ User -> Endpoint: GET tail (SSE)
  loop
-   L -> E: new entry
-   E -> U: data
+   LogStore -> Endpoint: new entry
+   Endpoint -> User: data
  end
  @enduml

@@ -11,19 +11,19 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "export_audit_log" as USR
- actor "ExportWorker" as EW
- actor "InternalMailbox" as MB
+ actor "export_audit_log" as export_audit_log
+ actor "ExportWorker" as Exportworker
+ actor "InternalMailbox" as Internalmailbox
  rectangle "MOD_Audit" {
    usecase "UC_AUD_03\nExportar Audit Log" as UC03
    usecase "Seleccionar\nperiodo y filtros" as SEL
    usecase "Notificar\nvia Mailbox" as NOT
  }
- USR --> UC03
+ export_audit_log --> UC03
  UC03 ..> SEL : <<extend>>
- UC03 ..> EW : <<include>>
- EW ..> NOT : <<include>>
- NOT --> MB
+ UC03 ..> Exportworker : <<include>>
+ Exportworker ..> NOT : <<include>>
+ NOT --> Internalmailbox
  @enduml
 
 8.2 Actividad
@@ -71,24 +71,24 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "export_audit_log" as U
- participant "AuditExportEndpoint" as EP
- participant "ExportWorker" as W
- database "Repositorio de Auditoria" as DB
- participant "InternalMailbox" as MB
+ actor "export_audit_log" as export_audit_log
+ participant "AuditExportEndpoint" as Auditexportendpoint
+ participant "ExportWorker" as Exportworker
+ database "Repositorio de Auditoria" as RepositorioDeAuditoria
+ participant "InternalMailbox" as Internalmailbox
 
- U -> EP : POST /audit/export/ {filters}
- EP -> EP : JWT + RBAC (export_audit_log)
+ export_audit_log -> Auditexportendpoint : POST /audit/export/ {filters}
+ Auditexportendpoint -> Auditexportendpoint : JWT + RBAC (export_audit_log)
  alt sin permiso
-   EP --> U : 403 Forbidden
+   Auditexportendpoint --> export_audit_log : 403 Forbidden
  else con permiso
-   EP -> EP : validar filtros
-   EP -> W : encolar job
-   EP --> U : 202 Accepted + job_id
-   W -> DB : SELECT FROM audit_log WHERE filters
-   DB --> W : rows
-   W -> W : formatear CSV/JSON
-   W -> MB : INSERT notificacion con adjunto
-   MB --> U : archivo disponible en buzón
+   Auditexportendpoint -> Auditexportendpoint : validar filtros
+   Auditexportendpoint -> Exportworker : encolar job
+   Auditexportendpoint --> export_audit_log : 202 Accepted + job_id
+   Exportworker -> RepositorioDeAuditoria : SELECT FROM audit_log WHERE filters
+   RepositorioDeAuditoria --> Exportworker : rows
+   Exportworker -> Exportworker : formatear CSV/JSON
+   Exportworker -> Internalmailbox : INSERT notificacion con adjunto
+   Internalmailbox --> export_audit_log : archivo disponible en buzón
  end
  @enduml

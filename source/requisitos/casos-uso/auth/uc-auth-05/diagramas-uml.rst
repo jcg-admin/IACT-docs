@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "view_all_active_sessions" as ADMIN
  actor "User afectado" as USER <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_05\nGestionar Sesiones" as UC05
@@ -37,8 +37,8 @@ Parte 8 — Diagramas UML
  C1 ..> NOT : <<extend>>
  CALL ..> NOT : <<extend>>
  NOT --> USER
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  @enduml
 
@@ -50,42 +50,42 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Admin as A
- participant "Frontend" as FE
- participant "CloseSessionView" as CV
- participant "SessionService" as SS
- database "Base de Datos" as DB
+ actor Admin as Admin
+ participant "Frontend" as Frontend
+ participant "CloseSessionView" as Closesessionview
+ participant "SessionService" as Sessionservice
+ database "Base de Datos" as BaseDeDatos
 
- A -> FE: Click "Cerrar" en Session X
- FE -> FE: Modal confirm
- A -> FE: Confirmar
- FE -> CV: POST /api/auth/sessions/{id}/close/
- CV -> CV: Validar JWT (CNST-009)
- CV -> CV: Verificar close_user_session
+ Admin -> Frontend: Click "Cerrar" en Session X
+ Frontend -> Frontend: Modal confirm
+ Admin -> Frontend: Confirmar
+ Frontend -> Closesessionview: POST /api/auth/sessions/{id}/close/
+ Closesessionview -> Closesessionview: Validar JWT (CNST-009)
+ Closesessionview -> Closesessionview: Verificar close_user_session
  alt Sin permiso
-   CV --> FE: 403 FORBIDDEN
+   Closesessionview --> Frontend: 403 FORBIDDEN
  else
-   CV -> SS: close(session_id, admin)
+   Closesessionview -> Sessionservice: close(session_id, admin)
 
    group Transaccion atomica
-     SS -> DB: SELECT Session FOR UPDATE
-     DB --> SS: session
+     Sessionservice -> BaseDeDatos: SELECT Session FOR UPDATE
+     BaseDeDatos --> Sessionservice: session
      alt Ya CLOSED (FA-02)
-       SS -> DB: INSERT AuditEvent SESSION_CLOSE_NOOP
-       SS --> CV: noop
+       Sessionservice -> BaseDeDatos: INSERT AuditEvent SESSION_CLOSE_NOOP
+       Sessionservice --> Closesessionview: noop
      else ACTIVE
-       SS -> DB: UPDATE Session SET\n  state='CLOSED',\n  close_reason='ADMIN_REVOKED',\n  closed_by_admin_id=admin.id
-       SS -> DB: INSERT BlacklistedToken
-       SS -> DB: INSERT AuditEvent SESSION_CLOSED
+       Sessionservice -> BaseDeDatos: UPDATE Session SET\n  state='CLOSED',\n  close_reason='ADMIN_REVOKED',\n  closed_by_admin_id=admin.id
+       Sessionservice -> BaseDeDatos: INSERT BlacklistedToken
+       Sessionservice -> BaseDeDatos: INSERT AuditEvent SESSION_CLOSED
        opt NOTIFY_USER_ON_ADMIN_SESSION_CLOSE
-         SS -> DB: INSERT InternalMessage
+         Sessionservice -> BaseDeDatos: INSERT InternalMessage
        end
      end
    end
 
-   SS --> CV: result
-   CV --> FE: 200 OK
-   FE --> A: Toast confirmacion
+   Sessionservice --> Closesessionview: result
+   Closesessionview --> Frontend: 200 OK
+   Frontend --> Admin: Toast confirmacion
  end
 
  @enduml

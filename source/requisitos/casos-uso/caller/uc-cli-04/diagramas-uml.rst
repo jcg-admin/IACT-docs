@@ -11,15 +11,15 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Caller" as C
- actor "answer_inbound_calls" as A
+ actor "Caller" as Caller
+ actor "answer_inbound_calls" as answer_inbound_calls
  rectangle "MOD_Caller" {
    usecase "UC_CLI_04\nCallback" as UC
    usecase "UC_OPR_03\nDial" as D
  }
- C --> UC
- UC --> A
- A --> D
+ Caller --> UC
+ UC --> answer_inbound_calls
+ answer_inbound_calls --> D
  D ..> UC : consume CallbackEntry
  @enduml
 
@@ -67,16 +67,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Caller" as C
- participant "IVR" as I
- database "CallbackRepo" as R
- actor "answer_inbound_calls" as A
- I -> C: oferta callback
- C -> I: acepta + numero
- I -> R: INSERT pending
- I -> C: confirma + hangup
+ actor "Caller" as Caller
+ participant "IVR" as IVR
+ database "CallbackRepo" as Callbackrepo
+ actor "answer_inbound_calls" as answer_inbound_calls
+ IVR -> Caller: oferta callback
+ Caller -> IVR: acepta + numero
+ IVR -> Callbackrepo: INSERT pending
+ IVR -> Caller: confirma + hangup
 
  ... despues ...
- A -> R: take callback
- A -> C: dial (UC_OPR_03)
+ answer_inbound_calls -> Callbackrepo: take callback
+ answer_inbound_calls -> Caller: dial (UC_OPR_03)
  @enduml

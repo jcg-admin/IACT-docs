@@ -12,9 +12,9 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "export_csv" as USR
- actor "ExportWorker" as W
- actor "MailboxService" as MB
+ actor "export_csv" as export_csv
+ actor "ExportWorker" as Exportworker
+ actor "MailboxService" as Mailboxservice
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_04\nExport" as UC04
@@ -23,12 +23,12 @@ Parte 8 — Diagramas UML
    usecase "Notify mailbox" as N
  }
 
- USR --> UC04
+ export_csv --> UC04
  UC04 ..> Q : <<include>>
  UC04 ..> A : <<include>>
- W ..> A : <<include>>
- W ..> N : <<include>>
- N --> MB
+ Exportworker ..> A : <<include>>
+ Exportworker ..> N : <<include>>
+ N --> Mailboxservice
 
  note bottom
    Async via worker. URL firmado
@@ -107,32 +107,32 @@ Parte 8 — Diagramas UML
  :caption: UC_RPT_04 — sync + async
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- participant "JobRepo" as JR
- queue "Worker" as W
- database "Analytics" as A
- participant "Storage" as ST
- participant "Mailbox" as MB
- participant "AuditSvc" as AU
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ participant "JobRepo" as Jobrepo
+ queue "Worker" as Worker
+ database "Analytics" as Analytics
+ participant "Storage" as Storage
+ participant "Mailbox" as Mailbox
+ participant "AuditSvc" as Auditsvc
 
- U -> E: POST /export
- E -> E: JWT + RBAC + validar
- E -> JR: create(job)
- JR --> E: job_id
- E -> AU: emit QUEUED
- E -> W: enqueue(job_id)
- E --> U: 202 + job_id
+ User -> Endpoint: POST /export
+ Endpoint -> Endpoint: JWT + RBAC + validar
+ Endpoint -> Jobrepo: create(job)
+ Jobrepo --> Endpoint: job_id
+ Endpoint -> Auditsvc: emit QUEUED
+ Endpoint -> Worker: enqueue(job_id)
+ Endpoint --> User: 202 + job_id
 
  ... background ...
 
- W -> JR: load(job_id)
- W -> W: re-check permiso
- W -> A: stream query
- A --> W: rows
- W -> ST: upload file
- ST --> W: url
- W -> JR: update(done, url, ...)
- W -> AU: emit COMPLETED
- W -> MB: notify(user, url)
+ Worker -> Jobrepo: load(job_id)
+ Worker -> Worker: re-check permiso
+ Worker -> Analytics: stream query
+ Analytics --> Worker: rows
+ Worker -> Storage: upload file
+ Storage --> Worker: url
+ Worker -> Jobrepo: update(done, url, ...)
+ Worker -> Auditsvc: emit COMPLETED
+ Worker -> Mailbox: notify(user, url)
  @enduml

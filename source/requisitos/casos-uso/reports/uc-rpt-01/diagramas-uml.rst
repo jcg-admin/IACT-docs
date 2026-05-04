@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "view_reports" as USR
- actor "Frontend" as FE
+ actor "view_reports" as view_reports
+ actor "Frontend" as Frontend
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
@@ -22,8 +22,8 @@ Parte 8 — Diagramas UML
    usecase "Auto-refresh" as REF
  }
 
- USR --> FE
- FE --> UC01
+ view_reports --> Frontend
+ Frontend --> UC01
  UC01 ..> INC : <<include>>
  UC01 ..> REF : <<extend>>
 
@@ -78,34 +78,34 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor "User" as U
- participant "Frontend" as FE
- participant "DashboardEndpoint" as DE
- participant "SegmentResolver" as SR
- participant "MetricsCache" as MC
- participant "ServicioReportes\n(sp_rpt_*)" as AR
- participant "KPICalculator" as KC
+ actor "User" as User
+ participant "Frontend" as Frontend
+ participant "DashboardEndpoint" as Dashboardendpoint
+ participant "SegmentResolver" as Segmentresolver
+ participant "MetricsCache" as Metricscache
+ participant "ServicioReportes\n(sp_rpt_*)" as Servicioreportes
+ participant "KPICalculator" as Kpicalculator
 
- U -> FE: abrir dashboard
- FE -> DE: GET /api/dashboard/
- DE -> DE: JWT + RBAC
- DE -> SR: segments_for(user_id)
- SR --> DE: segments
- DE -> MC: get(key)
- MC --> DE: miss
- DE -> AR: cursor.callproc(sp_rpt_centros_xsegmento, [trimestre])
- AR --> DE: rows agregados
- DE -> KC: derive_kpis(rows)
- KC --> DE: kpis
- DE -> MC: set(key, response, ttl=30)
- DE --> FE: 200 + dashboard
- FE --> U: render
+ User -> Frontend: abrir dashboard
+ Frontend -> Dashboardendpoint: GET /api/dashboard/
+ Dashboardendpoint -> Dashboardendpoint: JWT + RBAC
+ Dashboardendpoint -> Segmentresolver: segments_for(user_id)
+ Segmentresolver --> Dashboardendpoint: segments
+ Dashboardendpoint -> Metricscache: get(key)
+ Metricscache --> Dashboardendpoint: miss
+ Dashboardendpoint -> Servicioreportes: cursor.callproc(sp_rpt_centros_xsegmento, [trimestre])
+ Servicioreportes --> Dashboardendpoint: rows agregados
+ Dashboardendpoint -> Kpicalculator: derive_kpis(rows)
+ Kpicalculator --> Dashboardendpoint: kpis
+ Dashboardendpoint -> Metricscache: set(key, response, ttl=30)
+ Dashboardendpoint --> Frontend: 200 + dashboard
+ Frontend --> User: render
 
  loop cada 30s
-   FE -> DE: GET /api/dashboard/
-   DE -> MC: get
-   MC --> DE: hit
-   DE --> FE: cached
+   Frontend -> Dashboardendpoint: GET /api/dashboard/
+   Dashboardendpoint -> Metricscache: get
+   Metricscache --> Dashboardendpoint: hit
+   Dashboardendpoint --> Frontend: cached
  end
 
  @enduml

@@ -16,7 +16,7 @@ Parte 8 — Diagramas UML
 
  actor "view_users" as INVOKER
  actor "User consultado" as TARGET <<pasivo>>
- actor "view_audit_log" as AUD <<beneficiario>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
 
  rectangle "MOD_Users" {
    usecase "UC_USR_02\nConsultar Usuarios" as UC02
@@ -30,7 +30,7 @@ Parte 8 — Diagramas UML
  UC02 ..> DET : <<extend>>
  LST ..> AUDS : <<extend (filter user_id)>>
  DET ..> AUDS : <<include>>
- AUDS --> AUD
+ AUDS --> view_audit_log
 
  note bottom of LST
    list_users (RBAC)
@@ -49,33 +49,33 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "ListUsersView" as LV
- participant "UserRepository" as REP
- participant "AuditLog" as AL
- database "Repo Users" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "ListUsersView" as Listusersview
+ participant "UserRepository" as Userrepository
+ participant "AuditLog" as Auditlog
+ database "Repo Users" as RepoUsers
 
- I -> FE: Navega a "Usuarios" + filtros
- FE -> LV: GET /api/users/?...
+ Invoker -> Frontend: Navega a "Usuarios" + filtros
+ Frontend -> Listusersview: GET /api/users/?...
 
- LV -> LV: Validar JWT (CNST-009)
- LV -> LV: Verificar list_users (AGR)
+ Listusersview -> Listusersview: Validar JWT (CNST-009)
+ Listusersview -> Listusersview: Verificar list_users (AGR)
  alt Sin permiso
-   LV --> FE: 403 FORBIDDEN
-   LV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Listusersview --> Frontend: 403 FORBIDDEN
+   Listusersview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   LV -> LV: Construir query (whitelist filters)
-   LV -> REP: list(filters, page, page_size)
-   REP -> DB: SELECT ... LIMIT ... OFFSET ...
-   DB --> REP: rows
-   REP --> LV: results + count
-   LV -> LV: Restringir campos PII (CNST-026)
+   Listusersview -> Listusersview: Construir query (whitelist filters)
+   Listusersview -> Userrepository: list(filters, page, page_size)
+   Userrepository -> RepoUsers: SELECT ... LIMIT ... OFFSET ...
+   RepoUsers --> Userrepository: rows
+   Userrepository --> Listusersview: results + count
+   Listusersview -> Listusersview: Restringir campos PII (CNST-026)
    opt filter user_id presente
-     LV -> AL: emit USERS_VIEWED_FOR_USER\n  {target_user_id}
+     Listusersview -> Auditlog: emit USERS_VIEWED_FOR_USER\n  {target_user_id}
    end
-   LV --> FE: 200 OK con lista paginada
-   FE --> I: Tabla renderizada
+   Listusersview --> Frontend: 200 OK con lista paginada
+   Frontend --> Invoker: Tabla renderizada
  end
 
  @enduml
@@ -88,33 +88,33 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "UserDetailView" as DV
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "UserDetailView" as Userdetailview
  participant "UserRepository" as UREP
  participant "AssignmentRepository" as AREP
- participant "AuditLog" as AL
- database "Repo" as DB
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Click en User X
- FE -> DV: GET /api/users/{X}/
+ Invoker -> Frontend: Click en User X
+ Frontend -> Userdetailview: GET /api/users/{X}/
 
- DV -> DV: Validar JWT
- DV -> DV: Verificar view_users
+ Userdetailview -> Userdetailview: Validar JWT
+ Userdetailview -> Userdetailview: Verificar view_users
  alt Sin permiso
-   DV --> FE: 403 FORBIDDEN
-   DV -> AL: UNAUTHORIZED_ACCESS_ATTEMPT
+   Userdetailview --> Frontend: 403 FORBIDDEN
+   Userdetailview -> Auditlog: UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   DV -> UREP: get(X)
+   Userdetailview -> UREP: get(X)
    alt User no existe
-     DV --> FE: 404
+     Userdetailview --> Frontend: 404
    else
-     UREP --> DV: user
-     DV -> AREP: list_active(user)
-     AREP --> DV: assignments
-     DV -> AL: emit USER_DETAIL_VIEWED\n  {target_user_id: X,\n   target_state: user.state,\n   self_view: invoker == user}
-     DV --> FE: 200 OK con detalle completo
-     FE --> I: Vista detalle
+     UREP --> Userdetailview: user
+     Userdetailview -> AREP: list_active(user)
+     AREP --> Userdetailview: assignments
+     Userdetailview -> Auditlog: emit USER_DETAIL_VIEWED\n  {target_user_id: X,\n   target_state: user.state,\n   self_view: invoker == user}
+     Userdetailview --> Frontend: 200 OK con detalle completo
+     Frontend --> Invoker: Vista detalle
    end
  end
 

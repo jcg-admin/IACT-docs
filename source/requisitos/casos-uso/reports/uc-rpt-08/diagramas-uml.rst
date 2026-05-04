@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_08\nList scheduled" as UC08
@@ -20,7 +20,7 @@ Parte 8 — Diagramas UML
    usecase "Historico runs" as RUNS
  }
 
- USR --> UC08
+ view_reports --> UC08
  UC08 ..> DET : <<extend>>
  UC08 ..> RUNS : <<extend>>
  @enduml
@@ -54,18 +54,18 @@ Parte 8 — Diagramas UML
  :caption: UC_RPT_08 — flujo
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- participant "Repo" as R
- database "BD" as DB
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ participant "Repo" as Repo
+ database "AlmacenDatos" as AlmacenDatos
 
- U -> E: GET /scheduled/
- E -> E: JWT + RBAC
- E -> R: list(actor_id, filters)
- R -> DB: SELECT
- DB --> R: rows
- R --> E: items
- E --> U: 200 + items
+ User -> Endpoint: GET /scheduled/
+ Endpoint -> Endpoint: JWT + RBAC
+ Endpoint -> Repo: list(actor_id, filters)
+ Repo -> AlmacenDatos: SELECT
+ DB --> Repo: rows
+ Repo --> Endpoint: items
+ Endpoint --> User: 200 + items
 
  @enduml
 

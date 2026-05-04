@@ -11,19 +11,19 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "export_logs" as USR
- actor "ExportWorker" as W
- actor "InternalMailbox" as MB
+ actor "export_logs" as export_logs
+ actor "ExportWorker" as Exportworker
+ actor "InternalMailbox" as Internalmailbox
  rectangle "MOD_Logs" {
    usecase "UC_LOG_04\nExportar Logs" as UC04
    usecase "Seleccionar\nrango y formato" as SEL
    usecase "Notificar\nvia Mailbox" as NOT
  }
- USR --> UC04
+ export_logs --> UC04
  UC04 ..> SEL : <<extend>>
- UC04 ..> W : <<include>>
- W ..> NOT : <<include>>
- NOT --> MB
+ UC04 ..> Exportworker : <<include>>
+ Exportworker ..> NOT : <<include>>
+ NOT --> Internalmailbox
  @enduml
 
 8.2 Actividad
@@ -57,18 +57,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "export_logs" as U
- component "LogExportEndpoint" as EP
- component "ExportWorker\n(async)" as W
- database "LogStore" as LS
- component "InternalMailbox" as MB
+ actor "export_logs" as export_logs
+ component "LogExportEndpoint" as Logexportendpoint
+ component "ExportWorker\n(async)" as Exportworker
+ database "LogStore" as Logstore
+ component "InternalMailbox" as Internalmailbox
 
- U --> EP : POST /logs/export/
- EP --> W : encolar job
- W --> LS : leer rango
- LS --> W : entries
- W --> MB : entregar archivo
- MB --> U : notificacion
+ export_logs --> Logexportendpoint : POST /logs/export/
+ Logexportendpoint --> Exportworker : encolar job
+ Exportworker --> Logstore : leer rango
+ Logstore --> Exportworker : entries
+ Exportworker --> Internalmailbox : entregar archivo
+ Internalmailbox --> export_logs : notificacion
  @enduml
 
 8.4 Secuencia de exportacion de logs
@@ -77,24 +77,24 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "export_logs" as U
- participant "LogExportEndpoint" as EP
- participant "ExportWorker" as W
- database "LogStore" as LS
- participant "InternalMailbox" as MB
+ actor "export_logs" as export_logs
+ participant "LogExportEndpoint" as Logexportendpoint
+ participant "ExportWorker" as Exportworker
+ database "LogStore" as Logstore
+ participant "InternalMailbox" as Internalmailbox
 
- U -> EP : POST /logs/export/ {range, format}
- EP -> EP : JWT + RBAC (export_logs)
+ export_logs -> Logexportendpoint : POST /logs/export/ {range, format}
+ Logexportendpoint -> Logexportendpoint : JWT + RBAC (export_logs)
  alt sin permiso
-   EP --> U : 403 Forbidden
+   Logexportendpoint --> export_logs : 403 Forbidden
  else con permiso
-   EP -> EP : validar parametros
-   EP -> W : encolar job
-   EP --> U : 202 Accepted + job_id
-   W -> LS : SELECT logs WHERE range
-   LS --> W : entries
-   W -> W : formatear CSV/JSON
-   W -> MB : INSERT mensaje con adjunto
-   MB --> U : notificacion disponible
+   Logexportendpoint -> Logexportendpoint : validar parametros
+   Logexportendpoint -> Exportworker : encolar job
+   Logexportendpoint --> export_logs : 202 Accepted + job_id
+   Exportworker -> Logstore : SELECT logs WHERE range
+   Logstore --> Exportworker : entries
+   Exportworker -> Exportworker : formatear CSV/JSON
+   Exportworker -> Internalmailbox : INSERT mensaje con adjunto
+   Internalmailbox --> export_logs : notificacion disponible
  end
  @enduml

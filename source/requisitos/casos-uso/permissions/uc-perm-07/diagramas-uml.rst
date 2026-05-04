@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "rbac_decorator" as DEC
+ actor "rbac_decorator" as rbac_decorator
  actor "view_assignments" as ADMIN
  actor "view_own_navigation" as MENU
 
@@ -24,7 +24,7 @@ Parte 8 — Diagramas UML
    usecase "Algoritmo precedencia" as ALG
  }
 
- DEC --> UC07
+ rbac_decorator --> UC07
  ADMIN --> UC07
  MENU --> BULK
  UC07 ..> CACHE : <<include>>
@@ -130,22 +130,22 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- participant "Caller" as C
- participant "PermService" as PS
- participant "PermCache" as PC
- database "Repos" as DB
+ participant "Caller" as Caller
+ participant "PermService" as Permservice
+ participant "PermCache" as Permcache
+ database "Repos" as Repos
 
- C -> PS: check(user_id, function_code)
- PS -> PC: get(key)
- PC --> PS: miss
+ Caller -> Permservice: check(user_id, function_code)
+ Permservice -> Permcache: get(key)
+ Permcache --> Permservice: miss
 
- PS -> DB: query agregada
- DB --> PS: revoked? grant? agr_codes
- PS -> PS: aplicar precedencia
- PS -> PC: set(key, result, ttl)
- PS --> C: result
+ Permservice -> Repos: query agregada
+ Repos --> Permservice: revoked? grant? agr_codes
+ Permservice -> Permservice: aplicar precedencia
+ Permservice -> Permcache: set(key, result, ttl)
+ Permservice --> Caller: result
 
- note right of PS
+ note right of Permservice
    Sin audit por invocacion.
    Fail-closed ante BD timeout.
  end note

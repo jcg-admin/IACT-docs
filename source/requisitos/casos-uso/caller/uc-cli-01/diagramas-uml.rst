@@ -11,14 +11,14 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Caller" as C
- actor "Telephony" as T
+ actor "Caller" as Caller
+ actor "Telephony" as Telephony
  rectangle "MOD_Caller" {
    usecase "UC_CLI_01\nIniciar llamada" as UC
    usecase "UC_CLI_02\nNavegar IVR" as IVR
  }
- C --> UC
- UC --> T
+ Caller --> UC
+ UC --> Telephony
  UC ..> IVR : <<include>>
  @enduml
 
@@ -46,16 +46,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Caller phone" as P
- component "Telephony" as T
- component "PIIHasher" as H
- component "CallSession" as S
- P --> T
- T --> H
- H --> S
- note right of H
+ component "Caller phone" as CallerPhone
+ component "Telephony" as Telephony
+ component "PIIHasher" as Piihasher
+ component "CallSession" as Callsession
+ CallerPhone --> Telephony
+ Telephony --> Piihasher
+ Piihasher --> Callsession
+ note right of Piihasher
    Hash con tenant_salt.
-   Phone NUNCA llega a S raw.
+   Phone NUNCA llega a Callsession raw.
  end note
  @enduml
 
@@ -65,15 +65,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Caller" as C
- participant "Telephony" as T
- participant "PIIHasher" as H
- participant "CallRepo" as R
- participant "AuditSvc" as A
- C -> T: dial DID
- T -> H: caller_id
- H --> T: hash
- T -> R: INSERT session
- T -> A: emit CALL_STARTED
- T -> C: greeting audio
+ actor "Caller" as Caller
+ participant "Telephony" as Telephony
+ participant "PIIHasher" as Piihasher
+ participant "CallRepo" as Callrepo
+ participant "AuditSvc" as Auditsvc
+ Caller -> Telephony: dial DID
+ Telephony -> Piihasher: caller_id
+ Piihasher --> Telephony: hash
+ Telephony -> Callrepo: INSERT session
+ Telephony -> Auditsvc: emit CALL_STARTED
+ Telephony -> Caller: greeting audio
  @enduml

@@ -11,15 +11,15 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User autenticado" as USR
+ actor "User autenticado" as UserAutenticado
  rectangle "MOD_Reports" {
    usecase "UC_RPT_10\nGuardar Vista" as UC10
    usecase "Aplicar vista" as APP
    usecase "Clone" as CL
  }
- USR --> UC10
- USR --> APP
- USR --> CL
+ UserAutenticado --> UC10
+ UserAutenticado --> APP
+ UserAutenticado --> CL
  @enduml
 
 8.2 Actividad (crear)

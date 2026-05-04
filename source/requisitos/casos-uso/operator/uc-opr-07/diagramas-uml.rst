@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "request_break" as A
+ actor "request_break" as request_break
  rectangle "MOD_Operator" {
    usecase "UC_OPR_07\nBreak" as UC
    usecase "UC_OPR_01\nState change" as S
  }
- A --> UC
+ request_break --> UC
  UC ..> S : <<include>>
  @enduml
 
@@ -55,11 +55,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "request_break" as A
- participant "Endpoint" as E
- participant "Policy" as P
- A -> E: POST break
- E -> P: check quota
- P --> E: ok
- E --> A: 200
+ actor "request_break" as request_break
+ participant "Endpoint" as Endpoint
+ participant "Policy" as Policy
+ request_break -> Endpoint: POST break
+ Endpoint -> Policy: check quota
+ Policy --> Endpoint: ok
+ Endpoint --> request_break: 200
  @enduml

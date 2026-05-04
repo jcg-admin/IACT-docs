@@ -12,8 +12,8 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "schedule_report" as USR
- actor "Scheduler" as SC
+ actor "schedule_report" as schedule_report
+ actor "Scheduler" as Scheduler
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_07\nProgramar" as UC07
@@ -22,9 +22,9 @@ Parte 8 — Diagramas UML
    usecase "UC_RPT_04\nExport" as EXP
  }
 
- USR --> UC07
+ schedule_report --> UC07
  UC07 ..> CRUD : <<include>>
- SC ..> AE : <<include>>
+ Scheduler ..> AE : <<include>>
  AE ..> EXP : <<include>>
  @enduml
 

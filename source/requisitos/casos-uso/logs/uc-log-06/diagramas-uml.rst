@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_system_health" as USR
+ actor "view_system_health" as view_system_health
  rectangle "MOD_Logs" {
    usecase "UC_LOG_06\nEstado Sistema" as UC06
    usecase "UC_PIP_01" as P
    usecase "UC_ALR_02" as A
  }
- USR --> UC06
+ view_system_health --> UC06
  UC06 ..> P : <<include>>
  UC06 ..> A : <<include>>
  @enduml
@@ -66,13 +66,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Status service" as S
- component "ServiceHealthChecker" as SH
- component "DepHealthChecker" as DH
- component "ETLProbe" as E
- component "AlertCounter" as A
- S --> SH
- S --> DH
- S --> E
- S --> A
+ component "Status service" as StatusService
+ component "ServiceHealthChecker" as Servicehealthchecker
+ component "DepHealthChecker" as Dephealthchecker
+ component "ETLProbe" as Etlprobe
+ component "AlertCounter" as Alertcounter
+ StatusService --> Servicehealthchecker
+ StatusService --> Dephealthchecker
+ StatusService --> Etlprobe
+ StatusService --> Alertcounter
  @enduml

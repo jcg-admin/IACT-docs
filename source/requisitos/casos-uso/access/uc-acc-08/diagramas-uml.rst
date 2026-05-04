@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "grant_exceptional_permission" as INVOKER
  actor "User destino" as TARGET
- actor "view_audit_log" as AUD
+ actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_08\nPermiso Temporal" as UC08
@@ -33,7 +33,7 @@ Parte 8 — Diagramas UML
  UC08 ..> NOT : <<include>>
  UC08 ..> EMI : <<include>>
  NOT --> TARGET
- EMI --> AUD
+ EMI --> view_audit_log
 
  note bottom of NOT
    Mailbox-or-abort HARD
@@ -56,61 +56,61 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "GrantExcView" as GV
- participant "AccessService" as AS
- participant "SoDValidator" as SV
- participant "PermissionCache" as PC
- participant "InternalMailbox" as IM
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "GrantExcView" as Grantexcview
+ participant "AccessService" as Accessservice
+ participant "SoDValidator" as Sodvalidator
+ participant "PermissionCache" as Permissioncache
+ participant "InternalMailbox" as Internalmailbox
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Form con functions, expires_at,\n  justification, ticket_ref
- FE -> GV: POST /api/users/{id}/\n  exceptional-permissions/
+ I -> Frontend: Form con functions, expires_at,\n  justification, ticket_ref
+ Frontend -> Grantexcview: POST /api/users/{id}/\n  exceptional-permissions/
 
- GV -> GV: Validar JWT
- GV -> GV: Verificar grant_exceptional_permission
+ Grantexcview -> Grantexcview: Validar JWT
+ Grantexcview -> Grantexcview: Verificar grant_exceptional_permission
  alt Sin la funcion
-   GV --> FE: 403
-   GV -> AL: emit UNAUTHORIZED ALERTA ALTA
+   Grantexcview --> Frontend: 403
+   Grantexcview -> Auditlog: emit UNAUTHORIZED ALERTA ALTA
  else
-   GV -> AS: grant_exceptional(target_id,\n  function_ids, expires_at,\n  justification, ticket_ref,\n  invoker)
+   Grantexcview -> Accessservice: grant_exceptional(target_id,\n  function_ids, expires_at,\n  justification, ticket_ref,\n  invoker)
 
-   AS -> DB: SELECT User FOR UPDATE
+   Accessservice -> Repo: SELECT User FOR UPDATE
    alt User invalido
-     AS --> GV: error
-     GV --> FE: 404 / 400
+     Accessservice --> Grantexcview: error
+     Grantexcview --> Frontend: 404 / 400
    else OK
-     AS -> AS: validar P-11 anti-self
-     AS -> AS: validar payload\n  (justification, expires_at)
-     AS -> DB: SELECT Function WHERE id IN ...
+     Accessservice -> Accessservice: validar P-11 anti-self
+     Accessservice -> Accessservice: validar payload\n  (justification, expires_at)
+     Accessservice -> Repo: SELECT Function WHERE id IN ...
      alt Funcion invalida
-       AS --> GV: error
-       GV --> FE: 400
+       Accessservice --> Grantexcview: error
+       Grantexcview --> Frontend: 400
      else OK
-       AS -> DB: SELECT ExceptionalPermission\n  ACTIVE existentes
-       AS -> AS: filtrar idempotencia
-       AS -> SV: validate(effective_post_grant,\n  rules)
+       Accessservice -> Repo: SELECT ExceptionalPermission\n  ACTIVE existentes
+       Accessservice -> Accessservice: filtrar idempotencia
+       Accessservice -> Sodvalidator: validate(effective_post_grant,\n  rules)
        alt SoD viola
-         SV --> AS: SoDViolation
-         AS -> AL: emit GRANT_FAILED ALERTA
-         GV --> FE: 409
+         Sodvalidator --> Accessservice: SoDViolation
+         Accessservice -> Auditlog: emit GRANT_FAILED ALERTA
+         Grantexcview --> Frontend: 409
        else SoD OK
          group Transaccion atomica
-           AS -> DB: INSERT ExceptionalPermission\n  (N filas)
-           AS -> IM: send obligatorio
+           Accessservice -> Repo: INSERT ExceptionalPermission\n  (N filas)
+           Accessservice -> Internalmailbox: send obligatorio
            alt Mailbox falla
-             IM --> AS: MailboxFailure
-             AS -> AL: emit GRANT_FAILED
-             GV --> FE: 500 (rollback)
+             Internalmailbox --> Accessservice: MailboxFailure
+             Accessservice -> Auditlog: emit GRANT_FAILED
+             Grantexcview --> Frontend: 500 (rollback)
            else Mailbox OK
-             AS -> AL: emit\n  EXCEPTIONAL_PERMISSION_GRANTED
+             Accessservice -> Auditlog: emit\n  EXCEPTIONAL_PERMISSION_GRANTED
            end
          end
-         AS -> PC: invalidate(target.id) post-COMMIT
-         AS --> GV: result
-         GV --> FE: 201 Created
+         Accessservice -> Permissioncache: invalidate(target.id) post-COMMIT
+         Accessservice --> Grantexcview: result
+         Grantexcview --> Frontend: 201 Created
        end
      end
    end

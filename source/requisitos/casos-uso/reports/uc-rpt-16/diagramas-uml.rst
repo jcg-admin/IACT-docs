@@ -11,14 +11,14 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_16\nReporte Menus IVR" as UC16
    usecase "Ver menus redirigidos" as VR
    usecase "Ver errores de menu" as VE
  }
- USR --> UC16
+ view_reports --> UC16
  UC16 ..> INC : <<include>>
  UC16 ..> VR : <<extend>>
  UC16 ..> VE : <<extend>>

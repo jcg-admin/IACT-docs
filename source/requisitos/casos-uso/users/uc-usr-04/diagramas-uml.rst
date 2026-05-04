@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "deactivate_users" as INVOKER
  actor "User eliminado" as USER <<receptor>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Users" {
    usecase "UC_USR_04\nEliminar Usuario\n(baja logica)" as UC04
@@ -37,8 +37,8 @@ Parte 8 — Diagramas UML
  UC04 ..> NOT : <<extend (politica notify)>>
  UC04 ..> EMI : <<include>>
  NOT --> USER
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of ELI
    BR-009: baja LOGICA, no DELETE fisico
@@ -57,67 +57,67 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "DeleteUserView" as DV
- participant "UserService" as US
- participant "SessionService" as SS
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "DeleteUserView" as Deleteuserview
+ participant "UserService" as Userservice
+ participant "SessionService" as Sessionservice
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Click "Eliminar" en User X
- FE -> FE: Modal robusto + doble confirmacion
- I -> FE: Escribe "ELIMINAR" + Confirmar
- FE -> DV: DELETE /api/users/{X}/
+ Invoker -> Frontend: Click "Eliminar" en User X
+ Frontend -> Frontend: Modal robusto + doble confirmacion
+ Invoker -> Frontend: Escribe "ELIMINAR" + Confirmar
+ Frontend -> Deleteuserview: DELETE /api/users/{X}/
 
- DV -> DV: Validar JWT (CNST-009)
- DV -> DV: Verificar funcion deactivate_users
+ Deleteuserview -> Deleteuserview: Validar JWT (CNST-009)
+ Deleteuserview -> Deleteuserview: Verificar funcion deactivate_users
  alt Sin la funcion
-   DV --> FE: 403 FORBIDDEN
-   DV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Deleteuserview --> Frontend: 403 FORBIDDEN
+   Deleteuserview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con la funcion
-   DV -> US: eliminate_user(X, invoker)
+   Deleteuserview -> Userservice: eliminate_user(X, invoker)
 
-   US -> DB: SELECT User FOR UPDATE WHERE id=X
+   Userservice -> Repo: SELECT User FOR UPDATE WHERE id=X
    alt User no existe
-     US --> DV: UserNotFound
-     DV --> FE: 404
+     Userservice --> Deleteuserview: UserNotFound
+     Deleteuserview --> Frontend: 404
    else User existe
      alt User.state == ELIMINATED
        opt politica strict
-         US --> DV: AlreadyEliminated
-         DV --> FE: 409
+         Userservice --> Deleteuserview: AlreadyEliminated
+         Deleteuserview --> Frontend: 409
        end
        opt politica idempotente (default)
-         US -> AL: emit USER_ELIMINATE_NOOP
-         US --> DV: noop_result
-         DV --> FE: 200 OK informativo
+         Userservice -> Auditlog: emit USER_ELIMINATE_NOOP
+         Userservice --> Deleteuserview: noop_result
+         Deleteuserview --> Frontend: 200 OK informativo
        end
      else state != ELIMINATED
        alt invoker.id == X
-         US --> DV: SelfElimination
-         DV --> FE: 400
-         DV -> AL: emit USER_ELIMINATE_FAILED ALERTA
+         Userservice --> Deleteuserview: SelfElimination
+         Deleteuserview --> Frontend: 400
+         Deleteuserview -> Auditlog: emit USER_ELIMINATE_FAILED ALERTA
        else
          group Transaccion atomica
-           US -> DB: UPDATE User\n  state='ELIMINATED',\n  eliminated_at=NOW(),\n  eliminated_by=invoker.id
-           US -> DB: UPDATE Assignment\n  state='REVOKED'\n  WHERE user=X AND state='ACTIVE'
-           US -> SS: close_all_active(X, invoker,\n  reason='USER_ELIMINATED')
-           SS -> DB: UPDATE Session... CLOSED
-           SS -> DB: INSERT BlacklistedToken (N)
-           SS --> US: closed_count
+           Userservice -> Repo: UPDATE User\n  state='ELIMINATED',\n  eliminated_at=NOW(),\n  eliminated_by=invoker.id
+           Userservice -> Repo: UPDATE Assignment\n  state='REVOKED'\n  WHERE user=X AND state='ACTIVE'
+           Userservice -> Sessionservice: close_all_active(X, invoker,\n  reason='USER_ELIMINATED')
+           Sessionservice -> Repo: UPDATE Session... CLOSED
+           Sessionservice -> Repo: INSERT BlacklistedToken (N)
+           Sessionservice --> Userservice: closed_count
            opt notify activo
-             US -> DB: INSERT InternalMessage
+             Userservice -> Repo: INSERT InternalMessage
              alt mailbox falla
-               US -> US: mailbox_failed=true (no abort)
+               Userservice -> Userservice: mailbox_failed=true (no abort)
              end
            end
-           US -> AL: emit USER_ELIMINATED\n  {target, prior_state,\n   sessions_closed_count,\n   assignments_revoked_count,\n   user_notified, mailbox_failed}
+           Userservice -> Auditlog: emit USER_ELIMINATED\n  {target, prior_state,\n   sessions_closed_count,\n   assignments_revoked_count,\n   user_notified, mailbox_failed}
          end
 
-         US --> DV: result
-         DV --> FE: 200 OK con resumen
-         FE --> I: Toast con resumen + refresh lista
+         Userservice --> Deleteuserview: result
+         Deleteuserview --> Frontend: 200 OK con resumen
+         Frontend --> Invoker: Toast con resumen + refresh lista
        end
      end
    end

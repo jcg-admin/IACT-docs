@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User autenticado" as USR
- actor "Frontend" as FE
+ actor "User autenticado" as UserAutenticado
+ actor "Frontend" as Frontend
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_08\nGenerar Menu" as UC08
@@ -23,8 +23,8 @@ Parte 8 — Diagramas UML
    usecase "MenuCache" as MC
  }
 
- USR --> FE
- FE --> UC08
+ UserAutenticado --> Frontend
+ Frontend --> UC08
  UC08 ..> UC07 : <<include>>
  UC08 ..> REG : <<include>>
  UC08 ..> MC : <<include>>
@@ -122,28 +122,28 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor "User" as U
- participant "Frontend" as FE
- participant "MenuView" as MV
- participant "MenuBuilder" as MB
- participant "PermSvc" as PS
- participant "Registry" as REG
- participant "MenuCache" as MC
+ actor "User" as User
+ participant "Frontend" as Frontend
+ participant "MenuView" as Menuview
+ participant "MenuBuilder" as Menubuilder
+ participant "PermSvc" as Permsvc
+ participant "Registry" as Registry
+ participant "MenuCache" as Menucache
 
- U -> FE: login + visita
- FE -> MV: GET /api/me/menu/
- MV -> MV: JWT
- MV -> MC: get(key)
- MC --> MV: miss
- MV -> MB: build(user_id, locale)
- MB -> REG: list(menu_visible=true)
- REG --> MB: codes + metadata
- MB -> PS: check_bulk(user_id, codes)
- PS --> MB: results
- MB -> MB: filtrar + jerarquizar
- MB --> MV: menu
- MV -> MC: set(key, menu, ttl=300)
- MV --> FE: 200 menu
- FE --> U: render nav
+ User -> Frontend: login + visita
+ Frontend -> Menuview: GET /api/me/menu/
+ Menuview -> Menuview: JWT
+ Menuview -> Menucache: get(key)
+ Menucache --> Menuview: miss
+ Menuview -> Menubuilder: build(user_id, locale)
+ Menubuilder -> Registry: list(menu_visible=true)
+ Registry --> Menubuilder: codes + metadata
+ Menubuilder -> Permsvc: check_bulk(user_id, codes)
+ Permsvc --> Menubuilder: results
+ Menubuilder -> Menubuilder: filtrar + jerarquizar
+ Menubuilder --> Menuview: menu
+ Menuview -> Menucache: set(key, menu, ttl=300)
+ Menuview --> Frontend: 200 menu
+ Frontend --> User: render nav
 
  @enduml

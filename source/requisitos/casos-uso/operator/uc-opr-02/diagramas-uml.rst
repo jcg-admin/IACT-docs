@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "answer_inbound_calls" as A
- actor "CallRouter" as CR
+ actor "answer_inbound_calls" as answer_inbound_calls
+ actor "CallRouter" as Callrouter
  rectangle "MOD_Operator" {
    usecase "UC_OPR_02\nAnswer" as UC
  }
- A --> UC
- CR --> UC
+ answer_inbound_calls --> UC
+ Callrouter --> UC
  @enduml
 
 8.2 Actividad
@@ -58,16 +58,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "answer_inbound_calls" as A
- participant "Frontend" as FE
- participant "Router" as R
- participant "Endpoint" as E
- participant "Telephony" as T
- R -> FE: offer
- FE -> A: ring
- A -> FE: click answer
- FE -> E: POST answer
- E -> T: bridge
- T --> E: ok
- E --> FE: 200
+ actor "answer_inbound_calls" as answer_inbound_calls
+ participant "Frontend" as Frontend
+ participant "Router" as Router
+ participant "Endpoint" as Endpoint
+ participant "Telephony" as Telephony
+ Router -> Frontend: offer
+ Frontend -> answer_inbound_calls: ring
+ answer_inbound_calls -> Frontend: click answer
+ Frontend -> Endpoint: POST answer
+ Endpoint -> Telephony: bridge
+ Telephony --> Endpoint: ok
+ Endpoint --> Frontend: 200
  @enduml

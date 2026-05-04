@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Caller" as C
+ actor "Caller" as Caller
  rectangle "MOD_Caller" {
    usecase "UC_CLI_05\nCSAT" as UC
  }
- C --> UC
+ Caller --> UC
  @enduml
 
 8.2 Actividad
@@ -49,11 +49,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "SurveyRunner" as SR
- component "DTMFCollector" as D
- component "ResponseRepo" as R
- SR --> D
- SR --> R
+ component "SurveyRunner" as Surveyrunner
+ component "DTMFCollector" as Dtmfcollector
+ component "ResponseRepo" as Responserepo
+ Surveyrunner --> Dtmfcollector
+ Surveyrunner --> Responserepo
  @enduml
 
 8.4 Secuencia
@@ -62,13 +62,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Caller" as C
- participant "Survey" as S
- database "Repo" as R
- S -> C: prompt
- C -> S: DTMF
- S -> C: pregunta 2
- C -> S: DTMF
- S -> R: INSERT
- S -> C: gracias + hangup
+ actor "Caller" as Caller
+ participant "Survey" as Survey
+ database "Repo" as Repo
+ Survey -> Caller: prompt
+ Caller -> Survey: DTMF
+ Survey -> Caller: pregunta 2
+ Caller -> Survey: DTMF
+ Survey -> Repo: INSERT
+ Survey -> Caller: gracias + hangup
  @enduml

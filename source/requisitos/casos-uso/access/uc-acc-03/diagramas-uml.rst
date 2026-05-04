@@ -15,8 +15,8 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "view_assignments" as INVOKER
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_03\nConsultar Permisos" as UC03
@@ -35,8 +35,8 @@ Parte 8 — Diagramas UML
  UC03 ..> CONS : <<include>>
  UC03 ..> SOD : <<include>>
  UC03 ..> AUDS : <<include>>
- SYS --> AUDS
- AUDS --> AUD
+ Sistema --> AUDS
+ AUDS --> view_audit_log
 
  note bottom of CONS
    3 fuentes: direct + AGR + excepcional
@@ -57,52 +57,52 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "ViewPermsView" as VV
- participant "AccessService" as AS
- participant "AssignmentRepo" as AR
- participant "AGRRepo" as GR
- participant "ExcPermRepo" as XR
- participant "SoDValidator" as SV
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "ViewPermsView" as Viewpermsview
+ participant "AccessService" as Accessservice
+ participant "AssignmentRepo" as Assignmentrepo
+ participant "AGRRepo" as Agrrepo
+ participant "ExcPermRepo" as Excpermrepo
+ participant "SoDValidator" as Sodvalidator
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Click "Ver permisos del User"
- FE -> VV: GET /api/users/{id}/\n  effective-permissions/
+ I -> Frontend: Click "Ver permisos del User"
+ Frontend -> Viewpermsview: GET /api/users/{id}/\n  effective-permissions/
 
- VV -> VV: Validar JWT (CNST-009)
- VV -> VV: Verificar view_assignments\n  o self-view
+ Viewpermsview -> Viewpermsview: Validar JWT (CNST-009)
+ Viewpermsview -> Viewpermsview: Verificar view_assignments\n  o self-view
 
  alt Sin permiso y no self
-   VV --> FE: 403 FORBIDDEN
-   VV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Viewpermsview --> Frontend: 403 FORBIDDEN
+   Viewpermsview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Permitido
-   VV -> AS: get_effective_permissions(\n  target, invoker)
+   Viewpermsview -> Accessservice: get_effective_permissions(\n  target, invoker)
 
-   AS -> DB: SELECT User
+   Accessservice -> Repo: SELECT User
    alt User no existe
-     AS --> VV: UserNotFound
-     VV --> FE: 404
+     Accessservice --> Viewpermsview: UserNotFound
+     Viewpermsview --> Frontend: 404
    else User existe
-     AS -> AR: list_active_assignments(target)
-     AR --> AS: direct_assignments
-     AS -> AR: list_agr_assignments(target)
-     AR --> AS: agr_assignments
-     AS -> GR: expand_functions_for_agrs(\n  agr_ids)
-     GR --> AS: agr_functions
-     AS -> XR: list_active_for_user(\n  target, NOW())
-     XR --> AS: exceptional_perms
-     AS -> AS: consolidar effective set\n  con metadata de origen
-     AS -> AS: detectar expired_pending_purge
-     AS -> SV: detect_violations(set, rules)
-     SV --> AS: sod_violations (info)
+     Accessservice -> Assignmentrepo: list_active_assignments(target)
+     Assignmentrepo --> Accessservice: direct_assignments
+     Accessservice -> Assignmentrepo: list_agr_assignments(target)
+     Assignmentrepo --> Accessservice: agr_assignments
+     Accessservice -> Agrrepo: expand_functions_for_agrs(\n  agr_ids)
+     Agrrepo --> Accessservice: agr_functions
+     Accessservice -> Excpermrepo: list_active_for_user(\n  target, NOW())
+     Excpermrepo --> Accessservice: exceptional_perms
+     Accessservice -> Accessservice: consolidar effective set\n  con metadata de origen
+     Accessservice -> Accessservice: detectar expired_pending_purge
+     Accessservice -> Sodvalidator: detect_violations(set, rules)
+     Sodvalidator --> Accessservice: sod_violations (info)
 
-     AS -> AL: emit EFFECTIVE_PERMISSIONS_VIEWED\n  {target_user_id, self_view, counts}
+     Accessservice -> Auditlog: emit EFFECTIVE_PERMISSIONS_VIEWED\n  {target_user_id, self_view, counts}
 
-     AS --> VV: result
-     VV --> FE: 200 OK con vista consolidada
-     FE --> I: Tabla con badges de origen
+     Accessservice --> Viewpermsview: result
+     Viewpermsview --> Frontend: 200 OK con vista consolidada
+     Frontend --> I: Tabla con badges de origen
    end
  end
 

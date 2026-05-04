@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_17\nClientes Unicos IVR" as UC17
  }
- USR --> UC17
+ view_reports --> UC17
  UC17 ..> INC : <<include>>
  @enduml
 
@@ -44,14 +44,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "tbl_historico_*\n(cTelefono_Origen raw)" as SRC
- component "sp_etl_base_clientes\n(hash unidireccional)" as ETL
+ component "tbl_historico_*\n(cTelefono_Origen raw)" as TblHistorico
+ component "sp_etl_base_clientes\n(hash unidireccional)" as sp_etl_base_clientes
  component "base_ivr_clientes\n(telefono_hashed)" as DEST
- component "sp_rpt_clientes\n(solo lee hash)" as RPT
- SRC --> ETL
- ETL --> DEST
- DEST --> RPT
- note right of ETL
+ component "sp_rpt_clientes\n(solo lee hash)" as sp_rpt_clientes
+ TblHistorico --> sp_etl_base_clientes
+ sp_etl_base_clientes --> DEST
+ DEST --> sp_rpt_clientes
+ note right of sp_etl_base_clientes
    PII nunca almacenada
    en base analitica
  end note

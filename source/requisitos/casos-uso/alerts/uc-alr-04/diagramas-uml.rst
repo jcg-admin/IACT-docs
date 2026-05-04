@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_alert_history" as USR
+ actor "view_alert_history" as view_alert_history
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_04\nHistorial" as UC04
  }
- USR --> UC04
+ view_alert_history --> UC04
  @enduml
 
 8.2 Actividad
@@ -60,12 +60,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- database "AlertRepo" as A
- U -> E: GET /history
- E -> E: JWT + RBAC
- E -> A: query
- A --> E: rows
- E --> U: 200 + summary
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ database "AlertRepo" as Alertrepo
+ User -> Endpoint: GET /history
+ Endpoint -> Endpoint: JWT + RBAC
+ Endpoint -> Alertrepo: query
+ Alertrepo --> Endpoint: rows
+ Endpoint --> User: 200 + summary
  @enduml

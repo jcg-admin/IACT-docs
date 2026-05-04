@@ -11,14 +11,14 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_infrastructure_logs" as USR
+ actor "view_infrastructure_logs" as view_infrastructure_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_05\nLogs Infraestructura" as UC05
    usecase "Filtrar por\nhosts" as FH
    usecase "Filtrar por\nnivel severity" as FS
    usecase "Tail SSE\n(streaming)" as T
  }
- USR --> UC05
+ view_infrastructure_logs --> UC05
  UC05 ..> FH : <<extend>>
  UC05 ..> FS : <<extend>>
  UC05 ..> T : <<extend>>
@@ -47,18 +47,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Hosts\n(app, db, worker)" as H
- component "fluent-bit\n(shipper)" as FB
- database "InfraLogStore" as ILS
- component "LogEndpoint\n(/logs/infra/)" as EP
- actor "view_infrastructure_logs" as U
+ component "Hosts\n(app, db, worker)" as Hosts
+ component "fluent-bit\n(shipper)" as FluentBit
+ database "InfraLogStore" as Infralogstore
+ component "LogEndpoint\n(/logs/infra/)" as Logendpoint
+ actor "view_infrastructure_logs" as view_infrastructure_logs
 
- H --> FB : stdout/stderr
- FB --> ILS : entregar structured logs
- U --> EP : GET filtros
- EP --> ILS : query
- ILS --> EP : entries
- EP --> U : 200 JSON
+ Hosts --> FluentBit : stdout/stderr
+ FluentBit --> Infralogstore : entregar structured logs
+ view_infrastructure_logs --> Logendpoint : GET filtros
+ Logendpoint --> Infralogstore : query
+ Infralogstore --> Logendpoint : entries
+ Logendpoint --> view_infrastructure_logs : 200 JSON
  @enduml
 
 8.4 Secuencia con tail SSE
@@ -67,22 +67,22 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_infrastructure_logs" as U
- participant "InfraLogEndpoint" as E
- database "InfraLogStore" as ILS
+ actor "view_infrastructure_logs" as view_infrastructure_logs
+ participant "InfraLogEndpoint" as Infralogendpoint
+ database "InfraLogStore" as Infralogstore
 
- U -> E : GET /logs/infra/?host=app&severity=ERROR
- E -> E : JWT + RBAC (view_infrastructure_logs)
+ view_infrastructure_logs -> Infralogendpoint : GET /logs/infra/?host=app&severity=ERROR
+ Infralogendpoint -> Infralogendpoint : JWT + RBAC (view_infrastructure_logs)
  alt sin permiso
-   E --> U : 403 Forbidden
+   Infralogendpoint --> view_infrastructure_logs : 403 Forbidden
  else con permiso
-   E -> ILS : SELECT WHERE host=app AND severity=ERROR
-   ILS --> E : entries
-   E --> U : 200 + logs
+   Infralogendpoint -> Infralogstore : SELECT WHERE host=app AND severity=ERROR
+   Infralogstore --> Infralogendpoint : entries
+   Infralogendpoint --> view_infrastructure_logs : 200 + logs
    opt tail SSE solicitado
      loop nuevas entradas
-       ILS -> E : new entry
-       E -> U : SSE data event
+       Infralogstore -> Infralogendpoint : new entry
+       Infralogendpoint -> view_infrastructure_logs : SSE data event
      end
    end
  end

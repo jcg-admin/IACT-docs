@@ -11,17 +11,17 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "configure_team_alerts" as USR
- actor "AlertEvaluator" as AE
+ actor "configure_team_alerts" as configure_team_alerts
+ actor "AlertEvaluator" as Alertevaluator
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales" as UC01
    usecase "Test rule\n(dry-run)" as DR
    usecase "Reload" as RL
  }
- USR --> UC01
- USR --> DR
+ configure_team_alerts --> UC01
+ configure_team_alerts --> DR
  UC01 ..> RL : <<include>>
- RL --> AE
+ RL --> Alertevaluator
  @enduml
 
 8.2 Actividad

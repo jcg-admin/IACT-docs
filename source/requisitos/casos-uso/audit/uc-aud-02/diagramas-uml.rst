@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "search_audit_log" as USR
+ actor "search_audit_log" as search_audit_log
  rectangle "MOD_Audit" {
    usecase "UC_AUD_02\nBuscar" as UC02
    usecase "UC_PERM_09\nMeta-audit" as M
  }
- USR --> UC02
+ search_audit_log --> UC02
  UC02 ..> M : <<include>>
  @enduml
 
@@ -44,13 +44,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "AuditEvent BD" as DB
- component "Sync trigger" as SY
- component "FTS Index" as IDX
- component "Search service" as SS
- DB --> SY
- SY --> IDX
- SS --> IDX
+ component "AuditEvent BD" as AuditeventBd
+ component "Sync trigger" as SyncTrigger
+ component "FTS Index" as FtsIndex
+ component "Search service" as SearchService
+ AuditeventBd --> SyncTrigger
+ SyncTrigger --> FtsIndex
+ SearchService --> FtsIndex
  @enduml
 
 8.4 Secuencia
@@ -59,14 +59,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- participant "FTS" as F
- participant "AuditSvc" as A
- U -> E: POST search
- E -> E: JWT + RBAC + validar
- E -> F: search query
- F --> E: hits
- E -> A: emit AUDIT_SEARCH_QUERIED
- E --> U: 200
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ participant "FTS" as Fts
+ participant "AuditSvc" as Auditsvc
+ User -> Endpoint: POST search
+ Endpoint -> Endpoint: JWT + RBAC + validar
+ Endpoint -> Fts: search query
+ Fts --> Endpoint: hits
+ Endpoint -> Auditsvc: emit AUDIT_SEARCH_QUERIED
+ Endpoint --> User: 200
  @enduml

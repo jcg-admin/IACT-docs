@@ -20,8 +20,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "assign_function_groups" as OPS
- actor "assign_function_groups" as SEC
+ actor "assign_function_groups" as assign_function_groups
+ actor "assign_function_groups" as assign_function_groups
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR\n(desde User)" as ACC04
@@ -36,8 +36,8 @@ Parte 8 — Diagramas UML
    note bottom: Funcion: assign_function_groups
  }
 
- OPS --> ACC04
- SEC --> PERM01
+ assign_function_groups --> ACC04
+ assign_function_groups --> PERM01
  ACC04 --> BE : delega
  PERM01 --> BE : delega
 
@@ -58,31 +58,31 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "UI Catalogo PERM" as UI
- participant "API ACG" as API
- participant "Backend\n(UC_ACC_04)" as BE
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "UI Catalogo PERM" as UiCatalogoPerm
+ participant "API ACG" as ApiAcg
+ participant "Backend\n(UC_ACC_04)" as Backend
+ database "Repo" as Repo
 
- I -> UI: Abre catalogo de AGRs
- UI -> API: GET /api/access-groups/
- API --> UI: lista AGRs + counts
+ Invoker -> UiCatalogoPerm: Abre catalogo de AGRs
+ UiCatalogoPerm -> ApiAcg: GET /api/access-groups/
+ ApiAcg --> UiCatalogoPerm: lista AGRs + counts
 
- I -> UI: Selecciona AGR + User
- UI -> API: GET preview-assign?
- API -> DB: dry-run validations
- API --> UI: preview con composicion + impact
+ Invoker -> UiCatalogoPerm: Selecciona AGR + User
+ UiCatalogoPerm -> ApiAcg: GET preview-assign?
+ ApiAcg -> Repo: dry-run validations
+ ApiAcg --> UiCatalogoPerm: preview con composicion + impact
 
- UI -> UI: Modal con composicion
- I -> UI: Confirma
+ UiCatalogoPerm -> UiCatalogoPerm: Modal con composicion
+ Invoker -> UiCatalogoPerm: Confirma
 
- UI -> API: POST /api/users/{id}/access-groups/
- API -> BE: delega flujo UC_ACC_04
- BE -> DB: INSERT Assignment + audit + cache
- BE --> API: 201 Created
- API --> UI: result
- UI -> UI: refresh catalogo (counts +1)
- UI --> I: Toast confirmacion
+ UiCatalogoPerm -> ApiAcg: POST /api/users/{id}/access-groups/
+ ApiAcg -> Backend: delega flujo UC_ACC_04
+ Backend -> Repo: INSERT Assignment + audit + cache
+ Backend --> ApiAcg: 201 Created
+ ApiAcg --> UiCatalogoPerm: result
+ UiCatalogoPerm -> UiCatalogoPerm: refresh catalogo (counts +1)
+ UiCatalogoPerm --> Invoker: Toast confirmacion
 
  @enduml
 
@@ -136,22 +136,22 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- class "View_ACC" as VA
- class "View_PERM" as VP
- class "AccessService" as AS {
+ class "View_ACC" as ViewAcc
+ class "View_PERM" as ViewPerm
+ class "AccessService" as Accessservice {
    +assign_access_group(...)
  }
  class Assignment
  class AccessGroup
  class AuditEvent
 
- VA --> AS : invoca
- VP --> AS : invoca
- AS --> Assignment : crea
- AS --> AuditEvent : emite
+ ViewAcc --> Accessservice : invoca
+ ViewPerm --> Accessservice : invoca
+ Accessservice --> Assignment : crea
+ Accessservice --> AuditEvent : emite
  Assignment --> AccessGroup : referencia
 
- note right of AS
+ note right of Accessservice
    UC_ACC_04 backing
    compartido por ambas vistas
  end note

@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "view_kpis" as USR
- actor "AnalyticsStream" as AS
+ actor "view_kpis" as view_kpis
+ actor "AnalyticsStream" as Analyticsstream
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_02\nRealtime Metrics" as UC02
@@ -23,11 +23,11 @@ Parte 8 — Diagramas UML
    usecase "Heartbeat" as HB
  }
 
- USR --> UC02
+ view_kpis --> UC02
  UC02 ..> SUB : <<include>>
  UC02 ..> TH : <<include>>
  UC02 ..> HB : <<include>>
- SUB --> AS
+ SUB --> Analyticsstream
 
  note bottom
    Stream push via SSE / WS / poll.
@@ -85,30 +85,30 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor "User" as U
- participant "Frontend" as FE
- participant "StreamGateway" as SG
- participant "Subscriber" as SUB
- queue "AnalyticsStream" as ST
- participant "AuditService" as AU
+ actor "User" as User
+ participant "Frontend" as Frontend
+ participant "StreamGateway" as Streamgateway
+ participant "Subscriber" as Subscriber
+ queue "AnalyticsStream" as AnalyticsStream
+ participant "AuditService" as Auditservice
 
- U -> FE: abrir vista realtime
- FE -> SG: GET /realtime (SSE)
- SG -> SG: JWT + RBAC + segmento
- SG -> AU: emit STREAM_OPENED
- SG -> SUB: subscribe(segments)
- SUB -> ST: subscribe(topics)
+ User -> Frontend: abrir vista realtime
+ Frontend -> Streamgateway: GET /realtime (SSE)
+ Streamgateway -> Streamgateway: JWT + RBAC + segmento
+ Streamgateway -> Auditservice: emit STREAM_OPENED
+ Streamgateway -> Subscriber: subscribe(segments)
+ Subscriber -> AnalyticsStream: subscribe(topics)
 
  loop hasta cierre
-   ST -> SUB: event
-   SUB -> SG: snapshot (throttled)
-   SG -> FE: data: {...}
+   AnalyticsStream -> Subscriber: event
+   Subscriber -> Streamgateway: snapshot (throttled)
+   Streamgateway -> Frontend: data: {...}
  end
 
- U -> FE: cerrar
- FE -> SG: close
- SG -> SUB: unsubscribe
- SG -> AU: emit STREAM_CLOSED
+ User -> Frontend: cerrar
+ Frontend -> Streamgateway: close
+ Streamgateway -> Subscriber: unsubscribe
+ Streamgateway -> Auditservice: emit STREAM_CLOSED
 
  @enduml
 

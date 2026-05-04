@@ -11,15 +11,15 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "monitor_live_calls" as SUP
- actor "answer_inbound_calls" as A
- actor "Caller" as C
+ actor "monitor_live_calls" as monitor_live_calls
+ actor "answer_inbound_calls" as answer_inbound_calls
+ actor "Caller" as Caller
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_01\nMonitor" as UC
  }
- SUP --> UC
- UC --> A
- UC --> C
+ monitor_live_calls --> UC
+ UC --> answer_inbound_calls
+ UC --> Caller
  @enduml
 
 8.2 Actividad
@@ -62,12 +62,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "monitor_live_calls" as S
- participant "Endpoint" as E
- participant "Telephony" as T
- actor "answer_inbound_calls" as A
- S -> E: POST monitor
- E -> T: bridge listen
- T -> A: tono "monitor on"
- E --> S: 200
+ actor "monitor_live_calls" as monitor_live_calls
+ participant "Endpoint" as Endpoint
+ participant "Telephony" as Telephony
+ actor "answer_inbound_calls" as answer_inbound_calls
+ monitor_live_calls -> Endpoint: POST monitor
+ Endpoint -> Telephony: bridge listen
+ Telephony -> answer_inbound_calls: tono "monitor on"
+ Endpoint --> monitor_live_calls: 200
  @enduml

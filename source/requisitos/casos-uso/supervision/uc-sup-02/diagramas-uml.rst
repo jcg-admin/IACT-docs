@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "barge_in_calls" as SUP
+ actor "barge_in_calls" as barge_in_calls
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_02\nBarge-in" as UC
    usecase "Take over" as TO
  }
- SUP --> UC
+ barge_in_calls --> UC
  UC ..> TO : <<extend>>
  @enduml
 
@@ -54,11 +54,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "barge_in_calls" as S
- participant "Telephony" as T
- actor "answer_inbound_calls" as A
- actor "Caller" as C
- S -> T: bridge 3way
- T -> A: announce
- T -> C: announce
+ actor "barge_in_calls" as barge_in_calls
+ participant "Telephony" as Telephony
+ actor "answer_inbound_calls" as answer_inbound_calls
+ actor "Caller" as Caller
+ barge_in_calls -> Telephony: bridge 3way
+ Telephony -> answer_inbound_calls: announce
+ Telephony -> Caller: announce
  @enduml

@@ -15,8 +15,8 @@ Parte 8 — Diagramas UML
 
  actor "view_separation_rules" as VIEWER
  actor "view_separation_rules" as MANAGER
- actor "view_audit_log" as AUD
- actor "Sistema (consumidores)" as SYS
+ actor "view_audit_log" as view_audit_log
+ actor "Sistema (consumidores)" as SistemaConsumidores
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_05\nGestionar SoD" as UC05
@@ -40,8 +40,8 @@ Parte 8 — Diagramas UML
  UCCRE ..> CACHE : <<include>>
  UCMOD ..> CACHE : <<include>>
  UCRET ..> CACHE : <<include>>
- EMI --> AUD
- SYS ..> CACHE : <<consume>>
+ EMI --> view_audit_log
+ SistemaConsumidores ..> CACHE : <<consume>>
 
  note bottom of CACHE
    UC_ACC_01/04/PERM_03 cargan reglas
@@ -58,41 +58,41 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Manager as M
- participant "Frontend" as FE
- participant "CreateSoDRuleView" as CV
- participant "AccessService" as AS
- participant "FunctionRepo" as FR
- participant "SoDRuleRepo" as SR
- participant "SoDRuleCache" as RC
- participant "AuditLog" as AL
+ actor Manager as Manager
+ participant "Frontend" as Frontend
+ participant "CreateSoDRuleView" as Createsodruleview
+ participant "AccessService" as Accessservice
+ participant "FunctionRepo" as Functionrepo
+ participant "SoDRuleRepo" as Sodrulerepo
+ participant "SoDRuleCache" as Sodrulecache
+ participant "AuditLog" as Auditlog
 
- M -> FE: Define regla con functions
- FE -> CV: POST /api/access/sod-rules/
+ Manager -> Frontend: Define regla con functions
+ Frontend -> Createsodruleview: POST /api/access/sod-rules/
 
- CV -> CV: Validar JWT + view_separation_rules
+ Createsodruleview -> Createsodruleview: Validar JWT + view_separation_rules
  alt Sin permiso
-   CV --> FE: 403
-   CV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Createsodruleview --> Frontend: 403
+   Createsodruleview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   CV -> AS: create_sod_rule(payload, invoker)
-   AS -> FR: validate_functions(payload.function_ids)
+   Createsodruleview -> Accessservice: create_sod_rule(payload, invoker)
+   Accessservice -> Functionrepo: validate_functions(payload.function_ids)
    alt Funciones invalidas
-     AS --> CV: error
-     CV --> FE: 400
+     Accessservice --> Createsodruleview: error
+     Createsodruleview --> Frontend: 400
    else OK
-     AS -> SR: find_active_with_same_functions(...)
+     Accessservice -> Sodrulerepo: find_active_with_same_functions(...)
      alt Duplicada
-       AS --> CV: SoDRuleDuplicate
-       CV --> FE: 409
+       Accessservice --> Createsodruleview: SoDRuleDuplicate
+       Createsodruleview --> Frontend: 409
      else No duplicada
        group Transaccion atomica
-         AS -> SR: insert(payload, invoker)
-         AS -> AL: emit SOD_RULE_CREATED
+         Accessservice -> Sodrulerepo: insert(payload, invoker)
+         Accessservice -> Auditlog: emit SOD_RULE_CREATED
        end
-       AS -> RC: invalidate() (post-COMMIT)
-       AS --> CV: rule
-       CV --> FE: 201 Created
+       Accessservice -> Sodrulecache: invalidate() (post-COMMIT)
+       Accessservice --> Createsodruleview: rule
+       Createsodruleview --> Frontend: 201 Created
      end
    end
  end

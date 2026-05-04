@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_03\nHistoricos" as UC03
@@ -21,7 +21,7 @@ Parte 8 — Diagramas UML
    usecase "Cache" as CA
  }
 
- USR --> UC03
+ view_reports --> UC03
  UC03 ..> F : <<include>>
  UC03 ..> C : <<extend>>
  UC03 ..> CA : <<include>>
@@ -93,22 +93,22 @@ Parte 8 — Diagramas UML
  :caption: UC_RPT_03 — secuencia
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- participant "Cache" as MC
- database "Analytics" as A
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ participant "Cache" as Cache
+ database "Analytics" as Analytics
 
- U -> E: GET con filtros
- E -> E: JWT + RBAC + segmento + validar
- E -> MC: get(key)
- MC --> E: miss
+ User -> Endpoint: GET con filtros
+ Endpoint -> Endpoint: JWT + RBAC + segmento + validar
+ Endpoint -> Cache: get(key)
+ Cache --> Endpoint: miss
  par
-   E -> A: aggregate current
+   Endpoint -> Analytics: aggregate current
  also
-   E -> A: aggregate prior
+   Endpoint -> Analytics: aggregate prior
  end
- A --> E: rows
- E -> E: calcular KPIs + comparative
- E -> MC: set
- E --> U: 200
+ Analytics --> Endpoint: rows
+ Endpoint -> Endpoint: calcular KPIs + comparative
+ Endpoint -> Cache: set
+ Endpoint --> User: 200
  @enduml

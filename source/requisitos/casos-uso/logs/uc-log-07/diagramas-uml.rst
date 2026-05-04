@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_technical_metrics" as USR
+ actor "view_technical_metrics" as view_technical_metrics
  rectangle "MOD_Logs" {
    usecase "UC_LOG_07\nMetricas" as UC07
  }
- USR --> UC07
+ view_technical_metrics --> UC07
  @enduml
 
 8.2 Actividad
@@ -41,13 +41,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Apps" as A
- component "Exporters" as E
- component "TSDB" as T
- component "Endpoint" as EP
- A --> E
- E --> T
- EP --> T
+ component "Apps" as Apps
+ component "Exporters" as Exporters
+ component "TSDB" as Tsdb
+ component "Endpoint" as Endpoint
+ Apps --> Exporters
+ Exporters --> Tsdb
+ Endpoint --> Tsdb
  @enduml
 
 8.4 Tail SSE

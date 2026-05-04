@@ -11,18 +11,18 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "transfer_calls" as A
- actor "answer_inbound_calls" as B
+ actor "transfer_calls" as transfer_calls
+ actor "answer_inbound_calls" as answer_inbound_calls
  rectangle "MOD_Operator" {
    usecase "UC_OPR_05\nTransfer" as UC
    usecase "Warm" as W
    usecase "Cold" as C
  }
- A --> UC
+ transfer_calls --> UC
  UC ..> W : <<extend>>
  UC ..> C : <<extend>>
- W --> B
- C --> B
+ W --> answer_inbound_calls
+ C --> answer_inbound_calls
  @enduml
 
 8.2 Actividad warm
@@ -65,16 +65,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "transfer_calls" as A
- participant "Caller" as C
- participant "Telephony" as T
- actor "answer_inbound_calls" as B
- A -> T: consult B
- T -> B: ring
- B -> T: answer
- T -> A: bridged with B
- A -> B: presenta caso
- A -> T: complete transfer
- T -> C: bridge with B
- T -> A: disconnect
+ actor "transfer_calls" as transfer_calls
+ participant "Caller" as Caller
+ participant "Telephony" as Telephony
+ actor "answer_inbound_calls" as answer_inbound_calls
+ transfer_calls -> Telephony: consult answer_inbound_calls
+ Telephony -> answer_inbound_calls: ring
+ answer_inbound_calls -> Telephony: answer
+ Telephony -> transfer_calls: bridged with answer_inbound_calls
+ transfer_calls -> answer_inbound_calls: presenta caso
+ transfer_calls -> Telephony: complete transfer
+ Telephony -> Caller: bridge with answer_inbound_calls
+ Telephony -> transfer_calls: disconnect
  @enduml

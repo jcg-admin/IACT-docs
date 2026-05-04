@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "revoke_exceptional_permission" as INVOKER
  actor "User destino" as TARGET
- actor "view_audit_log" as AUD
+ actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_04\nRevocar\nExceptional" as UC04
@@ -29,7 +29,7 @@ Parte 8 — Diagramas UML
  UC04 ..> NOT : <<include>>
  UC04 ..> EMI : <<include>>
  NOT --> TARGET
- EMI --> AUD
+ EMI --> view_audit_log
 
  note bottom of NOT
    Mailbox-or-abort HARD
@@ -45,46 +45,46 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "RevokeExcView" as RV
- participant "AccessService" as AS
- participant "PermCache" as PC
- participant "InternalMailbox" as IM
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "RevokeExcView" as Revokeexcview
+ participant "AccessService" as Accessservice
+ participant "PermCache" as Permcache
+ participant "InternalMailbox" as Internalmailbox
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Selecciona permission + reason
- FE -> RV: DELETE .../{permission_id}/
+ Invoker -> Frontend: Selecciona permission + reason
+ Frontend -> Revokeexcview: DELETE .../{permission_id}/
 
- RV -> RV: Validar JWT
- RV -> RV: Verificar revoke_exc
+ Revokeexcview -> Revokeexcview: Validar JWT
+ Revokeexcview -> Revokeexcview: Verificar revoke_exc
  alt Sin permiso
-   RV --> FE: 403
-   RV -> AL: emit UNAUTHORIZED
+   Revokeexcview --> Frontend: 403
+   Revokeexcview -> Auditlog: emit UNAUTHORIZED
  else
-   RV -> AS: revoke_exc(perm_id, reason, invoker)
+   Revokeexcview -> Accessservice: revoke_exc(perm_id, reason, invoker)
 
-   AS -> DB: SELECT ExceptionalPermission
+   Accessservice -> Repo: SELECT ExceptionalPermission
    alt No existe / EXPIRED / REVOKED
-     AS --> RV: error
-     RV --> FE: 404 / 400 / 200 NOOP
+     Accessservice --> Revokeexcview: error
+     Revokeexcview --> Frontend: 404 / 400 / 200 NOOP
    else ACTIVE
-     AS -> AS: validar P-11
-     AS -> AS: validar reason
+     Accessservice -> Accessservice: validar P-11
+     Accessservice -> Accessservice: validar reason
      group Transaccion atomica
-       AS -> DB: UPDATE state=REVOKED
-       AS -> IM: send (HARD)
+       Accessservice -> Repo: UPDATE state=REVOKED
+       Accessservice -> Internalmailbox: send (HARD)
        alt Mailbox falla
-         IM --> AS: MailboxFailure
-         AS --> RV: error 500
+         Internalmailbox --> Accessservice: MailboxFailure
+         Accessservice --> Revokeexcview: error 500
        else Mailbox OK
-         AS -> AL: emit\nEXCEPTIONAL_PERMISSION_REVOKED
+         Accessservice -> Auditlog: emit\nEXCEPTIONAL_PERMISSION_REVOKED
        end
      end
-     AS -> PC: invalidate post-COMMIT
-     AS --> RV: result
-     RV --> FE: 200 OK
+     Accessservice -> Permcache: invalidate post-COMMIT
+     Accessservice --> Revokeexcview: result
+     Revokeexcview --> Frontend: 200 OK
    end
  end
 

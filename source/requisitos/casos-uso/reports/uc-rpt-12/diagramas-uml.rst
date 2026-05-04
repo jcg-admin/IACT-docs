@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
  actor "view_reports" as USRD
  rectangle "MOD_Reports" {
    usecase "UC_RPT_12\nReporte Agentes" as UC12
    usecase "Detalle agente" as DET
  }
- USR --> UC12
+ view_reports --> UC12
  USRD --> DET
  UC12 ..> DET : <<extend>>
  @enduml
@@ -77,18 +77,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- participant "Service" as S
- participant "AuditSvc" as AU
- database "Analytics" as A
- U -> E: GET /agents/{id}/
- E -> E: JWT + view_reports
- E -> E: verificar agent_id ∈ segmento
- E -> S: detail(agent_id)
- S -> A: query stats
- A --> S: rows
- S --> E: kpis + trend
- E -> AU: emit AGENT_DETAIL_VIEWED
- E --> U: 200
+ actor "User" as User
+ participant "Endpoint" as Endpoint
+ participant "Service" as Service
+ participant "AuditSvc" as Auditsvc
+ database "Analytics" as Analytics
+ User -> Endpoint: GET /agents/{id}/
+ Endpoint -> Endpoint: JWT + view_reports
+ Endpoint -> Endpoint: verificar agent_id ∈ segmento
+ Endpoint -> Service: detail(agent_id)
+ Service -> Analytics: query stats
+ Analytics --> Service: rows
+ Service --> Endpoint: kpis + trend
+ Endpoint -> Auditsvc: emit AGENT_DETAIL_VIEWED
+ Endpoint --> User: 200
  @enduml

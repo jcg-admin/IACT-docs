@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_reports" as USR
+ actor "view_reports" as view_reports
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_13\nReporte Abandono" as UC13
  }
- USR --> UC13
+ view_reports --> UC13
  UC13 ..> INC : <<include>>
  @enduml
 
@@ -63,15 +63,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_reports" as U
- participant "View" as V
- participant "SegmentResolver" as SR
- database "Base Analitica IVR\n(sp_rpt_llamadas_abandonadas)" as DB
- U -> V: GET /reportes/abandono/
- V -> V: JWT + RBAC
- V -> SR: resolve(user_id)
- SR --> V: [nacional_A, ...]
- V -> DB: cursor.callproc(sp_rpt_llamadas_abandonadas, [trimestre])
- DB --> V: rows abandono por segmento
- V --> U: 200 ReporteAbandono
+ actor "view_reports" as view_reports
+ participant "View" as View
+ participant "SegmentResolver" as Segmentresolver
+ database "Base Analitica IVR\n(sp_rpt_llamadas_abandonadas)" as BaseAnaliticaIvr
+ view_reports -> View: GET /reportes/abandono/
+ View -> View: JWT + RBAC
+ View -> Segmentresolver: resolve(user_id)
+ Segmentresolver --> View: [nacional_A, ...]
+ View -> BaseAnaliticaIvr: cursor.callproc(sp_rpt_llamadas_abandonadas, [trimestre])
+ BaseAnaliticaIvr --> View: rows abandono por segmento
+ View --> view_reports: 200 ReporteAbandono
  @enduml

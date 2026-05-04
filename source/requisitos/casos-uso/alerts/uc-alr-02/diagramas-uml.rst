@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_alerts" as USR
+ actor "view_alerts" as view_alerts
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_02\nAlertas Activas" as UC02
    usecase "UC_ALR_03\nAck inline" as UC03
    usecase "Auto-refresh" as AR
  }
- USR --> UC02
+ view_alerts --> UC02
  UC02 ..> AR : <<extend>>
  UC02 ..> UC03 : <<extend>>
  @enduml
@@ -59,18 +59,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_alerts" as S
- participant "Frontend" as FE
- participant "Endpoint" as E
- database "AlertRepo" as A
+ actor "view_alerts" as view_alerts
+ participant "Frontend" as Frontend
+ participant "Endpoint" as Endpoint
+ database "AlertRepo" as Alertrepo
 
- S -> FE: abrir vista
+ view_alerts -> Frontend: abrir vista
  loop cada 10s
-   FE -> E: GET /alerts/active
-   E -> E: JWT + RBAC
-   E -> A: query active
-   A --> E: rows
-   E --> FE: 200
-   FE -> S: actualizar UI
+   Frontend -> Endpoint: GET /alerts/active
+   Endpoint -> Endpoint: JWT + RBAC
+   Endpoint -> Alertrepo: query active
+   Alertrepo --> Endpoint: rows
+   Endpoint --> Frontend: 200
+   Frontend -> view_alerts: actualizar UI
  end
  @enduml

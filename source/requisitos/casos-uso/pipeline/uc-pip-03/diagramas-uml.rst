@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_data_availability" as USR
+ actor "view_data_availability" as view_data_availability
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_03\nDisponibilidad\nde Datos" as UC03
  }
- USR --> UC03
+ view_data_availability --> UC03
  @enduml
 
 8.2 Actividad
@@ -57,9 +57,9 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "DisponibilidadDatosService" as S
- component "ETLEjecucionRepo" as R
- component "DisponibilidadBuilder" as B
- S --> R
- S --> B
+ component "DisponibilidadDatosService" as Disponibilidaddatosservice
+ component "ETLEjecucionRepo" as Etlejecucionrepo
+ component "DisponibilidadBuilder" as Disponibilidadbuilder
+ Disponibilidaddatosservice --> Etlejecucionrepo
+ Disponibilidaddatosservice --> Disponibilidadbuilder
  @enduml

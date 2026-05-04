@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "reset_password" as ADMIN
  actor "User afectado" as USER <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_03\nRecuperar Contrasena" as UC03
@@ -33,8 +33,8 @@ Parte 8 — Diagramas UML
  UC03 ..> NOT : <<include>>
  UC03 ..> EMI : <<include>>
  NOT --> USER : InternalMessage
- SYS --> EMI
- EMI --> AUD : (consume\nUC_AUD_*)
+ Sistema --> EMI
+ EMI --> view_audit_log : (consume\nUC_AUD_*)
 
  note bottom of NOT
    CNST-001 prohibe email/SMTP
@@ -51,44 +51,44 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Admin as A
- participant "Frontend" as FE
- participant "ResetPasswordView" as RV
- participant "AuthService" as AS
- participant "PasswordGenerator" as PG
- database "Base de Datos" as DB
+ actor Admin as Admin
+ participant "Frontend" as Frontend
+ participant "ResetPasswordView" as Resetpasswordview
+ participant "AuthService" as Authservice
+ participant "PasswordGenerator" as Passwordgenerator
+ database "Base de Datos" as BaseDeDatos
 
- A -> FE: Click "Resetear contrasena"
- FE -> FE: Modal de confirmacion
- A -> FE: Confirmar
- FE -> RV: POST /api/users/{id}/reset-password/
+ Admin -> Frontend: Click "Resetear contrasena"
+ Frontend -> Frontend: Modal de confirmacion
+ Admin -> Frontend: Confirmar
+ Frontend -> Resetpasswordview: POST /api/users/{id}/reset-password/
 
- RV -> RV: Validar JWT (CNST-009)
- RV -> RV: Verificar funcion\nreset_password (AGR-006)
+ Resetpasswordview -> Resetpasswordview: Validar JWT (CNST-009)
+ Resetpasswordview -> Resetpasswordview: Verificar funcion\nreset_password (AGR-006)
  alt Sin permiso
-   RV --> FE: 403 FORBIDDEN
+   Resetpasswordview --> Frontend: 403 FORBIDDEN
  else Con permiso
-   RV -> AS: reset_password(target_id, admin)
+   Resetpasswordview -> Authservice: reset_password(target_id, admin)
 
-   AS -> DB: SELECT User WHERE id=target_id
-   DB --> AS: user
-   AS -> AS: Validar (no auto-reset, no eliminado)
+   Authservice -> BaseDeDatos: SELECT User WHERE id=target_id
+   BaseDeDatos --> Authservice: user
+   Authservice -> Authservice: Validar (no auto-reset, no eliminado)
 
-   AS -> PG: generate(length=12)
-   PG --> AS: temp_password
-   AS -> AS: generarHash(temp_password)
+   Authservice -> Passwordgenerator: generate(length=12)
+   Passwordgenerator --> Authservice: temp_password
+   Authservice -> Authservice: generarHash(temp_password)
 
    group Transaccion atomica
-     AS -> DB: UPDATE user SET\n  password_hash=?,\n  first_login=true,\n  password_changed_at=NOW()
-     AS -> DB: UPDATE session SET\n  state='CLOSED',\n  close_reason='PASSWORD_RESET'\n  WHERE user_id=? AND state='ACTIVE'
-     AS -> DB: INSERT BlacklistedToken (N tokens)
-     AS -> DB: INSERT InternalMessage\n  (recipient=user, body=temp_pwd)
-     AS -> DB: INSERT AuditEvent\n  (PASSWORD_RESET)
+     Authservice -> BaseDeDatos: UPDATE user SET\n  password_hash=?,\n  first_login=true,\n  password_changed_at=NOW()
+     Authservice -> BaseDeDatos: UPDATE session SET\n  state='CLOSED',\n  close_reason='PASSWORD_RESET'\n  WHERE user_id=? AND state='ACTIVE'
+     Authservice -> BaseDeDatos: INSERT BlacklistedToken (N tokens)
+     Authservice -> BaseDeDatos: INSERT InternalMessage\n  (recipient=user, body=temp_pwd)
+     Authservice -> BaseDeDatos: INSERT AuditEvent\n  (PASSWORD_RESET)
    end
 
-   AS --> RV: success (sin temp_password)
-   RV --> FE: 200 OK
-   FE --> A: "Contrasena reseteada. Notificacion en buzon."
+   Authservice --> Resetpasswordview: success (sin temp_password)
+   Resetpasswordview --> Frontend: 200 OK
+   Frontend --> Admin: "Contrasena reseteada. Notificacion en buzon."
  end
 
  @enduml

@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "assign_functions_to_group" as MGR
+ actor "assign_functions_to_group" as assign_functions_to_group
  actor "Users con AGR" as USERS
- actor "view_audit_log" as AUD
+ actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_06\nComposicion AGR" as UC06
@@ -25,13 +25,13 @@ Parte 8 — Diagramas UML
    usecase "Audit COMPOSITION_CHANGED" as EMI
  }
 
- MGR --> UC06
+ assign_functions_to_group --> UC06
  UC06 ..> VSOD : <<include>>
  UC06 ..> INS : <<include>>
  UC06 ..> DEL : <<include>>
  UC06 ..> EMI : <<include>>
  UC06 ..> USERS : cascade
- EMI --> AUD
+ EMI --> view_audit_log
 
  note bottom of UC06
    Cambios en composicion afectan
@@ -162,39 +162,39 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "CompositionView" as CV
- participant "PermService" as PS
- participant "SoDValidator" as SV
- participant "PermCache" as PC
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "CompositionView" as Compositionview
+ participant "PermService" as Permservice
+ participant "SoDValidator" as Sodvalidator
+ participant "PermCache" as Permcache
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Define add + remove + reason
- FE -> CV: POST .../functions/
+ Invoker -> Frontend: Define add + remove + reason
+ Frontend -> Compositionview: POST .../functions/
 
- CV -> CV: JWT + RBAC + payload
- CV -> PS: change_composition
+ Compositionview -> Compositionview: JWT + RBAC + payload
+ Compositionview -> Permservice: change_composition
 
- PS -> DB: SELECT AGR + functions actuales
- PS -> PS: filtrar idempotencia
- PS -> DB: Users con AGR + sus effective sets
- PS -> SV: cascade_validate
+ Permservice -> Repo: SELECT AGR + functions actuales
+ Permservice -> Permservice: filtrar idempotencia
+ Permservice -> Repo: Users con AGR + sus effective sets
+ Permservice -> Sodvalidator: cascade_validate
  alt cascade SoD violation strict
-   SV --> PS: violations
-   PS -> AL: emit COMPOSITION_FAILED
-   PS --> CV: SoDViolation
-   CV --> FE: 409
+   Sodvalidator --> Permservice: violations
+   Permservice -> Auditlog: emit COMPOSITION_FAILED
+   Permservice --> Compositionview: SoDViolation
+   Compositionview --> Frontend: 409
  else OK
    group Transaccion atomica
-     PS -> DB: INSERT AccessGroupFunction
-     PS -> DB: DELETE AccessGroupFunction
-     PS -> AL: emit COMPOSITION_CHANGED
+     Permservice -> Repo: INSERT AccessGroupFunction
+     Permservice -> Repo: DELETE AccessGroupFunction
+     Permservice -> Auditlog: emit COMPOSITION_CHANGED
    end
-   PS -> PC: invalidate users_with_agr
-   PS --> CV: result
-   CV --> FE: 200 OK
+   Permservice -> Permcache: invalidate users_with_agr
+   Permservice --> Compositionview: result
+   Compositionview --> Frontend: 200 OK
  end
 
  @enduml

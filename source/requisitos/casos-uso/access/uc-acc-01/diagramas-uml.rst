@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "assign_functions" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_01\nAsignar Funciones" as UC01
@@ -41,8 +41,8 @@ Parte 8 — Diagramas UML
  UC01 ..> NOT : <<extend>>
  UC01 ..> EMI : <<include>>
  NOT --> TARGET
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of VSOD
    BR-007 + CNST-005:
@@ -64,62 +64,62 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "AssignFunctionsView" as AV
- participant "AccessService" as AS
- participant "SoDValidator" as SV
- participant "PermissionCache" as PC
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "AssignFunctionsView" as Assignfunctionsview
+ participant "AccessService" as Accessservice
+ participant "SoDValidator" as Sodvalidator
+ participant "PermissionCache" as Permissioncache
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Selecciona funciones + expires_at
- FE -> AV: POST /api/users/{id}/functions/
+ I -> Frontend: Selecciona funciones + expires_at
+ Frontend -> Assignfunctionsview: POST /api/users/{id}/functions/
 
- AV -> AV: Validar JWT (CNST-009)
- AV -> AV: Verificar assign_functions
+ Assignfunctionsview -> Assignfunctionsview: Validar JWT (CNST-009)
+ Assignfunctionsview -> Assignfunctionsview: Verificar assign_functions
  alt Sin la funcion
-   AV --> FE: 403 FORBIDDEN
-   AV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Assignfunctionsview --> Frontend: 403 FORBIDDEN
+   Assignfunctionsview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con la funcion
-   AV -> AS: assign(target_id, function_ids,\n  expires_at, invoker)
+   Assignfunctionsview -> Accessservice: assign(target_id, function_ids,\n  expires_at, invoker)
 
-   AS -> DB: SELECT User FOR UPDATE
+   Accessservice -> Repo: SELECT User FOR UPDATE
    alt User no existe / estado invalido
-     AS --> AV: error
-     AV --> FE: 404 / 400
+     Accessservice --> Assignfunctionsview: error
+     Assignfunctionsview --> Frontend: 404 / 400
    else User valido
-     AS -> AS: validar P-11 (no self-assign)
+     Accessservice -> Accessservice: validar P-11 (no self-assign)
 
-     AS -> DB: SELECT Function WHERE id IN (...)
+     Accessservice -> Repo: SELECT Function WHERE id IN (...)
      alt Alguna no existe / inactiva
-       AS --> AV: error
-       AV --> FE: 400
+       Accessservice --> Assignfunctionsview: error
+       Assignfunctionsview --> Frontend: 400
      else Funciones validas
-       AS -> DB: SELECT Assignment activos del User
-       AS -> AS: separar new_ids vs already_ids
+       Accessservice -> Repo: SELECT Assignment activos del User
+       Accessservice -> Accessservice: separar new_ids vs already_ids
        alt new_ids vacio (FA-01)
-         AS -> AL: emit FUNCTIONS_ASSIGN_NOOP
-         AV --> FE: 200 OK informativo
+         Accessservice -> Auditlog: emit FUNCTIONS_ASSIGN_NOOP
+         Assignfunctionsview --> Frontend: 200 OK informativo
        else hay funciones nuevas
-         AS -> SV: validate(target,\n  current_functions ∪ new_function_ids)
-         SV -> DB: SELECT SoDRule WHERE state='ACTIVE'
+         Accessservice -> Sodvalidator: validate(target,\n  current_functions ∪ new_function_ids)
+         Sodvalidator -> Repo: SELECT SoDRule WHERE state='ACTIVE'
          alt SoD viola
-           SV --> AS: SoDViolation(rule_id, pair)
-           AS -> AL: emit FUNCTIONS_ASSIGN_FAILED\n  {reason:'sod_violation'}
-           AV --> FE: 409 SOD_VIOLATION
+           Sodvalidator --> Accessservice: SoDViolation(rule_id, pair)
+           Accessservice -> Auditlog: emit FUNCTIONS_ASSIGN_FAILED\n  {reason:'sod_violation'}
+           Assignfunctionsview --> Frontend: 409 SOD_VIOLATION
          else SoD OK
            group Transaccion atomica
-             AS -> DB: INSERT Assignment (N filas)
-             AS -> AL: emit FUNCTIONS_ASSIGNED
+             Accessservice -> Repo: INSERT Assignment (N filas)
+             Accessservice -> Auditlog: emit FUNCTIONS_ASSIGNED
              opt notify activo
-               AS -> DB: INSERT InternalMessage
+               Accessservice -> Repo: INSERT InternalMessage
              end
            end
-           AS -> PC: invalidate(target.id)\n  (post-COMMIT)
-           AS --> AV: result
-           AV --> FE: 201 Created
-           FE --> I: Toast con resumen
+           Accessservice -> Permissioncache: invalidate(target.id)\n  (post-COMMIT)
+           Accessservice --> Assignfunctionsview: result
+           Assignfunctionsview --> Frontend: 201 Created
+           Frontend --> I: Toast con resumen
          end
        end
      end

@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_own_call_history" as A
+ actor "view_own_call_history" as view_own_call_history
  rectangle "MOD_Operator" {
    usecase "UC_OPR_09\nMy History" as UC
  }
- A --> UC
+ view_own_call_history --> UC
  @enduml
 
 8.2 Actividad
@@ -41,11 +41,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Endpoint" as E
- component "CallSessionRepo" as R
- component "Sanitizer" as S
- E --> R
- E --> S
+ component "Endpoint" as Endpoint
+ component "CallSessionRepo" as Callsessionrepo
+ component "Sanitizer" as Sanitizer
+ Endpoint --> Callsessionrepo
+ Endpoint --> Sanitizer
  @enduml
 
 8.4 Secuencia
@@ -54,11 +54,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_own_call_history" as A
- participant "Endpoint" as E
- database "Calls" as R
- A -> E: GET /me/calls
- E -> R: query own
- R --> E: rows
- E --> A: 200
+ actor "view_own_call_history" as view_own_call_history
+ participant "Endpoint" as Endpoint
+ database "Calls" as Calls
+ view_own_call_history -> Endpoint: GET /me/calls
+ Endpoint -> Calls: query own
+ Calls --> Endpoint: rows
+ Endpoint --> view_own_call_history: 200
  @enduml

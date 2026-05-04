@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "search_logs" as USR
+ actor "search_logs" as search_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_03\nBuscar Logs" as UC03
  }
- USR --> UC03
+ search_logs --> UC03
  @enduml
 
 8.2 Actividad

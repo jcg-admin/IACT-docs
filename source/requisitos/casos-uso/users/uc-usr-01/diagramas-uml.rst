@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "create_users" as ADMIN
  actor "Nuevo User" as USER <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Users" {
    usecase "UC_USR_01\nCrear Usuario" as UC01
@@ -35,8 +35,8 @@ Parte 8 — Diagramas UML
  UC01 ..> NOT : <<include>>
  UC01 ..> EMI : <<include>>
  NOT --> USER : InternalMessage
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of NOT
    CNST-001 prohibe email/SMTP
@@ -53,48 +53,48 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Admin as A
- participant "Frontend" as FE
- participant "CreateUserView" as CV
- participant "UserService" as US
- participant "UsernameGenerator" as UG
- participant "PasswordGenerator" as PG
- database "Base de Datos" as DB
+ actor Admin as Admin
+ participant "Frontend" as Frontend
+ participant "CreateUserView" as Createuserview
+ participant "UserService" as Userservice
+ participant "UsernameGenerator" as Usernamegenerator
+ participant "PasswordGenerator" as Passwordgenerator
+ database "Base de Datos" as BaseDeDatos
 
- A -> FE: Form (first, last, email, agr_id?)
- FE -> CV: POST /api/users/
+ Admin -> Frontend: Form (first, last, email, agr_id?)
+ Frontend -> Createuserview: POST /api/users/
 
- CV -> CV: Validar JWT (CNST-009)
- CV -> CV: Verificar create_users (AGR-006)
+ Createuserview -> Createuserview: Validar JWT (CNST-009)
+ Createuserview -> Createuserview: Verificar create_users (AGR-006)
  alt Sin permiso
-   CV --> FE: 403 FORBIDDEN
+   Createuserview --> Frontend: 403 FORBIDDEN
  else
-   CV -> US: create_user(data, admin)
+   Createuserview -> Userservice: create_user(data, admin)
 
-   US -> DB: SELECT email
+   Userservice -> BaseDeDatos: SELECT email
    alt Email existe
-     US --> CV: EmailExists
-     CV --> FE: 409 EMAIL_EXISTS
+     Userservice --> Createuserview: EmailExists
+     Createuserview --> Frontend: 409 EMAIL_EXISTS
    else No existe
-     US -> UG: generate(first, last)
-     UG -> DB: SELECT COUNT username LIKE base%
-     UG --> US: ana.gomez.0001
-     US -> PG: generate(length=12)
-     PG --> US: temp_password
-     US -> US: generarHash(temp)
+     Userservice -> Usernamegenerator: generate(first, last)
+     Usernamegenerator -> BaseDeDatos: SELECT COUNT username LIKE base%
+     Usernamegenerator --> Userservice: ana.gomez.0001
+     Userservice -> Passwordgenerator: generate(length=12)
+     Passwordgenerator --> Userservice: temp_password
+     Userservice -> Userservice: generarHash(temp)
 
      group Transaccion atomica
-       US -> DB: INSERT User\n  (username, email, password_hash,\n   first_login=true, ...)
+       Userservice -> BaseDeDatos: INSERT User\n  (username, email, password_hash,\n   first_login=true, ...)
        opt access_group_id provided
-         US -> DB: INSERT Assignment\n  (user, agr, granted_by=admin)
+         Userservice -> BaseDeDatos: INSERT Assignment\n  (user, agr, granted_by=admin)
        end
-       US -> DB: INSERT InternalMessage\n  (recipient=user, body=temp_password)
-       US -> DB: INSERT AuditEvent\n  USER_CREATED
+       Userservice -> BaseDeDatos: INSERT InternalMessage\n  (recipient=user, body=temp_password)
+       Userservice -> BaseDeDatos: INSERT AuditEvent\n  USER_CREATED
      end
 
-     US --> CV: {user_id, username}
-     CV --> FE: 201 Created (sin password)
-     FE --> A: Toast "Creado: ana.gomez.0001"
+     Userservice --> Createuserview: {user_id, username}
+     Createuserview --> Frontend: 201 Created (sin password)
+     Frontend --> Admin: Toast "Creado: ana.gomez.0001"
    end
  end
 

@@ -14,8 +14,8 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "write_audit_event" as CALLER
- actor "AlertEngine" as AE
- actor "AuditTable\n(append-only)" as DB
+ actor "AlertEngine" as Alertengine
+ actor "AuditTable\n(append-only)" as Audittable
 
  rectangle "MOD_Permissions / Audit" {
    usecase "UC_PERM_09\nAuditar Acceso" as UC09
@@ -30,8 +30,8 @@ Parte 8 — Diagramas UML
  UC09 ..> SAN : <<include>>
  UC09 ..> INS : <<include>>
  UC09 ..> ALT : <<extend>>
- INS --> DB
- ALT --> AE
+ INS --> Audittable
+ ALT --> Alertengine
 
  note bottom of UC09
    P-09 audit-or-abort:
@@ -141,26 +141,26 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- participant "Caller UC" as C
- participant "TxManager" as TM
- participant "AuditService" as AS
- participant "AuditRepo" as AR
- participant "AlertHook" as AH
+ participant "Caller UC" as CallerUc
+ participant "TxManager" as Txmanager
+ participant "AuditService" as Auditservice
+ participant "AuditRepo" as Auditrepo
+ participant "AlertHook" as Alerthook
 
- C -> TM: BEGIN
- TM --> C: tx
- C -> AS: emit(event, ctx)
- AS -> AS: validate + PII scan + sanitize
- AS -> AR: INSERT (in tx)
- AR --> AS: id
- AS --> C: id
- C -> TM: COMMIT
- TM --> C: ok
- TM -> AH: on_commit(event)
- AH -> AH: push to AlertEngine
+ CallerUc -> Txmanager: BEGIN
+ Txmanager --> CallerUc: tx
+ CallerUc -> Auditservice: emit(event, ctx)
+ Auditservice -> Auditservice: validate + PII scan + sanitize
+ Auditservice -> Auditrepo: INSERT (in tx)
+ Auditrepo --> Auditservice: id
+ Auditservice --> CallerUc: id
+ CallerUc -> Txmanager: COMMIT
+ Txmanager --> CallerUc: ok
+ Txmanager -> Alerthook: on_commit(event)
+ Alerthook -> Alerthook: push to AlertEngine
 
- note over C, AR
-   Si AS o AR fallan, C hace ROLLBACK.
+ note over CallerUc, Auditrepo
+   Si Auditservice o Auditrepo fallan, CallerUc hace ROLLBACK.
    La operacion principal no avanza.
  end note
 

@@ -11,14 +11,14 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Caller" as C
- actor "CallRouter" as R
+ actor "Caller" as Caller
+ actor "CallRouter" as Callrouter
  rectangle "MOD_Caller" {
    usecase "UC_CLI_03\nEsperar cola" as UC
    usecase "UC_CLI_04\nCallback" as CB
  }
- C --> UC
- UC --> R
+ Caller --> UC
+ UC --> Callrouter
  UC ..> CB : <<extend>>
  @enduml
 
@@ -65,14 +65,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Caller" as C
- participant "Queue" as Q
- participant "Router" as R
- actor "answer_inbound_calls" as A
- C -> Q: enter
- Q -> R: notify
- R -> A: offer
- A -> R: answer
- R -> Q: dequeue
- Q -> C: bridge
+ actor "Caller" as Caller
+ participant "Queue" as Queue
+ participant "Router" as Router
+ actor "answer_inbound_calls" as answer_inbound_calls
+ Caller -> Queue: enter
+ Queue -> Router: notify
+ Router -> answer_inbound_calls: offer
+ answer_inbound_calls -> Router: answer
+ Router -> Queue: dequeue
+ Queue -> Caller: bridge
  @enduml

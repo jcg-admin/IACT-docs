@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_etl_logs" as USR
+ actor "view_etl_logs" as view_etl_logs
  rectangle "MOD_Logs" {
    usecase "UC_LOG_02\nLogs ETL" as UC02
    usecase "Filtrar\npor trimestre" as FT
    usecase "Filtrar\npor estado" as FE
  }
- USR --> UC02
+ view_etl_logs --> UC02
  UC02 ..> FT : <<extend>>
  UC02 ..> FE : <<extend>>
  @enduml
@@ -45,16 +45,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "ETLScheduler\n(sp_etl_maestro)" as ETL
- database "etl_runs\n(MariaDB)" as DB
- component "LogEndpoint\n(/logs/etl/)" as EP
- actor "view_etl_logs" as U
+ component "ETLScheduler\n(sp_etl_maestro)" as Etlscheduler
+ database "etl_runs\n(MariaDB)" as etl_runs
+ component "LogEndpoint\n(/logs/etl/)" as Logendpoint
+ actor "view_etl_logs" as view_etl_logs
 
- ETL --> DB : INSERT ejecucion
- U --> EP : GET filtros
- EP --> DB : SELECT etl_runs
- DB --> EP : filas
- EP --> U : 200 JSON
+ Etlscheduler --> etl_runs : INSERT ejecucion
+ view_etl_logs --> Logendpoint : GET filtros
+ Logendpoint --> etl_runs : SELECT etl_runs
+ etl_runs --> Logendpoint : filas
+ Logendpoint --> view_etl_logs : 200 JSON
  @enduml
 
 8.4 Secuencia de consulta ETL log
@@ -63,17 +63,17 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_etl_logs" as U
- participant "ETLLogEndpoint" as E
- database "etl_runs\n(MariaDB)" as DB
+ actor "view_etl_logs" as view_etl_logs
+ participant "ETLLogEndpoint" as Etllogendpoint
+ database "etl_runs\n(MariaDB)" as etl_runs
 
- U -> E : GET /logs/etl/?trimestre=Q1
- E -> E : JWT + RBAC (view_etl_logs)
+ view_etl_logs -> Etllogendpoint : GET /logs/etl/?trimestre=Q1
+ Etllogendpoint -> Etllogendpoint : JWT + RBAC (view_etl_logs)
  alt sin permiso
-   E --> U : 403 Forbidden
+   Etllogendpoint --> view_etl_logs : 403 Forbidden
  else con permiso
-   E -> DB : SELECT * FROM etl_runs WHERE trimestre=Q1
-   DB --> E : filas
-   E --> U : 200 + lista ejecuciones ETL
+   Etllogendpoint -> etl_runs : SELECT * FROM etl_runs WHERE trimestre=Q1
+   etl_runs --> Etllogendpoint : filas
+   Etllogendpoint --> view_etl_logs : 200 + lista ejecuciones ETL
  end
  @enduml

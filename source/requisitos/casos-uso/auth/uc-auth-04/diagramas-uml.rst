@@ -15,8 +15,8 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "User\nautenticado" as USER
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_04\nCambiar Contrasena" as UC04
@@ -33,8 +33,8 @@ Parte 8 — Diagramas UML
  UC04 ..> HIST : <<include>>
  UC04 ..> CSE : <<include>>
  UC04 ..> EMI : <<include>>
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of HIST
    N=5 ultimas hashes (BR-AUTH-32)
@@ -50,52 +50,52 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor User as U
- participant "Frontend" as FE
- participant "ChangePasswordView" as CV
- participant "AuthService" as AS
- participant "PolicyValidator" as PV
- database "Base de Datos" as DB
+ actor User as User
+ participant "Frontend" as Frontend
+ participant "ChangePasswordView" as Changepasswordview
+ participant "AuthService" as Authservice
+ participant "PolicyValidator" as Policyvalidator
+ database "Base de Datos" as BaseDeDatos
 
- U -> FE: Form (current, new, confirm)
- FE -> FE: Client-side basic validation
- FE -> CV: POST /api/auth/change-password/
- CV -> CV: Validar JWT (CNST-009)
- CV -> AS: change_password(user, current, new)
+ Usuario -> Frontend: Form (current, new, confirm)
+ Frontend -> Frontend: Client-side basic validation
+ Frontend -> Changepasswordview: POST /api/auth/change-password/
+ Changepasswordview -> Changepasswordview: Validar JWT (CNST-009)
+ Changepasswordview -> Authservice: change_password(user, current, new)
 
- AS -> DB: SELECT User FOR UPDATE
- DB --> AS: user
- AS -> AS: bcrypt.checkpw(current, user.hash)
+ Authservice -> BaseDeDatos: SELECT User FOR UPDATE
+ BaseDeDatos --> Authservice: user
+ Authservice -> Authservice: bcrypt.checkpw(current, user.hash)
  alt Password actual incorrecto
-   AS --> CV: WrongCurrentPassword
-   CV --> FE: 400 WRONG_CURRENT_PASSWORD
+   Authservice --> Changepasswordview: WrongCurrentPassword
+   Changepasswordview --> Frontend: 400 WRONG_CURRENT_PASSWORD
  else OK
-   AS -> PV: validate(new)
+   Authservice -> Policyvalidator: validate(new)
    alt Falla politica
-     PV --> AS: violations
-     AS --> CV: WeakPassword
-     CV --> FE: 400 WEAK_PASSWORD
+     Policyvalidator --> Authservice: violations
+     Authservice --> Changepasswordview: WeakPassword
+     Changepasswordview --> Frontend: 400 WEAK_PASSWORD
    else OK
-     AS -> DB: SELECT history WHERE user=?\n  ORDER BY changed_at DESC LIMIT 5
-     DB --> AS: hashes[5]
-     AS -> AS: for h in hashes:\n  if bcrypt.checkpw(new, h): reused
+     Authservice -> BaseDeDatos: SELECT history WHERE user=?\n  ORDER BY changed_at DESC LIMIT 5
+     BaseDeDatos --> Authservice: hashes[5]
+     Authservice -> Authservice: for h in hashes:\n  if bcrypt.checkpw(new, h): reused
      alt Reuso
-       AS --> CV: PasswordReused
-       CV --> FE: 400 PASSWORD_REUSED
+       Authservice --> Changepasswordview: PasswordReused
+       Changepasswordview --> Frontend: 400 PASSWORD_REUSED
      else OK
-       AS -> AS: generarHash(new)
+       Authservice -> Authservice: generarHash(new)
 
        group Transaccion atomica
-         AS -> DB: UPDATE user (hash, first_login=false,\n  password_changed_at=NOW())
-         AS -> DB: INSERT password_history
-         AS -> DB: UPDATE other sessions (CLOSED)
-         AS -> DB: INSERT BlacklistedToken
-         AS -> DB: INSERT AuditEvent PASSWORD_CHANGED
+         Authservice -> BaseDeDatos: UPDATE user (hash, first_login=false,\n  password_changed_at=NOW())
+         Authservice -> BaseDeDatos: INSERT password_history
+         Authservice -> BaseDeDatos: UPDATE other sessions (CLOSED)
+         Authservice -> BaseDeDatos: INSERT BlacklistedToken
+         Authservice -> BaseDeDatos: INSERT AuditEvent PASSWORD_CHANGED
        end
 
-       AS --> CV: success
-       CV --> FE: 200 OK
-       FE --> U: "Contrasena actualizada"
+       Authservice --> Changepasswordview: success
+       Changepasswordview --> Frontend: 200 OK
+       Frontend --> Usuario: "Contrasena actualizada"
      end
    end
  end

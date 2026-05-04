@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "update_users" as ADMIN
  actor "User modificado" as USER <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Users" {
    usecase "UC_USR_03\nModificar Usuario" as UC03
@@ -37,8 +37,8 @@ Parte 8 — Diagramas UML
  UC03 ..> NOT : <<extend (politica)>>
  UC03 ..> EMI : <<include>>
  NOT --> USER
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of TS
    P-11 anti-self-state-change
@@ -57,60 +57,60 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Admin as A
- participant "Frontend" as FE
- participant "ModifyUserView" as MV
- participant "UserService" as US
- participant "SessionService" as SS
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Admin as Admin
+ participant "Frontend" as Frontend
+ participant "ModifyUserView" as Modifyuserview
+ participant "UserService" as Userservice
+ participant "SessionService" as Sessionservice
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- A -> FE: Edita campos del User
- FE -> MV: PATCH /api/users/{id}/
+ Admin -> Frontend: Edita campos del User
+ Frontend -> Modifyuserview: PATCH /api/users/{id}/
 
- MV -> MV: Validar JWT (CNST-009)
- MV -> MV: Verificar modify_users (AGR-006)
+ Modifyuserview -> Modifyuserview: Validar JWT (CNST-009)
+ Modifyuserview -> Modifyuserview: Verificar modify_users (AGR-006)
  alt Sin permiso
-   MV --> FE: 403 FORBIDDEN
-   MV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Modifyuserview --> Frontend: 403 FORBIDDEN
+   Modifyuserview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   MV -> US: modify_user(id, patch, admin)
+   Modifyuserview -> Userservice: modify_user(id, patch, admin)
 
-   US -> DB: SELECT User FOR UPDATE WHERE id=?
+   Userservice -> Repo: SELECT User FOR UPDATE WHERE id=?
    alt User no existe
-     US --> MV: UserNotFound
-     MV --> FE: 404
+     Userservice --> Modifyuserview: UserNotFound
+     Modifyuserview --> Frontend: 404
    else User existe
-     US -> US: validar transicion de state
+     Userservice -> Userservice: validar transicion de state
      alt user_id == admin.id y patch.state
-       US --> MV: SelfStateChange
-       MV --> FE: 400 SELF_STATE_CHANGE_FORBIDDEN
+       Userservice --> Modifyuserview: SelfStateChange
+       Modifyuserview --> Frontend: 400 SELF_STATE_CHANGE_FORBIDDEN
      else OK
        opt patch.email cambia
-         US -> DB: SELECT email
+         Userservice -> Repo: SELECT email
          alt email duplicado
-           US --> MV: EmailExists
-           MV --> FE: 409 EMAIL_EXISTS
+           Userservice --> Modifyuserview: EmailExists
+           Modifyuserview --> Frontend: 409 EMAIL_EXISTS
          end
        end
 
        group Transaccion atomica
-         US -> DB: UPDATE User SET (campos),\n  last_modified_at=NOW(),\n  last_modified_by_admin_id=admin.id
+         Userservice -> Repo: UPDATE User SET (campos),\n  last_modified_at=NOW(),\n  last_modified_by_admin_id=admin.id
          opt state -> BLOCKED
-           US -> SS: close_all_active_for_user(user)
-           SS -> DB: UPDATE Session\n  state='CLOSED',\n  close_reason='ADMIN_BLOCKED'
-           SS -> DB: INSERT BlacklistedToken (N)
-           SS --> US: closed_count
+           Userservice -> Sessionservice: close_all_active_for_user(user)
+           Sessionservice -> Repo: UPDATE Session\n  state='CLOSED',\n  close_reason='ADMIN_BLOCKED'
+           Sessionservice -> Repo: INSERT BlacklistedToken (N)
+           Sessionservice --> Userservice: closed_count
          end
          opt state cambio Y notify activo
-           US -> DB: INSERT InternalMessage
+           Userservice -> Repo: INSERT InternalMessage
          end
-         US -> AL: emit USER_MODIFIED\n  {fields_changed,\n   state_transition?,\n   sessions_closed_count}
+         Userservice -> Auditlog: emit USER_MODIFIED\n  {fields_changed,\n   state_transition?,\n   sessions_closed_count}
        end
 
-       US --> MV: result
-       MV --> FE: 200 OK con fields_changed
-       FE --> A: Toast con resumen
+       Userservice --> Modifyuserview: result
+       Modifyuserview --> Frontend: 200 OK con fields_changed
+       Frontend --> Admin: Toast con resumen
      end
    end
  end

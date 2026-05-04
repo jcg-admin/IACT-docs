@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "create_function_group" as MGR
- actor "view_audit_log" as AUD
+ actor "create_function_group" as create_function_group
+ actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_05\nCreate AGR" as UCCRE
@@ -23,13 +23,13 @@ Parte 8 — Diagramas UML
    usecase "AuditEvent" as EMI
  }
 
- MGR --> UCCRE
- MGR --> UCMOD
- MGR --> UCRET
+ create_function_group --> UCCRE
+ create_function_group --> UCMOD
+ create_function_group --> UCRET
  UCCRE ..> EMI : <<include>>
  UCMOD ..> EMI : <<include>>
  UCRET ..> EMI : <<include>>
- EMI --> AUD
+ EMI --> view_audit_log
 
  @enduml
 

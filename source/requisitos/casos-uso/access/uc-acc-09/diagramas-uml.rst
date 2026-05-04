@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "view_audit_log" as INVOKER
- actor "Sistema" as SYS
+ actor "Sistema" as Sistema
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_09\nAuditar Cambios" as UC09
@@ -30,7 +30,7 @@ Parte 8 — Diagramas UML
  UC09 ..> AGG : <<extend>>
  LST ..> AUDS : <<extend (filter\ntarget_user_id)>>
  DET ..> AUDS : <<include>>
- SYS --> AUDS
+ Sistema --> AUDS
 
  note bottom of UC09
    Subset de UC_AUD_*
@@ -48,33 +48,33 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "AccessAuditView" as AV
- participant "AuditEventRepo" as AR
- participant "AuditLog" as AL
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "AccessAuditView" as Accessauditview
+ participant "AuditEventRepo" as Auditeventrepo
+ participant "AuditLog" as Auditlog
 
- I -> FE: Aplicar filtros
- FE -> AV: GET /api/access/audit/?...
+ I -> Frontend: Aplicar filtros
+ Frontend -> Accessauditview: GET /api/access/audit/?...
 
- AV -> AV: Validar JWT (CNST-009)
- AV -> AV: Verificar view_audit_log
+ Accessauditview -> Accessauditview: Validar JWT (CNST-009)
+ Accessauditview -> Accessauditview: Verificar view_audit_log
  alt Sin permiso
-   AV --> FE: 403
-   AV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Accessauditview --> Frontend: 403
+   Accessauditview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   AV -> AV: Validar filtros (whitelist P-20)
+   Accessauditview -> Accessauditview: Validar filtros (whitelist P-20)
    alt Filtros invalidos
-     AV --> FE: 400 BAD_FILTER
+     Accessauditview --> Frontend: 400 BAD_FILTER
    else Validos
-     AV -> AR: list_paginated(\n  event_type__in=ACCESS_EVENT_TYPES,\n  filters, ordering, page)
-     AR --> AV: results
-     AV -> AV: aplicar mascarado PII\n(CNST-026)
+     Accessauditview -> Auditeventrepo: list_paginated(\n  event_type__in=ACCESS_EVENT_TYPES,\n  filters, ordering, page)
+     Auditeventrepo --> Accessauditview: results
+     Accessauditview -> Accessauditview: aplicar mascarado PII\n(CNST-026)
      opt filter target_user_id presente
-       AV -> AL: emit\n  ACCESS_AUDIT_VIEWED
+       Accessauditview -> Auditlog: emit\n  ACCESS_AUDIT_VIEWED
      end
-     AV --> FE: 200 OK
-     FE --> I: Tabla
+     Accessauditview --> Frontend: 200 OK
+     Frontend --> I: Tabla
    end
  end
 

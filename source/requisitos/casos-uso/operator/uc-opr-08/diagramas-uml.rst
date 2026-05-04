@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_own_performance_dashboard" as A
+ actor "view_own_performance_dashboard" as view_own_performance_dashboard
  rectangle "MOD_Operator" {
    usecase "UC_OPR_08\nMy Dashboard" as UC
  }
- A --> UC
+ view_own_performance_dashboard --> UC
  @enduml
 
 8.2 Actividad
@@ -41,13 +41,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Endpoint" as E
- component "Cache" as C
- component "AgentDailyStatRepo" as R
- component "RankingService" as RS
- E --> C
- E --> R
- E --> RS
+ component "Endpoint" as Endpoint
+ component "Cache" as Cache
+ component "AgentDailyStatRepo" as Agentdailystatrepo
+ component "RankingService" as Rankingservice
+ Endpoint --> Cache
+ Endpoint --> Agentdailystatrepo
+ Endpoint --> Rankingservice
  @enduml
 
 8.4 Secuencia
@@ -56,11 +56,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_own_performance_dashboard" as A
- participant "Endpoint" as E
- database "Stats" as S
- A -> E: GET dashboard
- E -> S: query own
- S --> E: rows
- E --> A: 200 + KPIs
+ actor "view_own_performance_dashboard" as view_own_performance_dashboard
+ participant "Endpoint" as Endpoint
+ database "Stats" as Stats
+ view_own_performance_dashboard -> Endpoint: GET dashboard
+ Endpoint -> Stats: query own
+ Stats --> Endpoint: rows
+ Endpoint --> view_own_performance_dashboard: 200 + KPIs
  @enduml

@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_pipeline_status" as USR
+ actor "view_pipeline_status" as view_pipeline_status
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nSupervisar ETL" as UC01
    usecase "Ver errores ETL" as DR
  }
- USR --> UC01
+ view_pipeline_status --> UC01
  UC01 ..> DR : <<extend>>
  @enduml
 

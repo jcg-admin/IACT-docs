@@ -30,18 +30,18 @@ los sub-pasos viven en el diagrama de secuencia
 
  left to right direction
 
- actor "User"                   as U
- actor "Sistema"                 as S <<system>>
- actor "view_audit_log"                 as A <<system>>
+ actor "User"                   as User
+ actor "Sistema"                 as Sistema <<system>>
+ actor "view_audit_log"                 as view_audit_log <<system>>
 
  rectangle "IACT — MOD_Auth" {
    usecase "UC_AUTH_01\nIniciar Sesion" as UC01
    usecase "UC_AUTH_04\nCambiar\nContrasena"  as UC04
  }
 
- U  --> UC01 : presenta\ncredenciales
- UC01 --> S  : valida + emite\ntokens + Session
- UC01 --> A  : registra\nAuditEvent LOGIN
+ User  --> UC01 : presenta\ncredenciales
+ UC01 --> Sistema  : valida + emite\ntokens + Session
+ UC01 --> view_audit_log  : registra\nAuditEvent LOGIN
 
  UC04 ..> UC01 : <<extend>>\n[primer login\no expirado]
 
@@ -65,59 +65,59 @@ participantes principales del backend.
 
  @startuml
 
- actor       Usuario as U
- participant "Interfaz de Usuario" as F
- participant "Servicio de Autenticacion" as V
- participant "AuthService" as Svc
- database    "Base de Datos\n(User, Session,\nAuditEvent)" as BD
+ actor       Usuario as Usuario
+ participant "Interfaz de Usuario" as InterfazDeUsuario
+ participant "Servicio de Autenticacion" as ServicioDeAutenticacion
+ participant "AuthService" as Authservice
+ database    "Base de Datos\n(User, Session,\nAuditEvent)" as BaseDeDatos
 
- U -> F : POST /login\n{username, password}
- activate F
+ Usuario -> InterfazDeUsuario : POST /login\n{username, password}
+ activate InterfazDeUsuario
 
- F -> V : POST /api/auth/login/
- activate V
+ InterfazDeUsuario -> ServicioDeAutenticacion : POST /api/auth/login/
+ activate ServicioDeAutenticacion
 
- V -> V : Serializer.validate()\n(CNST-012)
- V -> V : throttle_check()\n(CNST-011)
+ ServicioDeAutenticacion -> ServicioDeAutenticacion : Serializer.validate()\n(CNST-012)
+ ServicioDeAutenticacion -> ServicioDeAutenticacion : throttle_check()\n(CNST-011)
 
- V -> BD : SELECT User WHERE\nusername = ?
- BD --> V : User
+ ServicioDeAutenticacion -> BaseDeDatos : SELECT User WHERE\nusername = ?
+ BaseDeDatos --> ServicioDeAutenticacion : User
 
  alt User no existe
-   V --> F : 401 INVALID_CREDENTIALS
-   V -> BD : INSERT AuditEvent\nLOGIN_FAILED
+   ServicioDeAutenticacion --> InterfazDeUsuario : 401 INVALID_CREDENTIALS
+   ServicioDeAutenticacion -> BaseDeDatos : INSERT AuditEvent\nLOGIN_FAILED
  else User existe
-   V -> Svc : authenticate(user, password)
-   activate Svc
-   Svc -> Svc : verificarHash()
+   ServicioDeAutenticacion -> Authservice : authenticate(user, password)
+   activate Authservice
+   Authservice -> Authservice : verificarHash()
    alt password incorrecto
-     Svc --> V : invalid
-     V --> F : 401 INVALID_CREDENTIALS
-     V -> BD : INSERT AuditEvent\nLOGIN_FAILED
+     Authservice --> ServicioDeAutenticacion : invalid
+     ServicioDeAutenticacion --> InterfazDeUsuario : 401 INVALID_CREDENTIALS
+     ServicioDeAutenticacion -> BaseDeDatos : INSERT AuditEvent\nLOGIN_FAILED
    else password correcto
-     Svc --> V : valid
-     deactivate Svc
+     Authservice --> ServicioDeAutenticacion : valid
+     deactivate Authservice
 
-     V -> BD : BEGIN TRANSACTION
-     V -> BD : UPDATE Session\nSET state='CLOSED'\nWHERE user_id=X\nAND state='ACTIVE'
-     V -> BD : INSERT AuditEvent\nSESSION_CLOSED (n)
-     V -> BD : INSERT Session\n(state='ACTIVE')
-     V -> BD : INSERT AuditEvent\nLOGIN
-     V -> BD : UPDATE User\nSET last_login_at=NOW()
-     V -> BD : COMMIT
+     ServicioDeAutenticacion -> BaseDeDatos : BEGIN TRANSACTION
+     ServicioDeAutenticacion -> BaseDeDatos : UPDATE Session\nSET state='CLOSED'\nWHERE user_id=X\nAND state='ACTIVE'
+     ServicioDeAutenticacion -> BaseDeDatos : INSERT AuditEvent\nSESSION_CLOSED (n)
+     ServicioDeAutenticacion -> BaseDeDatos : INSERT Session\n(state='ACTIVE')
+     ServicioDeAutenticacion -> BaseDeDatos : INSERT AuditEvent\nLOGIN
+     ServicioDeAutenticacion -> BaseDeDatos : UPDATE User\nSET last_login_at=NOW()
+     ServicioDeAutenticacion -> BaseDeDatos : COMMIT
 
-     V -> V : generate_jwt_tokens()
-     V --> F : 200 OK\n{tokens, user, session}
+     ServicioDeAutenticacion -> ServicioDeAutenticacion : generate_jwt_tokens()
+     ServicioDeAutenticacion --> InterfazDeUsuario : 200 OK\n{tokens, user, session}
    end
  end
- deactivate V
+ deactivate ServicioDeAutenticacion
 
- F -> F : store tokens
- F --> U : redirect to landing
- deactivate F
+ InterfazDeUsuario -> InterfazDeUsuario : store tokens
+ InterfazDeUsuario --> Usuario : redirect to landing
+ deactivate InterfazDeUsuario
 
- note over BD
-   CNST-003: Session persistida en BD
+ note over BaseDeDatos
+   CNST-003: Session persistida en BaseDeDatos
    CNST-004: sesion unica
    CNST-005: expires_at = NOW() + 15 min
    CNST-025: AuditEvent inmutable

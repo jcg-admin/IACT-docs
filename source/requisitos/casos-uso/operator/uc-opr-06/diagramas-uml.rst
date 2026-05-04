@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "enter_call_disposition" as A
+ actor "enter_call_disposition" as enter_call_disposition
  rectangle "MOD_Operator" {
    usecase "UC_OPR_06\nDisposition" as UC
  }
- A --> UC
+ enter_call_disposition --> UC
  @enduml
 
 8.2 Actividad
@@ -60,11 +60,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "enter_call_disposition" as A
- participant "Endpoint" as E
- database "Repo" as R
- A -> E: POST disposition
- E -> R: UPDATE
- E -> E: emit DISPOSITION_SET
- E --> A: 200
+ actor "enter_call_disposition" as enter_call_disposition
+ participant "Endpoint" as Endpoint
+ database "Repo" as Repo
+ enter_call_disposition -> Endpoint: POST disposition
+ Endpoint -> Repo: UPDATE
+ Endpoint -> Endpoint: emit DISPOSITION_SET
+ Endpoint --> enter_call_disposition: 200
  @enduml

@@ -16,8 +16,8 @@ Parte 8 — Diagramas UML
 
  actor "revoke_functions" as INVOKER
  actor "User destino" as TARGET <<receptor>>
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_02\nRevocar Funciones" as UC02
@@ -39,8 +39,8 @@ Parte 8 — Diagramas UML
  UC02 ..> NOT : <<extend>>
  UC02 ..> EMI : <<include>>
  NOT --> TARGET
- SYS --> EMI
- EMI --> AUD
+ Sistema --> EMI
+ EMI --> view_audit_log
 
  note bottom of UPD
    BR-009: soft-delete via state,
@@ -61,59 +61,59 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "RevokeFunctionsView" as RV
- participant "AccessService" as AS
- participant "PermissionCache" as PC
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "RevokeFunctionsView" as Revokefunctionsview
+ participant "AccessService" as Accessservice
+ participant "PermissionCache" as Permissioncache
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Selecciona funciones a revocar
- FE -> FE: Modal robusto + revoke_reason
- I -> FE: Confirmar
- FE -> RV: DELETE /api/users/{id}/functions/
+ I -> Frontend: Selecciona funciones a revocar
+ Frontend -> Frontend: Modal robusto + revoke_reason
+ I -> Frontend: Confirmar
+ Frontend -> Revokefunctionsview: DELETE /api/users/{id}/functions/
 
- RV -> RV: Validar JWT (CNST-009)
- RV -> RV: Verificar revoke_functions
+ Revokefunctionsview -> Revokefunctionsview: Validar JWT (CNST-009)
+ Revokefunctionsview -> Revokefunctionsview: Verificar revoke_functions
  alt Sin la funcion
-   RV --> FE: 403 FORBIDDEN
-   RV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Revokefunctionsview --> Frontend: 403 FORBIDDEN
+   Revokefunctionsview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con la funcion
-   RV -> AS: revoke(target_id, function_ids,\n  reason, invoker)
+   Revokefunctionsview -> Accessservice: revoke(target_id, function_ids,\n  reason, invoker)
 
-   AS -> DB: SELECT User FOR UPDATE
+   Accessservice -> Repo: SELECT User FOR UPDATE
    alt No existe / ELIMINATED
-     AS --> RV: error
-     RV --> FE: 404 / 400
+     Accessservice --> Revokefunctionsview: error
+     Revokefunctionsview --> Frontend: 404 / 400
    else
-     AS -> AS: validar P-11 anti-self-revoke
-     AS -> DB: SELECT Assignments ACTIVE\n  WHERE user=target\n  AND function IN (...)
-     DB --> AS: matched_assignments
-     AS -> AS: separar to_revoke vs skipped
+     Accessservice -> Accessservice: validar P-11 anti-self-revoke
+     Accessservice -> Repo: SELECT Assignments ACTIVE\n  WHERE user=target\n  AND function IN (...)
+     Repo --> Accessservice: matched_assignments
+     Accessservice -> Accessservice: separar to_revoke vs skipped
      alt to_revoke vacio (FA-01)
-       AS -> AL: emit FUNCTIONS_REVOKE_NOOP
-       AS --> RV: noop_result
-       RV --> FE: 200 OK informativo
+       Accessservice -> Auditlog: emit FUNCTIONS_REVOKE_NOOP
+       Accessservice --> Revokefunctionsview: noop_result
+       Revokefunctionsview --> Frontend: 200 OK informativo
      else hay revocaciones
-       AS -> DB: COUNT current_active\n  - to_revoke (post-revoke set)
-       AS -> AS: calcular warnings\n  (no_functions, critical, last_holder)
+       Accessservice -> Repo: COUNT current_active\n  - to_revoke (post-revoke set)
+       Accessservice -> Accessservice: calcular warnings\n  (no_functions, critical, last_holder)
        alt strict + last_holder violado
-         AS -> AL: emit FUNCTIONS_REVOKE_FAILED
-         AS --> RV: LastHolderProtection
-         RV --> FE: 409
+         Accessservice -> Auditlog: emit FUNCTIONS_REVOKE_FAILED
+         Accessservice --> Revokefunctionsview: LastHolderProtection
+         Revokefunctionsview --> Frontend: 409
        else procede
          group Transaccion atomica
-           AS -> DB: UPDATE Assignment\n  state='REVOKED', revoked_at,\n  revoked_by_admin_id, revoke_reason\n  WHERE id IN (...)
-           AS -> AL: emit FUNCTIONS_REVOKED
+           Accessservice -> Repo: UPDATE Assignment\n  state='REVOKED', revoked_at,\n  revoked_by_admin_id, revoke_reason\n  WHERE id IN (...)
+           Accessservice -> Auditlog: emit FUNCTIONS_REVOKED
            opt notify
-             AS -> DB: INSERT InternalMessage
+             Accessservice -> Repo: INSERT InternalMessage
            end
          end
-         AS -> PC: invalidate(target.id)\n  (post-COMMIT)
-         AS --> RV: result + warnings
-         RV --> FE: 200 OK
-         FE --> I: Toast + warnings visuales
+         Accessservice -> Permissioncache: invalidate(target.id)\n  (post-COMMIT)
+         Accessservice --> Revokefunctionsview: result + warnings
+         Revokefunctionsview --> Frontend: 200 OK
+         Frontend --> I: Toast + warnings visuales
        end
      end
    end

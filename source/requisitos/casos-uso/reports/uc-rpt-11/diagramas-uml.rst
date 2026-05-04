@@ -11,9 +11,9 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "share_report" as O
- actor "Receptor User" as R
- actor "MailboxService" as MB
+ actor "share_report" as share_report
+ actor "Receptor User" as ReceptorUser
+ actor "MailboxService" as Mailboxservice
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_11\nCompartir" as UC11
@@ -21,10 +21,10 @@ Parte 8 — Diagramas UML
    usecase "Mailbox notify" as N
  }
 
- O --> UC11
+ share_report --> UC11
  UC11 ..> N : <<include>>
- N --> MB
- R --> APP
+ N --> Mailboxservice
+ ReceptorUser --> APP
  APP ..> UC11 : <<extend>>
  @enduml
 

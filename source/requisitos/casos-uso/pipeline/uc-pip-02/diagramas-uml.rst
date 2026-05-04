@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_pipeline_errors" as USR
+ actor "view_pipeline_errors" as view_pipeline_errors
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_02\nErrores ETL" as UC02
    usecase "Filtrar por trimestre" as FT
    usecase "Filtrar por period" as FP
  }
- USR --> UC02
+ view_pipeline_errors --> UC02
  UC02 ..> FT : <<extend>>
  UC02 ..> FP : <<extend>>
  @enduml
@@ -54,12 +54,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_pipeline_errors" as U
- participant "Endpoint" as E
- database "Registro de\nEjecuciones" as R
- U -> E: GET /api/v1/etl/errores/
- E -> E: JWT + RBAC
- E -> R: query estado=fallido
- R --> E: filas con mensaje_error
- E --> U: 200 lista ejecuciones fallidas
+ actor "view_pipeline_errors" as view_pipeline_errors
+ participant "Endpoint" as Endpoint
+ database "Registro de\nEjecuciones" as RegistroDe
+ view_pipeline_errors -> Endpoint: GET /api/v1/etl/errores/
+ Endpoint -> Endpoint: JWT + RBAC
+ Endpoint -> RegistroDe: query estado=fallido
+ RegistroDe --> Endpoint: filas con mensaje_error
+ Endpoint --> view_pipeline_errors: 200 lista ejecuciones fallidas
  @enduml

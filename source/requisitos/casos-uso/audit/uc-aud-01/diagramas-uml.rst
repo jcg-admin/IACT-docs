@@ -11,12 +11,12 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_audit_log" as USR
+ actor "view_audit_log" as view_audit_log
  rectangle "MOD_Audit" {
    usecase "UC_AUD_01\nConsultar Auditoria" as UC01
    usecase "UC_PERM_09\nMeta-audit" as M
  }
- USR --> UC01
+ view_audit_log --> UC01
  UC01 ..> M : <<include>>
  @enduml
 
@@ -62,14 +62,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_audit_log" as A
- participant "Endpoint" as E
- database "AuditRepo" as R
- participant "AuditSvc" as AU
- A -> E: GET /audit/
- E -> E: JWT + RBAC
- E -> R: query
- R --> E: rows
- E -> AU: emit GENERAL_AUDIT_QUERIED
- E --> A: 200
+ actor "view_audit_log" as view_audit_log
+ participant "Endpoint" as Endpoint
+ database "AuditRepo" as Auditrepo
+ participant "AuditSvc" as Auditsvc
+ view_audit_log -> Endpoint: GET /audit/
+ Endpoint -> Endpoint: JWT + RBAC
+ Endpoint -> Auditrepo: query
+ Auditrepo --> Endpoint: rows
+ Endpoint -> Auditsvc: emit GENERAL_AUDIT_QUERIED
+ Endpoint --> view_audit_log: 200
  @enduml

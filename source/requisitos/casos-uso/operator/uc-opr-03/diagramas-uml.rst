@@ -11,11 +11,11 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "make_outbound_calls" as A
+ actor "make_outbound_calls" as make_outbound_calls
  rectangle "MOD_Operator" {
    usecase "UC_OPR_03\nOutbound" as UC
  }
- A --> UC
+ make_outbound_calls --> UC
  @enduml
 
 8.2 Actividad
@@ -64,12 +64,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "make_outbound_calls" as A
- participant "Endpoint" as E
- participant "Telephony" as T
- A -> E: POST outbound
- E -> E: JWT + RBAC + validar
- E -> T: dial
- T --> E: pickup
- E --> A: 200
+ actor "make_outbound_calls" as make_outbound_calls
+ participant "Endpoint" as Endpoint
+ participant "Telephony" as Telephony
+ make_outbound_calls -> Endpoint: POST outbound
+ Endpoint -> Endpoint: JWT + RBAC + validar
+ Endpoint -> Telephony: dial
+ Telephony --> Endpoint: pickup
+ Endpoint --> make_outbound_calls: 200
  @enduml

@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Caller" as C
+ actor "Caller" as Caller
  rectangle "MOD_Caller" {
    usecase "UC_CLI_02\nNavegar IVR" as UC
    usecase "UC_CLI_03\nEsperar cola" as Q
    usecase "UC_CLI_04\nCallback" as CB
  }
- C --> UC
+ Caller --> UC
  UC ..> Q : <<extend>>
  UC ..> CB : <<extend>>
  @enduml
@@ -65,13 +65,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Caller" as C
- participant "IVR" as I
- participant "Telephony" as T
- I -> T: play prompt
- T -> C: audio
- C -> T: DTMF
- T -> I: digit
- I -> I: navigate
- I -> T: play next
+ actor "Caller" as Caller
+ participant "IVR" as IVR
+ participant "Telephony" as Telephony
+ IVR -> Telephony: play prompt
+ Telephony -> Caller: audio
+ Caller -> Telephony: DTMF
+ Telephony -> IVR: digit
+ IVR -> IVR: navigate
+ IVR -> Telephony: play next
  @enduml

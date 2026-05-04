@@ -11,15 +11,15 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "read_own_mailbox" as A
- actor "read_own_mailbox" as S
+ actor "read_own_mailbox" as read_own_mailbox
+ actor "read_own_mailbox" as read_own_mailbox
  rectangle "MOD_Operator" {
    usecase "UC_OPR_10\nLeer Mailbox" as UC
    usecase "UC_SUP_03\nBroadcast" as B
  }
- S --> B
+ read_own_mailbox --> MailboxBus
  B ..> UC : <<include>>
- A --> UC
+ read_own_mailbox --> UC
  @enduml
 
 8.2 Actividad
@@ -56,11 +56,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "read_own_mailbox" as A
- participant "Frontend" as FE
- queue "MailboxBus" as B
- B -> FE: SSE urgent
- FE -> A: toast
- A -> FE: click read
- FE -> B: POST read
+ actor "read_own_mailbox" as read_own_mailbox
+ participant "Frontend" as Frontend
+ queue "MailboxBus" as MailboxBus
+ MailboxBus -> Frontend: SSE urgent
+ Frontend -> read_own_mailbox: toast
+ read_own_mailbox -> Frontend: click read
+ Frontend -> MailboxBus: POST read
  @enduml

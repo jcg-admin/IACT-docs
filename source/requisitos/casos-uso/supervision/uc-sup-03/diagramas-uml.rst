@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "broadcast_team_messages" as SUP
- actor "answer_inbound_calls" as AG
+ actor "broadcast_team_messages" as broadcast_team_messages
+ actor "answer_inbound_calls" as answer_inbound_calls
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_03\nBroadcast" as UC
  }
- SUP --> UC
- UC --> AG
+ broadcast_team_messages --> UC
+ UC --> answer_inbound_calls
  @enduml
 
 8.2 Actividad
@@ -46,11 +46,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Endpoint" as E
- component "MailboxService" as M
- component "SSE Push" as P
- E --> M
- E --> P
+ component "Endpoint" as Endpoint
+ component "MailboxService" as Mailboxservice
+ component "SSE Push" as SsePush
+ Endpoint --> Mailboxservice
+ Endpoint --> SsePush
  @enduml
 
 8.4 Secuencia urgente
@@ -59,12 +59,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "broadcast_team_messages" as S
- participant "Endpoint" as E
- queue "MailboxBus" as B
- actor "answer_inbound_calls" as A
- S -> E: POST broadcast urgente
- E -> B: bulk insert
- B -> A: SSE push
- A -> A: toast urgente
+ actor "broadcast_team_messages" as broadcast_team_messages
+ participant "Endpoint" as Endpoint
+ queue "MailboxBus" as MailboxBus
+ actor "answer_inbound_calls" as answer_inbound_calls
+ broadcast_team_messages -> Endpoint: POST broadcast urgente
+ Endpoint -> MailboxBus: bulk insert
+ MailboxBus -> answer_inbound_calls: SSE push
+ answer_inbound_calls -> answer_inbound_calls: toast urgente
  @enduml

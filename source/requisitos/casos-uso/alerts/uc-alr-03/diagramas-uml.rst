@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "acknowledge_alert" as USR
+ actor "acknowledge_alert" as acknowledge_alert
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_03\nReconocer" as UC03
    usecase "Bulk ack" as BA
  }
- USR --> UC03
- USR --> BA
+ acknowledge_alert --> UC03
+ acknowledge_alert --> BA
  BA ..> UC03 : <<include>>
  @enduml
 
@@ -65,16 +65,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "acknowledge_alert" as S
- participant "Endpoint" as E
- database "AlertRepo" as A
- participant "AuditSvc" as AU
+ actor "acknowledge_alert" as acknowledge_alert
+ participant "Endpoint" as Endpoint
+ database "AlertRepo" as Alertrepo
+ participant "AuditSvc" as Auditsvc
 
- S -> E: POST ack
- E -> E: JWT + RBAC + scope
- E -> A: BEGIN
- E -> A: UPDATE Alert
- E -> AU: emit ALERT_ACKNOWLEDGED
- E -> A: COMMIT
- E --> S: 200
+ acknowledge_alert -> Endpoint: POST ack
+ Endpoint -> Endpoint: JWT + RBAC + scope
+ Endpoint -> Alertrepo: BEGIN
+ Endpoint -> Alertrepo: UPDATE Alert
+ Endpoint -> Auditsvc: emit ALERT_ACKNOWLEDGED
+ Endpoint -> Alertrepo: COMMIT
+ Endpoint --> acknowledge_alert: 200
  @enduml

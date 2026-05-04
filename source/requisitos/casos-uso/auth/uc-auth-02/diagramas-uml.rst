@@ -15,8 +15,8 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "User" as USER
- actor "view_audit_log" as AUD <<beneficiario>>
- actor "Sistema" as SYS <<sistema>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_02\nCerrar Sesion" as UC02
@@ -31,8 +31,8 @@ Parte 8 — Diagramas UML
  UC02 ..> CSE : <<include>>
  UC02 ..> BLK : <<include>>
  UC02 ..> EMI : <<include>>
- SYS --> EMI
- EMI --> AUD : (consume\nUC_AUD_*)
+ Sistema --> EMI
+ EMI --> view_audit_log : (consume\nUC_AUD_*)
 
  note bottom of UC02
    CNST-009 autenticacion
@@ -50,35 +50,35 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Usuario as U
- participant "Interfaz de Usuario" as FE
- participant "LogoutView\n(DRF)" as LV
- participant "AuthService" as AS
- database "Base de Datos\n(analitica)" as DB
- database "Blacklist\n(cache/BD)" as BL
+ actor Usuario as Usuario
+ participant "Interfaz de Usuario" as InterfazDeUsuario
+ participant "LogoutView\n(DRF)" as Logoutview
+ participant "AuthService" as Authservice
+ database "Base de Datos\n(analitica)" as BaseDeDatos
+ database "Blacklist\n(cache/BD)" as Blacklist
 
- U -> FE: Click "Cerrar sesion"
- FE -> FE: Confirm (modal opcional)
- FE -> LV: POST /api/auth/logout/\nAuthorization: Bearer ...
+ Usuario -> InterfazDeUsuario: Click "Cerrar sesion"
+ InterfazDeUsuario -> InterfazDeUsuario: Confirm (modal opcional)
+ InterfazDeUsuario -> Logoutview: POST /api/auth/logout/\nAuthorization: Bearer ...
 
- LV -> LV: Validar JWT (CNST-009)
+ Logoutview -> Logoutview: Validar JWT (CNST-009)
  alt Token invalido
-   LV --> FE: 401 INVALID_TOKEN
+   Logoutview --> InterfazDeUsuario: 401 INVALID_TOKEN
  else Token valido
-   LV -> AS: logout(user_id, session_id)
+   Logoutview -> Authservice: logout(user_id, session_id)
 
    group Transaccion atomica
-     AS -> DB: SELECT Session WHERE\n  session_id=? AND state='ACTIVE'
-     DB --> AS: session
-     AS -> DB: UPDATE Session SET\n  state='CLOSED',\n  close_reason='USER_LOGOUT',\n  closed_at=NOW()
-     AS -> BL: INSERT BlacklistedToken\n  (access + refresh)
-     AS -> DB: INSERT AuditEvent\n  (event_type='LOGOUT')
+     Authservice -> BaseDeDatos: SELECT Session WHERE\n  session_id=? AND state='ACTIVE'
+     BaseDeDatos --> Authservice: session
+     Authservice -> BaseDeDatos: UPDATE Session SET\n  state='CLOSED',\n  close_reason='USER_LOGOUT',\n  closed_at=NOW()
+     Authservice -> Blacklist: INSERT BlacklistedToken\n  (access + refresh)
+     Authservice -> BaseDeDatos: INSERT AuditEvent\n  (event_type='LOGOUT')
    end
 
-   AS --> LV: success
-   LV --> FE: 200 OK\n{"message": "Sesion cerrada"}
-   FE -> FE: localStorage.clear\nRedux clear
-   FE --> U: Redirect /login
+   Authservice --> Logoutview: success
+   Logoutview --> InterfazDeUsuario: 200 OK\n{"message": "Sesion cerrada"}
+   InterfazDeUsuario -> InterfazDeUsuario: localStorage.clear\nRedux clear
+   InterfazDeUsuario --> Usuario: Redirect /login
  end
 
  @enduml

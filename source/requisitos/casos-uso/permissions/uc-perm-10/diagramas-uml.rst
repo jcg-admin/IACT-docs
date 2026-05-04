@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "view_audit_log" as AUD
- actor "ExportWorker" as EW
+ actor "view_audit_log" as view_audit_log
+ actor "ExportWorker" as Exportworker
 
  rectangle "MOD_Permissions / Audit" {
    usecase "UC_PERM_10\nList" as L
@@ -24,16 +24,16 @@ Parte 8 — Diagramas UML
    usecase "UC_PERM_09\nmeta-audit" as M
  }
 
- AUD --> L
- AUD --> D
- AUD --> A
- AUD --> E
+ view_audit_log --> L
+ view_audit_log --> D
+ view_audit_log --> A
+ view_audit_log --> E
  L ..> M : <<include>>
  D ..> M : <<include>>
  A ..> M : <<include>>
  E ..> M : <<include>>
- E --> EW
- EW ..> M : <<include>>
+ E --> Exportworker
+ Exportworker ..> M : <<include>>
 
  note bottom
    P-44: cada consulta del log
@@ -125,32 +125,32 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor "view_audit_log" as A
- participant "ExportEndpoint" as EE
- participant "QueryService" as QS
- participant "ExportWorker" as EW
- participant "MailboxService" as MB
- database "AuditRepo" as DB
- participant "Storage" as ST
+ actor "view_audit_log" as view_audit_log
+ participant "ExportEndpoint" as Exportendpoint
+ participant "QueryService" as Queryservice
+ participant "ExportWorker" as Exportworker
+ participant "MailboxService" as Mailboxservice
+ database "AuditRepo" as Auditrepo
+ participant "Storage" as Storage
 
- A -> EE: POST /export con filtros
- EE -> EE: JWT + RBAC + validar
- EE -> QS: enqueue(filters, format)
- QS -> EW: schedule(job)
- EW --> QS: job_id
- QS -> QS: emit AUDIT_LOG_EXPORT_QUEUED
- QS --> EE: 202 + job_id
- EE --> A: 202
+ view_audit_log -> Exportendpoint: POST /export con filtros
+ Exportendpoint -> Exportendpoint: JWT + RBAC + validar
+ Exportendpoint -> Queryservice: enqueue(filters, format)
+ Queryservice -> Exportworker: schedule(job)
+ Exportworker --> Queryservice: job_id
+ Queryservice -> Queryservice: emit AUDIT_LOG_EXPORT_QUEUED
+ Queryservice --> Exportendpoint: 202 + job_id
+ Exportendpoint --> view_audit_log: 202
 
  ... background ...
- EW -> DB: query stream
- DB --> EW: rows
- EW -> ST: write file
- EW -> EW: emit AUDIT_LOG_EXPORT_COMPLETED
- EW -> MB: notify(actor, file_url)
+ Exportworker -> Auditrepo: query stream
+ Auditrepo --> Exportworker: rows
+ Exportworker -> Storage: write file
+ Exportworker -> Exportworker: emit AUDIT_LOG_EXPORT_COMPLETED
+ Exportworker -> Mailboxservice: notify(actor, file_url)
 
  ... auditor checks ...
- A -> EE: GET job_id
- EE -> A: status=done + file_url
+ view_audit_log -> Exportendpoint: GET job_id
+ Exportendpoint -> view_audit_log: status=done + file_url
 
  @enduml

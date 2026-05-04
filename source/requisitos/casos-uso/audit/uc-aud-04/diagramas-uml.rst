@@ -11,19 +11,19 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "generate_compliance_report" as O
- actor "ComplianceWorker" as W
- actor "HMAC Signer" as H
- actor "Mailbox" as MB
+ actor "generate_compliance_report" as generate_compliance_report
+ actor "ComplianceWorker" as Complianceworker
+ actor "HMAC Signer" as HmacSigner
+ actor "Mailbox" as Mailbox
  rectangle "MOD_Audit" {
    usecase "UC_AUD_04\nGenerar Reporte" as UC04
    usecase "Verify" as V
  }
- O --> UC04
- O --> V
- UC04 --> W
- W --> H
- W --> MB
+ generate_compliance_report --> UC04
+ generate_compliance_report --> V
+ UC04 --> Complianceworker
+ Complianceworker --> HmacSigner
+ Complianceworker --> Mailbox
  @enduml
 
 8.2 Actividad
@@ -55,15 +55,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- rectangle "ReporteRaw" as R
- rectangle "Sanitize" as S
- rectangle "HashSha256" as H
- rectangle "HMACKMS" as M
- rectangle "ReporteFirmado" as F
- R --> S
- S --> H
- H --> M
- M --> F
+ rectangle "ReporteRaw" as ReporteRaw
+ rectangle "Sanitize" as Sanitize
+ rectangle "HashSha256" as HashSha256
+ rectangle "HMACKMS" as HMACKMS
+ rectangle "ReporteFirmado" as ReporteFirmado
+ ReporteRaw --> Sanitize
+ Sanitize --> HashSha256
+ HashSha256 --> HMACKMS
+ HMACKMS --> ReporteFirmado
  @enduml
 
 8.4 Verify
@@ -72,14 +72,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Verificador" as V
- participant "VerifyEndpoint" as E
- participant "Storage" as ST
- participant "HMAC Verifier" as H
- V -> E: GET /verify/{job_id}
- E -> ST: descarga file
- ST --> E: file
- E -> H: recompute hash + signature
- H --> E: match? bool
- E --> V: result
+ actor "Verificador" as Verificador
+ participant "VerifyEndpoint" as Verifyendpoint
+ participant "Storage" as Storage
+ participant "HMAC Verifier" as HmacVerifier
+ Verificador -> Verifyendpoint: GET /verify/{job_id}
+ Verifyendpoint -> Storage: descarga file
+ Storage --> Verifyendpoint: file
+ Verifyendpoint -> HmacVerifier: recompute hash + signature
+ HmacVerifier --> Verifyendpoint: match? bool
+ Verifyendpoint --> Verificador: result
  @enduml

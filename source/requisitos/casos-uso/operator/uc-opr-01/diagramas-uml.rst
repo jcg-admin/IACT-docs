@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "manage_own_agent_state" as A
- actor "CallRouter" as CR
+ actor "manage_own_agent_state" as manage_own_agent_state
+ actor "CallRouter" as Callrouter
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado" as UC01
  }
- A --> UC01
- UC01 --> CR
+ manage_own_agent_state --> UC01
+ UC01 --> Callrouter
  @enduml
 
 8.2 Diagrama de estado
@@ -70,16 +70,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "manage_own_agent_state" as AG
- participant "Endpoint" as E
- database "AgentStateRepo" as R
- participant "AuditSvc" as A
- participant "CallRouter" as CR
- AG -> E: POST new_state
- E -> R: BEGIN
- E -> R: UPDATE state
- E -> A: emit AGENT_STATE_CHANGED
- E -> R: COMMIT
- E -> CR: state changed
- E --> AG: 200
+ actor "manage_own_agent_state" as manage_own_agent_state
+ participant "Endpoint" as Endpoint
+ database "AgentStateRepo" as Agentstaterepo
+ participant "AuditSvc" as Auditsvc
+ participant "CallRouter" as Callrouter
+ manage_own_agent_state -> Endpoint: POST new_state
+ Endpoint -> Agentstaterepo: BEGIN
+ Endpoint -> Agentstaterepo: UPDATE state
+ Endpoint -> Auditsvc: emit AGENT_STATE_CHANGED
+ Endpoint -> Agentstaterepo: COMMIT
+ Endpoint -> Callrouter: state changed
+ Endpoint --> manage_own_agent_state: 200
  @enduml

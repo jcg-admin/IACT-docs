@@ -11,17 +11,17 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User" as USR
- actor "subscribe_to_alert" as A
+ actor "User" as User
+ actor "subscribe_to_alert" as subscribe_to_alert
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_05\nSubscriptions" as UC05
    usecase "Bulk add" as BA
    usecase "Mute global" as M
  }
- USR --> UC05
- A --> UC05
+ User --> UC05
+ subscribe_to_alert --> UC05
  UC05 ..> BA : <<extend>>
- USR --> M
+ User --> M
  @enduml
 
 8.2 Actividad

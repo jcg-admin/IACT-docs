@@ -14,8 +14,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "revoke_function_group" as OPS
- actor "revoke_function_group" as SEC
+ actor "revoke_function_group" as revoke_function_group
+ actor "revoke_function_group" as revoke_function_group
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_02\nRevocar\n(generico)" as ACC02
@@ -27,8 +27,8 @@ Parte 8 — Diagramas UML
    usecase "DELETE /api/users/{id}/\naccess-groups/{agr_id}/" as BE
  }
 
- OPS --> ACC02
- SEC --> PERM02
+ revoke_function_group --> ACC02
+ revoke_function_group --> PERM02
  ACC02 --> BE : delega
  PERM02 --> BE : delega
 
@@ -47,32 +47,32 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "UI PERM" as UI
+ actor Invoker as Invoker
+ participant "UI PERM" as UiPerm
  participant "API" as API
- participant "Backend\n(UC_ACC_02 sobre AGR)" as BE
- database "Repo" as DB
+ participant "Backend\n(UC_ACC_02 sobre AGR)" as Backend
+ database "Repo" as Repo
 
- I -> UI: Identifica User + AGR
- UI -> API: GET preview-revoke
- API -> DB: dry-run validations
- API --> UI: preview con warnings
+ Invoker -> UiPerm: Identifica User + AGR
+ UiPerm -> API: GET preview-revoke
+ API -> Repo: dry-run validations
+ API --> UiPerm: preview con warnings
 
- UI -> UI: Modal expandido
+ UiPerm -> UiPerm: Modal expandido
  alt warnings criticos
-   UI -> UI: Doble confirmacion (escribir)
+   UiPerm -> UiPerm: Doble confirmacion (escribir)
  end
- I -> UI: Confirma
+ Invoker -> UiPerm: Confirma
 
- UI -> API: DELETE /api/users/{id}/\n  access-groups/{agr_id}/
- API -> BE: delega flujo UC_ACC_02
- BE -> DB: UPDATE Assignment REVOKED
- BE -> DB: INSERT AuditEvent AGR_REVOKED
- BE -> DB: PermissionCache.invalidate
- BE --> API: 200 OK con resumen
- API --> UI: result
- UI -> UI: refresh catalogo (count -1)
- UI --> I: Toast confirmacion
+ UiPerm -> API: DELETE /api/users/{id}/\n  access-groups/{agr_id}/
+ API -> Backend: delega flujo UC_ACC_02
+ Backend -> Repo: UPDATE Assignment REVOKED
+ Backend -> Repo: INSERT AuditEvent AGR_REVOKED
+ Backend -> Repo: PermissionCache.invalidate
+ Backend --> API: 200 OK con resumen
+ API --> UiPerm: result
+ UiPerm -> UiPerm: refresh catalogo (count -1)
+ UiPerm --> Invoker: Toast confirmacion
 
  @enduml
 

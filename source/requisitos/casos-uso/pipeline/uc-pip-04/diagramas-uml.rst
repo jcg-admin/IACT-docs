@@ -11,13 +11,13 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "request_pipeline_retry" as USR
- actor "ETLScheduler" as DE
+ actor "request_pipeline_retry" as request_pipeline_retry
+ actor "ETLScheduler" as Etlscheduler
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_04\nReintentar ETL" as UC04
  }
- USR --> UC04
- UC04 --> DE
+ request_pipeline_retry --> UC04
+ UC04 --> Etlscheduler
  @enduml
 
 8.2 Actividad
@@ -59,18 +59,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "request_pipeline_retry" as O
- participant "Endpoint" as E
- database "Registro de\nEjecuciones" as R
- participant "Disparador ETL" as DE
- participant "AuditService" as A
- O -> E: POST /api/v1/etl/reintento/
- E -> E: JWT + RBAC + validar
- E -> R: get_activa()
- R --> E: null (sin ejecucion activa)
- E -> R: crear_manual(trimestre, manual)
- R --> E: etl_run_id
- E -> DE: ejecutar_historico(trimestre)
- E -> A: emit ETL_REINTENTO_SOLICITADO
- E --> O: 202 Accepted {etl_run_id}
+ actor "request_pipeline_retry" as request_pipeline_retry
+ participant "Endpoint" as Endpoint
+ database "Registro de\nEjecuciones" as RegistroDe
+ participant "Disparador ETL" as DisparadorEtl
+ participant "AuditService" as Auditservice
+ request_pipeline_retry -> Endpoint: POST /api/v1/etl/reintento/
+ Endpoint -> Endpoint: JWT + RBAC + validar
+ Endpoint -> RegistroDe: get_activa()
+ RegistroDe --> Endpoint: null (sin ejecucion activa)
+ Endpoint -> RegistroDe: crear_manual(trimestre, manual)
+ RegistroDe --> Endpoint: etl_run_id
+ Endpoint -> DisparadorEtl: ejecutar_historico(trimestre)
+ Endpoint -> Auditservice: emit ETL_REINTENTO_SOLICITADO
+ Endpoint --> request_pipeline_retry: 202 Accepted {etl_run_id}
  @enduml

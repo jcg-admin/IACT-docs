@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "grant_exceptional_permission" as OPS
- actor "grant_exceptional_permission" as SEC
- actor "view_audit_log" as AUD
+ actor "grant_exceptional_permission" as grant_exceptional_permission
+ actor "grant_exceptional_permission" as grant_exceptional_permission
+ actor "view_audit_log" as view_audit_log
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_08\nGrant excepcional" as ACC08
@@ -27,11 +27,11 @@ Parte 8 — Diagramas UML
    usecase "POST exceptional-permissions" as BE
  }
 
- OPS --> ACC08
- SEC --> PERM03
+ grant_exceptional_permission --> ACC08
+ grant_exceptional_permission --> PERM03
  ACC08 --> BE : delega
  PERM03 --> BE : delega
- BE --> AUD : AuditEvent\nhigh-priority
+ BE --> view_audit_log : AuditEvent\nhigh-priority
 
  note bottom of BE
    Funcion: grant_exceptional_permission
@@ -49,28 +49,28 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "UI PERM" as UI
+ actor Invoker as Invoker
+ participant "UI PERM" as UiPerm
  participant "API" as API
- participant "Backend\n(UC_ACC_08)" as BE
- database "Repo" as DB
+ participant "Backend\n(UC_ACC_08)" as Backend
+ database "Repo" as Repo
 
- I -> UI: Selecciona functions + User +\n  expires_at + justification + TKT
- UI -> API: GET preview-exceptional
- API --> UI: preview con SoD
- UI -> UI: Modal con preview + warning\n  "high-priority audit"
- I -> UI: Confirma
+ Invoker -> UiPerm: Selecciona functions + User +\n  expires_at + justification + TKT
+ UiPerm -> API: GET preview-exceptional
+ API --> UiPerm: preview con SoD
+ UiPerm -> UiPerm: Modal con preview + warning\n  "high-priority audit"
+ Invoker -> UiPerm: Confirma
 
- UI -> API: POST exceptional-permissions/
- API -> BE: delega flujo UC_ACC_08
- BE -> DB: INSERT ExceptionalPermission
- BE -> DB: INSERT InternalMessage (HARD)
- BE -> DB: INSERT AuditEvent\nEXCEPTIONAL_PERMISSION_GRANTED
- BE -> DB: PermissionCache.invalidate
- BE --> API: 201 Created
- API --> UI: result
- UI -> UI: Refresh catalogo
- UI --> I: Toast
+ UiPerm -> API: POST exceptional-permissions/
+ API -> Backend: delega flujo UC_ACC_08
+ Backend -> Repo: INSERT ExceptionalPermission
+ Backend -> Repo: INSERT InternalMessage (HARD)
+ Backend -> Repo: INSERT AuditEvent\nEXCEPTIONAL_PERMISSION_GRANTED
+ Backend -> Repo: PermissionCache.invalidate
+ Backend --> API: 201 Created
+ API --> UiPerm: result
+ UiPerm -> UiPerm: Refresh catalogo
+ UiPerm --> Invoker: Toast
 
  @enduml
 

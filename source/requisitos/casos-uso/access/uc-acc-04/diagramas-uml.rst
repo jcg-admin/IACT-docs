@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "assign_function_groups" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
- actor "view_audit_log" as AUD <<beneficiario>>
+ actor "view_audit_log" as view_audit_log <<beneficiario>>
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR" as UC04
@@ -34,7 +34,7 @@ Parte 8 — Diagramas UML
  UC04 ..> INS : <<include>>
  UC04 ..> CACHE : <<include>>
  UC04 ..> EMI : <<include>>
- EMI --> AUD
+ EMI --> view_audit_log
 
  note bottom of SOD
    SoD se evalua sobre FUNCIONES,
@@ -51,63 +51,63 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor Invoker as I
- participant "Frontend" as FE
- participant "AssignAGRView" as AV
- participant "AccessService" as AS
- participant "AGRRepository" as AGR
- participant "SoDValidator" as SV
- participant "PermissionCache" as PC
- participant "AuditLog" as AL
- database "Repo" as DB
+ actor Invoker as Invoker
+ participant "Frontend" as Frontend
+ participant "AssignAGRView" as Assignagrview
+ participant "AccessService" as Accessservice
+ participant "AGRRepository" as Agrrepository
+ participant "SoDValidator" as Sodvalidator
+ participant "PermissionCache" as Permissioncache
+ participant "AuditLog" as Auditlog
+ database "Repo" as Repo
 
- I -> FE: Selecciona AGR + User
- FE -> AV: POST /api/users/{id}/access-groups/
+ I -> Frontend: Selecciona Agrrepository + User
+ Frontend -> Assignagrview: POST /api/users/{id}/access-groups/
 
- AV -> AV: Validar JWT (CNST-009)
- AV -> AV: Verificar assign_function_groups
+ Assignagrview -> Assignagrview: Validar JWT (CNST-009)
+ Assignagrview -> Assignagrview: Verificar assign_function_groups
  alt Sin la funcion
-   AV --> FE: 403
-   AV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Assignagrview --> Frontend: 403
+   Assignagrview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else
-   AV -> AS: assign_agr(target_id, agr_id,\n  expires_at, invoker)
+   Assignagrview -> Accessservice: assign_agr(target_id, agr_id,\n  expires_at, invoker)
 
-   AS -> DB: SELECT User FOR UPDATE
+   Accessservice -> Repo: SELECT User FOR UPDATE
    alt User no existe / state invalido
-     AS --> AV: error
-     AV --> FE: 404 / 400
+     Accessservice --> Assignagrview: error
+     Assignagrview --> Frontend: 404 / 400
    else User OK
-     AS -> AS: validar P-11
-     AS -> AGR: get(agr_id)
-     alt AGR no existe / inactivo
-       AS --> AV: error
-       AV --> FE: 400
-     else AGR OK
-       AS -> DB: SELECT Assignment\n  WHERE user=target\n  AND target_type='AccessGroup'\n  AND target_id=agr.id\n  AND state='ACTIVE'
+     Accessservice -> Accessservice: validar P-11
+     Accessservice -> Agrrepository: get(agr_id)
+     alt Agrrepository no existe / inactivo
+       Accessservice --> Assignagrview: error
+       Assignagrview --> Frontend: 400
+     else Agrrepository OK
+       Accessservice -> Repo: SELECT Assignment\n  WHERE user=target\n  AND target_type='AccessGroup'\n  AND target_id=agr.id\n  AND state='ACTIVE'
        alt Ya asignado (FA-01)
-         AS -> AL: emit AGR_ASSIGN_NOOP
-         AV --> FE: 200 OK informativo
+         Accessservice -> Auditlog: emit AGR_ASSIGN_NOOP
+         Assignagrview --> Frontend: 200 OK informativo
        else No asignado
-         AS -> AGR: list_functions(agr_id)
-         AGR --> AS: agr_functions
-         AS -> AS: build effective_post_assign\n  = current_effective ∪ agr_functions
-         AS -> SV: validate(effective_post_assign,\n  rules)
+         Accessservice -> Agrrepository: list_functions(agr_id)
+         Agrrepository --> Accessservice: agr_functions
+         Accessservice -> Accessservice: build effective_post_assign\n  = current_effective ∪ agr_functions
+         Accessservice -> Sodvalidator: validate(effective_post_assign,\n  rules)
          alt SoD viola
-           SV --> AS: SoDViolation
-           AS -> AL: emit AGR_ASSIGN_FAILED
-           AV --> FE: 409
+           Sodvalidator --> Accessservice: SoDViolation
+           Accessservice -> Auditlog: emit AGR_ASSIGN_FAILED
+           Assignagrview --> Frontend: 409
          else SoD OK
            group Transaccion atomica
-             AS -> DB: INSERT Assignment\n  (target_type='AccessGroup',\n   target_id=agr.id, ...)
-             AS -> AL: emit AGR_ASSIGNED
+             Accessservice -> Repo: INSERT Assignment\n  (target_type='AccessGroup',\n   target_id=agr.id, ...)
+             Accessservice -> Auditlog: emit AGR_ASSIGNED
              opt notify
-               AS -> DB: INSERT InternalMessage
+               Accessservice -> Repo: INSERT InternalMessage
              end
            end
-           AS -> PC: invalidate(target.id)
-           AS --> AV: result
-           AV --> FE: 201 Created
-           FE --> I: Toast con resumen
+           Accessservice -> Permissioncache: invalidate(target.id)
+           Accessservice --> Assignagrview: result
+           Assignagrview --> Frontend: 201 Created
+           Frontend --> I: Toast con resumen
          end
        end
      end
