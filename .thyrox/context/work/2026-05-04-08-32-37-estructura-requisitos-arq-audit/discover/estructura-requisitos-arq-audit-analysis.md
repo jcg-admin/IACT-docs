@@ -327,6 +327,70 @@ en `requisitos/`. Esto puede ser intencional o accidental — requiere decisión
 
 ---
 
+## 9b. Hallazgos adicionales — domain-model/ y rbac/ confirmados
+
+### H-07 — domain-model/ contiene diagramas UC-por-UC, no el modelo global [ALTA]
+
+`arquitectura-tecnica/domain-model/` tiene **160 archivos** (verificado):
+- 80 `{uc-name}-domain-model.rst` — diagrama de clases por UC individual
+- 80 `{uc-name}-estado.rst` — máquina de estado por UC individual
+
+**Problema 1 — Mal nombrado:** El directorio se llama "domain model" pero no contiene
+el modelo de dominio del sistema. Contiene 80 fragmentos de clase UC-específicos.
+El modelo de dominio global (sistema completo) vive en `bounded-contexts/` (UML parcial
+por bounded context) y en `modelo-dominio-iact.rst` (descripción textual).
+
+**Problema 2 — Duplicación:** Los UC specs en `requisitos/casos-uso/` ya contienen
+sus propias máquinas de estado en `diagramas-uml/`:
+- `uc-auth-01/diagramas-uml/diagrama-de-estados-de-session.rst` — ya existe
+- `uc-alr-01/diagramas-uml/estado-de-la-regla.rst` — ya existe
+- `uc-adm-01/diagramas-uml/estado-sod-rule.rst` — ya existe
+
+Los `{uc}-estado.rst` de `domain-model/` duplican diagramas que ya viven
+(o deben vivir) dentro de cada UC spec.
+
+**Lo que debería ir en `domain-model/`:** El modelo de dominio global del sistema —
+uno o pocos diagramas de clases de alto nivel con todas las entidades principales
+y sus relaciones, a nivel de sistema o de bounded context. No 160 fragmentos UC-por-UC.
+
+**Destino correcto de los 160 archivos actuales:**
+- `{uc}-estado.rst` → dentro de `requisitos/casos-uso/{dominio}/{uc}/diagramas-uml/`
+  (donde ya existe o debe existir el state machine del UC)
+- `{uc}-domain-model.rst` → dentro de `requisitos/casos-uso/{dominio}/{uc}/diagramas-uml/`
+  o en `design-view/` (vista de diseño por UC)
+
+### H-08 — arquitectura-tecnica/rbac/ textual pertenece en requisitos/ [ALTA]
+
+Confirmado: si `arquitectura-tecnica/` es exclusivamente para diseño UML/diagramas,
+el contenido textual de `rbac/modelo-rbac-iact/` no pertenece ahí.
+
+Clasificación del contenido de `rbac/modelo-rbac-iact/` (10 archivos textuales):
+
+| Archivo | Tipo real | Destino correcto |
+|---|---|---|
+| `catalogo-funciones.rst` (708 líneas) | BR — define QUÉ 73 funciones existen | `requisitos/reglas-negocio/` |
+| `sod.rst` (106 líneas) | BR — define las 3 reglas SoD del sistema | `requisitos/reglas-negocio/` |
+| `grupos-funciones.rst` (349 líneas) | BR — define los 9 AGRs del sistema | `requisitos/reglas-negocio/` |
+| `mapeo-uc.rst` (186 líneas) | Trazabilidad función→UC (ADR-GOB-007) | `requisitos/` (sección trazabilidad) |
+| `filosofia.rst` (43 líneas) | Conceptual — principios del modelo | `normativa/` o `base-cognitiva/` |
+| `implementacion.rst` (183 líneas) | Decisiones de diseño técnico | ARCH — podría quedarse si se acepta ARCH en arq-tecnica |
+| `arquitectura.rst` (82 líneas) | Decisiones técnicas RBAC | ARCH — ídem |
+| `resumen.rst` (124 líneas) | Síntesis del modelo | ARCH — ídem |
+| `permisos-temporales.rst` (46 líneas) | Diseño de permisos temporales | ARCH — ídem |
+| `modelo-datos.rst` (23 líneas) | Entidades de datos | ARCH — ídem |
+
+`rbac/raci-rbac-iact/` (7 archivos) — tablas RACI: gobernanza, no diseño técnico.
+Destino correcto: `normativa/gobernanza/` o directorio de gestión del proyecto.
+
+`rbac/modelo-rbac-iact/diagramas/` (3 archivos) — UML puro: correcto en
+`arquitectura-tecnica/`.
+
+**Impacto de mover el contenido textual:** 38 referencias cruzadas desde fuera
+de `arquitectura-tecnica/` apuntan a `arquitectura-tecnica/rbac/`. Requiere
+actualización sistemática de todos los `:doc:` afectados.
+
+---
+
 ## 10. Preguntas de diseño para la fase STRATEGY
 
 Antes de planificar cualquier reorganización, estas preguntas deben responderse:
@@ -365,3 +429,7 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `arquitectura-tecnica/uc-module-view/mod-*.rst` | ⚠ MIXED en zona DIAG | Decisión pendiente P-02 |
 | `arquitectura-tecnica/bounded-contexts/*.rst` | ⚠ MIXED en zona DIAG | Decisión pendiente P-02 |
 | `requisitos/_metodologia-aplicacion/` | ⚠ DIAG dentro de requisitos | Decisión pendiente P-03 |
+| `arquitectura-tecnica/domain-model/` (160 archivos) | ⚠ Diagramas UC-por-UC mal ubicados; duplican UC specs | Mover a UC specs; reemplazar con modelo global (H-07) |
+| `arquitectura-tecnica/rbac/modelo-rbac-iact/*.rst` (textual) | ⚠ BR/trazabilidad en zona DIAG | Mover a `requisitos/reglas-negocio/` (H-08) |
+| `arquitectura-tecnica/rbac/raci-rbac-iact/` | ⚠ Gobernanza en zona DIAG | Mover a `normativa/gobernanza/` (H-08) |
+| `arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/` | ✓ DIAG puro | Correcto |
