@@ -35,20 +35,20 @@ RBAC, disparos de ETL y cualquier accion de escritura.
  actor "generate_compliance_report" as generate_compliance_report
 
  rectangle "MOD_Audit" {
-   usecase "UC_AUD_01\nVer Auditoria\nGeneral" as A01
-   usecase "UC_AUD_02\nBuscar en\nAuditoria" as A02
-   usecase "UC_AUD_03\nExportar\nAuditoria" as A03
-   usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as A04
+   usecase "UC_AUD_01\nVer Auditoria\nGeneral" as VER_AUDITORIA
+   usecase "UC_AUD_02\nBuscar en\nAuditoria" as BUSCAR_AUDITORIA
+   usecase "UC_AUD_03\nExportar\nAuditoria" as EXPORTAR_AUDITORIA
+   usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as REPORTE_COMPLIANCE
  }
 
- view_audit_log --> A01
- search_audit_log --> A02
- export_audit_log --> A03
- generate_compliance_report --> A04
+ view_audit_log --> VER_AUDITORIA
+ search_audit_log --> BUSCAR_AUDITORIA
+ export_audit_log --> EXPORTAR_AUDITORIA
+ generate_compliance_report --> REPORTE_COMPLIANCE
 
- A01 ..> A02 : <<extend>>
- A02 ..> A03 : <<extend>>
- A04 ..> A02 : <<include>>
+ VER_AUDITORIA ..> BUSCAR_AUDITORIA : <<extend>>
+ BUSCAR_AUDITORIA ..> EXPORTAR_AUDITORIA : <<extend>>
+ REPORTE_COMPLIANCE ..> BUSCAR_AUDITORIA : <<include>>
 
  @enduml
 

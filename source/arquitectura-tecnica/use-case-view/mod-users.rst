@@ -34,18 +34,18 @@ Solo usuarios con ``create_users`` o ``update_users`` pueden modificar.
  actor "list_users" as list_users
 
  rectangle "MOD_Users" {
-   usecase "UC_USR_01\nCrear Usuario" as U01
-   usecase "UC_USR_02\nConsultar Usuarios" as U02
-   usecase "UC_USR_03\nModificar Usuario" as U03
-   usecase "UC_USR_04\nEliminar Usuario\n(baja logica)" as U04
+   usecase "UC_USR_01\nCrear Usuario" as CREAR_USUARIO
+   usecase "UC_USR_02\nConsultar Usuarios" as CONSULTAR_USUARIOS
+   usecase "UC_USR_03\nModificar Usuario" as MODIFICAR_USUARIO
+   usecase "UC_USR_04\nEliminar Usuario\n(baja logica)" as ELIMINAR_USUARIO
  }
 
- create_users --> U01
- list_users --> U02
- update_users --> U02
- update_users --> U03
- deactivate_users --> U04
- deactivate_users --> U02
+ create_users --> CREAR_USUARIO
+ list_users --> CONSULTAR_USUARIOS
+ update_users --> CONSULTAR_USUARIOS
+ update_users --> MODIFICAR_USUARIO
+ deactivate_users --> ELIMINAR_USUARIO
+ deactivate_users --> CONSULTAR_USUARIOS
 
  @enduml
 

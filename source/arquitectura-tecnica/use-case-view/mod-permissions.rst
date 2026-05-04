@@ -38,34 +38,34 @@ en ``effective_set``.
  actor "User\n(autenticado)" as user_autenticado
 
  rectangle "MOD_Permissions" {
-   usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as P01
-   usecase "UC_PERM_02\nRevocar Grupo\na Usuario" as P02
-   usecase "UC_PERM_03\nConceder Permiso\nExcepcional" as P03
-   usecase "UC_PERM_04\nRevocar Permiso\nExcepcional" as P04
-   usecase "UC_PERM_05\nCrear / Modificar /\nRetirar Grupo" as P05
-   usecase "UC_PERM_06\nAsignar Funciones\na Grupo" as P06
-   usecase "UC_PERM_07\nVerificar Permiso\nde Usuario" as P07
+   usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as ASIGNAR_GRUPO
+   usecase "UC_PERM_02\nRevocar Grupo\na Usuario" as REVOCAR_GRUPO
+   usecase "UC_PERM_03\nConceder Permiso\nExcepcional" as CONCEDER_PERMISO_EXCEPCIONAL
+   usecase "UC_PERM_04\nRevocar Permiso\nExcepcional" as REVOCAR_PERMISO_EXCEPCIONAL
+   usecase "UC_PERM_05\nCrear / Modificar /\nRetirar Grupo" as GESTIONAR_GRUPO_ACCESO
+   usecase "UC_PERM_06\nAsignar Funciones\na Grupo" as ASIGNAR_FUNCIONES_GRUPO
+   usecase "UC_PERM_07\nVerificar Permiso\nde Usuario" as VERIFICAR_PERMISO_USUARIO
    usecase "UC_PERM_08\nGenerar Menu\nDinamico\n[view_own_navigation]" as GENERAR_MENU_DINAMICO
    usecase "UC_PERM_09\nAuditar Acceso\n(write side)" as AUDITAR_ACCESO
    usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as P10
  }
 
- assign_function_groups --> P01
- revoke_function_group --> P02
- assign_function_groups --> P03
- assign_function_groups --> P04
- create_function_group --> P05
- assign_functions_to_group --> P06
- view_assignments --> P07
+ assign_function_groups --> ASIGNAR_GRUPO
+ revoke_function_group --> REVOCAR_GRUPO
+ assign_function_groups --> CONCEDER_PERMISO_EXCEPCIONAL
+ assign_function_groups --> REVOCAR_PERMISO_EXCEPCIONAL
+ create_function_group --> GESTIONAR_GRUPO_ACCESO
+ assign_functions_to_group --> ASIGNAR_FUNCIONES_GRUPO
+ view_assignments --> VERIFICAR_PERMISO_USUARIO
  user_autenticado --> GENERAR_MENU_DINAMICO
  view_audit_log --> P10
 
- P01 ..> AUDITAR_ACCESO : <<include>>
- P02 ..> AUDITAR_ACCESO : <<include>>
- P03 ..> AUDITAR_ACCESO : <<include>>
- P04 ..> AUDITAR_ACCESO : <<include>>
- P06 ..> AUDITAR_ACCESO : <<include>>
- GENERAR_MENU_DINAMICO ..> P07 : <<include>>
+ ASIGNAR_GRUPO ..> AUDITAR_ACCESO : <<include>>
+ REVOCAR_GRUPO ..> AUDITAR_ACCESO : <<include>>
+ CONCEDER_PERMISO_EXCEPCIONAL ..> AUDITAR_ACCESO : <<include>>
+ REVOCAR_PERMISO_EXCEPCIONAL ..> AUDITAR_ACCESO : <<include>>
+ ASIGNAR_FUNCIONES_GRUPO ..> AUDITAR_ACCESO : <<include>>
+ GENERAR_MENU_DINAMICO ..> VERIFICAR_PERMISO_USUARIO : <<include>>
 
  @enduml
 

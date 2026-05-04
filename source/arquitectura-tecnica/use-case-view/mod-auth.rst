@@ -33,20 +33,20 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
  actor "view_all_active_sessions" as view_all_active_sessions
 
  rectangle "MOD_Auth" {
-   usecase "UC_AUTH_01\nIniciar Sesion" as A01
-   usecase "UC_AUTH_02\nCerrar Sesion" as A02
-   usecase "UC_AUTH_03\nRecuperar Contrasena" as A03
-   usecase "UC_AUTH_04\nCambiar Contrasena" as A04
-   usecase "UC_AUTH_05\nGestionar Sesiones" as A05
+   usecase "UC_AUTH_01\nIniciar Sesion" as INICIAR_SESION
+   usecase "UC_AUTH_02\nCerrar Sesion" as CERRAR_SESION
+   usecase "UC_AUTH_03\nRecuperar Contrasena" as RECUPERAR_CONTRASENA
+   usecase "UC_AUTH_04\nCambiar Contrasena" as CAMBIAR_CONTRASENA
+   usecase "UC_AUTH_05\nGestionar Sesiones" as GESTIONAR_SESIONES
    usecase "UC_PERM_08\nGenerar Menu Dinamico\n[view_own_navigation]" as GENERAR_MENU_DINAMICO
  }
 
- UsuarioAnonimo --> A01
- UsuarioAnonimo --> A03
- user_autenticado --> A02
- user_autenticado --> A04
- view_all_active_sessions --> A05
- A01 ..> GENERAR_MENU_DINAMICO : <<include>>
+ UsuarioAnonimo --> INICIAR_SESION
+ UsuarioAnonimo --> RECUPERAR_CONTRASENA
+ user_autenticado --> CERRAR_SESION
+ user_autenticado --> CAMBIAR_CONTRASENA
+ view_all_active_sessions --> GESTIONAR_SESIONES
+ INICIAR_SESION ..> GENERAR_MENU_DINAMICO : <<include>>
 
  @enduml
 

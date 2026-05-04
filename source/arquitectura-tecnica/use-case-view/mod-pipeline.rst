@@ -36,22 +36,22 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
  actor "APScheduler\n/ Cron" as APScheduler
 
  rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_01\nVer Estado ETL\n(etl_runs)" as P01
-   usecase "UC_PIP_02\nVer Errores ETL\n(etl_runs.estado=fallido)" as P02
-   usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as P03
-   usecase "UC_PIP_04\nReintentar ETL\n(sp_etl_historico)" as P04
+   usecase "UC_PIP_01\nVer Estado ETL\n(etl_runs)" as VER_ESTADO_ETL
+   usecase "UC_PIP_02\nVer Errores ETL\n(etl_runs.estado=fallido)" as VER_ERRORES_ETL
+   usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as VER_DISPONIBILIDAD_DATOS
+   usecase "UC_PIP_04\nReintentar ETL\n(sp_etl_historico)" as REINTENTAR_ETL
    usecase "Ejecutar ETL\nAutomatico\n(sp_etl_maestro)" as AUTO
  }
 
- view_pipeline_status --> P01
- view_pipeline_errors --> P02
- view_data_availability --> P03
- request_pipeline_retry --> P04
+ view_pipeline_status --> VER_ESTADO_ETL
+ view_pipeline_errors --> VER_ERRORES_ETL
+ view_data_availability --> VER_DISPONIBILIDAD_DATOS
+ request_pipeline_retry --> REINTENTAR_ETL
  APScheduler --> AUTO
 
- P01 ..> P02 : <<extend>>
- P04 ..> P01 : <<include>>
- AUTO ..> P01 : <<extend>>
+ VER_ESTADO_ETL ..> VER_ERRORES_ETL : <<extend>>
+ REINTENTAR_ETL ..> VER_ESTADO_ETL : <<include>>
+ AUTO ..> VER_ESTADO_ETL : <<extend>>
 
  @enduml
 
