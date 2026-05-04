@@ -56,7 +56,7 @@ Parte 8 — Diagramas UML
  participant "ResetPasswordView" as RV
  participant "AuthService" as AS
  participant "PasswordGenerator" as PG
- database "MySQL" as DB
+ database "Base de Datos" as DB
 
  A -> FE: Click "Resetear contrasena"
  FE -> FE: Modal de confirmacion
@@ -76,7 +76,7 @@ Parte 8 — Diagramas UML
 
    AS -> PG: generate(length=12)
    PG --> AS: temp_password
-   AS -> AS: bcrypt.hashpw(temp_password, cost=12)
+   AS -> AS: generarHash(temp_password)
 
    group Transaccion atomica
      AS -> DB: UPDATE user SET\n  password_hash=?,\n  first_login=true,\n  password_changed_at=NOW()

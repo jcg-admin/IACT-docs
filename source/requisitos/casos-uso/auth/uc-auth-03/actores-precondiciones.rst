@@ -56,7 +56,7 @@ Responsabilidades:
   AccessGroups del admin (CNST-009).
 - Validar User destino existe y permite reset.
 - Generar contrasena temporal segura.
-- Hashear bcrypt cost 12.
+- Hashear costo de hash configurado.
 - UPDATE ``User.password_hash``,
   ``User.first_login=true``,
   ``User.password_changed_at=NOW()``.
@@ -64,7 +64,7 @@ Responsabilidades:
 - Crear ``InternalMessage`` con la contrasena.
 - Emitir ``AuditEvent PASSWORD_RESET``.
 
-2.2.3 Base de datos analitica (MySQL)
+2.2.3 Base de datos analitica (Base de Datos)
 -------------------------------------
 
 Responsabilidades:
@@ -83,7 +83,7 @@ Responsabilidades:
   contrasena temporal.
 - Notificar al User en su proximo login (UI).
 
-2.2.5 Frontend (React)
+2.2.5 Interfaz de Usuario
 ----------------------
 
 Responsabilidades:
@@ -117,7 +117,7 @@ PASSWORD_RESET para detectar:
 
 - Backend Django respondiendo en
   ``/api/users/{id}/reset-password/``.
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 Admin autenticado y autorizado
@@ -149,7 +149,7 @@ PASSWORD_RESET para detectar:
 2.4.1 Postcondiciones de exito
 ------------------------------
 
-- ``User.password_hash`` actualizado con bcrypt
+- ``User.password_hash`` actualizado con algoritmo de hash
   del temp_password.
 - ``User.first_login = true``.
 - ``User.password_changed_at = NOW()``.

@@ -16,7 +16,7 @@ un User destino valido,
 
 - Status response = 200
 - ``User.password_hash`` cambia (verificable
-  con bcrypt.checkpw del temp_pwd nuevo)
+  con algoritmo de hash.checkpw del temp_pwd nuevo)
 - ``User.first_login == true``
 - ``User.password_changed_at`` no NULL y
   reciente
@@ -250,7 +250,7 @@ librerias de email/SMTP,
 
 **ENTONCES**:
 
-- P50 ≤ 250 ms (incluyendo bcrypt cost 12)
+- P50 ≤ 250 ms (incluyendo costo de hash configurado)
 
 9.19 CA-19: Frontend no muestra contrasena
 ==========================================

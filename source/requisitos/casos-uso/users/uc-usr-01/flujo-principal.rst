@@ -17,7 +17,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 6   Backend valida datos + email unico     (Backend → BD)
    PASO 7   Backend genera username (CNST-029)     (Backend → BD)
    PASO 8   Backend genera password temporal       (Backend)
-   PASO 9   Backend hashea bcrypt cost 12          (Backend)
+   PASO 9   Backend hashea costo de hash configurado          (Backend)
    PASO 10  Backend INSERT User                    (Backend → BD)
    PASO 11  Backend INSERT Assignment (si AGR)     (Backend → BD)
    PASO 12  Backend crea InternalMessage           (Backend → BD)
@@ -128,10 +128,10 @@ pattern). Charset mixto (mayus + minus + digit
 **Critico**: la contrasena vive solo en memoria.
 NO se loggea, NO se incluye en response.
 
-PASO 9 — Hashear con bcrypt
+PASO 9 — Hashear con algoritmo de hash
 ---------------------------
 
-``bcrypt.hashpw(temp_password, gensalt(12))``.
+``generarHash(temp_password, gensalt(12))``.
 
 PASO 10 — INSERT User
 ---------------------

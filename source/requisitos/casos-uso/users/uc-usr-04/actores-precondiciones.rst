@@ -78,7 +78,7 @@ Responsabilidades:
   User, solo UPDATE de state.
 - Append-only en AuditEvent.
 
-2.2.4 Frontend (React)
+2.2.4 Interfaz de Usuario
 ----------------------
 
 - Boton "Eliminar" visible solo con
@@ -110,7 +110,7 @@ USER_ELIMINATED para detectar:
 - Backend respondiendo en
   ``/api/users/{id}/`` (DELETE — semantica
   baja logica).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 Invocante autenticado y con la funcion

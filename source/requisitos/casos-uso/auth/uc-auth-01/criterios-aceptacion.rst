@@ -309,7 +309,7 @@ CA-16: Performance < SLA CNST-017
    ENTONCES la latencia P95 esta dentro del SLA
           declarado en CNST-017
      Y la latencia P99 no excede 2x el P95
-     Y el bcrypt domina la latencia (es esperado
+     Y el verificacion criptografica domina la latencia (es esperado
        y aceptable)
 
    TEST: test_login_performance_sla

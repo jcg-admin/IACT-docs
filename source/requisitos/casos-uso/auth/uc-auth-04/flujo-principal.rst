@@ -161,7 +161,7 @@ PASO 10 — Hashear y UPDATE User
  :header-rows: 0
 
  * - **Accion**
-   - ``user.password_hash = bcrypt.hashpw(
+   - ``user.password_hash = generarHash(
      new_password, gensalt(12))``;
      ``user.first_login = False``;
      ``user.password_changed_at = NOW()``;

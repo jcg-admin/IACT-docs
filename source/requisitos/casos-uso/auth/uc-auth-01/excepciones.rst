@@ -47,7 +47,7 @@ EX-02: Password incorrecto
  :header-rows: 0
 
  * - **Activador**
-   - PASO 9 — ``bcrypt.check_password()`` retorna
+   - PASO 9 — ``verificarHash()`` retorna
      ``False``
  * - **Status HTTP**
    - 401 Unauthorized

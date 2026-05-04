@@ -12,7 +12,7 @@ Parte 6 — Requisitos no funcionales
  :header-rows: 0
 
  * - **Latencia P50**
-   - ≤ 250 ms (bcrypt cost 12 ~150 ms domina)
+   - ≤ 250 ms (costo de hash configurado ~150 ms domina)
  * - **Latencia P99**
    - ≤ 500 ms
  * - **Throughput**
@@ -28,7 +28,7 @@ Parte 6 — Requisitos no funcionales
 - Funcion ``create_users`` (via AGR-006).
 - Generacion password con
   ``secrets.SystemRandom`` (entropia ≥ 72 bits).
-- bcrypt cost 12.
+- costo de hash configurado.
 - No-leak: contrasena temporal NUNCA en logs,
   response, AuditEvent payload, UI del admin.
 - Solo InternalMailbox para credenciales

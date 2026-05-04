@@ -112,7 +112,7 @@ detectar:
 - Backend respondiendo en
   ``/api/users/{user_id}/functions/``
   (DELETE con body).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 Invocante autenticado y autorizado

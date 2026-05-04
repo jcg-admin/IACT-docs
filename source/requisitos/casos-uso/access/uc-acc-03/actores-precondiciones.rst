@@ -40,7 +40,7 @@ contenerla.
 - Backend respondiendo en
   ``/api/users/{user_id}/effective-permissions/``
   (GET).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - Invocante con ``view_assignments`` activo.
 
 2.4 Postcondiciones

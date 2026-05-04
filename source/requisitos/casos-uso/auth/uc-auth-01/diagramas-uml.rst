@@ -66,10 +66,10 @@ participantes principales del backend.
  @startuml
 
  actor       Usuario as U
- participant "Frontend\n(React)" as F
+ participant "Interfaz de Usuario" as F
  participant "LoginView\n(Django)" as V
  participant "AuthService" as Svc
- database    "MySQL\n(User, Session,\nAuditEvent)" as BD
+ database    "Base de Datos\n(User, Session,\nAuditEvent)" as BD
 
  U -> F : POST /login\n{username, password}
  activate F
@@ -89,7 +89,7 @@ participantes principales del backend.
  else User existe
    V -> Svc : authenticate(user, password)
    activate Svc
-   Svc -> Svc : bcrypt.checkpw()
+   Svc -> Svc : verificarHash()
    alt password incorrecto
      Svc --> V : invalid
      V --> F : 401 INVALID_CREDENTIALS
@@ -171,7 +171,7 @@ las distintas excepciones y flujos alternos.
    stop
  endif
 
- :Verificar password (bcrypt);
+ :Verificar password (hash criptografico);
  if (password correcto?) then (no)
    :Responder 401\nINVALID_CREDENTIALS;
    :Emitir AuditEvent\nLOGIN_FAILED;

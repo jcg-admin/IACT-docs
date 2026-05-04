@@ -172,7 +172,7 @@ PASO 10 — Hashear y UPDATE User
    - Backend
  * - **Accion**
    - ``user.password_hash =
-     bcrypt.hashpw(temp_password, gensalt(12))``;
+     generarHash(temp_password, gensalt(12))``;
      ``user.first_login = True``;
      ``user.password_changed_at = NOW()``;
      ``user.save()``

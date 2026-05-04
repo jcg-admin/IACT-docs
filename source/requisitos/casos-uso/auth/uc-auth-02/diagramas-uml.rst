@@ -51,10 +51,10 @@ Parte 8 — Diagramas UML
  @startuml
 
  actor Usuario as U
- participant "Frontend\n(React)" as FE
+ participant "Interfaz de Usuario" as FE
  participant "LogoutView\n(DRF)" as LV
  participant "AuthService" as AS
- database "MySQL\n(analitica)" as DB
+ database "Base de Datos\n(analitica)" as DB
  database "Blacklist\n(cache/BD)" as BL
 
  U -> FE: Click "Cerrar sesion"

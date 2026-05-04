@@ -55,7 +55,7 @@ Responsabilidades:
 - Emitir ``AuditEvent LOGOUT`` (CNST-025).
 - Retornar respuesta 200 OK estandar (CNST-013).
 
-2.2.2 Base de datos analitica (MySQL)
+2.2.2 Base de datos analitica (Base de Datos)
 -------------------------------------
 
 Responsabilidades:
@@ -68,7 +68,7 @@ Responsabilidades:
   simultaneamente con UC_AUTH_05 o CNST-005
   expiracion).
 
-2.2.3 Frontend (React)
+2.2.3 Interfaz de Usuario
 ----------------------
 
 Responsabilidades:
@@ -101,7 +101,7 @@ uso de los usuarios.
 
 - Backend Django respondiendo en
   ``/api/auth/logout/``.
-- BD analitica MySQL accesible y consistente.
+- BD analitica Base de Datos accesible y consistente.
 - HTTPS configurado (ADR-DEVOPS-001).
 
 2.3.2 Usuario autenticado

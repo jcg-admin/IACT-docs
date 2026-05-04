@@ -30,7 +30,7 @@ otorgarse sin la gestion (perfil auditor).
 - Backend respondiendo en
   ``/api/access/sod-rules/`` (GET/POST/
   PATCH/DELETE).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - Invocante con la funcion correspondiente.
 
 Para crear/modificar:

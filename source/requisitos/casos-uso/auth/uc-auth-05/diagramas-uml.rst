@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
  participant "Frontend" as FE
  participant "CloseSessionView" as CV
  participant "SessionService" as SS
- database "MySQL" as DB
+ database "Base de Datos" as DB
 
  A -> FE: Click "Cerrar" en Session X
  FE -> FE: Modal confirm

@@ -42,14 +42,14 @@ Responsabilidades:
 - Validar complejidad de la nueva.
 - Consultar PasswordHistory para verificar
   no-reuso.
-- Hashear bcrypt cost 12 y persistir.
+- Hashear costo de hash configurado y persistir.
 - Insertar nueva entry en PasswordHistory.
 - Actualizar ``User.first_login=false`` y
   ``password_changed_at=NOW()``.
 - Cerrar otras Sessions (segun politica).
 - Emitir AuditEvent.
 
-2.2.2 BD analitica (MySQL)
+2.2.2 BD analitica (Base de Datos)
 --------------------------
 
 Responsabilidades:
@@ -58,7 +58,7 @@ Responsabilidades:
   INSERT history + INSERT audit.
 - Append-only en AuditEvent y PasswordHistory.
 
-2.2.3 Frontend (React)
+2.2.3 Interfaz de Usuario
 ----------------------
 
 Responsabilidades:
@@ -89,7 +89,7 @@ detectar:
 
 - Backend Django respondiendo en
   ``/api/auth/change-password/``.
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 User autenticado

@@ -26,7 +26,7 @@ auditor_group la contiene.
 
 - Backend respondiendo en
   ``/api/access/audit/`` (GET).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - Invocante con la funcion.
 
 2.4 Postcondiciones

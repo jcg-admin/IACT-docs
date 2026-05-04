@@ -134,4 +134,4 @@ Parte 6 — Requisitos no funcionales
 
 - Browsers: Chrome ≥110, Firefox ≥110,
   Edge ≥110, Safari ≥16
-- API: DRF 3.14+ con paginacion estandar
+- API: Framework de API REST con paginacion estandar

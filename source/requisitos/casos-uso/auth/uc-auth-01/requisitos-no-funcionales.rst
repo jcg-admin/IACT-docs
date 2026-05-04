@@ -22,7 +22,7 @@ constraints que los gobiernan.
      dentro del SLA declarado en CNST-017 SLA
      de tiempos de respuesta.
  * - **Componentes que dominan la latencia**
-   - 1) ``bcrypt.check_password()`` (paso 9) —
+   - 1) ``verificarHash()`` (paso 9) —
      intencionalmente lento por seguridad,
      domina el coste.
      2) Query ``Session.objects.filter(user_id,
@@ -62,7 +62,7 @@ constraints que los gobiernan.
      implementacion. **Nunca** plaintext en BD,
      logs o respuesta.
  * - **Comparacion de password**
-   - Constant-time (``bcrypt.checkpw()``) para
+   - Constant-time (``verificarHash()``) para
      prevenir timing attacks.
  * - **Throttling**
    - CNST-011 — los limites concretos viven en
@@ -141,7 +141,7 @@ constraints que los gobiernan.
  * - **Idioma**
    - Mensajes al usuario en espanol claro y
      directo. Nada de jerga tecnica como
-     "JWT invalido" o "bcrypt mismatch".
+     "JWT invalido" o "fallo de verificacion de hash".
  * - **Feedback inmediato**
    - El boton "Iniciar sesion" muestra spinner
      mientras se procesa la respuesta. Tras
@@ -246,7 +246,7 @@ constraints que los gobiernan.
      anterior.
  * - CNST-003
    - Sesiones persistidas en BD — la ``Session``
-     se persiste en MySQL, no en memoria de
+     se persiste en Base de Datos, no en memoria de
      Django.
  * - CNST-004
    - Sesion unica por usuario — gobernada en

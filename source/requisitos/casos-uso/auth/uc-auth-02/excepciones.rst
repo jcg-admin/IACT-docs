@@ -103,7 +103,7 @@ seguridad.
  * - **Paso de origen**
    - PASO 6 (UPDATE Session)
  * - **Condicion**
-   - BD MySQL no responde dentro de 5s, o lock
+   - BD Base de Datos no responde dentro de 5s, o lock
      contention con UC_AUTH_05
  * - **Accion sistema**
    - ROLLBACK; Session permanece ACTIVE; tokens

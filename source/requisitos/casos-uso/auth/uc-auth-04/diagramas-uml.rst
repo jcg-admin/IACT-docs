@@ -55,7 +55,7 @@ Parte 8 — Diagramas UML
  participant "ChangePasswordView" as CV
  participant "AuthService" as AS
  participant "PolicyValidator" as PV
- database "MySQL" as DB
+ database "Base de Datos" as DB
 
  U -> FE: Form (current, new, confirm)
  FE -> FE: Client-side basic validation
@@ -83,7 +83,7 @@ Parte 8 — Diagramas UML
        AS --> CV: PasswordReused
        CV --> FE: 400 PASSWORD_REUSED
      else OK
-       AS -> AS: bcrypt.hashpw(new, cost=12)
+       AS -> AS: generarHash(new)
 
        group Transaccion atomica
          AS -> DB: UPDATE user (hash, first_login=false,\n  password_changed_at=NOW())
@@ -153,7 +153,7 @@ Parte 8 — Diagramas UML
  else (no)
  endif
 
- :bcrypt.hashpw(new, cost=12);
+ :generarHash(new);
 
  partition "Transaccion atomica" {
    :UPDATE User (hash, first_login=false);

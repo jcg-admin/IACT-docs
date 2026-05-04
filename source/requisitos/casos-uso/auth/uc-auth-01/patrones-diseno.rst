@@ -27,7 +27,7 @@ corporativo, SSO con identity provider externo,
 Implementaciones concretas:
 
 - ``LocalPasswordStrategy`` — la actual,
-  bcrypt sobre ``User.password_hash``.
+  hash criptografico sobre ``User.password_hash``.
 - ``LDAPStrategy`` — futura.
 - ``SSOStrategy`` — futura.
 

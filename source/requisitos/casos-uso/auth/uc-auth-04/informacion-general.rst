@@ -64,7 +64,7 @@ Tres modos de invocacion:
 - Verificacion de historial: la nueva no debe
   coincidir con las ultimas N (N=5 por
   default).
-- Hash bcrypt cost 12 y persistencia.
+- Hash costo de hash configurado y persistencia.
 - Actualizacion de ``first_login=false``
   (cuando aplica).
 - Almacenamiento de la nueva entrada en

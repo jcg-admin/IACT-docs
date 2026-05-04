@@ -109,7 +109,7 @@ demostrar conocimiento de la actual.
 10.3.3 Almacenar contrasena en plain
 ------------------------------------
 
-**No aplica**: bcrypt cost 12 obligatorio. Solo
+**No aplica**: costo de hash configurado obligatorio. Solo
 se almacenan hashes.
 
 10.3.4 Listar la politica completa al frontend

@@ -102,13 +102,13 @@ iniciarla.
    - Recibir request HTTPS, validar via DRF
      Serializer (CNST-012), aplicar throttling
      (CNST-011), buscar ``User`` en BD, verificar
-     password (bcrypt), aplicar CNST-004 sesion
+     password (hash criptografico), aplicar CNST-004 sesion
      unica (invalidar Sessions previas del User),
      crear ``Session`` (CNST-003), generar tokens
      JWT, emitir AuditEvent LOGIN (CNST-025),
      retornar respuesta JSON estandar (CNST-013).
 
-2.2.2 Base de datos analitica (MySQL)
+2.2.2 Base de datos analitica (Base de Datos)
 -------------------------------------
 
 .. list-table::
@@ -149,7 +149,7 @@ iniciarla.
      ``User``;
      3) NO usar email externo (CNST-001).
 
-2.2.4 Frontend (React)
+2.2.4 Interfaz de Usuario
 ----------------------
 
 .. list-table::
@@ -202,7 +202,7 @@ UC_AUTH_01:
 
 - Backend Django respondiendo en
   ``/api/auth/login/``.
-- BD analitica MySQL accesible y consistente.
+- BD analitica Base de Datos accesible y consistente.
 - HTTPS configurado (sin HTTP plano —
   ADR-DEVOPS-001).
 - InternalMailbox service operativo (necesario
@@ -220,7 +220,7 @@ UC_AUTH_01:
 - ``User.state`` ∈ {ACTIVE, INACTIVE, BLOCKED}.
   Solo ACTIVE permite login exitoso; INACTIVE y
   BLOCKED van a EX-04 / EX-03.
-- ``User.password_hash`` poblado (bcrypt).
+- ``User.password_hash`` poblado (hash criptografico).
 - Si es primer login (``User.first_login =
   true``): la ruta alterna FA-01 forza cambio de
   contrasena.

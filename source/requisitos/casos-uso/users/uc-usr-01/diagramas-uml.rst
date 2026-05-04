@@ -59,7 +59,7 @@ Parte 8 — Diagramas UML
  participant "UserService" as US
  participant "UsernameGenerator" as UG
  participant "PasswordGenerator" as PG
- database "MySQL" as DB
+ database "Base de Datos" as DB
 
  A -> FE: Form (first, last, email, agr_id?)
  FE -> CV: POST /api/users/
@@ -81,7 +81,7 @@ Parte 8 — Diagramas UML
      UG --> US: ana.gomez.0001
      US -> PG: generate(length=12)
      PG --> US: temp_password
-     US -> US: bcrypt.hashpw(temp, cost=12)
+     US -> US: generarHash(temp)
 
      group Transaccion atomica
        US -> DB: INSERT User\n  (username, email, password_hash,\n   first_login=true, ...)

@@ -54,7 +54,7 @@ Responsabilidades:
 - Enviar InternalMessage al User cuya Session
   fue cerrada (politica recomendada).
 
-2.2.3 BD MySQL
+2.2.3 BD Base de Datos
 --------------
 
 Responsabilidades:
@@ -94,7 +94,7 @@ SESSION_CLOSED para detectar:
 - Backend respondiendo en
   ``/api/auth/sessions/`` y
   ``/api/auth/sessions/{id}/``.
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 
 2.3.2 Admin autenticado y autorizado
 ------------------------------------

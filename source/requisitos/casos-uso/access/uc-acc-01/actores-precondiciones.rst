@@ -77,7 +77,7 @@ Responsabilidades:
 - Invalidar cache de permisos del User.
 - Emitir AuditEvent FUNCTIONS_ASSIGNED.
 
-2.2.3 BD analitica (MySQL)
+2.2.3 BD analitica (Base de Datos)
 --------------------------
 
 - Atomicidad ACID en INSERT masivo de
@@ -96,7 +96,7 @@ Responsabilidades:
 - Bloquea con mensaje especifico citando la
   regla SoD violada.
 
-2.2.5 Frontend (React)
+2.2.5 Interfaz de Usuario
 ----------------------
 
 - Pagina de asignacion con multi-select de
@@ -126,7 +126,7 @@ detectar:
 
 - Backend respondiendo en
   ``/api/users/{user_id}/functions/`` (POST).
-- BD analitica MySQL accesible.
+- BD analitica Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 Invocante autenticado y autorizado

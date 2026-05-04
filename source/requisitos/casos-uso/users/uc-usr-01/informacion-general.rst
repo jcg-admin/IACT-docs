@@ -49,7 +49,7 @@ Desde el sistema:
   (formato ``nombre.apellido.NNNN``).
 - Generar contrasena temporal segura (12+ chars
   mixtos).
-- Hashear bcrypt cost 12.
+- Hashear costo de hash configurado.
 - Crear ``User`` y opcionalmente asignar
   ``AccessGroup`` (AGR-001..012) inicial.
 - Emitir ``InternalMessage`` con username +
@@ -66,7 +66,7 @@ Desde el sistema:
 - Validacion de email unico (BR-USR-03).
 - Generacion de username automatico (CNST-029).
 - Generacion de contrasena temporal segura.
-- Hash bcrypt cost 12 + persistencia.
+- Hash costo de hash configurado + persistencia.
 - Asignacion opcional de AGR inicial.
 - Emision de InternalMessage al nuevo User con
   credenciales (CNST-001 + CNST-002).

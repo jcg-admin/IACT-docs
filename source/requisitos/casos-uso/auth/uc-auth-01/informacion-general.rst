@@ -75,7 +75,7 @@ de nueva sesion en otro dispositivo (CNST-004).
 - Verificacion de existencia y estado del
   ``User`` (state ∈ {ACTIVE, INACTIVE, BLOCKED}
   per BR-009 v2.0.0).
-- Verificacion del password vía bcrypt
+- Verificacion del password vía algoritmo de hash
   constant-time.
 - Aplicacion de **CNST-004 sesion unica** —
   cierre de Sessions previas activas del mismo

@@ -148,7 +148,7 @@ propio para mejor UX.
  * - **Paso de origen**
    - PASO 10-13
  * - **Condicion**
-   - OperationalError
+   - error de base de datos
  * - **Accion**
    - ROLLBACK
  * - **Response**

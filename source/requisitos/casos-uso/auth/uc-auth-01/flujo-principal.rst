@@ -23,7 +23,7 @@ en Parte 4 (FA-NN) o Parte 5 (EX-NN).
    PASO 6   Backend aplica throttling CNST-011         (Backend)
    PASO 7   Backend localiza User por username         (Backend → BD)
    PASO 8   Backend valida state del User              (Backend)
-   PASO 9   Backend verifica password (bcrypt)         (Backend)
+   PASO 9   Backend verifica password (hash criptografico)         (Backend)
    PASO 10  Backend cierra Sessions previas CNST-004   (Backend → BD)
    PASO 11  Backend crea Session nueva CNST-003        (Backend → BD)
    PASO 12  Backend genera tokens JWT                  (Backend)
@@ -48,7 +48,7 @@ PASO 1 — Usuario abre /login
  * - **Accion**
    - Navega a ``https://iact.example.com/login``
  * - **Sistema responde**
-   - Frontend (React) renderiza ``<LoginForm>``
+   - Interfaz de Usuario renderiza ``<LoginForm>``
      con dos campos (username, password) +
      boton "Iniciar sesion"
  * - **Clase tocada**
