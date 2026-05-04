@@ -55,3 +55,4 @@ Ejemplo: ``FR_001_Dashboard_Metricas_Tiempo_Real.rst``
  access/index
  permissions/index
  operator/index
+ reports/index
