@@ -4,7 +4,7 @@
  :dominio: base_cognitiva
  :subdominio: _uml
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -193,8 +193,11 @@ Relación con los diagramas actuales en IACT
    - ``deploy-view/`` 3 variantes canónicas: deploy-estandar,
      deploy-auth-cache, deploy-etl. ✓ Reestructurado (Bloque C).
  * - Operational
-   - Sin vista dedicada
-   - WP ``uml-coverage-operational-view`` pendiente de ejecución.
+   - Operational View
+   - ``operational-view/`` creado (WP uml-coverage-operational-view):
+     system-administration, system-configuration, system-support,
+     system-installation. AGR_ADMIN UC + activity, ETL state machine,
+     diagnostic flow, install bootstrap. ✓ Implementado.
 
 ----
 

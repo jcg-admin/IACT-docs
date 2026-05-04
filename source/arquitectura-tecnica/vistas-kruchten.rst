@@ -55,6 +55,11 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  * - :doc:`deploy-view/index`
    - Deployment
    - Distribucion fisica. 3 variantes: estandar, auth-cache, etl.
+ * - :doc:`operational-view/index`
+   - Operational
+   - Administracion (AGR_ADMIN), configuracion del sistema,
+     soporte del pipeline ETL y procedimiento de instalacion
+     y bootstrap RBAC.
 
 ----
 
@@ -69,3 +74,4 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  design-view/index
  implementation-view/index
  deploy-view/index
+ operational-view/index
