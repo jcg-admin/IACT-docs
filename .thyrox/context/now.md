@@ -1,21 +1,55 @@
 ```yml
 type: Estado de Sesión
 version: 3.6
-updated_at: 2026-05-04 15:03:00
+updated_at: 2026-05-04 16:14:59
 cold_boot: false
-current_epic: 17
-epic_name: uml-coverage-housekeeping
-current_work: .thyrox/context/work/2026-05-04-15-00-00-uml-coverage-housekeeping
+current_epic: 18
+epic_name: arq-tecnica-deep-audit
+current_work: .thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit
 stage: discover
 stage_number: 1
 current_phase: Phase 1 — DISCOVER
 flow: thyrox
 methodology_step: thyrox:discover
 blockers: []
-last_completed_phase: ÉPICA 16 uml-arq-coverage-audit — Stage 1 DISCOVER completado (2026-05-04)
-next_decision_required: "Aprobación de WP-1 (context-view), WP-2 (operational-view), WP-3 (housekeeping), WP-4 (perspectivas) antes de ejecutar"
+last_completed_phase: "ÉPICA 17 — WP-1 context-view, WP-2 operational-view, WP-3 housekeeping, WP-4 perspectivas — todos completados y pusheados (2026-05-04)"
+next_decision_required: "Aprobación de hallazgos F-01..F-06 para proceder con correcciones"
 stage_sync_required: false
 ```
+
+# IACT-docs — Estado de Sesión
+
+## Resumen 2026-05-04 (ÉPICA 18 — arq-tecnica-deep-audit)
+
+Análisis profundo de los 214 archivos RST de `source/arquitectura-tecnica/`
+ejecutado en 6 capas adversariales. 7 hallazgos documentados en:
+
+`.thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit/discover/arq-tecnica-deep-audit-analysis.md`
+
+### Hallazgos activos
+
+| ID | Severidad | Descripción |
+|---|---|---|
+| F-01 | CRÍTICA | Naming inconsistente: 5 módulos con nombres distintos entre use-case-view, design-view e implementation-view |
+| F-02 | ALTA | mod-caller ausente en design-view e implementation-view |
+| F-03 | ALTA | "Django" sin "REST Framework" en 6 archivos |
+| F-04 | ALTA | BC count incorrecto: "7" y "25 clases" en lugar de "8" y "26" |
+| F-05 | MEDIA | Aliases cortos (API, BL, RBAC, AUDIT) en perspectiva-regulation.rst |
+| F-06 | MEDIA | Doble título idéntico en pipeline-datos-ivr-caller.rst |
+| F-07 | BAJA | system-view/ sin toctree principal (pre-existing, fuera de scope) |
+
+### WPs anteriores completados (ÉPICA 17)
+
+- WP-1 `2026-05-04-14-59-45-uml-coverage-context-view` — ✓ context-view/ creado
+- WP-2 `2026-05-04-15-00-30-uml-coverage-operational-view` — ✓ operational-view/ creado
+- WP-3 `2026-05-04-15-00-00-uml-coverage-housekeeping` — ✓ housekeeping completado
+- WP-4 `2026-05-04-15-01-00-uml-coverage-perspectivas` — ✓ perspectivas/ creado
+
+## Repositorio
+
+- **Branch:** `claude/review-ucs-work-state-phwmj`
+- **HEAD:** `85c8780` (sincronizado con origin)
+- **Working tree:** clean
 
 # IACT-docs — Estado de Sesión
 
