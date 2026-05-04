@@ -35,8 +35,9 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
  left to right direction
 
  actor "User\n(no autenticado)" as UNAUTH
- actor "User\n(autenticado)" as AUTH
- actor "view_all_active_sessions" as SESS_ADM
+ actor "User
+(autenticado)" as user_autenticado
+ actor "view_all_active_sessions" as view_all_active_sessions
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_01\nIniciar Sesion" as A01
@@ -51,7 +52,7 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
  UNAUTH --> A03
  AUTH --> A02
  AUTH --> A04
- SESS_ADM --> A05
+ view_all_active_sessions --> A05
  A01 ..> P08 : <<include>>
 
  @enduml
@@ -70,10 +71,10 @@ Solo usuarios con ``create_users`` o ``update_users`` pueden modificar.
  @startuml
  left to right direction
 
- actor "create_users" as CU
- actor "update_users" as UU
- actor "deactivate_users" as DU
- actor "list_users" as LU
+ actor "create_users" as create_users
+ actor "update_users" as update_users
+ actor "deactivate_users" as deactivate_users
+ actor "list_users" as list_users
 
  rectangle "MOD_Users" {
    usecase "UC_USR_01\nCrear Usuario" as U01
@@ -82,12 +83,12 @@ Solo usuarios con ``create_users`` o ``update_users`` pueden modificar.
    usecase "UC_USR_04\nEliminar Usuario\n(baja logica)" as U04
  }
 
- CU --> U01
- LU --> U02
- UU --> U02
- UU --> U03
- DU --> U04
- DU --> U02
+ create_users --> U01
+ list_users --> U02
+ update_users --> U02
+ update_users --> U03
+ deactivate_users --> U04
+ deactivate_users --> U02
 
  @enduml
 
@@ -106,12 +107,12 @@ gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
  @startuml
  left to right direction
 
- actor "assign_functions" as AF
- actor "revoke_functions" as RF
- actor "view_assignments" as VA
- actor "assign_function_groups" as AFG
- actor "view_separation_rules" as VSR
- actor "view_audit_log" as VAA
+ actor "assign_functions" as assign_functions
+ actor "revoke_functions" as revoke_functions
+ actor "view_assignments" as view_assignments
+ actor "assign_function_groups" as assign_function_groups
+ actor "view_separation_rules" as view_separation_rules
+ actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as AC01
@@ -123,14 +124,14 @@ gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
    usecase "UC_ACC_09\nAuditar Cambios\nde Acceso" as AC09
  }
 
- AF --> AC01
- AF --> AC08
- RF --> AC02
- VA --> AC03
- AFG --> AC04
- VSR --> AC05
- VAA --> AC09
- VA --> AC09
+ assign_functions --> AC01
+ assign_functions --> AC08
+ revoke_functions --> AC02
+ view_assignments --> AC03
+ assign_function_groups --> AC04
+ view_separation_rules --> AC05
+ view_audit_log --> AC09
+ view_assignments --> AC09
 
  AC08 ..> AC01 : <<extend>>
 
@@ -151,13 +152,14 @@ en ``effective_set``.
  @startuml
  left to right direction
 
- actor "assign_function_groups" as AFG
- actor "revoke_function_group" as RFG
- actor "create_function_group" as MAG
- actor "assign_functions_to_group" as MAGC
- actor "view_assignments" as VA
- actor "view_audit_log" as AUD
- actor "User\n(autenticado)" as AUTH
+ actor "assign_function_groups" as assign_function_groups
+ actor "revoke_function_group" as revoke_function_group
+ actor "create_function_group" as create_function_group
+ actor "assign_functions_to_group" as assign_functions_to_group
+ actor "view_assignments" as view_assignments
+ actor "view_audit_log" as view_audit_log
+ actor "User
+(autenticado)" as user_autenticado
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as P01
@@ -172,15 +174,15 @@ en ``effective_set``.
    usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as P10
  }
 
- AFG --> P01
- RFG --> P02
- AFG --> P03
- AFG --> P04
- MAG --> P05
- MAGC --> P06
- VA --> P07
- AUTH --> P08
- AUD --> P10
+ assign_function_groups --> P01
+ revoke_function_group --> P02
+ assign_function_groups --> P03
+ assign_function_groups --> P04
+ create_function_group --> P05
+ assign_functions_to_group --> P06
+ view_assignments --> P07
+ user_autenticado --> P08
+ view_audit_log --> P10
 
  P01 ..> P09 : <<include>>
  P02 ..> P09 : <<include>>
@@ -206,13 +208,14 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
  @startuml
  left to right direction
 
- actor "view_dashboard" as VD
- actor "view_kpis" as VK
- actor "view_reports" as VR
- actor "export_csv\n(export_pdf/excel)" as EXP
- actor "schedule_report" as SRPT
- actor "save_view" as SV
- actor "share_report" as SHR
+ actor "view_dashboard" as view_dashboard
+ actor "view_kpis" as view_kpis
+ actor "view_reports" as view_reports
+ actor "export_csv
+(export_pdf/excel)" as export_csv
+ actor "schedule_report" as schedule_report
+ actor "save_view" as save_view
+ actor "share_report" as share_report
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
@@ -232,20 +235,20 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
    usecase "UC_RPT_17\nReporte de Clientes\nUnicos\n(sp_rpt_clientes)" as R17
  }
 
- VD --> R01
- VK --> R02
- VR --> R03
- EXP --> R04
- SRPT --> R07
- SRPT --> R08
- SV --> R10
- SHR --> R11
- VR --> R12
- VR --> R13
- VR --> R14
- VR --> R15
- VR --> R16
- VR --> R17
+ view_dashboard --> R01
+ view_kpis --> R02
+ view_reports --> R03
+ export_csv --> R04
+ schedule_report --> R07
+ schedule_report --> R08
+ save_view --> R10
+ share_report --> R11
+ view_reports --> R12
+ view_reports --> R13
+ view_reports --> R14
+ view_reports --> R15
+ view_reports --> R16
+ view_reports --> R17
 
  R01 ..> INC : <<include>>
  R02 ..> INC : <<include>>
@@ -277,10 +280,10 @@ se generan automaticamente por el motor de alertas y por el ETL.
  @startuml
  left to right direction
 
- actor "configure_team_alerts" as MAT
- actor "view_alerts" as VAA
- actor "acknowledge_alert" as ACA
- actor "view_alert_history" as VAH
+ actor "configure_team_alerts" as configure_team_alerts
+ actor "view_alerts" as view_alerts
+ actor "acknowledge_alert" as acknowledge_alert
+ actor "view_alert_history" as view_alert_history
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01
@@ -291,10 +294,10 @@ se generan automaticamente por el motor de alertas y por el ETL.
    usecase "Motor de Alertas\n(automatico)" as MOTOR
  }
 
- MAT --> AL01
- VAA --> AL02
- ACA --> AL03
- VAH --> AL04
+ configure_team_alerts --> AL01
+ view_alerts --> AL02
+ acknowledge_alert --> AL03
+ view_alert_history --> AL04
  MOTOR --> AL05
 
  AL02 ..> AL03 : <<extend>>
@@ -318,11 +321,12 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
  @startuml
  left to right direction
 
- actor "view_pipeline_status" as VEE
- actor "view_pipeline_errors" as VEER
- actor "view_data_availability" as VDD
- actor "request_pipeline_retry" as RE
- actor "APScheduler\n/ Cron" as SCH
+ actor "view_pipeline_status" as view_pipeline_status
+ actor "view_pipeline_errors" as view_pipeline_errors
+ actor "view_data_availability" as view_data_availability
+ actor "request_pipeline_retry" as request_pipeline_retry
+ actor "APScheduler
+/ Cron" as APScheduler
 
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nVer Estado ETL\n(etl_runs)" as P01
@@ -332,11 +336,11 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
    usecase "Ejecutar ETL\nAutomatico\n(sp_etl_maestro)" as AUTO
  }
 
- VEE --> P01
- VEER --> P02
- VDD --> P03
- RE --> P04
- SCH --> AUTO
+ view_pipeline_status --> P01
+ view_pipeline_errors --> P02
+ view_data_availability --> P03
+ request_pipeline_retry --> P04
+ APScheduler --> AUTO
 
  P01 ..> P02 : <<extend>>
  P04 ..> P01 : <<include>>
@@ -359,10 +363,10 @@ RBAC, disparos de ETL y cualquier accion de escritura.
  @startuml
  left to right direction
 
- actor "view_audit_log" as VGA
- actor "search_audit_log" as SA
- actor "export_audit_log" as EA
- actor "generate_compliance_report" as GCR
+ actor "view_audit_log" as view_audit_log
+ actor "search_audit_log" as search_audit_log
+ actor "export_audit_log" as export_audit_log
+ actor "generate_compliance_report" as generate_compliance_report
 
  rectangle "MOD_Audit" {
    usecase "UC_AUD_01\nVer Auditoria\nGeneral" as A01
@@ -371,10 +375,10 @@ RBAC, disparos de ETL y cualquier accion de escritura.
    usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as A04
  }
 
- VGA --> A01
- SA --> A02
- EA --> A03
- GCR --> A04
+ view_audit_log --> A01
+ search_audit_log --> A02
+ export_audit_log --> A03
+ generate_compliance_report --> A04
 
  A01 ..> A02 : <<extend>>
  A02 ..> A03 : <<extend>>
@@ -397,13 +401,13 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
  @startuml
  left to right direction
 
- actor "view_application_logs" as VSL
- actor "view_etl_logs" as VEL
- actor "search_logs" as SL
- actor "export_logs" as EL
- actor "view_infrastructure_logs" as VIL
- actor "view_system_health" as VSS
- actor "view_technical_metrics" as VTM
+ actor "view_application_logs" as view_application_logs
+ actor "view_etl_logs" as view_etl_logs
+ actor "search_logs" as search_logs
+ actor "export_logs" as export_logs
+ actor "view_infrastructure_logs" as view_infrastructure_logs
+ actor "view_system_health" as view_system_health
+ actor "view_technical_metrics" as view_technical_metrics
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nVer Logs\ndel Sistema" as L01
@@ -415,13 +419,13 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
    usecase "UC_LOG_07\nVer Metricas\nTecnicas" as L07
  }
 
- VSL --> L01
- VEL --> L02
- SL --> L03
- EL --> L04
- VIL --> L05
- VSS --> L06
- VTM --> L07
+ view_application_logs --> L01
+ view_etl_logs --> L02
+ search_logs --> L03
+ export_logs --> L04
+ view_infrastructure_logs --> L05
+ view_system_health --> L06
+ view_technical_metrics --> L07
 
  L01 ..> L03 : <<extend>>
  L02 ..> L03 : <<extend>>
@@ -444,16 +448,16 @@ consulta de estadisticas personales.
  @startuml
  left to right direction
 
- actor "manage_own_agent_state" as MGS
- actor "answer_inbound_calls" as AIC
- actor "make_outbound_calls" as MOC
- actor "hold_calls" as HC
- actor "transfer_calls" as TC
- actor "enter_call_disposition" as ECD
- actor "request_break" as RBK
- actor "view_own_performance_dashboard" as VOPD
- actor "view_own_call_history" as VOCH
- actor "read_own_mailbox" as ROM
+ actor "manage_own_agent_state" as manage_own_agent_state
+ actor "answer_inbound_calls" as answer_inbound_calls
+ actor "make_outbound_calls" as make_outbound_calls
+ actor "hold_calls" as hold_calls
+ actor "transfer_calls" as transfer_calls
+ actor "enter_call_disposition" as enter_call_disposition
+ actor "request_break" as request_break
+ actor "view_own_performance_dashboard" as view_own_performance_dashboard
+ actor "view_own_call_history" as view_own_call_history
+ actor "read_own_mailbox" as read_own_mailbox
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado\ndel Agente" as O01
@@ -468,16 +472,16 @@ consulta de estadisticas personales.
    usecase "UC_OPR_10\nVer Buzon\nde Mensajes" as O10
  }
 
- MGS --> O01
- AIC --> O02
- MOC --> O03
- HC --> O04
- TC --> O05
- ECD --> O06
- RBK --> O07
- VOPD --> O08
- VOCH --> O09
- ROM --> O10
+ manage_own_agent_state --> O01
+ answer_inbound_calls --> O02
+ make_outbound_calls --> O03
+ hold_calls --> O04
+ transfer_calls --> O05
+ enter_call_disposition --> O06
+ request_break --> O07
+ view_own_performance_dashboard --> O08
+ view_own_call_history --> O09
+ read_own_mailbox --> O10
 
  O02 ..> O01 : <<include>>
  O06 ..> O02 : <<include>>
@@ -501,9 +505,9 @@ funciones de supervision especificas.
  @startuml
  left to right direction
 
- actor "monitor_live_calls" as MLC
- actor "barge_in_calls" as BIC
- actor "broadcast_team_messages" as BTM
+ actor "monitor_live_calls" as monitor_live_calls
+ actor "barge_in_calls" as barge_in_calls
+ actor "broadcast_team_messages" as broadcast_team_messages
 
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as S01
@@ -511,9 +515,9 @@ funciones de supervision especificas.
    usecase "UC_SUP_03\nEnviar Mensaje\nal Equipo" as S03
  }
 
- MLC --> S01
- BIC --> S02
- BTM --> S03
+ monitor_live_calls --> S01
+ barge_in_calls --> S02
+ broadcast_team_messages --> S03
 
  S02 ..> S01 : <<include>>
 
