@@ -112,7 +112,8 @@ Cumple con principios de auditoria y control interno.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **Responsable**: admin_seguridad (AGR-008)
-- **Proceso de Cambio**: Configuracion via UC-043
+- **Proceso de Cambio**: Configuracion via UC_ADM_01 (ciclo de vida de
+  reglas SoD) y vista operativa via UC_ACC_05
 - **Frecuencia de Revision**: Semestral
 
 ----
@@ -187,10 +188,13 @@ documentada del sponsor y registro en auditoria.
    - Donde Aplica
  * - UC-010
    - Asignar Funciones - validacion SoD
- * - UC-043
-   - Configurar SoD - definir restricciones
- * - UC-044
-   - Consultar Permisos Efectivos - muestra conflictos
+ * - UC_ADM_01
+   - Gestionar Ciclo de Vida de Reglas SoD (crear, actualizar,
+     activar/desactivar)
+ * - UC_ACC_05
+   - Vista operativa de reglas SoD vigentes
+ * - UC_ACC_03
+   - Consultar Permisos Efectivos - muestra conflictos SoD
 
 ----
 
