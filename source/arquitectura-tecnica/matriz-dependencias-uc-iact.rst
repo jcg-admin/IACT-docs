@@ -3,9 +3,9 @@
  :tipo: Analisis Arquitectonico
  :dominio: arquitectura_tecnica
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-01
- :ultimo_cambio: 2026-05-01
+ :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -51,8 +51,8 @@ Esta matriz analiza las dependencias estructurales entre los 80 UCs
 para identificar:
 
 - **Cuales UCs son criticos** — sin ellos el sistema no entrega su
-  valor de negocio (call-center analytics + RBAC granular +
-  auditoria compliance).
+  valor de negocio (analytics IVR + RBAC granular + auditoria
+  compliance).
 - **Cual es el flujo minimo end-to-end** que el sistema debe soportar
   para considerarse operativo.
 - **Que dependencias son transversales** — invocadas implicitamente
@@ -60,6 +60,21 @@ para identificar:
   emision de auditoria).
 - **Que dependencias son cuellos de botella** — puntos del grafo cuya
   falla deja sin servicio a varios consumidores aguas abajo.
+
+**Alcance por fase:**
+
+- **Fase 1 (alcance de esta entrega):** analytics IVR + RBAC granular —
+  clusters AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD, LOG (61 UCs base).
+  Criticos: maximizar **cohesion** (cada servicio realiza una funcion
+  completa y unica) y minimizar **acoplamiento** (clases aisladas del
+  efecto rippling).
+
+- **Fase 2 (fuera de scope actual):** operacion del call center —
+  clusters OPR, SUP, CLI (19 UCs). Se incluyen en el diseno por
+  principio **Open/Closed**: la arquitectura del nucleo permite
+  incorporarlos sin modificar Fase 1. Son mencionados en esta matriz
+  para que el modelo de dominio los contemple desde el inicio, pero
+  **no forman parte de la primera entrega funcional**.
 
 1.2 Distribucion por criticidad
 -------------------------------
@@ -72,8 +87,9 @@ para identificar:
    - UCs
    - Definicion operativa
  * - CRITICOS
-   - 9 (11%)
-   - Sin estos, IACT no opera. Bloquean cualquier ruta de valor.
+   - 8 (10%)
+   - Sin estos, IACT Fase 1 no opera. Concentrados en RPT, PIP,
+     AUTH y RBAC core.
  * - ALTOS
    - 34 (43%)
    - Esenciales operativos. Sin ellos el sistema funciona en modo
@@ -85,35 +101,50 @@ para identificar:
  * - BAJOS
    - 13 (16%)
    - Opcionales / sub-features avanzadas.
+ * - **Fase 2** (OPR/SUP/CLI)
+   - 19
+   - Operacion del call center. Fuera del scope de Fase 1;
+     incluidos por diseno Open/Closed.
 
-**Total verificado: 9 + 34 + 24 + 13 = 80 UCs.**
-(Incluye 18 UCs nuevos: OPR=10, SUP=3, CLI=5; y UC_INC_RPT_01 add.)
+**Total catalogo: 8 + 34 + 24 + 13 + 19 (Fase 2) = 80 UCs** (verificado 2.13).
+Los 61 de Fase 1 = clusters AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD, LOG.
 
-1.2.1 Los 9 UCs CRITICOS
-~~~~~~~~~~~~~~~~~~~~~~~~
+1.2.1 Los 8 UCs CRITICOS — Fase 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los CRITICOS de Fase 1 son los que tienen mayor impacto en el
+**valor de negocio central**: reportes IVR, dashboard analitico,
+pipeline ETL y el nucleo RBAC que los habilita. Sin cualquiera
+de ellos el producto no entrega su propuesta de valor.
 
 ::
 
+   UC_RPT_01   Ver Dashboard         (UI principal del producto)
+   UC_PIP_01   Supervisar ETL        (sin ETL no hay analytics — prereq RPT)
    UC_AUTH_01  Iniciar Sesion        (entrada universal)
    UC_AUTH_04  Cambiar Contrasena    (forzado primer login, CNST-003)
-   UC_PERM_07  Verificar Permiso     (gate seguridad universal)
+   UC_PERM_07  Verificar Permiso     (gate seguridad universal — T-02)
    UC_USR_02   Consultar Usuarios    (baseline admin RBAC)
    UC_ACC_03   Consultar Permisos    (visibilidad RBAC minima)
-   UC_PIP_01   Supervisar ETL        (sin ETL no hay analytics)
-   UC_RPT_01   Ver Dashboard         (UI principal del producto)
    UC_AUD_01   Consultar Auditoria   (compliance mandatorio CNST-025)
-   UC_OPR_02   Atender Llamada       (flujo principal del call center)
+
+.. note::
+
+   UC_OPR_02 (Atender Llamada) pertenece al cluster OPR — **Fase 2**.
+   Aparece en el catalogo por diseno Open/Closed (la arquitectura lo
+   soporta sin modificar el nucleo), pero no es critico para la
+   primera entrega funcional.
 
 1.3 Flujo critico identificado
 ------------------------------
 
 A diferencia de un ecommerce (Login → Catalogo → Carrito → Pago), el
 flujo critico de IACT no es un unico pipeline lineal. IACT es una
-**plataforma de analytics + RBAC** con **cuatro caminos criticos
-paralelos** segun el actor:
+**plataforma de analytics IVR + RBAC** con **cuatro caminos criticos
+de Fase 1** segun el actor:
 
-**Ruta A — Sistema (background)**: pre-requisito de todos los demas
-caminos.
+**Ruta A — ETL (background)**: pre-requisito de todos los demas
+caminos. Sin ETL no hay analytics.
 
 ::
 
@@ -124,15 +155,16 @@ caminos.
         ↓
    Datos analiticos disponibles
 
-**Ruta B — Operador / Supervisor**: camino de valor de negocio.
+**Ruta B — Usuario con view_reports**: camino de **valor de negocio
+central** — reportes y dashboard IVR.
 
 ::
 
    UC_AUTH_01 → [primer login: UC_AUTH_04] → UC_PERM_07
         ↓
-   UC_RPT_01  Ver Dashboard
+   UC_RPT_01  Ver Dashboard  ← valor principal del producto
 
-**Ruta C — Administrador RBAC**: camino de bootstrap.
+**Ruta C — Administrador RBAC**: camino de bootstrap y administracion.
 
 ::
 
@@ -147,6 +179,11 @@ caminos.
    UC_AUTH_01 → UC_PERM_07
         ↓
    UC_AUD_01  Consultar Auditoria
+
+.. note::
+
+   La operacion del call center (Ruta E: OPR / SUP / CLI) es **Fase 2**
+   y no forma parte del flujo critico de la primera entrega.
 
 1.4 Tres dependencias transversales
 -----------------------------------
@@ -661,12 +698,21 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
    - LOG-007 ``view_technical_metrics`` (NUEVA)
    - ``TechnicalMetric``
 
-2.10 Cluster OPR (10 UCs)
---------------------------
+2.10 Cluster OPR (10 UCs) — Fase 2
+------------------------------------
+
+.. note::
+
+   **Fase 2 — fuera del scope de la primera entrega funcional.**
+   Incluido en el catalogo por principio **Open/Closed**: el modelo
+   de dominio soporta estos UCs sin modificar el nucleo de Fase 1
+   (clusters AUTH..LOG). UC_OPR_02 era CRITICO en versiones anteriores
+   de esta matriz; fue reclasificado al consolidar el alcance por fases.
 
 Responsabilidad: operacion del agente en el call center — ciclo de vida
 de estado, atencion de llamadas, transferencia, disposicion y
-autogestion. **1 CRITICO + 4 ALTOS + 3 MEDIOS + 2 BAJOS**.
+autogestion. **0 CRITICOS (Fase 1) + 4 ALTOS + 3 MEDIOS + 2 BAJOS** +
+UC_OPR_02 (CRITICO de Fase 2).
 
 .. list-table::
  :widths: 22 12 10 26 30
@@ -728,8 +774,12 @@ autogestion. **1 CRITICO + 4 ALTOS + 3 MEDIOS + 2 BAJOS**.
    - OPR-010 ``read_own_mailbox``
    - ``InternalMailbox``
 
-2.11 Cluster SUP (3 UCs)
---------------------------
+2.11 Cluster SUP (3 UCs) — Fase 2
+-----------------------------------
+
+.. note::
+
+   **Fase 2 — fuera del scope de la primera entrega funcional.**
 
 Responsabilidad: supervision en tiempo real del equipo de agentes —
 monitoreo de llamadas activas, intervencion y comunicacion de equipo.
@@ -760,8 +810,12 @@ monitoreo de llamadas activas, intervencion y comunicacion de equipo.
    - SUP-003 ``broadcast_team_messages``
    - ``InternalMailbox``
 
-2.12 Cluster CLI (5 UCs)
---------------------------
+2.12 Cluster CLI (5 UCs) — Fase 2
+-----------------------------------
+
+.. note::
+
+   **Fase 2 — fuera del scope de la primera entrega funcional.**
 
 Responsabilidad: ciclo de vida del llamante externo — desde marcado
 hasta calificacion post-atencion. Actor sin RBAC; interactua con el
@@ -1331,6 +1385,94 @@ Cinco componentes capturan ~80% de la infraestructura cross-cutting:
 
 ----
 
+PARTE 7 — Criterios OOD: cohesion y acoplamiento
+=================================================
+
+El criterio central para clasificar la criticidad de un UC en IACT
+es su posicion en los ejes de **cohesion** y **acoplamiento** del
+modelo OOD (Object-Oriented Design).
+
+7.1 Cohesion
+------------
+
+La cohesion describe el grado de relacion interna de un servicio o
+clase. Los criterios aplicados son:
+
+**Cohesion de servicio:**
+Un servicio realiza una (entera) y solo una funcion. Si para
+describirlo se necesitan sentencias compuestas, multiples verbos,
+"_y_" u "_o_", el servicio es demasiado complejo y debe partirse.
+
+**Cohesion de clase:**
+Los atributos y servicios de una clase deben ser maximos en cohesion:
+sin atributos no usados, sin servicios que no sean propios de la
+responsabilidad de la clase.
+
+**Cohesion de herencia (generalizacion/especializacion):**
+Las jerarquias deben ser coherentes y sensatas. Si las modificaciones
+de mantenimiento las descohesionan, hay que redisenar las jerarquias.
+
+**Aplicacion en IACT:**
+Los clusters RPT (reportes) y PIP (pipeline ETL) tienen la cohesion
+mas alta — cada UC hace exactamente una cosa y la hace completa.
+UC_RPT_01 (Ver Dashboard) = un dashboard, un punto de entrada.
+UC_PIP_01 (Supervisar ETL) = un estado del pipeline, una vista.
+
+7.2 Acoplamiento
+----------------
+
+El acoplamiento describe el grado de interdependencia entre
+objetos/clases. Los criterios son:
+
+**Minimo acoplamiento de interacciones (uso o mensajes):**
+Si una clase esta conectada con muchas otras, aunque aislada, produce
+el efecto *rippling*: una modificacion resuena en todo el sistema.
+
+**Maximo acoplamiento de herencia:**
+Debe utilizarse toda la herencia del padre y extenderse solo lo
+necesario.
+
+**Evitar el acoplamiento "mensaje pass-through":**
+Si una clase intermedia no realiza ninguna tarea (solo es
+intermediaria), cualquier cambio en la llamada obliga a modificar los
+tres objetos. La solucion es pedir directamente al objeto que interesa.
+
+**Aplicacion en IACT:**
+
+.. list-table::
+ :widths: 20 20 60
+ :header-rows: 1
+
+ * - UC / Componente
+   - Acoplamiento
+   - Razon
+ * - UC_PERM_07
+   - Alto (T-02)
+   - 78/80 UCs dependen de el — riesgo de rippling critico.
+     Mitigado: interfaz minima ``(user_id, function_id)`` +
+     cache LRU. Pass-through controlado.
+ * - UC_AUTH_01
+   - Alto (T-01)
+   - 78/80 UCs lo requieren como prerequisito de sesion.
+     Aislado via middleware — no acoplamiento directo UC-a-UC.
+ * - UC_RPT_01
+   - Medio
+   - Hub del cluster RPT (14 UCs extienden). Acoplamiento de
+     herencia / extension, no de mensajes.
+ * - Clusters OPR/SUP/CLI
+   - Bajo (diseno)
+   - Fase 2 — diseno Open/Closed asegura que su incorporacion
+     no modifica el nucleo. Acoplamiento controlado via
+     interfaces del dominio (Call, AgentSession).
+
+**Conclusion OOD:**
+La criticidad de un UC es proporcional al impacto de su falla en la
+cohesion y acoplamiento del sistema. Los 8 CRITICOS de Fase 1 son
+exactamente los que, si fallan, rompen la cohesion de valor del
+producto o crean efecto rippling sistemico.
+
+----
+
 Conclusion — metricas y proximos pasos
 ======================================
 
@@ -1339,25 +1481,33 @@ C.1 Metricas globales
 
 ::
 
-   Casos de uso vigentes:           61 (verificado)
-   Clusters funcionales:            9
+   Casos de uso vigentes:           80 (verificado en tabla 2.13)
+     └─ Fase 1 (clusters AUTH..LOG): 61 UCs
+     └─ Fase 2 (clusters OPR/SUP/CLI): 19 UCs
+   Clusters funcionales:            12 (AUTH, USR, ACC, PERM, RPT,
+                                     ALR, PIP, AUD, LOG, OPR, SUP, CLI)
    Clases canonicas de dominio:     25
    Bounded contexts:                7
    Funciones RBAC:                  74 (v5.5.0)
 
-   Distribucion criticidad:         8 / 27 / 18 / 8
+   Distribucion criticidad (Fase 1):
+     CRITICOS:  8 (RPT_01, PIP_01, AUTH_01, AUTH_04,
+                   PERM_07, USR_02, ACC_03, AUD_01)
+     ALTOS:    34
+     MEDIOS:   24
+     BAJOS:    13
 
-   Aristas REQUIERE explicitas:     ~70
-   Aristas T-01:                    59
-   Aristas T-02:                    59
-   Aristas T-03:                    35
-   UCs raiz:                        18
+   Aristas REQUIERE explicitas:     ~90
+   Aristas T-01:                    78 (total catalogo)
+   Aristas T-02:                    78 (total catalogo)
+   Aristas T-03:                    39 (operaciones escritura)
+   UCs raiz:                        23
    Camino critico minimo:            4 UCs
 
-   Person-days UCs:                 170
+   Person-days UCs (Fase 1):        170
    Person-days overhead:             88
-   Person-days total:               258
-   Sprints propuestos:               15
+   Person-days total Fase 1:        258
+   Sprints propuestos (Fase 1):      15
 
    Patrones GoF/POSA aplicados:     15 distintos
    Patrones cross-cutting IACT:      8
