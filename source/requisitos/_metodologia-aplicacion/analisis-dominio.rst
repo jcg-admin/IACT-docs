@@ -558,7 +558,7 @@ Para cada UC del catálogo IACT, el análisis de dominio produce:
  Verbos:      verificar, evaluar, registrar
  Clases:      SecRules, AuditoriaPermiso
  Operaciones: SecRules.verificarPermiso(usuario, funcion)
-              → SQL nativa usuario_tiene_permiso()
+              → SQL nativa user_has_function(p_user_id, p_function_code)
 
 **UC_AUD_01 (Consultar Auditoría)**
 ::

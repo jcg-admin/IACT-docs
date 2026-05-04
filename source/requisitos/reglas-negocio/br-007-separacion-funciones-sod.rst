@@ -225,9 +225,14 @@ documentada del sponsor y registro en auditoria.
 
 ::
 
- SOD_001: create_users vs assign_functions
- SOD_002: view_audit_log vs export_audit_log
- SOD_003: view_pipeline_status vs request_pipeline_retry
+ SOD_001 (pipeline_audit_separation):
+   view_pipeline_status vs view_audit_log
+
+ SOD_002 (user_audit_separation):
+   create_users vs view_audit_log
+
+ SOD_003 (access_audit_separation):
+   assign_functions vs view_audit_log
 
 ----
 

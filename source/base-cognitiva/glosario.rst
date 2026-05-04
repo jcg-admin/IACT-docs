@@ -435,9 +435,9 @@ toda documentación nueva del proyecto (formalizado en
  * - **Verificación de Permiso**
    - Función SQL nativa que evalúa en tiempo real si un usuario
      tiene una función específica. Implementación PostgreSQL:
-     ``usuario_tiene_permiso(user_id, function_code)`` y la
-     variante ``verificar_permiso_y_auditar`` que registra cada
-     verificación.
+     ``user_has_function(p_user_id, p_function_code)`` y la
+     variante ``check_function_and_audit`` que registra cada
+     verificación (adr-back-006 §2.3).
  * - **Menú Dinámico**
    - Estructura de navegación jerárquica calculada en runtime
      según las funciones del usuario. Implementación PostgreSQL:

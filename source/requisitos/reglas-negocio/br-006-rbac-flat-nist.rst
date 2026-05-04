@@ -141,7 +141,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-010)
+- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-012)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
@@ -164,7 +164,7 @@ Sin excepciones. El modelo Flat es absoluto.
    - Relacion
  * - CNST-005
    - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
- * - :ref:`cnst-012`
+ * - :ref:`cnst-029`
    - Modelo RBAC Flat consolidado: 74 funciones, 12 grupos, 3 reglas SoD,
      permisos temporales con vencimiento. Implementa esta BR.
 
