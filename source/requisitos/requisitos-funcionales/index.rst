@@ -53,3 +53,4 @@ Ejemplo: ``FR_001_Dashboard_Metricas_Tiempo_Real.rst``
  users/index
  auth/index
  access/index
+ permissions/index

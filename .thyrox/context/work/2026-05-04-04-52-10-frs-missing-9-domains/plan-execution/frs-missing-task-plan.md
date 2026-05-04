@@ -22,18 +22,18 @@ Protocolo obligatorio por cada FR:
 
 ## Bloque A — Dominio: permissions (FR-012..021)
 
-- [ ] **T-001** Crear directorio `requisitos-funcionales/permissions/`
-- [ ] **T-002** Derivar FRs de `uc-perm-01` (Asignar Grupo a Usuario)
-- [ ] **T-003** Derivar FRs de `uc-perm-02` (Revocar Grupo de Usuario)
-- [ ] **T-004** Derivar FRs de `uc-perm-03` (Conceder Permiso Excepcional)
-- [ ] **T-005** Derivar FRs de `uc-perm-04` (Revocar Permiso Excepcional)
-- [ ] **T-006** Derivar FRs de `uc-perm-05` (Crear Grupo de Permisos)
-- [ ] **T-007** Derivar FRs de `uc-perm-06` (Asignar Funciones a Grupo)
-- [ ] **T-008** Derivar FRs de `uc-perm-07` (Verificar Permiso Usuario)
-- [ ] **T-009** Derivar FRs de `uc-perm-08` (Generar Menu Dinamico)
-- [ ] **T-010** Derivar FRs de `uc-perm-09` (Auditar Acceso)
-- [ ] **T-011** Derivar FRs de `uc-perm-10` (Consultar Auditoria Permisos)
-- [ ] **T-012** Commit: "Derive FRs for permissions domain (FR-012..021)"
+- [x] **T-001** Crear directorio `requisitos-funcionales/permissions/`
+- [x] **T-002** Derivar FRs de `uc-perm-01` (Asignar Grupo a Usuario) → FR-012.01..04
+- [x] **T-003** Derivar FRs de `uc-perm-02` (Revocar Grupo de Usuario) → FR-013.01..02
+- [x] **T-004** Derivar FRs de `uc-perm-03` (Conceder Permiso Excepcional) → FR-014.01..02
+- [x] **T-005** Derivar FRs de `uc-perm-04` (Revocar Permiso Excepcional) → FR-015.01..02
+- [x] **T-006** Derivar FRs de `uc-perm-05` (Crear Grupo de Permisos) → FR-016.01..03
+- [x] **T-007** Derivar FRs de `uc-perm-06` (Asignar Funciones a Grupo) → FR-017.01..02
+- [x] **T-008** Derivar FRs de `uc-perm-07` (Verificar Permiso Usuario) → FR-018.01..02
+- [x] **T-009** Derivar FRs de `uc-perm-08` (Generar Menu Dinamico) → FR-019.01..02
+- [x] **T-010** Derivar FRs de `uc-perm-09` (Auditar Acceso) → FR-020.01..02
+- [x] **T-011** Derivar FRs de `uc-perm-10` (Consultar Auditoria Permisos) → FR-021.01
+- [x] **T-012** Commit: "Derive FRs for permissions domain (FR-012..021)"
 
 ---
 
