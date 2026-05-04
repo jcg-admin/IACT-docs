@@ -13,10 +13,10 @@
 
  rectangle "MOD_Permissions / Audit" {
    usecase "UC_PERM_09\nAuditar Acceso" as UC09
-   usecase "PII Scan" as PII
-   usecase "Sanitizar" as SAN
-   usecase "registrar en tx caller" as INS
-   usecase "Push alert post-COMMIT" as ALT
+   usecase "PII Scan" as EscanerPII
+   usecase "Sanitizar" as SanitizarDato
+   usecase "registrar en tx caller" as RegistrarDatos
+   usecase "Push alert post-COMMIT" as AlertaPost
  }
 
  CALLER --> UC09

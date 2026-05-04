@@ -15,11 +15,11 @@
 
  rectangle "MOD_Users" {
    usecase "UC_USR_01\nCrear Usuario" as UC01
-   usecase "Generar username\n(CNST-029)" as GEN
-   usecase "Generar password\ntemporal" as PWD
-   usecase "Asignar AGR\nopcional" as AGR
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "AuditEvent\nUSER_CREATED" as EMI
+   usecase "Generar username\n(CNST-029)" as GenerarDato
+   usecase "Generar password\ntemporal" as GenerarPassword
+   usecase "Asignar AGR\nopcional" as GrupoAcceso
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "AuditEvent\nUSER_CREATED" as AuditEmitter
  }
 
  ADMIN --> UC01

@@ -14,11 +14,11 @@
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_04\nCambiar Contrasena" as UC04
-   usecase "Validar password\nactual" as VAL
+   usecase "Validar password\nactual" as ValidarDato
    usecase "Validar complejidad" as COMP
    usecase "Verificar historial\n(no reuso)" as HIST
-   usecase "Cerrar otras\nSessions" as CSE
-   usecase "Emitir AuditEvent\nPASSWORD_CHANGED" as EMI
+   usecase "Cerrar otras\nSessions" as CerrarSesiones
+   usecase "Emitir AuditEvent\nPASSWORD_CHANGED" as AuditEmitter
  }
 
  USER --> UC04

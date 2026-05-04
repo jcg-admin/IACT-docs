@@ -12,9 +12,9 @@
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_09\nAuditar Cambios" as UC09
-   usecase "Listar eventos\npaginado" as LST
-   usecase "Ver detalle" as DET
-   usecase "Agregar (count\npor categoria)" as AGG
+   usecase "Listar eventos\npaginado" as VistaListado
+   usecase "Ver detalle" as VistaDetalle
+   usecase "Agregar (count\npor categoria)" as AgregadorConteo
    usecase "Audit P-16\nselectivo" as AUDS
  }
 

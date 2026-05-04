@@ -10,8 +10,8 @@
  actor "InternalMailbox" as Internalmailbox
  rectangle "MOD_Audit" {
    usecase "UC_AUD_03\nExportar Audit Log" as UC03
-   usecase "Seleccionar\nperiodo y filtros" as SEL
-   usecase "Notificar\nvia Mailbox" as NOT
+   usecase "Seleccionar\nperiodo y filtros" as VistaSeleccion
+   usecase "Notificar\nvia Mailbox" as NotificacionMailbox
  }
  export_audit_log --> UC03
  UC03 ..> SEL : <<extend>>

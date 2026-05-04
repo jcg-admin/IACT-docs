@@ -14,8 +14,8 @@
 
  rectangle "MOD_Users" {
    usecase "UC_USR_02\nConsultar Usuarios" as UC02
-   usecase "Listar (paginado)" as LST
-   usecase "Ver detalle" as DET
+   usecase "Listar (paginado)" as VistaListado
+   usecase "Ver detalle" as VistaDetalle
    usecase "Audit selectivo\n(P-16)" as AUDS
  }
 

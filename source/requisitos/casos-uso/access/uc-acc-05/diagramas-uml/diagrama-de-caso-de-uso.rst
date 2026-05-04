@@ -14,11 +14,11 @@
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_05\nGestionar SoD" as UC05
-   usecase "Listar reglas" as LST
+   usecase "Listar reglas" as VistaListado
    usecase "Crear regla" as UCCRE
    usecase "Modificar regla" as UCMOD
    usecase "Retirar regla" as UCRET
-   usecase "AuditEvent" as EMI
+   usecase "AuditEvent" as AuditEmitter
    usecase "Invalidar cache\nde reglas" as CACHE
  }
 

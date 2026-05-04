@@ -16,12 +16,12 @@
  rectangle "MOD_Access" {
    usecase "UC_ACC_02\nRevocar Funciones" as UC02
    usecase "Validar P-11\nanti-self-revoke" as P11
-   usecase "Localizar Assignments\nACTIVE matching" as LOC
+   usecase "Localizar Assignments\nACTIVE matching" as LocalizadorRecurso
    usecase "Calcular post-revoke\n+ warnings" as CALC
-   usecase "actualizar → REVOKED" as UPD
+   usecase "actualizar → REVOKED" as ActualizarEntidad
    usecase "Invalidar cache" as CACHE
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "AuditEvent\nFUNCTIONS_REVOKED" as EMI
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "AuditEvent\nFUNCTIONS_REVOKED" as AuditEmitter
  }
 
  INVOKER --> UC02

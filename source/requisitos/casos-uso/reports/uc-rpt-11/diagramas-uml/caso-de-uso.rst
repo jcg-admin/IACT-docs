@@ -11,7 +11,7 @@
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_11\nCompartir" as UC11
-   usecase "Aplicar share" as APP
+   usecase "Aplicar share" as AplicacionFrontend
    usecase "Mailbox notify" as MailboxNotify
  }
 

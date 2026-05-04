@@ -13,7 +13,7 @@
    usecase "UC_RPT_07\nProgramar" as UC07
    usecase "Crear/Update" as CRUD
    usecase "Auto execute" as AutoExecute
-   usecase "UC_RPT_04\nExport" as EXP
+   usecase "UC_RPT_04\nExport" as ExportarDatos
  }
 
  schedule_report --> UC07

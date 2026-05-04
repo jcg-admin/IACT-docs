@@ -5,7 +5,7 @@
 
  @startuml
  actor "Caller" as Caller
- participant "IVR" as IVR
+ participant "IVR" as SistemaIVR
  database "CallbackRepo" as Callbackrepo
  actor "answer_inbound_calls" as answer_inbound_calls
  IVR -> Caller: oferta callback

@@ -14,11 +14,11 @@
  rectangle "MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR" as UC04
    usecase "Validar AGR\nexiste + ACTIVE" as VAGR
-   usecase "Expandir funciones\ndel AGR" as EXP
-   usecase "Validar SoD\n(set efectivo)" as SOD
-   usecase "registrar Assignment\n(target=AGR)" as INS
+   usecase "Expandir funciones\ndel AGR" as ExportarDatos
+   usecase "Validar SoD\n(set efectivo)" as ValidadorSoD
+   usecase "registrar Assignment\n(target=AGR)" as RegistrarDatos
    usecase "Invalidar cache" as CACHE
-   usecase "AuditEvent\nAGR_ASSIGNED" as EMI
+   usecase "AuditEvent\nAGR_ASSIGNED" as AuditEmitter
  }
 
  INVOKER --> UC04

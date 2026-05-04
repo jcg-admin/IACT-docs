@@ -35,8 +35,8 @@ y ``opt`` permite el reintento.
  participant "DashboardEndpoint" as DashboardEndpoint
  participant "SegmentResolver" as SegmentResolver
  participant "ServicioReportes\n(sp_rpt_*)" as ServicioReportes
- participant "DisparadorETL" as ETL
- actor "Sistema IVR\n(fuente)" as IVR
+ participant "DisparadorETL" as ProcesoETL
+ actor "Sistema IVR\n(fuente)" as SistemaIVR
 
  alt [autenticacion exitosa: status=TRUE]
 

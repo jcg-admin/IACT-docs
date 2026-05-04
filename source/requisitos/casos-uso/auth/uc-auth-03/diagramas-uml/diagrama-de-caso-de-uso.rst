@@ -15,10 +15,10 @@
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_03\nRecuperar Contrasena" as UC03
-   usecase "Generar password\ntemporal" as GEN
-   usecase "Cerrar Sessions\ndel User" as CSE
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "Emitir AuditEvent\nPASSWORD_RESET" as EMI
+   usecase "Generar password\ntemporal" as GenerarDato
+   usecase "Cerrar Sessions\ndel User" as CerrarSesiones
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "Emitir AuditEvent\nPASSWORD_RESET" as AuditEmitter
  }
 
  ADMIN --> UC03

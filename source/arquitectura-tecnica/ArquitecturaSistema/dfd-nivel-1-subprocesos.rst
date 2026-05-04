@@ -40,10 +40,10 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
  }
  skinparam arrowColor #333333
 
- rectangle "Sistema IVR" as IVR
- rectangle "view_pipeline_status" as SUP
- rectangle "view_reports" as ANA
- rectangle "APScheduler" as SCH
+ rectangle "Sistema IVR" as SistemaIVR
+ rectangle "view_pipeline_status" as SupervisorSistema
+ rectangle "view_reports" as AnalistaReportes
+ rectangle "APScheduler" as DisparadorScheduler
 
  rectangle "1\nAutenticacion JWT" as P1
  rectangle "2\nDashboard IVR" as P2

@@ -14,10 +14,10 @@
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_02\nCerrar Sesion" as UC02
-   usecase "Validar token" as VTK
-   usecase "Cerrar Session" as CSE
-   usecase "Blacklist tokens" as BLK
-   usecase "Emitir AuditEvent\nLOGOUT" as EMI
+   usecase "Validar token" as VistaToken
+   usecase "Cerrar Session" as CerrarSesiones
+   usecase "Blacklist tokens" as TokensRevocados
+   usecase "Emitir AuditEvent\nLOGOUT" as AuditEmitter
  }
 
  USER --> UC02

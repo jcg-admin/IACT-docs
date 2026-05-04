@@ -14,9 +14,9 @@
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_06\nComposicion AGR" as UC06
    usecase "Validar SoD\ncascade" as VSOD
-   usecase "registrar add" as INS
-   usecase "DELETE remove" as DEL
-   usecase "Audit COMPOSITION_CHANGED" as EMI
+   usecase "registrar add" as RegistrarDatos
+   usecase "DELETE remove" as EliminarRegistro
+   usecase "Audit COMPOSITION_CHANGED" as AuditEmitter
  }
 
  assign_functions_to_group --> UC06

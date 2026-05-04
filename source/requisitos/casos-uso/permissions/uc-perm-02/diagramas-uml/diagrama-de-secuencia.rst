@@ -8,7 +8,7 @@
 
  actor Invoker as Invoker
  participant "UI PERM" as UiPerm
- participant "API" as API
+ participant "API" as EndpointAPI
  participant "Backend\n(UC_ACC_02 sobre AGR)" as Backend
  database "Repo" as Repo
 

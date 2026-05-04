@@ -11,9 +11,9 @@
  actor "Frontend" as Frontend
 
  rectangle "MOD_Reports" {
-   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_INC_RPT_01\nResolver Segmento" as IncludeUC
    usecase "UC_RPT_01\nVer Dashboard IVR" as UC01
-   usecase "Auto-refresh" as REF
+   usecase "Auto-refresh" as ReferenciaExterna
  }
 
  view_reports --> Frontend

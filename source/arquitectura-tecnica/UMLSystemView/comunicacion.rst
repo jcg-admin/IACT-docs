@@ -34,7 +34,7 @@ indican guarda basada en funcion RBAC del JWT activo.
  object ": DashboardEndpoint" as DashboardEndpoint
  object ": SegmentResolver" as SegmentResolver
  object ": ServicioReportes" as ServicioReportes
- object ": DisparadorETL" as ETL
+ object ": DisparadorETL" as ProcesoETL
  object "AutenticacionFallida" as AutenticacionFallida
 
  UserRBAC --> AuthEndpoint : 1: check_credentials()

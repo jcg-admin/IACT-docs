@@ -13,9 +13,9 @@
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_04\nRevocar\nExceptional" as UC04
-   usecase "actualizar state\nREVOKED" as UPD
-   usecase "Notificar\nObligatorio" as NOT
-   usecase "AuditEvent\nREVOKED" as EMI
+   usecase "actualizar state\nREVOKED" as ActualizarEntidad
+   usecase "Notificar\nObligatorio" as NotificacionMailbox
+   usecase "AuditEvent\nREVOKED" as AuditEmitter
  }
 
  INVOKER --> UC04

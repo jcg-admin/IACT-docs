@@ -8,7 +8,7 @@
  actor "view_reports" as view_reports
  rectangle "MOD_Reports" {
    usecase "UC_RPT_14\nReporte Campanas" as UC14
-   usecase "Detalle" as DET
+   usecase "Detalle" as VistaDetalle
  }
  view_reports --> UC14
  UC14 ..> DET : <<extend>>

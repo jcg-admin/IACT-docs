@@ -38,7 +38,7 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
  actor "share_report" as share_report
 
  rectangle "MOD_Reports" {
-   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_INC_RPT_01\nResolver Segmento" as ResolverSegmento
    usecase "UC_RPT_01\nVer Dashboard IVR" as R01
    usecase "UC_RPT_02\nVer Metricas\nTiempo Real" as R02
    usecase "UC_RPT_03\nVer Reportes\nHistoricos" as R03

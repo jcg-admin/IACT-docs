@@ -41,9 +41,9 @@ cuentas son creadas por el Administrador IACT.
  }
  skinparam arrowColor #333333
 
- rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_pipeline_status\n/ view_alerts" as SUP
- rectangle "view_reports\n/ view_dashboard" as ANA
+ rectangle "Sistema IVR\n(Fuente de datos)" as SistemaIVR
+ rectangle "view_pipeline_status\n/ view_alerts" as SupervisorSistema
+ rectangle "view_reports\n/ view_dashboard" as AnalistaReportes
 
  rectangle "1\nAutenticacion\nJWT" as P1
  rectangle "2\nDashboard IVR" as P2

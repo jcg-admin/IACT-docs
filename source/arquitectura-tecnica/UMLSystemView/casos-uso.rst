@@ -31,7 +31,7 @@ Sistema IACT — Diagrama de Casos de Uso
  actor "assign_functions\n(create_users)" as assign_functions
  actor "view_audit_log" as view_audit_log
  actor "APScheduler\n/ Cron" as APScheduler
- actor "Sistema IVR\n(fuente datos)" as IVR
+ actor "Sistema IVR\n(fuente datos)" as SistemaIVR
 
  rectangle "Sistema IACT" {
    usecase "Autenticar JWT" as UC_AUTH

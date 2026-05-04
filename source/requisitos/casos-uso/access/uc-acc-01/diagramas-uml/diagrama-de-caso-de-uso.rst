@@ -19,10 +19,10 @@
    usecase "Validar funciones\n(existen + activas)" as VFUN
    usecase "Filtrar idempotente" as IDEM
    usecase "Validar SoD\n(CNST-005)" as VSOD
-   usecase "registrar N Assignments" as INS
+   usecase "registrar N Assignments" as RegistrarDatos
    usecase "Invalidar cache\npermisos" as CACHE
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "AuditEvent\nFUNCTIONS_ASSIGNED" as EMI
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "AuditEvent\nFUNCTIONS_ASSIGNED" as AuditEmitter
  }
 
  INVOKER --> UC01

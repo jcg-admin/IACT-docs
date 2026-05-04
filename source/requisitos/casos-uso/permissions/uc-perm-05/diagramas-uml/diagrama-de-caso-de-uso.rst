@@ -14,7 +14,7 @@
    usecase "UC_PERM_05\nCreate AGR" as UCCRE
    usecase "UC_PERM_05\nModify AGR" as UCMOD
    usecase "UC_PERM_05\nRetire AGR" as UCRET
-   usecase "AuditEvent" as EMI
+   usecase "AuditEvent" as AuditEmitter
  }
 
  create_function_group --> UCCRE

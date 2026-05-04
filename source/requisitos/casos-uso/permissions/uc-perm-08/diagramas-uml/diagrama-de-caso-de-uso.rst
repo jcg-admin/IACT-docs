@@ -13,7 +13,7 @@
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_08\nGenerar Menu" as UC08
    usecase "UC_PERM_07\nbulk check" as UC07
-   usecase "FunctionRegistry\nlookup" as REG
+   usecase "FunctionRegistry\nlookup" as RegistroFunciones
    usecase "MenuCache" as MenuCache
  }
 

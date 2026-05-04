@@ -15,7 +15,7 @@
    usecase "UC_PERM_07\nVerificar Permiso" as UC07
    usecase "Bulk check" as BULK
    usecase "Cache lookup" as CACHE
-   usecase "Algoritmo precedencia" as ALG
+   usecase "Algoritmo precedencia" as AlgoritmoPrecedencia
  }
 
  rbac_decorator --> UC07

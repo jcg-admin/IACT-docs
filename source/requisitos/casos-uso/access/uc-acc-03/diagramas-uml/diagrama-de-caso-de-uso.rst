@@ -14,11 +14,11 @@
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_03\nConsultar Permisos" as UC03
-   usecase "Cargar Assignments\ndirectos" as DIR
-   usecase "Expandir AGRs\nen funciones" as AGR
-   usecase "Cargar permisos\nexcepcionales" as EXC
+   usecase "Cargar Assignments\ndirectos" as AsignacionesDirectas
+   usecase "Expandir AGRs\nen funciones" as GrupoAcceso
+   usecase "Cargar permisos\nexcepcionales" as ExcepcionSistema
    usecase "Consolidar\n+ metadata origen" as CONS
-   usecase "Detectar SoD\ninformativo" as SOD
+   usecase "Detectar SoD\ninformativo" as ValidadorSoD
    usecase "Audit selectivo\nP-16" as AUDS
  }
 

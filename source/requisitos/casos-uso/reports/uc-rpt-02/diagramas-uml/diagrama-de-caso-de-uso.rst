@@ -12,7 +12,7 @@
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_02\nRealtime Metrics" as UC02
-   usecase "Suscribir stream" as SUB
+   usecase "Suscribir stream" as Subscripcion
    usecase "Throttle" as Throttle
    usecase "Heartbeat" as Heartbeat
  }

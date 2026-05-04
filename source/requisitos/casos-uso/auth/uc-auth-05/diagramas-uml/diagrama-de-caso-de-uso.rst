@@ -15,11 +15,11 @@
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_05\nGestionar Sesiones" as UC05
-   usecase "Listar Sessions" as LST
+   usecase "Listar Sessions" as VistaListado
    usecase "Cerrar Session\nindividual" as CerrarSession
    usecase "Cerrar todas\nlas del User" as CALL
-   usecase "Notificar\n(opcional)" as NOT
-   usecase "AuditEvent\nSESSION_CLOSED" as EMI
+   usecase "Notificar\n(opcional)" as NotificacionMailbox
+   usecase "AuditEvent\nSESSION_CLOSED" as AuditEmitter
  }
 
  ADMIN --> UC05

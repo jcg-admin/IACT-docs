@@ -17,10 +17,10 @@
    usecase "UC_USR_03\nModificar Usuario" as UC03
    usecase "Validar transicion\nde state" as ValidarTransicion
    usecase "Validar email\nunico" as ValidarEmail
-   usecase "actualizar User\nparcial" as UPD
-   usecase "Cerrar Sessions\nactivas" as CSE
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "AuditEvent\nUSER_MODIFIED" as EMI
+   usecase "actualizar User\nparcial" as ActualizarEntidad
+   usecase "Cerrar Sessions\nactivas" as CerrarSesiones
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "AuditEvent\nUSER_MODIFIED" as AuditEmitter
  }
 
  ADMIN --> UC03

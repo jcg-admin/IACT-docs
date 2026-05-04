@@ -36,10 +36,10 @@ negra con sus entidades externas. Las entidades son los
  }
  skinparam arrowColor #333333
 
- rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_pipeline_status\n/ view_alerts" as SUP
- rectangle "view_reports\n/ view_dashboard" as ANA
- rectangle "APScheduler\n/ Cron" as SCH
+ rectangle "Sistema IVR\n(Fuente de datos)" as SistemaIVR
+ rectangle "view_pipeline_status\n/ view_alerts" as SupervisorSistema
+ rectangle "view_reports\n/ view_dashboard" as AnalistaReportes
+ rectangle "APScheduler\n/ Cron" as DisparadorScheduler
 
  rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as IACT
 

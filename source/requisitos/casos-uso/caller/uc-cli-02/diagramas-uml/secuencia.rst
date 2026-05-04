@@ -5,7 +5,7 @@
 
  @startuml
  actor "Caller" as Caller
- participant "IVR" as IVR
+ participant "IVR" as SistemaIVR
  participant "Telephony" as Telephony
  IVR -> Telephony: play prompt
  Telephony -> Caller: audio

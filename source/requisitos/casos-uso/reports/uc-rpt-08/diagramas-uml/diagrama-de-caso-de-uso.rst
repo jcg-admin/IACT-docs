@@ -10,7 +10,7 @@
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_08\nList scheduled" as UC08
-   usecase "Detalle" as DET
+   usecase "Detalle" as VistaDetalle
    usecase "Historico runs" as RUNS
  }
 

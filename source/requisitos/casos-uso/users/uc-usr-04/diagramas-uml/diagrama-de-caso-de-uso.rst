@@ -16,11 +16,11 @@
  rectangle "MOD_Users" {
    usecase "UC_USR_04\nEliminar Usuario\n(baja logica)" as UC04
    usecase "Validar P-11\nanti-self-elimination" as P11
-   usecase "Transitar User\na ELIMINATED" as ELI
-   usecase "Revocar\nAssignments" as REV
-   usecase "Cerrar Sessions\n+ blacklist tokens" as CSE
-   usecase "Notificar via\nInternalMailbox" as NOT
-   usecase "AuditEvent\nUSER_ELIMINATED" as EMI
+   usecase "Transitar User\na ELIMINATED" as EliminarEntidad
+   usecase "Revocar\nAssignments" as RevocarAsignacion
+   usecase "Cerrar Sessions\n+ blacklist tokens" as CerrarSesiones
+   usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
+   usecase "AuditEvent\nUSER_ELIMINATED" as AuditEmitter
  }
 
  INVOKER --> UC04
