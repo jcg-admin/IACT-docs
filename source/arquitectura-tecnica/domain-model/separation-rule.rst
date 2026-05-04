@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -44,10 +44,6 @@ RBAC que no pueden ser asignadas simultaneamente al mismo usuario
    DISABLED
  }
 
- class Function {
-   + name : String
-   + module : Module
- }
 
  SeparationRule -- RuleState
  SeparationRule "1" -- "*" Function : (lista funciones en conflicto)

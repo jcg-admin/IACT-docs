@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Reports
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -56,28 +56,9 @@ los 17 UCs del cluster RPT.
    ARCHIVED
  }
 
- class Metric {
-   + metric_id : UUID
-   + name : MetricName
- }
 
- class ExportJob {
-   + job_id : UUID
-   + report_id : UUID
-   + state : JobState
- }
 
- class ScheduledReport {
-   + schedule_id : UUID
-   + report_id : UUID
-   + state : ScheduleState
- }
 
- class SavedView {
-   + view_id : UUID
-   + report_id : UUID
-   + state : ViewState
- }
 
  Report -- ReportScope
  Report -- ReportState

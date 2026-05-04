@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Calls
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -39,12 +39,6 @@ sobre esta entidad.
    + transferred : Boolean
  }
 
- class Campaign {
-   + campaign_id : String
-   + name : String
-   + service_type : String
-   + region : String
- }
 
  Call "*" -- "1" Campaign
 

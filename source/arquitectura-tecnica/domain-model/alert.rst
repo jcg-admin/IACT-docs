@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Alerts
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -46,18 +46,7 @@ alerts). La transicion queda auditada (CNST-025).
    DISABLED
  }
 
- class Threshold {
-   + threshold_id : UUID
-   + metric_id : UUID
-   + value : Double
-   + severity : Severity
- }
 
- class Subscription {
-   + subscription_id : UUID
-   + alert_id : UUID
-   + state : SubscriptionState
- }
 
  Alert -- AlertState
  Alert "*" -- "1" Threshold

@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -37,10 +37,6 @@ individualmente.
    + revoke_function_group()       <<revoke_function_group>>
  }
 
- class Function {
-   + name : String
-   + module : Module
- }
 
  FunctionGroup "*" -- "*" Function : contiene
 
