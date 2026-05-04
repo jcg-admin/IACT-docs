@@ -188,8 +188,9 @@ length):
    - ``UserGroupMembership``
    - Sigue convencion ``*Membership`` para join tables
  * - ``PermisoExcepcional``
-   - ``ExceptionalGrant``
-   - Sustantivo apropiado al scope
+   - ``ExceptionalPermission``
+   - Nombre de dominio establecido en todo el corpus (UC docs,
+     bounded context, domain models)
  * - ``AuditoriaPermiso``
    - ``FunctionAccessAudit``
    - Especifico (audit de access, no audit generico)
