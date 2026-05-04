@@ -1,0 +1,44 @@
+.. meta::
+ :artefacto: AT_UC_LOG_06_PROCESS
+ :tipo: Diagrama Arquitectonico — Process View
+ :dominio: arquitectura_tecnica
+ :subdominio: ProcessView
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-05-03
+ :ultimo_cambio: 2026-05-03
+ :autor: NestorMonroy
+ :clasificacion: Interno
+
+.. _uc_log_06_process:
+
+===========================================================
+UC_LOG_06 — Ver Estado del Sistema: Process View
+===========================================================
+
+Flujo de actividades y concurrencia para UC_LOG_06.
+
+.. uml::
+ :caption: UC_LOG_06 — Process View (actividades)
+
+ @startuml
+
+ start
+ :view_system_health solicita Ver Estado del Sistema;
+ :Validar autenticacion y permisos RBAC;
+ if (permisos validos?) then (si)
+   :Ejecutar logica principal;
+   :Persistir resultado;
+   :Registrar AuditEvent;
+   :Retornar respuesta exitosa;
+ else (no)
+   :Retornar error 403;
+ endif
+ stop
+
+ @enduml
+
+.. seealso::
+
+ :doc:`/requisitos/casos-uso/logs/uc-log-06/flujo-principal`
+ :doc:`/requisitos/casos-uso/logs/uc-log-06/flujos-alternos`
