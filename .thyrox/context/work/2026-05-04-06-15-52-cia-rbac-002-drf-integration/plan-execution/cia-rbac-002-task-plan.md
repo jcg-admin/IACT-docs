@@ -56,12 +56,26 @@ incorrecta de `@require_function` en 3 archivos, actualizar índices.
 
 ## Bloque E — Reemplazo completo ADR-GOB-010 v2.0.0
 
-- [ ] **T-017** Reemplazar ADR-GOB-010 con versión completa (10 secciones):
+- [x] **T-017** Reemplazar ADR-GOB-010 con versión completa (10 secciones):
   tabla de dominios/ciclos de vida, drivers D1-D6, evaluación de opciones
   contra drivers, consecuencias en tres categorías, criterios de revisión
   C1-C3, trazabilidad completa. Corregir número (009→010), markdown links
   en código, paths inexistentes en trazabilidad.
-- [ ] **T-018** Commit y push
+- [x] **T-018** Commit y push
+
+---
+
+## Bloque F — Análisis y reemplazo CNST-033 v2.0.0
+
+- [x] **T-019** Crear análisis de errores `discover/cnst-033-v1-error-analysis.md`
+  (10 errores identificados: E-001..E-010)
+- [ ] **T-020** Reemplazar CNST-033 con versión completa v2.0.0 (11 secciones):
+  convenciones Python (módulos y clases), catálogos canónicos completos
+  (37 funciones, 10 grupos, 3 SoD), tabla transformaciones español→inglés,
+  reglas de revisión. Corregir metadata (dominio, subdominio, clasificacion),
+  markdown links §4.1 y §9, paths incorrectos en nota y trazabilidad,
+  referencia rota a proc-req-015, ref adr-gob-009 → adr-gob-010.
+- [ ] **T-021** Commit y push
 
 ---
 
