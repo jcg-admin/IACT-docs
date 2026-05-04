@@ -12,9 +12,9 @@
 
 .. _at_design_mod_supervision:
 
-=====================================================
+=========================================================
 Design View — MOD_Supervision: Supervision en Tiempo Real
-=====================================================
+=========================================================
 
 Patron de interaccion del modulo de supervision en tiempo real.
 Muestra el monitoreo de llamadas activas, barge-in del supervisor

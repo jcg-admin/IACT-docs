@@ -65,7 +65,7 @@ Responsabilidades:
 - Emitir ``AuditEvent PASSWORD_RESET``.
 
 2.2.3 Base de datos analitica (Base de Datos)
--------------------------------------
+---------------------------------------------
 
 Responsabilidades:
 
@@ -84,7 +84,7 @@ Responsabilidades:
 - Notificar al User en su proximo login (UI).
 
 2.2.5 Interfaz de Usuario
-----------------------
+-------------------------
 
 Responsabilidades:
 

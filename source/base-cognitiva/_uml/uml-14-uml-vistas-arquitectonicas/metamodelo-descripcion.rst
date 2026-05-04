@@ -12,9 +12,9 @@
 
 .. _uml-14-metamodelo:
 
-=======================================================
+=========================================================
 Meta-modelo: descripción de arquitecturas multi-viewpoint
-=======================================================
+=========================================================
 
 El meta-modelo define las relaciones entre los conceptos
 fundamentales que intervienen al describir arquitecturas de

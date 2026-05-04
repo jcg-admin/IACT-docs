@@ -12,9 +12,9 @@
 
 .. _at_proc_dashboard_concurrencia:
 
-======================================================
+=======================================================
 Process View — Concurrencia de Dashboard en Tiempo Real
-======================================================
+=======================================================
 
 Patron de concurrencia para el dashboard de supervision en tiempo real:
 pool de conexiones, consultas paralelas por metrica, cache de resultados

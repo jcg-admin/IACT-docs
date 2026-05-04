@@ -129,7 +129,7 @@ pattern). Charset mixto (mayus + minus + digit
 NO se loggea, NO se incluye en response.
 
 PASO 9 — Hashear con algoritmo de hash
----------------------------
+--------------------------------------
 
 ``generarHash(temp_password, gensalt(12))``.
 

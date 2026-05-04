@@ -56,7 +56,7 @@ Responsabilidades:
 - Retornar respuesta 200 OK estandar (CNST-013).
 
 2.2.2 Base de datos analitica (Base de Datos)
--------------------------------------
+---------------------------------------------
 
 Responsabilidades:
 
@@ -69,7 +69,7 @@ Responsabilidades:
   expiracion).
 
 2.2.3 Interfaz de Usuario
-----------------------
+-------------------------
 
 Responsabilidades:
 

@@ -13,9 +13,9 @@
 
 .. _dm_class_exceptional_permission:
 
-===================
+=====================
 ExceptionalPermission
-===================
+=====================
 
 Permiso temporal otorgado a un usuario para una funcion especifica
 fuera de su ``AccessGroup`` habitual. Requiere justificacion y tiene

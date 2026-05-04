@@ -151,7 +151,7 @@ El bloqueo por intentos fallidos protege contra:
 -------------------------
 
 4.1 Modelo de datos
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. note::
 

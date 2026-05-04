@@ -12,9 +12,9 @@
 
 .. _rbac_diagramas_index:
 
-===========================
+============================
 Modelo RBAC IACT — Diagramas
-===========================
+============================
 
 Un diagrama por archivo. Diagramas estructurales y de comportamiento
 del modelo RBAC canonico v5.5.0.

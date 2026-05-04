@@ -109,7 +109,7 @@ iniciarla.
      retornar respuesta JSON estandar (CNST-013).
 
 2.2.2 Base de datos analitica (Base de Datos)
--------------------------------------
+---------------------------------------------
 
 .. list-table::
  :widths: 25 75
@@ -150,7 +150,7 @@ iniciarla.
      3) NO usar email externo (CNST-001).
 
 2.2.4 Interfaz de Usuario
-----------------------
+-------------------------
 
 .. list-table::
  :widths: 25 75

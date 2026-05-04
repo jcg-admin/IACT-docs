@@ -19,7 +19,7 @@ dentro del mismo servidor; PostgreSQL es exclusivo para tablas
 operacionales de Django.
 
 1. Almacen de Datos 10.1.48 — IVR Fuente (solo lectura)
-===============================================
+=======================================================
 
 - **Owner:** cliente (proveedor IVR).
 - **Acceso desde IACT:** SOLO LECTURA (CNST_007).
@@ -31,7 +31,7 @@ operacionales de Django.
   Django ``managed = False``, middleware de proteccion).
 
 2. Almacen de Datos 10.1.48 — IVR Analitica (lectura/escritura ETL)
-===========================================================
+===================================================================
 
 - **Owner:** IACT (propio dentro del mismo servidor Almacen de Datos).
 - **Acceso:** read/write para el ETL; read-only para las vistas
@@ -75,7 +75,7 @@ fuente ``tbl_historico_*`` (cliente) hacia las tablas analiticas
 Ver :doc:`etl-pipeline`.
 
 5. Routers de base de datos
-=================
+===========================
 
 .. note::
 

@@ -53,7 +53,7 @@ Responsabilidades:
   AuditEvent en transaccion atomica.
 
 2.2.3 BD Base de Datos
---------------
+----------------------
 
 - Atomicidad ACID en pasos 11-15.
 - UNIQUE constraint en ``email`` y ``username``.
@@ -66,7 +66,7 @@ Responsabilidades:
 - El nuevo User las consulta al primer login.
 
 2.2.5 Interfaz de Usuario
-----------------------
+-------------------------
 
 - Pagina de creacion con form (visible solo con
   AGR-006).

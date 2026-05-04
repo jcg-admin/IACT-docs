@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-04 17:00:00
+updated_at: 2026-05-04 19:35:00
 cold_boot: false
-current_epic: 20
-epic_name: broken-refs-audit
-current_work: .thyrox/context/work/2026-05-04-16-37-01-broken-refs-audit
+current_epic: 21
+epic_name: title-overlines-fix
+current_work: .thyrox/context/work/2026-05-04-19-05-53-title-overlines-fix
 stage: execute
 stage_number: 10
 current_phase: Phase 10 — EXECUTE
 flow: thyrox
 methodology_step: thyrox:execute
 blockers: []
-last_completed_phase: "broken-refs-audit — R-01/R-02/R-03 corregidos (8f9926d). Build: 14 warnings → 0 warnings."
-next_decision_required: "R-04 (31 title overlines) y R-05 (33 duplicate labels) — abrir WPs independientes"
+last_completed_phase: "broken-refs-audit — R-01/R-02/R-03 corregidos (8f9926d). Build: 52 title warnings → 0 title warnings."
+next_decision_required: "R-05 (autosectionlabel duplicate labels) + R-06 (docutils unexpected unindent) — abrir WPs independientes"
 stage_sync_required: false
 ```
 

@@ -251,7 +251,7 @@ La regla se considera cumplida cuando:
 -------------------------
 
 7.1 Modelo de datos
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. note::
 

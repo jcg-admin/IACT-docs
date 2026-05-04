@@ -12,9 +12,9 @@
 
 .. _reqrb-rbac-index:
 
-====================
+=====================
 RBAC — Especificacion
-====================
+=====================
 
 Especificacion de negocio del modelo RBAC del sistema IACT: catalogo
 de funciones, separacion de deberes (SoD), grupos de funciones y

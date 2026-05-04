@@ -177,7 +177,7 @@ El TPE es un KPI crítico porque:
  al documento tecnico de la capa de persistencia y servicio.
  Esta especificacion describe el QUE y el POR QUE, no el COMO.
 4.2 Modelo de datos
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. note::
 

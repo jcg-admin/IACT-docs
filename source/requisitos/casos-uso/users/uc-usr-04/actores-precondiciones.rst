@@ -79,7 +79,7 @@ Responsabilidades:
 - Append-only en AuditEvent.
 
 2.2.4 Interfaz de Usuario
-----------------------
+-------------------------
 
 - Boton "Eliminar" visible solo con
   ``deactivate_users``.

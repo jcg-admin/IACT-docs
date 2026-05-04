@@ -55,7 +55,7 @@ Responsabilidades:
   fue cerrada (politica recomendada).
 
 2.2.3 BD Base de Datos
---------------
+----------------------
 
 Responsabilidades:
 

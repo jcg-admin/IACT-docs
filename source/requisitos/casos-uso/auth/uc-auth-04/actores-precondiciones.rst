@@ -50,7 +50,7 @@ Responsabilidades:
 - Emitir AuditEvent.
 
 2.2.2 BD analitica (Base de Datos)
---------------------------
+----------------------------------
 
 Responsabilidades:
 
@@ -59,7 +59,7 @@ Responsabilidades:
 - Append-only en AuditEvent y PasswordHistory.
 
 2.2.3 Interfaz de Usuario
-----------------------
+-------------------------
 
 Responsabilidades:
 

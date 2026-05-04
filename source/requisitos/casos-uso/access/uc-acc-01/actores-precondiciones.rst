@@ -78,7 +78,7 @@ Responsabilidades:
 - Emitir AuditEvent FUNCTIONS_ASSIGNED.
 
 2.2.3 BD analitica (Base de Datos)
---------------------------
+----------------------------------
 
 - Atomicidad ACID en INSERT masivo de
   Assignments + cache invalidation + audit.
@@ -97,7 +97,7 @@ Responsabilidades:
   regla SoD violada.
 
 2.2.5 Interfaz de Usuario
-----------------------
+-------------------------
 
 - Pagina de asignacion con multi-select de
   funciones (visible solo con

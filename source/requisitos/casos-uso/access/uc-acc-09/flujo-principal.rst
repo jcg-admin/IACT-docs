@@ -55,7 +55,7 @@ el scope a eventos de MOD_Access (vs UC_AUD_*
 que muestra todos).
 
 PASO 8 — consultar paginado
-------------------------
+---------------------------
 
 Cursor-based pagination recomendado para
 volumenes grandes (> 100k eventos).
