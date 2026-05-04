@@ -24,7 +24,7 @@ Diagrama de componentes — MOD_Logs
 
  @startuml
 
- component "Apps Django\n(stdout/stderr)" as AppsDjango
+ component "Aplicaciones del sistema\n(stdout/stderr)" as AppsDjango
  component "fluent-bit\n(shipper)" as FluentBit
  database "LogStore\n(PostgreSQL)" as Logstore
  database "etl_runs" as ETL_LOG

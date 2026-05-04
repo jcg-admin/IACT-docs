@@ -24,7 +24,7 @@ Distribucion fisica de nodos y artefactos para UC_PIP_03.
  @startuml
 
  node "Cliente Web" as Client
- node "Apache + mod_wsgi" as WebServer {
+ node "Servidor Web" as WebServer {
    artifact "DisparadorETL" as App
  }
  database "Almacen de datos" as Almacen de Datos

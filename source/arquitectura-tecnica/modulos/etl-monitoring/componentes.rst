@@ -30,7 +30,7 @@ Componentes de Aplicacion
 Acceso a Datos — etl_runs (Almacen de Datos)
 =====================================
 
-El ETL no usa Django ORM para persistir ejecuciones. El estado
+El ETL no usa el ORM del backend para persistir ejecuciones. El estado
 se almacena directamente en la tabla ``etl_runs`` de Almacen de Datos,
 accedida via ``cursor.execute`` / ``cursor.callproc``.
 

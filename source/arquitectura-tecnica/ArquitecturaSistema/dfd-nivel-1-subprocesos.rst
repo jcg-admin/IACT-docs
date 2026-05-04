@@ -98,7 +98,7 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
 
  Los almacenes de datos ``etl_runs`` y ``base_ivr_*`` residen en
  **Almacen de Datos**. Los almacenes ``audit_log`` y ``auth_session``
- residen en **PostgreSQL** (tablas operacionales Django). Los
+ residen en **PostgreSQL** (tablas operacionales del sistema). Los
  stored procedures ``sp_rpt_*`` y ``sp_etl_*`` son parte del
  motor Almacen de Datos y no del codigo Python.
 

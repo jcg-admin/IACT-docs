@@ -26,7 +26,7 @@ Diagrama de componentes — MOD_Operator
 
  actor "manage_own_agent_state\nanswer_inbound_calls\nmake_outbound_calls" as manage_own_agent_state
 
- component "AgentPanel\n(DRF views)" as Agentpanel
+ component "AgentPanel\n(API views)" as Agentpanel
  component "TelephonyBridge\n(SIP/WebRTC)" as Telephonybridge
  component "DispositionService\n(enter_call_disposition)" as DISP
  component "PerformanceDashboard\n(view_own_performance_dashboard)" as DASH

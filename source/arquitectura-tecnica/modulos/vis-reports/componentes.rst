@@ -20,7 +20,7 @@ Componentes de Aplicacion
  * - Componente
    - Descripcion
  * - ``apps.reports``
-   - Vistas DRF y serializadores de reportes IVR. Lee datos
+   - Vistas de API y serializadores de reportes IVR. Lee datos
      via ``cursor.callproc()`` sobre la conexion Almacen de Datos ``ivr``;
      no usa modelos ORM para datos IVR analiticos.
  * - ``apps.exports``
@@ -32,7 +32,7 @@ Componentes de Aplicacion
 Patron de Consulta — cursor.callproc()
 =======================================
 
-Los datos de reportes IVR no provienen de modelos Django ORM.
+Los datos de reportes IVR no provienen del ORM del backend.
 Provienen de stored procedures en Almacen de Datos, invocados via el cursor
 de la conexion ``ivr``:
 
@@ -42,7 +42,7 @@ de la conexion ``ivr``:
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
 Este patron se repite para cada uno de los 7 SPs de reporte.
-Las vistas DRF reciben el resultado como lista de diccionarios y
+Las vistas de API reciben el resultado como lista de diccionarios y
 lo serializan directamente.
 
 ----

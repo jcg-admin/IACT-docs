@@ -29,7 +29,7 @@ Diagrama de componentes — MOD_Pipeline
 
  component "sp_etl_maestro\n(Almacen de Datos SP)" as ETL_SP
  component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as Supervisionendpoint
- component "ETLScheduler\n(Django background task)" as SCHED
+ component "ETLScheduler\n(tarea programada)" as SCHED
 
  database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR)" as HIST
  database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ANAL

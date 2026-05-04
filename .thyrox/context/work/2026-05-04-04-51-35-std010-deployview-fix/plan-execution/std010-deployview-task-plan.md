@@ -16,7 +16,7 @@ permitidos (implementacion-tecnica, testing, devops ADRs, backend ADRs).
 
 ## Bloque A — index.rst (landing page)
 
-- [ ] **T-001** Abstraer stack en `source/index.rst`
+- [x] **T-001** Abstraer stack en `source/index.rst`
   - `Django REST Framework` → `Framework de API REST`
   - `Apache + mod_wsgi` → `Servidor Web`
   - Commit: "Abstract tech stack in index.rst (STD_010)"
@@ -25,7 +25,7 @@ permitidos (implementacion-tecnica, testing, devops ADRs, backend ADRs).
 
 ## Bloque B — DeployView (80 archivos)
 
-- [ ] **T-002** Reemplazar en todos los `DeployView/*.rst`:
+- [x] **T-002** Reemplazar en todos los `DeployView/*.rst`:
   - `node "Apache + mod_wsgi" as WebServer {` → `node "Servidor Web" as WebServer {`
   - `node "Apache + mod_wsgi" {` → `node "Servidor Web" {`
   - `artifact "Django App" as App` → `artifact "Aplicacion Backend" as App`
@@ -38,7 +38,7 @@ permitidos (implementacion-tecnica, testing, devops ADRs, backend ADRs).
 
 ## Bloque C — Arch files con Redis + DRF
 
-- [ ] **T-003** Reemplazar en modulos diagramas:
+- [x] **T-003** Reemplazar en modulos diagramas:
   - `database "Redis"` → `database "Cache"`
   - `database "Redis\n[...]"` → `database "Cache\n[...]"`
   - `-> Redis :` → `-> Cache :`
@@ -54,7 +54,7 @@ permitidos (implementacion-tecnica, testing, devops ADRs, backend ADRs).
 
 ## Bloque D — breq-004 y uc-auth-02/patrones-diseno
 
-- [ ] **T-004** Revisar y corregir:
+- [x] **T-004** Revisar y corregir:
   - `requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria.rst`
   - `requisitos/casos-uso/auth/uc-auth-02/patrones-diseno.rst`
   - Commit: "Abstract tech names in breq-004 and patrones-diseno (STD_010)"
@@ -63,7 +63,7 @@ permitidos (implementacion-tecnica, testing, devops ADRs, backend ADRs).
 
 ## Bloque E — Validación final
 
-- [ ] **T-005** Verificar 0 violaciones restantes:
+- [x] **T-005** Verificar 0 violaciones restantes:
   ```bash
   grep -rn "Django\|MariaDB\|Redis\|Celery\|bcrypt\|mod_wsgi\|DRF" source/ \
     | grep -v "implementacion-tecnica|testing|devops|backend/|normativa|adr-|databases|gestion|_metodologia|base-cognitiva|std-010"

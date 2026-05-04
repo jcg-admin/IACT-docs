@@ -24,8 +24,8 @@ Distribucion fisica de nodos y artefactos para UC_ACC_09.
  @startuml
 
  node "Cliente Web" as Client
- node "Apache + mod_wsgi" as WebServer {
-   artifact "Django App" as App
+ node "Servidor Web" as WebServer {
+   artifact "Aplicacion Backend" as App
  }
  database "Almacen de datos" as Almacen de Datos
 

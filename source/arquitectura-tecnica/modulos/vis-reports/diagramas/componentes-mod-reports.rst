@@ -24,7 +24,7 @@ Diagrama de componentes — MOD_Reports
 
  @startuml
 
- component "apps.reports\n(DRF views)" as RPTS
+ component "apps.reports\n(API views)" as RPTS
  component "SegmentResolver\n(DID_MAP)" as Segmentresolver
  component "ServicioReportes\n(cursor.callproc)" as Servicioreportes
  component "apps.exports\n(CSV/Excel)" as AppsExports

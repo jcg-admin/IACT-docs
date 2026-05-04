@@ -22,9 +22,9 @@ Sistema IACT — Diagrama de Despliegue
 Los nodos representan el OS, las bases de datos y el servidor de
 aplicacion. La base de datos Almacen de Datos reside en el mismo servidor
 de aplicacion por proximidad con el proceso ETL. PostgreSQL
-gestiona datos operacionales Django. El protocolo entre cliente
-y servidor es HTTPS. El acceso de Django a Almacen de Datos usa la
-conexion nombrada ``ivr`` en ``DATABASES`` de Django settings.
+gestiona datos operacionales del sistema. El protocolo entre cliente
+y servidor es HTTPS. El acceso del backend a Almacen de Datos usa la
+conexion nombrada ``ivr`` en la configuracion de bases de datos.
 
 .. uml::
  :caption: Figura 12 — Diagrama de despliegue del Sistema IACT

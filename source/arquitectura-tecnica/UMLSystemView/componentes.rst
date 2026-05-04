@@ -20,7 +20,7 @@ Sistema IACT — Diagrama de Componentes
 =============================
 
 El componente ``view_reports`` accede a los modulos de
-reportes y dashboard. El componente ``Backend IACT`` (Django)
+reportes y dashboard. El componente ``Backend IACT``
 gestiona autenticacion, reportes y ETL. ``Almacen de Datos`` contiene
 los 7 stored procedures de reporte (``sp_rpt_*``) y los 4 de
 ETL (``sp_etl_*``). ``PostgreSQL`` gestiona usuarios y auditoria.
@@ -34,7 +34,7 @@ ETL (``sp_etl_*``). ``PostgreSQL`` gestiona usuarios y auditoria.
    artifact "<<artifact>>\nReport Request Buffer\n(JWT + trimestre)" as ART_REQ
  }
 
- component "<<System>>\nBackend IACT (Django)" as COMP_BACK {
+ component "<<System>>\nBackend IACT" as COMP_BACK {
    component "Suggestion\nServicio de Reportes" as SVC_OUTER {
      artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ART_R1
      artifact "<<artifact>>\nsp_rpt_centros_transferencia" as ART_R2
