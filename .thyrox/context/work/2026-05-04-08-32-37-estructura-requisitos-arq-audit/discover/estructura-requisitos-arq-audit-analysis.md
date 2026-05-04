@@ -582,17 +582,50 @@ con sus specs completas. Es duplicación de trazabilidad.
 
 ---
 
-## 10. Preguntas de diseño para la fase STRATEGY
+## 10. Decisiones tomadas y preguntas resueltas
 
-Antes de planificar cualquier reorganización, estas preguntas deben responderse:
+### D-01 — El estándar es el modelo 5+1 (variante DDD de Kruchten) [DECIDIDO]
 
-**P-01:** ¿El contenido tipo ARCH (catálogos, responsabilidades, RACI) debe
-vivir en `arquitectura-tecnica/` como un subnivel aceptado, o debe tener un
-directorio propio?
+El proyecto sigue el modelo de vistas arquitectónicas **5+1** — variante extendida
+del modelo 4+1 de Kruchten que añade la Vista de Dominio, usada en contextos DDD:
 
-**P-02:** ¿Los archivos MIXED (texto + `.. uml::`) en `uc-module-view/` son
-válidos tal como están, o se prefiere separar el texto (→ algún otro lugar)
-del diagrama (→ `arquitectura-tecnica/`)?
+| # | Vista | Directorio actual | Estado |
+|---|---|---|---|
+| 1 | **Domain Model** | `domain-model/` + `bounded-contexts/` | ⚠ consolidar (H-07, H-09) |
+| 2 | **Design View** | `design-view/` | ⚠ nivel incorrecto (H-11) |
+| 3 | **Implementation View** | `implementation-view/` | ⚠ nivel incorrecto (H-12) |
+| 4 | **Use Case View** | `use-case-view/` + `uc-module-view/` | ⚠ duplicado, nivel incorrecto |
+| 5 | **Process View** | `process-view/` | pendiente análisis |
+| +1 | **Deployment View** | `deploy-view/` | ⚠ nivel incorrecto (H-10) |
+
+Las 6 vistas tienen prioridad sobre cualquier otra organización. **No se eliminan
+— se corrigen al nivel de abstracción correcto (módulo, no UC individual).**
+
+El problema transversal: todas las vistas están implementadas por UC individual
+en lugar de por módulo o variante de infraestructura. La corrección:
+
+| Vista | Nivel actual (incorrecto) | Nivel correcto | Archivos: actual → objetivo |
+|---|---|---|---|
+| Domain Model | 160 per-UC + 10 BC separados | sistema/BC | 170 → ~9 BC + overview |
+| Use Case View | 80 por UC | por módulo | 80 → ~14 (`uc-module-view/` ya existe) |
+| Deploy View | 80 por UC | por variante de infra | 80 → 3 |
+| Design View | 160 por UC | por módulo | 160 → ~12 |
+| Implementation View | 80 por UC | por módulo | 80 → 12 |
+| Process View | pendiente análisis | — | — |
+
+`modulos/*/diagramas/` (comportamiento de módulo) y las 6 vistas 5+1 NO se
+duplican: sirven propósitos distintos (comportamiento interno vs. perspectiva
+arquitectónica cruzada).
+
+### D-02 — modulos/ textual (ARCH) se queda en arquitectura-tecnica/modulos/ [DECIDIDO]
+
+Los archivos `responsabilidades`, `componentes`, `dependencias`, `restricciones`,
+`casos-uso` de cada módulo permanecen en `arquitectura-tecnica/modulos/{mod}/`.
+Son especificaciones de módulo necesarias en ese contexto.
+
+---
+
+## 11. Preguntas de diseño pendientes para la fase STRATEGY
 
 **P-03:** ¿`_metodologia-aplicacion/` con sus diagramas UML de ejemplo IACT
 pertenece a `requisitos/`, o debería cruzar a `arquitectura-tecnica/`?
