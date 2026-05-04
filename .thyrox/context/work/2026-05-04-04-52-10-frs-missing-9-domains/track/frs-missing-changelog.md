@@ -25,7 +25,27 @@ author: NestorMonroy
 - 22 archivos FR + 11 index.rst + dominio index.rst en total
 - `source/requisitos/requisitos-funcionales/index.rst`: agregado `permissions/index`
 
+## Added (continuación)
+
+- `source/requisitos/requisitos-funcionales/operator/` — dominio operator (T-013..T-014)
+  - FR-022.01..FR-031.01 derivados de UC_OPR_01..10
+- `source/requisitos/requisitos-funcionales/reports/` — dominio reports (T-015..T-016)
+  - FR-032.01..FR-047.01 derivados de UC_RPT_01..17 (excluyendo rpt-05/06)
+- `source/requisitos/requisitos-funcionales/alerts/` — dominio alerts (T-017..T-018)
+  - FR-050.01..FR-054.01 derivados de UC_ALR_01..05
+- `source/requisitos/requisitos-funcionales/audit/` — dominio audit (T-019..T-020)
+  - FR-055.01..FR-058.01 derivados de UC_AUD_01..04
+- `source/requisitos/requisitos-funcionales/logs/` — dominio logs (T-021..T-022)
+  - FR-059.01..FR-065.01 derivados de UC_LOG_01..07
+- `source/requisitos/requisitos-funcionales/caller/` — dominio caller (T-023..T-024)
+  - FR-066.01..FR-070.01 derivados de UC_CLI_01..05
+- `source/requisitos/requisitos-funcionales/pipeline/` — dominio pipeline (T-025..T-026)
+  - FR-071.01..FR-074.01 derivados de UC_PIP_01..04
+- `source/requisitos/requisitos-funcionales/supervision/` — dominio supervision (T-027..T-028)
+  - FR-075.01..FR-077.01 derivados de UC_SUP_01..03
+- `source/requisitos/requisitos-funcionales/index.rst`: agregados 6 dominios nuevos
+  (alerts, audit, logs, caller, pipeline, supervision) — T-029
+
 ## Status de promoción a CHANGELOG.md raíz
 
-Pendiente — WP en curso (faltan 8 dominios restantes: operator, reports, alerts,
-audit, logs, caller, pipeline, supervision).
+Pendiente — WP en curso (falta verificación trazabilidad T-030 y commit final T-031).

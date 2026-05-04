@@ -46,56 +46,56 @@ Protocolo obligatorio por cada FR:
 
 ## Bloque C — Dominio: reports (FR-032..049)
 
-- [ ] **T-015** Crear directorio + derivar FRs de uc-rpt-01..17 + uc-inc-rpt-01
-- [ ] **T-016** Commit: "Derive FRs for reports domain (FR-032..049)"
+- [x] **T-015** Crear directorio + derivar FRs de uc-rpt-01..17 + uc-inc-rpt-01
+- [x] **T-016** Commit: "Derive FRs for reports domain (FR-032..049)"
 
 ---
 
 ## Bloque D — Dominio: alerts (FR-050..054)
 
-- [ ] **T-017** Crear directorio + derivar FRs de uc-alr-01..05
-- [ ] **T-018** Commit: "Derive FRs for alerts domain (FR-050..054)"
+- [x] **T-017** Crear directorio + derivar FRs de uc-alr-01..05
+- [x] **T-018** Commit: "Derive FRs for alerts domain (FR-050..054)"
 
 ---
 
 ## Bloque E — Dominio: audit (FR-055..058)
 
-- [ ] **T-019** Crear directorio + derivar FRs de uc-aud-01..04
-- [ ] **T-020** Commit: "Derive FRs for audit domain (FR-055..058)"
+- [x] **T-019** Crear directorio + derivar FRs de uc-aud-01..04
+- [x] **T-020** Commit: "Derive FRs for audit domain (FR-055..058)"
 
 ---
 
 ## Bloque F — Dominio: logs (FR-059..065)
 
-- [ ] **T-021** Crear directorio + derivar FRs de uc-log-01..07
-- [ ] **T-022** Commit: "Derive FRs for logs domain (FR-059..065)"
+- [x] **T-021** Crear directorio + derivar FRs de uc-log-01..07
+- [x] **T-022** Commit: "Derive FRs for logs domain (FR-059..065)"
 
 ---
 
 ## Bloque G — Dominio: caller (FR-066..070)
 
-- [ ] **T-023** Crear directorio + derivar FRs de uc-cli-01..05
-- [ ] **T-024** Commit: "Derive FRs for caller domain (FR-066..070)"
+- [x] **T-023** Crear directorio + derivar FRs de uc-cli-01..05
+- [x] **T-024** Commit: "Derive FRs for caller domain (FR-066..070)"
 
 ---
 
 ## Bloque H — Dominio: pipeline (FR-071..074)
 
-- [ ] **T-025** Crear directorio + derivar FRs de uc-pip-01..04
-- [ ] **T-026** Commit: "Derive FRs for pipeline domain (FR-071..074)"
+- [x] **T-025** Crear directorio + derivar FRs de uc-pip-01..04
+- [x] **T-026** Commit: "Derive FRs for pipeline domain (FR-071..074)"
 
 ---
 
 ## Bloque I — Dominio: supervision (FR-075..077)
 
-- [ ] **T-027** Crear directorio + derivar FRs de uc-sup-01..03
-- [ ] **T-028** Commit: "Derive FRs for supervision domain (FR-075..077)"
+- [x] **T-027** Crear directorio + derivar FRs de uc-sup-01..03
+- [x] **T-028** Commit: "Derive FRs for supervision domain (FR-075..077)"
 
 ---
 
 ## Bloque J — Índices y trazabilidad
 
-- [ ] **T-029** Actualizar `requisitos-funcionales/index.rst` con los 9 dominios nuevos
+- [x] **T-029** Actualizar `requisitos-funcionales/index.rst` con los 9 dominios nuevos
 - [ ] **T-030** Verificar trazabilidad UC ↔ FR en cada dominio
 - [ ] **T-031** Commit final: "Update FR indexes and traceability"
 
