@@ -81,4 +81,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/audit/index`
  restricciones
  casos-uso
  retencion
- diagramas
+ diagramas/index

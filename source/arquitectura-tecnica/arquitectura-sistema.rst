@@ -3,9 +3,9 @@
  :tipo: Arquitectura del Sistema
  :dominio: arquitectura_tecnica
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-02
- :ultimo_cambio: 2026-05-02
+ :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -87,197 +87,15 @@ son las siguientes:
 
 ----
 
-2. Arquitectura del Sistema — Diagrama General
-================================================
+2. Diagramas de Arquitectura
+==============================
 
-El diagrama siguiente muestra todas las funcionalidades del sistema
-en orden de acceso. Representa el flujo completo desde la
-autenticacion hasta el cierre de sesion, incluyendo las rutas hacia
-los modulos funcionales y sus interdependencias.
+Un diagrama por archivo.
 
-Los actores externos son el **Sistema IVR** (fuente de datos de
-llamadas) y los **Usuarios IACT** (Supervisores de Operaciones y
-Analistas de Datos). El sistema no tiene registro publico: las
-cuentas son creadas por el Administrador IACT.
+.. toctree::
+ :maxdepth: 1
+ :caption: Diagramas
 
-.. uml::
- :caption: Figura 1 — Arquitectura general del Sistema IACT
-
- @startuml
- skinparam rectangle {
-   RoundCorner 10
-   BackgroundColor white
-   BorderColor #333333
-   FontSize 11
- }
- skinparam arrowColor #333333
-
- rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_pipeline_status\n/ view_alerts" as SUP
- rectangle "view_reports\n/ view_dashboard" as ANA
-
- rectangle "1\nAutenticacion\nJWT" as P1
- rectangle "2\nDashboard IVR" as P2
- rectangle "3\nCierre de\nSesion" as P3
- rectangle "4\nGestion\nPipeline ETL" as P4
- rectangle "5\nConsulta\nde Logs" as P5
- rectangle "6\nMOD Reports\n(Reportes IVR)" as P6
- rectangle "7\nBase Analitica\nIVR" as P7
- rectangle "8\nAlertas y\nNotificaciones" as P8
- rectangle "9\nResolver\nSegmento\nUC_INC_RPT_01" as P9
- rectangle "10\nAuditoria\nde Acceso" as P10
-
- SUP --> P1
- ANA --> P1
- IVR --> P7
-
- P1 --> P2
- P2 --> P4
- P2 --> P5
- P2 --> P6
- P2 --> P8
- P6 --> P7
- P4 --> P9
- P7 --> P9
- P5 --> P10
- P8 --> P10
- P9 --> P3
- P10 --> P3
-
- @enduml
-
-.. note::
-
- El flujo de datos empieza en la autenticacion JWT (1) a traves de
- la cual el usuario accede a todos los servicios disponibles hasta
- el cierre de sesion (3). Los modulos MOD_Reports (6) y Gestion
- Pipeline ETL (4) dependen de Resolver Segmento (9) para filtrar
- datos por segmento del usuario. La Base Analitica IVR (7) es
- alimentada por el ETL y consumida exclusivamente via
- ``sp_rpt_*``.
-
-----
-
-3. DFD Nivel 0 — Diagrama de Contexto
-========================================
-
-El diagrama de contexto muestra el sistema IACT como una caja
-negra con sus entidades externas. Las entidades son los
-**Usuarios IACT** (consumidores de servicios), el
-**Sistema IVR** (proveedor de datos de llamadas) y el
-**APScheduler/Cron** (disparador automatico del ETL).
-
-.. uml::
- :caption: Figura 2 — DFD Nivel 0: Sistema IACT como caja negra
-
- @startuml
- skinparam rectangle {
-   BackgroundColor white
-   BorderColor #333333
-   RoundCorner 5
- }
- skinparam arrowColor #333333
-
- rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_pipeline_status\n/ view_alerts" as SUP
- rectangle "view_reports\n/ view_dashboard" as ANA
- rectangle "APScheduler\n/ Cron" as SCH
-
- rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as IACT
-
- IVR --> IACT : datos IVR raw
- SUP --> IACT : comandos ETL / alertas
- ANA --> IACT : solicitudes de reporte
- SCH --> IACT : disparo ETL automatico
- IACT --> SUP : estado pipeline / alertas
- IACT --> ANA : reportes IVR / dashboard
-
- @enduml
-
-----
-
-4. DFD Nivel 1 — Sub-procesos del Sistema
-==========================================
-
-El DFD Nivel 1 descompone el sistema IACT en sus sub-procesos
-numerados con los flujos de datos entre ellos y los almacenes de
-datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
-``auth_session``).
-
-.. uml::
- :caption: Figura 3 — DFD Nivel 1: descomposicion de sub-procesos
-
- @startuml
- skinparam rectangle {
-   RoundCorner 10
-   BackgroundColor white
-   BorderColor #333333
-   FontSize 10
- }
- skinparam database {
-   BackgroundColor #f5f5f5
-   BorderColor #555555
- }
- skinparam arrowColor #333333
-
- rectangle "Sistema IVR" as IVR
- rectangle "view_pipeline_status" as SUP
- rectangle "view_reports" as ANA
- rectangle "APScheduler" as SCH
-
- rectangle "1\nAutenticacion JWT" as P1
- rectangle "2\nDashboard IVR" as P2
- rectangle "3\nCierre de Sesion" as P3
- rectangle "4\nGestion\nPipeline ETL" as P4
- rectangle "5\nConsulta\nde Logs" as P5
- rectangle "6\nMOD Reports" as P6
- rectangle "7\nServicio de\nReportes\nsp_rpt_*" as P7
- rectangle "8\nAlertas" as P8
- rectangle "9\nResolver Segmento\nUC_INC_RPT_01" as P9
- rectangle "10\nAuditoria" as P10
-
- database "etl_runs" as DS1
- database "base_ivr_*" as DS2
- database "audit_log" as DS3
- database "auth_session" as DS4
-
- IVR --> P7 : datos IVR raw
- SUP --> P1 : credenciales
- ANA --> P1 : credenciales
- SCH --> P4 : disparo automatico
-
- P1 --> DS4 : crear sesion
- P1 --> P2 : JWT valido
-
- P2 --> P4
- P2 --> P5
- P2 --> P6
- P2 --> P8
-
- P4 --> DS1 : registrar ejecucion
- P4 --> P9
-
- P7 --> DS2 : leer datos analiticos
- DS2 --> P7
-
- P6 --> P9
- P9 --> P6 : segmentos del usuario
-
- DS1 --> P4 : historial ETL
- P5 --> DS3 : consultar logs
-
- P8 --> P10
- P5 --> P10
- P10 --> DS3 : registrar auditoria
- P9 --> P3
- P10 --> P3
-
- @enduml
-
-.. note::
-
- Los almacenes de datos ``etl_runs`` y ``base_ivr_*`` residen en
- **MariaDB**. Los almacenes ``audit_log`` y ``auth_session``
- residen en **PostgreSQL** (tablas operacionales Django). Los
- stored procedures ``sp_rpt_*`` y ``sp_etl_*`` son parte del
- motor MariaDB y no del codigo Python.
+ ArquitecturaSistema/arquitectura-general
+ ArquitecturaSistema/dfd-nivel-0-contexto
+ ArquitecturaSistema/dfd-nivel-1-subprocesos

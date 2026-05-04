@@ -1,0 +1,86 @@
+.. meta::
+ :artefacto: AT_RBAC_DIAG_CLASES_ENTIDADES
+ :tipo: Diagrama Arquitectonico — Modelo RBAC
+ :dominio: arquitectura_tecnica
+ :subdominio: rbac/modelo-rbac-iact/diagramas
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-05-04
+ :ultimo_cambio: 2026-05-04
+ :autor: NestorMonroy
+ :clasificacion: Critico
+
+.. _rbac_clases_entidades:
+
+=================================
+Modelo de Clases — Entidades RBAC
+=================================
+
+Modelo de Clases — Entidades RBAC
+===================================
+
+.. uml::
+ :caption: Entidades centrales del modelo RBAC IACT v5.5.0 — 74 funciones atomicas, 12 grupos, 3 reglas SoD.
+
+ @startuml
+
+ class User {
+   + user_id : Integer
+   + username : String
+   + state : Enum
+ }
+
+ class Function {
+   + function_id : String
+   + name : String
+   + category : String
+   + state : Enum
+ }
+
+ class FunctionGroup {
+   + group_id : String
+   + name : String
+   + description : String
+ }
+
+ class Assignment {
+   + user_id : Integer
+   + function_id : String
+   + state : String
+   + granted_at : DateTime
+   + expires_at : DateTime
+ }
+
+ class GroupAssignment {
+   + user_id : Integer
+   + group_id : String
+   + granted_at : DateTime
+   + expires_at : DateTime
+ }
+
+ class SoDRule {
+   + rule_id : String
+   + name : String
+   + state : String
+ }
+
+ class SoDRuleDetail {
+   + rule_id : String
+   + function_id : String
+   + group_side : Enum
+ }
+
+ User "1" *-- "0..*" Assignment : tiene
+ User "1" *-- "0..*" GroupAssignment : pertenece a
+ Function "1" *-- "0..*" Assignment : asignada a
+ FunctionGroup "1" *-- "0..*" GroupAssignment : asignado a
+ FunctionGroup "1" *-- "0..*" Function : contiene
+ SoDRule "1" *-- "2..*" SoDRuleDetail : define grupos
+ Function "1" -- "0..*" SoDRuleDetail : referenciada por
+
+ @enduml
+
+.. seealso::
+
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
+ :doc:`/arquitectura-tecnica/vistas-kruchten`

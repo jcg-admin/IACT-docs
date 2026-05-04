@@ -69,4 +69,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/alerts/index`
  componentes
  restricciones
  casos-uso
- diagramas
+ diagramas/index

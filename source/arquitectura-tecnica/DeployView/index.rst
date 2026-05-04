@@ -26,11 +26,11 @@ MOD_Auth — Autenticacion (5 UCs)
 .. toctree::
  :maxdepth: 1
 
- auth-01
- auth-02
- auth-03
- auth-04
- auth-05
+ iniciar-sesion
+ cerrar-sesion
+ recuperar-contrasena
+ cambiar-contrasena
+ gestionar-sesiones
 
 
 MOD_Users — Gestion Usuarios (4 UCs)
@@ -39,10 +39,10 @@ MOD_Users — Gestion Usuarios (4 UCs)
 .. toctree::
  :maxdepth: 1
 
- usr-01
- usr-02
- usr-03
- usr-04
+ crear-usuario
+ consultar-usuarios
+ modificar-usuario
+ eliminar-usuario
 
 
 MOD_Access — Control Acceso (7 UCs)
@@ -51,13 +51,13 @@ MOD_Access — Control Acceso (7 UCs)
 .. toctree::
  :maxdepth: 1
 
- acc-01
- acc-02
- acc-03
- acc-04
- acc-05
- acc-08
- acc-09
+ asignar-funciones
+ revocar-funciones
+ consultar-permisos-efectivos
+ asignar-agrupador
+ gestionar-reglas-sod
+ permiso-temporal
+ auditar-cambios-acceso
 
 
 MOD_Permissions — Gestion RBAC (10 UCs)
@@ -66,16 +66,16 @@ MOD_Permissions — Gestion RBAC (10 UCs)
 .. toctree::
  :maxdepth: 1
 
- perm-01
- perm-02
- perm-03
- perm-04
- perm-05
- perm-06
- perm-07
- perm-08
- perm-09
- perm-10
+ asignar-grupo-usuario
+ revocar-grupo-usuario
+ conceder-permiso-excepcional
+ revocar-permiso-excepcional
+ crear-grupo-permisos
+ asignar-funciones-grupo
+ verificar-permiso-usuario
+ generar-menu-dinamico
+ auditar-acceso
+ consultar-auditoria-permisos
 
 
 MOD_Reports — Reporteria (16 UCs)
@@ -84,22 +84,22 @@ MOD_Reports — Reporteria (16 UCs)
 .. toctree::
  :maxdepth: 1
 
- inc-rpt-01
- rpt-01
- rpt-02
- rpt-03
- rpt-04
- rpt-07
- rpt-08
- rpt-09
- rpt-10
- rpt-11
- rpt-12
- rpt-13
- rpt-14
- rpt-15
- rpt-16
- rpt-17
+ resolver-segmento
+ ver-dashboard
+ ver-metricas-tiempo-real
+ ver-reportes-historicos
+ exportar-reporte
+ programar-reporte
+ ver-reportes-programados
+ configurar-filtros
+ guardar-vista
+ compartir-reporte
+ reporte-agentes
+ reporte-colas
+ reporte-campanas
+ reporte-transferencias
+ reporte-menus-ivr
+ reporte-clientes-unicos
 
 
 MOD_Alerts — Alertas (5 UCs)
@@ -108,11 +108,11 @@ MOD_Alerts — Alertas (5 UCs)
 .. toctree::
  :maxdepth: 1
 
- alr-01
- alr-02
- alr-03
- alr-04
- alr-05
+ configurar-umbrales-alertas
+ ver-alertas-activas
+ reconocer-alerta
+ ver-historial-alertas
+ gestionar-suscripciones
 
 
 MOD_Pipeline — Supervision ETL (4 UCs)
@@ -121,10 +121,10 @@ MOD_Pipeline — Supervision ETL (4 UCs)
 .. toctree::
  :maxdepth: 1
 
- pip-01
- pip-02
- pip-03
- pip-04
+ supervisar-etl
+ consultar-errores-etl
+ consultar-disponibilidad-datos
+ solicitar-reintento-pipeline
 
 
 MOD_Audit — Auditoria (4 UCs)
@@ -133,10 +133,10 @@ MOD_Audit — Auditoria (4 UCs)
 .. toctree::
  :maxdepth: 1
 
- aud-01
- aud-02
- aud-03
- aud-04
+ consultar-auditoria-general
+ buscar-auditoria
+ exportar-auditoria
+ generar-reporte-compliance
 
 
 MOD_Logs — Bitacoras (7 UCs)
@@ -145,13 +145,13 @@ MOD_Logs — Bitacoras (7 UCs)
 .. toctree::
  :maxdepth: 1
 
- log-01
- log-02
- log-03
- log-04
- log-05
- log-06
- log-07
+ consultar-logs-sistema
+ consultar-logs-etl
+ buscar-logs
+ exportar-logs
+ ver-logs-infraestructura
+ ver-estado-sistema
+ ver-metricas-tecnicas
 
 
 MOD_Operator — Operacion Agente (10 UCs)
@@ -160,16 +160,16 @@ MOD_Operator — Operacion Agente (10 UCs)
 .. toctree::
  :maxdepth: 1
 
- opr-01
- opr-02
- opr-03
- opr-04
- opr-05
- opr-06
- opr-07
- opr-08
- opr-09
- opr-10
+ cambiar-estado-agente
+ atender-llamada-entrante
+ realizar-llamada-saliente
+ hold-unhold-llamada
+ transferir-llamada
+ ingresar-disposition
+ solicitar-break-pausa
+ ver-propio-dashboard
+ ver-historial-llamadas-propio
+ recibir-notificacion-supervisor
 
 
 MOD_Supervision — Supervision Tiempo Real (3 UCs)
@@ -178,9 +178,9 @@ MOD_Supervision — Supervision Tiempo Real (3 UCs)
 .. toctree::
  :maxdepth: 1
 
- sup-01
- sup-02
- sup-03
+ monitorear-llamada
+ barge-in-llamada
+ mensaje-broadcast-equipo
 
 
 MOD_Caller — Llamante Externo (5 UCs)
@@ -189,9 +189,9 @@ MOD_Caller — Llamante Externo (5 UCs)
 .. toctree::
  :maxdepth: 1
 
- cli-01
- cli-02
- cli-03
- cli-04
- cli-05
+ iniciar-llamada-call-center
+ navegar-ivr
+ esperar-cola
+ solicitar-callback
+ calificar-atencion-post-call
 

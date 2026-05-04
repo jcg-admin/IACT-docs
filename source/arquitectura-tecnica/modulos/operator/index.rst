@@ -62,4 +62,4 @@ Dependencias
 .. toctree::
  :maxdepth: 1
 
- diagramas
+ diagramas/index

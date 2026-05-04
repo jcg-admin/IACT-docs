@@ -42,5 +42,5 @@ Las reglas operativas formales viven en:
  modelo-datos
  implementacion
  mapeo-uc
- diagramas
+ diagramas/index
  resumen

@@ -77,4 +77,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/logs/index`
  restricciones
  casos-uso
  metricas
- diagramas
+ diagramas/index

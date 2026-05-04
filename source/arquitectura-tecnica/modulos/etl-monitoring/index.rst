@@ -70,4 +70,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/pipeline/index`
  componentes
  restricciones
  casos-uso
- diagramas
+ diagramas/index

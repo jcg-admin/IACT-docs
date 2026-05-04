@@ -78,4 +78,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/auth/index`
  componentes
  restricciones
  casos-uso
- diagramas
+ diagramas/index

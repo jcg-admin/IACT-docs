@@ -77,4 +77,4 @@ Casos de uso relacionados:
  componentes
  restricciones
  casos-uso
- diagramas
+ diagramas/index
