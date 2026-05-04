@@ -141,7 +141,7 @@ Twin Peaks Model de Nuseibeh) ilustra este contexto:
    rectangle "Requirements\n\n\n(Independent)" as ReqPeak #E8F4FD
  }
 
- rectangle "" as MidLabel #White {
+ rectangle " " as MidLabel #White {
    rectangle "Architecture\n\n\n" as ArchPeak #D5E8D4
  }
 
@@ -156,8 +156,8 @@ Twin Peaks Model de Nuseibeh) ilustra este contexto:
    ▼ Detailed
  end note
 
- ReqPeak <--> ArchPeak : intertwined\n(specification)
- ArchPeak <--> ConsPeak : intertwined\n(design)
+ ReqPeak <-> ArchPeak : intertwined\n(specification)
+ ArchPeak <-> ConsPeak : intertwined\n(design)
 
  @enduml
 

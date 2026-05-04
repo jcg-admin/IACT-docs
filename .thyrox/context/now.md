@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-04 19:58:53
+updated_at: 2026-05-04 20:09:00
 cold_boot: false
-current_epic: 24
-epic_name: list-table-errors-fix
-current_work: .thyrox/context/work/2026-05-04-19-53-57-list-table-errors-fix
+current_epic: 27
+epic_name: plantuml-syntax-fix
+current_work: .thyrox/context/work/2026-05-04-20-08-37-plantuml-syntax-fix
 stage: track
 stage_number: 11
 current_phase: Phase 11 — TRACK
 flow: thyrox
 methodology_step: thyrox:track
 blockers: []
-last_completed_phase: "list-table-errors-fix — R-09 corregido. 7 ERRORs → 0 en 2 archivos. Build: 0 warnings en archivos modificados."
-next_decision_required: "Pendientes: R-07 (normativa broken refs), R-08 (diagramas-tiempo broken refs), R-10 (PlantUML syntax errors). Recomendado: clean build para conteo definitivo."
+last_completed_phase: "plantuml-syntax-fix — R-10 corregido. 3 archivos PlantUML sin errores. Build: 1 warning pre-existente."
+next_decision_required: "Clean build definitivo pendiente. Solicitud nueva: separar clases de clases-modulo-identidad.rst en domain-model/ (1 archivo por clase)."
 stage_sync_required: false
 ```
 

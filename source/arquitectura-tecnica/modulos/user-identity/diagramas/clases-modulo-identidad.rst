@@ -32,7 +32,11 @@ Diagrama de clases — modulo identidad
    +deactivate()     <<BR-009 v2.0.0>>
    +modify()
  }
- enum UserState { ACTIVE / INACTIVE / BLOCKED }
+ enum UserState {
+  ACTIVE
+  INACTIVE
+  BLOCKED
+ }
  User -- UserState
 
  class Session {
@@ -44,7 +48,11 @@ Diagrama de clases — modulo identidad
    +open()
    +close()
  }
- enum SessionState { ACTIVE / CLOSED / EXPIRED }
+ enum SessionState {
+  ACTIVE
+  CLOSED
+  EXPIRED
+ }
  Session -- SessionState
 
  class AuditEvent {

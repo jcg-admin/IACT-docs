@@ -303,7 +303,11 @@ Para evitar confusion sobre el alcance:
    + expires_at : DateTime
    + state : SessionState
  }
- enum SessionState { ACTIVE / CLOSED / EXPIRED }
+ enum SessionState {
+  ACTIVE
+  CLOSED
+  EXPIRED
+ }
  Session -- SessionState
 
  class AuditEvent {
