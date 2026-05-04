@@ -21,7 +21,7 @@ Sistema IACT — Diagrama de Componentes
 
 El componente ``view_reports`` accede a los modulos de
 reportes y dashboard. El componente ``Backend IACT`` (Django)
-gestiona autenticacion, reportes y ETL. ``MariaDB`` contiene
+gestiona autenticacion, reportes y ETL. ``Almacen de Datos`` contiene
 los 7 stored procedures de reporte (``sp_rpt_*``) y los 4 de
 ETL (``sp_etl_*``). ``PostgreSQL`` gestiona usuarios y auditoria.
 

@@ -30,7 +30,7 @@ UC_PIP_03 tecnicamente.
  actor "view_data_availability" as view_data_availability
  participant "Interfaz de Pipeline" as Iface <<frontend>>
  participant "Servicio de Pipeline" as SvcNode <<api>>
- database "MariaDB (sp_etl_*)" as Store <<sql>>
+ database "Almacen de datos (sp_etl_*)" as Store <<sql>>
 
  view_data_availability -> Iface : solicitar
  activate Iface

@@ -27,7 +27,7 @@ Diagrama de componentes — MOD_Pipeline
  actor "APScheduler" as Apscheduler
  actor "request_pipeline_retry" as request_pipeline_retry
 
- component "sp_etl_maestro\n(MariaDB SP)" as ETL_SP
+ component "sp_etl_maestro\n(Almacen de Datos SP)" as ETL_SP
  component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as Supervisionendpoint
  component "ETLScheduler\n(Django background task)" as SCHED
 

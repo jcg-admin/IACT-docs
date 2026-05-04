@@ -165,7 +165,7 @@ Permite multiples REVOKED historicos.
 7.5.2 PermissionCache (escritura — DELETE/INVALIDATE)
 -----------------------------------------------------
 
-Implementacion-dependiente (Redis, Memcached,
+Implementacion-dependiente (cache distribuido,
 in-memory). El UC delega a
 ``PermissionCache.invalidate(user_id)``.
 

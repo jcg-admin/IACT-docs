@@ -30,7 +30,7 @@ UC_OPR_10 tecnicamente.
  actor "read_own_mailbox" as read_own_mailbox
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  read_own_mailbox -> Iface : solicitar
  activate Iface

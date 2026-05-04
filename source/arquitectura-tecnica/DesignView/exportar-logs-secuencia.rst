@@ -30,7 +30,7 @@ UC_LOG_04 tecnicamente.
  actor "export_logs" as export_logs
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  export_logs -> Iface : solicitar
  activate Iface

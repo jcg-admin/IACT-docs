@@ -27,7 +27,7 @@ Diagrama de componentes — MOD_Logs
  component "Apps Django\n(stdout/stderr)" as AppsDjango
  component "fluent-bit\n(shipper)" as FluentBit
  database "LogStore\n(PostgreSQL)" as Logstore
- database "etl_runs\n(MariaDB)" as ETL_LOG
+ database "etl_runs" as ETL_LOG
 
  component "view_application_logs" as view_application_logs
  component "view_etl_logs" as view_etl_logs

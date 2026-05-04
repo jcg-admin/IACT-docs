@@ -30,7 +30,7 @@ UC_OPR_05 tecnicamente.
  actor "transfer_calls" as transfer_calls
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  transfer_calls -> Iface : solicitar
  activate Iface

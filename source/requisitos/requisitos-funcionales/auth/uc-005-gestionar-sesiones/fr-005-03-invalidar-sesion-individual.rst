@@ -55,7 +55,7 @@ FR-005.03: Invalidar sesión individual
  2. Sistema solicita confirmación con datos de la sesión
  3. Admin confirma la acción
  4. Sistema actualiza status en user_sessions a 'FORCED_LOGOUT'
- 5. Sistema agrega token a blacklist de Redis
+ 5. Sistema agrega token a lista de revocacion de tokens
  6. Sistema registra evento en auditoría con admin que ejecutó
  7. Sistema actualiza listado de sesiones
  8. Usuario afectado recibe 401 en siguiente request

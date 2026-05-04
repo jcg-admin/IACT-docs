@@ -97,10 +97,10 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
 .. note::
 
  Los almacenes de datos ``etl_runs`` y ``base_ivr_*`` residen en
- **MariaDB**. Los almacenes ``audit_log`` y ``auth_session``
+ **Almacen de Datos**. Los almacenes ``audit_log`` y ``auth_session``
  residen en **PostgreSQL** (tablas operacionales Django). Los
  stored procedures ``sp_rpt_*`` y ``sp_etl_*`` son parte del
- motor MariaDB y no del codigo Python.
+ motor Almacen de Datos y no del codigo Python.
 
 .. seealso::
 

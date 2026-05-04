@@ -55,11 +55,11 @@ FR-002.01: Invalidar token JWT
  2. Buscar registro en tabla ``user_sessions`` por jti
  3. Actualizar status de 'ACTIVE' a 'LOGGED_OUT'
  4. Registrar timestamp de cierre (logged_out_at)
- 5. Agregar jti a blacklist de tokens (cache Redis)
+ 5. Agregar jti a lista de revocacion de tokens (cache)
  
  **Blacklist de Tokens:**
  
- - Los tokens invalidados se agregan a Redis
+ - Los tokens invalidados se agregan al cache de tokens
  - TTL igual al tiempo restante de expiración del token
  - Toda validación de token consulta blacklist primero
 
@@ -105,9 +105,9 @@ FR-002.01: Invalidar token JWT
 
 **Consideraciones de Performance:**
 
-- Blacklist en Redis para consulta O(1)
+- Lista de revocacion en cache para consulta O(1)
 - TTL automático evita crecimiento indefinido
-- Fallback a BD si Redis no disponible
+- Fallback a BD si cache no disponible
 
 ----
 

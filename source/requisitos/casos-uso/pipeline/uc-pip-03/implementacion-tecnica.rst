@@ -36,7 +36,7 @@ Implementacion de ETLEjecucionRepo.get_ultima_exitosa:
 ::
 
    ETLEjecucionRepo.get_ultima_exitosa(trimestre):
-       # Consulta directa sobre etl_runs en MariaDB
+       # Consulta directa sobre etl_runs en Almacen de Datos
        # via connections['ivr'].cursor()
        SELECT trimestre, finalizado_en,
               registros_base

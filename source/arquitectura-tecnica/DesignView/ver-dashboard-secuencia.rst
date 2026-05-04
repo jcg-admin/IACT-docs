@@ -30,7 +30,7 @@ UC_RPT_01 tecnicamente.
  actor "view_dashboard" as view_dashboard
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  view_dashboard -> Iface : solicitar
  activate Iface

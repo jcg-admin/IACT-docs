@@ -20,7 +20,7 @@ Secuencia sp_rpt_* — Flujo Completo
 ======================================
 
 .. uml::
- :caption: Secuencia de consulta de reporte IVR via cursor.callproc sobre MariaDB.
+ :caption: Secuencia de consulta de reporte IVR via cursor.callproc sobre Almacen de Datos.
 
  @startuml
 
@@ -28,7 +28,7 @@ Secuencia sp_rpt_* — Flujo Completo
  participant "DashboardEndpoint\n(/api/reportes/)" as Dashboardendpoint
  participant "SegmentResolver" as Segmentresolver
  participant "ServicioReportes\n(cursor.callproc)" as Servicioreportes
- database "base_ivr_detalle\nbase_ivr_clientes\n(MariaDB)" as IVRDB
+ database "base_ivr_detalle\nbase_ivr_clientes" as IVRDB
 
  view_reports -> Dashboardendpoint : GET /api/reportes/?trimestre=Q1
  Dashboardendpoint -> Dashboardendpoint : JWT + RBAC (view_reports)

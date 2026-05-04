@@ -32,7 +32,7 @@ Diagrama de componentes — MOD_Supervision
  component "InternalMailbox\n(broadcast_team_messages)" as Internalmailbox
 
  database "audit_log\n(PostgreSQL)" as audit_log
- database "agent_state\n(Redis — estados activos)" as STATE
+ database "agent_state\n(cache)" as STATE
 
  monitor_live_calls --> Supervisionendpoint : HTTP requests
  Supervisionendpoint --> Telephonybridge : activar canal supervision/barge

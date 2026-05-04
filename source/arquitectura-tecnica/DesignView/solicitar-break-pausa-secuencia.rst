@@ -30,7 +30,7 @@ UC_OPR_07 tecnicamente.
  actor "request_break" as request_break
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  request_break -> Iface : solicitar
  activate Iface

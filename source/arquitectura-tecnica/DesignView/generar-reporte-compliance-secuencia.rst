@@ -30,7 +30,7 @@ UC_AUD_04 tecnicamente.
  actor "generate_compliance_report" as generate_compliance_report
  participant "Interfaz de Auditoria" as Iface <<frontend>>
  participant "Servicio de Auditoria" as SvcNode <<api>>
- database "MariaDB (audit_log)" as Store <<sql>>
+ database "Almacen de datos (audit_log)" as Store <<sql>>
 
  generate_compliance_report -> Iface : solicitar
  activate Iface

@@ -27,10 +27,10 @@ Distribucion fisica de nodos y artefactos para UC_PIP_01.
  node "Apache + mod_wsgi" as WebServer {
    artifact "DisparadorETL" as App
  }
- database "MariaDB" as MariaDB
+ database "Almacen de datos" as Almacen de Datos
 
  Client --> WebServer : HTTPS
- WebServer --> MariaDB : SP call / TCP
+ WebServer --> Almacen de Datos : SP call / TCP
 
  @enduml
 

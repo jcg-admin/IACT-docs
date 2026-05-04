@@ -30,7 +30,7 @@ UC_OPR_08 tecnicamente.
  actor "view_own_performance_dashboard" as view_own_performance_dashboard
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  view_own_performance_dashboard -> Iface : solicitar
  activate Iface

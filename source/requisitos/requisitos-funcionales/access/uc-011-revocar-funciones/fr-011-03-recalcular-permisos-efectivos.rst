@@ -115,7 +115,7 @@ FR-011.03: Recalcular permisos efectivos
 
 **Caché de Permisos:**
 
-Si se usa caché Redis para permisos, debe invalidarse
+Si se usa cache de permisos para permisos, debe invalidarse
 inmediatamente al revocar funciones.
 
 ----

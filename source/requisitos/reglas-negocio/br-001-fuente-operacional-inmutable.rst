@@ -140,7 +140,7 @@ cliente como requisito no negociable.
 ^^^^^^^^^^^^^^^^^^^^^
 
 - **Roles**: Todos los agrupadores RBAC (ninguno puede escribir en IVR)
-- **Sistemas Externos**: Sistema IVR (MariaDB)
+- **Sistemas Externos**: Sistema IVR (Almacen de Datos)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^

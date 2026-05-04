@@ -30,7 +30,7 @@ UC_LOG_06 tecnicamente.
  actor "view_system_health" as view_system_health
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  view_system_health -> Iface : solicitar
  activate Iface

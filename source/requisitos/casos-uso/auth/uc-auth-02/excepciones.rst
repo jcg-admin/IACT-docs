@@ -135,7 +135,7 @@ por CNST-005 (timeout 15 min).
    - PASO 7
  * - **Condicion**
    - INSERT en ``BlacklistedToken`` falla (cache
-     Redis caido, BD overloaded)
+     servicio de cache caido, BD overloaded)
  * - **Accion sistema**
    - ROLLBACK de toda la transaccion; Session
      vuelve a ACTIVE

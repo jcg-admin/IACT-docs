@@ -20,15 +20,15 @@ Flujo ETL Nocturno — sp_etl_maestro
 ======================================
 
 .. uml::
- :caption: Secuencia ETL nocturno con sp_etl_maestro sobre MariaDB (CNST-006/008).
+ :caption: Secuencia ETL nocturno con sp_etl_maestro sobre Almacen de Datos (CNST-006/008).
 
  @startuml
 
  actor "APScheduler\n/ Cron" as Apscheduler
- participant "sp_etl_maestro\n(MariaDB)" as sp_etl_maestro
+ participant "sp_etl_maestro" as sp_etl_maestro
  database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR — solo lectura)" as tbl_historico_detalle
  database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica — escribible)" as DEST
- database "etl_runs\n(MariaDB)" as etl_runs
+ database "etl_runs" as etl_runs
  participant "SupervisionETLEndpoint\n(/api/v1/etl/supervision/)" as Supervisionetlendpoint
 
  Apscheduler -> sp_etl_maestro : CALL sp_etl_maestro(trimestre)\n(ventana nocturna CNST-006/008)

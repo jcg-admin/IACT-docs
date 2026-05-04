@@ -27,12 +27,12 @@ Distribucion fisica de nodos y artefactos para UC_AUTH_05.
  node "Apache + mod_wsgi" as WebServer {
    artifact "Django App" as App
  }
- database "MariaDB" as MariaDB
- node "Redis" as Cache
+ database "Almacen de datos" as Almacen de Datos
+ node "cache" as Cache
 
  Client --> WebServer : HTTPS
- WebServer --> MariaDB : TCP / SQL
- WebServer --> Cache : TCP / Redis
+ WebServer --> Almacen de Datos : TCP / SQL
+ WebServer --> Cache : TCP / cache
 
  @enduml
 

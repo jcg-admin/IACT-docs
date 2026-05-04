@@ -30,7 +30,7 @@ UC_CLI_01 tecnicamente.
  actor "CallerExterno" as CallerExterno
  participant "Interfaz de Llamadas" as Iface <<frontend>>
  participant "Servicio de Llamadas" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  CallerExterno -> Iface : solicitar
  activate Iface

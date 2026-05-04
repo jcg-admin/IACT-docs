@@ -30,7 +30,7 @@ UC_RPT_11 tecnicamente.
  actor "share_report" as share_report
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  share_report -> Iface : solicitar
  activate Iface

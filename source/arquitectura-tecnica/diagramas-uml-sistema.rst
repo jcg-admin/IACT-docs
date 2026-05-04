@@ -54,7 +54,7 @@ conforme al catalogo de funciones del sistema.
 
 **Sistema IVR (Fuente de Datos)**
   Entidad externa. Provee datos de llamadas en ``tbl_historico_*``
-  dentro de MariaDB. No interactua directamente con IACT — sus
+  dentro de Almacen de Datos. No interactua directamente con IACT — sus
   tablas son leidas por ``sp_etl_*``.
 
 **APScheduler / Cron**

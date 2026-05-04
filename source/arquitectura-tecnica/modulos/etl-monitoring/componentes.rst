@@ -27,18 +27,18 @@ Componentes de Aplicacion
 
 ----
 
-Acceso a Datos — etl_runs (MariaDB)
+Acceso a Datos — etl_runs (Almacen de Datos)
 =====================================
 
 El ETL no usa Django ORM para persistir ejecuciones. El estado
-se almacena directamente en la tabla ``etl_runs`` de MariaDB,
+se almacena directamente en la tabla ``etl_runs`` de Almacen de Datos,
 accedida via ``cursor.execute`` / ``cursor.callproc``.
 
 **DSC_MOD_005_etl_runs** — Tabla de registro de ejecuciones
 
 .. code-block:: sql
 
- -- Tabla etl_runs en MariaDB (no Django ORM)
+ -- Tabla etl_runs en Almacen de Datos (no Django ORM)
  CREATE TABLE etl_runs (
      id            INT AUTO_INCREMENT PRIMARY KEY,
      job_id        VARCHAR(50) UNIQUE NOT NULL,

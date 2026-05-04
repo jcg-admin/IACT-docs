@@ -30,7 +30,7 @@ UC_OPR_01 tecnicamente.
  actor "manage_own_agent_state" as manage_own_agent_state
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  manage_own_agent_state -> Iface : solicitar
  activate Iface

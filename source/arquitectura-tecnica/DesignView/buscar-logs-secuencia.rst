@@ -30,7 +30,7 @@ UC_LOG_03 tecnicamente.
  actor "search_logs" as search_logs
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  search_logs -> Iface : solicitar
  activate Iface

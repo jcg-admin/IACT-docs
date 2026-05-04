@@ -30,7 +30,7 @@ UC_SUP_02 tecnicamente.
  actor "barge_in_calls" as barge_in_calls
  participant "Interfaz de Supervision" as Iface <<frontend>>
  participant "Servicio de Supervision" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  barge_in_calls -> Iface : solicitar
  activate Iface

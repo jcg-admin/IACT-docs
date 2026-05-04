@@ -30,7 +30,7 @@ UC_OPR_06 tecnicamente.
  actor "enter_call_disposition" as enter_call_disposition
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  enter_call_disposition -> Iface : solicitar
  activate Iface

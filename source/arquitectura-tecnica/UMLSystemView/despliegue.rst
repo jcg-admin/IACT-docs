@@ -20,10 +20,10 @@ Sistema IACT — Diagrama de Despliegue
 ===========================
 
 Los nodos representan el OS, las bases de datos y el servidor de
-aplicacion. La base de datos MariaDB reside en el mismo servidor
+aplicacion. La base de datos Almacen de Datos reside en el mismo servidor
 de aplicacion por proximidad con el proceso ETL. PostgreSQL
 gestiona datos operacionales Django. El protocolo entre cliente
-y servidor es HTTPS. El acceso de Django a MariaDB usa la
+y servidor es HTTPS. El acceso de Django a Almacen de Datos usa la
 conexion nombrada ``ivr`` en ``DATABASES`` de Django settings.
 
 .. uml::

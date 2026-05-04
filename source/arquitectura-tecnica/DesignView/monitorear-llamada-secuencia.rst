@@ -30,7 +30,7 @@ UC_SUP_01 tecnicamente.
  actor "monitor_live_calls" as monitor_live_calls
  participant "Interfaz de Supervision" as Iface <<frontend>>
  participant "Servicio de Supervision" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  monitor_live_calls -> Iface : solicitar
  activate Iface

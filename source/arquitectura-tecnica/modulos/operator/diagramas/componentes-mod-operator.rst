@@ -34,7 +34,7 @@ Diagrama de componentes — MOD_Operator
 
  database "auth_session\n(PostgreSQL)" as SESS
  database "audit_log\n(PostgreSQL)" as audit_log
- database "agent_state\n(Redis/cache)" as STATE
+ database "agent_state\n(cache)" as STATE
 
  manage_own_agent_state --> Agentpanel : HTTP requests
  Agentpanel --> Telephonybridge : control llamadas

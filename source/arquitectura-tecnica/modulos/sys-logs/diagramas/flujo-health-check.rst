@@ -30,7 +30,7 @@ Flujo del Health Check
 
  :Recolectar metricas del sistema\n(CPU, memoria, disco, conexiones BD);
 
- :Recolectar estado de servicios\n(MariaDB, PostgreSQL, ETL, cola async);
+ :Recolectar estado de servicios\n(Almacen de Datos, PostgreSQL, ETL, cola async);
 
  :Comparar valores contra umbrales\nconfigurables (view_system_health);
 

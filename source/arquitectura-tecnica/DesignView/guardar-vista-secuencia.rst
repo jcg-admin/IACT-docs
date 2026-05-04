@@ -30,7 +30,7 @@ UC_RPT_10 tecnicamente.
  actor "save_view" as save_view
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  save_view -> Iface : solicitar
  activate Iface

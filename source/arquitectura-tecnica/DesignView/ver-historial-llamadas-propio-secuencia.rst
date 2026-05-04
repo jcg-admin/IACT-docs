@@ -30,7 +30,7 @@ UC_OPR_09 tecnicamente.
  actor "view_own_call_history" as view_own_call_history
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  view_own_call_history -> Iface : solicitar
  activate Iface

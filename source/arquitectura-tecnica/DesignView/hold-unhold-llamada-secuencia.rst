@@ -30,7 +30,7 @@ UC_OPR_04 tecnicamente.
  actor "hold_calls" as hold_calls
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  hold_calls -> Iface : solicitar
  activate Iface

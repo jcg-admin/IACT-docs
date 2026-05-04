@@ -30,7 +30,7 @@ Diagrama de componentes — MOD_Reports
  component "apps.exports\n(CSV/Excel)" as AppsExports
  component "InternalMailbox" as Internalmailbox
 
- database "base_ivr_detalle\nbase_ivr_clientes\n(MariaDB — solo lectura)" as base_ivr_detalle
+ database "base_ivr_detalle\nbase_ivr_clientes\n(Almacen de Datos — solo lectura)" as base_ivr_detalle
  database "auth_user\naudit_log\n(PostgreSQL)" as auth_user
 
  RPTS --> Segmentresolver : resolve segmentos

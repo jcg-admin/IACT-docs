@@ -30,7 +30,7 @@ UC_PIP_04 tecnicamente.
  actor "request_pipeline_retry" as request_pipeline_retry
  participant "Interfaz de Pipeline" as Iface <<frontend>>
  participant "Servicio de Pipeline" as SvcNode <<api>>
- database "MariaDB (sp_etl_*)" as Store <<sql>>
+ database "Almacen de datos (sp_etl_*)" as Store <<sql>>
 
  request_pipeline_retry -> Iface : solicitar
  activate Iface

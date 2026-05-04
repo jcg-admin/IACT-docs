@@ -30,7 +30,7 @@ UC_LOG_05 tecnicamente.
  actor "view_infrastructure_logs" as view_infrastructure_logs
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  view_infrastructure_logs -> Iface : solicitar
  activate Iface

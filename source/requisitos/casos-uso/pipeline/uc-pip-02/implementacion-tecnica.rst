@@ -33,7 +33,7 @@ Implementacion de ETLEjecucionRepo.get_fallidas:
 ::
 
    ETLEjecucionRepo.get_fallidas(period, trimestre, page):
-       # Consulta directa sobre etl_runs en MariaDB
+       # Consulta directa sobre etl_runs en Almacen de Datos
        # via connections['ivr'].cursor()
        SELECT id, tabla_origen, trimestre,
               iniciado_en, finalizado_en,

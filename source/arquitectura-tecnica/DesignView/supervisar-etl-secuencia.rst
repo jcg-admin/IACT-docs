@@ -30,7 +30,7 @@ UC_PIP_01 tecnicamente.
  actor "view_pipeline_status" as view_pipeline_status
  participant "Interfaz de Pipeline" as Iface <<frontend>>
  participant "Servicio de Pipeline" as SvcNode <<api>>
- database "MariaDB (sp_etl_*)" as Store <<sql>>
+ database "Almacen de datos (sp_etl_*)" as Store <<sql>>
 
  view_pipeline_status -> Iface : solicitar
  activate Iface

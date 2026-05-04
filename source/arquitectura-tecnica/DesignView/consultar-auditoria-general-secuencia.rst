@@ -30,7 +30,7 @@ UC_AUD_01 tecnicamente.
  actor "view_audit_log" as view_audit_log
  participant "Interfaz de Auditoria" as Iface <<frontend>>
  participant "Servicio de Auditoria" as SvcNode <<api>>
- database "MariaDB (audit_log)" as Store <<sql>>
+ database "Almacen de datos (audit_log)" as Store <<sql>>
 
  view_audit_log -> Iface : solicitar
  activate Iface

@@ -30,7 +30,7 @@ UC_OPR_02 tecnicamente.
  actor "answer_inbound_calls" as answer_inbound_calls
  participant "Interfaz de Operador" as Iface <<frontend>>
  participant "Servicio de Operador" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  answer_inbound_calls -> Iface : solicitar
  activate Iface

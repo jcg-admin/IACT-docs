@@ -30,7 +30,7 @@ UC_PIP_02 tecnicamente.
  actor "view_pipeline_errors" as view_pipeline_errors
  participant "Interfaz de Pipeline" as Iface <<frontend>>
  participant "Servicio de Pipeline" as SvcNode <<api>>
- database "MariaDB (sp_etl_*)" as Store <<sql>>
+ database "Almacen de datos (sp_etl_*)" as Store <<sql>>
 
  view_pipeline_errors -> Iface : solicitar
  activate Iface

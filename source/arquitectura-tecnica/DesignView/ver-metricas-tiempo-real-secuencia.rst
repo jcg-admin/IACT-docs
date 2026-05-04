@@ -30,7 +30,7 @@ UC_RPT_02 tecnicamente.
  actor "view_kpis" as view_kpis
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  view_kpis -> Iface : solicitar
  activate Iface

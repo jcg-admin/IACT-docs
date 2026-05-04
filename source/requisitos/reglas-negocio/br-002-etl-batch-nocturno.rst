@@ -133,7 +133,7 @@ por recursos con operaciones diurnas del call center.
    - Descripcion de Aplicacion
  * - MOD_Pipeline
    - Ejecuta jobs ETL programados
- * - Celery Beat
+ * - Scheduler de tareas
    - Scheduler que dispara proceso a medianoche
  * - Base Analytics
    - Recibe datos sincronizados

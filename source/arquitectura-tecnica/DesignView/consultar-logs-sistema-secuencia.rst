@@ -30,7 +30,7 @@ UC_LOG_01 tecnicamente.
  actor "view_application_logs" as view_application_logs
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  view_application_logs -> Iface : solicitar
  activate Iface

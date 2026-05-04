@@ -30,7 +30,7 @@ UC_SUP_03 tecnicamente.
  actor "broadcast_team_messages" as broadcast_team_messages
  participant "Interfaz de Supervision" as Iface <<frontend>>
  participant "Servicio de Supervision" as SvcNode <<api>>
- database "MariaDB (tbl_historico_*)" as Store <<sql>>
+ database "Almacen de datos (tbl_historico_*)" as Store <<sql>>
 
  broadcast_team_messages -> Iface : solicitar
  activate Iface

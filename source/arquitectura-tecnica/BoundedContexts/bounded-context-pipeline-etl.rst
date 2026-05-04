@@ -60,7 +60,7 @@ despliegue ADR-DEVOPS-001).
    CNST-007: tbl_historico_* es solo lectura.
    CNST-008: ETL en ventana de 6-12 horas.
    Persistida en Registro de Ejecuciones
-   (tabla etl_runs en MariaDB, propiedad IACT).
+   (tabla etl_runs en Almacen de Datos, propiedad IACT).
  end note
 
  @enduml

@@ -46,7 +46,7 @@ Nota Arquitectonica
 Este modulo no expone API REST publica. La interaccion del Caller
 ocurre a traves de la infraestructura IVR (PBX/Asterisk). Los datos
 se persisten en ``tbl_historico_detalle`` y ``tbl_historico_clientes``
-del Repositorio IVR (MariaDB, solo lectura para IACT).
+del Repositorio IVR (Almacen de Datos, solo lectura para IACT).
 
 El ETL nocturno (ARQ_MOD_004) transforma estos datos hacia la Base
 Analitica para reportes y alertas.

@@ -47,7 +47,7 @@ son las siguientes:
   datos del Repositorio IVR (``tbl_historico_*``) y los carga en la
   Base Analitica IVR (``base_ivr_detalle``, ``base_ivr_clientes``)
   via los stored procedures ``sp_etl_*``. El registro de cada
-  ejecucion se almacena en la tabla ``etl_runs`` de MariaDB con
+  ejecucion se almacena en la tabla ``etl_runs`` de Almacen de Datos con
   estados ``en_ejecucion``, ``exitoso`` y ``fallido``.
 
 **Consulta de Logs** (MOD_Logs)

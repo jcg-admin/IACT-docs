@@ -21,7 +21,7 @@ Componentes de Aplicacion
    - Descripcion
  * - ``apps.reports``
    - Vistas DRF y serializadores de reportes IVR. Lee datos
-     via ``cursor.callproc()`` sobre la conexion MariaDB ``ivr``;
+     via ``cursor.callproc()`` sobre la conexion Almacen de Datos ``ivr``;
      no usa modelos ORM para datos IVR analiticos.
  * - ``apps.exports``
    - Servicios de generacion CSV/Excel/PDF sobre los datasets
@@ -33,7 +33,7 @@ Patron de Consulta — cursor.callproc()
 =======================================
 
 Los datos de reportes IVR no provienen de modelos Django ORM.
-Provienen de stored procedures en MariaDB, invocados via el cursor
+Provienen de stored procedures en Almacen de Datos, invocados via el cursor
 de la conexion ``ivr``:
 
 .. code-block:: python
@@ -57,7 +57,7 @@ Stored Procedures de Reporte
 ==============================
 
 Los SPs de reporte son de lectura exclusiva sobre ``base_ivr_detalle``
-y ``base_ivr_clientes`` (tablas analiticas en MariaDB). El parametro
+y ``base_ivr_clientes`` (tablas analiticas en Almacen de Datos). El parametro
 principal de todos es ``quarter_name`` (ej: ``'Q3_25'``).
 
 .. list-table::

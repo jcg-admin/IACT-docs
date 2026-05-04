@@ -16,7 +16,7 @@ short-lived).
 
 **Justificacion**: la implementacion concreta de
 "invalidar token" depende del despliegue
-(self-hosted Base de Datos vs Redis vs ambos). El UC no
+(self-hosted Base de Datos vs cache vs ambos). El UC no
 prescribe — define la interfaz
 ``TokenInvalidator``.
 

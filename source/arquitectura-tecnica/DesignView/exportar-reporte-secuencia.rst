@@ -30,7 +30,7 @@ UC_RPT_04 tecnicamente.
  actor "export_csv" as export_csv
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  export_csv -> Iface : solicitar
  activate Iface

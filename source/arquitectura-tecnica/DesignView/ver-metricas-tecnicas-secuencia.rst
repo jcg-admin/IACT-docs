@@ -30,7 +30,7 @@ UC_LOG_07 tecnicamente.
  actor "view_technical_metrics" as view_technical_metrics
  participant "Interfaz de Logs" as Iface <<frontend>>
  participant "Servicio de Logs" as SvcNode <<api>>
- database "MariaDB / Sistema" as Store <<sql>>
+ database "Almacen de datos" as Store <<sql>>
 
  view_technical_metrics -> Iface : solicitar
  activate Iface

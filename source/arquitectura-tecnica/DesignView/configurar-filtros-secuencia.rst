@@ -30,7 +30,7 @@ UC_RPT_09 tecnicamente.
  actor "filter_reports" as filter_reports
  participant "Interfaz de Reportes" as Iface <<frontend>>
  participant "Servicio de Reportes" as SvcNode <<api>>
- database "MariaDB (base_ivr_*)" as Store <<sql>>
+ database "Almacen de datos (base_ivr_*)" as Store <<sql>>
 
  filter_reports -> Iface : solicitar
  activate Iface
