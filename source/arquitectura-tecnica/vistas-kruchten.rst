@@ -25,29 +25,36 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  :header-rows: 1
 
  * - Vista
-   - Tipo
+   - Tipo (Rozanski)
    - Descripcion
- * - :doc:`domain-model/index`
-   - Vista Logica
-   - Entidades del dominio y relaciones para el UC.
-     Diagrama de clases (conceptual) + estados.
- * - :doc:`design-view/index`
-   - Vista de Diseno
-   - Clases con detalle de diseno, secuencias, colaboracion.
-     Como el sistema resuelve el UC tecnicamente.
- * - :doc:`implementation-view/index`
-   - Vista de Implementacion
-   - Componentes y paquetes. Organizacion del codigo.
+ * - :doc:`context-view/index`
+   - Context (overarching)
+   - Frontera del sistema, entidades externas (IVR, APScheduler),
+     stakeholders (AGR_ADMIN/OPERADOR/AUDITOR), interfaces y
+     restricciones fundamentales (P-01).
  * - :doc:`use-case-view/index`
-   - Vista de Casos de Uso
+   - Functional
    - Diagrama UC con actores RBAC, includes y extends.
-     Une todas las demas vistas.
+     13 modulos canonicos. Une todas las demas vistas.
+ * - :doc:`domain-model/index`
+   - Information
+   - Entidades del dominio (26 clases en 8 BCs), atributos,
+     metodos, enums y relaciones directas entre clases.
  * - :doc:`process-view/index`
-   - Vista de Procesos
-   - Actividades y secuencias. Concurrencia, sincronizacion.
+   - Concurrency
+   - Patrones de concurrencia: ETL pipeline, alertas paralelas,
+     sesiones JWT, dashboard. 4 diagramas canonicos.
+ * - :doc:`design-view/index`
+   - Development (secuencias)
+   - Secuencias de diseno por modulo. Como el sistema resuelve
+     cada UC tecnicamente (STD-011 CamelCase).
+ * - :doc:`implementation-view/index`
+   - Development (componentes)
+   - Componentes y stack de 5 capas por modulo. Organizacion
+     del codigo fuente.
  * - :doc:`deploy-view/index`
-   - Vista de Despliegue
-   - Distribucion fisica. Nodos, artefactos, comunicacion.
+   - Deployment
+   - Distribucion fisica. 3 variantes: estandar, auth-cache, etl.
 
 ----
 
@@ -55,9 +62,10 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  :maxdepth: 2
  :caption: Vistas arquitectonicas
 
+ context-view/index
+ use-case-view/index
  domain-model/index
+ process-view/index
  design-view/index
  implementation-view/index
- use-case-view/index
- process-view/index
  deploy-view/index

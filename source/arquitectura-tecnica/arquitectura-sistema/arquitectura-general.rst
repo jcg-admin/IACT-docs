@@ -56,9 +56,9 @@ cuentas son creadas por el Administrador IACT.
  rectangle "9\nResolver\nSegmento\nUC_INC_RPT_01" as P9
  rectangle "10\nAuditoria\nde Acceso" as P10
 
- SUP --> P1
- ANA --> P1
- IVR --> P7
+ SupervisorSistema --> P1
+ AnalistaReportes --> P1
+ SistemaIVR --> P7
 
  P1 --> P2
  P2 --> P4

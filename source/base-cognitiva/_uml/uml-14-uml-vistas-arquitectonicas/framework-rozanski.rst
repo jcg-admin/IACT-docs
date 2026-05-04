@@ -4,7 +4,7 @@
  :dominio: base_cognitiva
  :subdominio: _uml
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -12,9 +12,9 @@
 
 .. _uml-14-rozanski:
 
-=======================================================
+==========================================================
 Framework Rozanski et al. — Viewpoints, Model Types y UML
-=======================================================
+==========================================================
 
 La tabla siguiente describe las relaciones entre los viewpoints
 de Rozanski et al., los tipos de modelo (*model types*) que cada
@@ -160,38 +160,41 @@ Relación con los diagramas actuales en IACT
  :widths: 22 22 56
 
  * - Viewpoint Rozanski
-   - Vista 5+1 IACT
+   - Vista IACT
    - Observación
+ * - **Context** (overarching)
+   - Context View
+   - ``context-view/`` creado (WP uml-coverage-context-view):
+     context-diagram, external-interfaces, stakeholders.
+     Frontera del sistema, IVR read-only (P-01), APScheduler,
+     grupos RBAC como stakeholders. ✓ Implementado.
  * - Functional
    - Use Case View
    - ``use-case-view/`` tiene 13 ``mod-*.rst`` canónicos
-     (uno por módulo funcional). ✓ Reestructurado (WP
-     estructura-requisitos-arq-audit, Bloque A).
+     (uno por módulo funcional). ✓ Reestructurado (Bloque A).
  * - Information
    - Domain Model
    - ``domain-model/`` tiene ``overview.rst`` + 26 archivos
-     de clase canónica (uno por clase) + 8 ``bc-*.rst`` BC
-     diagrams. ✓ Reestructurado (Bloque B).
+     de clase canónica con relaciones cross-clase integradas.
+     ``bc-*.rst`` eliminados (relaciones migradas). ✓ Bloque B +
+     WP uml-coverage-housekeeping.
  * - Concurrency
    - Process View
    - ``process-view/`` tiene 4 diagramas de concurrencia
      real: ETL pipeline, alertas paralelas, sesiones JWT,
-     dashboard. ✓ Reestructurado (Bloque F, antes H-15).
+     dashboard. ✓ Reestructurado (Bloque F).
  * - Development
    - Implementation + Design View
-   - ``implementation-view/`` 12 ``mod-*.rst`` canónicos
-     con stack de 5 capas. ``design-view/`` 12 ``mod-*.rst``
-     con secuencias reales por módulo. ✓ Reestructurado
-     (Bloques D y E).
+   - ``implementation-view/`` 12 ``mod-*.rst`` con stack de
+     5 capas. ``design-view/`` 12 ``mod-*.rst`` con secuencias
+     reales. ✓ Reestructurado (Bloques D y E).
  * - Deployment
    - Deployment View (+1)
-   - ``deploy-view/`` tiene 3 variantes canónicas:
-     ``deploy-estandar.rst``, ``deploy-auth-cache.rst``,
-     ``deploy-etl.rst``. ✓ Reestructurado (Bloque C,
-     antes H-10).
+   - ``deploy-view/`` 3 variantes canónicas: deploy-estandar,
+     deploy-auth-cache, deploy-etl. ✓ Reestructurado (Bloque C).
  * - Operational
    - Sin vista dedicada
-   - No existe viewpoint Operational en IACT actualmente.
+   - WP ``uml-coverage-operational-view`` pendiente de ejecución.
 
 ----
 
