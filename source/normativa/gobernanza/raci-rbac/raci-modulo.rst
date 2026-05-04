@@ -12,10 +12,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -56,10 +55,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -135,10 +133,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -235,10 +232,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -279,10 +275,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -372,10 +367,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -458,10 +452,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op
@@ -502,10 +495,9 @@ RACI RBAC IACT — RACI por Modulo
 
 .. list-table::
  :header-rows: 1
- :widths: 8 30 12 10 10 10 10 10
+ :widths: 8 12 10 10 10 10 10
 
  * - ID
-   - Funcion
    - AdmNT
    - AdmT
    - Op

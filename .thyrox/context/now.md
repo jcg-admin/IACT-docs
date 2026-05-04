@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-04 19:55:00
+updated_at: 2026-05-04 19:58:53
 cold_boot: false
-current_epic: 23
-epic_name: unexpected-unindent-fix
-current_work: .thyrox/context/work/2026-05-04-19-43-57-unexpected-unindent-fix
+current_epic: 24
+epic_name: list-table-errors-fix
+current_work: .thyrox/context/work/2026-05-04-19-53-57-list-table-errors-fix
 stage: track
 stage_number: 11
 current_phase: Phase 11 — TRACK
 flow: thyrox
 methodology_step: thyrox:track
 blockers: []
-last_completed_phase: "unexpected-unindent-fix — R-06 corregido (ba96c7e). 82 instancias → 0. Build: 1 warning (search index artifact, no content)."
-next_decision_required: "Nuevas categorías descubiertas — abrir WPs: R-07 (normativa broken refs), R-08 (diagramas-tiempo broken refs), R-09 (list-table column mismatch ERRORs), R-10 (PlantUML syntax errors)"
+last_completed_phase: "list-table-errors-fix — R-09 corregido. 7 ERRORs → 0 en 2 archivos. Build: 0 warnings en archivos modificados."
+next_decision_required: "Pendientes: R-07 (normativa broken refs), R-08 (diagramas-tiempo broken refs), R-10 (PlantUML syntax errors). Recomendado: clean build para conteo definitivo."
 stage_sync_required: false
 ```
 

@@ -654,9 +654,11 @@ Decisiones de este capítulo provee la estructura para ese stage:
  * - **Decisiones pendientes (Stage 5)**
    - H-14: consolidar `uc-module-view/` en `use-case-view/` →
      decisión tipo *What*.
-   - H-15: reclasificar diagramas de `process-view/` →
+
+     H-15: reclasificar diagramas de `process-view/` →
      decisión tipo *What* (viewpoint Concurrency real).
-   - Operational viewpoint ausente → decisión tipo *What* sobre
+
+     Operational viewpoint ausente → decisión tipo *What* sobre
      si crear vista o cubrir con perspectivas.
 
 ----
