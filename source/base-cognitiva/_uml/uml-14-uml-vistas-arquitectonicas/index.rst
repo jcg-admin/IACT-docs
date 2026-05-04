@@ -40,3 +40,4 @@ UML 14: UML para Vistas Arquitectónicas
  perspectivas-arquitectonicas
  arquitecto-y-proceso
  proceso-definicion-arquitectonica
+ concerns-principles-decisions
