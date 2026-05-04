@@ -1,0 +1,108 @@
+.venv/bin/sphinx-build -b html -d build/doctrees  -j1 source build/html
+Running Sphinx v8.2.3
+loading translations [es]... done
+Initializing Spelling Checker 8.0.2
+Converting `source_suffix = '.rst'` to `source_suffix = {'.rst': 'restructuredtext'}`.
+loading pickled environment... The configuration has changed (4 options: 'html_css_files', 'html_js_files', 'html_static_path', 'pygments_dark_style')
+done
+[autosummary] generating autosummary for: arquitectura-tecnica/arquitectura-sistema.rst, arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-0-contexto.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst, arquitectura-tecnica/context-view/context-diagram.rst, arquitectura-tecnica/context-view/external-interfaces.rst, arquitectura-tecnica/context-view/index.rst, arquitectura-tecnica/context-view/stakeholders.rst, arquitectura-tecnica/deploy-view/deploy-auth-cache.rst, arquitectura-tecnica/deploy-view/deploy-estandar.rst, ..., requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-01-obtener-lista-paginada.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-02-aplicar-filtros.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-03-ordenar-resultados.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad.rst, requisitos/requisitos-no-funcionales/index.rst, requisitos/requisitos-no-funcionales/rnf-proc-001-proceso-sdlc.rst, requisitos/requisitos-no-funcionales/rnf-proc-002-metricas-proceso.rst, risks-technical-debt/deuda-tecnica-rebuild.rst, risks-technical-debt/index.rst, risks-technical-debt/riesgos-conocidos.rst
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 147 source files that are out of date
+updating environment: 0 added, 29 changed, 0 removed
+reading sources... [  3%] arquitectura-tecnica/modulos/alerts/componentes
+reading sources... [  7%] arquitectura-tecnica/modulos/audit/componentes
+reading sources... [ 10%] arquitectura-tecnica/modulos/auth/componentes
+reading sources... [ 14%] arquitectura-tecnica/modulos/etl-monitoring/componentes
+reading sources... [ 17%] arquitectura-tecnica/modulos/rbac-core/componentes
+reading sources... [ 21%] arquitectura-tecnica/modulos/sys-logs/componentes
+reading sources... [ 24%] arquitectura-tecnica/modulos/user-identity/componentes
+reading sources... [ 28%] arquitectura-tecnica/modulos/vis-reports/componentes
+reading sources... [ 31%] arquitectura-tecnica/rbac/modelo-rbac-iact/implementacion
+reading sources... [ 34%] arquitectura-tecnica/rbac/modelo-rbac-iact/resumen
+reading sources... [ 38%] databases/modelo-dual
+reading sources... [ 41%] requisitos/_metodologia-aplicacion/patrones-diseno/adapter-ldapuseradapter
+reading sources... [ 45%] requisitos/_metodologia-aplicacion/patrones-diseno/observer-auditlog-como-observer-de-eventos
+reading sources... [ 48%] requisitos/_metodologia-aplicacion/patrones-diseno/singleton-configuracionalertas
+reading sources... [ 52%] requisitos/_metodologia-aplicacion/patrones-diseno/strategy-formato-de-exportacion
+reading sources... [ 55%] requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica
+reading sources... [ 59%] requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica
+reading sources... [ 62%] requisitos/casos-uso/auth/uc-auth-03/implementacion-tecnica
+reading sources... [ 66%] requisitos/casos-uso/auth/uc-auth-04/implementacion-tecnica
+reading sources... [ 69%] requisitos/casos-uso/auth/uc-auth-05/implementacion-tecnica
+reading sources... [ 72%] requisitos/casos-uso/permissions/uc-perm-07/datos-involucrados
+reading sources... [ 76%] requisitos/reglas-negocio/br-013-username-unico
+reading sources... [ 79%] requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos
+reading sources... [ 83%] requisitos/reglas-negocio/br-016-tasa-abandono
+reading sources... [ 86%] requisitos/reglas-negocio/br-017-tiempo-promedio-espera
+reading sources... [ 90%] requisitos/reglas-negocio/br-018-indice-eficiencia
+reading sources... [ 93%] requisitos/reglas-negocio/br-019-retencion-2-anios
+reading sources... [ 97%] requisitos/reglas-negocio/br-020-clasificacion-datos
+reading sources... [100%] requisitos/reglas-negocio/rbac/catalogo-funciones
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... /home/user/IACT-docs/source/arquitectura-tecnica/domain-model/overview.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/domain-model/index', 'arquitectura-tecnica/modelo-dominio-iact'], selecting: arquitectura-tecnica/modelo-dominio-iact <- arquitectura-tecnica/domain-model/overview
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-access.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-access
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-admin.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-admin
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-alerts.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-alerts
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-audit.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-audit
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-auth.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-auth
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-caller.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-caller
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-logs.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-logs
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-operator.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-operator
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-permissions.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-permissions
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-pipeline.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-pipeline
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-reports.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-reports
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-supervision.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-supervision
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-users.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-users
+done
+preparing documents... WARNING: search index couldn't be loaded, but not all documents will be built: the index will be incomplete.
+done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/basic.css
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/documentation_options.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/language_data.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/copybutton.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  1%] arquitectura-tecnica/modulos/alerts/componentes
+writing output... [  1%] arquitectura-tecnica/modulos/alerts/index
+writing output... [  2%] arquitectura-tecnica/modulos/audit/componentes
+writing output... [  2%] arquitectura-tecnica/modulos/audit/index
+writing output... [  3%] arquitectura-tecnica/modulos/auth/componentes
+writing output... [  4%] arquitectura-tecnica/modulos/auth/index
+writing output... [  4%] arquitectura-tecnica/modulos/etl-monitoring/componentes
+writing output... [  5%] arquitectura-tecnica/modulos/etl-monitoring/index
+writing output... [  5%] arquitectura-tecnica/modulos/rbac-core/componentes
+writing output... [  6%] arquitectura-tecnica/modulos/rbac-core/index
+writing output... [  6%] arquitectura-tecnica/modulos/sys-logs/componentes
+writing output... [  7%] arquitectura-tecnica/modulos/sys-logs/index
+writing output... [  8%] arquitectura-tecnica/modulos/user-identity/componentes
+writing output... [  8%] arquitectura-tecnica/modulos/user-identity/index
+writing output... [  9%] arquitectura-tecnica/modulos/vis-reports/componentes
+writing output... [  9%] arquitectura-tecnica/modulos/vis-reports/index
+writing output... [ 10%] arquitectura-tecnica/rbac/modelo-rbac-iact/implementacion
+writing output... [ 11%] arquitectura-tecnica/rbac/modelo-rbac-iact/index
+writing output... [ 11%] arquitectura-tecnica/rbac/modelo-rbac-iact/resumen
+writing output... [ 12%] databases/index
+writing output... [ 12%] databases/modelo-dual
+writing output... [ 13%] index
+writing output... [ 14%] requisitos/_metodologia-aplicacion/patrones-diseno/adapter-ldapuseradapter
+writing output... [ 14%] requisitos/_metodologia-aplicacion/patrones-diseno/index
+writing output... [ 15%] requisitos/_metodologia-aplicacion/patrones-diseno/observer-auditlog-como-observer-de-eventos
+writing output... [ 15%] requisitos/_metodologia-aplicacion/patrones-diseno/singleton-configuracionalertas
+writing output... [ 16%] requisitos/_metodologia-aplicacion/patrones-diseno/strategy-formato-de-exportacion
+writing output... [ 16%] requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica
+writing output... [ 17%] requisitos/casos-uso/auth/uc-auth-01/index
+writing output... [ 18%] requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica
+writing output... [ 18%] requisitos/casos-uso/auth/uc-auth-02/index
+writing output... [ 19%] requisitos/casos-uso/auth/uc-auth-03/implementacion-tecnica
+writing output... [ 19%] requisitos/casos-uso/auth/uc-auth-03/index
+writing output... [ 20%] requisitos/casos-uso/auth/uc-auth-04/implementacion-tecnica
+writing output... [ 21%] requisitos/casos-uso/auth/uc-auth-04/index
+writing output... [ 21%] requisitos/casos-uso/auth/uc-auth-05/implementacion-tecnica
+writing output... [ 22%] requisitos/casos-uso/auth/uc-auth-05/index
