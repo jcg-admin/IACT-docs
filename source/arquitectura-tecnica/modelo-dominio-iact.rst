@@ -133,15 +133,15 @@ individuales usar el indice a continuacion:
  :maxdepth: 1
  :caption: Bounded Contexts — Modelo de Dominio
 
- bounded-contexts/overview
- bounded-contexts/bounded-context-auth
- bounded-contexts/bounded-context-rbac
- bounded-contexts/bounded-context-calls
- bounded-contexts/bounded-context-reports
- bounded-contexts/bounded-context-pipeline-etl
- bounded-contexts/bounded-context-alerts
- bounded-contexts/bounded-context-audit
- bounded-contexts/bounded-context-logs
+ domain-model/overview
+ domain-model/bc-auth
+ domain-model/bc-rbac
+ domain-model/bc-calls
+ domain-model/bc-reports
+ domain-model/bc-pipeline-etl
+ domain-model/bc-alerts
+ domain-model/bc-audit
+ domain-model/bc-logs
 
 ----
 ----

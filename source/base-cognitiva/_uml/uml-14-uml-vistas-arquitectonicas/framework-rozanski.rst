@@ -169,9 +169,9 @@ Relación con los diagramas actuales en IACT
      funcional.
  * - Information
    - Domain Model
-   - ``domain-model/`` y ``bounded-contexts/`` cubren
-     estructura de datos (Class ✓). Ciclo de vida de datos
-     (State ✓ en ``domain-model/*-estado.rst``).
+   - ``domain-model/`` cubre estructura de datos (Class ✓,
+     un archivo por clase canonica). Ciclo de vida de datos
+     (State ✓ en UC specs ``diagramas-uml/``).
      Faltan Activity para data flow.
  * - Concurrency
    - Process View
