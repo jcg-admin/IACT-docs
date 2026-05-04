@@ -454,7 +454,7 @@ acotar el conjunto de filas.
  CON extensión (1 base + variantes):
    UC_RPT_03 (base)
    UC_RPT_09 (extiende con filtros)
-   UC_RPT_05 (extiende con orden)
+   UC_RPT_10 (extiende con vista guardada)
    Mantenimiento: 1 lugar
 
 ----

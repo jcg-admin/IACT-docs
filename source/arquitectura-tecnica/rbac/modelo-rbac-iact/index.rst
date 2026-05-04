@@ -17,11 +17,11 @@ Modelo RBAC IACT
 ================
 
 Modelo conceptual canonico del control de acceso basado en funciones
-atomicas (RBAC) del sistema IACT — version 5.4.0.
+atomicas (RBAC) del sistema IACT — version 5.5.0.
 
-**Version:** 5.5.0 — Nuevos modulos MOD_Operator (9 funciones) y
+**Version:** 5.5.0 — Nuevos modulos MOD_Operator (10 funciones) y
 MOD_Supervision (3 funciones) derivados del analisis de UCs
-UC_OPR_01..10 y UC_SUP_01..03 → total 73 funciones.
+UC_OPR_01..10 y UC_SUP_01..03 → total 74 funciones.
 
 Las reglas operativas formales viven en:
 

@@ -238,3 +238,21 @@ Promover al merge a main con bump de versión.
 - `source/arquitectura-tecnica/modelo-dominio-iact.rst` —
   Dos correcciones: `ETLExecution` → `ETLEjecucion` (PascalCase español
   coherente con el dominio). Línea tabla de entidades y ejemplo naming.
+
+## Sesión 5 (continuación) — MOD_Operator + RPT/UC stale count fixes (2026-05-04)
+
+### Changed
+- `source/arquitectura-tecnica/rbac/modelo-rbac-iact/arquitectura.rst` —
+  Sección "Distribución de 73 Funciones" → "74 Funciones"; MOD_Operator
+  9 → 10; total 73 → 74; porcentajes recalculados con base 74.
+- `source/arquitectura-tecnica/rbac/modelo-rbac-iact/catalogo-funciones.rst` —
+  Encabezado "3.9 MOD_Operator (9 funciones)" → "(10 funciones)".
+- `source/arquitectura-tecnica/rbac/modelo-rbac-iact/index.rst` —
+  "version 5.4.0" → "v5.5.0" en texto descriptivo; MOD_Operator
+  9 → 10; total 73 → 74.
+- `source/requisitos/reglas-negocio/br-018-indice-eficiencia.rst` —
+  "UC_RPT_06" → "UC_RPT_04" en UC Relacionados (UC_RPT_05/06 consolidados
+  en UC_RPT_04 per anti-patrón Larman, adr-gob-009).
+- `source/requisitos/_metodologia-aplicacion/casos-uso-especificacion.rst` —
+  Ejemplo extensión UC: "UC_RPT_05 (extiende con orden)" → "UC_RPT_10
+  (extiende con vista guardada)" (UC_RPT_05 ya no existe).

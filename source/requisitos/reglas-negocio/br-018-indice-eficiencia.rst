@@ -226,7 +226,7 @@ El Índice de Eficiencia es importante porque:
 ---------------
 
 - **Origen**: BReq_RPT_Reporteria
-- **UC Relacionados**: UC_RPT_01, UC_RPT_06, UC_RPT_07
+- **UC Relacionados**: UC_RPT_01, UC_RPT_04, UC_RPT_07
 - **BR Relacionadas**: BR_016 (complementario)
 
 ----

@@ -616,7 +616,7 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 ----
 
-3.9 MOD_Operator (9 funciones)
+3.9 MOD_Operator (10 funciones)
 -------------------------------
 
 Funciones de los agentes (operadores) del call center IACT.
