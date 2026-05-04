@@ -55,7 +55,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
 2.1 Identificadores en ingles
 -----------------------------
 
-- **Clases** en PascalCase (``User``, ``Session``, ``ETLExecution``).
+- **Clases** en PascalCase (``User``, ``Session``, ``ETLEjecucion``).
 - **Atributos** en snake_case (``user_id``, ``started_at``,
   ``last_login_at``).
 - **Operaciones** en snake_case (``deactivate``, ``acknowledge``,
@@ -978,7 +978,7 @@ Resumen de actividad por clase:
  * - Session
    - 5
    - Operada por AUTH y USR
- * - ETLExecution
+ * - ETLEjecucion
    - 5
    - Cluster PIP completo + LOG-02 cross-context
  * - ExceptionalPermission, FunctionGroup, Alert

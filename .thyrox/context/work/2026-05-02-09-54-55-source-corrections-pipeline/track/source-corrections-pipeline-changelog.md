@@ -226,3 +226,15 @@ Promover al merge a main con bump de versión.
 - **D-DIAG-003**: Aliases en PlantUML deben ser palabras descriptivas,
   nunca letras únicas (e.g. `as U`, `as A`). Regla extraída de
   UML_07/UML_09 en `base-cognitiva/_uml/`.
+
+## Sesión 5 — ETL/ETLEjecucion fixes (2026-05-04)
+
+### Changed
+- `source/arquitectura-tecnica/modulos/etl-monitoring/componentes.rst` —
+  Reescritura completa: reemplazado modelo Django ORM `ETLExecution`
+  ficticio con arquitectura real: tabla `etl_runs` MariaDB (SQL CREATE
+  TABLE) + clase `ETLEjecucionRepo` (cursor.execute/callproc). Añadidos
+  endpoints API_004 (GET executions/availability, POST retry).
+- `source/arquitectura-tecnica/modelo-dominio-iact.rst` —
+  Dos correcciones: `ETLExecution` → `ETLEjecucion` (PascalCase español
+  coherente con el dominio). Línea tabla de entidades y ejemplo naming.

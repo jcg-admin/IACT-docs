@@ -20,37 +20,57 @@ Componentes de Aplicacion
  * - Componente
    - Descripcion
  * - apps.etl
-   - Modelos ETLExecution, vistas de supervision
+   - DisparadorETL (management command), ETLEjecucionRepo,
+     vistas de supervision via cursor sobre etl_runs
  * - apps.monitoring
-   - Metricas de calidad de datos
+   - Consultas directas a etl_runs; metricas de calidad de datos
 
 ----
 
-Modelos de Datos
-================
+Acceso a Datos — etl_runs (MariaDB)
+=====================================
 
-**DSC_MOD_005_ETLExecution** — Registro de ejecuciones
+El ETL no usa Django ORM para persistir ejecuciones. El estado
+se almacena directamente en la tabla ``etl_runs`` de MariaDB,
+accedida via ``cursor.execute`` / ``cursor.callproc``.
+
+**DSC_MOD_005_etl_runs** — Tabla de registro de ejecuciones
+
+.. code-block:: sql
+
+ -- Tabla etl_runs en MariaDB (no Django ORM)
+ CREATE TABLE etl_runs (
+     id            INT AUTO_INCREMENT PRIMARY KEY,
+     job_id        VARCHAR(50) UNIQUE NOT NULL,
+     started_at    DATETIME NOT NULL,
+     finished_at   DATETIME NULL,
+     estado        ENUM('en_ejecucion','exitoso','fallido') NOT NULL,
+     registros_extraidos   INT DEFAULT 0,
+     registros_cargados    INT DEFAULT 0,
+     error_mensaje TEXT NULL,
+     fecha_inicio  DATE NOT NULL,
+     fecha_fin     DATE NOT NULL
+ );
+
+**ETLEjecucionRepo** — Repositorio Python sobre cursor
 
 .. code-block:: python
 
- class ETLExecution(models.Model):
-     job_id = models.CharField(max_length=50, unique=True)
-     started_at = models.DateTimeField
-     finished_at = models.DateTimeField(null=True)
-     status = models.CharField(choices=ETL_STATUS)  # RUNNING, SUCCESS, FAILED
-     records_extracted = models.IntegerField(default=0)
-     records_transformed = models.IntegerField(default=0)
-     records_loaded = models.IntegerField(default=0)
-     error_message = models.TextField(null=True)
-     date_range_start = models.DateField
-     date_range_end = models.DateField
+ from django.db import connections
 
- class DataAvailability(models.Model):
-     period_type = models.CharField  # TRIMESTRE, MES, DIA
-     period_value = models.CharField  # Q1-2024, 2024-01
-     status = models.CharField  # COMPLETO, PARCIAL, FALTANTE
-     record_count = models.IntegerField
-     last_updated = models.DateTimeField
+ class ETLEjecucionRepo:
+     def listar(self, limit=50):
+         with connections['mariadb'].cursor() as cursor:
+             cursor.execute(
+                 "SELECT * FROM etl_runs ORDER BY started_at DESC LIMIT %s",
+                 [limit]
+             )
+             return cursor.fetchall()
+
+     def historial(self, job_id):
+         with connections['mariadb'].cursor() as cursor:
+             cursor.callproc('sp_etl_historico', [job_id])
+             return cursor.fetchall()
 
 ----
 
@@ -68,16 +88,13 @@ APIs Expuestas
    - Descripcion
  * - GET
    - /api/v1/etl/executions
-   - Listar ejecuciones
+   - Listar filas de etl_runs
  * - GET
    - /api/v1/etl/executions/{id}
-   - Detalle de ejecucion
+   - Detalle de ejecucion en etl_runs
  * - GET
    - /api/v1/etl/availability
-   - Disponibilidad por periodo
- * - GET
-   - /api/v1/etl/quality-issues
-   - Incidencias de calidad
+   - Disponibilidad de datos (base_ivr_*)
  * - POST
    - /api/v1/etl/retry/{id}
-   - Reintentar procesamiento
+   - Disparar reintento via DisparadorETL
