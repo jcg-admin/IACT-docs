@@ -1113,7 +1113,7 @@ su flujo.
 4. Asignaciones directas → AUTORIZADO.
 5. Sin match → DENEGADO.
 
-**Mecanismo**: decorador ``@require_function('FUNC-NNN')`` sobre cada
+**Mecanismo**: decorador ``@require_function('<codename>')`` sobre cada
 controller. Cache LRU TTL ~60s. Invalidacion al ejecutar UC_ACC_01,
 _02, UC_PERM_01..04, _06.
 
@@ -1329,7 +1329,7 @@ PARTE 6 — Patrones de diseno aplicados a IACT
 Ocho patrones propios del proyecto que emergen del analisis:
 
 **Patron P-01 — RBAC Decorator** (59 UCs):
-Decorador ``@require_function('FUNC-NNN')`` sobre cada controller.
+Decorador ``@require_function('<codename>')`` sobre cada controller.
 Materializa T-02 a nivel de codigo. Reduce duplicacion.
 
 **Patron P-02 — Audit Emitter** (35 UCs):

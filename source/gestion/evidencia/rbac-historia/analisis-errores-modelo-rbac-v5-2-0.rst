@@ -580,14 +580,21 @@ INCORRECTO (en el documento):
        """Listado de reportes."""
        pass
 
-CORRECTO (con nombre legible para claridad):
+CORRECTO (segun CIA-RBAC-002 DEC-001 — codename, no function_id):
 
 .. code-block:: python
 
-   @require_function('RPT-001')  # view_reports
+   @require_function('view_reports')
    def list_reports(request):
        """Listado de reportes."""
        pass
+
+.. note::
+
+   El ejemplo anterior que usaba ``@require_function('RPT-001')  # view_reports``
+   era incorrecto: pasaba el ``function_id`` en lugar del codename.
+   Ver :doc:`/gestion/evidencia/rbac-arquitectura/cia-rbac-002-arquitectura-permisos-drf`
+   (DEC-001) para la especificacion vigente.
 
 ----
 

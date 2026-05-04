@@ -38,6 +38,7 @@ Catalogo
  adr-gob-007-trazabilidad-artefactos-requisitos
  adr-gob-008-rbac-coexistencia-acc-perm
  adr-gob-009-rbac-modelo-conceptual
+ adr-gob-010-rbac-autorizacion-drf-backend
 
 Estructura por dominio
 ----------------------
