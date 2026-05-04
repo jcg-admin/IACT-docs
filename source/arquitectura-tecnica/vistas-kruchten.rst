@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: vistas_kruchten
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-03
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -12,13 +12,13 @@
 
 .. _at-uc-index:
 
-=============================================
-Vista de Casos de Uso — Arquitectura Tecnica
-=============================================
+==========================================
+Vistas Arquitectonicas — Modelo 5+1 IACT
+==========================================
 
-Diagramas arquitectonicos por UC siguiendo el modelo **4+1 de Kruchten**
-(variante 5+1 con Domain Model). Cada subdirectorio contiene un archivo
-por UC desde una perspectiva arquitectonica.
+Indice maestro de las vistas arquitectonicas del sistema IACT
+siguiendo el modelo **5+1 (variante DDD de Kruchten)**. Cada vista
+cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
 
 .. list-table::
  :widths: 25 20 55

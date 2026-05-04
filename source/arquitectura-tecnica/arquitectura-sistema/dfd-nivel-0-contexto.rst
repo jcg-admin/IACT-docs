@@ -43,12 +43,12 @@ negra con sus entidades externas. Las entidades son los
 
  rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as IACT
 
- IVR --> IACT : datos IVR raw
- SUP --> IACT : comandos ETL / alertas
- ANA --> IACT : solicitudes de reporte
- SCH --> IACT : disparo ETL automatico
- IACT --> SUP : estado pipeline / alertas
- IACT --> ANA : reportes IVR / dashboard
+ SistemaIVR --> IACT : datos IVR raw
+ SupervisorSistema --> IACT : comandos ETL / alertas
+ AnalistaReportes --> IACT : solicitudes de reporte
+ DisparadorScheduler --> IACT : disparo ETL automatico
+ IACT --> SupervisorSistema : estado pipeline / alertas
+ IACT --> AnalistaReportes : reportes IVR / dashboard
 
  @enduml
 
