@@ -44,23 +44,23 @@ Secuencia de Consulta de Logs del Sistema
 
  @startuml
 
- actor "view_application_logs" as U
- participant "LogEndpoint\n(/logs/system/)" as EP
- database "LogStore\n(PostgreSQL)" as LS
+ actor "view_application_logs" as view_application_logs
+ participant "LogEndpoint\n(/logs/system/)" as Logendpoint
+ database "LogStore\n(PostgreSQL)" as Logstore
 
- U -> EP : GET /logs/system/?range=1h&level=ERROR
- EP -> EP : JWT + RBAC (view_application_logs)
+ view_application_logs -> Logendpoint : GET /logs/system/?range=1h&level=ERROR
+ Logendpoint -> Logendpoint : JWT + RBAC (view_application_logs)
  alt sin permiso
-   EP --> U : 403 Forbidden
+   Logendpoint --> view_application_logs : 403 Forbidden
  else con permiso
-   EP -> LS : SELECT WHERE level=ERROR AND ts > now()-1h
-   LS --> EP : entries
-   EP -> EP : sanitizar (eliminar PII)
-   EP --> U : 200 + entries JSON
+   Logendpoint -> Logstore : SELECT WHERE level=ERROR AND ts > now()-1h
+   Logstore --> Logendpoint : entries
+   Logendpoint -> Logendpoint : sanitizar (eliminar PII)
+   Logendpoint --> view_application_logs : 200 + entries JSON
    opt tail SSE
      loop nuevas entradas
-       LS -> EP : new entry
-       EP -> U : SSE data
+       Logstore -> Logendpoint : new entry
+       Logendpoint -> view_application_logs : SSE data
      end
    end
  end
@@ -77,24 +77,24 @@ Diagrama de componentes — MOD_Logs
 
  @startuml
 
- component "Apps Django\n(stdout/stderr)" as APP
- component "fluent-bit\n(shipper)" as FB
- database "LogStore\n(PostgreSQL)" as LS
+ component "Apps Django\n(stdout/stderr)" as AppsDjango
+ component "fluent-bit\n(shipper)" as FluentBit
+ database "LogStore\n(PostgreSQL)" as Logstore
  database "etl_runs\n(MariaDB)" as ETL_LOG
 
- component "view_application_logs" as VSL
- component "view_etl_logs" as VEL
- component "search_logs" as SL
- component "export_logs" as EL
- component "InternalMailbox" as MB
+ component "view_application_logs" as view_application_logs
+ component "view_etl_logs" as view_etl_logs
+ component "search_logs" as search_logs
+ component "export_logs" as export_logs
+ component "InternalMailbox" as Internalmailbox
 
- APP --> FB : stdout logs estructurados
- FB --> LS : INSERT logs
+ AppsDjango --> FluentBit : stdout logs estructurados
+ FluentBit --> Logstore : INSERT logs
 
- VSL --> LS : SELECT sistema
- VEL --> ETL_LOG : SELECT etl_runs
- SL --> LS : SELECT con filtros
- EL --> LS : SELECT rango + generar CSV
- EL --> MB : notificar via buzon
+ view_application_logs --> Logstore : SELECT sistema
+ view_etl_logs --> ETL_LOG : SELECT etl_runs
+ search_logs --> Logstore : SELECT con filtros
+ export_logs --> Logstore : SELECT rango + generar CSV
+ export_logs --> Internalmailbox : notificar via buzon
 
  @enduml

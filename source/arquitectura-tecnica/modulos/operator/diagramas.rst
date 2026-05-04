@@ -44,31 +44,31 @@ Secuencia de Atencion de Llamada Entrante
 
  @startuml
 
- actor "answer_inbound_calls" as OPR
- participant "AgentPanel\n(/api/v1/operator/)" as EP
- participant "TelephonyRouter\n(ACD/IVR)" as TEL
+ actor "answer_inbound_calls" as answer_inbound_calls
+ participant "AgentPanel\n(/api/v1/operator/)" as Agentpanel
+ participant "TelephonyRouter\n(ACD/IVR)" as Telephonyrouter
  participant "DispositionEndpoint\n(/api/v1/disposition/)" as DISP
- database "audit_log\n(PostgreSQL)" as AUD
+ database "audit_log\n(PostgreSQL)" as audit_log
 
- TEL -> EP : llamada entrante asignada al agente
- EP -> OPR : notificacion de llamada
- OPR -> EP : POST /answer
- EP -> EP : JWT + RBAC (answer_inbound_calls)
- EP -> TEL : conectar canal audio
- TEL --> OPR : canal de voz activo
+ Telephonyrouter -> Agentpanel : llamada entrante asignada al agente
+ Agentpanel -> answer_inbound_calls : notificacion de llamada
+ answer_inbound_calls -> Agentpanel : POST /answer
+ Agentpanel -> Agentpanel : JWT + RBAC (answer_inbound_calls)
+ Agentpanel -> Telephonyrouter : conectar canal audio
+ Telephonyrouter --> answer_inbound_calls : canal de voz activo
 
- note over OPR, TEL
+ note over answer_inbound_calls, Telephonyrouter
    Operador atiende la llamada.
    Estado del agente = busy.
  end note
 
- OPR -> EP : POST /disposition {code, notes}
- EP -> EP : JWT + RBAC (enter_call_disposition)
- EP -> DISP : INSERT disposition record
- EP -> AUD : INSERT AuditEvent CALL_DISPOSED
- EP -> TEL : liberar canal
- TEL --> EP : agente disponible
- EP --> OPR : 200 OK, estado = available
+ answer_inbound_calls -> Agentpanel : POST /disposition {code, notes}
+ Agentpanel -> Agentpanel : JWT + RBAC (enter_call_disposition)
+ Agentpanel -> DISP : INSERT disposition record
+ Agentpanel -> audit_log : INSERT AuditEvent CALL_DISPOSED
+ Agentpanel -> Telephonyrouter : liberar canal
+ Telephonyrouter --> Agentpanel : agente disponible
+ Agentpanel --> answer_inbound_calls : 200 OK, estado = available
 
  @enduml
 
@@ -82,25 +82,25 @@ Diagrama de componentes — MOD_Operator
 
  @startuml
 
- actor "manage_own_agent_state\nanswer_inbound_calls\nmake_outbound_calls" as OPR
+ actor "manage_own_agent_state\nanswer_inbound_calls\nmake_outbound_calls" as manage_own_agent_state
 
- component "AgentPanel\n(DRF views)" as AP
- component "TelephonyBridge\n(SIP/WebRTC)" as TEL
+ component "AgentPanel\n(DRF views)" as Agentpanel
+ component "TelephonyBridge\n(SIP/WebRTC)" as Telephonybridge
  component "DispositionService\n(enter_call_disposition)" as DISP
  component "PerformanceDashboard\n(view_own_performance_dashboard)" as DASH
- component "InternalMailbox\n(read_own_mailbox)" as MB
+ component "InternalMailbox\n(read_own_mailbox)" as Internalmailbox
 
  database "auth_session\n(PostgreSQL)" as SESS
- database "audit_log\n(PostgreSQL)" as AUD
+ database "audit_log\n(PostgreSQL)" as audit_log
  database "agent_state\n(Redis/cache)" as STATE
 
- OPR --> AP : HTTP requests
- AP --> TEL : control llamadas
- AP --> DISP : registro disposicion
- AP --> DASH : estadisticas propias
- AP --> MB : buzon mensajes
- AP --> SESS : validar sesion JWT
- AP --> AUD : emitir AuditEvent
- AP --> STATE : leer/escribir estado agente
+ manage_own_agent_state --> Agentpanel : HTTP requests
+ Agentpanel --> Telephonybridge : control llamadas
+ Agentpanel --> DISP : registro disposicion
+ Agentpanel --> DASH : estadisticas propias
+ Agentpanel --> Internalmailbox : buzon mensajes
+ Agentpanel --> SESS : validar sesion JWT
+ Agentpanel --> audit_log : emitir AuditEvent
+ Agentpanel --> STATE : leer/escribir estado agente
 
  @enduml

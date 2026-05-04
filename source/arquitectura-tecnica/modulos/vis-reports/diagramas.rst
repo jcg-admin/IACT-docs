@@ -61,26 +61,26 @@ Secuencia sp_rpt_* — Flujo Completo
 
  @startuml
 
- actor "view_reports" as U
- participant "DashboardEndpoint\n(/api/reportes/)" as EP
- participant "SegmentResolver" as SR
- participant "ServicioReportes\n(cursor.callproc)" as SVC
+ actor "view_reports" as view_reports
+ participant "DashboardEndpoint\n(/api/reportes/)" as Dashboardendpoint
+ participant "SegmentResolver" as Segmentresolver
+ participant "ServicioReportes\n(cursor.callproc)" as Servicioreportes
  database "base_ivr_detalle\nbase_ivr_clientes\n(MariaDB)" as IVRDB
 
- U -> EP : GET /api/reportes/?trimestre=Q1
- EP -> EP : JWT + RBAC (view_reports)
- EP -> SR : resolve(user_id)
- SR -> SR : mapear DIDs RBAC a segmentos IVR
- SR --> EP : [nacional_A, nacional_B, Puebla]
+ view_reports -> Dashboardendpoint : GET /api/reportes/?trimestre=Q1
+ Dashboardendpoint -> Dashboardendpoint : JWT + RBAC (view_reports)
+ Dashboardendpoint -> Segmentresolver : resolve(user_id)
+ Segmentresolver -> Segmentresolver : mapear DIDs RBAC a segmentos IVR
+ Segmentresolver --> Dashboardendpoint : [nacional_A, nacional_B, Puebla]
 
  alt sin segmentos
-   EP --> U : 400 USER_WITHOUT_SEGMENT
+   Dashboardendpoint --> view_reports : 400 USER_WITHOUT_SEGMENT
  else segmentos resueltos
-   EP -> SVC : callproc(sp_rpt_centros_xsegmento, [Q1])
-   SVC -> IVRDB : CALL sp_rpt_centros_xsegmento(Q1)
-   IVRDB --> SVC : filas por segmento
-   SVC --> EP : list[dict] filtrada
-   EP --> U : 200 + datos del reporte
+   Dashboardendpoint -> Servicioreportes : callproc(sp_rpt_centros_xsegmento, [Q1])
+   Servicioreportes -> IVRDB : CALL sp_rpt_centros_xsegmento(Q1)
+   IVRDB --> Servicioreportes : filas por segmento
+   Servicioreportes --> Dashboardendpoint : list[dict] filtrada
+   Dashboardendpoint --> view_reports : 200 + datos del reporte
  end
 
  @enduml
@@ -96,19 +96,19 @@ Diagrama de componentes — MOD_Reports
  @startuml
 
  component "apps.reports\n(DRF views)" as RPTS
- component "SegmentResolver\n(DID_MAP)" as SR
- component "ServicioReportes\n(cursor.callproc)" as SVC
- component "apps.exports\n(CSV/Excel)" as EXP
- component "InternalMailbox" as MB
+ component "SegmentResolver\n(DID_MAP)" as Segmentresolver
+ component "ServicioReportes\n(cursor.callproc)" as Servicioreportes
+ component "apps.exports\n(CSV/Excel)" as AppsExports
+ component "InternalMailbox" as Internalmailbox
 
- database "base_ivr_detalle\nbase_ivr_clientes\n(MariaDB — solo lectura)" as IVR
- database "auth_user\naudit_log\n(PostgreSQL)" as PG
+ database "base_ivr_detalle\nbase_ivr_clientes\n(MariaDB — solo lectura)" as base_ivr_detalle
+ database "auth_user\naudit_log\n(PostgreSQL)" as auth_user
 
- RPTS --> SR : resolve segmentos
- RPTS --> SVC : invocar sp_rpt_*
- SVC --> IVR : CALL sp_rpt_* (lectura)
- RPTS --> PG : leer DIDs del usuario (RBAC)
- RPTS --> EXP : generar archivo exportado
- EXP --> MB : notificar disponibilidad
+ RPTS --> Segmentresolver : resolve segmentos
+ RPTS --> Servicioreportes : invocar sp_rpt_*
+ Servicioreportes --> base_ivr_detalle : CALL sp_rpt_* (lectura)
+ RPTS --> auth_user : leer DIDs del usuario (RBAC)
+ RPTS --> AppsExports : generar archivo exportado
+ AppsExports --> Internalmailbox : notificar disponibilidad
 
  @enduml

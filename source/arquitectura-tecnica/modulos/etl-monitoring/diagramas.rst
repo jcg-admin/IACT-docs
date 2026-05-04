@@ -13,26 +13,26 @@ Flujo ETL Nocturno — sp_etl_maestro
 
  @startuml
 
- actor "APScheduler\n/ Cron" as SCH
- participant "sp_etl_maestro\n(MariaDB)" as ETL
- database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR — solo lectura)" as SRC
+ actor "APScheduler\n/ Cron" as Apscheduler
+ participant "sp_etl_maestro\n(MariaDB)" as sp_etl_maestro
+ database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR — solo lectura)" as tbl_historico_detalle
  database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica — escribible)" as DEST
- database "etl_runs\n(MariaDB)" as LOG
- participant "SupervisionETLEndpoint\n(/api/v1/etl/supervision/)" as MON
+ database "etl_runs\n(MariaDB)" as etl_runs
+ participant "SupervisionETLEndpoint\n(/api/v1/etl/supervision/)" as Supervisionetlendpoint
 
- SCH -> ETL : CALL sp_etl_maestro(trimestre)\n(ventana nocturna CNST-006/008)
- ETL -> LOG : INSERT etl_runs (estado=en_ejecucion)
- ETL -> SRC : SELECT tbl_historico_detalle\n(solo lectura CNST-007)
- SRC --> ETL : registros IVR del trimestre
- ETL -> DEST : TRUNCATE + INSERT base_ivr_detalle
- ETL -> SRC : SELECT tbl_historico_clientes
- SRC --> ETL : datos clientes del trimestre
- ETL -> DEST : TRUNCATE + INSERT base_ivr_clientes
- ETL -> LOG : UPDATE etl_runs SET estado=exitoso
+ Apscheduler -> sp_etl_maestro : CALL sp_etl_maestro(trimestre)\n(ventana nocturna CNST-006/008)
+ sp_etl_maestro -> etl_runs : INSERT etl_runs (estado=en_ejecucion)
+ sp_etl_maestro -> tbl_historico_detalle : SELECT tbl_historico_detalle\n(solo lectura CNST-007)
+ tbl_historico_detalle --> sp_etl_maestro : registros IVR del trimestre
+ sp_etl_maestro -> DEST : TRUNCATE + INSERT base_ivr_detalle
+ sp_etl_maestro -> tbl_historico_detalle : SELECT tbl_historico_clientes
+ tbl_historico_detalle --> sp_etl_maestro : datos clientes del trimestre
+ sp_etl_maestro -> DEST : TRUNCATE + INSERT base_ivr_clientes
+ sp_etl_maestro -> etl_runs : UPDATE etl_runs SET estado=exitoso
 
- note over MON
+ note over Supervisionetlendpoint
    view_pipeline_status consulta etl_runs.
-   No interviene en el proceso ETL.
+   No interviene en el proceso sp_etl_maestro.
    Solo observa y reporta estado.
  end note
 
@@ -81,11 +81,11 @@ Diagrama de componentes — MOD_Pipeline
 
  @startuml
 
- actor "APScheduler" as SCH
- actor "request_pipeline_retry" as USR
+ actor "APScheduler" as Apscheduler
+ actor "request_pipeline_retry" as request_pipeline_retry
 
  component "sp_etl_maestro\n(MariaDB SP)" as ETL_SP
- component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as SVC
+ component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as Supervisionendpoint
  component "ETLScheduler\n(Django background task)" as SCHED
 
  database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR)" as HIST
@@ -93,13 +93,13 @@ Diagrama de componentes — MOD_Pipeline
  database "etl_runs\n(registro de ejecuciones)" as RUNS
  database "audit_log\n(PostgreSQL)" as AUDIT
 
- SCH --> SCHED : disparo automatico
- USR --> SVC : POST reintento (request_pipeline_retry)
+ Apscheduler --> SCHED : disparo automatico
+ request_pipeline_retry --> Supervisionendpoint : POST reintento (request_pipeline_retry)
  SCHED --> ETL_SP : CALL sp_etl_maestro
- SVC --> ETL_SP : CALL sp_etl_maestro (reintento)
+ Supervisionendpoint --> ETL_SP : CALL sp_etl_maestro (reintento)
  ETL_SP --> HIST : SELECT (solo lectura)
  ETL_SP --> ANAL : TRUNCATE + INSERT
  ETL_SP --> RUNS : INSERT/UPDATE ejecucion
- SVC --> AUDIT : INSERT auditoria
+ Supervisionendpoint --> AUDIT : INSERT auditoria
 
  @enduml

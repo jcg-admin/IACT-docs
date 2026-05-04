@@ -13,21 +13,21 @@ Flujo de Emision de Evento de Auditoria
 
  @startuml
 
- participant "Servicio de Origen\n(UC_ACC, UC_USR, etc.)" as SVC
- participant "Middleware\nAudit Emitter" as AEM
+ participant "Servicio de Origen\n(UC_ACC, UC_USR, etc.)" as ServicioDeOrigen
+ participant "Middleware\nAudit Emitter" as Middleware
  database "audit_log\n(PostgreSQL — append-only)" as AREP
 
- SVC -> SVC : ejecuta operacion de escritura
- SVC -> AEM : notificar evento\n{tipo, usuario, entidad, timestamp}
- note right of SVC
+ ServicioDeOrigen -> ServicioDeOrigen : ejecuta operacion de escritura
+ ServicioDeOrigen -> Middleware : notificar evento\n{tipo, usuario, entidad, timestamp}
+ note right of ServicioDeOrigen
    La operacion principal
    ya fue confirmada en BD.
    El audit no la bloquea.
  end note
- AEM -> AREP : INSERT AuditEvent\n(transaccion separada)
+ Middleware -> AREP : INSERT AuditEvent\n(transaccion separada)
 
  alt fallo en insercion de audit
-   AEM -> AEM : registrar alarma interna\n(no abortar operacion original)
+   Middleware -> Middleware : registrar alarma interna\n(no abortar operacion original)
  end
 
  @enduml
@@ -67,26 +67,26 @@ Diagrama de componentes — MOD_Audit
 
  @startuml
 
- actor "view_audit_log" as VGA
- actor "export_audit_log" as EA
- actor "generate_compliance_report" as GCR
+ actor "view_audit_log" as view_audit_log
+ actor "export_audit_log" as export_audit_log
+ actor "generate_compliance_report" as generate_compliance_report
 
- component "AuditQueryEndpoint\n(/api/audit/)" as QEP
- component "AuditExportWorker\n(async)" as EW
- component "ComplianceWorker\n(HMAC signer)" as CW
- component "InternalMailbox" as MB
+ component "AuditQueryEndpoint\n(/api/audit/)" as Auditqueryendpoint
+ component "AuditExportWorker\n(async)" as Auditexportworker
+ component "ComplianceWorker\n(HMAC signer)" as Complianceworker
+ component "InternalMailbox" as Internalmailbox
 
- database "audit_log\n(PostgreSQL — append-only)" as DB
+ database "audit_log\n(PostgreSQL — append-only)" as audit_log
 
- VGA --> QEP : GET /api/audit/
- EA --> QEP : POST /api/audit/export/
- GCR --> QEP : POST /api/audit/compliance/
- QEP --> DB : SELECT (lectura)
- QEP --> EW : encolar job export
- QEP --> CW : encolar job compliance
- EW --> DB : SELECT rango
- CW --> DB : SELECT periodo
- EW --> MB : archivo CSV/JSON
- CW --> MB : archivo firmado HMAC
+ view_audit_log --> Auditqueryendpoint : GET /api/audit/
+ export_audit_log --> Auditqueryendpoint : POST /api/audit/export/
+ generate_compliance_report --> Auditqueryendpoint : POST /api/audit/compliance/
+ Auditqueryendpoint --> audit_log : SELECT (lectura)
+ Auditqueryendpoint --> Auditexportworker : encolar job export
+ Auditqueryendpoint --> Complianceworker : encolar job compliance
+ Auditexportworker --> audit_log : SELECT rango
+ Complianceworker --> audit_log : SELECT periodo
+ Auditexportworker --> Internalmailbox : archivo CSV/JSON
+ Complianceworker --> Internalmailbox : archivo firmado HMAC
 
  @enduml

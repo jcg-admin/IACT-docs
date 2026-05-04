@@ -42,23 +42,23 @@ Secuencia de Creacion de Usuario
  @startuml
 
  actor "create_users" as ADMIN
- participant "UserEndpoint\n(/api/users/)" as EP
- database "auth_user\n(PostgreSQL)" as DB
- participant "InternalMailbox" as MB
- participant "AuditLog" as AUD
+ participant "UserEndpoint\n(/api/users/)" as Userendpoint
+ database "auth_user\n(PostgreSQL)" as auth_user
+ participant "InternalMailbox" as Internalmailbox
+ participant "AuditLog" as Auditlog
 
- ADMIN -> EP : POST /api/users/ {email, first_name, last_name}
- EP -> EP : JWT + RBAC (create_users)
+ ADMIN -> Userendpoint : POST /api/users/ {email, first_name, last_name}
+ Userendpoint -> Userendpoint : JWT + RBAC (create_users)
  alt sin permiso
-   EP --> ADMIN : 403 Forbidden
+   Userendpoint --> ADMIN : 403 Forbidden
  else con permiso
-   EP -> EP : generar username (CNST-029)
-   EP -> EP : generar password temporal
-   EP -> DB : INSERT auth_user (is_active=True)
-   DB --> EP : user_id
-   EP -> MB : INSERT bienvenida + password temporal
-   EP -> AUD : INSERT USER_CREATED
-   EP --> ADMIN : 201 Created + user_id
+   Userendpoint -> Userendpoint : generar username (CNST-029)
+   Userendpoint -> Userendpoint : generar password temporal
+   Userendpoint -> auth_user : INSERT auth_user (is_active=True)
+   auth_user --> Userendpoint : user_id
+   Userendpoint -> Internalmailbox : INSERT bienvenida + password temporal
+   Userendpoint -> Auditlog : INSERT USER_CREATED
+   Userendpoint --> ADMIN : 201 Created + user_id
  end
 
  @enduml

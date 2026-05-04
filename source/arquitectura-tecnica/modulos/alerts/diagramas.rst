@@ -42,23 +42,23 @@ Secuencia de Disparo de Alerta BR-016
 
  @startuml
 
- participant "ETLMonitor" as ETL
- participant "AlertEvaluator" as AE
- database "AlertThreshold\n(configure_team_alerts)" as TH
- participant "InternalMailbox" as MB
- actor "view_alerts" as USR
+ participant "ETLMonitor" as Etlmonitor
+ participant "AlertEvaluator" as Alertevaluator
+ database "AlertThreshold\n(configure_team_alerts)" as Alertthreshold
+ participant "InternalMailbox" as Internalmailbox
+ actor "view_alerts" as view_alerts
 
- ETL -> AE : notificar fin de ETL exitoso
- AE -> TH : consultar umbrales activos
- TH --> AE : umbral BR-016 (tasa_abandono > 30%)
- AE -> AE : calcular tasa actual de\nabandonos del trimestre
+ Etlmonitor -> Alertevaluator : notificar fin de Etlmonitor exitoso
+ Alertevaluator -> Alertthreshold : consultar umbrales activos
+ Alertthreshold --> Alertevaluator : umbral BR-016 (tasa_abandono > 30%)
+ Alertevaluator -> Alertevaluator : calcular tasa actual de\nabandonos del trimestre
  alt tasa > 30%
-   AE -> AE : crear alerta PENDIENTE
-   AE -> AE : confirmar condicion persiste
-   AE -> MB : INSERT notificacion\na suscriptores activos
-   MB --> USR : mensaje en buzon
+   Alertevaluator -> Alertevaluator : crear alerta PENDIENTE
+   Alertevaluator -> Alertevaluator : confirmar condicion persiste
+   Alertevaluator -> Internalmailbox : INSERT notificacion\na suscriptores activos
+   Internalmailbox --> view_alerts : mensaje en buzon
  else tasa <= 30%
-   AE -> AE : no disparar alerta
+   Alertevaluator -> Alertevaluator : no disparar alerta
  end
 
  @enduml
@@ -73,20 +73,20 @@ Componentes del modulo de Alertas
 
  @startuml
 
- component "AlertEvaluator\n(evaluacion periodica)" as AE
- component "configure_team_alerts\n(configuracion)" as CFG
+ component "AlertEvaluator\n(evaluacion periodica)" as Alertevaluator
+ component "configure_team_alerts\n(configuracion)" as configure_team_alerts
  component "view_alerts\n(consulta)" as VIEW
- component "acknowledge_alert\n(reconocimiento)" as ACK
- component "InternalMailbox\n(notificacion)" as MB
+ component "acknowledge_alert\n(reconocimiento)" as acknowledge_alert
+ component "InternalMailbox\n(notificacion)" as Internalmailbox
 
- database "AlertThreshold\n(umbrales configurados)" as TH
+ database "AlertThreshold\n(umbrales configurados)" as Alertthreshold
  database "AlertEvent\n(historico alertas)" as HIST
 
- CFG --> TH : CRUD umbrales
- AE --> TH : leer umbrales
- AE --> HIST : INSERT nueva alerta
- AE --> MB : notificar suscriptores
+ configure_team_alerts --> Alertthreshold : CRUD umbrales
+ Alertevaluator --> Alertthreshold : leer umbrales
+ Alertevaluator --> HIST : INSERT nueva alerta
+ Alertevaluator --> Internalmailbox : notificar suscriptores
  VIEW --> HIST : SELECT alertas activas
- ACK --> HIST : UPDATE estado reconocida
+ acknowledge_alert --> HIST : UPDATE estado reconocida
 
  @enduml

@@ -13,21 +13,21 @@ Flujo de Monitoreo en Tiempo Real
 
  @startuml
 
- actor "monitor_live_calls" as SUP
- participant "SupervisionEndpoint\n(/api/v1/supervision/)" as EP
- participant "TelephonyBridge\n(SIP/WebRTC)" as TEL
- participant "AuditLog" as AUD
- actor "answer_inbound_calls" as OPR
+ actor "monitor_live_calls" as monitor_live_calls
+ participant "SupervisionEndpoint\n(/api/v1/supervision/)" as Supervisionendpoint
+ participant "TelephonyBridge\n(SIP/WebRTC)" as Telephonybridge
+ participant "AuditLog" as Auditlog
+ actor "answer_inbound_calls" as answer_inbound_calls
 
- SUP -> EP : POST /supervision/monitor {call_id, mode}
- EP -> EP : JWT + RBAC (monitor_live_calls)
- EP -> TEL : conectar canal supervision\n(mode: silent|whisper)
- TEL -> OPR : emitir tono de supervision\n(compliance obligatorio)
- TEL --> EP : canal activo
- EP -> AUD : INSERT SupervisionEvent {tipo, supervisor, call_id}
- EP --> SUP : 200 OK
+ monitor_live_calls -> Supervisionendpoint : POST /supervision/monitor {call_id, mode}
+ Supervisionendpoint -> Supervisionendpoint : JWT + RBAC (monitor_live_calls)
+ Supervisionendpoint -> Telephonybridge : conectar canal supervision\n(mode: silent|whisper)
+ Telephonybridge -> answer_inbound_calls : emitir tono de supervision\n(compliance obligatorio)
+ Telephonybridge --> Supervisionendpoint : canal activo
+ Supervisionendpoint -> Auditlog : INSERT SupervisionEvent {tipo, supervisor, call_id}
+ Supervisionendpoint --> monitor_live_calls : 200 OK
 
- note over SUP, OPR
+ note over monitor_live_calls, answer_inbound_calls
    En modo silent: supervisor escucha,
    agente y cliente no escuchan al supervisor.
    En modo whisper: supervisor habla al agente,
@@ -75,21 +75,21 @@ Diagrama de componentes — MOD_Supervision
 
  @startuml
 
- actor "monitor_live_calls\nbarge_in_calls\nbroadcast_team_messages" as SUP
+ actor "monitor_live_calls\nbarge_in_calls\nbroadcast_team_messages" as monitor_live_calls
 
- component "SupervisionEndpoint\n(/api/v1/supervision/)" as EP
- component "TelephonyBridge\n(SIP/WebRTC barge-in)" as TEL
+ component "SupervisionEndpoint\n(/api/v1/supervision/)" as Supervisionendpoint
+ component "TelephonyBridge\n(SIP/WebRTC barge-in)" as Telephonybridge
  component "ComplianceToneEmitter\n(tono obligatorio)" as TONE
- component "InternalMailbox\n(broadcast_team_messages)" as MB
+ component "InternalMailbox\n(broadcast_team_messages)" as Internalmailbox
 
- database "audit_log\n(PostgreSQL)" as AUD
+ database "audit_log\n(PostgreSQL)" as audit_log
  database "agent_state\n(Redis — estados activos)" as STATE
 
- SUP --> EP : HTTP requests
- EP --> TEL : activar canal supervision/barge
- EP --> TONE : emitir tono compliance
- EP --> MB : INSERT broadcast message
- EP --> AUD : INSERT SupervisionEvent
- EP --> STATE : leer estado agentes activos
+ monitor_live_calls --> Supervisionendpoint : HTTP requests
+ Supervisionendpoint --> Telephonybridge : activar canal supervision/barge
+ Supervisionendpoint --> TONE : emitir tono compliance
+ Supervisionendpoint --> Internalmailbox : INSERT broadcast message
+ Supervisionendpoint --> audit_log : INSERT SupervisionEvent
+ Supervisionendpoint --> STATE : leer estado agentes activos
 
  @enduml

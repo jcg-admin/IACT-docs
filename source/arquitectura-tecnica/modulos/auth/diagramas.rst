@@ -18,12 +18,12 @@ Flujo de Autenticacion
 
  @startuml
 
- participant "Interfaz\nde Usuario" as UI
+ participant "Interfaz\nde Usuario" as Interfaz
  participant "Servicio\nde Autenticación" as AUTH
  participant "Repositorio\nde Usuarios" as USERS
  participant "Repositorio\nde Sesiones" as SESSIONS
 
- UI -> AUTH ++ : POST /api/v1/auth/login\n{usuario, contraseña}
+ Interfaz -> AUTH ++ : POST /api/v1/auth/login\n{usuario, contraseña}
  AUTH -> USERS ++ : verificar usuario activo
  return usuario encontrado y activo
  AUTH -> AUTH : validar contraseña contra hash almacenado
@@ -52,12 +52,12 @@ Diagrama de Contexto (Dependencias)
  @startuml
 
  component "ARQ_MOD_001\nAutenticación" as AUTH
- component "ARQ_MOD_002\nIdentidad de Usuario" as USR
+ component "ARQ_MOD_002\nIdentidad de Usuario" as ArqMod002
  component "ARQ_MOD_003\nControl de Acceso\n(RBAC)" as RBAC
- component "ARQ_MOD_007\nAuditoría" as AUD
+ component "ARQ_MOD_007\nAuditoría" as ArqMod007
 
- AUTH --> USR : verifica usuario activo
+ AUTH --> ArqMod002 : verifica usuario activo
  AUTH --> RBAC : obtiene roles para claims del token
- AUTH --> AUD : emite evento login/logout
+ AUTH --> ArqMod007 : emite evento login/logout
 
  @enduml
