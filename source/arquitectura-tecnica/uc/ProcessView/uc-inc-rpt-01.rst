@@ -41,4 +41,3 @@ Flujo de actividades y concurrencia para UC_INC_RPT_01.
 .. seealso::
 
  :doc:`/requisitos/casos-uso/reports/uc-inc-rpt-01/flujo-principal`
- :doc:`/requisitos/casos-uso/reports/uc-inc-rpt-01/flujos-alternos`

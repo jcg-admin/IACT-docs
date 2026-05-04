@@ -34,4 +34,4 @@ Distribucion fisica de nodos y artefactos para UC_INC_RPT_01.
 
 .. seealso::
 
- :doc:`/requisitos/casos-uso/reports/uc-inc-rpt-01/requisitos-no-funcionales`
+ :doc:`/requisitos/casos-uso/reports/uc-inc-rpt-01/implementacion-tecnica`
