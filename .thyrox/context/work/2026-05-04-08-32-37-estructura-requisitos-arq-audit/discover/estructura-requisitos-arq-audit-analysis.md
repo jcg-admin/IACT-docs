@@ -580,6 +580,72 @@ archivos textuales de los otros 8 módulos no son obligatorios en esta ubicació
 módulo en una tabla, pero esa misma información ya vive en `requisitos/casos-uso/`
 con sus specs completas. Es duplicación de trazabilidad.
 
+### H-14 — use-case-view/ y uc-module-view/ son redundantes: UC-indexado vs módulo-indexado [ALTA]
+
+`arquitectura-tecnica/` tiene **dos directorios de Use Case View** con diferente
+nivel de abstracción y propósito:
+
+**`use-case-view/` (81 archivos — UC-indexado, BOILERPLATE):**
+
+| Característica | Detalle |
+|---|---|
+| Archivos | 81 `.rst` (80 UCs + index) |
+| Granularidad | Un archivo por UC — UC-indexado |
+| Contenido por archivo | Actor → UC dentro de rectángulo módulo. Sin relaciones entre UCs. Sin `<<include>>`. Sin `<<extend>>`. |
+| Texto introductorio | Ninguno (solo metadata + diagrama) |
+| `:tipo:` | `Diagrama Arquitectonico — Use Case View` |
+| Patrón | Boilerplate UC-individual — mismo problema que `deploy-view/`, `design-view/`, `implementation-view/` |
+
+Ejemplo (`iniciar-sesion.rst`): `actor "Usuario" → usecase "UC_AUTH_01 Iniciar Sesion"
+dentro de rectangle "MOD_Auth"`. Nada más. No muestra las otras 4 UCs de Auth,
+no muestra `<<include>>` entre UCs, no muestra actores secundarios.
+
+**`uc-module-view/` (15 archivos — módulo-indexado, CORRECTO):**
+
+| Característica | Detalle |
+|---|---|
+| Archivos | 13 `mod-*.rst` + `index.rst` + `rbac-funciones-por-modulo.rst` |
+| Granularidad | Un archivo por módulo — módulo-indexado |
+| Contenido por archivo | TODOS los UCs del módulo con actores completos, relaciones `<<include>>`, contexto del módulo |
+| Texto introductorio | 2-3 párrafos explicativos antes del diagrama |
+| `:tipo:` | `Diagrama Arquitectonico — UC por Modulo` |
+| Patrón | Nivel correcto per estándar 5+1 |
+
+Ejemplo (`mod-auth.rst`): 5 UCs de Auth + 1 UC de Permissions, 3 actores distintos,
+`UC_AUTH_01 <<include>> UC_AUTH_05`, contexto narrativo del módulo.
+
+**Diagnóstico:**
+
+`use-case-view/` fue la implementación original del Use Case View (estilo UC-indexado
+generalizado). `uc-module-view/` fue creado después como la versión module-level.
+Coexisten sin reemplazarse, creando dos representaciones del mismo view con
+niveles de abstracción incompatibles.
+
+La **Use Case View** del estándar 5+1 requiere mostrar:
+- El conjunto de UCs de cada módulo
+- Sus actores y relaciones
+- Las dependencias entre UCs (`<<include>>`, `<<extend>>`)
+
+`uc-module-view/` cumple esto. `use-case-view/` no.
+
+**UCs cubiertos por módulo (verificado en `uc-module-view/`):**
+
+| Módulo | UC refs | Módulo | UC refs |
+|---|---|---|---|
+| mod-access | 8 | mod-logs | 8 |
+| mod-admin | 10 | mod-operator | 11 |
+| mod-alerts | 7 | mod-permissions | 11 |
+| mod-audit | 5 | mod-pipeline | 6 |
+| mod-auth | 7 | mod-reports | 17 |
+| mod-caller | 6 | mod-supervision | 4 |
+| mod-users | 5 | **Total** | **~105** |
+
+**Conclusión:** `use-case-view/` (81 archivos) es el mismo problema de boilerplate
+UC-indexado que H-10, H-11, H-12. `uc-module-view/` (15 archivos) ES el Use Case
+View correcto per 5+1. `use-case-view/` debe eliminarse y `uc-module-view/` debe
+convertirse en el directorio canónico de esta vista — renombrado o reconocido
+oficialmente como el Use Case View del proyecto.
+
 ---
 
 ## 10. Decisiones tomadas y preguntas resueltas
@@ -594,7 +660,7 @@ del modelo 4+1 de Kruchten que añade la Vista de Dominio, usada en contextos DD
 | 1 | **Domain Model** | `domain-model/` + `bounded-contexts/` | ⚠ consolidar (H-07, H-09) |
 | 2 | **Design View** | `design-view/` | ⚠ nivel incorrecto (H-11) |
 | 3 | **Implementation View** | `implementation-view/` | ⚠ nivel incorrecto (H-12) |
-| 4 | **Use Case View** | `use-case-view/` + `uc-module-view/` | ⚠ duplicado, nivel incorrecto |
+| 4 | **Use Case View** | `use-case-view/` ❌ + `uc-module-view/` ✓ | ⚠ duplicado — `use-case-view/` eliminar (H-14) |
 | 5 | **Process View** | `process-view/` | pendiente análisis |
 | +1 | **Deployment View** | `deploy-view/` | ⚠ nivel incorrecto (H-10) |
 
@@ -607,7 +673,7 @@ en lugar de por módulo o variante de infraestructura. La corrección:
 | Vista | Nivel actual (incorrecto) | Nivel correcto | Archivos: actual → objetivo |
 |---|---|---|---|
 | Domain Model | 160 per-UC + 10 BC separados | sistema/BC | 170 → ~9 BC + overview |
-| Use Case View | 80 por UC | por módulo | 80 → ~14 (`uc-module-view/` ya existe) |
+| Use Case View | `use-case-view/` (81 per-UC) + `uc-module-view/` (15 por módulo) | por módulo | eliminar `use-case-view/`; `uc-module-view/` es el canónico (H-14) |
 | Deploy View | 80 por UC | por variante de infra | 80 → 3 |
 | Design View | 160 por UC | por módulo | 160 → ~12 |
 | Implementation View | 80 por UC | por módulo | 80 → 12 |
@@ -643,7 +709,8 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `requisitos/business-requirements/` | ✓ Correcto | Ninguna |
 | `requisitos/casos-uso/` | ✓ Correcto | Ninguna |
 | `requisitos/requisitos-funcionales/` | ✓ Correcto | Ninguna |
-| `arquitectura-tecnica/use-case-view/` | ✓ Correcto (DIAG puro) | Ninguna |
+| `arquitectura-tecnica/use-case-view/` (81 archivos) | ⚠ Boilerplate UC-individual; no muestra relaciones entre UCs | Eliminar — redundante con `uc-module-view/` (H-14) |
+| `arquitectura-tecnica/uc-module-view/` (15 archivos) | ✓ Use Case View correcto per 5+1 — módulo-indexado, relaciones completas | Reconocer como canónico; renombrar a `use-case-view/` (H-14) |
 | `arquitectura-tecnica/deploy-view/` | ✓ Correcto (DIAG puro) | Ninguna |
 | `arquitectura-tecnica/design-view/` | ✓ Correcto (DIAG puro) | Ninguna |
 | `arquitectura-tecnica/modulos/*/responsabilidades.rst` | ⚠ ARCH textual en zona DIAG | Decisión pendiente P-01 |
