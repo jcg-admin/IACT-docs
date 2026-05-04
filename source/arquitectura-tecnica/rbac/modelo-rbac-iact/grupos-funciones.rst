@@ -92,7 +92,7 @@ Modelo RBAC IACT — Grupos de Funciones
 
 **CAMBIO v5.5.0:**
 - AGR-011 ``call_center_operator_group`` (10 funciones OPR-001..010)
-- AGR-012 ``call_center_supervisor_group`` (SUP-001..003 + AGR-003)
+- AGR-012 ``call_center_supervisor_group`` (``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + AGR-003)
 
 
 4.2 Detalle de Grupos

@@ -38,10 +38,10 @@ se realizan como valores del enum ``event_type``, no como subclases.
    + details : JSON
    --
    + record()                <<sistema; inmutable per CNST-025>>
-   + view()                  <<AUD-001>>
-   + search()                <<AUD-002>>
-   + export()                <<AUD-003>>
-   + generate_compliance_report()  <<AUD-004>>
+   + view()                  <<view_audit_log>>
+   + search()                <<search_audit_log>>
+   + export()                <<export_audit_log>>
+   + generate_compliance_report()  <<generate_compliance_report>>
  }
 
  enum EventType {

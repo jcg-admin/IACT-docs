@@ -58,8 +58,8 @@ notificacion interno (sin email externo, CNST-001).
    --
    + open()
    + close()              <<sesion propia>>
-   + close_all()          <<admin: AUTH-004>>
-   + view_own_sessions()  <<AUTH-001>>
+   + close_all()          <<admin: view_all_active_sessions>>
+   + view_own_sessions()  <<view_own_sessions>>
  }
 
  class InternalMailbox {

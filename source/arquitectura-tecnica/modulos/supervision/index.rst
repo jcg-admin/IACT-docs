@@ -34,9 +34,9 @@ Funciones RBAC
 
 AGR-012 ``call_center_supervisor_group`` — incluye:
 
-- SUP-001 ``monitor_live_calls``
-- SUP-002 ``barge_in_calls``
-- SUP-003 ``broadcast_team_messages``
+- ``monitor_live_calls``
+- ``barge_in_calls``
+- ``broadcast_team_messages``
 
 Casos de Uso
 ============
@@ -46,8 +46,8 @@ UC_SUP_01..03 — ver :doc:`/requisitos/casos-uso/supervision/index`
 Consideraciones de Compliance
 ==============================
 
-SUP-001 y SUP-002 generan notificacion audible al agente (tono de
-supervision) por obligacion legal. El sistema emite el tono
+``monitor_live_calls`` y ``barge_in_calls`` generan notificacion audible
+al agente (tono de supervision) por obligacion legal. El sistema emite el tono
 automaticamente; no puede desactivarse por configuracion.
 
 Dependencias

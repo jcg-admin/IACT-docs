@@ -47,9 +47,9 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + user_id : UUID
    --
    + record()              <<sistema>>
-   + view()                <<LOG-001 view_application_logs>>
-   + search()              <<LOG-003 search_logs>>
-   + export()              <<LOG-002 export_logs>>
+   + view()                <<view_application_logs>>
+   + search()              <<search_logs>>
+   + export()              <<export_logs>>
  }
 
  class ETLLog {
@@ -60,7 +60,7 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + occurred_at : DateTime
    --
    + record()
-   + view()                <<LOG-004 view_etl_logs>>
+   + view()                <<view_etl_logs>>
  }
 
  class InfrastructureLog {
@@ -71,7 +71,7 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + occurred_at : DateTime
    --
    + record()
-   + view()                <<LOG-005 view_infrastructure_logs>>
+   + view()                <<view_infrastructure_logs>>
  }
 
  class SystemHealth {
@@ -83,7 +83,7 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + services_status : Map<String,String>
    --
    + snapshot()           <<sistema>>
-   + view()               <<LOG-006 view_system_health>>
+   + view()               <<view_system_health>>
  }
 
  class TechnicalMetric {
@@ -94,7 +94,7 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + period : String
    --
    + aggregate()          <<sistema>>
-   + view()               <<LOG-007 view_technical_metrics>>
+   + view()               <<view_technical_metrics>>
  }
 
  enum LogLevel {

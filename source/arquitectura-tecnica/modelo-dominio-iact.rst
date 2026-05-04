@@ -222,7 +222,7 @@ para este modelo. Resumen de su impacto sobre las clases:
    - Toda clase con ciclo de vida tiene atributo ``state`` y
      operacion soft-delete; cero clases con ``delete``
  * - D-02
-   - Agregar ``acknowledge_alert`` (ALR-007)
+   - Agregar ``acknowledge_alert``
    - ``Alert`` tiene maquina de estados con transicion ACKNOWLEDGED
  * - D-03
    - Split de suscripcion en subscribe / unsubscribe /

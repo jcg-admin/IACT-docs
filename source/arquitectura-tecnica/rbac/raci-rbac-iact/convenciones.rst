@@ -101,7 +101,7 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
    - Funciones de operacion de call center (OPR-001..010).
  * - AGR-012
    - Supervisor Call Center
-   - Supervision en tiempo real: SUP-001..003 + quality_supervisor_group.
+   - Supervision en tiempo real: ``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + quality_supervisor_group.
 
 **Razones de la R/A elegida en este documento:**
 

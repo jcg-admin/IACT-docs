@@ -264,7 +264,7 @@ InternalMailbox. **2 CRITICOS + 2 ALTOS + 1 MEDIO**.
  * - UC_AUTH_01 Iniciar Sesion
    - CRITICO
    - 5
-   - publico (post-login AUTH-001)
+   - publico (post-login ``view_own_sessions``)
    - ``Session``, ``User``, ``AuditEvent``
  * - UC_AUTH_02 Cerrar Sesion
    - ALTO
@@ -274,7 +274,7 @@ InternalMailbox. **2 CRITICOS + 2 ALTOS + 1 MEDIO**.
  * - UC_AUTH_03 Recuperar Contrasena
    - MEDIO
    - 3
-   - AUTH-003 ``reset_password``
+   - ``reset_password``
    - ``User``, ``InternalMailbox``, ``AuditEvent``
  * - UC_AUTH_04 Cambiar Contrasena
    - CRITICO
@@ -284,7 +284,7 @@ InternalMailbox. **2 CRITICOS + 2 ALTOS + 1 MEDIO**.
  * - UC_AUTH_05 Gestionar Sesiones
    - ALTO
    - 3
-   - AUTH-001/002/004
+   - ``view_own_sessions``, ``close_user_session``, ``view_all_active_sessions``
    - ``Session``, ``User``, ``AuditEvent``
 
 2.2 Cluster USR (4 UCs)
@@ -305,22 +305,22 @@ con ciclo de vida soft-delete (BR-009 v2.0.0). **1 CRITICO + 3 ALTOS**.
  * - UC_USR_01 Crear Usuario
    - ALTO
    - 4
-   - USR-001 ``create_users``
+   - ``create_users``
    - ``User``, ``Assignment``, ``AccessGroup``, ``AuditEvent``
  * - UC_USR_02 Consultar Usuarios
    - CRITICO
    - 3
-   - USR-005, USR-009
+   - ``search_users``, ``view_users``
    - ``User``, ``Assignment``, ``AccessGroup``
  * - UC_USR_03 Modificar Usuario
    - ALTO
    - 3
-   - USR-002 ``update_users``
+   - ``update_users``
    - ``User``, ``Session``, ``AuditEvent``
  * - UC_USR_04 Eliminar (Deactivate) Usuario
    - ALTO
    - 2
-   - USR-003 ``deactivate_users`` (rename Z.2 D-01)
+   - ``deactivate_users`` (rename Z.2 D-01)
    - ``User``, ``Session``, ``AuditEvent``
 
 2.3 Cluster ACC (7 UCs)
@@ -342,37 +342,37 @@ predefinidos, permisos excepcionales y reglas SoD.
  * - UC_ACC_01 Asignar Funciones
    - ALTO
    - 4
-   - ACC-001 ``assign_functions``
+   - ``assign_functions``
    - ``Assignment``, ``Function``, ``User``, ``AuditEvent``
  * - UC_ACC_02 Revocar Funciones
    - ALTO
    - 2
-   - ACC-002 ``revoke_functions``
+   - ``revoke_functions``
    - ``Assignment``, ``Function``, ``User``, ``AuditEvent``
  * - UC_ACC_03 Consultar Permisos
    - CRITICO
    - 3
-   - ACC-003 ``view_assignments``
+   - ``view_assignments``
    - ``Assignment``, ``Function``, ``User``
  * - UC_ACC_04 Asignar Agrupador
    - ALTO
    - 2
-   - ACC-004 ``assign_function_groups``
+   - ``assign_function_groups``
    - ``Assignment``, ``AccessGroup``, ``User``, ``AuditEvent``
  * - UC_ACC_05 Gestionar SoD
    - ALTO
    - 5
-   - ACC-005/011/012 (per Z.2 D-01)
+   - ``view_separation_rules`` / ``update_separation_rule`` / ``disable_separation_rule`` (per Z.2 D-01)
    - ``SeparationRule``, ``Function``, ``AuditEvent``
  * - UC_ACC_08 Permiso Temporal
    - MEDIO
    - 3
-   - ACC-001 (reuso)
+   - ``assign_functions`` (reuso)
    - ``ExceptionalPermission``, ``User``, ``Function``, ``AuditEvent``
  * - UC_ACC_09 Auditar Cambios de Acceso
    - BAJO
    - 2
-   - AUD-001 ``view_audit_log``
+   - ``view_audit_log``
    - ``AuditEvent``, ``User``, ``Assignment``
 
 2.4 Cluster PERM (10 UCs) — vista tecnica del RBAC
@@ -394,37 +394,37 @@ con ACC declarada en ADR-GOB-008. **1 CRITICO + 5 ALTOS + 2 MEDIOS +
  * - UC_PERM_01 Asignar Grupo a Usuario
    - ALTO
    - 2
-   - ACC-004
+   - ``assign_function_groups``
    - ``Assignment``
  * - UC_PERM_02 Revocar Grupo a Usuario
    - ALTO
    - 2
-   - ACC-008
+   - ``revoke_function_group``
    - ``Assignment``
  * - UC_PERM_03 Conceder Permiso Excepcional
    - MEDIO
    - 3
-   - ACC-009
+   - ``grant_exceptional_permission``
    - ``ExceptionalPermission``
  * - UC_PERM_04 Revocar Permiso Excepcional
    - MEDIO
    - 1
-   - ACC-010
+   - ``revoke_exceptional_permission``
    - ``ExceptionalPermission``
  * - UC_PERM_05 Crear Grupo de Permisos
    - ALTO
    - 2
-   - ACC-006
+   - ``create_function_group``
    - ``FunctionGroup``
  * - UC_PERM_06 Asignar Funciones a Grupo
    - ALTO
    - 3
-   - ACC-007
+   - ``assign_functions_to_group``
    - ``FunctionGroup``, ``Function``
  * - UC_PERM_07 Verificar Permiso de Usuario
    - CRITICO
    - 4
-   - ACC-003
+   - ``view_assignments``
    - ``Assignment``, ``ExceptionalPermission``
  * - UC_PERM_08 Generar Menu Dinamico
    - ALTO
@@ -434,12 +434,12 @@ con ACC declarada en ADR-GOB-008. **1 CRITICO + 5 ALTOS + 2 MEDIOS +
  * - UC_PERM_09 Auditar Acceso
    - BAJO
    - 1
-   - AUD-001
+   - ``view_audit_log``
    - ``AuditEvent``
  * - UC_PERM_10 Consultar Auditoria de Permisos
    - BAJO
    - 2
-   - AUD-002
+   - ``search_audit_log``
    - ``AuditEvent``
 
 2.5 Cluster RPT (16 UCs)
@@ -552,27 +552,27 @@ Responsabilidad: closed-loop alerting. **0 CRITICOS + 3 ALTOS +
  * - UC_ALR_01 Configurar Umbrales
    - ALTO
    - 3
-   - ALR-002 ``configure_thresholds``
+   - ``configure_alerts``
    - ``Threshold``, ``Metric``
  * - UC_ALR_02 Ver Alertas Activas
    - ALTO
    - 2
-   - ALR-001 ``view_alerts``
+   - ``view_alerts``
    - ``Alert``
  * - UC_ALR_03 Reconocer Alerta
    - ALTO
    - 2
-   - ALR-007 ``acknowledge_alert`` (NUEVA Z.2 D-02)
+   - ``acknowledge_alert`` (NUEVA Z.2 D-02)
    - ``Alert``, ``AuditEvent``
  * - UC_ALR_04 Ver Historial Alertas
    - MEDIO
    - 2
-   - ALR-006
+   - ``view_alert_history``
    - ``Alert``
  * - UC_ALR_05 Gestionar Suscripciones (Larman)
    - MEDIO
    - 4
-   - ALR-008/009/010 (split Z.2 D-03)
+   - ``subscribe_to_alert`` / ``unsubscribe_from_alert`` / ``configure_subscription_severity`` (split Z.2 D-03)
    - ``Subscription``, ``Alert``, ``InternalMailbox``
 
 2.7 Cluster PIP (4 UCs)

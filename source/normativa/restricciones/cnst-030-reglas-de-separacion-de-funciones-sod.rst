@@ -91,7 +91,7 @@ revisor humano.
    - Pipeline (PIP-001..004): view_pipeline_status,
      view_pipeline_errors, view_data_availability,
      request_pipeline_retry
-   - Audit (AUD-001..004): view_audit_log, search_audit_log,
+   - Audit (4 funciones): view_audit_log, search_audit_log,
      export_audit_log, generate_compliance_report
    - CNST_030
  * - SOD-002

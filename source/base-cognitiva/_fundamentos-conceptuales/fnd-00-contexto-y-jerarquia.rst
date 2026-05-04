@@ -436,7 +436,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/audit/UC_AUD_03_Exportar_Auditoria.rst`` (453 líneas)
 
 :Actor Principal: AGR_006 (agr_auditor)
-:Función RBAC: AUD-003 (exporta_auditoria)
+:Función RBAC: ``export_audit_log``
 :Aplicación BR_011: Mismos límites que reportes
 
 **Nota:** Los registros de auditoría también están sujetos a los límites 
@@ -450,7 +450,7 @@ de exportación para mantener consistencia en el sistema.
 **Ubicación:** ``casos_uso_v4/logs/UC_LOG_04_Exportar_Logs.rst`` (475 líneas)
 
 :Actor Principal: AGR_010 (agr_soporte)
-:Función RBAC: LOG-002 (exporta_logs)
+:Función RBAC: ``export_logs``
 :Aplicación BR_011: Mismos límites, principalmente CSV
 
 ------------------------------------

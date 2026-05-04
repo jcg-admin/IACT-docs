@@ -44,9 +44,9 @@ mismas entidades; no introduce clases adicionales.
    + name : String
    + description : String
    --
-   + create_function_group()       <<ACC-006>>
-   + assign_functions_to_group()   <<ACC-007>>
-   + revoke_function_group()       <<ACC-008>>
+   + create_function_group()       <<create_function_group>>
+   + assign_functions_to_group()   <<assign_functions_to_group>>
+   + revoke_function_group()       <<revoke_function_group>>
  }
 
  class AccessGroup {
@@ -54,7 +54,7 @@ mismas entidades; no introduce clases adicionales.
    + name : String            <<p.ej. agr_supervisor>>
    + profile_description : String
    --
-   + assign_to_user()        <<ACC-004>>
+   + assign_to_user()        <<assign_function_groups>>
    + revoke_from_user()
  }
 
@@ -81,8 +81,8 @@ mismas entidades; no introduce clases adicionales.
    + justification : String
    + state : PermissionState
    --
-   + grant()           <<ACC-009>>
-   + revoke()          <<ACC-010>>
+   + grant()           <<grant_exceptional_permission>>
+   + revoke()          <<revoke_exceptional_permission>>
  }
 
  class SeparationRule {
@@ -92,10 +92,10 @@ mismas entidades; no introduce clases adicionales.
    + rule_group : String
    + state : RuleState
    --
-   + create()                  <<ACC-005>>
-   + view()                    <<ACC-005 view_separation_rules>>
-   + update_separation_rule()  <<ACC-011>>
-   + disable_separation_rule() <<ACC-012>>
+   + create()                  <<create_separation_rule>>
+   + view()                    <<view_separation_rules>>
+   + update_separation_rule()  <<update_separation_rule>>
+   + disable_separation_rule() <<disable_separation_rule>>
  }
 
  enum Module {

@@ -40,9 +40,9 @@ funciones RBAC distintas para permitir SoD.
    + acknowledged_by : UUID
    + acknowledged_at : DateTime
    --
-   + configure()         <<ALR-001>>
-   + acknowledge()       <<ALR-007>>
-   + disable()           <<ALR-005 disable_alerts>>
+   + configure()         <<view_alerts>>
+   + acknowledge()       <<acknowledge_alert>>
+   + disable()           <<disable_alerts>>
  }
 
  class Threshold {
@@ -52,7 +52,7 @@ funciones RBAC distintas para permitir SoD.
    + value : Double
    + severity : Severity
    --
-   + configure()         <<ALR-002 configure_thresholds>>
+   + configure()         <<configure_alerts>>
  }
 
  class Subscription {
@@ -62,9 +62,9 @@ funciones RBAC distintas para permitir SoD.
    + severity_filter : Severity
    + state : SubscriptionState
    --
-   + subscribe()              <<ALR-008>>
-   + unsubscribe()            <<ALR-009>>
-   + configure_severity()     <<ALR-010>>
+   + subscribe()              <<subscribe_to_alert>>
+   + unsubscribe()            <<unsubscribe_from_alert>>
+   + configure_severity()     <<configure_subscription_severity>>
  }
 
  enum AlertState {
