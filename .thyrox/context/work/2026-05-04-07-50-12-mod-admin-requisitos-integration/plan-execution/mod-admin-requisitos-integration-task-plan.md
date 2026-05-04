@@ -17,27 +17,29 @@ los nuevos UC specs completos.
 
 ## Bloque A — Phantom UC refs en requisitos-funcionales y base-cognitiva
 
-- [ ] **T-001** `fr-010-02-validar-sod-antes-asignar.rst`: `UC_043`→`UC_ADM_01`
+- [x] **T-001** `fr-010-02-validar-sod-antes-asignar.rst`: `UC_043`→`UC_ADM_01`
   (2 ocurrencias).
-- [ ] **T-002** `fnd-03-casos-de-uso.rst`: UC-043→UC_ADM_01, UC-044→UC_ACC_03,
+- [x] **T-002** `fnd-03-casos-de-uso.rst`: UC-043→UC_ADM_01, UC-044→UC_ACC_03,
   UC-045→UC_ADM_03, UC-046→UC_ADM_02, UC-047→UC_ACC_09 (todas las
   ocurrencias como UCs de SoD/acceso — NO tocar UCs de reports).
-- [ ] **T-003** `fnd-04-trazabilidad.rst`: idem + actualizar etiqueta
+- [x] **T-003** `fnd-04-trazabilidad.rst`: idem + actualizar etiqueta
   `.. _uc-043:` → `.. _uc-adm-01:` y `:artefacto: UC_043` → `UC_ADM_01`.
-- [ ] **T-004** `fnd-05-jerarquia-4-niveles.rst`: UC-043→UC_ADM_01,
+- [x] **T-004** `fnd-05-jerarquia-4-niveles.rst`: UC-043→UC_ADM_01,
   UC-044→UC_ACC_03, UC-047→UC_ACC_09.
-- [ ] **T-005** `txm-01-taxonomia-requisitos.rst`: actualizar referencia
+- [x] **T-005** `txm-01-taxonomia-requisitos.rst`: actualizar referencia
   UC-043 en lista de UC de access/admin.
 
 ## Bloque B — Arquitectura técnica
 
-- [ ] **T-006** `rbac-core/responsabilidades.rst`: `UC_043`→`UC_ADM_01`.
-- [ ] **T-007** `rbac-core/casos-uso.rst`: `UC_043`→`UC_ADM_01`.
-- [ ] **T-008** `mapeo-uc.rst`: `UC-043`→`UC_ADM_01` (3 ocurrencias).
+- [ ] **T-006** `rbac-core/responsabilidades.rst`: UC_043..047 son responsabilidades
+  de distinto módulo (assign_roles, configure_segments, etc.) — requieren revisión
+  separada para mapping correcto a domain UCs. [PENDIENTE revisión]
+- [ ] **T-007** `rbac-core/casos-uso.rst`: idem T-006. [PENDIENTE revisión]
+- [x] **T-008** `mapeo-uc.rst`: `UC-043`→`UC_ADM_01` (3 ocurrencias + módulo → Admin).
 
 ## Bloque C — Normativa
 
-- [ ] **T-009** `tpl-uc-casos-de-uso.rst`: `UC_043_Configurar_SoD`→
+- [x] **T-009** `tpl-uc-casos-de-uso.rst`: `UC_043_Configurar_SoD`→
   `UC_ADM_01_Gestionar_Ciclo_Vida_SoD`.
 
 ## Bloque D — UC specs completas para MOD_Admin
