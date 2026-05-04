@@ -2,7 +2,7 @@ Subtipos con etiqueta ``implements``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Aplicado al cluster de reportes IACT
-(:doc:`relaciones-uml` § 14.1):
+(:doc:`/requisitos/_metodologia-aplicacion/relaciones-uml/index` § 14.1):
 
 .. uml::
 

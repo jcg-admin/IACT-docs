@@ -9,7 +9,7 @@ tiempo. Participantes (rectángulos arriba) + mensajes (flechas)
 temporal** de interacciones (quién habla con quién, en qué
 orden, qué se intercambian).
 
-**Lección completa:** :doc:`uml-09-diagramas-secuencias`.
+**Lección completa:** :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias/index`.
 
 .. uml::
 

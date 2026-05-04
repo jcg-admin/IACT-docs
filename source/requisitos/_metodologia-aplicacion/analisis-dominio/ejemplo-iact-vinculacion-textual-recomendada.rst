@@ -19,6 +19,6 @@ no en el diagrama):
   inmutable), UCs que la generan: todos los UCs del
   catálogo (audit transversal).
 - ``DetalleAuditoria`` — composición fuerte (§ 3 de
-  :doc:`agregacion-interfaces`). Usada en
-  :doc:`patrones-diseno` § 8 (Observer +
+  :doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`). Usada en
+  :doc:`/requisitos/_metodologia-aplicacion/patrones-diseno/index` § 8 (Observer +
   ``AuditObserver``).

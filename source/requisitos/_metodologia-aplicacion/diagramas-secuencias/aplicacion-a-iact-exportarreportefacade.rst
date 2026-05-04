@@ -3,7 +3,7 @@ Aplicación a IACT — ``ExportarReporteFacade``
 
 Diagrama de flujo de código (no UC) del facade
 ``ExportarReporteFacade`` (ver § 6 de
-:doc:`patrones-diseno`) procesando un export:
+:doc:`/requisitos/_metodologia-aplicacion/patrones-diseno/index`) procesando un export:
 
 .. uml::
 

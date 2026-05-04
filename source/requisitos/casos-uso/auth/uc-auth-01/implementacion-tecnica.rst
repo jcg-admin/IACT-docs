@@ -189,7 +189,7 @@ Este archivo es la **Parte 11** del spec de
 - :doc:`excepciones`
 - :doc:`requisitos-no-funcionales`
 - :doc:`datos-involucrados`
-- :doc:`diagramas-uml`
+- :doc:`diagramas-uml/index`
 - :doc:`criterios-aceptacion`
 - :doc:`patrones-diseno`
 - :doc:`testing`

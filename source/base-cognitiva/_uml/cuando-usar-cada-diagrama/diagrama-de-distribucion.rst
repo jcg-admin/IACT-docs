@@ -8,7 +8,7 @@ ejecuta cada cosa). Nodos (cubos) + conexiones + artefactos.
 despliega** el sistema en producción (dónde viven las
 máquinas, cómo se conectan).
 
-**Lección completa:** :doc:`uml-13-diagramas-distribucion`.
+**Lección completa:** :doc:`/base-cognitiva/_uml/uml-13-diagramas-distribucion/index`.
 
 .. uml::
 

@@ -8,9 +8,9 @@ existen). Atributos + operaciones + relaciones entre clases.
 y cómo se estructuran.
 
 **Lección completa:**
-:doc:`uml-03-uso-orientacion-objetos`,
-:doc:`uml-04-uso-relaciones`,
-:doc:`uml-05-agregacion-composicion-interfaces`.
+:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`,
+:doc:`/base-cognitiva/_uml/uml-04-uso-relaciones/index`,
+:doc:`/base-cognitiva/_uml/uml-05-agregacion-composicion-interfaces/index`.
 
 .. uml::
 

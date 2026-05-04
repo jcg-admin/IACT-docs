@@ -28,4 +28,4 @@ ninguna es parte estructural de la otra, la relación
 correcta es **asociación** — la misma noción del libro
 ("each entity is going to hold a reference to the
 other"). El detalle completo de la asociación está en
-§ 2 de :doc:`relaciones-uml`.
+§ 2 de :doc:`/requisitos/_metodologia-aplicacion/relaciones-uml/index`.

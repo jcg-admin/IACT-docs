@@ -8,7 +8,7 @@ dependencias. Componentes + interfaces + dependencias.
 software** (qué módulos/componentes existen y cómo dependen
 unos de otros).
 
-**Lección completa:** :doc:`uml-12-diagramas-componentes`.
+**Lección completa:** :doc:`/base-cognitiva/_uml/uml-12-diagramas-componentes/index`.
 
 .. uml::
 

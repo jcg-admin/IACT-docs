@@ -11,7 +11,7 @@ concretos, no categorías).
 o un ejemplo de cómo funciona una clase en la práctica.
 
 **Lección completa:**
-:doc:`uml-03-uso-orientacion-objetos`.
+:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`.
 
 .. uml::
 

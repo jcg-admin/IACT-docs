@@ -2,7 +2,7 @@ Ejemplo IACT — ``Usuario`` ↔ ``Grupo``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En el modelo de dominio (§ 11 de
-:doc:`agregacion-interfaces`):
+:doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`):
 
 - Un ``Usuario`` puede pertenecer a varios
   ``Grupo``.

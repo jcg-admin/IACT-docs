@@ -12,8 +12,8 @@ usuario. Actor + caso de uso + relaciones.
   técnica.
 
 **Lección completa:**
-:doc:`uml-06-introduccion-casos-uso`,
-:doc:`uml-07-diagramas-casos-uso`.
+:doc:`/base-cognitiva/_uml/uml-06-introduccion-casos-uso/index`,
+:doc:`/base-cognitiva/_uml/uml-07-diagramas-casos-uso/index`.
 
 .. uml::
 

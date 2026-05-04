@@ -8,7 +8,7 @@ cómo transiciona entre ellos. Estado + transición + evento.
 estado a lo largo del tiempo (ej.: orden pasando de *pendiente*
 → *confirmada* → *enviada* → *entregada*).
 
-**Lección completa:** :doc:`uml-08-diagramas-estados`.
+**Lección completa:** :doc:`/base-cognitiva/_uml/uml-08-diagramas-estados/index`.
 
 .. uml::
 

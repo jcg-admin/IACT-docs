@@ -2,7 +2,7 @@ El equivalente IACT — RBAC y agregaciones canónicas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 El cluster RBAC de IACT (ver § 11 de
-:doc:`agregacion-interfaces`) está construido sobre
+:doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`) está construido sobre
 agregaciones, no composiciones:
 
 .. uml::

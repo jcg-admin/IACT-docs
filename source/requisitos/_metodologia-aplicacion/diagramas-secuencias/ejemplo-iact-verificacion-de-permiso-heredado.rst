@@ -3,7 +3,7 @@
 
 UC_PERM_07: una macro-función puede implicar otras (catálogo
 con relaciones reflexivas, ver
-:doc:`relaciones-uml` § 5.2). El verificador recursivo debe
+:doc:`/requisitos/_metodologia-aplicacion/relaciones-uml/index` § 5.2). El verificador recursivo debe
 expandir cada función hasta llegar a las atómicas.
 
 .. uml::

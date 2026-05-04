@@ -80,7 +80,7 @@ quizá, varias clases (mismas que agregarán sus propios atributos
 y operaciones).
 
 En el ejemplo del baloncesto de la hora 3
-(:doc:`uml-03-uso-orientacion-objetos`):
+(:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`):
 
 - El ``Jugador`` tiene atributos como ``nombre``, ``estatura``,
   ``peso``, ``velocidadAlCorrer`` y ``saltoVertical``. Tiene

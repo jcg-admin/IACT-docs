@@ -7,7 +7,7 @@ objetivo. Objetos + enlaces + mensajes numerados.
 **Cuándo usarlo:** cuando quieres mostrar la **arquitectura de
 interacción** entre componentes (quién trabaja con quién).
 
-**Lección completa:** :doc:`uml-10-diagramas-colaboraciones`.
+**Lección completa:** :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones/index`.
 
 .. uml::
 
