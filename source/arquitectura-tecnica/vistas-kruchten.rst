@@ -60,6 +60,11 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
    - Administracion (AGR_ADMIN), configuracion del sistema,
      soporte del pipeline ETL y procedimiento de instalacion
      y bootstrap RBAC.
+ * - :doc:`perspectivas/index`
+   - Perspectivas (transversal)
+   - Analisis de calidad transversal: Security (RBAC, JWT, IVR
+     read-only), Regulation (auditoria append-only, CNST-025/030/031),
+     Availability (ETL failure isolation P-04).
 
 ----
 
@@ -75,3 +80,4 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  implementation-view/index
  deploy-view/index
  operational-view/index
+ perspectivas/index

@@ -272,18 +272,23 @@ regulatoria e integración con IVR. Las perspectivas más relevantes:
    - Crítica. RBAC multi-nivel (AGR_ADMIN, AGR_OPERADOR,
      AGR_AUDITOR), JWT, acceso de solo lectura a IVR (CNST-007),
      control granular por función.
+     ✓ Implementado: :doc:`/arquitectura-tecnica/perspectivas/perspectiva-security`
  * - **Regulation**
    - Alta. Auditoría de acceso regulatoria, trazabilidad de
      acciones ciudadanas, cumplimiento normativo institucional.
+     ✓ Implementado: :doc:`/arquitectura-tecnica/perspectivas/perspectiva-regulation`
  * - **Availability & Resilience**
    - Alta. Sistema de acción ciudadana territorial — la
      indisponibilidad tiene impacto directo en operaciones de campo.
+     ✓ Implementado: :doc:`/arquitectura-tecnica/perspectivas/perspectiva-availability`
  * - **Performance & Scalability**
    - Media-alta. Pipeline ETL sobre datos IVR de alto volumen,
      dashboards con consultas agregadas, alertas en tiempo real.
+     Parcialmente cubierto en process-view/ e implementation-view/.
  * - **Evolution**
    - Media-alta. Arquitectura modular planificada para crecimiento
      incremental de módulos funcionales.
+     Parcialmente cubierto en implementation-view/ y design-view/.
 
 Grid de aplicación perspectiva × vista para IACT
 --------------------------------------------------
