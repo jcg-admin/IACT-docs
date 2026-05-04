@@ -257,20 +257,119 @@ arquitectura se relaciona con sus actividades de soporte:
 
  @enduml
 
-Las actividades son:
+Habiendo definido el scope e contexto inicial con los stakeholders
+adquirentes, se identifican y comprometen los demás stakeholders
+importantes cuyos concerns deben ser abordados. Capturar sus concerns
+proporciona una entrada primaria, junto con el scope y contexto, a la
+definición de arquitectura. Una vez que se tiene una AD, se puede
+crear un sistema esqueleto que actuará como prototipo evolucionable.
 
-1. **Definir el scope e contexto inicial** — establecer los límites
-   del sistema y su relación con el entorno.
-2. **Comprometer a los stakeholders** — identificar y enfranchiser a
-   todas las partes interesadas relevantes.
-3. **Capturar los concerns de primera pasada** — obtener los concerns
-   arquitectónicos clave de los stakeholders.
-4. **Definir la arquitectura** — la actividad central: diseñar,
-   documentar y validar la arquitectura.
-5. **Crear el sistema esqueleto** (opcional) — una implementación
-   esqueleto puede ser valiosa como validación práctica de la
-   arquitectura, prueba de credibilidad ante stakeholders y marco
-   de trabajo para el equipo de desarrollo.
+Las tablas 7-1 a 7-5 describen cada actividad en detalle:
+
+.. list-table:: Tabla 7-1 — Definir el Scope e Contexto Inicial
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Definir claramente los límites del comportamiento y
+     responsabilidades del sistema, y el contexto operacional y
+     organizacional dentro del cual el sistema existe.
+ * - **Entradas**
+   - Necesidades y visión del adquirente; estrategia organizacional;
+     arquitectura IT empresarial.
+ * - **Salidas**
+   - Declaraciones iniciales de los objetivos del sistema y qué está
+     incluido y excluido de sus responsabilidades, junto con una
+     definición inicial del contexto del sistema. Pueden capturarse
+     en un borrador de la vista Context.
+ * - **Notas**
+   - Este paso es principalmente un proceso de comprender los
+     objetivos estratégicos y organizacionales y cómo el sistema
+     ayuda a cumplirlos, junto con un análisis para entender con
+     qué otros sistemas necesita interactuar. El scope definido
+     aquí puede cambiar (sujeto al acuerdo de los stakeholders)
+     durante la definición de arquitectura.
+
+.. list-table:: Tabla 7-2 — Comprometer a los Stakeholders
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Identificar los stakeholders importantes del sistema y crear
+     una relación de trabajo con ellos.
+ * - **Entradas**
+   - Scope y contexto del borrador de la vista Context; estructura
+     organizacional.
+ * - **Salidas**
+   - Definición de cada grupo de stakeholders, con una o más personas
+     nombradas y comprometidas que representarán al grupo.
+ * - **Notas**
+   - Este paso implica entender el contexto organizacional en el que
+     se trabaja e identificar las personas clave que se verán
+     afectadas por el sistema. Se comienza a conocer a sus
+     representantes y a construir una relación de trabajo con ellos.
+     Los concerns definidos aquí pueden cambiar durante la
+     definición de arquitectura.
+
+.. list-table:: Tabla 7-3 — Capturar los Concerns de Primera Pasada
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Comprender claramente los concerns que cada grupo de stakeholders
+     tiene sobre el sistema y las prioridades que asignan a cada
+     concern.
+ * - **Entradas**
+   - Lista de stakeholders; scope y contexto.
+ * - **Salidas**
+   - Definición inicial de un conjunto de concerns priorizados para
+     cada grupo de stakeholders.
+ * - **Notas**
+   - Este paso suele comenzar con las reuniones iniciales con
+     stakeholders. Normalmente implica una serie de presentaciones
+     y reuniones con representantes de cada grupo que permiten
+     explicar qué se pretende lograr y que los stakeholders
+     expliquen sus intereses en el sistema. Los concerns pueden
+     cambiar durante la definición de arquitectura.
+
+.. list-table:: Tabla 7-4 — Definir la Arquitectura
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Crear la AD para el sistema.
+ * - **Entradas**
+   - Lista de stakeholders; scope y contexto.
+ * - **Salidas**
+   - AD; directrices y restricciones.
+ * - **Notas**
+   - Esta actividad se describe en detalle en la sección
+     "Architecture Definition Activities" del capítulo original.
+     Es la actividad central del proceso.
+
+.. list-table:: Tabla 7-5 — Crear el Sistema Esqueleto (opcional)
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Paso opcional para crear una implementación funcional (aunque
+     limitada) de la arquitectura que pueda evolucionar hacia el
+     sistema entregado durante la fase de construcción del ciclo
+     de vida.
+ * - **Entradas**
+   - AD; directrices y restricciones asociadas.
+ * - **Salidas**
+   - Un sistema funcional limitado que ilustra que el sistema puede
+     abordar al menos uno de sus escenarios.
+ * - **Notas**
+   - Si se tiene el tiempo y los recursos, forma un puente efectivo
+     entre la definición de arquitectura y la construcción de
+     software. Permite al arquitecto y a los desarrolladores
+     construir un sistema funcional que pueda ejecutar al menos un
+     escenario funcional simple. El sistema esqueleto actúa como
+     validación de la arquitectura (y una prueba de credibilidad
+     importante para muchos stakeholders) así como un marco de
+     trabajo para la fase de construcción de software.
 
 **Entradas al proceso:**
 
