@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.7
-updated_at: 2026-05-04 17:30:00
+updated_at: 2026-05-04 16:31:07
 cold_boot: false
 current_epic: 18
 epic_name: arq-tecnica-deep-audit
-current_work: .thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit
+current_work: .thyrox/context/work/2026-05-04-16-28-20-system-view-toctree-fix
 stage: execute
 stage_number: 10
 current_phase: Phase 10 — EXECUTE
@@ -14,7 +14,7 @@ methodology_step: thyrox:execute
 blockers: []
 last_completed_phase: "ÉPICA 18 — F-01..F-06 corregidos, commiteados (297dc0a) y pusheados (2026-05-04)"
 next_decision_required: "F-07 (system-view/ sin toctree principal) — decisión arquitectónica del ejecutor antes de actuar"
-stage_sync_required: false
+stage_sync_required: true
 ```
 
 # IACT-docs — Estado de Sesión
