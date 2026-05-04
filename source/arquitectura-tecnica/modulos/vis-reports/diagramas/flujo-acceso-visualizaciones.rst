@@ -16,9 +16,6 @@
 Flujo de Acceso a Visualizaciones
 =================================
 
-Flujo de Acceso a Visualizaciones
-===================================
-
 .. uml::
  :caption: Flujo de acceso a visualizaciones — consulta RBAC, segmentos y exportacion.
 

@@ -16,9 +16,6 @@
 Sub-estados del proceso ETL
 ===========================
 
-Sub-estados del proceso ETL
-==============================
-
 .. uml::
  :caption: Maquina de estados de una ejecucion ETL (etl_runs).
 

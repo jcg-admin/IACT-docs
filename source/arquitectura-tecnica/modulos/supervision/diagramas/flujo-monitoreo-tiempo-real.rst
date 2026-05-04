@@ -16,9 +16,6 @@
 Flujo de Monitoreo en Tiempo Real
 =================================
 
-Flujo de Monitoreo en Tiempo Real
-====================================
-
 .. uml::
  :caption: Secuencia UC_SUP_01 — monitor_live_calls en modo silent/whisper con tono de supervision.
 

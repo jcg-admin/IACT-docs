@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Supervision
 =========================================
 
-Diagrama de componentes — MOD_Supervision
-==========================================
-
 .. uml::
  :caption: Componentes de MOD_Supervision y sus dependencias.
 

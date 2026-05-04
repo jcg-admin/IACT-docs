@@ -16,9 +16,6 @@
 Flujo de Autenticacion
 ======================
 
-Flujo de Autenticacion
-=======================
-
 .. uml::
  :caption: Flujo de autenticación — login exitoso (flujo principal).
 

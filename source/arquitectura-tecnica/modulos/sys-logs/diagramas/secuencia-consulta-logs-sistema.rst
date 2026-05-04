@@ -16,9 +16,6 @@
 Secuencia de Consulta de Logs del Sistema
 =========================================
 
-Secuencia de Consulta de Logs del Sistema
-==========================================
-
 .. uml::
  :caption: Secuencia view_application_logs — consulta filtrada con tail SSE opcional.
 

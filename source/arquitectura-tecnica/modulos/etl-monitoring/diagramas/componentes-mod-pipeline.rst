@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Pipeline
 ======================================
 
-Diagrama de componentes — MOD_Pipeline
-==========================================
-
 .. uml::
  :caption: Componentes de MOD_Pipeline y sus dependencias de datos.
 

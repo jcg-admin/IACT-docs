@@ -16,9 +16,6 @@
 Componentes del modulo de Alertas
 =================================
 
-Componentes del modulo de Alertas
-====================================
-
 .. uml::
  :caption: Componentes de MOD_Alerts y sus dependencias.
 

@@ -16,9 +16,6 @@
 Diagrama de clases — modulo identidad
 =====================================
 
-Diagrama de clases — modulo identidad
-=======================================
-
 .. uml::
  :caption: Clases de identidad de usuario con atributos clave.
 

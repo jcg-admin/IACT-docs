@@ -16,9 +16,6 @@
 Secuencia de Creacion de Usuario
 ================================
 
-Secuencia de Creacion de Usuario
-===================================
-
 .. uml::
  :caption: Secuencia create_users — alta de nuevo usuario con username y password temporal.
 

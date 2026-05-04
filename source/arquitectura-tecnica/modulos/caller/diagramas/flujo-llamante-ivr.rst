@@ -16,9 +16,6 @@
 Flujo del Llamante en el IVR
 ============================
 
-Flujo del Llamante en el IVR
-==============================
-
 .. uml::
  :caption: Flujo del Caller — llamada entrante, navegacion, cola y CSAT.
 

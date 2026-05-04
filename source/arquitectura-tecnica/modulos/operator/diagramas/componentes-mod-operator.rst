@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Operator
 ======================================
 
-Diagrama de componentes — MOD_Operator
-==========================================
-
 .. uml::
  :caption: Componentes de MOD_Operator y sus dependencias.
 

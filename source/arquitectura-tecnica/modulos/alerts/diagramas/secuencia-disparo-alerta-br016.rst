@@ -16,9 +16,6 @@
 Secuencia de Disparo de Alerta BR-016
 =====================================
 
-Secuencia de Disparo de Alerta BR-016
-========================================
-
 .. uml::
  :caption: Disparo automatico de alerta por tasa de abandono (BR-016 >30%).
 

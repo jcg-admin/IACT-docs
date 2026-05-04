@@ -16,9 +16,6 @@
 Ciclo de Vida del Usuario
 =========================
 
-Ciclo de Vida del Usuario
-=========================
-
 .. uml::
  :caption: Ciclo de vida del usuario — estados y transiciones (BR-009 soft delete).
 

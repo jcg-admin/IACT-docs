@@ -16,9 +16,6 @@
 Secuencia de Atencion de Llamada Entrante
 =========================================
 
-Secuencia de Atencion de Llamada Entrante
-==========================================
-
 .. uml::
  :caption: Secuencia UC_OPR_02 — atencion de llamada entrante con disposicion post-llamada.
 

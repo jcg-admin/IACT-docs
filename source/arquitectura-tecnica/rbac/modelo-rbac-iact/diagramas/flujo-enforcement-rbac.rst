@@ -16,9 +16,6 @@
 Flujo de Enforcement RBAC
 =========================
 
-Flujo de Enforcement RBAC
-==========================
-
 .. uml::
  :caption: Secuencia de enforcement — cada request valida funcion atomica antes de ejecutar.
 

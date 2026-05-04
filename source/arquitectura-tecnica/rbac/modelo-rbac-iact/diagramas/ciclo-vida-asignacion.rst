@@ -16,9 +16,6 @@
 Ciclo de Vida de una Asignacion
 ===============================
 
-Ciclo de Vida de una Asignacion
-================================
-
 .. uml::
  :caption: Estados de una asignacion de funcion — incluye expiracion automatica.
 

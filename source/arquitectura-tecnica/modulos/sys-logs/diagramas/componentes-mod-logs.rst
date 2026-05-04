@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Logs
 ==================================
 
-Diagrama de componentes — MOD_Logs
-=====================================
-
 .. uml::
  :caption: Componentes de MOD_Logs y pipeline de recoleccion de logs.
 

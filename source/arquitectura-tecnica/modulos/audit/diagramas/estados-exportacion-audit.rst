@@ -16,9 +16,6 @@
 Estados del Proceso de Exportacion de Audit
 ===========================================
 
-Estados del Proceso de Exportacion de Audit
-=============================================
-
 .. uml::
  :caption: Estado del job de exportacion de audit log (UC_AUD_03).
 

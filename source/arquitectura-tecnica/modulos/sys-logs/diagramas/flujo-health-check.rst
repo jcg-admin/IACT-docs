@@ -16,9 +16,6 @@
 Flujo del Health Check
 ======================
 
-Flujo del Health Check
-=======================
-
 .. uml::
  :caption: Flujo del health check del sistema — recoleccion de metricas y evaluacion de umbrales.
 

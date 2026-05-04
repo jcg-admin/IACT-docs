@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Reports
 =====================================
 
-Diagrama de componentes — MOD_Reports
-========================================
-
 .. uml::
  :caption: Componentes de MOD_Reports y sus dependencias de datos.
 

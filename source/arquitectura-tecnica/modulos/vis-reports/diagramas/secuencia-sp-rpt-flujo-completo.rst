@@ -16,9 +16,6 @@
 Secuencia sp_rpt_* — Flujo Completo
 ===================================
 
-Secuencia sp_rpt_* — Flujo Completo
-======================================
-
 .. uml::
  :caption: Secuencia de consulta de reporte IVR via cursor.callproc sobre Almacen de Datos.
 

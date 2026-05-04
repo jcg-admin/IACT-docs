@@ -16,9 +16,6 @@
 Diagrama de componentes — MOD_Audit
 ===================================
 
-Diagrama de componentes — MOD_Audit
-=======================================
-
 .. uml::
  :caption: Componentes de MOD_Audit y sus dependencias.
 

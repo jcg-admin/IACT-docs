@@ -16,9 +16,6 @@
 Evaluacion de Conflicto SoD
 ===========================
 
-Evaluacion de Conflicto SoD
-============================
-
 .. uml::
  :caption: Evaluación de conflicto SoD — antes de activar cualquier asignación.
 

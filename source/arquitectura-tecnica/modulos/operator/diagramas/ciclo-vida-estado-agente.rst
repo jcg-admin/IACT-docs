@@ -16,9 +16,6 @@
 Ciclo de Vida del Estado del Agente
 ===================================
 
-Ciclo de Vida del Estado del Agente
-======================================
-
 .. uml::
  :caption: Estado del agente de call center — transiciones gestionadas por manage_own_agent_state.
 

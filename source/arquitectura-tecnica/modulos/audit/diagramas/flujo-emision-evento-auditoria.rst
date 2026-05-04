@@ -16,9 +16,6 @@
 Flujo de Emision de Evento de Auditoria
 =======================================
 
-Flujo de Emision de Evento de Auditoria
-=========================================
-
 .. uml::
  :caption: Secuencia de emision de AuditEvent — post-commit en transaccion separada.
 

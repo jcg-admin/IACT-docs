@@ -27,7 +27,7 @@ Modelo de Dominio IACT — Overview
  :autor: NestorMonroy
  :clasificacion: Critico
 
-.. _modelo-dominio-iact:
+.. _overview-modelo-dominio-iact:
 
 ===================
 MODELO DOMINIO IACT

@@ -16,9 +16,6 @@
 Flujo ETL Nocturno — sp_etl_maestro
 ===================================
 
-Flujo ETL Nocturno — sp_etl_maestro
-======================================
-
 .. uml::
  :caption: Secuencia ETL nocturno con sp_etl_maestro sobre Almacen de Datos (CNST-006/008).
 

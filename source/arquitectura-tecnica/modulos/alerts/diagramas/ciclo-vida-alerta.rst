@@ -16,9 +16,6 @@
 Ciclo de Vida de una Alerta
 ===========================
 
-Ciclo de Vida de una Alerta
-============================
-
 .. uml::
  :caption: Estados de una alerta — desde el disparo hasta su resolucion.
 

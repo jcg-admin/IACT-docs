@@ -16,9 +16,6 @@
 Diagrama de Contexto (Dependencias)
 ===================================
 
-Diagrama de Contexto (Dependencias)
-=====================================
-
 .. uml::
  :caption: Dependencias del módulo AUTH — componentes que requiere y que lo requieren.
 

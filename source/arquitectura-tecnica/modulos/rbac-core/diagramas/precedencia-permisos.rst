@@ -16,9 +16,6 @@
 Precedencia de Permisos
 =======================
 
-Precedencia de Permisos
-=======================
-
 .. uml::
  :caption: Flujo de evaluación de permisos — precedencia Directo > Rol > Segmento.
 

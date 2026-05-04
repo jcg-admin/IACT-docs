@@ -16,9 +16,6 @@
 Barge-In — Intervencion Tripartita
 ==================================
 
-Barge-In — Intervencion Tripartita
-======================================
-
 .. uml::
  :caption: Estado de canal en barge-in — supervisor, agente y cliente conectados.
 
