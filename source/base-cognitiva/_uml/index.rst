@@ -73,6 +73,12 @@ Catálogo
  uml-12-diagramas-componentes/index
  uml-13-diagramas-distribucion/index
 
+.. toctree::
+ :maxdepth: 1
+ :caption: UML en arquitectura de software
+
+ uml-14-uml-vistas-arquitectonicas/index
+
 Convención
 ==========
 

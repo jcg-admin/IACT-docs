@@ -32,7 +32,7 @@ Análisis de dominio aplicado al ecosistema IACT (PlantUML)
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+ :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
  (Schmuller Hora 3) y la metodología completa
  :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`.
 
@@ -5470,7 +5470,7 @@ adaptado a IACT, con cross-references.
      **reorientado al dominio real IACT** (call center IVR +
      analytics + RBAC + ETL).
  * - **Teoría genérica**
-   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
      (Schmuller Hora 3)
  * - **Metodología del proyecto**
    - :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`

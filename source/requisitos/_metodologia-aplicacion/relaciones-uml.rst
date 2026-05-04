@@ -27,7 +27,7 @@ Relaciones UML aplicadas al dominio IACT (PlantUML)
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones`
+ :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones/index`
  (Schmuller Hora 4).
 
 ----
@@ -4202,10 +4202,10 @@ Próximas subsecciones potenciales
      **reorientado al dominio real IACT** (call center IVR +
      analytics + RBAC + ETL).
  * - **Teoría genérica**
-   - :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones`
+   - :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones/index`
      (Schmuller Hora 4)
  * - **Cheat-sheet de los 9 diagramas**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Modelo RBAC vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Catálogo modular del dominio IACT**

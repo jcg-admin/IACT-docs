@@ -23,7 +23,7 @@ Diagramas de estados — comportamiento temporal aplicado a IACT
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-08-diagramas-estados`
+ :doc:`/base-cognitiva/_uml/uml-08-diagramas-estados/index`
  (Schmuller Hora 8).
 
 ----
@@ -1038,9 +1038,9 @@ Mantener cada snippet ≤ 6-8 estados.
      interno con dominio ecommerce), reorientado al dominio
      real IACT.
  * - **Lección teórica**
-   - :doc:`/base-cognitiva/_uml/uml-08-diagramas-estados`
+   - :doc:`/base-cognitiva/_uml/uml-08-diagramas-estados/index`
  * - **Cheat-sheet UML**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Ejemplos hermanos**

@@ -23,7 +23,7 @@ Diagramas de secuencias — interacciones temporales aplicadas a IACT
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias`.
+ :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias/index`.
 
 ----
 
@@ -3392,9 +3392,9 @@ Mantenimiento de la galería
      interno con dominio ecommerce), reorientado al
      dominio real IACT.
  * - **Lección teórica**
-   - :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias`
+   - :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias/index`
  * - **Cheat-sheet UML**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Ejemplos hermanos**

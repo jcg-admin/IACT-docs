@@ -2893,7 +2893,7 @@ disciplina de formato:
      reescrito en PlantUML **y reorientado al dominio real
      IACT** (call center IVR + analytics + RBAC + ETL).
  * - **Teoría OOP genérica**
-   - :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos`
+   - :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos/index`
      (Schmuller Hora 2)
  * - **Metodología OOP del proyecto**
    - :doc:`/normativa/estandares/metodologia-oop-para-ucs`

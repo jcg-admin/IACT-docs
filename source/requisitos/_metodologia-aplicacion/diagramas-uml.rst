@@ -27,7 +27,7 @@ Ejemplos UML aplicados al dominio IACT (PlantUML)
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica de cada diagrama ver
- :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama` (cheat-
+ :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index` (cheat-
  sheet) y la serie pedagógica :doc:`/base-cognitiva/_uml/index`.
 
 ----
@@ -1331,7 +1331,7 @@ Política IACT — UML por fase
      **reorientado al dominio real IACT** (call center IVR +
      analytics + RBAC + ETL nocturno).
  * - **Cheat-sheet genérica complementaria**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Lecciones completas (Schmuller)**
    - :doc:`/base-cognitiva/_uml/index`
  * - **Plan de documentación que aplica estos ejemplos**

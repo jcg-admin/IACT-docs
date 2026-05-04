@@ -28,7 +28,7 @@ Análisis y especificación de casos de uso — IACT
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-06-introduccion-casos-uso`
+ :doc:`/base-cognitiva/_uml/uml-06-introduccion-casos-uso/index`
  (Schmuller Hora 6).
 
 ----
@@ -739,10 +739,10 @@ Para cada uno de los 97 UCs:
      dominio ecommerce), **reorientado al dominio real
      IACT**.
  * - **Teoría genérica**
-   - :doc:`/base-cognitiva/_uml/uml-06-introduccion-casos-uso`
+   - :doc:`/base-cognitiva/_uml/uml-06-introduccion-casos-uso/index`
      (Schmuller Hora 6)
  * - **Cheat-sheet de los 9 diagramas**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Ejemplos hermanos aplicados a IACT**
    - :doc:`diagramas-uml`,
      :doc:`orientacion-objetos`,

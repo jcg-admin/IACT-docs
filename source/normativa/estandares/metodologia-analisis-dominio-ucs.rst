@@ -59,7 +59,7 @@ Metodología de Análisis de Dominio para UCs
    - ``- adjetivo : Boolean``
 
 Para los fundamentos de esta técnica ver
-:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
 § "Qué hacen las clases y cómo encontrarlas" (ejemplo del
 entrenador de baloncesto).
 
@@ -811,7 +811,7 @@ Cada documento generado per
      MERMAID v4.0.0" (propuesta interna), reescrito para
      PlantUML.
  * - **Fundamento UML**
-   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
      (técnica original de Schmuller con el ejemplo del
      entrenador de baloncesto)
  * - **Metodología hermana (OOP)**

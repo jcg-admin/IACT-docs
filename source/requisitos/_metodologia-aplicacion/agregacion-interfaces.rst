@@ -28,7 +28,7 @@ Agregación, composición, interfaces y realización — IACT
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-05-agregacion-composicion-interfaces`
+ :doc:`/base-cognitiva/_uml/uml-05-agregacion-composicion-interfaces/index`
  (Schmuller Hora 5).
 
 ----
@@ -1568,10 +1568,10 @@ debe quedar registrada en un ADR del subdominio afectado.
      REALIZACION" (cheat-sheet aplicado interno con dominio
      ecommerce), **reorientado al dominio real IACT**.
  * - **Teoría genérica**
-   - :doc:`/base-cognitiva/_uml/uml-05-agregacion-composicion-interfaces`
+   - :doc:`/base-cognitiva/_uml/uml-05-agregacion-composicion-interfaces/index`
      (Schmuller Hora 5)
  * - **Cheat-sheet de los 9 diagramas**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Modelo RBAC vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Catálogo modular del dominio IACT**

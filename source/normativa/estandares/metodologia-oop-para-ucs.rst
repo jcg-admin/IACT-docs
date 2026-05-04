@@ -66,7 +66,7 @@ Las seis dimensiones obligatorias son:
 
   Para los fundamentos UML/OOP en sí, consulte la serie
   pedagógica :doc:`/base-cognitiva/_uml/index` (en particular
-  :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos`).
+  :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos/index`).
 
 ----
 
@@ -331,10 +331,10 @@ Las asociaciones representan **relaciones formales** entre UCs.
 
 Para la fundamentación detallada de cada patrón, ver:
 
-- :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos`
+- :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos/index`
   (herencia, polimorfismo, encapsulamiento, mensajes,
   asociaciones, agregación, composición).
-- :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones`
+- :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones/index`
   (asociación binaria, reflexiva, calificada, generalización,
   dependencia).
 
@@ -599,8 +599,8 @@ Para cada UC documentado, validar las **seis dimensiones**:
    - Adaptado de "INTEGRACIÓN UML + OOP + MERMAID v3.0.0"
      (propuesta interna), reescrito para PlantUML.
  * - **Fundamentos UML/OOP**
-   - :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos`,
-     :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones`
+   - :doc:`/base-cognitiva/_uml/uml-02-orientacion-objetos/index`,
+     :doc:`/base-cognitiva/_uml/uml-04-uso-relaciones/index`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Plan de aplicación**

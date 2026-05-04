@@ -24,7 +24,7 @@ Diagramas de colaboraciones — contexto espacial aplicado a IACT
  no ASCII art).
 
  Para la teoría genérica ver
- :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones`.
+ :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones/index`.
 
 ----
 
@@ -897,9 +897,9 @@ Mantener cada snippet ≤ 6 mensajes.
      interno con dominio ecommerce), reorientado al
      dominio real IACT.
  * - **Lección teórica**
-   - :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones`
+   - :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones/index`
  * - **Cheat-sheet UML**
-   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Ejemplos hermanos**
