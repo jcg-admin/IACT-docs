@@ -17,8 +17,9 @@ Domain Model — Vista Logica
 ===========================
 
 Modelo de dominio canonico del sistema IACT. Contiene un archivo por
-cada clase de dominio (26 clases en 8 bounded contexts) extraidas de
-los diagramas canónicos en ``bounded-contexts/``.
+clase (67 clases en 8 bounded contexts). Las clases con ``:estado:
+Pendiente`` son stubs identificados en UCs pero pendientes de
+desarrollo completo de atributos canonicos.
 
 Granularidad: una clase por archivo. Los diagramas de cada clase
 incluyen sus atributos canonicos, metodos, enums propios y relaciones
@@ -45,9 +46,20 @@ directas con otras clases del mismo bounded context.
  function
  function-group
  access-group
+ access-group-function
  assignment
  exceptional-permission
  separation-rule
+ permission-service
+ permission-cache
+ assignment-repo
+ exceptional-permission-repo
+ rbac-repo
+ rule-validator
+ menu
+ nav-domain
+ section
+ action
 
 .. toctree::
  :maxdepth: 1
@@ -65,6 +77,23 @@ directas con otras clases del mismo bounded context.
  export-job
  scheduled-report
  saved-view
+ saved-filter
+ historical-report
+ bucket
+ comparative
+ column-catalog
+ filter-validator
+ kpi-calculator
+ segment-resolver
+ servicio-reportes
+ abandono-report-service
+ agent-report-service
+ agent-daily-stat-repo
+ clientes-report-service
+ menu-ivr-report-service
+ transferencias-report-service
+ scheduled-report-list-service
+ scheduled-report-repo
 
 .. toctree::
  :maxdepth: 1
@@ -79,12 +108,26 @@ directas con otras clases del mismo bounded context.
  alert
  threshold
  subscription
+ alert-rule
+ alert-repo
+ evaluator-reloader
+ rule-validator
+ timing-calculator
 
 .. toctree::
  :maxdepth: 1
  :caption: BC Audit — Auditoria
 
  audit-event
+ audit-service
+ audit-repo
+ audit-query-service
+ audit-validator
+ pii-scanner
+ sanitizer
+ cursor-encoder
+ alert-hook
+ export-worker
 
 .. toctree::
  :maxdepth: 1
