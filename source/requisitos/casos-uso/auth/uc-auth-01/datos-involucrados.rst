@@ -216,7 +216,7 @@ Campos consultados/escritos:
 - ``user_id``, ``username`` — para localizar
   (paso 7).
 - ``password_hash`` — para verificar (paso 9,
-  bcrypt).
+  verificarHash).
 - ``state`` — para validar elegibilidad (paso 8).
 - ``first_login`` — para decidir FA-01.
 - ``password_expires_at`` — para decidir FA-02.

@@ -82,7 +82,7 @@ solo por sí mismo revela el rol o nombre del participante.
 El alias es el **nombre exacto de la función RBAC** del catálogo
 (snake_case):
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    actor "view_reports" as view_reports
@@ -92,7 +92,7 @@ El alias es el **nombre exacto de la función RBAC** del catálogo
 Cuando el actor tiene múltiples funciones en la etiqueta, usar la
 **función principal** (la que da nombre al UC) como alias:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO — función principal como alias
    actor "view_reports\n(view_dashboard)" as view_reports
@@ -103,7 +103,7 @@ Cuando el actor tiene múltiples funciones en la etiqueta, usar la
 
 El alias es el nombre de la clase/servicio en CamelCase, sin espacios:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    participant "AuthEndpoint" as AuthEndpoint
@@ -114,7 +114,7 @@ El alias es el nombre de la clase/servicio en CamelCase, sin espacios:
 
 Para nombres semánticos con espacios (vistas Kruchten):
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    participant "Interfaz de Acceso" as InterfazDeAcceso
@@ -124,7 +124,7 @@ Para nombres semánticos con espacios (vistas Kruchten):
 3.3 Objetos (Comunicación / Colaboración)
 ------------------------------------------
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    object ":AuthEndpoint" as AuthEndpoint
@@ -134,7 +134,7 @@ Para nombres semánticos con espacios (vistas Kruchten):
 3.4 Nodos de Despliegue
 ------------------------
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    node "Apache + mod_wsgi" as WebServer
@@ -151,7 +151,7 @@ Para nombres semánticos con espacios (vistas Kruchten):
 Los aliases de estados pueden ser cortos si el estado es referenciado
 muchas veces, pero deben ser multi-palabra reconocibles:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    state "Autenticacion JWT" as AUTH

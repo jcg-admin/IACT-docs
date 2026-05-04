@@ -109,7 +109,7 @@ PASO 7 — Validar password actual
  :header-rows: 0
 
  * - **Accion**
-   - ``bcrypt.checkpw(current_password,
+   - ``verificarHash(current_password,
      user.password_hash)``
  * - **Sistema**
    - Si OK, sigue. Si no, EX-02 (400). Aplicar
@@ -144,12 +144,12 @@ PASO 9 — Validar no-reuso
      PasswordHistory.objects.filter(
      user=user).order_by('-changed_at')[:5]``;
      para cada hash en recent:
-     ``bcrypt.checkpw(new_password, hash)``
+     ``verificarHash(new_password, hash)``
  * - **Sistema**
    - Si alguna coincide, EX-04 (400).
  * - **Tambien**
    - Verifica que la nueva no coincide con la
-     actual: ``bcrypt.checkpw(new_password,
+     actual: ``verificarHash(new_password,
      user.password_hash) == False``. Si
      coincide → EX-05 (400).
 

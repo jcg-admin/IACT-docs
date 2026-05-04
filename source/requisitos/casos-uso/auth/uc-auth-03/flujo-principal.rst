@@ -22,7 +22,7 @@ resetea la contrasena de un User valido.
    PASO 7   Backend valida token + RBAC             (Backend)
    PASO 8   Backend valida User destino             (Backend → BD)
    PASO 9   Backend genera password temporal        (Backend)
-   PASO 10  Backend hashea bcrypt + UPDATE User     (Backend → BD)
+   PASO 10  Backend genera hash + UPDATE User        (Backend → BD)
    PASO 11  Backend cierra Sessions del User        (Backend → BD)
    PASO 12  Backend crea InternalMessage            (Backend → BD)
    PASO 13  Backend emite AuditEvent PASSWORD_RESET (Backend → BD)

@@ -32,7 +32,7 @@ Parte 8 — Diagramas UML
  :GET /logs/etl/;
  :JWT + RBAC (view_etl_logs);
  :Validar filtros (trimestre, estado);
- :Consultar etl_runs en MariaDB;
+ :Consultar etl_runs en el Almacen de Datos;
  :Filtrar por estado si aplica;
  :Sanitizar resultados;
  :200 con lista de ejecuciones ETL;
@@ -46,7 +46,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  component "ETLScheduler\n(sp_etl_maestro)" as Etlscheduler
- database "etl_runs\n(MariaDB)" as etl_runs
+ database "etl_runs" as etl_runs
  component "LogEndpoint\n(/logs/etl/)" as Logendpoint
  actor "view_etl_logs" as view_etl_logs
 
@@ -65,14 +65,14 @@ Parte 8 — Diagramas UML
  @startuml
  actor "view_etl_logs" as view_etl_logs
  participant "ETLLogEndpoint" as Etllogendpoint
- database "etl_runs\n(MariaDB)" as etl_runs
+ database "etl_runs" as etl_runs
 
  view_etl_logs -> Etllogendpoint : GET /logs/etl/?trimestre=Q1
  Etllogendpoint -> Etllogendpoint : JWT + RBAC (view_etl_logs)
  alt sin permiso
    Etllogendpoint --> view_etl_logs : 403 Forbidden
  else con permiso
-   Etllogendpoint -> etl_runs : SELECT * FROM etl_runs WHERE trimestre=Q1
+   Etllogendpoint -> etl_runs : consultar ejecuciones por trimestre
    etl_runs --> Etllogendpoint : filas
    Etllogendpoint --> view_etl_logs : 200 + lista ejecuciones ETL
  end

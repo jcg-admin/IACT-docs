@@ -101,7 +101,7 @@ nivel de UC. Cada invocacion es independiente.
 siendo modificado simultaneamente por otro
 admin via UC_USR_03 (modificar usuario).
 
-**Justificacion**: lock de fila MySQL (SELECT
+**Justificacion**: lock de fila en el repositorio (SELECT
 ... FOR UPDATE) puede causar espera. El UC
 debe tolerar la espera y proceder cuando el
 lock se libera.

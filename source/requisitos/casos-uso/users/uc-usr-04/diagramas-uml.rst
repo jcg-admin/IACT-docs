@@ -265,7 +265,7 @@ Parte 8 — Diagramas UML
  endif
 
  :POST /api/auth/login/;
- :Backend SELECT User WHERE username = ?;
+ :Servicio de Autenticacion busca usuario por username;
 
  if (User.state == ELIMINATED?) then (si)
    :401 ACCOUNT_ELIMINATED;

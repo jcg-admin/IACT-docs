@@ -85,7 +85,7 @@ Parte 8 — Diagramas UML
    Auditexportendpoint -> Auditexportendpoint : validar filtros
    Auditexportendpoint -> Exportworker : encolar job
    Auditexportendpoint --> export_audit_log : 202 Accepted + job_id
-   Exportworker -> RepositorioDeAuditoria : SELECT FROM audit_log WHERE filters
+   Exportworker -> RepositorioDeAuditoria : consultar registros por filtros
    RepositorioDeAuditoria --> Exportworker : rows
    Exportworker -> Exportworker : formatear CSV/JSON
    Exportworker -> Internalmailbox : INSERT notificacion con adjunto

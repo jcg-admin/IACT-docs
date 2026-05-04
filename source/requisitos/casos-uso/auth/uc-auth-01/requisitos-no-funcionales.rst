@@ -58,8 +58,7 @@ constraints que los gobiernan.
  * - **TLS minimo**
    - TLS 1.2+ (no SSL v3 ni TLS 1.0/1.1).
  * - **Storage de password**
-   - bcrypt con coste configurado segun ADR de
-     implementacion. **Nunca** plaintext en BD,
+   - el algoritmo de hash seguro con costo configurado. **Nunca** plaintext en BD,
      logs o respuesta.
  * - **Comparacion de password**
    - Constant-time (``verificarHash()``) para

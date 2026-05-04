@@ -254,19 +254,19 @@ una línea discontinua etiquetada con el estereotipo
    @startuml
    allowmixing
 
-   object "sesion : Sesion\n[Anonima]"  as SesionSesion
+   object "sesion : Sesion\n[Anonima]"  as SesionAnonima
    object ":AuthService"                as AuthService
    object ":SessionStore"               as SessionStore
-   object "sesion : Sesion\n[Activa]"   as SesionSesion
+   object "sesion : Sesion\n[Activa]"   as SesionActiva
 
    actor Usuario
 
    Usuario -> AuthService : "1: login(email, pass)"
    AuthService -> SessionStore      : "2: validar_credenciales()"
    SessionStore -> AuthService      : "3: ok + segmento"
-   AuthService -> SesionSesion      : "4: invalidar_anonima()"
-   AuthService -> SesionSesion      : "5: crear_activa(token)"
-   SesionSesion ..> SesionSesion    : "<<se_transforma_en>>"
+   AuthService -> SesionAnonima     : "4: invalidar_anonima()"
+   AuthService -> SesionActiva      : "5: crear_activa(token)"
+   SesionAnonima ..> SesionActiva   : "<<se_transforma_en>>"
    @enduml
 
 ----

@@ -143,7 +143,7 @@ Parte 8 — Diagramas UML
 
  :Generar username CNST-029;
  :Generar password temporal;
- :bcrypt.hashpw cost 12;
+ :generarHash (costo de hash configurado);
 
  partition "Transaccion atomica" {
    :INSERT User (first_login=true);

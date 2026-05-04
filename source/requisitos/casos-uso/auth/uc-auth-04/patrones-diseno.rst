@@ -86,7 +86,7 @@ Mitigacion contra ataques contra password actual
 10.2.5 P-14 Constant-time + delay aleatorio
 -------------------------------------------
 
-bcrypt.checkpw es constant-time por diseno; el
+verificarHash es constant-time por diseno; el
 delay aleatorio adicional 100-200ms evita
 inferir validez de current_password por timing.
 

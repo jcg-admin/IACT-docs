@@ -38,7 +38,7 @@ desbloquear su sesion.
 
 Responsabilidades:
 
-- Validar contrasena actual (bcrypt.checkpw).
+- Validar contrasena actual (verificarHash).
 - Validar complejidad de la nueva.
 - Consultar PasswordHistory para verificar
   no-reuso.

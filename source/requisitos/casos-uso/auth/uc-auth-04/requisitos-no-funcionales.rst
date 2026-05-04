@@ -49,7 +49,7 @@ Parte 6 — Requisitos no funcionales
      aparece en logs, response, AuditEvent
      payload, o stacktrace
  * - **Constant-time check**
-   - bcrypt.checkpw es constant-time por
+   - verificarHash es constant-time por
      diseno; el delay defensivo aleatorio
      adiciona resistencia a timing
  * - **CSRF**

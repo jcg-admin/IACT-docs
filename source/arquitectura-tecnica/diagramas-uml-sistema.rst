@@ -491,63 +491,53 @@ final.
 
  @startuml
 
- state "Autenticacion JWT" as AUTH {
-   entry/usuario ingresa username y password
-   do/validar credenciales + cargar RBAC en PostgreSQL
-   exit/JWT generado con payload de funciones
- }
+ state "Autenticacion JWT" as AUTH
+ AUTH : entry/usuario ingresa username y password
+ AUTH : do/validar credenciales + cargar RBAC en PostgreSQL
+ AUTH : exit/JWT generado con payload de funciones
 
  state "Dashboard IACT" as DASH {
-   entry/JWT valido recibido
-   do/filtrar modulos segun funciones RBAC del JWT
-   exit/cierre de sesion o JWT expirado
+   state "Ver Dashboard IVR\n[view_dashboard]" as S_DASH
+   state "MOD Reports\n[view_reports]" as S_RPT
+   state "Gestion Pipeline ETL\n[view_pipeline_status]" as S_ETL
+   state "Consulta de Logs\n[view_audit_log]" as S_LOG
+   state "Gestion RBAC\n[assign_functions]" as S_RBAC
 
-   state "Ver Dashboard IVR\n[view_dashboard]" as S_DASH {
-     entry/usuario selecciona dashboard
-     do/callproc(sp_rpt_centros_xsegmento, [trimestre])
-     exit/KPIs mostrados en frontend
-   }
+   S_DASH : entry/usuario selecciona dashboard
+   S_DASH : do/callproc sp_rpt_centros_xsegmento
+   S_DASH : exit/KPIs mostrados en frontend
 
-   state "MOD Reports\n[view_reports]" as S_RPT {
-     entry/usuario selecciona reporte
-     do/UC_INC_RPT_01 + callproc(sp_rpt_*, [trimestre])
-     exit/datos del reporte mostrados
-   }
+   S_RPT : entry/usuario selecciona reporte
+   S_RPT : do/UC_INC_RPT_01 + callproc sp_rpt_*
+   S_RPT : exit/datos del reporte mostrados
 
-   state "Gestion Pipeline ETL\n[view_pipeline_status / request_pipeline_retry]" as S_ETL {
-     entry/usuario selecciona pipeline
-     do/CALL sp_etl_maestro(trimestre) via DisparadorETL
-     exit/estado registrado en etl_runs
-   }
+   S_ETL : entry/usuario selecciona pipeline
+   S_ETL : do/CALL sp_etl_maestro via DisparadorETL
+   S_ETL : exit/estado registrado en etl_runs
 
-   state "Consulta de Logs\n[view_audit_log]" as S_LOG {
-     entry/usuario selecciona logs
-     do/consultar audit_log en PostgreSQL
-     exit/logs mostrados con paginacion
-   }
+   S_LOG : entry/usuario selecciona logs
+   S_LOG : do/consultar audit_log en PostgreSQL
+   S_LOG : exit/logs mostrados con paginacion
 
-   state "Gestion RBAC\n[assign_functions / revoke_functions]" as S_RBAC {
-     entry/assign_functions selecciona administracion
-     do/modificar AccessGroup y DIDs en PostgreSQL
-     exit/cambios guardados y propagados
-   }
+   S_RBAC : entry/assign_functions selecciona administracion
+   S_RBAC : do/modificar AccessGroup y DIDs en PostgreSQL
+   S_RBAC : exit/cambios guardados y propagados
 
    [*] --> S_DASH
    S_DASH --> S_RPT : choice=reportes
    S_DASH --> S_ETL : choice=pipeline
    S_DASH --> S_LOG : choice=logs
-   S_DASH --> S_RBAC : choice=admin\n[assign_functions en JWT]
+   S_DASH --> S_RBAC : choice=admin
    S_RPT --> S_DASH : volver
    S_ETL --> S_DASH : volver
    S_LOG --> S_DASH : volver
    S_RBAC --> S_DASH : volver
  }
 
- state "Cierre de Sesion" as FINAL {
-   entry/usuario cierra sesion o JWT expira
-   do/invalidar JWT + registrar en audit_log
-   exit/fin de sesion
- }
+ state "Cierre de Sesion" as FINAL
+ FINAL : entry/usuario cierra sesion o JWT expira
+ FINAL : do/invalidar JWT + registrar en audit_log
+ FINAL : exit/fin de sesion
 
  [*] --> AUTH
  AUTH --> DASH : [credenciales validas]

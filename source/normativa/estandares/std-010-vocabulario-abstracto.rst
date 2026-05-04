@@ -259,7 +259,7 @@ principios de abstracción:
 
 **Participantes de secuencia:**
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    participant "Interfaz de Acceso" as Iface
@@ -274,7 +274,7 @@ principios de abstracción:
 **Actores:** Los actores SÍ usan el nombre exacto de la función RBAC
 del catálogo (D-DIAG-001). No son nombres institucionales.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' CORRECTO
    actor "view_reports" as view_reports

@@ -209,7 +209,7 @@ PASO 9 — Verificar password
  * - **Actor**
    - Backend
  * - **Accion**
-   - ``bcrypt.check_password(password,
+   - ``verificarHash(password,
      User.password_hash)`` — comparacion
      constant-time
  * - **Sistema responde**

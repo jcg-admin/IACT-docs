@@ -33,7 +33,7 @@ Parte 5 — Excepciones
  * - **Paso de origen**
    - PASO 7
  * - **Condicion**
-   - bcrypt.checkpw retorna False
+   - verificarHash retorna False
  * - **Accion sistema**
    - delay defensivo (sleep 100-200ms aleatorio
      para mitigar timing attacks); incrementa
@@ -107,7 +107,7 @@ respuesta.
  * - **Paso de origen**
    - PASO 9
  * - **Condicion**
-   - bcrypt.checkpw(new, current_hash) == True
+   - verificarHash(new, current_hash) == True
  * - **Response**
    - 400
  * - **Body**

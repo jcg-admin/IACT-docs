@@ -35,8 +35,7 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
  left to right direction
 
  actor "User\n(no autenticado)" as UNAUTH
- actor "User
-(autenticado)" as user_autenticado
+ actor "User\n(autenticado)" as user_autenticado
  actor "view_all_active_sessions" as view_all_active_sessions
 
  rectangle "MOD_Auth" {
@@ -50,8 +49,8 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
 
  UNAUTH --> A01
  UNAUTH --> A03
- AUTH --> A02
- AUTH --> A04
+ user_autenticado --> A02
+ user_autenticado --> A04
  view_all_active_sessions --> A05
  A01 ..> P08 : <<include>>
 
@@ -158,8 +157,7 @@ en ``effective_set``.
  actor "assign_functions_to_group" as assign_functions_to_group
  actor "view_assignments" as view_assignments
  actor "view_audit_log" as view_audit_log
- actor "User
-(autenticado)" as user_autenticado
+ actor "User\n(autenticado)" as user_autenticado
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as P01
@@ -211,8 +209,7 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
  actor "view_dashboard" as view_dashboard
  actor "view_kpis" as view_kpis
  actor "view_reports" as view_reports
- actor "export_csv
-(export_pdf/excel)" as export_csv
+ actor "export_csv\n(export_pdf/excel)" as export_csv
  actor "schedule_report" as schedule_report
  actor "save_view" as save_view
  actor "share_report" as share_report
@@ -325,8 +322,7 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
  actor "view_pipeline_errors" as view_pipeline_errors
  actor "view_data_availability" as view_data_availability
  actor "request_pipeline_retry" as request_pipeline_retry
- actor "APScheduler
-/ Cron" as APScheduler
+ actor "APScheduler\n/ Cron" as APScheduler
 
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nVer Estado ETL\n(etl_runs)" as P01

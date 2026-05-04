@@ -142,7 +142,7 @@ Parte 8 — Diagramas UML
  endif
 
  :Generar password temporal (12+ chars);
- :bcrypt.hashpw cost 12;
+ :generarHash (costo de hash configurado);
 
  partition "Transaccion atomica" {
    :UPDATE User (password_hash, first_login=true);

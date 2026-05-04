@@ -65,7 +65,7 @@ Parte 8 — Diagramas UML
 
  Authservice -> BaseDeDatos: SELECT User FOR UPDATE
  BaseDeDatos --> Authservice: user
- Authservice -> Authservice: bcrypt.checkpw(current, user.hash)
+ Authservice -> Authservice: verificarHash(current, user.hash)
  alt Password actual incorrecto
    Authservice --> Changepasswordview: WrongCurrentPassword
    Changepasswordview --> Frontend: 400 WRONG_CURRENT_PASSWORD
@@ -78,7 +78,7 @@ Parte 8 — Diagramas UML
    else OK
      Authservice -> BaseDeDatos: SELECT history WHERE user=?\n  ORDER BY changed_at DESC LIMIT 5
      BaseDeDatos --> Authservice: hashes[5]
-     Authservice -> Authservice: for h in hashes:\n  if bcrypt.checkpw(new, h): reused
+     Authservice -> Authservice: for h in hashes:\n  if verificarHash(new, h): reused
      alt Reuso
        Authservice --> Changepasswordview: PasswordReused
        Changepasswordview --> Frontend: 400 PASSWORD_REUSED
@@ -124,7 +124,7 @@ Parte 8 — Diagramas UML
  else (si)
  endif
 
- if (bcrypt.checkpw(current, user.hash)?) then (no)
+ if (verificarHash(current, user.hash)?) then (no)
    :delay defensivo;
    :incrementar contador;
    if (5+ fallos en 5min?) then (si)
