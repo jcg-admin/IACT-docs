@@ -1,9 +1,10 @@
 ```yml
 created_at: 2026-05-04 04:22:56
+updated_at: 2026-05-04 04:35:00
 project: IACT-docs
 author: NestorMonroy
 status: Aprobado
-version: 1.0.0
+version: 1.1.0
 ```
 
 # ADR: Estrategia de Edicion de FRs — Quirurgica vs. Reescritura Total
@@ -15,11 +16,24 @@ Durante el trabajo de documentacion de FRs (Functional Requirements) en
 grados de completitud. Dos patrones de edicion emergieron como optimos
 segun el estado del FR.
 
+## Protocolo completo — Antes de tocar cualquier FR
+
+Estos pasos son obligatorios en orden:
+
+1. **Leer el UC** — entender QUE debe documentar el FR antes de tocar nada.
+2. **Leer el FR actual** — ver exactamente que hay, que esta bien y que esta mal.
+3. **Decidir el enfoque** (ver Decision abajo).
+4. **Aplicar el cambio.**
+5. **Verificar el resultado** — leer el archivo modificado y confirmar que el
+   cambio quedo como se esperaba antes de hacer commit.
+
+No saltarse los pasos 1, 2 y 5. La verificacion previa al commit es obligatoria.
+
 ## Decision
 
 La estrategia de edicion se elige segun el estado del FR:
 
-### Caso A — Edicion quirurgica (`str_replace` / `Edit`)
+### Caso A — Edicion quirurgica (`Edit` / `str_replace`)
 
 **Cuando:** El FR ya tiene estructura aceptable y solo una seccion esta mal.
 
@@ -50,6 +64,20 @@ prosa; el resto se preservo intacto.
 **Ejemplo aplicado:** FRs del batch `notifications/` — `NOT-01.02` tenia 103
 lineas, declaracion copiada literalmente, escenarios genericos, y le faltaban
 5 de 6 secciones obligatorias.
+
+### Caso C — Mixto (`Edit` para secciones malas + adiciones para secciones faltantes)
+
+**Cuando:** El FR tiene algunas secciones buenas y otras completamente ausentes.
+
+**Criterios para elegir este caso:**
+- Hay al menos 2 secciones con contenido valido
+- Hay al menos 1 seccion completamente ausente (no solo incompleta)
+- No conviene reescribir todo porque se perderia el contexto valido existente
+
+**Accion:** `Edit` (str_replace) para corregir lo que esta mal + agregar
+las secciones faltantes al final o en la posicion correcta.
+
+**Regla:** No usar Caso B si se puede salvar mas de la mitad del FR existente.
 
 ## Regla de contenido de FRs
 
