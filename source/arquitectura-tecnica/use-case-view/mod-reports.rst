@@ -39,49 +39,49 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as ResolverSegmento
-   usecase "UC_RPT_01\nVer Dashboard IVR" as R01
-   usecase "UC_RPT_02\nVer Metricas\nTiempo Real" as R02
-   usecase "UC_RPT_03\nVer Reportes\nHistoricos" as R03
-   usecase "UC_RPT_04\nExportar Reporte" as R04
-   usecase "UC_RPT_07\nProgramar Reporte" as R07
-   usecase "UC_RPT_08\nVer Reportes\nProgramados" as R08
-   usecase "UC_RPT_10\nGuardar Vista" as R10
-   usecase "UC_RPT_11\nCompartir Reporte" as R11
-   usecase "UC_RPT_12\nReporte de Agentes\n(sp_rpt_centros_xsegmento)" as R12
-   usecase "UC_RPT_13\nReporte de Colas\n(sp_rpt_llamadas_abandonadas)" as R13
-   usecase "UC_RPT_14\nReporte de Campanas" as R14
-   usecase "UC_RPT_15\nReporte de\nTransferencias\n(sp_rpt_centros_transferencia)" as R15
-   usecase "UC_RPT_16\nReporte de Menus IVR\n(sp_rpt_menu_redirigidos)" as R16
-   usecase "UC_RPT_17\nReporte de Clientes\nUnicos\n(sp_rpt_clientes)" as R17
+   usecase "UC_RPT_01\nVer Dashboard IVR" as VER_DASHBOARD_IVR
+   usecase "UC_RPT_02\nVer Metricas\nTiempo Real" as VER_METRICAS_TIEMPO_REAL
+   usecase "UC_RPT_03\nVer Reportes\nHistoricos" as VER_REPORTES_HISTORICOS
+   usecase "UC_RPT_04\nExportar Reporte" as EXPORTAR_REPORTE
+   usecase "UC_RPT_07\nProgramar Reporte" as PROGRAMAR_REPORTE
+   usecase "UC_RPT_08\nVer Reportes\nProgramados" as VER_REPORTES_PROGRAMADOS
+   usecase "UC_RPT_10\nGuardar Vista" as GUARDAR_VISTA
+   usecase "UC_RPT_11\nCompartir Reporte" as COMPARTIR_REPORTE
+   usecase "UC_RPT_12\nReporte de Agentes\n(sp_rpt_centros_xsegmento)" as REPORTE_AGENTES
+   usecase "UC_RPT_13\nReporte de Colas\n(sp_rpt_llamadas_abandonadas)" as REPORTE_COLAS
+   usecase "UC_RPT_14\nReporte de Campanas" as REPORTE_CAMPANAS
+   usecase "UC_RPT_15\nReporte de\nTransferencias\n(sp_rpt_centros_transferencia)" as REPORTE_TRANSFERENCIAS
+   usecase "UC_RPT_16\nReporte de Menus IVR\n(sp_rpt_menu_redirigidos)" as REPORTE_MENUS_IVR
+   usecase "UC_RPT_17\nReporte de Clientes\nUnicos\n(sp_rpt_clientes)" as REPORTE_CLIENTES_UNICOS
  }
 
- view_dashboard --> R01
- view_kpis --> R02
- view_reports --> R03
- export_csv --> R04
- schedule_report --> R07
- schedule_report --> R08
- save_view --> R10
- share_report --> R11
- view_reports --> R12
- view_reports --> R13
- view_reports --> R14
- view_reports --> R15
- view_reports --> R16
- view_reports --> R17
+ view_dashboard --> VER_DASHBOARD_IVR
+ view_kpis --> VER_METRICAS_TIEMPO_REAL
+ view_reports --> VER_REPORTES_HISTORICOS
+ export_csv --> EXPORTAR_REPORTE
+ schedule_report --> PROGRAMAR_REPORTE
+ schedule_report --> VER_REPORTES_PROGRAMADOS
+ save_view --> GUARDAR_VISTA
+ share_report --> COMPARTIR_REPORTE
+ view_reports --> REPORTE_AGENTES
+ view_reports --> REPORTE_COLAS
+ view_reports --> REPORTE_CAMPANAS
+ view_reports --> REPORTE_TRANSFERENCIAS
+ view_reports --> REPORTE_MENUS_IVR
+ view_reports --> REPORTE_CLIENTES_UNICOS
 
- R01 ..> INC : <<include>>
- R02 ..> INC : <<include>>
- R03 ..> INC : <<include>>
- R12 ..> INC : <<include>>
- R13 ..> INC : <<include>>
- R14 ..> INC : <<include>>
- R15 ..> INC : <<include>>
- R16 ..> INC : <<include>>
- R17 ..> INC : <<include>>
+ VER_DASHBOARD_IVR ..> INC : <<include>>
+ VER_METRICAS_TIEMPO_REAL ..> INC : <<include>>
+ VER_REPORTES_HISTORICOS ..> INC : <<include>>
+ REPORTE_AGENTES ..> INC : <<include>>
+ REPORTE_COLAS ..> INC : <<include>>
+ REPORTE_CAMPANAS ..> INC : <<include>>
+ REPORTE_TRANSFERENCIAS ..> INC : <<include>>
+ REPORTE_MENUS_IVR ..> INC : <<include>>
+ REPORTE_CLIENTES_UNICOS ..> INC : <<include>>
 
- R03 ..> R04 : <<extend>>
- R03 ..> R07 : <<extend>>
+ VER_REPORTES_HISTORICOS ..> EXPORTAR_REPORTE : <<extend>>
+ VER_REPORTES_HISTORICOS ..> PROGRAMAR_REPORTE : <<extend>>
 
  @enduml
 

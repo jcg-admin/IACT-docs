@@ -157,13 +157,13 @@ el detalle de cada contexto ver § 4.
    BorderColor #888
  }
 
- package "Auth" as A {
+ package "Auth" as BC_AUTH {
    class User
    class Session
    class InternalMailbox
  }
 
- package "RBAC (subsume PERM)" as R {
+ package "RBAC (subsume PERM)" as BC_RBAC {
    class Function
    class FunctionGroup
    class AccessGroup
@@ -172,12 +172,12 @@ el detalle de cada contexto ver § 4.
    class SeparationRule
  }
 
- package "Calls" as C {
+ package "Calls" as BC_CALLS {
    class Call
    class Campaign
  }
 
- package "Reports & Metrics" as P {
+ package "Reports & Metrics" as BC_REPORTS {
    class Report
    class Metric
    class ExportJob
@@ -185,21 +185,21 @@ el detalle de cada contexto ver § 4.
    class SavedView
  }
 
- package "Pipeline ETL" as E {
+ package "Pipeline ETL" as BC_ETL {
    class ETLEjecucion
  }
 
- package "Alerts" as L {
+ package "Alerts" as BC_ALERTS {
    class Alert
    class Threshold
    class Subscription
  }
 
- package "Audit" as D {
+ package "Audit" as BC_AUDIT {
    class AuditEvent
  }
 
- package "Logs" as G {
+ package "Logs" as BC_LOGS {
    class ApplicationLog
    class ETLLog
    class InfrastructureLog
@@ -222,7 +222,7 @@ el detalle de cada contexto ver § 4.
  Alert     "1" -- "*"   Subscription
  Subscription "*" -- "1" User
 
- note right of D
+ note right of BC_AUDIT
    Toda operacion de escritura en
    cualquier contexto produce 1 o mas
    AuditEvent (CNST-025: inmutable,

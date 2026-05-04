@@ -18,12 +18,12 @@ módulo del catálogo modular.
 
    rectangle "IACT" {
      package "UC_AUTH (5 UCs)" {
-       usecase "Iniciar sesión"  as A1
-       usecase "Cerrar sesión"   as A2
+       usecase "Iniciar sesión"  as INICIAR_SESION
+       usecase "Cerrar sesión"   as CERRAR_SESION
      }
 
      package "UC_USR (4 UCs)" {
-       usecase "CRUD usuarios" as U1
+       usecase "CRUD usuarios" as CRUD_USUARIOS
      }
 
      package "UC_ACC (9 UCs)" {
@@ -37,8 +37,8 @@ módulo del catálogo modular.
      }
 
      package "UC_RPT (14 UCs)" {
-       usecase "Ver dashboard"       as R1
-       usecase "Exportar reporte"    as R4
+       usecase "Ver dashboard"       as VER_DASHBOARD_IVR
+       usecase "Exportar reporte"    as EJECUTAR_PROCEDIMIENTO_RPT
      }
 
      package "UC_ALR (5 UCs)" {
@@ -55,13 +55,13 @@ módulo del catálogo modular.
      }
 
      package "UC_LOG (7 UCs)" {
-       usecase "Consultar logs"      as L1
+       usecase "Consultar logs"      as CONSULTAR_LOGS
      }
    }
 
-   Operador   --> A1
-   Operador   --> R1
-   Supervisor --> R4
+   Operador   --> INICIAR_SESION
+   Operador   --> VER_DASHBOARD_IVR
+   Supervisor --> EJECUTAR_PROCEDIMIENTO_RPT
    Supervisor --> AL3
    AdminAcceso         --> AC1
    AdminAcceso         --> AC5

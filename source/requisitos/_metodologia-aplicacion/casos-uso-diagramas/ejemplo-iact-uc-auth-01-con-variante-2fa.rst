@@ -9,14 +9,14 @@
    actor Usuario
 
    rectangle "IACT" {
-     usecase "UC_AUTH_01\nIniciar sesión\n(BASE)"       as A1
+     usecase "UC_AUTH_01\nIniciar sesión\n(BASE)"       as INICIAR_SESION
      usecase "UC_AUTH_01b\nIniciar sesión\ncon 2FA"     as A1B
    }
 
-   Usuario --> A1
+   Usuario --> INICIAR_SESION
    Usuario --> A1B
 
-   A1B --|> A1
+   A1B --|> INICIAR_SESION
 
    note right of A1B
      UC_AUTH_01b HEREDA de UC_AUTH_01:

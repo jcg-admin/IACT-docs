@@ -38,26 +38,26 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
  actor "view_technical_metrics" as view_technical_metrics
 
  rectangle "MOD_Logs" {
-   usecase "UC_LOG_01\nVer Logs\ndel Sistema" as L01
-   usecase "UC_LOG_02\nVer Logs ETL\n(etl_runs)" as L02
-   usecase "UC_LOG_03\nBuscar Logs" as L03
-   usecase "UC_LOG_04\nExportar Logs" as L04
-   usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as L05
-   usecase "UC_LOG_06\nVer Estado\ndel Sistema" as L06
-   usecase "UC_LOG_07\nVer Metricas\nTecnicas" as L07
+   usecase "UC_LOG_01\nVer Logs\ndel Sistema" as VER_LOGS_SISTEMA
+   usecase "UC_LOG_02\nVer Logs ETL\n(etl_runs)" as VER_LOGS_ETL
+   usecase "UC_LOG_03\nBuscar Logs" as BUSCAR_LOGS
+   usecase "UC_LOG_04\nExportar Logs" as EXPORTAR_LOGS
+   usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as VER_LOGS_INFRAESTRUCTURA
+   usecase "UC_LOG_06\nVer Estado\ndel Sistema" as VER_ESTADO_SISTEMA
+   usecase "UC_LOG_07\nVer Metricas\nTecnicas" as VER_METRICAS_TECNICAS
  }
 
- view_application_logs --> L01
- view_etl_logs --> L02
- search_logs --> L03
- export_logs --> L04
- view_infrastructure_logs --> L05
- view_system_health --> L06
- view_technical_metrics --> L07
+ view_application_logs --> VER_LOGS_SISTEMA
+ view_etl_logs --> VER_LOGS_ETL
+ search_logs --> BUSCAR_LOGS
+ export_logs --> EXPORTAR_LOGS
+ view_infrastructure_logs --> VER_LOGS_INFRAESTRUCTURA
+ view_system_health --> VER_ESTADO_SISTEMA
+ view_technical_metrics --> VER_METRICAS_TECNICAS
 
- L01 ..> L03 : <<extend>>
- L02 ..> L03 : <<extend>>
- L03 ..> L04 : <<extend>>
+ VER_LOGS_SISTEMA ..> BUSCAR_LOGS : <<extend>>
+ VER_LOGS_ETL ..> BUSCAR_LOGS : <<extend>>
+ BUSCAR_LOGS ..> EXPORTAR_LOGS : <<extend>>
 
  @enduml
 

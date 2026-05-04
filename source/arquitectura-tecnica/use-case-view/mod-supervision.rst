@@ -34,16 +34,16 @@ funciones de supervision especificas.
  actor "broadcast_team_messages" as broadcast_team_messages
 
  rectangle "MOD_Supervision" {
-   usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as S01
-   usecase "UC_SUP_02\nIntervenir en\nLlamada\n(barge in)" as S02
-   usecase "UC_SUP_03\nEnviar Mensaje\nal Equipo" as S03
+   usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as MONITOREAR_LLAMADAS_EN_VIVO
+   usecase "UC_SUP_02\nIntervenir en\nLlamada\n(barge in)" as INTERVENIR_LLAMADA
+   usecase "UC_SUP_03\nEnviar Mensaje\nal Equipo" as ENVIAR_MENSAJE_EQUIPO
  }
 
- monitor_live_calls --> S01
- barge_in_calls --> S02
- broadcast_team_messages --> S03
+ monitor_live_calls --> MONITOREAR_LLAMADAS_EN_VIVO
+ barge_in_calls --> INTERVENIR_LLAMADA
+ broadcast_team_messages --> ENVIAR_MENSAJE_EQUIPO
 
- S02 ..> S01 : <<include>>
+ INTERVENIR_LLAMADA ..> MONITOREAR_LLAMADAS_EN_VIVO : <<include>>
 
  @enduml
 

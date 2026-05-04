@@ -32,23 +32,23 @@ responder encuesta CSAT post-llamada.
  actor "Caller\n(externo)" as CALLER
 
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_01\nLlamar al\nSistema IVR" as C01
-   usecase "UC_CLI_02\nNavegar Menu\nIVR" as C02
-   usecase "UC_CLI_03\nEsperar en Cola\nde Atencion" as C03
-   usecase "UC_CLI_04\nRecibir\nCallback" as C04
-   usecase "UC_CLI_05\nResponder Encuesta\nCSAT post-llamada\n[offer_csat_post_call]" as C05
+   usecase "UC_CLI_01\nLlamar al\nSistema IVR" as LLAMAR_SISTEMA_IVR
+   usecase "UC_CLI_02\nNavegar Menu\nIVR" as NAVEGAR_MENU_IVR
+   usecase "UC_CLI_03\nEsperar en Cola\nde Atencion" as ESPERAR_COLA
+   usecase "UC_CLI_04\nRecibir\nCallback" as RECIBIR_CALLBACK
+   usecase "UC_CLI_05\nResponder Encuesta\nCSAT post-llamada\n[offer_csat_post_call]" as RESPONDER_ENCUESTA_CSAT
  }
 
- CALLER --> C01
- CALLER --> C02
- CALLER --> C03
- CALLER --> C04
- CALLER --> C05
+ CALLER --> LLAMAR_SISTEMA_IVR
+ CALLER --> NAVEGAR_MENU_IVR
+ CALLER --> ESPERAR_COLA
+ CALLER --> RECIBIR_CALLBACK
+ CALLER --> RESPONDER_ENCUESTA_CSAT
 
- C01 ..> C02 : <<include>>
- C02 ..> C03 : <<extend>>
- C03 ..> C04 : <<extend>>
- C05 ..> C01 : <<include>>
+ LLAMAR_SISTEMA_IVR ..> NAVEGAR_MENU_IVR : <<include>>
+ NAVEGAR_MENU_IVR ..> ESPERAR_COLA : <<extend>>
+ ESPERAR_COLA ..> RECIBIR_CALLBACK : <<extend>>
+ RESPONDER_ENCUESTA_CSAT ..> LLAMAR_SISTEMA_IVR : <<include>>
 
  @enduml
 

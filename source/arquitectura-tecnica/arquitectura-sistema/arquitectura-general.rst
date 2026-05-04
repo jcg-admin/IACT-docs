@@ -45,33 +45,33 @@ cuentas son creadas por el Administrador IACT.
  rectangle "view_pipeline_status\n/ view_alerts" as SupervisorSistema
  rectangle "view_reports\n/ view_dashboard" as AnalistaReportes
 
- rectangle "1\nAutenticacion\nJWT" as P1
- rectangle "2\nDashboard IVR" as P2
- rectangle "3\nCierre de\nSesion" as P3
- rectangle "4\nGestion\nPipeline ETL" as P4
- rectangle "5\nConsulta\nde Logs" as P5
- rectangle "6\nMOD Reports\n(Reportes IVR)" as P6
- rectangle "7\nBase Analitica\nIVR" as P7
- rectangle "8\nAlertas y\nNotificaciones" as P8
- rectangle "9\nResolver\nSegmento\nUC_INC_RPT_01" as P9
- rectangle "10\nAuditoria\nde Acceso" as P10
+ rectangle "1\nAutenticacion\nJWT" as PASO_AUTENTICACION
+ rectangle "2\nDashboard IVR" as DASHBOARD_IVR
+ rectangle "3\nCierre de\nSesion" as CIERRE_SESION
+ rectangle "4\nGestion\nPipeline ETL" as GESTION_PIPELINE_ETL
+ rectangle "5\nConsulta\nde Logs" as CONSULTA_LOGS
+ rectangle "6\nMOD Reports\n(Reportes IVR)" as MODULO_REPORTES
+ rectangle "7\nBase Analitica\nIVR" as BASE_ANALITICA_IVR
+ rectangle "8\nAlertas y\nNotificaciones" as ALERTAS_NOTIFICACIONES
+ rectangle "9\nResolver\nSegmento\nUC_INC_RPT_01" as RESOLVER_SEGMENTO
+ rectangle "10\nAuditoria\nde Acceso" as AUDITORIA_ACCESO
 
- SupervisorSistema --> P1
- AnalistaReportes --> P1
- SistemaIVR --> P7
+ SupervisorSistema --> PASO_AUTENTICACION
+ AnalistaReportes --> PASO_AUTENTICACION
+ SistemaIVR --> BASE_ANALITICA_IVR
 
- P1 --> P2
- P2 --> P4
- P2 --> P5
- P2 --> P6
- P2 --> P8
- P6 --> P7
- P4 --> P9
- P7 --> P9
- P5 --> P10
- P8 --> P10
- P9 --> P3
- P10 --> P3
+ PASO_AUTENTICACION --> DASHBOARD_IVR
+ DASHBOARD_IVR --> GESTION_PIPELINE_ETL
+ DASHBOARD_IVR --> CONSULTA_LOGS
+ DASHBOARD_IVR --> MODULO_REPORTES
+ DASHBOARD_IVR --> ALERTAS_NOTIFICACIONES
+ MODULO_REPORTES --> BASE_ANALITICA_IVR
+ GESTION_PIPELINE_ETL --> RESOLVER_SEGMENTO
+ BASE_ANALITICA_IVR --> RESOLVER_SEGMENTO
+ CONSULTA_LOGS --> AUDITORIA_ACCESO
+ ALERTAS_NOTIFICACIONES --> AUDITORIA_ACCESO
+ RESOLVER_SEGMENTO --> CIERRE_SESION
+ AUDITORIA_ACCESO --> CIERRE_SESION
 
  @enduml
 

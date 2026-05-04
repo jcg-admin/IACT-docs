@@ -45,8 +45,8 @@ en ``effective_set``.
    usecase "UC_PERM_05\nCrear / Modificar /\nRetirar Grupo" as P05
    usecase "UC_PERM_06\nAsignar Funciones\na Grupo" as P06
    usecase "UC_PERM_07\nVerificar Permiso\nde Usuario" as P07
-   usecase "UC_PERM_08\nGenerar Menu\nDinamico\n[view_own_navigation]" as P08
-   usecase "UC_PERM_09\nAuditar Acceso\n(write side)" as P09
+   usecase "UC_PERM_08\nGenerar Menu\nDinamico\n[view_own_navigation]" as GENERAR_MENU_DINAMICO
+   usecase "UC_PERM_09\nAuditar Acceso\n(write side)" as AUDITAR_ACCESO
    usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as P10
  }
 
@@ -57,15 +57,15 @@ en ``effective_set``.
  create_function_group --> P05
  assign_functions_to_group --> P06
  view_assignments --> P07
- user_autenticado --> P08
+ user_autenticado --> GENERAR_MENU_DINAMICO
  view_audit_log --> P10
 
- P01 ..> P09 : <<include>>
- P02 ..> P09 : <<include>>
- P03 ..> P09 : <<include>>
- P04 ..> P09 : <<include>>
- P06 ..> P09 : <<include>>
- P08 ..> P07 : <<include>>
+ P01 ..> AUDITAR_ACCESO : <<include>>
+ P02 ..> AUDITAR_ACCESO : <<include>>
+ P03 ..> AUDITAR_ACCESO : <<include>>
+ P04 ..> AUDITAR_ACCESO : <<include>>
+ P06 ..> AUDITAR_ACCESO : <<include>>
+ GENERAR_MENU_DINAMICO ..> P07 : <<include>>
 
  @enduml
 

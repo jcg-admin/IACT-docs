@@ -15,7 +15,7 @@
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_02\nRevocar Funciones" as UC02
-   usecase "Validar P-11\nanti-self-revoke" as P11
+   usecase "Validar P-11\nanti-self-revoke" as VALIDAR_ANTI_SELF
    usecase "Localizar Assignments\nACTIVE matching" as LocalizadorRecurso
    usecase "Calcular post-revoke\n+ warnings" as CALC
    usecase "actualizar → REVOKED" as ActualizarEntidad
@@ -25,7 +25,7 @@
  }
 
  INVOKER --> UC02
- UC02 ..> P11 : <<include>>
+ UC02 ..> VALIDAR_ANTI_SELF : <<include>>
  UC02 ..> LOC : <<include>>
  UC02 ..> CALC : <<include>>
  UC02 ..> UPD : <<include>>

@@ -31,57 +31,57 @@ paralela por segmento activo del usuario y la llamada al
 
  state "Consulta de Reporte IVR" as RPT_EXEC {
 
-   state "Solicitar Reporte" as R1
-   R1 : entry / validar funcion view_reports en JWT
-   R1 : do / enviar GET /api/reportes/?trimestre=
-   R1 : exit / solicitud aceptada por DashboardEndpoint
+   state "Solicitar Reporte" as VER_DASHBOARD_IVR
+   VER_DASHBOARD_IVR : entry / validar funcion view_reports en JWT
+   VER_DASHBOARD_IVR : do / enviar GET /api/reportes/?trimestre=
+   VER_DASHBOARD_IVR : exit / solicitud aceptada por DashboardEndpoint
 
-   state "Resolver Segmento\nUC_INC_RPT_01" as R2
-   R2 : entry / leer DIDs RBAC del usuario en PostgreSQL
-   R2 : do / mapear DIDs via DID_MAP a segmentos IVR
-   R2 : exit / lista de segmentos activos disponible
+   state "Resolver Segmento\nUC_INC_RPT_01" as RESOLVER_SEGMENTO
+   RESOLVER_SEGMENTO : entry / leer DIDs RBAC del usuario en PostgreSQL
+   RESOLVER_SEGMENTO : do / mapear DIDs via DID_MAP a segmentos IVR
+   RESOLVER_SEGMENTO : exit / lista de segmentos activos disponible
 
    state fork_seg <<fork>>
 
-   state "Segmento nacional_A\n(DID 19028031)" as R3A
-   R3A : entry / DID 19028031 activo en usuario
-   R3A : do / filtrar rows por nacional_A
-   R3A : exit / atributos de segmento disponibles
+   state "Segmento nacional_A\n(DID 19028031)" as EXTENSION_REPORTES_HISTORICOS
+   EXTENSION_REPORTES_HISTORICOS : entry / DID 19028031 activo en usuario
+   EXTENSION_REPORTES_HISTORICOS : do / filtrar rows por nacional_A
+   EXTENSION_REPORTES_HISTORICOS : exit / atributos de segmento disponibles
 
-   state "Segmento nacional_B\n(DID 19020001)" as R3B
-   R3B : entry / DID 19020001 activo en usuario
-   R3B : do / filtrar rows por nacional_B
-   R3B : exit / atributos de segmento disponibles
+   state "Segmento nacional_B\n(DID 19020001)" as EXTENSION_REPORTES_HISTORICOS_B
+   EXTENSION_REPORTES_HISTORICOS_B : entry / DID 19020001 activo en usuario
+   EXTENSION_REPORTES_HISTORICOS_B : do / filtrar rows por nacional_B
+   EXTENSION_REPORTES_HISTORICOS_B : exit / atributos de segmento disponibles
 
-   state "Segmento Puebla\n(DID 19020084)" as R3C
-   R3C : entry / DID 19020084 activo en usuario
-   R3C : do / filtrar rows por Puebla
-   R3C : exit / atributos de segmento disponibles
+   state "Segmento Puebla\n(DID 19020084)" as EXTENSION_REPORTES_HISTORICOS_C
+   EXTENSION_REPORTES_HISTORICOS_C : entry / DID 19020084 activo en usuario
+   EXTENSION_REPORTES_HISTORICOS_C : do / filtrar rows por Puebla
+   EXTENSION_REPORTES_HISTORICOS_C : exit / atributos de segmento disponibles
 
    state join_seg <<join>>
 
-   state "Llamar sp_rpt_*" as R4
-   R4 : entry / consolidar segmentos activos del usuario
-   R4 : do / cursor.callproc(sp_rpt_*, [trimestre, segmentos])
-   R4 : exit / rows de reporte disponibles
+   state "Llamar sp_rpt_*" as EJECUTAR_PROCEDIMIENTO_RPT
+   EJECUTAR_PROCEDIMIENTO_RPT : entry / consolidar segmentos activos del usuario
+   EJECUTAR_PROCEDIMIENTO_RPT : do / cursor.callproc(sp_rpt_*, [trimestre, segmentos])
+   EJECUTAR_PROCEDIMIENTO_RPT : exit / rows de reporte disponibles
 
-   state "Renderizar Reporte" as R5
-   R5 : entry / recibir rows del sp_rpt_*
-   R5 : do / enviar datos al frontend
-   R5 : exit / reporte renderizado al usuario
+   state "Renderizar Reporte" as RENDERIZAR_REPORTE
+   RENDERIZAR_REPORTE : entry / recibir rows del sp_rpt_*
+   RENDERIZAR_REPORTE : do / enviar datos al frontend
+   RENDERIZAR_REPORTE : exit / reporte renderizado al usuario
 
-   [*] --> R1
-   R1 --> R2
-   R2 --> fork_seg
-   fork_seg --> R3A
-   fork_seg --> R3B
-   fork_seg --> R3C
-   R3A --> join_seg
-   R3B --> join_seg
-   R3C --> join_seg
-   join_seg --> R4
-   R4 --> R5
-   R5 --> [*]
+   [*] --> VER_DASHBOARD_IVR
+   VER_DASHBOARD_IVR --> RESOLVER_SEGMENTO
+   RESOLVER_SEGMENTO --> fork_seg
+   fork_seg --> EXTENSION_REPORTES_HISTORICOS
+   fork_seg --> EXTENSION_REPORTES_HISTORICOS_B
+   fork_seg --> EXTENSION_REPORTES_HISTORICOS_C
+   EXTENSION_REPORTES_HISTORICOS --> join_seg
+   EXTENSION_REPORTES_HISTORICOS_B --> join_seg
+   EXTENSION_REPORTES_HISTORICOS_C --> join_seg
+   join_seg --> EJECUTAR_PROCEDIMIENTO_RPT
+   EJECUTAR_PROCEDIMIENTO_RPT --> RENDERIZAR_REPORTE
+   RENDERIZAR_REPORTE --> [*]
  }
 
  [*] --> RPT_EXEC

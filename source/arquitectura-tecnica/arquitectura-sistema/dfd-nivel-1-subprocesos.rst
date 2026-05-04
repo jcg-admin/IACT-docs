@@ -45,52 +45,52 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
  rectangle "view_reports" as AnalistaReportes
  rectangle "APScheduler" as DisparadorScheduler
 
- rectangle "1\nAutenticacion JWT" as P1
- rectangle "2\nDashboard IVR" as P2
- rectangle "3\nCierre de Sesion" as P3
- rectangle "4\nGestion\nPipeline ETL" as P4
- rectangle "5\nConsulta\nde Logs" as P5
- rectangle "6\nMOD Reports" as P6
- rectangle "7\nServicio de\nReportes\nsp_rpt_*" as P7
- rectangle "8\nAlertas" as P8
- rectangle "9\nResolver Segmento\nUC_INC_RPT_01" as P9
- rectangle "10\nAuditoria" as P10
+ rectangle "1\nAutenticacion JWT" as PASO_AUTENTICACION
+ rectangle "2\nDashboard IVR" as DASHBOARD_IVR
+ rectangle "3\nCierre de Sesion" as CIERRE_SESION
+ rectangle "4\nGestion\nPipeline ETL" as GESTION_PIPELINE_ETL
+ rectangle "5\nConsulta\nde Logs" as CONSULTA_LOGS
+ rectangle "6\nMOD Reports" as MODULO_REPORTES
+ rectangle "7\nServicio de\nReportes\nsp_rpt_*" as BASE_ANALITICA_IVR
+ rectangle "8\nAlertas" as ALERTAS_NOTIFICACIONES
+ rectangle "9\nResolver Segmento\nUC_INC_RPT_01" as RESOLVER_SEGMENTO
+ rectangle "10\nAuditoria" as AUDITORIA_ACCESO
 
  database "etl_runs" as DS1
  database "base_ivr_*" as DS2
  database "audit_log" as DS3
  database "auth_session" as DS4
 
- IVR --> P7 : datos IVR raw
- SUP --> P1 : credenciales
- ANA --> P1 : credenciales
- SCH --> P4 : disparo automatico
+ IVR --> BASE_ANALITICA_IVR : datos IVR raw
+ SUP --> PASO_AUTENTICACION : credenciales
+ ANA --> PASO_AUTENTICACION : credenciales
+ SCH --> GESTION_PIPELINE_ETL : disparo automatico
 
- P1 --> DS4 : crear sesion
- P1 --> P2 : JWT valido
+ PASO_AUTENTICACION --> DS4 : crear sesion
+ PASO_AUTENTICACION --> DASHBOARD_IVR : JWT valido
 
- P2 --> P4
- P2 --> P5
- P2 --> P6
- P2 --> P8
+ DASHBOARD_IVR --> GESTION_PIPELINE_ETL
+ DASHBOARD_IVR --> CONSULTA_LOGS
+ DASHBOARD_IVR --> MODULO_REPORTES
+ DASHBOARD_IVR --> ALERTAS_NOTIFICACIONES
 
- P4 --> DS1 : registrar ejecucion
- P4 --> P9
+ GESTION_PIPELINE_ETL --> DS1 : registrar ejecucion
+ GESTION_PIPELINE_ETL --> RESOLVER_SEGMENTO
 
- P7 --> DS2 : leer datos analiticos
- DS2 --> P7
+ BASE_ANALITICA_IVR --> DS2 : leer datos analiticos
+ DS2 --> BASE_ANALITICA_IVR
 
- P6 --> P9
- P9 --> P6 : segmentos del usuario
+ MODULO_REPORTES --> RESOLVER_SEGMENTO
+ RESOLVER_SEGMENTO --> MODULO_REPORTES : segmentos del usuario
 
- DS1 --> P4 : historial ETL
- P5 --> DS3 : consultar logs
+ DS1 --> GESTION_PIPELINE_ETL : historial ETL
+ CONSULTA_LOGS --> DS3 : consultar logs
 
- P8 --> P10
- P5 --> P10
- P10 --> DS3 : registrar auditoria
- P9 --> P3
- P10 --> P3
+ ALERTAS_NOTIFICACIONES --> AUDITORIA_ACCESO
+ CONSULTA_LOGS --> AUDITORIA_ACCESO
+ AUDITORIA_ACCESO --> DS3 : registrar auditoria
+ RESOLVER_SEGMENTO --> CIERRE_SESION
+ AUDITORIA_ACCESO --> CIERRE_SESION
 
  @enduml
 
