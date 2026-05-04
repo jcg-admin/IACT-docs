@@ -36,3 +36,5 @@ UML 14: UML para Vistas Arquitectónicas
  metamodelo-descripcion
  framework-rozanski
  frameworks-comparacion
+ vistas-y-viewpoints
+ perspectivas-arquitectonicas

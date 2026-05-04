@@ -640,11 +640,22 @@ La **Use Case View** del estándar 5+1 requiere mostrar:
 | mod-caller | 6 | mod-supervision | 4 |
 | mod-users | 5 | **Total** | **~105** |
 
-**Conclusión:** `use-case-view/` (81 archivos) es el mismo problema de boilerplate
-UC-indexado que H-10, H-11, H-12. `uc-module-view/` (15 archivos) ES el Use Case
-View correcto per 5+1. `use-case-view/` debe eliminarse y `uc-module-view/` debe
-convertirse en el directorio canónico de esta vista — renombrado o reconocido
-oficialmente como el Use Case View del proyecto.
+**Conclusión (corregida):** `use-case-view/` ES el directorio canónico del Use
+Case View según el modelo 5+1 — su nombre es correcto, se mantiene. `uc-module-view/`
+es el directorio redundante: contiene el mismo nivel de abstracción (módulo-indexado)
+pero con un nombre no estándar. El contenido de `uc-module-view/` debe integrarse en
+`use-case-view/` antes de eliminar `uc-module-view/`.
+
+**Plan de integración antes de eliminar `uc-module-view/`:**
+
+1. Los `mod-*.rst` de `uc-module-view/` → reemplazar (o crear) los archivos
+   equivalentes en `use-case-view/` a nivel módulo (no UC-individual).
+2. `rbac-funciones-por-modulo.rst` → evaluar si pertenece a `requisitos/rbac/` o
+   `arquitectura-tecnica/rbac/`.
+3. Los 81 archivos UC-individuales actuales de `use-case-view/` → sustituir por
+   ~13 archivos módulo-indexados (mismo contenido que los `mod-*.rst`).
+4. Eliminar `uc-module-view/` una vez que `use-case-view/` tenga el contenido
+   módulo-indexado correcto.
 
 ---
 
@@ -660,8 +671,8 @@ del modelo 4+1 de Kruchten que añade la Vista de Dominio, usada en contextos DD
 | 1 | **Domain Model** | `domain-model/` + `bounded-contexts/` | ⚠ consolidar (H-07, H-09) |
 | 2 | **Design View** | `design-view/` | ⚠ nivel incorrecto (H-11) |
 | 3 | **Implementation View** | `implementation-view/` | ⚠ nivel incorrecto (H-12) |
-| 4 | **Use Case View** | `use-case-view/` ❌ + `uc-module-view/` ✓ | ⚠ duplicado — `use-case-view/` eliminar (H-14) |
-| 5 | **Process View** | `process-view/` | pendiente análisis |
+| 4 | **Use Case View** | `use-case-view/` ✓ + `uc-module-view/` ❌ | ⚠ duplicado — integrar `uc-module-view/` → `use-case-view/`, luego eliminar `uc-module-view/` (H-14) |
+| 5 | **Process View** | `process-view/` | ⚠ diagramas mal clasificados per Rozanski (H-15) |
 | +1 | **Deployment View** | `deploy-view/` | ⚠ nivel incorrecto (H-10) |
 
 Las 6 vistas tienen prioridad sobre cualquier otra organización. **No se eliminan
@@ -691,6 +702,86 @@ Son especificaciones de módulo necesarias en ese contexto.
 
 ---
 
+### H-15 — process-view/ contiene diagramas de flujo UC mal clasificados y carece del contenido real de Process View [ALTA]
+
+**`process-view/` (81 archivos verificados con `find | wc -l`):**
+
+| Característica | Detalle |
+|---|---|
+| Archivos | 81 `.rst` (80 UCs + index) |
+| Granularidad | Un archivo por UC — UC-indexado |
+| Patrón de diagrama | 5 pasos idénticos: `ValidarSolicitud → EjecutarOperacion → PersistirCambios → RegistrarAuditoria → RetornarRespuesta` |
+| Variación entre archivos | Solo el nombre del actor (AGR_ADMIN, AGR_OPERADOR, etc.) |
+| Tipo de contenido | Diagramas de actividades que modelan el flujo de ejecución de un UC |
+
+**Diagnóstico de mala clasificación:**
+
+Según el estándar 5+1 (variante DDD de Kruchten), la **Process View** modela:
+- Concurrencia y paralelismo del sistema
+- Sincronización entre procesos/hilos
+- Comunicación inter-proceso
+- Estructuras de procesos en tiempo de ejecución
+
+Los diagramas actuales en `process-view/` modelan el **flujo de ejecución de un
+UC individual** (validar → ejecutar → persistir → auditar → retornar). Eso es
+comportamiento funcional — corresponde a la **Use Case View** per 5+1, no a la
+Process View.
+
+**Validación con Rozanski & Woods (base cognitiva UML-14):**
+
+El viewpoint Concurrency de Rozanski (equivalente al Process View de Kruchten) aborda:
+> "mapeo de elementos funcionales en unidades concurrentes, mecanismos de comunicación
+> y sincronización, estructuras de procesos e hilos, comunicación inter-proceso"
+
+Los diagramas actuales no modelan ninguno de estos aspectos.
+
+**Estado del verdadero Process View:**
+
+Una Process View correcta para IACT modelaría:
+- Pipeline ETL concurrente (disparadores, colas, workers)
+- Procesamiento paralelo de alertas
+- Sincronización de sesiones JWT
+- Concurrencia en consultas de dashboard de alto volumen
+
+**Ninguno de estos diagramas existe actualmente.** La Process View real de IACT
+está vacía.
+
+**Doble problema:**
+1. Los 81 archivos existentes están **mal clasificados** — son UC behavior, no Process View
+2. El **contenido correcto de Process View** (concurrencia, paralelismo) **no existe**
+
+---
+
+## 10.1 Nota de metodología — Framework Rozanski como base de reestructuración
+
+El análisis discover ha empleado el Framework de Rozanski & Woods
+(*Software Systems Architecture*, 2ª ed.) como referencia para evaluar
+el estado actual de `arquitectura-tecnica/`. Este framework — documentado
+en `base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/` — provee:
+
+1. Un catálogo de 7 viewpoints con definiciones canónicas (Context, Functional,
+   Information, Concurrency, Development, Deployment, Operational)
+2. Un meta-modelo formal de relaciones entre arquitectura, vistas, viewpoints,
+   concerns y stakeholders
+3. Tablas de importancia de viewpoints por tipo de sistema
+
+**Aplicación a IACT:**
+
+| Rozanski Viewpoint | 5+1 IACT actual | Estado |
+|---|---|---|
+| Context | — | Ausente (ningún directorio modela el contexto del sistema) |
+| Functional | `use-case-view/` | ⚠ Boilerplate UC-individual (H-14) |
+| Information | `domain-model/` (parcial) | ⚠ Confundido con diagramas UC-por-UC (H-07) |
+| Concurrency | `process-view/` | ⚠ Mal clasificado — diagramas de flujo UC, no concurrencia (H-15) |
+| Development | `design-view/` + `implementation-view/` | ⚠ Boilerplate UC-individual (H-11, H-12) |
+| Deployment | `deploy-view/` | ⚠ 71/80 copias idénticas (H-10) |
+| Operational | — | Ausente — ningún viewpoint operacional existe |
+
+La fase STRATEGY usará este mapeo Rozanski ↔ 5+1 como framework de decisión para
+la reestructuración de `arquitectura-tecnica/`.
+
+---
+
 ## 11. Preguntas de diseño pendientes para la fase STRATEGY
 
 **P-03:** ¿`_metodologia-aplicacion/` con sus diagramas UML de ejemplo IACT
@@ -709,10 +800,11 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `requisitos/business-requirements/` | ✓ Correcto | Ninguna |
 | `requisitos/casos-uso/` | ✓ Correcto | Ninguna |
 | `requisitos/requisitos-funcionales/` | ✓ Correcto | Ninguna |
-| `arquitectura-tecnica/use-case-view/` (81 archivos) | ⚠ Boilerplate UC-individual; no muestra relaciones entre UCs | Eliminar — redundante con `uc-module-view/` (H-14) |
-| `arquitectura-tecnica/uc-module-view/` (15 archivos) | ✓ Use Case View correcto per 5+1 — módulo-indexado, relaciones completas | Reconocer como canónico; renombrar a `use-case-view/` (H-14) |
-| `arquitectura-tecnica/deploy-view/` | ✓ Correcto (DIAG puro) | Ninguna |
-| `arquitectura-tecnica/design-view/` | ✓ Correcto (DIAG puro) | Ninguna |
+| `arquitectura-tecnica/use-case-view/` (81 archivos) | ⚠ Boilerplate UC-individual; no muestra relaciones entre UCs — directorio canónico pero contenido incorrecto | Reemplazar 81 archivos UC-individuales por ~13 módulo-indexados; integrar contenido de `uc-module-view/` (H-14) |
+| `arquitectura-tecnica/uc-module-view/` (15 archivos) | ⚠ Directorio redundante — contenido correcto en directorio con nombre no estándar | Integrar en `use-case-view/` y eliminar (H-14) |
+| `arquitectura-tecnica/process-view/` (81 archivos) | ⚠ Diagramas de flujo UC mal clasificados como Process View; verdadero contenido (concurrencia/ETL) ausente | Reclasificar diagramas existentes a Use Case View; crear Process View real con diagramas de concurrencia (H-15) |
+| `arquitectura-tecnica/deploy-view/` | ⚠ 71/80 copias idénticas del mismo diagrama | Reducir a 3 canónicos por variante de infra (H-10) |
+| `arquitectura-tecnica/design-view/` | ⚠ 160/160 boilerplate UC-individual | Reducir a ~12 módulo-indexados (H-11) |
 | `arquitectura-tecnica/modulos/*/responsabilidades.rst` | ⚠ ARCH textual en zona DIAG | Decisión pendiente P-01 |
 | `arquitectura-tecnica/modulos/*/casos-uso.rst` | ⚠ ARCH textual en zona DIAG | Decisión pendiente P-01 |
 | `arquitectura-tecnica/rbac/modelo-rbac-iact/*.rst` | ⚠ ARCH textual en zona DIAG | Decisión pendiente P-01 y P-04 |

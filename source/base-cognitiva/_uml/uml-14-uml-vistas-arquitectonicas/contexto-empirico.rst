@@ -64,39 +64,80 @@ para entender en qué medida usan UML para describir arquitecturas
 de software desde los diferentes viewpoints que Rozanski et al.
 ofrecen en su framework.
 
-Los seis viewpoints de Rozanski et al.
-=======================================
+Los siete viewpoints de Rozanski et al.
+========================================
+
+El catálogo completo incluye el viewpoint **Context** (transversal)
+más seis viewpoints especializados. Las definiciones a continuación
+son las del libro original (*Software Systems Architecture*, Rozanski
+& Woods, 2ª ed.).
 
 .. list-table::
  :header-rows: 1
- :widths: 20 80
+ :widths: 18 82
 
  * - Viewpoint
-   - Descripción
+   - Definición
+ * - **Context**
+   - Describe las relaciones, dependencias e interacciones entre
+     el sistema y su entorno: las personas, sistemas y entidades
+     externas con las que interactúa. La vista Context será de
+     interés para muchos stakeholders y juega un papel importante
+     en ayudarles a entender las responsabilidades del sistema y
+     cómo se relaciona con su organización.
  * - **Functional**
-   - Concierne a los elementos funcionales que componen los
-     sistemas de software y sus interacciones.
+   - Describe los elementos funcionales *runtime* del sistema,
+     sus responsabilidades, interfaces e interacciones primarias.
+     Una vista Functional es la piedra angular de la mayoría de
+     las ADs y suele ser la primera parte que los stakeholders
+     leen. Impulsa la forma de otras estructuras del sistema
+     (información, concurrencia, despliegue) y tiene un impacto
+     significativo en propiedades de calidad como la capacidad
+     de cambio, la seguridad y el rendimiento en tiempo de
+     ejecución.
  * - **Information**
-   - Concierne a cómo los datos del sistema son definidos,
-     almacenados, accedidos y transmitidos.
+   - Describe cómo el sistema almacena, manipula, gestiona y
+     distribuye información. El objetivo último de casi cualquier
+     sistema informático es manipular información de alguna forma,
+     y este viewpoint desarrolla una vista completa pero de alto
+     nivel de la estructura estática de los datos y el flujo de
+     información. El objetivo del análisis es responder las
+     grandes preguntas sobre contenido, estructura, propiedad,
+     latencia, referencias y migración de datos.
  * - **Concurrency**
-   - Concierne al mapeo de los elementos funcionales en
-     elementos concurrentes y sus interacciones concurrentes.
+   - Describe la estructura de concurrencia del sistema y mapea
+     los elementos funcionales a unidades de concurrencia para
+     identificar claramente qué partes del sistema pueden
+     ejecutarse concurrentemente y cómo se coordina y controla
+     esto. Conlleva la creación de modelos que muestren las
+     estructuras de proceso e hilo que el sistema usará y los
+     mecanismos de comunicación entre procesos para coordinar
+     su operación.
  * - **Development**
-   - Concierne al modelado de los planes y decisiones tomadas
-     sobre el proceso de desarrollo de software, como la
-     estructuración del código y la planificación de los
-     procesos de build y release.
+   - Describe la arquitectura que soporta el proceso de
+     desarrollo de software. Las vistas Development comunican
+     los aspectos de la arquitectura de interés para los
+     stakeholders involucrados en construir, probar, mantener
+     y mejorar el sistema.
  * - **Deployment**
-   - Concierne a la estructura física de los sistemas que
-     representa los elementos hardware en los que se ejecutarán
-     los elementos funcionales y sus relaciones físicas.
+   - Describe el entorno en el que el sistema se desplegará y
+     las dependencias que el sistema tiene sobre él. Esta vista
+     captura el entorno hardware que el sistema necesita
+     (principalmente nodos de procesamiento, interconexiones de
+     red e instalaciones de almacenamiento en disco requeridas),
+     los requisitos del entorno técnico para cada elemento y el
+     mapeo de los elementos software al entorno de ejecución que
+     los ejecutará.
  * - **Operational**
-   - Concierne a los aspectos operacionales que ocurren mientras
-     el sistema está en producción: monitorización,
-     administración, restauración y soporte. Se enfoca en la
-     gestión y control del sistema en ejecución, no en los
-     requisitos de diseño.
+   - Describe cómo el sistema será operado, administrado y
+     soportado cuando esté en ejecución en su entorno de
+     producción. Para todos los sistemas salvo los más simples,
+     instalar, gestionar y operar el sistema es una tarea
+     significativa que debe considerarse y planificarse en
+     tiempo de diseño. El objetivo del viewpoint Operational es
+     identificar estrategias a nivel de sistema para abordar
+     los concerns operacionales de los stakeholders e
+     identificar soluciones que los aborden.
 
 .. note::
 
@@ -104,7 +145,132 @@ Los seis viewpoints de Rozanski et al.
  de esfuerzo: los problemas operacionales deben resolverse
  temprano para minimizar el esfuerzo requerido, ya que este
  puede crecer significativamente si se abordan cuando el sistema
- ya está en producción.
+ ya está en producción. Este viewpoint **no tiene equivalente**
+ en Kruchten 4+1, Soni, Clements ni Garland — es una
+ contribución original de Rozanski & Woods.
+
+----
+
+Importancia de los viewpoints por tipo de sistema
+===================================================
+
+No todos los viewpoints tienen la misma relevancia para cada tipo
+de sistema de información. La siguiente tabla resume la importancia
+relativa de cada viewpoint para cinco tipos de sistema
+representativos (Rozanski & Woods, Cap. 3):
+
+.. list-table:: Importancia de viewpoints por tipo de sistema
+ :header-rows: 2
+ :stub-columns: 1
+ :widths: 18 14 14 14 14 14 12
+
+ * - Tipo de sistema
+   - OLTP\ [#f1]_
+   - Cálculo/MW\ [#f2]_
+   - DSS/MIS\ [#f3]_
+   - Web vol.\ alto\ [#f4]_
+   - Pkg. Empresa\ [#f5]_
+   -
+ * - Viewpoint
+   -
+   -
+   -
+   -
+   -
+   -
+ * - **Context**
+   - Alta
+   - Baja
+   - Alta
+   - Media
+   - Media
+   -
+ * - **Functional**
+   - Alta
+   - Alta
+   - Baja
+   - Alta
+   - Alta
+   -
+ * - **Information**
+   - Media
+   - Baja
+   - Alta
+   - Media
+   - Media
+   -
+ * - **Concurrency**
+   - Baja
+   - Alta
+   - Baja
+   - Media
+   - Variable
+   -
+ * - **Development**
+   - Alta
+   - Alta
+   - Baja
+   - Alta
+   - Alta
+   -
+ * - **Deployment**
+   - Alta
+   - Alta
+   - Alta
+   - Alta
+   - Alta
+   -
+ * - **Operational**
+   - Variable
+   - Baja
+   - Media
+   - Media
+   - Alta
+   -
+
+.. rubric:: Notas
+
+.. [#f1] OLTP: Sistema de información transaccional en línea
+.. [#f2] Cálculo/MW: Servicio de cálculo o middleware
+.. [#f3] DSS/MIS: Sistema de soporte de decisiones / información gerencial
+.. [#f4] Web vol. alto: Sitio web de alto volumen
+.. [#f5] Pkg. Empresa: Paquete de software empresarial (ERP, etc.)
+
+Relevancia para IACT
+----------------------
+
+IACT es un sistema de información con características de OLTP
+(registro de acciones ciudadanas), DSS (reportes analíticos) y
+alta disponibilidad operacional. Perfil de importancia resultante:
+
+.. list-table::
+ :header-rows: 1
+ :widths: 20 15 65
+
+ * - Viewpoint
+   - Importancia en IACT
+   - Justificación
+ * - **Functional**
+   - Alta
+   - Módulos de acción ciudadana, RBAC, pipeline ETL
+ * - **Information**
+   - Alta
+   - Estructura de datos IVR, modelo de dominio, migración
+ * - **Deployment**
+   - Alta
+   - Nodos de procesamiento, red, BD distribuida
+ * - **Context**
+   - Alta
+   - Integración con IVR (fuente de datos externa, solo lectura)
+ * - **Development**
+   - Media-alta
+   - Modularidad, build pipeline, versionado
+ * - **Operational**
+   - Alta
+   - Auditoría, monitorización, soporte en producción
+ * - **Concurrency**
+   - Media
+   - Pipeline ETL concurrente, procesamiento de alertas
 
 Relación con el modelo 5+1 del proyecto IACT
 ==============================================

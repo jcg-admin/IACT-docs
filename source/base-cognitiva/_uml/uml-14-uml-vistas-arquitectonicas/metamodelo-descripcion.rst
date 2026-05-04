@@ -23,7 +23,7 @@ software desde múltiples viewpoints usando UML.
 .. uml::
  :caption: Figura 1 — Meta-modelo para describir arquitecturas de software desde múltiples viewpoints
 
- @startuml
+ @startuml uml14-metamodelo-viewpoints
 
  skinparam classAttributeIconSize 0
  skinparam classBorderColor #333333
@@ -33,28 +33,28 @@ software desde múltiples viewpoints usando UML.
 
  class "Software Architecture\nDescription Language" as SADL
  class "Modeling Notation\nSet" as MNS
- class "Modeling Editor" as ME
+ class "Modeling Editor" as ModelingEditor
  class "Software Architecture\nDescription" as SAD
- class "Viewpoint\nFramework" as VF
- class "View" as V
- class "Viewpoint" as VP
- class "Concern" as C
- class "Model Type" as MT
+ class "Viewpoint\nFramework" as ViewpointFramework
+ class "View" as ArchView
+ class "Viewpoint" as Viewpoint
+ class "Concern" as Concern
+ class "Model Type" as ModelType
 
  SADL --> MNS : offers
- SADL --> ME : supportedWith\n{0..n}
+ SADL --> ModelingEditor : supportedWith\n{0..n}
  SADL --> SAD : usedFor
 
- SAD --> V : includes\n{1..n}
+ SAD --> ArchView : includes\n{1..n}
 
- VF --> VP : proposes\n{1..n}
+ ViewpointFramework --> Viewpoint : proposes\n{1..n}
 
- V --> VP : instanceOf\n{1}
- VP --> C : dealsWith\n{1..n}
+ ArchView --> Viewpoint : instanceOf\n{1}
+ Viewpoint --> Concern : dealsWith\n{1..n}
 
- V --> MT : presentedBy\n{1..n}
- MNS --> MT : describes\n{1..n}
- MT --> C : solves
+ ArchView --> ModelType : presentedBy\n{1..n}
+ MNS --> ModelType : describes\n{1..n}
+ ModelType --> Concern : solves
 
  @enduml
 
