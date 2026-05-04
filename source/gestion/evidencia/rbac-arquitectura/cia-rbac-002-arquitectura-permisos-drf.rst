@@ -4,7 +4,7 @@
  :dominio: gestion
  :subdominio: evidencia/rbac-arquitectura
  :estado: Propuesto
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -103,10 +103,14 @@ Un backend custom intercepta ``has_perm()`` sin depender de
 
 .. code-block:: python
 
+   APP_LABEL = apps.get_app_config('permissions').label
+
    class FunctionAuthorization:
        """
-       Backend de autorizacion que resuelve permisos contra
-       la tabla 'functions' del modelo RBAC IACT.
+       Backend de autorizacion que resuelve permisos del dominio
+       'permissions' contra calculate_effective_functions().
+       Permisos de otros dominios (auth, admin) se delegan a
+       ModelBackend sin intervencion.
        """
 
        def authenticate(self, request, **kwargs):
@@ -116,34 +120,44 @@ Un backend custom intercepta ``has_perm()`` sin depender de
            """
            perm llega en formato 'app_label.codename'
            (e.g. 'permissions.view_reports').
+           Solo intercepta permisos del dominio IACT.
            """
            if not user_obj.is_active:
                return False
+           if '.' not in perm:
+               return False
            app_label, codename = perm.split('.', 1)
+           if app_label != APP_LABEL:  # delega dominios ajenos a ModelBackend
+               return False
            effective = calculate_effective_functions(user_obj)
            return codename in effective
 
-**Razon:** La tabla ``functions`` es la unica fuente de verdad para
-el modelo RBAC de IACT. No debe existir un puente a
-``auth.Permission`` que duplique la logica y genere inconsistencias.
+**Razon:** El dominio IACT (``functions``) y el dominio de
+infraestructura Django (``auth_permission``) tienen ciclos de vida
+independientes. El backend debe interceptar exclusivamente permisos
+de su dominio: sin el filtro por ``app_label``, un codename IACT
+que colisione con uno Django (e.g. ``add_user``) produciria falsos
+positivos en ``has_perm('auth.add_user', ...)``, contaminando el
+sistema de permisos nativo.
 
 .. _cia-rbac-002-dec-004:
 
-DEC-004 — Clase ``Perm`` centraliza constantes
-----------------------------------------------
+DEC-004 — Clase ``FunctionCatalog`` centraliza constantes
+---------------------------------------------------------
 
 **Impacto:** Medio. Elimina strings literales dispersos.
 
 .. code-block:: python
 
+   # permissions/catalog.py
    from django.apps import apps
 
    def _perm(codename: str) -> str:
        app_label = apps.get_app_config('permissions').label
        return f'{app_label}.{codename}'
 
-   class Perm:
-       """Catalogo centralizado de permisos IACT."""
+   class FunctionCatalog:
+       """Catalogo de funciones del sistema IACT."""
        VIEW_REPORTS    = _perm('view_reports')
        EXPORT_REPORTS  = _perm('export_reports')
        VIEW_IVR        = _perm('view_ivr')
@@ -154,15 +168,16 @@ DEC-004 — Clase ``Perm`` centraliza constantes
 
 .. code-block:: python
 
-   from permissions.constants import Perm
+   from permissions.catalog import FunctionCatalog
 
-   @permission_required(Perm.VIEW_REPORTS)
+   @permission_required(FunctionCatalog.VIEW_REPORTS)
    def list_reports(request):
        ...
 
 **Razon:** Strings literales dispersos son fragiles ante renombrados
-y dificultan el grep. La clase ``Perm`` es el punto unico de verdad
-para codenames en codigo Python.
+y dificultan el grep. ``FunctionCatalog`` expresa el concepto de
+dominio — el catalogo de funciones del sistema IACT — sin abreviacion
+opaca. Es el punto unico de verdad para codenames en codigo Python.
 
 .. _cia-rbac-002-dec-005:
 
@@ -176,27 +191,30 @@ control RBAC en endpoints DRF.
 
    from rest_framework.permissions import BasePermission
 
+   from permissions.catalog import FunctionCatalog
+
    class FunctionPermission(BasePermission):
        """
        Permission class DRF que delega en FunctionAuthorization.
 
        Uso:
-           permission_classes = [FunctionPermission('view_reports')]
+           permission_classes = [FunctionPermission(FunctionCatalog.VIEW_REPORTS)]
        """
 
-       def __init__(self, codename: str):
-           self.codename = codename
+       def __init__(self, perm: str):
+           self.perm = perm
 
        def has_permission(self, request, view):
-           perm = f'{APP_LABEL}.{self.codename}'
-           return request.user.has_perm(perm)
+           return request.user.has_perm(self.perm)
 
 **Integracion en viewsets DRF:**
 
 .. code-block:: python
 
+   from permissions.catalog import FunctionCatalog
+
    class ReportViewSet(ModelViewSet):
-       permission_classes = [FunctionPermission('view_reports')]
+       permission_classes = [FunctionPermission(FunctionCatalog.VIEW_REPORTS)]
 
 **Razon:** DRF usa ``has_perm()`` internamente. Delegando en
 ``FunctionAuthorization`` (DEC-003), ``FunctionPermission`` se

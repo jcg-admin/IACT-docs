@@ -63,26 +63,33 @@ registros en ``auth_permission`` espejando las funciones IACT.
 
 **Desventajas:**
 
-- Duplicacion de datos: ``Function.name`` espejado en
-  ``auth.Permission.codename``.
-- Sincronizacion fragil: cambios en ``Function`` requieren
-  actualizar ``auth.Permission`` atomicamente.
-- La tabla ``functions`` deja de ser la unica fuente de verdad.
+- Acopla el ciclo de vida del catalogo IACT al de las migraciones
+  Django: cada nueva funcion requiere una migracion adicional para
+  crear el ``Permission`` correspondiente en ``auth_permission``.
+- Asigna a infraestructura Django (``auth_permission``) la
+  responsabilidad de registrar conceptos del dominio de negocio
+  IACT. Mezcla dominios con ciclos de vida independientes.
 - ``auth_permission`` introduce un modelo de permisos plano que
   no captura la jerarquia de grupos funcionales (FunctionGroup).
+- La ventaja de compatibilidad con el Django Admin no aplica:
+  la gestion de funciones IACT se realiza mediante interfaces
+  propias del sistema, no del Admin nativo.
 
 Option B — Backend custom ``FunctionAuthorization``
 ----------------------------------------------------
 
 Implementar un backend de autorizacion Django que intercepta
-``has_perm()`` y resuelve directamente contra
-``calculate_effective_functions()``, sin pasar por
-``auth.Permission``.
+``has_perm()`` para el dominio ``permissions`` y resuelve
+directamente contra ``calculate_effective_functions()``, sin
+pasar por ``auth.Permission``.
 
 **Ventajas:**
 
-- La tabla ``functions`` es la unica fuente de verdad.
-- No hay sincronizacion: el backend resuelve en tiempo real.
+- Los dominios IACT y Django mantienen ciclos de vida
+  independientes: agregar una funcion al catalogo no requiere
+  migracion adicional.
+- No hay sincronizacion fragil entre ``Function`` y
+  ``auth.Permission``.
 - Integra con DRF via ``FunctionPermission(BasePermission)``
   sin modificar el pipeline DRF estandar.
 - ``calculate_effective_functions()`` retorna ``Set[str]`` de
@@ -101,10 +108,16 @@ Decision
 
 **Se adopta Option B — FunctionAuthorization custom backend.**
 
-La tabla ``functions`` es y permanece como la unica fuente de
-verdad del modelo RBAC IACT. Option A introduce duplicacion
-estructural incompatible con ADR-GOB-009 (modelo conceptual)
-y con CNST-033 (vocabulario unificado RBAC).
+El argumento central es separacion de dominios y ciclos de vida.
+``auth_permission`` es infraestructura Django cuyo ciclo de vida
+esta acoplado a migraciones. ``functions`` es dominio IACT cuyo
+ciclo de vida esta acoplado al catalogo de funciones del negocio.
+Introducir entradas IACT en ``auth_permission`` asigna a
+infraestructura Django la responsabilidad de registrar conceptos
+del dominio de negocio. Esa asignacion de responsabilidad es
+incorrecta. La unica ventaja concreta de Option A — compatibilidad
+con el Django Admin — no aplica porque la gestion de funciones IACT
+se realiza mediante interfaces propias del sistema.
 
 ----
 
@@ -120,10 +133,10 @@ Consecuencias
    ``function_id``. Ejemplo correcto:
    ``@require_function('view_reports')``, NO
    ``@require_function('RPT-001')``.
-3. ``FunctionPermission('view_reports')`` es la forma canonica
-   para DRF — ver
+3. ``FunctionPermission(FunctionCatalog.VIEW_REPORTS)`` es la
+   forma canonica para DRF — ver
    :ref:`DEC-005 <cia-rbac-002-dec-005>` en CIA-RBAC-002.
-4. La clase ``Perm`` centraliza constantes eliminando strings
+4. ``FunctionCatalog`` centraliza constantes eliminando strings
    literales — ver :ref:`DEC-004 <cia-rbac-002-dec-004>`.
 
 **Negativas / Compromisos:**
@@ -141,7 +154,7 @@ Implementacion de referencia
 Ver :doc:`/gestion/evidencia/rbac-arquitectura/cia-rbac-002-arquitectura-permisos-drf`
 para el codigo de referencia completo de:
 
-- ``FunctionAuthorization`` (DEC-003)
-- Clase ``Perm`` (DEC-004)
-- ``FunctionPermission`` (DEC-005)
+- ``FunctionAuthorization`` con filtro por ``app_label`` (DEC-003)
+- ``FunctionCatalog`` en ``permissions/catalog.py`` (DEC-004)
+- ``FunctionPermission`` con ``FunctionCatalog`` (DEC-005)
 - Resolucion dinamica de ``app_label`` (DEC-006)
