@@ -78,7 +78,7 @@ Nomenclatura
 
  Donde:
  - BReq: Prefijo fijo (Business Requirement)
- - [MOD]: Código del módulo (AUTH, USR, ACC, PIP, RPT, ALR, AUD, LOG)
+ - [MOD]: Código del módulo (AUTH, USR, ACC, PERM, PIP, RPT, ALR, AUD, LOG, OPR, SUP, CLI)
 
 **Ejemplos:**
 
