@@ -385,6 +385,373 @@ Las tablas 7-1 a 7-5 describen cada actividad en detalle:
 
 ----
 
+Actividades de definición arquitectónica — proceso iterativo
+==============================================================
+
+La mayor dificultad del arquitecto es la cantidad de incertidumbre y
+cambio durante el trabajo con los stakeholders. El scope probablemente
+cambie a medida que emergen las implicaciones de incluir o excluir
+ciertas funcionalidades. Los requisitos funcionales y de propiedades
+de calidad también evolucionarán.
+
+Por esta razón, el proceso de definición arquitectónica es **iterativo**.
+Es necesario repetir los pasos principales varias veces antes de
+producir una AD terminada. La arquitectura seguirá evolucionando
+conforme se desarrolla el sistema.
+
+.. uml::
+ :caption: Figura 7-3 — Detalle del proceso de Definición Arquitectónica
+
+ @startuml uml14-arch-definition-detail
+
+ skinparam ArrowColor #444444
+ skinparam ActivityBorderColor #333333
+ skinparam ActivityBackgroundColor #F5F5F5
+ skinparam ActivityDiamondBackgroundColor #FFF9C4
+ skinparam shadowing false
+
+ start
+
+ :1. Consolidate the Inputs;
+ :2. Identify Scenarios;
+ :3. Identify Relevant\nArchitectural Styles;
+ :4. Produce a Candidate\nArchitecture;
+ :5. Explore the\nArchitectural Options;
+ :6. Evaluate the Architecture\nwith the Stakeholders;
+
+ if (architecture\naccepted?) then (yes)
+   stop
+ else (no)
+   fork
+     :7A. Rework the\nArchitecture;
+   fork again
+     :7B. Revisit the\nRequirements;
+   end fork
+   -> iterate back to step 4;
+ endif
+
+ @enduml
+
+.. note::
+
+ Las flechas curvas entre 7A y 7B indican que estos pasos no se
+ realizan de forma aislada: hay una interacción intensa entre ellos
+ porque revisar la arquitectura puede sugerir cambios en los
+ requisitos y viceversa. Por ejemplo, simplificar el modelo de
+ concurrencia puede requerir cambios en el orden en que el sistema
+ realiza algunas tareas. Todos estos cambios deben revisarse y
+ ratificarse con los stakeholders.
+
+Tablas de detalle — pasos del proceso iterativo
+-------------------------------------------------
+
+.. list-table:: Tabla 7-6 — Paso 1: Consolidar los Inputs
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Asegurar que se tienen todos los inputs necesarios para
+     comenzar a definir la arquitectura y que estos son coherentes
+     y completos en la medida de lo posible.
+ * - **Entradas**
+   - Concerns de los stakeholders; scope y contexto; cualquier
+     restricción arquitectónica conocida; arquitecturas existentes.
+ * - **Salidas**
+   - Conjunto consolidado y priorizado de concerns, scope, contexto
+     y restricciones, acordado entre los stakeholders.
+ * - **Notas**
+   - Es probable que los concerns sean incompletos e inconsistentes
+     en esta etapa. El objetivo es identificar los concerns más
+     importantes y asegurarse de que hay suficiente información para
+     comenzar a definir la arquitectura.
+
+.. list-table:: Tabla 7-7 — Paso 2: Identificar Escenarios
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Identificar un conjunto de escenarios que cubran los concerns
+     más importantes y que puedan usarse para dirigir y evaluar el
+     diseño de la arquitectura.
+ * - **Entradas**
+   - Concerns priorizados de los stakeholders; scope y contexto.
+ * - **Salidas**
+   - Conjunto de escenarios arquitectónicos priorizados que ilustran
+     los aspectos más importantes del sistema propuesto.
+ * - **Notas**
+   - Los escenarios son casos de uso, escenarios de calidad u otras
+     descripciones de las respuestas esperadas del sistema. Son una
+     herramienta poderosa para asegurar que la arquitectura aborda
+     los concerns de los stakeholders y para evaluar si lo hace.
+
+.. list-table:: Tabla 7-8 — Paso 3: Identificar Estilos Arquitectónicos Relevantes
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Identificar los estilos arquitectónicos que son adecuados para
+     el sistema en cuestión y que pueden usarse para guiar el diseño.
+ * - **Entradas**
+   - Concerns y escenarios priorizados; scope y contexto.
+ * - **Salidas**
+   - Uno o más estilos arquitectónicos candidatos que podrían aplicarse
+     al sistema y criterios para evaluarlos.
+ * - **Notas**
+   - Un estilo arquitectónico es un patrón de alto nivel que define
+     cómo organizar los elementos de un sistema. Ejemplos: cliente-
+     servidor, arquitectura en capas, arquitectura orientada a
+     servicios, arquitectura dirigida por eventos, microservicios.
+
+.. list-table:: Tabla 7-9 — Paso 4: Producir una Arquitectura Candidata
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Crear una arquitectura candidata que aborde los concerns
+     priorizados de los stakeholders.
+ * - **Entradas**
+   - Concerns y escenarios priorizados; estilos arquitectónicos
+     candidatos; restricciones.
+ * - **Salidas**
+   - Versión preliminar de la AD: modelos de las vistas más
+     importantes, con los elementos principales y sus relaciones.
+ * - **Notas**
+   - Es probable que la arquitectura candidata sea incompleta y
+     requiera refinamiento. El objetivo es tener suficiente
+     detalle para poder explorar opciones y evaluar con los
+     stakeholders.
+
+.. list-table:: Tabla 7-10 — Paso 5: Explorar las Opciones Arquitectónicas
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Identificar y evaluar las principales opciones arquitectónicas
+     disponibles para los aspectos más importantes o inciertos del
+     diseño.
+ * - **Entradas**
+   - Arquitectura candidata; concerns y escenarios priorizados.
+ * - **Salidas**
+   - Evaluación de las opciones disponibles y justificación de
+     las decisiones tomadas.
+ * - **Notas**
+   - Es raro que exista una única solución a un problema. Cuando
+     hay varias soluciones potenciales, el análisis debe revelar
+     las fortalezas y debilidades de cada una y justificar la
+     solución elegida. Puede implicar prototipos, spikes técnicos
+     o análisis formales.
+
+.. list-table:: Tabla 7-11 — Paso 6: Evaluar la Arquitectura con los Stakeholders
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Asegurar que la arquitectura candidata aborda los concerns de
+     todos los stakeholders de manera satisfactoria.
+ * - **Entradas**
+   - Arquitectura candidata; concerns y escenarios priorizados.
+ * - **Salidas**
+   - Lista de comentarios, preguntas y concerns de los stakeholders
+     sobre la arquitectura. Confirmación (o no) de que la arquitectura
+     satisface los concerns de los stakeholders.
+ * - **Notas**
+   - Esta evaluación puede ser formal (p.ej. ATAM — Architecture
+     Tradeoff Analysis Method) o informal. En cualquier caso, deben
+     implicarse los stakeholders clave y deben tenerse en cuenta sus
+     concerns antes de finalizar la arquitectura.
+
+.. list-table:: Tabla 7-12 — Paso 7A: Revisar la Arquitectura
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Modificar la arquitectura candidata para abordar los comentarios
+     y concerns surgidos de la evaluación con los stakeholders.
+ * - **Entradas**
+   - Arquitectura candidata; lista de comentarios y concerns de los
+     stakeholders.
+ * - **Salidas**
+   - Arquitectura candidata revisada.
+ * - **Notas**
+   - Este paso y el 7B (revisar requisitos) están íntimamente
+     relacionados. Revisar la arquitectura puede sugerir cambios
+     en los requisitos y viceversa. Todos los cambios deben
+     revisarse y ratificarse con los stakeholders.
+
+.. list-table:: Tabla 7-13 — Paso 7B: Revisar los Requisitos
+ :header-rows: 0
+ :widths: 20 80
+
+ * - **Objetivo**
+   - Actualizar los requisitos y concerns para reflejar una
+     comprensión más profunda del sistema resultante de la
+     definición de arquitectura.
+ * - **Entradas**
+   - Requisitos y concerns actuales; cambios identificados en
+     el paso 7A.
+ * - **Salidas**
+   - Requisitos y concerns actualizados, acordados con los
+     stakeholders.
+ * - **Notas**
+   - Los requisitos nunca son estáticos. A medida que la
+     arquitectura se define con más detalle, suelen surgir
+     inconsistencias, ambigüedades o lagunas en los requisitos.
+     Actualizar los requisitos en este punto mantiene la
+     coherencia entre la AD y la especificación del sistema.
+
+----
+
+Criterios de salida del proceso
+=================================
+
+En un mundo ideal, la definición de arquitectura continuaría hasta
+que la arquitectura estuviera completa, correcta y completamente
+documentada en la AD. Sin embargo, intentar fijar cada detalle antes
+de que se haya escrito una línea de código puede ser bastante
+contraproducente.
+
+La clave para decidir cuándo se ha completado suficiente trabajo de
+arquitectura es considerar los **riesgos** que afronta el proyecto.
+
+.. admonition:: Principio
+
+ La definición de arquitectura (o una iteración de ella) puede
+ considerarse completa una vez que los riesgos materiales que afronta
+ el sistema han sido mitigados, lo que puede juzgarse por la ausencia
+ de comentarios o acciones significativas después de la evaluación de
+ la arquitectura por parte de los stakeholders.
+
+Una buena indicación de si se han abordado los riesgos es cuando no
+hay comentarios, preguntas o concerns pendientes de la evaluación
+arquitectónica. Esto significa que los stakeholders (incluyendo el
+propio arquitecto) creen que el sistema propuesto satisfará sus
+concerns y que los riesgos conocidos han sido mitigados.
+
+.. admonition:: Estrategia
+
+ Incluirse a uno mismo en los revisores de la descripción
+ arquitectónica, y no finalizar la definición arquitectónica inicial
+ hasta estar satisfecho de que no hay problemas significativos con la
+ arquitectura.
+
+.. admonition:: Estrategia
+
+ Aspirar a producir una descripción arquitectónica que sea suficientemente
+ buena para satisfacer las necesidades de sus usuarios, en lugar de
+ aspirar a una versión perfecta que requiera significativamente más
+ recursos sin proporcionar ningún beneficio real para los stakeholders.
+
+En la práctica, en todos los proyectos salvo los más grandes, se debe
+aspirar a completar la producción de la AD en **uno a tres meses**.
+
+Una vez que la AD ha sido aprobada y colocada bajo control de
+configuración, debe continuar siendo un **documento vivo**, mantenido
+actualizado a lo largo de los pasos de construcción y hasta el
+despliegue.
+
+----
+
+La definición arquitectónica en el ciclo de vida SDLC
+=======================================================
+
+La definición de arquitectura no reemplaza el ciclo de vida de
+desarrollo de software normal, sino que debe considerarse una parte
+integral de él.
+
+Modelo en cascada (Waterfall)
+-------------------------------
+
+.. uml::
+ :caption: Figura 7-4 — El Modelo en Cascada de Desarrollo
+
+ @startuml uml14-waterfall-model
+
+ skinparam ArrowColor #444444
+ skinparam ActivityBorderColor #333333
+ skinparam ActivityBackgroundColor #E8F4FD
+ skinparam shadowing false
+
+ :Requirements\nDefinition;
+ :Architecture\nDefinition;
+ :Design;
+ :Build &\nUnit Test;
+ :Integration &\nSystem Test;
+ :Deployment;
+
+ @enduml
+
+En el modelo en cascada clásico, la definición de arquitectura es
+una tarea separada temprana en el ciclo de vida (antes, después o
+a veces junto a la definición de requisitos). La integración es
+sencilla por la naturaleza lineal del proceso.
+
+Enfoques iterativos
+---------------------
+
+.. uml::
+ :caption: Figura 7-5 — Desarrollo Iterativo
+
+ @startuml uml14-iterative-model
+
+ skinparam ArrowColor #444444
+ skinparam rectangleBorderColor #555555
+ skinparam rectangleBackgroundColor #D5E8D4
+ skinparam shadowing false
+
+ rectangle "Iteration 1" {
+   :Analyze → Arch → Design → Build → Test;
+ }
+ rectangle "Iteration 2" {
+   :Analyze → Arch → Design → Build → Test;
+ }
+ rectangle "Iteration N" {
+   :Analyze → Arch → Design → Build → Test;
+ }
+
+ @enduml
+
+La motivación de los enfoques iterativos (como Feature Driven
+Development o el Rational Unified Process) es reducir el riesgo
+mediante la entrega temprana de funcionalidad parcial. La definición
+de arquitectura formaría parte de la fase de análisis o podría
+ejecutarse en paralelo. (Para el RUP en particular, el proceso
+encaja bien en su fase de Elaboración).
+
+Métodos ágiles
+----------------
+
+Los métodos ágiles son métodos ligeros que se enfocan en la entrega
+rápida y continua de software a los usuarios finales. En proyectos
+que usan metodologías ágiles, el arquitecto debe:
+
+- **Entregar el trabajo arquitectónico incrementalmente.** Definir las
+  estructuras arquitectónicas básicas en las etapas tempranas y
+  refinarlas con un enfoque demand-based.
+- **Trabajar colaborativamente** con el equipo para acordar un conjunto
+  claro de principios de diseño y asegurar que se usan para garantizar
+  consistencia en la implementación.
+- **Definir los componentes claramente** con responsabilidades e
+  interfaces documentadas para evitar confusión y retrabajo.
+- **Compartir información ampliamente** usando herramientas simples
+  (wikis, presentaciones) en lugar de sofisticadas herramientas de
+  modelado.
+- **Asegurarse de que cada entregable tiene un cliente** (¿sino por
+  qué se hace?) y que los clientes entienden y están de acuerdo con
+  el valor que aporta.
+- **Crear documentos "suficientemente buenos"** que puedan entregarse
+  tan pronto como sean utilizables, en lugar de esperar a que estén
+  perfeccionados.
+- **Crear ejemplos funcionales o prototipos** para probar ideas y
+  guiar partes críticas o arriesgadas del trabajo de desarrollo.
+- **Enfocarse en concerns transversales** (cross-cutting). La posición
+  y experiencia del arquitecto le dan una posición única para
+  identificar estos concerns y definir estrategias y soluciones
+  a nivel de sistema. Se pueden usar perspectivas para esto.
+- **Enfocarse en áreas de significado arquitectónico** y dejar el
+  diseño más detallado a los desarrolladores.
+
+----
+
 Aplicación al proyecto IACT
 ==============================
 
