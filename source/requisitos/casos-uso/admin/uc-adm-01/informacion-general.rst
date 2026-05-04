@@ -89,5 +89,5 @@ modificacion genera notificacion a stakeholders de seguridad.
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/uc-module-view/mod-admin`
+ :doc:`/arquitectura-tecnica/use-case-view/mod-admin`
  :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`

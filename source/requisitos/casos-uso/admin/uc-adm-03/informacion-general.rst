@@ -85,5 +85,5 @@ incluye cada AGR predefinido, no quien tiene asignado el AGR
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/uc-module-view/mod-admin`
+ :doc:`/arquitectura-tecnica/use-case-view/mod-admin`
  :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`

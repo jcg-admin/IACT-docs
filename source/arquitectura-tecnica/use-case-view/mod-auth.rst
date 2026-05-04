@@ -28,7 +28,7 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
  @startuml
  left to right direction
 
- actor "User\n(no autenticado)" as UNAUTH
+ actor "User\n(no autenticado)" as UsuarioAnonimo
  actor "User\n(autenticado)" as user_autenticado
  actor "view_all_active_sessions" as view_all_active_sessions
 
@@ -41,8 +41,8 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
    usecase "UC_PERM_08\nGenerar Menu Dinamico\n[view_own_navigation]" as P08
  }
 
- UNAUTH --> A01
- UNAUTH --> A03
+ UsuarioAnonimo --> A01
+ UsuarioAnonimo --> A03
  user_autenticado --> A02
  user_autenticado --> A04
  view_all_active_sessions --> A05

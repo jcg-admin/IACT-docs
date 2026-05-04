@@ -28,6 +28,7 @@ se aplican a las decisiones de reestructuración. Adicionalmente:
 | **R-03** | Los diagramas redundantes (copias idénticas de un template genérico sin información arquitectónica real) se eliminan. Se mantiene un diagrama canónico por módulo/variante. |
 | **R-04** | No se mueve ni elimina ningún contenido sin primero crear el destino correcto y actualizar todas las referencias cruzadas. Impacto cero en el build. |
 | **R-05** | El contenido tipo BR (reglas de negocio RBAC, SoD, AGRs) y gobernanza (RACI) se mueve a los directorios semánticamente correctos (`requisitos/reglas-negocio/`, `normativa/gobernanza/`). |
+| **R-06** | Todo diagrama nuevo o corregido en este WP usa exactamente los nombres canónicos de clases, atributos y métodos del modelo de dominio (`bounded-contexts/`). Identificadores: `user_id` (UUID) no `id` (int); `state` (enum UserState) no `is_active` (bool); estados en inglés (ACTIVE/ACKNOWLEDGED/DISABLED). Las inconsistencias encontradas en archivos existentes se corrigen en el mismo PR. Decisiones documentadas en `strategy/trazabilidad-decisiones.md`. |
 
 ## Decisiones estratégicas
 

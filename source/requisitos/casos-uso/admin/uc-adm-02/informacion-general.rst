@@ -78,5 +78,5 @@ o verificacion (MOD_Permissions).
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/uc-module-view/mod-admin`
+ :doc:`/arquitectura-tecnica/use-case-view/mod-admin`
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/catalogo-funciones`

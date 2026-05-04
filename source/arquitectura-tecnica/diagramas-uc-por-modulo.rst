@@ -24,16 +24,17 @@ su especificacion completa en
  :maxdepth: 1
  :caption: Modulos funcionales
 
- uc-module-view/mod-auth
- uc-module-view/mod-users
- uc-module-view/mod-access
- uc-module-view/mod-permissions
- uc-module-view/mod-reports
- uc-module-view/mod-alerts
- uc-module-view/mod-pipeline
- uc-module-view/mod-audit
- uc-module-view/mod-logs
- uc-module-view/mod-operator
- uc-module-view/mod-supervision
- uc-module-view/mod-caller
- uc-module-view/rbac-funciones-por-modulo
+ use-case-view/mod-auth
+ use-case-view/mod-users
+ use-case-view/mod-access
+ use-case-view/mod-permissions
+ use-case-view/mod-reports
+ use-case-view/mod-alerts
+ use-case-view/mod-pipeline
+ use-case-view/mod-audit
+ use-case-view/mod-logs
+ use-case-view/mod-operator
+ use-case-view/mod-supervision
+ use-case-view/mod-caller
+ use-case-view/mod-admin
+ rbac/rbac-funciones-por-modulo
