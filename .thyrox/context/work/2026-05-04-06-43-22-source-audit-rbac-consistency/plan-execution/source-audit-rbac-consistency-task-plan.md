@@ -22,7 +22,7 @@ Un hallazgo accionable identificado (F-01). Ver
 - [x] **T-001** Corregir `HasFunctionPermission` → `FunctionPermission`
   en `source/normativa/restricciones/cnst-010-permission-class-explicita-en-vistas-drf.rst`
   (líneas 74 y 87).
-- [ ] **T-002** Commit y push
+- [x] **T-002** Commit y push
 
 ---
 
