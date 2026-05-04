@@ -55,35 +55,28 @@ Corregir todos los aliases PlantUML crípticos conforme D-ALIAS-001..003 y STD_0
 
 ## Bloque C — diagramas-uc-por-modulo.rst
 
-- [ ] **T-005** Auditar y corregir aliases en
+- [x] **T-005** Auditar y corregir aliases en
   `source/arquitectura-tecnica/diagramas-uc-por-modulo.rst`
-  - Buscar: `as [A-Z][A-Z]$`, `as [a-z]$`, `as [A-Z]$`
-  - Commit: "Fix aliases in diagramas-uc-por-modulo.rst"
+  - Archivo convertido a index/toctree — sin PlantUML directo. Sin violaciones.
 
 ---
 
 ## Bloque D — UC diagramas-uml.rst sweep (~80 archivos)
 
-- [ ] **T-006** Sweep de aliases en `source/requisitos/casos-uso/**/diagramas-uml.rst`
-
-  Patrones comunes a corregir:
-  - `as U` → `as view_{modulo}` (actor RBAC)
-  - `as F` → nombre descriptivo del participante
-  - `as A`, `as B` → nombres descriptivos
-  - `as AUD` → `as AuditoriaEndpoint` o `as view_audit_log`
-  - `as ADM` → `as assign_functions`
-
-  Script: buscar con grep y aplicar correcciones por archivo
-  - Commit: "Sweep cryptic aliases in UC diagramas-uml files"
+- [x] **T-006** Sweep de aliases en `source/requisitos/casos-uso/**/diagramas-uml/`
+  - Nota: archivos fueron divididos en `diagramas-uml/` subdirectorios (1 diagrama por archivo)
+  - 41 archivos corregidos: EMI→AuditEmitter, NOT→NotificacionMailbox, INS→RegistrarDatos,
+    CSE→CerrarSesiones, LST→VistaListado, BLK→TokensRevocados, y 30+ otros
+  - 0 violaciones restantes globalmente
 
 ---
 
 ## Bloque E — Módulos arquitectura diagramas.rst
 
-- [ ] **T-007** Revisar `source/arquitectura-tecnica/modulos/**/diagramas.rst`
-  - Buscar aliases de 1-2 caracteres
-  - Corregir si se encuentran
-  - Commit: "Fix aliases in modulos diagramas.rst files"
+- [x] **T-007** Revisar `source/arquitectura-tecnica/modulos/**/diagramas/`
+  - Nota: archivos divididos en `diagramas/` subdirectorios (1 diagrama por archivo)
+  - 7 archivos corregidos: IVR→SistemaIVR, SUP→SupervisorSistema, ANA→AnalistaReportes,
+    SCH→DisparadorScheduler, ETL→ProcesoETL, INC→ResolverSegmento
 
 ---
 
@@ -99,7 +92,7 @@ Corregir todos los aliases PlantUML crípticos conforme D-ALIAS-001..003 y STD_0
 
   Resultado esperado: vacío (0 violaciones)
 
-- [ ] **T-009** Ejecutar `make html SPHINXOPTS="-j1"` y verificar 0 errores
+- [ ] **T-009** Ejecutar `make html SPHINXOPTS="-j1"` y verificar 0 errores [GATE — pendiente autorización]
   - Commit changelog con resultado
 
 ---
