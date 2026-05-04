@@ -391,6 +391,71 @@ actualización sistemática de todos los `:doc:` afectados.
 
 ---
 
+## 9c. Hallazgos adicionales — bounded-contexts y deploy-view
+
+### H-09 — bounded-contexts/ es el verdadero domain model — consolidar [MEDIA]
+
+`arquitectura-tecnica/bounded-contexts/` contiene 10 archivos (1157 líneas):
+- `overview.rst` (237 líneas) — modelo canónico global: 25 clases en 7 BCs, método Abbott + IEEE 830
+- `bounded-context-{auth,rbac,calls,reports,pipeline-etl,alerts,audit,logs}.rst` — diagrama de clases `.. uml::` por BC
+
+Este contenido ES el modelo de dominio global del sistema — exactamente lo que
+`domain-model/` debería contener per H-07. El `:tipo:` declarado en los metadatos
+de cada archivo es `Diagrama Arquitectonico — Modelo de Dominio`.
+
+**Propuesta confirmada:** mover `bounded-contexts/` → `domain-model/` y eliminar
+el directorio `bounded-contexts/` una vez consolidado.
+
+**Impacto del move (verificado):**
+- Referencias externas a `bounded-contexts/` desde fuera de `arquitectura-tecnica/`: **0**
+- Referencias internas: **1 sola** — `modelo-dominio-iact.rst` tiene un toctree
+  apuntando a `bounded-contexts/overview` y los 8 `bounded-context-*.rst`
+- Archivos a actualizar: únicamente `modelo-dominio-iact.rst` (cambiar paths en toctree)
+
+**Estructura resultante de `domain-model/` post-merge:**
+```
+domain-model/
+├── overview.rst                     ← modelo canónico global (25 clases)
+├── bounded-context-auth.rst         ← clases BC Auth
+├── bounded-context-rbac.rst         ← clases BC RBAC
+├── bounded-context-alerts.rst
+├── bounded-context-audit.rst
+├── bounded-context-calls.rst
+├── bounded-context-logs.rst
+├── bounded-context-pipeline-etl.rst
+├── bounded-context-reports.rst
+└── index.rst                        ← actualizar descripción y toctree
+```
+
+Los 160 archivos per-UC actualmente en `domain-model/` (H-07) se tratan en
+tarea separada — relocalizarlos a los UC specs correspondientes.
+
+### H-10 — deploy-view/ tiene 71 de 80 diagramas idénticos [ALTA]
+
+Verificación por hash MD5 del bloque `@startuml..@enduml` de los 80 archivos:
+
+| Hash | Cantidad | Variante | Archivos representativos |
+|---|---|---|---|
+| `7307cd15` | **71** | Genérico: Client→WebServer(App)→DB | La gran mayoría |
+| `74e2c793` | **5** | Con cache: + node "cache" | `iniciar-sesion`, `cerrar-sesion`, `gestionar-sesiones`, `cambiar-contrasena`, `recuperar-contrasena` |
+| `3200ac7f` | **4** | ETL: WebServer(DisparadorETL)→DB vía SP call | `supervisar-etl`, `solicitar-reintento-pipeline`, `consultar-errores-etl`, `consultar-disponibilidad-datos` |
+
+**Conclusión:** `deploy-view/` tiene **3 diagramas únicos reales** embebidos en
+80 archivos. Los 71 archivos con hash `7307cd15` son la misma línea
+`Client → WebServer → DB` copiada 71 veces. No aportan información de deployment
+diferenciada por UC.
+
+**Lo correcto:** 3 diagramas de deployment (uno por variante de infraestructura)
+en lugar de 80 copias. La vista de deployment real de IACT no varía por UC —
+varía por tipo de componente de backend (app estándar, app con cache, disparador ETL).
+
+**Acción requerida:**
+1. Crear 3 diagramas canónicos de deployment (estándar, auth-cache, etl)
+2. Eliminar los 80 archivos per-UC redundantes
+3. Reemplazar el `deploy-view/index.rst` actual con un índice de 3 entradas
+
+---
+
 ## 10. Preguntas de diseño para la fase STRATEGY
 
 Antes de planificar cualquier reorganización, estas preguntas deben responderse:
@@ -433,3 +498,5 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `arquitectura-tecnica/rbac/modelo-rbac-iact/*.rst` (textual) | ⚠ BR/trazabilidad en zona DIAG | Mover a `requisitos/reglas-negocio/` (H-08) |
 | `arquitectura-tecnica/rbac/raci-rbac-iact/` | ⚠ Gobernanza en zona DIAG | Mover a `normativa/gobernanza/` (H-08) |
 | `arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/` | ✓ DIAG puro | Correcto |
+| `arquitectura-tecnica/bounded-contexts/` | ✓ DIAG puro — es el verdadero domain model | Consolidar en `domain-model/`; eliminar directorio (H-09) |
+| `arquitectura-tecnica/deploy-view/` (80 archivos) | ⚠ 71/80 son copia idéntica del mismo diagrama | Reducir a 3 diagramas canónicos por variante de infra (H-10) |
