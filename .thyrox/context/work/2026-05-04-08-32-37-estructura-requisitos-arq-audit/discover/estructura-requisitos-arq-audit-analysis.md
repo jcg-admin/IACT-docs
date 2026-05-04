@@ -454,6 +454,54 @@ varía por tipo de componente de backend (app estándar, app con cache, disparad
 2. Eliminar los 80 archivos per-UC redundantes
 3. Reemplazar el `deploy-view/index.rst` actual con un índice de 3 entradas
 
+### H-11 — design-view/ tiene 160 archivos de boilerplate genérico [ALTA]
+
+`arquitectura-tecnica/design-view/` contiene **161 archivos**:
+- 80 `{uc-name}-secuencia.rst` — diagramas de secuencia por UC
+- 80 `{uc-name}-comunicacion.rst` — diagramas de comunicación entre objetos por UC
+- 1 `index.rst`
+
+**Hallazgo 1 — Duplicados exactos por hash MD5 (40 archivos):**
+
+| Cantidad | Tipo | UCs afectadas |
+|---|---|---|
+| 9 | `*-comunicacion.rst` | 9 UCs de reportes (ver-reportes-historicos, ver-reportes-programados, reporte-agentes, reporte-campanas, reporte-colas, reporte-clientes-unicos, reporte-menus-ivr, reporte-transferencias, resolver-segmento) |
+| 9 | `*-secuencia.rst` | Mismos 9 UCs de reportes |
+| 5 | `*-comunicacion.rst` | 5 UCs de llamadas (iniciar-llamada, esperar-cola, navegar-ivr, calificar, solicitar-callback) |
+| 5 | `*-secuencia.rst` | Mismos 5 UCs de llamadas |
+| 6 pares | ambos tipos | 6 pares adicionales |
+
+**Hallazgo 2 — Los 120 "únicos" por hash son boilerplate con sustitución de nombres:**
+
+Los 4 pasos del flujo de secuencia aparecen **exactamente 80 veces cada uno**
+(verificado por grep sobre todos los archivos):
+
+```
+Iface -> SvcNode : POST/GET endpoint     ← presente en 80/80 archivos
+SvcNode -> Store : query / SP            ← presente en 80/80 archivos
+Store --> SvcNode : resultado            ← presente en 80/80 archivos
+SvcNode --> Iface : respuesta JSON       ← presente en 80/80 archivos
+```
+
+La única variación entre archivos es el nombre del actor (función RBAC) y la
+etiqueta de módulo del servicio (12 variantes: "Interfaz de Acceso", "Interfaz de
+Reportes", etc.). El flujo lógico es idéntico en los 160 archivos.
+
+Los "hash únicos" lo son solo porque el actor name cambia el hash — no porque
+el diagrama represente un diseño diferente.
+
+**Conclusión:** `design-view/` padece el mismo problema que `deploy-view/`:
+160 copias de un template genérico `actor → frontend → api → db` que no describe
+el diseño técnico específico de ningún UC. Los UC specs en
+`requisitos/casos-uso/*/diagramas-uml/` ya contienen los diagramas de flujo
+específicos (flujo-principal, actividad, secuencia con pasos concretos).
+
+**Acción correcta:**
+1. Reducir a ~12 diagramas canónicos por módulo (Auth, Access, Permissions,
+   Admin, Reports, ETL, Alerts, Audit, Logs, Calls, Supervision, Users)
+2. Cada diagrama canónico muestra el patrón de interacción del módulo
+3. Eliminar los 160 archivos per-UC redundantes
+
 ---
 
 ## 10. Preguntas de diseño para la fase STRATEGY
@@ -500,3 +548,4 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/` | ✓ DIAG puro | Correcto |
 | `arquitectura-tecnica/bounded-contexts/` | ✓ DIAG puro — es el verdadero domain model | Consolidar en `domain-model/`; eliminar directorio (H-09) |
 | `arquitectura-tecnica/deploy-view/` (80 archivos) | ⚠ 71/80 son copia idéntica del mismo diagrama | Reducir a 3 diagramas canónicos por variante de infra (H-10) |
+| `arquitectura-tecnica/design-view/` (160 archivos) | ⚠ 160/160 boilerplate genérico; 4 pasos idénticos en todos los archivos | Reducir a ~12 diagramas canónicos por módulo (H-11) |
