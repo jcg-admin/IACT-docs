@@ -25,31 +25,38 @@ Diagrama de clases — modulo identidad
  @startuml
 
  class User {
-   +id: int
-   +username: str
-   +email: str
-   +is_active: bool
-   +date_joined: datetime
-   +last_login: datetime
-   +create(): User
-   +deactivate(): void
+   +user_id: UUID
+   +username: String
+   +email: String
+   +state: UserState
+   +created_at: DateTime
+   +last_login_at: DateTime
+   +create()
+   +deactivate()     <<BR-009 v2.0.0>>
+   +modify()
  }
+ enum UserState { ACTIVE / INACTIVE / BLOCKED }
+ User -- UserState
 
  class Session {
-   +user: User
-   +jwt_token: str
-   +ip_origen: str
-   +created_at: datetime
-   +expires_at: datetime
-   +invalidate(): void
+   +session_id: UUID
+   +user_id: UUID
+   +started_at: DateTime
+   +expires_at: DateTime
+   +state: SessionState
+   +open()
+   +close()
  }
+ enum SessionState { ACTIVE / CLOSED / EXPIRED }
+ Session -- SessionState
 
  class AuditEvent {
-   +user_id: int
-   +accion: str
-   +entidad: str
-   +timestamp: datetime
-   +ip_origen: str
+   +event_id: UUID
+   +event_type: EventType
+   +details: JSON
+   +occurred_at: DateTime
+   +record()
+   +search()
  }
 
  User "1" *-- "0..*" Session

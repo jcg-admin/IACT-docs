@@ -24,21 +24,22 @@ Ciclo de Vida de una Alerta
 
  @startuml
 
- [*] --> PENDIENTE : condicion umbral detectada
+ [*] --> ACTIVE : Threshold superado\n(evaluacion periodica)
 
- PENDIENTE --> ACTIVA : sistema confirma condicion\npersiste (evaluacion periodica)
- PENDIENTE --> [*] : condicion ya no se cumple\n(falsa alarma)
+ ACTIVE --> ACKNOWLEDGED : Alert.acknowledge()\n<<D-02>>
+ ACTIVE --> DISABLED : Alert.disable()\n(supervisor desactiva)
 
- ACTIVA --> RECONOCIDA : acknowledge_alert invoca UC_ALR_03
- ACTIVA --> ACTIVA : suscriptores notificados\nvia InternalMailbox (CNST-001)
+ ACKNOWLEDGED --> DISABLED : supervisor cierra\n(resolucion confirmada)
+ ACKNOWLEDGED --> ACTIVE : condicion persiste\n(re-evaluacion)
 
- RECONOCIDA --> RESUELTA : operador marca como resuelta
- RESUELTA --> [*] : alerta archivada\n(inmutable, CNST-025)
+ DISABLED --> [*] : alerta archivada\n(append-only, CNST-025)
 
- note right of ACTIVA
+ note right of ACTIVE
+   Notificacion via InternalMailbox.
    Nunca por email (CNST-001).
    BR-016: tasa abandono >30%
    genera alerta automatica.
+   AlertState: ACTIVE / ACKNOWLEDGED / DISABLED
  end note
 
  @enduml
