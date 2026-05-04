@@ -36,17 +36,11 @@ Los datos de reportes IVR no provienen de modelos Django ORM.
 Provienen de stored procedures en Almacen de Datos, invocados via el cursor
 de la conexion ``ivr``:
 
-.. code-block:: python
+.. note::
 
- from django.db import connections
-
- def get_centros_transferencia(quarter_name: str) -> list[dict]:
-     """Retorna filas del SP sp_rpt_centros_transferencia."""
-     with connections['ivr'].cursor() as cursor:
-         cursor.callproc('sp_rpt_centros_transferencia', [quarter_name])
-         columns = [col[0] for col in cursor.description]
-         return [dict(zip(columns, row)) for row in cursor.fetchall()]
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 Este patron se repite para cada uno de los 7 SPs de reporte.
 Las vistas DRF reciben el resultado como lista de diccionarios y
 lo serializan directamente.

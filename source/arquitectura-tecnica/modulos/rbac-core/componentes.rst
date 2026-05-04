@@ -30,31 +30,11 @@ Modelos de Datos
 - **DSC_MOD_002_Role** — Roles funcionales
 - **DSC_MOD_003_Permission** — Permisos del sistema
 
-.. code-block:: python
+.. note::
 
- class Role(models.Model):
-     code = models.CharField(max_length=50, unique=True)  # R001, R002...
-     name = models.CharField(max_length=100)
-     category = models.CharField(max_length=50)  # OPERATIVO, GESTION, ADMIN
-     permissions = models.ManyToManyField('Permission')
-     is_active = models.BooleanField(default=True)
-
- class Permission(models.Model):
-     code = models.CharField(max_length=100)  # reports.view, users.create
-     module = models.CharField(max_length=50)
-     action = models.CharField(max_length=50)
-
- class DataSegment(models.Model):
-     code = models.CharField(max_length=50)
-     segment_type = models.CharField  # CENTRO, SERVICIO, REGION
-     value = models.CharField(max_length=100)
-
- class UserRole(models.Model):
-     user = models.ForeignKey(User)
-     role = models.ForeignKey(Role)
-     assigned_at = models.DateTimeField(auto_now_add=True)
-     assigned_by = models.ForeignKey(User, related_name='assignments')
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas

@@ -51,16 +51,11 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 **Implementación backend:**
 
-.. code-block:: python
+.. note::
 
- from apps.access.decorators import require_function
- 
- @require_function('AUTH-001') # view_own_sessions
- def view_own_sessions_view(request):
- """Sesiones activas propias del usuario."""
- pass
-
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 3.2 MOD_Users (9 funciones)
@@ -136,14 +131,11 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 **Implementación backend:**
 
-.. code-block:: python
+.. note::
 
- @require_function('USR-001') # create_users
- def create_user_view(request):
- """Creación de usuario."""
- pass
-
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 3.3 MOD_Access (12 funciones)

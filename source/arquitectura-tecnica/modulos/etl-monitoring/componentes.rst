@@ -54,24 +54,11 @@ accedida via ``cursor.execute`` / ``cursor.callproc``.
 
 **ETLEjecucionRepo** — Repositorio Python sobre cursor
 
-.. code-block:: python
+.. note::
 
- from django.db import connections
-
- class ETLEjecucionRepo:
-     def listar(self, limit=50):
-         with connections['mariadb'].cursor() as cursor:
-             cursor.execute(
-                 "SELECT * FROM etl_runs ORDER BY started_at DESC LIMIT %s",
-                 [limit]
-             )
-             return cursor.fetchall()
-
-     def historial(self, job_id):
-         with connections['mariadb'].cursor() as cursor:
-             cursor.callproc('sp_etl_historico', [job_id])
-             return cursor.fetchall()
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas

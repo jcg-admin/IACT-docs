@@ -39,15 +39,8 @@ Una función puede asignarse **temporalmente** con:
 
 
 
-.. code-block:: python
+.. note::
 
- # Asignar export_csv temporalmente por 3 meses
- UserFunctionAssignment.objects.create(
- user=user,
- function=Function.objects.get(function_id='RPT-004'), # export_csv
- assigned_by=admin,
- justification="Cobertura vacaciones analista principal",
- expiration_date=date.today + timedelta(days=90)
- )
-
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.

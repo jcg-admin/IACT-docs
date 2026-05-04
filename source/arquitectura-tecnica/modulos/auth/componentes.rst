@@ -30,18 +30,11 @@ Modelos de Datos
 - **DSC_MOD_001_User** - Usuario del sistema (referencia)
 - **DSC_MOD_004_Session** - Sesion activa en base de datos
 
-.. code-block:: python
+.. note::
 
- # Modelo de Sesion (apps/users/models.py)
- class UserSession(models.Model):
-     user = models.ForeignKey(User, on_delete=models.CASCADE)
-     token_hash = models.CharField(max_length=64, unique=True)
-     ip_address = models.GenericIPAddressField
-     user_agent = models.TextField
-     created_at = models.DateTimeField(auto_now_add=True)
-     last_activity = models.DateTimeField(auto_now=True)
-     is_active = models.BooleanField(default=True)
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas
@@ -83,16 +76,11 @@ APIs Expuestas
 Middleware
 ==========
 
-.. code-block:: python
+.. note::
 
- # apps/common/middleware.py
-
- class SessionTimeoutMiddleware:
-     """Verifica timeout de 15 minutos por inactividad"""
-
- class SingleSessionMiddleware:
-     """Garantiza sesion unica por usuario"""
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 Seguridad

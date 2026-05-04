@@ -14,11 +14,11 @@ Modelo de Datos Dual
 ====================
 
 El sistema IACT opera sobre dos servidores de bases de datos con
-roles distintos. MariaDB aloja **dos espacios logicos separados**
+roles distintos. Almacen de Datos aloja **dos espacios logicos separados**
 dentro del mismo servidor; PostgreSQL es exclusivo para tablas
 operacionales de Django.
 
-1. MariaDB 10.1.48 — IVR Fuente (solo lectura)
+1. Almacen de Datos 10.1.48 — IVR Fuente (solo lectura)
 ===============================================
 
 - **Owner:** cliente (proveedor IVR).
@@ -30,10 +30,10 @@ operacionales de Django.
   ninguna circunstancia (3 niveles de enforcement: GRANT SELECT,
   Django ``managed = False``, middleware de proteccion).
 
-2. MariaDB 10.1.48 — IVR Analitica (lectura/escritura ETL)
+2. Almacen de Datos 10.1.48 — IVR Analitica (lectura/escritura ETL)
 ===========================================================
 
-- **Owner:** IACT (propio dentro del mismo servidor MariaDB).
+- **Owner:** IACT (propio dentro del mismo servidor Almacen de Datos).
 - **Acceso:** read/write para el ETL; read-only para las vistas
   Django de reportes.
 - **Tablas principales:**
@@ -45,7 +45,7 @@ operacionales de Django.
   - ``etl_runs`` — tabla de tracking de ejecuciones ETL (propiedad
     IACT), usada por los casos de uso de supervision del pipeline.
 
-- **El ETL trabaja completamente dentro de MariaDB:** lee de las
+- **El ETL trabaja completamente dentro de Almacen de Datos:** lee de las
   tablas fuente del cliente y escribe en las tablas analiticas de
   IACT. No hay transferencia de datos IVR hacia PostgreSQL.
 
@@ -63,7 +63,7 @@ operacionales de Django.
 4. Sincronizacion
 =================
 
-El ETL sincroniza datos **dentro de MariaDB**: desde las tablas
+El ETL sincroniza datos **dentro de Almacen de Datos**: desde las tablas
 fuente ``tbl_historico_*`` (cliente) hacia las tablas analiticas
 ``base_ivr_*`` (IACT). El patron es TRUNCATE + INSERT (idempotente).
 
@@ -74,30 +74,17 @@ fuente ``tbl_historico_*`` (cliente) hacia las tablas analiticas
 
 Ver :doc:`etl-pipeline`.
 
-5. Routers Django
+5. Routers de base de datos
 =================
 
-.. code-block:: python
+.. note::
 
- # api/db_routers.py
-
- class IVRRouter:
-     """Enruta consultas IVR a MariaDB (ivr connection)."""
-     app_labels = {'ivr'}
-
-     def db_for_read(self, model, **hints):
-         if model._meta.app_label in self.app_labels:
-             return 'ivr'
-         return None
-
-     def db_for_write(self, model, **hints):
-         if model._meta.app_label in self.app_labels:
-             raise ProtectedError("CNST_007: BD IVR fuente es read-only")
-         return None
-
+ Los detalles de implementacion de este modelo estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 Las vistas de reportes IVR no usan modelos ORM — consultan
 directamente via ``cursor.callproc()`` sobre la conexion ``ivr``
-(MariaDB). Ver :doc:`/arquitectura-tecnica/modulos/vis-reports/componentes`.
+(Almacen de Datos). Ver :doc:`/arquitectura-tecnica/modulos/vis-reports/componentes`.
 
 6. Resumen de tres bases logicas
 =================================
@@ -111,11 +98,11 @@ directamente via ``cursor.callproc()`` sobre la conexion ``ivr``
    - Acceso IACT
    - Contenido
  * - IVR Fuente
-   - MariaDB
+   - Almacen de Datos
    - SOLO LECTURA
    - ``tbl_historico_tN_YYYY`` (del cliente)
  * - IVR Analitica
-   - MariaDB
+   - Almacen de Datos
    - R/W (ETL) / R (reportes)
    - ``base_ivr_detalle``, ``base_ivr_clientes``, ``etl_runs``
  * - Operacional IACT

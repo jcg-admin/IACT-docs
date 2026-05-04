@@ -29,42 +29,11 @@ Modelos de Datos
 
 **DSC_MOD_008_AuditLog** — Registro de auditoria
 
-.. code-block:: python
+.. note::
 
- class AuditLog(models.Model):
-     """Registro inmutable de auditoria funcional. CNST_009: No se modifica ni elimina."""
-     # Quien
-     user = models.ForeignKey(User, null=True)  # null = sistema
-     user_display = models.CharField(max_length=100)  # snapshot del nombre
-
-     # Que
-     action = models.CharField(max_length=50, choices=AUDIT_ACTIONS)
-     resource_type = models.CharField(max_length=50)  # User, Role, Report
-     resource_id = models.CharField(max_length=100, null=True)
-     resource_display = models.CharField(max_length=200)
-
-     # Detalles
-     old_value = models.JSONField(null=True)
-     new_value = models.JSONField(null=True)
-
-     # Cuando
-     timestamp = models.DateTimeField(auto_now_add=True, db_index=True)
-
-     # Desde donde
-     ip_address = models.GenericIPAddressField
-     user_agent = models.TextField
-
-     # Resultado
-     result = models.CharField(choices=AUDIT_RESULTS)  # SUCCESS, FAILED, DENIED
-
-     class Meta:
-         ordering = ['-timestamp']
-         indexes = [
-             models.Index(fields=['user', 'timestamp']),
-             models.Index(fields=['action', 'timestamp']),
-             models.Index(fields=['resource_type', 'timestamp']),
-         ]
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 Tipos de Accion Auditada
@@ -119,16 +88,11 @@ Tipos de Accion Auditada
 Decorador de Auditoria
 =======================
 
-.. code-block:: python
+.. note::
 
- from apps.common.audit import audit_action
-
- @audit_action(action='USER_CREATE', resource_type='User')
- def create_user(request, data):
-     # La accion se registra automaticamente
-     user = User.objects.create(**data)
-     return user
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas

@@ -55,72 +55,21 @@ Niveles de Log
 Configuracion de Logging
 =========================
 
-.. code-block:: python
+.. note::
 
- # config/settings/base.py
-
- LOGGING = {
-     'version': 1,
-     'disable_existing_loggers': False,
-     'formatters': {
-         'verbose': {
-             'format': '{asctime} [{levelname}] {name} {module}: {message}',
-             'style': '{',
-         },
-     },
-     'handlers': {
-         'file': {
-             'level': 'INFO',
-             'class': 'logging.handlers.RotatingFileHandler',
-             'filename': '/var/log/iact/application.log',
-             'maxBytes': 10485760,  # 10MB
-             'backupCount': 10,
-             'formatter': 'verbose',
-         },
-         'error_file': {
-             'level': 'ERROR',
-             'class': 'logging.handlers.RotatingFileHandler',
-             'filename': '/var/log/iact/error.log',
-             'maxBytes': 10485760,
-             'backupCount': 20,
-             'formatter': 'verbose',
-         },
-     },
-     'loggers': {
-         'django': {'handlers': ['file'], 'level': 'INFO'},
-         'apps': {'handlers': ['file', 'error_file'], 'level': 'INFO'},
-     },
- }
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 Health Check — Vista
 =====================
 
-.. code-block:: python
+.. note::
 
- # apps/monitoring/views.py
-
- class HealthCheckView(APIView):
-     permission_classes = [AllowAny]
-
-     def get(self, request):
-         checks = {
-             'database_analytics': self._check_analytics_db,
-             'database_ivr': self._check_ivr_db,
-             'cache': self._check_cache,
-             'disk_space': self._check_disk,
-             'memory': self._check_memory,
-         }
-
-         all_healthy = all(c['status'] == 'healthy' for c in checks.values)
-
-         return Response({
-             'status': 'healthy' if all_healthy else 'degraded',
-             'timestamp': timezone.now.isoformat,
-             'checks': checks,
-         }, status=200 if all_healthy else 503)
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas

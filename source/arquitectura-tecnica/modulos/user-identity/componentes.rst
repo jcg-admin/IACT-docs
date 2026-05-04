@@ -29,24 +29,11 @@ Modelos de Datos
 
 **DSC_MOD_001_User** — Usuario del sistema
 
-.. code-block:: python
+.. note::
 
- class User(AbstractBaseUser):
-     username = models.CharField(max_length=50, unique=True)
-     first_name = models.CharField(max_length=100)
-     last_name = models.CharField(max_length=100)
-     organizational_unit = models.CharField(max_length=100)
-     status = models.CharField(choices=USER_STATUS_CHOICES)
-     created_at = models.DateTimeField(auto_now_add=True)
-     updated_at = models.DateTimeField(auto_now=True)
-     deleted_at = models.DateTimeField(null=True, blank=True)
-     deleted_by = models.ForeignKey('self', null=True)
-
- class SecurityQuestion(models.Model):
-     user = models.ForeignKey(User)
-     question = models.CharField(max_length=200)
-     answer_hash = models.CharField(max_length=128)
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 APIs Expuestas

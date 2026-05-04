@@ -30,41 +30,11 @@ Modelos de Datos
 - **DSC_MOD_007_Alert** — Configuracion de alertas
 - **DSC_MOD_009_InternalMessage** — Mensajes internos
 
-.. code-block:: python
+.. note::
 
- class InternalMessage(models.Model):
-     """Reemplaza completamente el email. CNST_001: No se envia correo."""
-     sender = models.ForeignKey(User, null=True)  # null = sistema
-     recipient = models.ForeignKey(User)
-     subject = models.CharField(max_length=200)
-     body = models.TextField
-     message_type = models.CharField(choices=MESSAGE_TYPES)
-     severity = models.CharField(choices=SEVERITY_LEVELS)
-     is_read = models.BooleanField(default=False)
-     read_at = models.DateTimeField(null=True)
-     created_at = models.DateTimeField(auto_now_add=True)
-     alert = models.ForeignKey('Alert', null=True)
-
- class AlertConfig(models.Model):
-     name = models.CharField(max_length=100)
-     alert_type = models.CharField(choices=ALERT_TYPES)
-     metric = models.CharField(max_length=100)
-     condition = models.CharField(max_length=50)  # GT, LT, EQ
-     threshold = models.DecimalField
-     severity = models.CharField(choices=SEVERITY_LEVELS)
-     recipients = models.ManyToManyField(User)
-     frequency = models.CharField  # IMMEDIATE, HOURLY, DAILY
-     is_active = models.BooleanField(default=True)
-     snooze_until = models.DateTimeField(null=True)
-
- class AlertInstance(models.Model):
-     config = models.ForeignKey(AlertConfig)
-     triggered_at = models.DateTimeField
-     metric_value = models.DecimalField
-     status = models.CharField  # OPEN, ACKNOWLEDGED, CLOSED
-     acknowledged_by = models.ForeignKey(User, null=True)
-     acknowledged_at = models.DateTimeField(null=True)
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 **Usos de InternalMessage:**
 
 - Alertas operativas
