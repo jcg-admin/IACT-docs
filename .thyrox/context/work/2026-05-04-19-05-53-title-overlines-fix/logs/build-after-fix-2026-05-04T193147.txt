@@ -6067,3 +6067,120 @@ writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-016-ge
 writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/fr-016-02-modificar-grupo-permisos
 writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/fr-016-03-retirar-grupo-permisos
 writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/index
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/fr-017-01-actualizar-composicion-agr
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/fr-017-02-invalidar-cache-post-composicion
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/index
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/fr-018-01-verificar-permiso-via-cache
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/fr-018-02-verificar-permiso-resolucion-completa
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/index
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/fr-019-01-resolver-conjunto-efectivo-menu
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/fr-019-02-generar-menu-localizado-con-cache
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/index
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/fr-020-01-validar-emitir-evento-auditoria
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/fr-020-02-garantizar-inmutabilidad-auditoria
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/index
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-021-consultar-auditoria-permisos/fr-021-01-consultar-auditoria-con-filtros
+writing output... [ 97%] requisitos/requisitos-funcionales/permissions/uc-021-consultar-auditoria-permisos/index
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/index
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-071-ver-estado-pipeline/fr-071-01-consultar-estado-pipeline-etl
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-071-ver-estado-pipeline/index
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-072-ver-errores-pipeline/fr-072-01-consultar-errores-pipeline
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-072-ver-errores-pipeline/index
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-073-ver-disponibilidad-datos/fr-073-01-consultar-disponibilidad-datos
+writing output... [ 97%] requisitos/requisitos-funcionales/pipeline/uc-073-ver-disponibilidad-datos/index
+writing output... [ 98%] requisitos/requisitos-funcionales/pipeline/uc-074-reintentar-pipeline/fr-074-01-solicitar-reintento-pipeline
+writing output... [ 98%] requisitos/requisitos-funcionales/pipeline/uc-074-reintentar-pipeline/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-032-ver-dashboard/fr-032-01-renderizar-dashboard-segmentado
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-032-ver-dashboard/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-033-ver-metricas-tiempo-real/fr-033-01-emitir-kpis-tiempo-real
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-033-ver-metricas-tiempo-real/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-034-ver-reportes-historicos/fr-034-01-consultar-reportes-historicos
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-034-ver-reportes-historicos/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-035-exportar-reporte/fr-035-01-encolar-exportacion-reporte
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-035-exportar-reporte/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-036-programar-reporte/fr-036-01-crear-reporte-programado
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-036-programar-reporte/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-037-ver-reportes-programados/fr-037-01-consultar-reportes-programados
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-037-ver-reportes-programados/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-038-gestionar-filtros-guardados/fr-038-01-crud-filtros-guardados
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-038-gestionar-filtros-guardados/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-039-guardar-vista/fr-039-01-crud-vistas-reporte
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-039-guardar-vista/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-040-compartir-reporte/fr-040-01-compartir-vista-reporte
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-040-compartir-reporte/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-041-reporte-agentes/fr-041-01-generar-reporte-agentes
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-041-reporte-agentes/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-042-reporte-colas/fr-042-01-generar-reporte-colas
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-042-reporte-colas/index
+writing output... [ 98%] requisitos/requisitos-funcionales/reports/uc-043-reporte-campanas/fr-043-01-generar-reporte-campanas
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-043-reporte-campanas/index
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-044-reporte-transferencias/fr-044-01-generar-reporte-transferencias
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-044-reporte-transferencias/index
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-045-reporte-menus-ivr/fr-045-01-generar-reporte-menus-ivr
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-045-reporte-menus-ivr/index
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-046-reporte-clientes-unicos/fr-046-01-generar-reporte-clientes-unicos
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-046-reporte-clientes-unicos/index
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-047-resolver-segmento-usuario/fr-047-01-resolver-segmento-dids
+writing output... [ 99%] requisitos/requisitos-funcionales/reports/uc-047-resolver-segmento-usuario/index
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/index
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-075-monitorear-llamada/fr-075-01-monitorear-llamada-silencio
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-075-monitorear-llamada/index
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-076-intervenir-llamada/fr-076-01-intervenir-llamada-barge
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-076-intervenir-llamada/index
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-077-enviar-mensaje-masivo/fr-077-01-enviar-mensaje-masivo-buzon
+writing output... [ 99%] requisitos/requisitos-funcionales/supervision/uc-077-enviar-mensaje-masivo/index
+writing output... [ 99%] requisitos/requisitos-funcionales/users/index
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-01-validar-campos-obligatorios
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-02-verificar-unicidad-username
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-03-generar-password-temporal
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-04-crear-registro-usuario
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-05-registrar-auditoria
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-01-cargar-datos-usuario
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-02-validar-campos-modificados
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-03-actualizar-registro
+writing output... [ 99%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-04-registrar-cambios-auditoria
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-01-validar-usuario-activo
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-02-cambiar-estado-inactivo
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-03-invalidar-sesiones
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-04-preservar-registro-historico
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-01-obtener-lista-paginada
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-02-aplicar-filtros
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-03-ordenar-resultados
+writing output... [100%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad
+writing output... [100%] requisitos/requisitos-no-funcionales/index
+writing output... [100%] requisitos/requisitos-no-funcionales/rnf-proc-001-proceso-sdlc
+writing output... [100%] requisitos/requisitos-no-funcionales/rnf-proc-002-metricas-proceso
+writing output... [100%] risks-technical-debt/deuda-tecnica-rebuild
+writing output... [100%] risks-technical-debt/index
+writing output... [100%] risks-technical-debt/riesgos-conocidos
+
+/home/user/IACT-docs/source/arquitectura-tecnica/modulos/user-identity/diagramas/clases-modulo-identidad.rst:: WARNING: error while running plantuml
+
+b'ERROR\n13\nSyntax Error?\nSome diagram description contains errors\n' [plantuml]
+/home/user/IACT-docs/source/base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/proceso-definicion-arquitectonica.rst:: WARNING: error while running plantuml
+
+b'ERROR\n21\nSyntax Error?\nSome diagram description contains errors\n' [plantuml]
+/home/user/IACT-docs/source/normativa/estandares/metodologia-analisis-dominio-ucs.rst:32: WARNING: unknown document: '/requisitos/_metodologia-aplicacion/analisis-dominio' [ref.doc]
+/home/user/IACT-docs/source/normativa/estandares/metodologia-oop-para-ucs.rst:36: WARNING: unknown document: '/requisitos/_metodologia-aplicacion/orientacion-objetos' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:124: WARNING: unknown document: 'diagramas-secuencias' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:124: WARNING: unknown document: 'diagramas-estados' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:163: WARNING: unknown document: 'diagramas-estados' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:163: WARNING: unknown document: 'diagramas-secuencias' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:163: WARNING: unknown document: 'diagramas-colaboraciones' [ref.doc]
+/home/user/IACT-docs/source/requisitos/_metodologia-aplicacion/diagramas-tiempo.rst:163: WARNING: unknown document: 'diagramas-actividades' [ref.doc]
+/home/user/IACT-docs/source/requisitos/casos-uso/auth/uc-auth-01/datos-involucrados.rst:: WARNING: error while running plantuml
+
+b'ERROR\n19\nSyntax Error?\nSome diagram description contains errors\n' [plantuml]
+generating indices... genindex done
+highlighting module code... 
+writing additional pages... search done
+copying images... [100%] _static/img/logo.svg
+
+dumping search index in Spanish (code: es)... done
+dumping object inventory... done
+build succeeded, 304 warnings.
+
+The HTML pages are in build/html.
+
+Construcción finalizada. Los archivos HTML están en build/html.
