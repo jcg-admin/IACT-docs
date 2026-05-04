@@ -5,7 +5,7 @@
  :subdominio: DomainModel
  :bounded_context: Auth
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-04
  :autor: NestorMonroy
@@ -60,6 +60,13 @@ v2.0.0).
    + owner_user_id : UUID
  }
 
+ class AuditEvent {
+   + event_id : UUID       <<inmutable>>
+   + actor_user_id : UUID
+   + event_type : EventType
+   + occurred_at : DateTime
+ }
+
  enum SessionState {
    ACTIVE
    CLOSED
@@ -69,6 +76,7 @@ v2.0.0).
  User -- UserState
  User "1" -- "0..*" Session            : posee
  User "1" -- "1"    InternalMailbox    : posee
+ User "1" --> "0..*" AuditEvent        : genera
  Session -- SessionState
 
  note bottom of User
@@ -92,3 +100,4 @@ v2.0.0).
 
  :doc:`/arquitectura-tecnica/domain-model/session`
  :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`
+ :doc:`/arquitectura-tecnica/domain-model/audit-event`
