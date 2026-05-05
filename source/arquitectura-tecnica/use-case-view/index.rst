@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :estado: Vigente
- :version: 2.0.0
+ :version: 3.0.0
  :fecha_creacion: 2026-05-03
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,27 +16,29 @@
 Use Case View — Vista de Casos de Uso
 =====================================
 
-Diagramas de casos de uso a nivel módulo, con actores RBAC, relaciones
-``<<include>>`` y ``<<extend>>``. Cada archivo cubre un módulo funcional
-del sistema IACT con sus UCs agrupados por actor principal.
+Diagramas de casos de uso a nivel módulo conforme a
+``source/base-cognitiva/_uml/uml-07-diagramas-casos-uso/``.
 
-El sistema IACT tiene 80 UCs distribuidos en 13 módulos. Esta vista
-usa granularidad módulo: un diagrama canónico por módulo, no uno por UC.
+Cada módulo es un **directorio** que contiene su diagrama
+en ``index.rst``. La organización refleja la de
+``source/requisitos/casos-uso/`` (paridad estructural por
+directorio). 13 módulos, 1 diagrama por módulo, 83 UCs
+cubiertos en total.
 
 .. toctree::
  :maxdepth: 1
  :caption: Módulos
 
- uc-auth
- uc-users
- uc-access
- uc-permissions
- uc-reports
- uc-alerts
- uc-pipeline
- uc-audit
- uc-logs
- uc-operator
- uc-supervision
- uc-caller
- uc-admin
+ access/index
+ admin/index
+ alerts/index
+ audit/index
+ auth/index
+ caller/index
+ logs/index
+ operator/index
+ permissions/index
+ pipeline/index
+ reports/index
+ supervision/index
+ users/index
