@@ -181,3 +181,89 @@ Para los 53 sin src diagram:
    revisión humana, o como ``v1.0.0 Vigente``?
 4. ¿Ejecutar masivamente o por módulos (validar uno antes
    del siguiente)?
+
+## Análisis de cobertura (5 preguntas del ejecutor)
+
+Documento dedicado: ``analyze/coverage-analysis.md``.
+Resumen de hallazgos:
+
+### Q1 — Lista de los 83 UCs con filename
+
+Detalle completo en ``analyze/uc-list-full.md`` (tabla
+por módulo: UC ID, archivo destino, src diagram,
+clases canónicas usadas).
+
+### Q2 — Uso de domain-model en los diagramas
+
+Sí, vía ``:doc:`` cross-references en sección
+"Implementación en domain-model" — NO como elementos
+``class`` dentro del ``@startuml`` (eso violaría R-12
+uml-07: análisis ≠ implementación).
+
+39 de las 67 clases canónicas del domain-model están
+referenciadas por los 83 UCs en sus specs textuales
+existentes.
+
+### Q3 — Clases faltantes en domain-model
+
+**Sí faltan ~18 clases.** Top: ``AuthorizationGuard``
+(53 UCs), ``AuthenticationGuard`` (16), ``ThrottlePolicy``
+(16), ``TransactionManager`` (16), ``InternalMessage``
+(14), ``UserRepo`` (11), ``MetricsCache`` (11),
+``AccessService`` (10), ``MailboxService`` (9),
+``CallSession`` (7), ``TelephonyClient`` (7), etc.
+
+Más 7 naming variants que se mapean a canónicos
+(``AssignmentRepository`` → ``AssignmentRepo``, etc.).
+
+**Plan:** WP futuro
+``domain-model-completion-pass``. NO bloquea este WP —
+los UCs referencian las faltantes vía nota.
+
+### Q4 — Métodos faltantes en clases existentes
+
+**Sí.** ~30 métodos referenciados en UCs pero no
+documentados en domain-model. Ejemplos:
+
+- ``PermissionService.check_bulk_with_cache``,
+  ``warm_user_cache``, ``invalidate_for_function``
+- ``AssignmentRepo.find_by_function_id``,
+  ``count_active_globally``
+- ``AuditService.emit_async``, ``flush_pending``
+- ``Session.rotate_token``, ``mark_compromised``
+- ``User.record_login_attempt``,
+  ``increment_failed_attempts``
+
+**Plan:** WP futuro
+``domain-model-method-augmentation-pass``. NO bloquea
+este WP.
+
+### Q5 — Aplicación de uml-06 en casos-uso
+
+**Sí.** uml-06 establece 7 preguntas que un UC debe
+responder; la estructura de 12 partes en
+``casos-uso/<uc>/`` cubre todas:
+
+| uml-06 pregunta | Cubierto por |
+|-----------------|--------------|
+| Q1 ¿Condición inicial? | actores-precondiciones |
+| Q2 ¿Resultado? | informacion-general, criterios-aceptacion |
+| Q3 ¿Única posibilidad? | flujos-alternos |
+| Q4 ¿Si falla precondición? | excepciones |
+| Q5 ¿Qué impide alcanzar propósito? | excepciones |
+| Q6 ¿Si falla? | excepciones |
+| Q7 ¿Rutas alternativas? | flujos-alternos |
+
+Todos los 83 UCs tienen las 12 partes pobladas. uml-06
+aplica correctamente. Lo que faltó fue uml-07 (la
+dimensión gráfica) — exactamente el alcance de este WP.
+
+## WPs futuros derivados (registrados)
+
+1. ``domain-model-completion-pass`` — crear ~18 clases
+   faltantes.
+2. ``domain-model-method-augmentation-pass`` —
+   agregar métodos a 8 clases existentes.
+
+Estos no se ejecutan aquí. Los diagramas use-case-view
+los referencian con nota de "pendiente".

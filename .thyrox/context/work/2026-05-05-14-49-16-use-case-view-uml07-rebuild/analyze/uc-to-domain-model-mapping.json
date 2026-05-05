@@ -1,0 +1,2276 @@
+{
+  "uc-acc-01": {
+    "module": "access",
+    "title": "UC_ACC_01 — Asignar Funciones",
+    "target_file": "uc-acc-01-asignar-funciones.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "AntiSelfAction",
+      "AntiSelfActionPolicy",
+      "AssignFunctionsInput",
+      "AssignFunctionsOutput",
+      "AssignFunctionsView",
+      "AssignmentDetail",
+      "AssignmentRepository",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "ExpirationPolicy",
+      "FunctionInactive",
+      "FunctionNotFound",
+      "FunctionRef",
+      "FunctionRepository",
+      "IdempotencyPolicy",
+      "InternalMessage",
+      "InvalidUserState",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "NotifyOnAssignStrategy",
+      "PayloadValidator",
+      "RegistrarDatos",
+      "RequestContext",
+      "SelfAssignForbidden",
+      "SinPermiso",
+      "SkippedDetail",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UserNotFound",
+      "UserRepository",
+      "ValidationError",
+      "ValidationResult"
+    ]
+  },
+  "uc-acc-02": {
+    "module": "access",
+    "title": "UC_ACC_02 — Revocar Funciones",
+    "target_file": "uc-acc-02-revocar-funciones.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "ActualizarEntidad",
+      "AntiSelfActionPolicy",
+      "AssignmentRepository",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "CriticalFunctionSpec",
+      "FunctionRef",
+      "FunctionRepository",
+      "InternalMessage",
+      "InvalidUserState",
+      "LastHolder",
+      "LastHolderInfo",
+      "LastHolderPolicy",
+      "LastHolderProtection",
+      "LastHolderSpec",
+      "LocalizadorRecurso",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "NotifyOnRevokeStrategy",
+      "PayloadValidator",
+      "RequestContext",
+      "RevokeFunctionsInput",
+      "RevokeFunctionsOutput",
+      "RevokeFunctionsView",
+      "RevokedDetail",
+      "SelfRevokeForbidden",
+      "SinPermiso",
+      "SkippedDetail",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UserNotFound",
+      "UserRepository",
+      "ValidationError",
+      "WarningsBundle",
+      "WarningsCalculator"
+    ]
+  },
+  "uc-acc-03": {
+    "module": "access",
+    "title": "UC_ACC_03 — Consultar Permisos Efectivos",
+    "target_file": "uc-acc-03-consultar-permisos-efectivos.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AssignmentRepo",
+      "AuditEvent",
+      "ExceptionalPermission"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "AsignacionesDirectas",
+      "AssignmentRepository",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "DeduplicationStrategy",
+      "DirectSource",
+      "EffectivePermissionsAggregator",
+      "EffectivePermissionsView",
+      "ExcPermRepo",
+      "ExcepcionSistema",
+      "ExceptionalPermissionRepository",
+      "ExceptionalPermissions",
+      "ExceptionalSource",
+      "ExpiredItem",
+      "ExpiredPendingDetector",
+      "FunctionWithSources",
+      "GrupoAcceso",
+      "NestorMonroy",
+      "SelfView",
+      "SelfViewPolicy",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "UserNotFound",
+      "UserRepository",
+      "ValidadorSo",
+      "ViewPermsView"
+    ]
+  },
+  "uc-acc-04": {
+    "module": "access",
+    "title": "UC_ACC_04 — Asignar Agrupador",
+    "target_file": "uc-acc-04-asignar-agrupador.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AuditEvent",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessGroupInactive",
+      "AccessGroupNotFound",
+      "AccessGroupRepository",
+      "AccessService",
+      "AntiSelfActionPolicy",
+      "AssignmentRepository",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "EffectivePermissionsAggregator",
+      "ExportarDatos",
+      "IdempotencyPolicy",
+      "InternalMessage",
+      "InvalidUserState",
+      "NestorMonroy",
+      "NotifyOnAssign",
+      "PayloadValidator",
+      "RegistrarDatos",
+      "SelfAssignForbidden",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UserNotFound",
+      "UserRepository",
+      "ValidadorSo",
+      "ValidationError"
+    ]
+  },
+  "uc-acc-05": {
+    "module": "access",
+    "title": "UC_ACC_05 — Gestionar Reglas SoD",
+    "target_file": "uc-acc-05-gestionar-reglas-sod.rst",
+    "canonical_classes_used": [
+      "AuditEvent"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "CacheInvalidationStrategy",
+      "CreateSo",
+      "DuplicateChecker",
+      "FunctionIdsImmutable",
+      "FunctionInactive",
+      "FunctionNotFound",
+      "FunctionRepo",
+      "FunctionRepository",
+      "ImmutabilityPolicy",
+      "NestorMonroy",
+      "PaginatedResult",
+      "PayloadValidator",
+      "SinPermiso",
+      "SistemaConsumidores",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "ValidationError",
+      "ViolationsImpactCalculator",
+      "VistaListado"
+    ]
+  },
+  "uc-acc-08": {
+    "module": "access",
+    "title": "UC_ACC_08 — Permiso Temporal",
+    "target_file": "uc-acc-08-permiso-temporal.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "ExceptionalPermission",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuditFalla",
+      "AuditLog",
+      "ExceptionalDetail",
+      "ExceptionalPermissionRepository",
+      "ExceptionalPermissions",
+      "ExpirationPolicy",
+      "FunctionInactive",
+      "FunctionNotFound",
+      "GrantExcView",
+      "GrantExceptionalOutput",
+      "InternalMessage",
+      "InvalidUserState",
+      "JustificationValidator",
+      "MailboxFailure",
+      "MailboxFailurePolicy",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "RegistrarDatos",
+      "SelfGrantForbidden",
+      "SinPermiso",
+      "SkippedDetail",
+      "TicketReferenceRequired",
+      "TransactionManager",
+      "UserNotFound",
+      "ValidationError",
+      "VistaPipeline"
+    ]
+  },
+  "uc-acc-09": {
+    "module": "access",
+    "title": "UC_ACC_09 — Auditar Cambios Acceso",
+    "target_file": "uc-acc-09-auditar-cambios-acceso.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "FilterValidator"
+    ],
+    "referenced_unknown": [
+      "AccessAuditService",
+      "AccessAuditView",
+      "AggregatedEntry",
+      "AggregationStrategy",
+      "AgregadorConteo",
+      "AuditEventDetail",
+      "AuditEventRepo",
+      "AuditEventRepository",
+      "AuditEventView",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "BadFilter",
+      "EventNotFound",
+      "NestorMonroy",
+      "PaginatedResult",
+      "ScopeFilter",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "VistaDetalle",
+      "VistaListado"
+    ]
+  },
+  "uc-adm-01": {
+    "module": "admin",
+    "title": "UC_ADM_01 — Gestionar Ciclo de Vida de Reglas SoD",
+    "target_file": "uc-adm-01-gestionar-ciclo-de-vida-de-reglas-sod.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "DisjointSetValidator",
+      "EnforcementEngine",
+      "FunctionValidator",
+      "NestorMonroy"
+    ]
+  },
+  "uc-adm-02": {
+    "module": "admin",
+    "title": "UC_ADM_02 — Gestionar Catalogo de Funciones",
+    "target_file": "uc-adm-02-gestionar-catalogo-de-funciones.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "FunctionCatalogService",
+      "FunctionEndpoint",
+      "FunctionRepo",
+      "FunctionValidator",
+      "NestorMonroy",
+      "PermissionsEngine"
+    ]
+  },
+  "uc-adm-03": {
+    "module": "admin",
+    "title": "UC_ADM_03 — Gestionar Catalogo de Agrupadores del Sistema",
+    "target_file": "uc-adm-03-gestionar-catalogo-de-agrupadores-del-sistema.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditService",
+      "FunctionGroup"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "FunctionGroupRepo",
+      "FunctionRepo",
+      "GroupFunction",
+      "ImpactReport",
+      "NestorMonroy",
+      "PermissionsEngine",
+      "SystemGroupEndpoint",
+      "SystemGroupGuard",
+      "SystemGroupService",
+      "UserRepo"
+    ]
+  },
+  "uc-alr-01": {
+    "module": "alerts",
+    "title": "UC_ALR_01 — Configurar Umbrales de Alertas",
+    "target_file": "uc-alr-01-configurar-umbrales-de-alertas.rst",
+    "canonical_classes_used": [
+      "AlertRule",
+      "AuditService",
+      "EvaluatorReloader",
+      "RuleValidator",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AlertEvaluator",
+      "AlertRuleEndpoint",
+      "AlertRuleHistory",
+      "AlertRuleRepo",
+      "AlertRuleService",
+      "AuthorizationGuard",
+      "DryRunEngine",
+      "DryRunReport",
+      "NestorMonroy",
+      "TestRule"
+    ]
+  },
+  "uc-alr-02": {
+    "module": "alerts",
+    "title": "UC_ALR_02 — Ver Alertas Activas",
+    "target_file": "uc-alr-02-ver-alertas-activas.rst",
+    "canonical_classes_used": [
+      "AlertRepo",
+      "AlertRule",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "ActiveAlertsEndpoint",
+      "ActiveAlertsList",
+      "ActiveAlertsService",
+      "AuthorizationGuard",
+      "AutoRefresh",
+      "NestorMonroy"
+    ]
+  },
+  "uc-alr-03": {
+    "module": "alerts",
+    "title": "UC_ALR_03 — Reconocer Alerta",
+    "target_file": "uc-alr-03-reconocer-alerta.rst",
+    "canonical_classes_used": [
+      "AlertRepo",
+      "AuditEvent",
+      "AuditService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AckEndpoint",
+      "AlertAckService",
+      "AuditSvc",
+      "AuthorizationGuard",
+      "BulkAck",
+      "CrossSegment",
+      "InvalidState",
+      "NestorMonroy",
+      "NotFound",
+      "NotifyService",
+      "NotifySuppressor",
+      "SinPermiso",
+      "TransactionManager"
+    ]
+  },
+  "uc-alr-04": {
+    "module": "alerts",
+    "title": "UC_ALR_04 — Ver Historial de Alertas",
+    "target_file": "uc-alr-04-ver-historial-de-alertas.rst",
+    "canonical_classes_used": [
+      "AlertRepo",
+      "SegmentResolver",
+      "TimingCalculator"
+    ],
+    "referenced_unknown": [
+      "AlertHistoryEndpoint",
+      "AlertHistoryReport",
+      "AlertHistoryService",
+      "AuthorizationGuard",
+      "MetricsCache",
+      "NestorMonroy"
+    ]
+  },
+  "uc-alr-05": {
+    "module": "alerts",
+    "title": "UC_ALR_05 — Gestionar Suscripciones",
+    "target_file": "uc-alr-05-gestionar-suscripciones.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "BulkAdd",
+      "MuteGlobal",
+      "NestorMonroy",
+      "SegmentChangeListener",
+      "SubscriptionEndpoint",
+      "SubscriptionRepo",
+      "SubscriptionService"
+    ]
+  },
+  "uc-aud-01": {
+    "module": "audit",
+    "title": "UC_AUD_01 — Consultar Auditoria General",
+    "target_file": "uc-aud-01-consultar-auditoria-general.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditRepo",
+      "AuditService",
+      "CursorEncoder"
+    ],
+    "referenced_unknown": [
+      "AuditEvents",
+      "AuditList",
+      "AuditSvc",
+      "AuthorizationGuard",
+      "GeneralAuditEndpoint",
+      "GeneralAuditService",
+      "NestorMonroy",
+      "PayloadSanitizer",
+      "UcPerm"
+    ]
+  },
+  "uc-aud-02": {
+    "module": "audit",
+    "title": "UC_AUD_02 — Buscar Auditoria",
+    "target_file": "uc-aud-02-buscar-auditoria.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AuditSearchEngine",
+      "AuditSearchService",
+      "AuditSvc",
+      "AuditeventBd",
+      "AuthorizationGuard",
+      "FtsIndex",
+      "NestorMonroy",
+      "SearchEndpoint",
+      "SearchResults",
+      "SearchService",
+      "SyncTrigger",
+      "ThrottlePolicy",
+      "UcPerm"
+    ]
+  },
+  "uc-aud-03": {
+    "module": "audit",
+    "title": "UC_AUD_03 — Exportar Auditoria",
+    "target_file": "uc-aud-03-exportar-auditoria.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "AuditRepo",
+      "ExportJob",
+      "ExportWorker",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AuditEvents",
+      "AuditExportEndpoint",
+      "AuditExportService",
+      "MailboxService",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "RepositorioDeAuditoria",
+      "VistaSeleccion"
+    ]
+  },
+  "uc-aud-04": {
+    "module": "audit",
+    "title": "UC_AUD_04 — Generar Reporte de Compliance",
+    "target_file": "uc-aud-04-generar-reporte-de-compliance.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "AuditRepo",
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "ComplianceEndpoint",
+      "ComplianceReport",
+      "ComplianceService",
+      "ComplianceWorker",
+      "HashSha",
+      "HmacSigner",
+      "HmacVerifier",
+      "MailboxService",
+      "NestorMonroy",
+      "ReporteFirmado",
+      "ReporteRaw",
+      "StorageGateway",
+      "TemplateValidator",
+      "VerifyEndpoint",
+      "VerifyResult"
+    ]
+  },
+  "uc-auth-01": {
+    "module": "auth",
+    "title": "UC_AUTH_01 — Iniciar Sesion",
+    "target_file": "uc-auth-01-iniciar-sesion.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "ExceptionalPermission",
+      "FunctionGroup",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AccessGroups",
+      "AccountBlocked",
+      "AnonLoginThrottle",
+      "AnonRateThrottle",
+      "AppConfig",
+      "AuditEmitter",
+      "AuthFlowTemplate",
+      "AuthService",
+      "AuthenticationStrategy",
+      "BaseDeDatos",
+      "DatabaseCache",
+      "DatabaseError",
+      "DateTime",
+      "DjangoModelFactory",
+      "EventType",
+      "FormatHandler",
+      "FunctionGroups",
+      "IntegrityError",
+      "InterfazDeUsuario",
+      "InvalidCredentials",
+      "JavaScript",
+      "LazyFunction",
+      "LocalPasswordStrategy",
+      "LoginForm",
+      "LoginPage",
+      "LoginSerializer",
+      "LoginView",
+      "LogoutView",
+      "NestorMonroy",
+      "PasswordHandler",
+      "ProtectedError",
+      "ServicioDeAutenticacion",
+      "SessionState",
+      "StateHandler",
+      "SuccessHandler",
+      "TestCase",
+      "ThrottleHandler",
+      "TopSecret",
+      "UserExistsHandler",
+      "UserFactory",
+      "UserLoginThrottle",
+      "UserRateThrottle",
+      "UserState"
+    ]
+  },
+  "uc-auth-02": {
+    "module": "auth",
+    "title": "UC_AUTH_02 — Cerrar Sesion",
+    "target_file": "uc-auth-02-cerrar-sesion.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "FunctionGroup",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AuditEmitter",
+      "AuthService",
+      "BaseDeDatos",
+      "BlacklistedToken",
+      "CacheBlacklistStrategy",
+      "CerrarSesiones",
+      "DjangoModelFactory",
+      "HttpOnly",
+      "InterfazDeUsuario",
+      "LazyFunction",
+      "LogoutButton",
+      "LogoutConfirmModal",
+      "LogoutFlow",
+      "LogoutView",
+      "MagicMock",
+      "NestorMonroy",
+      "SessionFactory",
+      "SessionNotFound",
+      "SubFactory",
+      "TestProviders",
+      "TokenInvalidator",
+      "TokensRevocados",
+      "UserFactory",
+      "UserMismatch",
+      "VistaToken"
+    ]
+  },
+  "uc-auth-03": {
+    "module": "auth",
+    "title": "UC_AUTH_03 — Recuperar Contrasena",
+    "target_file": "uc-auth-03-recuperar-contrasena.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "FunctionGroup",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AccessGroups",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuthService",
+      "BaseDeDatos",
+      "BlacklistedToken",
+      "CerrarSesiones",
+      "GenerarDato",
+      "HasResetPasswordFunction",
+      "HighEntropyPasswordGenerator",
+      "InternalMessage",
+      "InternalMessages",
+      "MailboxFailure",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "PasswordGenerator",
+      "ResetPasswordView",
+      "StandardPasswordGenerator",
+      "SystemRandom",
+      "UserActionLog"
+    ]
+  },
+  "uc-auth-04": {
+    "module": "auth",
+    "title": "UC_AUTH_04 — Cambiar Contrasena",
+    "target_file": "uc-auth-04-cambiar-contrasena.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "FunctionGroup",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AuditEmitter",
+      "AuthService",
+      "BaseDeDatos",
+      "BlacklistedToken",
+      "CerrarSesiones",
+      "ChangePasswordView",
+      "DigitSpec",
+      "HistoryChecker",
+      "InternalMessage",
+      "MiNueva",
+      "MinLengthSpec",
+      "MyReal",
+      "NestorMonroy",
+      "NewOne",
+      "NewSecure",
+      "NewTwo",
+      "OldPass",
+      "PasswordHistory",
+      "PasswordHistoryChecker",
+      "PasswordPolicy",
+      "PasswordPolicyValidator",
+      "PasswordReused",
+      "PolicyValidator",
+      "RealPass",
+      "SameAsCurrent",
+      "SessionAuthentication",
+      "StandardPasswordPolicy",
+      "StrictPasswordPolicy",
+      "SuperSecret",
+      "TempPwd",
+      "UpperCaseSpec",
+      "ValidarDato",
+      "WeakPassword",
+      "WrongCurrentPassword",
+      "WrongPwd"
+    ]
+  },
+  "uc-auth-05": {
+    "module": "auth",
+    "title": "UC_AUTH_05 — Gestionar Sesiones",
+    "target_file": "uc-auth-05-gestionar-sesiones.rst",
+    "canonical_classes_used": [
+      "AuditEvent"
+    ],
+    "referenced_unknown": [
+      "AuditEmitter",
+      "BaseDeDatos",
+      "BlacklistedToken",
+      "CerrarSession",
+      "CloseAllSessionsView",
+      "CloseSessionView",
+      "HasViewAllSessions",
+      "InternalMessage",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "NotifyOnClose",
+      "SessionCloseView",
+      "SessionFilter",
+      "SessionListView",
+      "SessionRepository",
+      "SessionSerializer",
+      "SessionService",
+      "SessionsTable",
+      "VistaListado"
+    ]
+  },
+  "uc-cli-01": {
+    "module": "caller",
+    "title": "UC_CLI_01 — Iniciar Llamada al Call Center",
+    "target_file": "uc-cli-01-iniciar-llamada-al-call-center.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AudioPlayer",
+      "AuditSvc",
+      "CallRepo",
+      "CallSession",
+      "CallSessionRepo",
+      "CallerPhone",
+      "NestorMonroy",
+      "TelephonyClient",
+      "UcCli"
+    ]
+  },
+  "uc-cli-02": {
+    "module": "caller",
+    "title": "UC_CLI_02 — Navegar IVR",
+    "target_file": "uc-cli-02-navegar-ivr.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "AudioPlayer",
+      "CallSession",
+      "NestorMonroy",
+      "UcCli"
+    ]
+  },
+  "uc-cli-03": {
+    "module": "caller",
+    "title": "UC_CLI_03 — Esperar en Cola",
+    "target_file": "uc-cli-03-esperar-en-cola.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "CallRouter",
+      "MusicOnHoldPlayer",
+      "NestorMonroy",
+      "PositionEstimator",
+      "QueueDefinition",
+      "QueueEntry",
+      "QueueEntryRepo",
+      "QueueEvent",
+      "QueueEventBus",
+      "UcCli"
+    ]
+  },
+  "uc-cli-04": {
+    "module": "caller",
+    "title": "UC_CLI_04 — Solicitar Callback",
+    "target_file": "uc-cli-04-solicitar-callback.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "CallbackEntry",
+      "CallbackEntryRepo",
+      "CallbackOfferAdapter",
+      "CallbackQueue",
+      "CallbackRepo",
+      "NestorMonroy",
+      "QueueOfferAdapter",
+      "ScheduleResolver",
+      "UcCli",
+      "UcOpr"
+    ]
+  },
+  "uc-cli-05": {
+    "module": "caller",
+    "title": "UC_CLI_05 — Calificar Atencion (Post-Call)",
+    "target_file": "uc-cli-05-calificar-atencion-post-call.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "NestorMonroy",
+      "ResponseRepo",
+      "SurveyDefinition",
+      "SurveyDefinitionRepo",
+      "SurveyResponse",
+      "SurveyResponseRepo",
+      "SurveyRunner",
+      "UcCli"
+    ]
+  },
+  "uc-log-01": {
+    "module": "logs",
+    "title": "UC_LOG_01 — Consultar Logs del Sistema",
+    "target_file": "uc-log-01-consultar-logs-del-sistema.rst",
+    "canonical_classes_used": [
+      "AuditEvent"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "CloudWatch",
+      "LogEntry",
+      "LogList",
+      "LogShipper",
+      "LogStore",
+      "LogStoreClient",
+      "NestorMonroy",
+      "SystemLogsEndpoint",
+      "SystemLogsService",
+      "TailSse"
+    ]
+  },
+  "uc-log-02": {
+    "module": "logs",
+    "title": "UC_LOG_02 — Consultar Logs del ETL",
+    "target_file": "uc-log-02-consultar-logs-del-etl.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "FiltrarEstado",
+      "FiltrarTrimestre",
+      "LogEndpoint",
+      "LogEntry",
+      "LogStore",
+      "NestorMonroy"
+    ]
+  },
+  "uc-log-03": {
+    "module": "logs",
+    "title": "UC_LOG_03 — Buscar Logs",
+    "target_file": "uc-log-03-buscar-logs.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "LogEntry",
+      "LogSearchEndpoint",
+      "LogSearchEngine",
+      "LogSearchResults",
+      "LogSearchService",
+      "LogStore",
+      "NestorMonroy",
+      "ThrottlePolicy"
+    ]
+  },
+  "uc-log-04": {
+    "module": "logs",
+    "title": "UC_LOG_04 — Exportar Logs",
+    "target_file": "uc-log-04-exportar-logs.rst",
+    "canonical_classes_used": [
+      "ExportJob",
+      "ExportWorker",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "LogExportEndpoint",
+      "LogExportService",
+      "LogStore",
+      "MailboxService",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "VistaSeleccion"
+    ]
+  },
+  "uc-log-05": {
+    "module": "logs",
+    "title": "UC_LOG_05 — Ver Logs de Infraestructura",
+    "target_file": "uc-log-05-ver-logs-de-infraestructura.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "FiltrarHosts",
+      "FiltrarSeverity",
+      "FluentBit",
+      "InfraLogEndpoint",
+      "InfraLogEntry",
+      "InfraLogStore",
+      "InfraLogStoreClient",
+      "InfraLogsEndpoint",
+      "InfraStore",
+      "LogEndpoint",
+      "NestorMonroy",
+      "TailSse"
+    ]
+  },
+  "uc-log-06": {
+    "module": "logs",
+    "title": "UC_LOG_06 — Ver Estado del Sistema",
+    "target_file": "uc-log-06-ver-estado-del-sistema.rst",
+    "canonical_classes_used": [
+      "PipelineExecution"
+    ],
+    "referenced_unknown": [
+      "AlertCounter",
+      "AuthorizationGuard",
+      "DepHealthChecker",
+      "DependencyHealthCheck",
+      "MetricsCache",
+      "NestorMonroy",
+      "ServiceHealthCheck",
+      "ServiceHealthChecker",
+      "StatusService",
+      "SystemStatusEndpoint",
+      "SystemStatusReport",
+      "SystemStatusService",
+      "UcAlr",
+      "UcPip"
+    ]
+  },
+  "uc-log-07": {
+    "module": "logs",
+    "title": "UC_LOG_07 — Ver Metricas Tecnicas",
+    "target_file": "uc-log-07-ver-metricas-tecnicas.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "MetricsCache",
+      "NestorMonroy",
+      "PercentileCalculator",
+      "TechnicalMetricsEndpoint",
+      "VictoriaMetrics"
+    ]
+  },
+  "uc-opr-01": {
+    "module": "operator",
+    "title": "UC_OPR_01 — Cambiar Estado del Agente",
+    "target_file": "uc-opr-01-cambiar-estado-del-agente.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AgentState",
+      "AgentStateEndpoint",
+      "AgentStateHistory",
+      "AgentStateHistoryRepo",
+      "AgentStateOutput",
+      "AgentStateRepo",
+      "AgentStateService",
+      "AuditSvc",
+      "AuthorizationGuard",
+      "BreakPolicy",
+      "CallRouter",
+      "CallRouterEventBus",
+      "EventBus",
+      "InvalidTransition",
+      "NestorMonroy",
+      "PolicyViolation",
+      "ReasonMissing",
+      "StateTransitionValidator",
+      "TransactionManager"
+    ]
+  },
+  "uc-opr-02": {
+    "module": "operator",
+    "title": "UC_OPR_02 — Atender Llamada Entrante",
+    "target_file": "uc-opr-02-atender-llamada-entrante.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AnswerCallEndpoint",
+      "CallAnswerService",
+      "CallOffer",
+      "CallOfferRepo",
+      "CallRouter",
+      "CallRouterClient",
+      "CallSession",
+      "CallSessionOutput",
+      "CallSessionRepo",
+      "NestorMonroy",
+      "TelephonyClient",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-03": {
+    "module": "operator",
+    "title": "UC_OPR_03 — Realizar Llamada Saliente",
+    "target_file": "uc-opr-03-realizar-llamada-saliente.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "AllowedDestinationList",
+      "CallSession",
+      "CallSessionOutput",
+      "CallbackQueue",
+      "CampaignRepo",
+      "DialValidator",
+      "NestorMonroy",
+      "OutboundCallService",
+      "OutboundEndpoint",
+      "TelephonyClient",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-04": {
+    "module": "operator",
+    "title": "UC_OPR_04 — Hold / Unhold Llamada",
+    "target_file": "uc-opr-04-hold-unhold-llamada.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "CallSession",
+      "CallSessionRepo",
+      "HoldEndpoint",
+      "HoldEvent",
+      "HoldService",
+      "LongHoldDetector",
+      "NestorMonroy",
+      "TelephonyClient",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-05": {
+    "module": "operator",
+    "title": "UC_OPR_05 — Transferir Llamada",
+    "target_file": "uc-opr-05-transferir-llamada.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "LoopDetector",
+      "NestorMonroy",
+      "TelephonyClient",
+      "TransferEndpoint",
+      "TransferEvent",
+      "TransferEventRepo",
+      "TransferOutput",
+      "TransferService",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-06": {
+    "module": "operator",
+    "title": "UC_OPR_06 — Ingresar Disposition",
+    "target_file": "uc-opr-06-ingresar-disposition.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "CallSession",
+      "CallSessionRepo",
+      "CallbackEntry",
+      "CallbackEntryRepo",
+      "DispositionCatalog",
+      "DispositionEndpoint",
+      "NestorMonroy",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-07": {
+    "module": "operator",
+    "title": "UC_OPR_07 — Solicitar Break / Pausa",
+    "target_file": "uc-opr-07-solicitar-break-pausa.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "BreakEndpoint",
+      "BreakPolicy",
+      "BreakPolicyRepo",
+      "BreakRecord",
+      "BreakRecordRepo",
+      "NestorMonroy",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-08": {
+    "module": "operator",
+    "title": "UC_OPR_08 — Ver Propio Dashboard",
+    "target_file": "uc-opr-08-ver-propio-dashboard.rst",
+    "canonical_classes_used": [
+      "AgentDailyStatRepo"
+    ],
+    "referenced_unknown": [
+      "AgentDailyStat",
+      "MyDashboardEndpoint",
+      "NestorMonroy",
+      "RankingService",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-09": {
+    "module": "operator",
+    "title": "UC_OPR_09 — Ver Propio Historial de Llamadas",
+    "target_file": "uc-opr-09-ver-propio-historial-de-llamadas.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "CallSession",
+      "CallSessionRepo",
+      "MyCallsEndpoint",
+      "NestorMonroy",
+      "UcOpr"
+    ]
+  },
+  "uc-opr-10": {
+    "module": "operator",
+    "title": "UC_OPR_10 — Recibir Notificacion Supervisor",
+    "target_file": "uc-opr-10-recibir-notificacion-supervisor.rst",
+    "canonical_classes_used": [],
+    "referenced_unknown": [
+      "MailboxBus",
+      "MailboxMessage",
+      "MailboxRepo",
+      "MailboxService",
+      "MyMailboxEndpoint",
+      "NestorMonroy",
+      "UcOpr",
+      "UcSup"
+    ]
+  },
+  "uc-perm-01": {
+    "module": "permissions",
+    "title": "UC_PERM_01 — Asignar Grupo a Usuario",
+    "target_file": "uc-perm-01-asignar-grupo-a-usuario.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AuditEvent",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessGroupRepository",
+      "AccessService",
+      "ApiAcg",
+      "AssignPreview",
+      "AssignPreviewService",
+      "AssignmentRepository",
+      "AuditEvents",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "EffectivePermissionsAggregator",
+      "InternalMessage",
+      "NestorMonroy",
+      "PaginatedResult",
+      "PostApiUsers",
+      "PreviewError",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UiCatalogoPerm",
+      "UserBrief",
+      "UserRepository",
+      "ViewAcc",
+      "ViewPerm"
+    ]
+  },
+  "uc-perm-02": {
+    "module": "permissions",
+    "title": "UC_PERM_02 — Revocar Grupo a Usuario",
+    "target_file": "uc-perm-02-revocar-grupo-a-usuario.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessGroupRepository",
+      "AccessService",
+      "AntiSelfActionPolicy",
+      "AssignmentRepository",
+      "AuditEvents",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "DeleteApiUsersId",
+      "EffectivePermissionsAggregator",
+      "InternalMessage",
+      "InvalidUserState",
+      "LastHolderPolicy",
+      "LastHolderProtection",
+      "NestorMonroy",
+      "NotifyOnRevoke",
+      "PayloadValidator",
+      "RevokePreview",
+      "RevokePreviewService",
+      "SelfRevokeForbidden",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UiPerm",
+      "UserNotFound",
+      "UserRepository",
+      "WarningsBundle",
+      "WarningsCalculator"
+    ]
+  },
+  "uc-perm-03": {
+    "module": "permissions",
+    "title": "UC_PERM_03 — Conceder Permiso Excepcional",
+    "target_file": "uc-perm-03-conceder-permiso-excepcional.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "ExceptionalPermission",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "AntiSelfActionPolicy",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "EffectivePermissionsAggregator",
+      "ExceptionalPermissionRepository",
+      "ExpirationPolicy",
+      "FunctionCatalogCache",
+      "GrantPreview",
+      "GrantPreviewService",
+      "InternalMessage",
+      "JustificationValidator",
+      "MailboxFailurePolicy",
+      "NestorMonroy",
+      "PostExceptionalPermissions",
+      "PreviewError",
+      "TransactionManager",
+      "UiPerm",
+      "UserRepository"
+    ]
+  },
+  "uc-perm-04": {
+    "module": "permissions",
+    "title": "UC_PERM_04 — Revocar Permiso Excepcional",
+    "target_file": "uc-perm-04-revocar-permiso-excepcional.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "ExceptionalPermission",
+      "ExceptionalPermissionRepo",
+      "InternalMailbox",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessService",
+      "ActualizarEntidad",
+      "AntiSelfActionPolicy",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "ExceptionalPermissionRepository",
+      "ExceptionalPermissions",
+      "InternalMessage",
+      "InvalidState",
+      "MailboxError",
+      "MailboxFailure",
+      "NestorMonroy",
+      "NotFound",
+      "NotificacionMailbox",
+      "NotifyOnRevoke",
+      "PayloadValidator",
+      "PermCache",
+      "PermissionNotFound",
+      "RevokeExcView",
+      "RevokeExceptionalOutput",
+      "SelfRevokeForbidden",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UrlMismatch",
+      "ValidationError"
+    ]
+  },
+  "uc-perm-05": {
+    "module": "permissions",
+    "title": "UC_PERM_05 — Crear Grupo de Permisos",
+    "target_file": "uc-perm-05-crear-grupo-de-permisos.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AuditEvent"
+    ],
+    "referenced_unknown": [
+      "AccessGroupAdminService",
+      "AccessGroupFunctionService",
+      "AccessGroupRepository",
+      "AccessGroups",
+      "AlreadyRetired",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuditLog",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "CodeDuplicate",
+      "CodeImmutable",
+      "CodeValidator",
+      "NestorMonroy",
+      "NotFound",
+      "PayloadValidator",
+      "PredefinedGuard",
+      "PredefinedNotMutable",
+      "RetireHasUsers",
+      "RetirePolicy",
+      "SinPermiso",
+      "TransactionManager",
+      "UsersWith",
+      "ValidationError"
+    ]
+  },
+  "uc-perm-06": {
+    "module": "permissions",
+    "title": "UC_PERM_06 — Asignar Funciones a Grupo",
+    "target_file": "uc-perm-06-asignar-funciones-a-grupo.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AuditEvent",
+      "FunctionGroup",
+      "PermissionCache"
+    ],
+    "referenced_unknown": [
+      "AccessGroupCompositionService",
+      "AccessGroupFunctionRepository",
+      "AccessGroupRepository",
+      "AccessGroupRetired",
+      "AssignmentState",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "CascadePolicy",
+      "CascadeSo",
+      "CascadeUsersFinder",
+      "ChangeCompositionOutput",
+      "CompositionView",
+      "EliminarRegistro",
+      "FunctionGroups",
+      "FunctionInactive",
+      "FunctionNotFound",
+      "FunctionRef",
+      "FunctionRepository",
+      "NestorMonroy",
+      "NotFound",
+      "PayloadValidator",
+      "PermCache",
+      "PermService",
+      "PredefinedNotMutable",
+      "RegistrarDatos",
+      "RequestContext",
+      "SinPermiso",
+      "SkippedDetail",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "ValidationError",
+      "ValidationResult",
+      "ViolationDetail"
+    ]
+  },
+  "uc-perm-07": {
+    "module": "permissions",
+    "title": "UC_PERM_07 — Verificar Permiso de Usuario",
+    "target_file": "uc-perm-07-verificar-permiso-de-usuario.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AssignmentRepo",
+      "AuditEvent",
+      "ExceptionalPermission",
+      "ExceptionalPermissionRepo",
+      "PermissionCache",
+      "PermissionService"
+    ],
+    "referenced_unknown": [
+      "AggregateAuthQuery",
+      "AlgoritmoPrecedencia",
+      "AuditEvents",
+      "AuthService",
+      "AuthorizationGuard",
+      "BulkCheckOutput",
+      "CheckPermissionBulkEndpoint",
+      "CheckPermissionEndpoint",
+      "CheckPermissionOutput",
+      "FunctionNotFound",
+      "FunctionRepo",
+      "GrantInfo",
+      "MetricsCollector",
+      "NestorMonroy",
+      "PayloadValidator",
+      "PermCache",
+      "PermService",
+      "PrecedenceEvaluator",
+      "RequestContext",
+      "SinPermiso",
+      "UserNotFound",
+      "UserRepo",
+      "ValidationError"
+    ]
+  },
+  "uc-perm-08": {
+    "module": "permissions",
+    "title": "UC_PERM_08 — Generar Menu Dinamico",
+    "target_file": "uc-perm-08-generar-menu-dinamico.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AccessGroupFunction",
+      "AuditEvent",
+      "ExceptionalPermission",
+      "PermissionService"
+    ],
+    "referenced_unknown": [
+      "AuditEvents",
+      "AuthMiddleware",
+      "FunctionRegistry",
+      "LocaleResolver",
+      "MenuBuilder",
+      "MenuCache",
+      "MenuEndpoint",
+      "MenuInvalidator",
+      "MenuView",
+      "NestorMonroy",
+      "PermSvc",
+      "RegistroFunciones",
+      "RegistryError",
+      "UserAutenticado"
+    ]
+  },
+  "uc-perm-09": {
+    "module": "permissions",
+    "title": "UC_PERM_09 — Auditar Acceso (write side)",
+    "target_file": "uc-perm-09-auditar-acceso-write-side.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AlertHook",
+      "AuditEvent",
+      "AuditRepo",
+      "AuditService",
+      "AuditValidator"
+    ],
+    "referenced_unknown": [
+      "AlertEngine",
+      "AlertEnginePushFailed",
+      "AlertaPost",
+      "AuditEmitResult",
+      "AuditEvents",
+      "AuditLog",
+      "AuditTable",
+      "AuditTableLockTimeout",
+      "AuditValidationError",
+      "AuditWriteFailed",
+      "AuthorizationGuard",
+      "CallerUc",
+      "ConsistencyViolation",
+      "CriticalReplicator",
+      "EventFactory",
+      "EventInput",
+      "NestorMonroy",
+      "RegistrarDatos",
+      "RequestContext",
+      "SanitizarDato",
+      "TxManager"
+    ]
+  },
+  "uc-perm-10": {
+    "module": "permissions",
+    "title": "UC_PERM_10 — Consultar Auditoria de Permisos",
+    "target_file": "uc-perm-10-consultar-auditoria-de-permisos.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "AuditQueryService",
+      "AuditRepo",
+      "AuditService",
+      "CursorEncoder",
+      "ExportJob",
+      "ExportWorker",
+      "FilterValidator"
+    ],
+    "referenced_unknown": [
+      "AggregateLimit",
+      "AggregateOutput",
+      "AuditEvents",
+      "AuditFailure",
+      "AuditFilters",
+      "AuditQueryEndpoint",
+      "AuditUnavailable",
+      "AuthenticatedUser",
+      "AuthorizationGuard",
+      "CursorInvalid",
+      "ExportEndpoint",
+      "ExportJobRef",
+      "ListAuditOutput",
+      "MailboxService",
+      "NestorMonroy",
+      "NotFound",
+      "PayloadSanitizer",
+      "PayloadValidator",
+      "QueryService",
+      "QueueFull",
+      "RequestContext",
+      "SinPermiso",
+      "UcPerm",
+      "ValidationError"
+    ]
+  },
+  "uc-pip-01": {
+    "module": "pipeline",
+    "title": "UC_PIP_01 — Supervisar ETL",
+    "target_file": "uc-pip-01-supervisar-etl.rst",
+    "canonical_classes_used": [
+      "PipelineExecution"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "NestorMonroy",
+      "PipelineExecutionRepo",
+      "ResumenSalud",
+      "ResumenSaludBuilder",
+      "SummaryBuilder",
+      "VerErroresEtl"
+    ]
+  },
+  "uc-pip-02": {
+    "module": "pipeline",
+    "title": "UC_PIP_02 — Consultar Errores ETL",
+    "target_file": "uc-pip-02-consultar-errores-etl.rst",
+    "canonical_classes_used": [
+      "PipelineExecution"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "FiltrarPorPeriod",
+      "FiltrarPorTrimestre",
+      "ListaErrores",
+      "NestorMonroy",
+      "PipelineExecutionRepo",
+      "RegistroDe"
+    ]
+  },
+  "uc-pip-03": {
+    "module": "pipeline",
+    "title": "UC_PIP_03 — Consultar Disponibilidad de Datos",
+    "target_file": "uc-pip-03-consultar-disponibilidad-de-datos.rst",
+    "canonical_classes_used": [
+      "PipelineExecution"
+    ],
+    "referenced_unknown": [
+      "AgentDailyStat",
+      "AuthorizationGuard",
+      "CallSummary",
+      "DisponibilidadBuilder",
+      "DisponibilidadDatos",
+      "DisponibilidadDatosService",
+      "DisponibilidadDatosView",
+      "NestorMonroy",
+      "PipelineExecutionRepo",
+      "QueueDailyStat"
+    ]
+  },
+  "uc-pip-04": {
+    "module": "pipeline",
+    "title": "UC_PIP_04 — Solicitar Reintento de Pipeline",
+    "target_file": "uc-pip-04-solicitar-reintento-de-pipeline.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "PipelineExecution"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "ConflictoEjecucion",
+      "DisparadorEtl",
+      "NestorMonroy",
+      "PipelineExecutionRef",
+      "PipelineExecutionRepo",
+      "RegistroAuditoria",
+      "RegistroDe",
+      "ValidationError"
+    ]
+  },
+  "uc-inc-rpt-01": {
+    "module": "reports",
+    "title": "UC_INC_RPT_01 — Resolver Segmento",
+    "target_file": "uc-inc-rpt-01-uc-inc-rpt-01-resolver-segmento.rst",
+    "canonical_classes_used": [
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "SegmentoUsuario",
+      "SinSegmentoError"
+    ]
+  },
+  "uc-rpt-01": {
+    "module": "reports",
+    "title": "UC_RPT_01 — Ver Dashboard",
+    "target_file": "uc-rpt-01-ver-dashboard.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "BigQuery",
+      "ClickHouse",
+      "DashboardEndpoint",
+      "DashboardOutput",
+      "DashboardService",
+      "MetricsCache",
+      "NestorMonroy",
+      "PeriodValidator",
+      "ReferenciaExterna",
+      "ReportingService",
+      "RequestContext",
+      "SegmentoUsuario",
+      "SinPermiso",
+      "StalenessChecker",
+      "TrendBuilder",
+      "TrendSet",
+      "UserWithoutSegment",
+      "ValidationError"
+    ]
+  },
+  "uc-rpt-02": {
+    "module": "reports",
+    "title": "UC_RPT_02 — Ver Metricas en Tiempo Real",
+    "target_file": "uc-rpt-02-ver-metricas-en-tiempo-real.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsStream",
+      "AuthorizationGuard",
+      "ConnectionHandle",
+      "ConnectionLimit",
+      "ConnectionRegistry",
+      "HeartbeatTimer",
+      "NestorMonroy",
+      "SinPermiso",
+      "StreamGateway",
+      "StreamSubscriber",
+      "StreamUnavailable",
+      "SubscriberPool",
+      "UserWithoutSegment",
+      "WebSocket"
+    ]
+  },
+  "uc-rpt-03": {
+    "module": "reports",
+    "title": "UC_RPT_03 — Ver Reportes Historicos",
+    "target_file": "uc-rpt-03-ver-reportes-historicos.rst",
+    "canonical_classes_used": [
+      "FilterValidator",
+      "HistoricalReport",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "ComparativeBuilder",
+      "FiltrosGrupos",
+      "HistoricalFilters",
+      "HistoricalReportEndpoint",
+      "HistoricalReportService",
+      "MetricsCache",
+      "NestorMonroy",
+      "PeriodResolver",
+      "PeriodSpec",
+      "RangeTooLarge",
+      "ReporteHistorico",
+      "SegmentoUsuario",
+      "SinPermiso",
+      "UserWithoutSegment",
+      "ValidationError"
+    ]
+  },
+  "uc-rpt-04": {
+    "module": "reports",
+    "title": "UC_RPT_04 — Exportar Reporte",
+    "target_file": "uc-rpt-04-exportar-reporte.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "ExportJob",
+      "ExportWorker",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuditEventos",
+      "AuditFailed",
+      "AuditSvc",
+      "AuthorizationGuard",
+      "EncolarJob",
+      "ExportEndpoint",
+      "ExportJobRef",
+      "ExportJobRepo",
+      "ExportJobStatus",
+      "ExportLimitExceeded",
+      "ExportService",
+      "FormatWriter",
+      "InvalidState",
+      "JobLimiter",
+      "JobRepo",
+      "MailboxService",
+      "NestorMonroy",
+      "NotFound",
+      "NotifyMailbox",
+      "PayloadSanitizer",
+      "PayloadValidator",
+      "QueueFull",
+      "RowLimitExceeded",
+      "SinPermiso",
+      "StorageError",
+      "StorageGateway",
+      "UserRepo",
+      "ValidationError"
+    ]
+  },
+  "uc-rpt-07": {
+    "module": "reports",
+    "title": "UC_RPT_07 — Programar Reporte",
+    "target_file": "uc-rpt-07-programar-reporte.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "ExportJob",
+      "ExportWorker",
+      "ScheduledReport",
+      "ScheduledReportRepo"
+    ],
+    "referenced_unknown": [
+      "AuthorizationGuard",
+      "AutoExecute",
+      "ExportEnqueuer",
+      "ExportJobRef",
+      "ExportarDatos",
+      "MailboxService",
+      "NestorMonroy",
+      "ScheduleExecutionLog",
+      "ScheduleRepo",
+      "ScheduleService",
+      "ScheduleValidator",
+      "ScheduledReportEndpoint",
+      "ScheduledReportRef",
+      "SystemError",
+      "UserRepo"
+    ]
+  },
+  "uc-rpt-08": {
+    "module": "reports",
+    "title": "UC_RPT_08 — Ver Reportes Programados",
+    "target_file": "uc-rpt-08-ver-reportes-programados.rst",
+    "canonical_classes_used": [
+      "ScheduledReport",
+      "ScheduledReportListService",
+      "ScheduledReportRepo"
+    ],
+    "referenced_unknown": [
+      "AlmacenDatos",
+      "AuthorizationGuard",
+      "ListOutput",
+      "NestorMonroy",
+      "RunsList",
+      "ScheduleExecutionLog",
+      "ScheduleExecutionLogRepo",
+      "ScheduledReportDetail",
+      "ScheduledReportListEndpoint",
+      "ScopeFilter",
+      "VistaDetalle"
+    ]
+  },
+  "uc-rpt-09": {
+    "module": "reports",
+    "title": "UC_RPT_09 — Configurar Filtros",
+    "target_file": "uc-rpt-09-configurar-filtros.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "FilterValidator",
+      "SavedFilter",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AplicacionFrontend",
+      "FilterInvalid",
+      "LimitExceeded",
+      "NameDuplicate",
+      "NestorMonroy",
+      "SavedFilterEndpoint",
+      "SavedFilterRepo",
+      "SavedFilterService",
+      "SegmentChangeListener",
+      "SegmentViolation",
+      "UserAutenticado",
+      "ValidationError"
+    ]
+  },
+  "uc-rpt-10": {
+    "module": "reports",
+    "title": "UC_RPT_10 — Guardar Vista",
+    "target_file": "uc-rpt-10-guardar-vista.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "ColumnCatalog",
+      "SavedView",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AplicacionFrontend",
+      "LimitExceeded",
+      "NameDuplicate",
+      "NestorMonroy",
+      "SavedViewEndpoint",
+      "SavedViewRepo",
+      "SavedViewService",
+      "SharedView",
+      "SinPermiso",
+      "UserAutenticado",
+      "ViewValidator"
+    ]
+  },
+  "uc-rpt-11": {
+    "module": "reports",
+    "title": "UC_RPT_11 — Compartir Reporte",
+    "target_file": "uc-rpt-11-compartir-reporte.rst",
+    "canonical_classes_used": [
+      "AuditService",
+      "SavedView"
+    ],
+    "referenced_unknown": [
+      "AplicacionFrontend",
+      "AuthorizationGuard",
+      "InvalidExpires",
+      "MailboxNotify",
+      "MailboxService",
+      "NestorMonroy",
+      "NotOwner",
+      "ReceptorUser",
+      "SavedViewRepo",
+      "SavedViewService",
+      "SelfShare",
+      "ShareEndpoint",
+      "ShareEntries",
+      "ShareEntry",
+      "ShareEntryRef",
+      "ShareEntryRepo",
+      "ShareResolver",
+      "ShareService",
+      "ShareValidator"
+    ]
+  },
+  "uc-rpt-12": {
+    "module": "reports",
+    "title": "UC_RPT_12 — Reporte de Agentes",
+    "target_file": "uc-rpt-12-reporte-de-agentes.rst",
+    "canonical_classes_used": [
+      "AgentDailyStatRepo",
+      "AgentReportService",
+      "AuditService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AgentDailyStat",
+      "AgentDetail",
+      "AgentList",
+      "AgentRepo",
+      "AgentReportEndpoint",
+      "AnalyticsRepo",
+      "AuditSvc",
+      "AuthorizationGuard",
+      "MetricsCache",
+      "NestorMonroy",
+      "SinPermiso",
+      "VistaDetalle"
+    ]
+  },
+  "uc-rpt-13": {
+    "module": "reports",
+    "title": "UC_RPT_13 — Reporte de Colas",
+    "target_file": "uc-rpt-13-reporte-de-colas.rst",
+    "canonical_classes_used": [
+      "AbandonmentReportService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AbandonoReportView",
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "BaseAnaliticaIvr",
+      "MetricsCache",
+      "NestorMonroy",
+      "QueueDailyStat",
+      "ReporteAbandono",
+      "SinOpcion"
+    ]
+  },
+  "uc-rpt-14": {
+    "module": "reports",
+    "title": "UC_RPT_14 — Reporte de Campanas",
+    "target_file": "uc-rpt-14-reporte-de-campanas.rst",
+    "canonical_classes_used": [
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "CampaignDailyStat",
+      "CampaignDailyStatRepo",
+      "CampaignList",
+      "CampaignReportEndpoint",
+      "CampaignReportService",
+      "MetricsCache",
+      "NestorMonroy",
+      "VistaDetalle"
+    ]
+  },
+  "uc-rpt-15": {
+    "module": "reports",
+    "title": "UC_RPT_15 — Reporte de Transferencias",
+    "target_file": "uc-rpt-15-reporte-de-transferencias.rst",
+    "canonical_classes_used": [
+      "SegmentResolver",
+      "TransferReportService"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "HeatmapBuilder",
+      "MetricsCache",
+      "NestorMonroy",
+      "ReporteCentros",
+      "ReporteCentrosSegmento",
+      "ReporteTransferencias",
+      "SegmentoCodigo",
+      "TransferEvent",
+      "TransferenciasReportView"
+    ]
+  },
+  "uc-rpt-16": {
+    "module": "reports",
+    "title": "UC_RPT_16 — Reporte de Menus IVR",
+    "target_file": "uc-rpt-16-reporte-de-menus-ivr.rst",
+    "canonical_classes_used": [
+      "IvrNavigationReportService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "MetricsCache",
+      "NestorMonroy",
+      "PathMiner",
+      "ReporteMenu",
+      "ReporteMenuCentro",
+      "ReporteMenuError",
+      "ReporteMenuRedirigidos",
+      "SinOpcion",
+      "VerErroresDeMenu",
+      "VerMenusRedirigidos"
+    ]
+  },
+  "uc-rpt-17": {
+    "module": "reports",
+    "title": "UC_RPT_17 — Reporte de Clientes Unicos",
+    "target_file": "uc-rpt-17-reporte-de-clientes-unicos.rst",
+    "canonical_classes_used": [
+      "CallerReportService",
+      "SegmentResolver"
+    ],
+    "referenced_unknown": [
+      "AnalyticsRepo",
+      "AuthorizationGuard",
+      "ClientesReportView",
+      "ComparativeCalculator",
+      "DistinctCounter",
+      "HyperLogLog",
+      "MetricsCache",
+      "NestorMonroy",
+      "RecurrenceCalculator",
+      "ReporteClientes",
+      "TblHistorico"
+    ]
+  },
+  "uc-sup-01": {
+    "module": "supervision",
+    "title": "UC_SUP_01 — Monitorear Llamada (Whisper)",
+    "target_file": "uc-sup-01-monitorear-llamada-whisper.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "MonitorEndpoint",
+      "MonitorEvent",
+      "MonitorEventRepo",
+      "NestorMonroy",
+      "TelephonyClient",
+      "UcSup"
+    ]
+  },
+  "uc-sup-02": {
+    "module": "supervision",
+    "title": "UC_SUP_02 — Barge-in en Llamada",
+    "target_file": "uc-sup-02-barge-in-en-llamada.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "BargeEndpoint",
+      "BargeEvent",
+      "BargeEventRepo",
+      "NestorMonroy",
+      "TakeOver",
+      "TelephonyClient",
+      "UcSup"
+    ]
+  },
+  "uc-sup-03": {
+    "module": "supervision",
+    "title": "UC_SUP_03 — Mensaje Broadcast al Equipo",
+    "target_file": "uc-sup-03-mensaje-broadcast-al-equipo.rst",
+    "canonical_classes_used": [
+      "AuditService"
+    ],
+    "referenced_unknown": [
+      "BroadcastEndpoint",
+      "BroadcastEvent",
+      "MailboxBus",
+      "MailboxMessage",
+      "MailboxService",
+      "NestorMonroy",
+      "SsePush",
+      "UcSup"
+    ]
+  },
+  "uc-usr-01": {
+    "module": "users",
+    "title": "UC_USR_01 — Crear Usuario",
+    "target_file": "uc-usr-01-crear-usuario.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AssignmentRepository",
+      "AuditEmitter",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "BaseDeDatos",
+      "BlacklistedToken",
+      "CreateUserInput",
+      "CreateUserOutput",
+      "CreateUserView",
+      "DatosInvalidos",
+      "EmailExiste",
+      "EmailExists",
+      "EmailExterno",
+      "EmailService",
+      "GenerarDato",
+      "GenerarPassword",
+      "GrupoAcceso",
+      "HasCreateUsers",
+      "InputValidator",
+      "IntegrityError",
+      "InternalMessage",
+      "MailboxFalla",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "PasswordGen",
+      "PasswordGenerator",
+      "PasswordHasher",
+      "PasswordHistory",
+      "RequestContext",
+      "SecretsRedactor",
+      "SinPermiso",
+      "StandardUsernameGenerator",
+      "SystemRandom",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UniqueConstraintViolation",
+      "UniquenessChecker",
+      "UserFactory",
+      "UserRepository",
+      "UserService",
+      "UsernameGen",
+      "UsernameGenerator",
+      "UsernameRetriesExhausted",
+      "WebhookService"
+    ]
+  },
+  "uc-usr-02": {
+    "module": "users",
+    "title": "UC_USR_02 — Consultar Usuarios",
+    "target_file": "uc-usr-02-consultar-usuarios.rst",
+    "canonical_classes_used": [
+      "AccessGroup",
+      "AuditEvent",
+      "FilterValidator"
+    ],
+    "referenced_unknown": [
+      "AssignmentDetail",
+      "AssignmentRepository",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "BadFilter",
+      "ListUsersView",
+      "MaskingStrategy",
+      "NestorMonroy",
+      "PaginatedResult",
+      "QueryBuilder",
+      "RepoUsers",
+      "SessionRepository",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "UserDetail",
+      "UserDetailView",
+      "UserListItem",
+      "UserNotFound",
+      "UserRepository",
+      "UserService",
+      "VistaDetalle",
+      "VistaListado"
+    ]
+  },
+  "uc-usr-03": {
+    "module": "users",
+    "title": "UC_USR_03 — Modificar Usuario",
+    "target_file": "uc-usr-03-modificar-usuario.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "ActualizarEntidad",
+      "AntiSelfActionPolicy",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "BlacklistedToken",
+      "CerrarSesiones",
+      "CloseSessions",
+      "EmailExists",
+      "EmailUniquenessChecker",
+      "InternalMessage",
+      "InvalidStateTransition",
+      "ModifyUserCommand",
+      "ModifyUserOutput",
+      "ModifyUserPatch",
+      "ModifyUserView",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "NotifyOnModifyStrategy",
+      "PasswordHistory",
+      "PatchValidator",
+      "RequestContext",
+      "SelfStateChange",
+      "SelfStateChangeForbidden",
+      "SessionService",
+      "SideEffect",
+      "SideEffectExecutor",
+      "SinPermiso",
+      "StateMachine",
+      "StateTransition",
+      "StateTransitionTable",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UserCommand",
+      "UserNotFound",
+      "UserRepository",
+      "UserService",
+      "ValidarEmail",
+      "ValidarTransicion",
+      "ValidationError"
+    ]
+  },
+  "uc-usr-04": {
+    "module": "users",
+    "title": "UC_USR_04 — Eliminar Usuario",
+    "target_file": "uc-usr-04-eliminar-usuario.rst",
+    "canonical_classes_used": [
+      "AuditEvent",
+      "InternalMailbox"
+    ],
+    "referenced_unknown": [
+      "AlreadyEliminated",
+      "AlreadyEliminatedStrict",
+      "AntiSelfAction",
+      "AntiSelfActionPolicy",
+      "AssignmentRepository",
+      "AuditEmitter",
+      "AuditEvents",
+      "AuditFalla",
+      "AuditLog",
+      "AuthenticatedUser",
+      "AuthenticationGuard",
+      "AuthorizationGuard",
+      "BlacklistedToken",
+      "CerrarSesiones",
+      "DeleteUserView",
+      "EliminarEntidad",
+      "EliminateUserCommand",
+      "EliminateUserOutput",
+      "IdempotencyPolicy",
+      "InternalMessage",
+      "InternalMessages",
+      "MailboxError",
+      "MailboxFailure",
+      "MailboxFailurePolicy",
+      "NestorMonroy",
+      "NotificacionMailbox",
+      "NotifyOnEliminationStrategy",
+      "PasswordHistory",
+      "RequestContext",
+      "RestoreUser",
+      "RevocarAsignacion",
+      "SelfElimination",
+      "SessionService",
+      "SinPermiso",
+      "ThrottlePolicy",
+      "TransactionManager",
+      "UserNotFound",
+      "UserRepository",
+      "UserService"
+    ]
+  }
+}
