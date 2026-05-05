@@ -48,8 +48,8 @@ al frontend para renderizar la barra de navegación.
  class Domain
  class MenuViewModel
 
- Menu "1" *-- "*" Domain : composes
- Menu ..> MenuViewModel : projects
+ Menu "1" *-- "1..*" Domain : composes
+ Menu "1" ..> "1" MenuViewModel : <<projects>>
 
  note right of Menu
    Resultado de MenuBuilder.build(user, locale).

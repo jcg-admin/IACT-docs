@@ -31,17 +31,17 @@ de agregar.
 
  @startuml
 
+ abstract class BaseReportService
+
  class ClientesReportService {
-   - caller_stat_repo : CallerDailyStatRepo
-   - kpi_calculator : KPICalculator
-   - segment_resolver : SegmentResolver
    --
    + get(invoker : User, period : Period, \
          filters : ClientFilters) : ClientesReport
    + by_segment(invoker : User, period : Period) : List<SegmentClientStats>
    + retention_curve(invoker : User, period : Period) : RetentionCurve
-   - apply_segment_filter(filters : ClientFilters, segment : Segment) : ClientFilters
  }
+
+ BaseReportService <|-- ClientesReportService
 
  class ClientesReport {
    + period : Period
@@ -63,20 +63,21 @@ de agregar.
  }
 
  class CallerDailyStatRepo
- class KPICalculator
- class SegmentResolver
 
- ClientesReportService o-- CallerDailyStatRepo : reads
- ClientesReportService *-- KPICalculator : composes
- ClientesReportService o-- SegmentResolver : reads
- ClientesReportService ..> ClientesReport : returns
- ClientesReportService ..> SegmentClientStats : returns
- ClientesReportService ..> RetentionCurve : returns
+ ClientesReportService "1" o-- "1" CallerDailyStatRepo : reads
+ ClientesReportService "1" ..> "1" ClientesReport : <<returns>>
+ ClientesReportService "1" ..> "0..*" SegmentClientStats : <<returns>>
+ ClientesReportService "1" ..> "0..1" RetentionCurve : <<returns>>
+
+ note bottom of ClientesReport
+   retention_by_month : {ordered}
+ end note
 
  note right of ClientesReportService
-   retention_curve mide qué porcentaje
-   de callers del mes N volvió en el
-   mes N+1, N+2, etc.
+   Hereda apply_segment_filter de
+   BaseReportService. retention_curve
+   mide qué porcentaje de callers del
+   mes N volvió en el mes N+1, N+2.
  end note
 
  @enduml

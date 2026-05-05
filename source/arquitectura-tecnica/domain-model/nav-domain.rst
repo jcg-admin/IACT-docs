@@ -45,13 +45,21 @@ llamado *domain* en DDD); la clase en sí se llama
  class Menu
  class Section
 
- Domain "*" -- "1" Menu : belongs_to
- Domain "1" *-- "*" Section : composes
+ Domain "1..*" -- "1" Menu : belongs_to
+ Domain "1" *-- "1..*" Section : composes
+
+ Domain "0..1\nparent" -- "0..*\nchildren" Domain : nests
+
+ note bottom of Section
+   {ordered}
+ end note
 
  note right of Domain
    "Domain" en navegacion ≠ bounded_context
    en DDD. Archivo nav-domain.rst para
    desambiguar en el filesystem.
+   Asociacion reflexiva: jerarquia
+   parent/children opcional para sub-areas.
  end note
 
  @enduml

@@ -29,28 +29,27 @@ en el servicio que gestiona la composición de
 ``AccessGroup`` (UC_PERM_06).
 
 .. uml::
- :caption: Clase AccessGroupFunction — tabla pivote M:N
-           entre AccessGroup y Function.
+ :caption: AccessGroupFunction como **clase de
+           asociación** entre AccessGroup y Function.
 
  @startuml
 
+ class AccessGroup
+ class Function
  class AccessGroupFunction {
-   + access_group_id : UUID
-   + function_id : UUID
    + added_at : DateTime
    + added_by : UUID
  }
 
- class AccessGroup
- class Function
-
- AccessGroupFunction "*" -- "1" AccessGroup : belongs_to
- AccessGroupFunction "*" -- "1" Function : references
+ AccessGroup "1" -- "1..*" Function : grants
+ (AccessGroup, Function) .. AccessGroupFunction
 
  note right of AccessGroupFunction
-   PK compuesta (access_group_id, function_id).
-   added_at + added_by para trazabilidad
-   sin auditar en AuditEvent (consulta frecuente).
+   Clase de asociacion (uml-04).
+   PK compuesta (access_group_id,
+   function_id) implicita en la
+   asociacion. added_at/added_by
+   para trazabilidad sin auditar.
  end note
 
  @enduml

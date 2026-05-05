@@ -66,9 +66,9 @@ del usuario afectado.
    + entry_count : Integer
  }
 
- PermissionCache ..> CacheKey : keyed_by
- PermissionCache ..> CacheEntry : returns
- PermissionCache ..> CacheStats : reports
+ PermissionCache "1" -- "(user_id, function_code)" CacheEntry : resolves
+ PermissionCache "1" ..> "1" CacheKey : <<uses>>
+ PermissionCache "1" ..> "1" CacheStats : <<returns>>
 
  note right of PermissionCache
    Invalidacion dirigida por user_id

@@ -32,16 +32,17 @@ de segmento (CNST-008) antes de agregar.
 
  @startuml
 
+ abstract class BaseReportService
+
  class AbandonoReportService {
-   - queue_stat_repo : QueueDailyStatRepo
-   - kpi_calculator : KPICalculator
-   - segment_resolver : SegmentResolver
    --
    + get(invoker : User, period : Period, \
          filters : AbandonFilters) : AbandonReport
    + by_queue(invoker : User, period : Period) : List<QueueAbandonStats>
    + abandonment_curve(invoker : User, period : Period) : AbandonmentCurve
  }
+
+ BaseReportService <|-- AbandonoReportService
 
  class AbandonReport {
    + period : Period
@@ -71,19 +72,20 @@ de segmento (CNST-008) antes de agregar.
  }
 
  class QueueDailyStatRepo
- class KPICalculator
- class SegmentResolver
 
- AbandonoReportService o-- QueueDailyStatRepo : reads
- AbandonoReportService *-- KPICalculator : composes
- AbandonoReportService o-- SegmentResolver : reads
- AbandonoReportService ..> AbandonReport : returns
- AbandonoReportService ..> QueueAbandonStats : returns
- AbandonoReportService ..> AbandonmentCurve : returns
+ AbandonoReportService "1" o-- "1" QueueDailyStatRepo : reads
+ AbandonoReportService "1" ..> "1" AbandonReport : <<returns>>
+ AbandonoReportService "1" ..> "0..*" QueueAbandonStats : <<returns>>
+ AbandonoReportService "1" ..> "0..1" AbandonmentCurve : <<returns>>
+
+ note bottom of AbandonReport
+   by_interval : {ordered}
+ end note
 
  note right of AbandonoReportService
-   abandonment_curve agrupa abandonos
-   por intervalo de espera para
+   Hereda apply_segment_filter de
+   BaseReportService. abandonment_curve
+   agrupa por WaitInterval para
    identificar el "punto critico".
  end note
 

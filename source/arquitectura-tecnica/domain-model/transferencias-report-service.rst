@@ -30,18 +30,18 @@ Aplica filtros de segmento (CNST-008) antes de agregar.
 
  @startuml
 
+ abstract class BaseReportService
+
  class TransferenciasReportService {
-   - transfer_stat_repo : TransferDailyStatRepo
-   - kpi_calculator : KPICalculator
-   - segment_resolver : SegmentResolver
    --
    + get(invoker : User, period : Period, \
          filters : TransferFilters) : TransferenciasReport
    + by_center(invoker : User, period : Period) : List<CenterTransferStats>
    + origin_destination_matrix(invoker : User, \
                                  period : Period) : OriginDestinationMatrix
-   - apply_segment_filter(filters : TransferFilters, segment : Segment) : TransferFilters
  }
+
+ BaseReportService <|-- TransferenciasReportService
 
  class TransferenciasReport {
    + period : Period
@@ -71,20 +71,17 @@ Aplica filtros de segmento (CNST-008) antes de agregar.
  }
 
  class TransferDailyStatRepo
- class KPICalculator
- class SegmentResolver
 
- TransferenciasReportService o-- TransferDailyStatRepo : reads
- TransferenciasReportService *-- KPICalculator : composes
- TransferenciasReportService o-- SegmentResolver : reads
- TransferenciasReportService ..> TransferenciasReport : returns
- TransferenciasReportService ..> CenterTransferStats : returns
- TransferenciasReportService ..> OriginDestinationMatrix : returns
+ TransferenciasReportService "1" o-- "1" TransferDailyStatRepo : reads
+ TransferenciasReportService "1" ..> "1" TransferenciasReport : <<returns>>
+ TransferenciasReportService "1" ..> "0..*" CenterTransferStats : <<returns>>
+ TransferenciasReportService "1" ..> "0..1" OriginDestinationMatrix : <<returns>>
 
  note right of TransferenciasReportService
+   Hereda apply_segment_filter de
+   BaseReportService.
    origin_destination_matrix expone
-   la matriz centro_origen → centro_destino
-   con conteo de transferencias.
+   la matriz centro_origen → centro_destino.
  end note
 
  @enduml

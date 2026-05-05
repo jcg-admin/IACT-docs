@@ -31,17 +31,17 @@ el árbol IVR. Aplica filtros de segmento (CNST-008).
 
  @startuml
 
+ abstract class BaseReportService
+
  class MenuIvrReportService {
-   - menu_stat_repo : MenuDailyStatRepo
-   - kpi_calculator : KPICalculator
-   - segment_resolver : SegmentResolver
    --
    + get(invoker : User, period : Period, \
          filters : MenuFilters) : MenuIvrReport
    + by_option(invoker : User, period : Period) : List<MenuOptionStats>
    + drop_off_curve(invoker : User, period : Period) : DropOffCurve
-   - apply_segment_filter(filters : MenuFilters, segment : Segment) : MenuFilters
  }
+
+ BaseReportService <|-- MenuIvrReportService
 
  class MenuIvrReport {
    + period : Period
@@ -64,20 +64,20 @@ el árbol IVR. Aplica filtros de segmento (CNST-008).
  }
 
  class MenuDailyStatRepo
- class KPICalculator
- class SegmentResolver
 
- MenuIvrReportService o-- MenuDailyStatRepo : reads
- MenuIvrReportService *-- KPICalculator : composes
- MenuIvrReportService o-- SegmentResolver : reads
- MenuIvrReportService ..> MenuIvrReport : returns
- MenuIvrReportService ..> MenuOptionStats : returns
- MenuIvrReportService ..> DropOffCurve : returns
+ MenuIvrReportService "1" o-- "1" MenuDailyStatRepo : reads
+ MenuIvrReportService "1" ..> "1" MenuIvrReport : <<returns>>
+ MenuIvrReportService "1" ..> "0..*" MenuOptionStats : <<returns>>
+ MenuIvrReportService "1" ..> "0..1" DropOffCurve : <<returns>>
+
+ note bottom of MenuIvrReport
+   by_option : {ordered}
+ end note
 
  note right of MenuIvrReportService
-   drop_off_curve agrupa por nivel
-   del árbol IVR para detectar dónde
-   los usuarios cuelgan más.
+   Hereda apply_segment_filter de
+   BaseReportService. drop_off_curve
+   agrupa por nivel del árbol IVR.
  end note
 
  @enduml

@@ -86,6 +86,7 @@ directas con otras clases del mismo bounded context.
  kpi-calculator
  segment-resolver
  servicio-reportes
+ base-report-service
  abandono-report-service
  agent-report-service
  agent-daily-stat-repo

@@ -31,17 +31,15 @@ Aplica filtros de segmento (CNST-008) vía
 
  @startuml
 
+ abstract class BaseReportService
+
  class AgentReportService {
-   - stat_repo : AgentDailyStatRepo
-   - kpi_calculator : KPICalculator
-   - segment_resolver : SegmentResolver
    --
-   + list(invoker : User, filters : AgentFilters, \
-          period : Period, pagination : Pagination) : HistoricalReport
+   + get(invoker : User, period : Period, \
+         filters : AgentFilters) : HistoricalReport
    + detail(invoker : User, agent_id : UUID, period : Period) : AgentDetailReport
    + top_performers(invoker : User, kpi_name : String, \
                      period : Period, n : Integer) : List<AgentRanking>
-   - apply_segment_filter(filters : AgentFilters, segment : Segment) : AgentFilters
  }
 
  class AgentDetailReport {
@@ -53,22 +51,24 @@ Aplica filtros de segmento (CNST-008) vía
  }
 
  class AgentDailyStatRepo
- class KPICalculator
- class SegmentResolver
  class HistoricalReport
  class AgentRanking
 
- AgentReportService o-- AgentDailyStatRepo : reads
- AgentReportService *-- KPICalculator : composes
- AgentReportService o-- SegmentResolver : reads
- AgentReportService ..> HistoricalReport : returns
- AgentReportService ..> AgentDetailReport : returns
- AgentReportService ..> AgentRanking : returns
+ BaseReportService <|-- AgentReportService
+
+ AgentReportService "1" o-- "1" AgentDailyStatRepo : reads
+ AgentReportService "1" ..> "1" HistoricalReport : <<returns>>
+ AgentReportService "1" ..> "0..1" AgentDetailReport : <<returns>>
+ AgentReportService "1" ..> "0..*" AgentRanking : <<returns>>
+
+ note bottom of AgentDetailReport
+   daily_breakdown : {ordered}
+ end note
 
  note right of AgentReportService
-   apply_segment_filter aplica
-   CNST-008 antes de consultar el
-   repo (defensa en profundidad).
+   Hereda atributos protegidos y
+   apply_segment_filter de
+   BaseReportService (template-method).
  end note
 
  @enduml
