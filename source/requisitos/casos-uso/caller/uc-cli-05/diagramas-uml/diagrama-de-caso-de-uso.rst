@@ -8,18 +8,37 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "Caller (cliente externo)" as CALLER <<externo>>
+ actor "SurveyRunner" as SURVEY <<sistema>>
+ actor "CSATResultRepo" as REPO <<sistema>>
 
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_05\nCalificar Atencion (Post-Call)" as UC_CLI_05
+   usecase "UC_CLI_05\nCalificar Atencion\n(Post-Call CSAT)" as UC_CLI_05
+   usecase "Reproducir 1-3\npreguntas DTMF" as PREGUNTAR
+   usecase "Capturar respuestas\n(opt-out: hangup)" as CAPTURAR
+   usecase "Persistir CSATResult" as PERSISTIR
  }
 
- INVOKER --> UC_CLI_05
+ CALLER --> UC_CLI_05
+ SURVEY --> UC_CLI_05
+
+ UC_CLI_05 ..> PREGUNTAR : <<include>>
+ UC_CLI_05 ..> CAPTURAR : <<include>>
+ UC_CLI_05 ..> PERSISTIR : <<include>>
+
+ PERSISTIR --> REPO
+
+ note bottom of CAPTURAR
+   Compliance opt-out: caller
+   puede colgar en cualquier
+   momento sin penalidad ni
+   reintento.
+ end note
+
+ note right of CALLER
+   Trigger: agente cuelga + flag
+   `offer_csat_post_call` activo
+   en la cola/segmento.
+ end note
 
  @enduml
