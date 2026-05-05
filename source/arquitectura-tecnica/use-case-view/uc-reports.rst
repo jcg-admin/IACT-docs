@@ -41,6 +41,7 @@ reportes filtran datos por segmento IVR del usuario vía
    usecase "UC_RPT_04\nExportar Reporte" as EXPORTAR_REPORTE
    usecase "UC_RPT_07\nProgramar Reporte" as PROGRAMAR_REPORTE
    usecase "UC_RPT_08\nVer Reportes\nProgramados" as VER_REPORTES_PROGRAMADOS
+   usecase "UC_RPT_09\nConfigurar Filtros" as CONFIGURAR_FILTROS
    usecase "UC_RPT_10\nGuardar Vista" as GUARDAR_VISTA
    usecase "UC_RPT_11\nCompartir Reporte" as COMPARTIR_REPORTE
    usecase "UC_RPT_12\nReporte de Agentes" as REPORTE_AGENTES
@@ -62,6 +63,7 @@ reportes filtran datos por segmento IVR del usuario vía
  Operator --> REPORTE_CLIENTES_UNICOS
  Operator --> GUARDAR_VISTA
  Operator --> COMPARTIR_REPORTE
+ Operator --> CONFIGURAR_FILTROS
 
  Supervisor --> EXPORTAR_REPORTE
  Supervisor --> PROGRAMAR_REPORTE
@@ -79,6 +81,7 @@ reportes filtran datos por segmento IVR del usuario vía
 
  VER_REPORTES_HISTORICOS ..> EXPORTAR_REPORTE : <<extend>>
  VER_REPORTES_HISTORICOS ..> PROGRAMAR_REPORTE : <<extend>>
+ VER_REPORTES_HISTORICOS ..> CONFIGURAR_FILTROS : <<extend>>
 
  note right of MOD_Reports
    Codenames RBAC requeridos:
