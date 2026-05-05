@@ -12,7 +12,7 @@
  actor "assign_function_groups" as assign_function_groups
 
  rectangle "UI MOD_Access" {
-   usecase "UC_ACC_04\nAsignar AGR\n(desde User)" as ACC04
+   usecase "UC_ACC_04\nAsignar AGR\n(desde User)" as UC_ACC_04
  }
 
  rectangle "UI MOD_Permissions" {
@@ -24,9 +24,9 @@
    note bottom: Funcion: assign_function_groups
  }
 
- assign_function_groups --> ACC04
+ assign_function_groups --> UC_ACC_04
  assign_function_groups --> PERM01
- ACC04 --> PostApiUsers : delega
+ UC_ACC_04 --> PostApiUsers : delega
  PERM01 --> PostApiUsers : delega
 
  note right of PostApiUsers

@@ -11,15 +11,15 @@
  actor "MailboxService" as Mailboxservice
 
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_04\nExport" as UC04
+   usecase "UC_RPT_04\nExport" as UC_RPT_04
    usecase "Encolar Job" as EncolarJob
    usecase "Audit eventos" as AuditEventos
    usecase "Notify mailbox" as NotifyMailbox
  }
 
- export_csv --> UC04
- UC04 ..> EncolarJob : <<include>>
- UC04 ..> AuditEventos : <<include>>
+ export_csv --> UC_RPT_04
+ UC_RPT_04 ..> EncolarJob : <<include>>
+ UC_RPT_04 ..> AuditEventos : <<include>>
  Exportworker ..> AuditEventos : <<include>>
  Exportworker ..> NotifyMailbox : <<include>>
  NotifyMailbox --> Mailboxservice

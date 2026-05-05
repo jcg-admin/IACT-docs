@@ -8,10 +8,10 @@
  left to right direction
  actor "User autenticado" as UserAutenticado
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_09\nGestionar filtros" as UC09
+   usecase "UC_RPT_09\nGestionar filtros" as UC_RPT_09
    usecase "Aplicar filtro" as AplicacionFrontend
  }
- UserAutenticado --> UC09
+ UserAutenticado --> UC_RPT_09
  UserAutenticado --> APP
  @enduml
 

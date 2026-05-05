@@ -13,7 +13,7 @@
  actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_03\nConsultar Permisos" as UC03
+   usecase "UC_ACC_03\nConsultar Permisos" as UC_ACC_03
    usecase "Cargar Assignments\ndirectos" as AsignacionesDirectas
    usecase "Expandir AGRs\nen funciones" as GrupoAcceso
    usecase "Cargar permisos\nexcepcionales" as ExcepcionSistema
@@ -22,13 +22,13 @@
    usecase "Audit selectivo\nP-16" as AUDITORIA_SELECTIVA
  }
 
- INVOKER --> UC03
- UC03 ..> DIR : <<include>>
- UC03 ..> AGR : <<include>>
- UC03 ..> EXC : <<include>>
- UC03 ..> CONSOLIDAR_METADATA : <<include>>
- UC03 ..> SOD : <<include>>
- UC03 ..> AUDITORIA_SELECTIVA : <<include>>
+ INVOKER --> UC_ACC_03
+ UC_ACC_03 ..> DIR : <<include>>
+ UC_ACC_03 ..> AGR : <<include>>
+ UC_ACC_03 ..> EXC : <<include>>
+ UC_ACC_03 ..> CONSOLIDAR_METADATA : <<include>>
+ UC_ACC_03 ..> SOD : <<include>>
+ UC_ACC_03 ..> AUDITORIA_SELECTIVA : <<include>>
  Sistema --> AUDITORIA_SELECTIVA
  AUDITORIA_SELECTIVA --> view_audit_log
 

@@ -14,7 +14,7 @@
  actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Users" {
-   usecase "UC_USR_01\nCrear Usuario" as UC01
+   usecase "UC_USR_01\nCrear Usuario" as UC_USR_01
    usecase "Generar username\n(CNST-029)" as GenerarDato
    usecase "Generar password\ntemporal" as GenerarPassword
    usecase "Asignar AGR\nopcional" as GrupoAcceso
@@ -22,12 +22,12 @@
    usecase "AuditEvent\nUSER_CREATED" as AuditEmitter
  }
 
- ADMINISTRADOR_SISTEMA --> UC01
- UC01 ..> GEN : <<include>>
- UC01 ..> PWD : <<include>>
- UC01 ..> AGR : <<extend>>
- UC01 ..> NOT : <<include>>
- UC01 ..> EMI : <<include>>
+ ADMINISTRADOR_SISTEMA --> UC_USR_01
+ UC_USR_01 ..> GEN : <<include>>
+ UC_USR_01 ..> PWD : <<include>>
+ UC_USR_01 ..> AGR : <<extend>>
+ UC_USR_01 ..> NOT : <<include>>
+ UC_USR_01 ..> EMI : <<include>>
  NOT --> USUARIO_AUTENTICADO : InternalMessage
  Sistema --> EMI
  EMI --> view_audit_log

@@ -12,7 +12,7 @@
  actor "view_audit_log" as view_audit_log <<beneficiario>>
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_04\nAsignar AGR" as UC04
+   usecase "UC_ACC_04\nAsignar AGR" as UC_ACC_04
    usecase "Validar AGR\nexiste + ACTIVE" as VALIDAR_AGRUPADOR
    usecase "Expandir funciones\ndel AGR" as ExportarDatos
    usecase "Validar SoD\n(set efectivo)" as ValidadorSoD
@@ -21,13 +21,13 @@
    usecase "AuditEvent\nAGR_ASSIGNED" as AuditEmitter
  }
 
- INVOKER --> UC04
- UC04 ..> VALIDAR_AGRUPADOR : <<include>>
- UC04 ..> EXP : <<include>>
- UC04 ..> SOD : <<include>>
- UC04 ..> INS : <<include>>
- UC04 ..> CACHE_PERMISOS : <<include>>
- UC04 ..> EMI : <<include>>
+ INVOKER --> UC_ACC_04
+ UC_ACC_04 ..> VALIDAR_AGRUPADOR : <<include>>
+ UC_ACC_04 ..> EXP : <<include>>
+ UC_ACC_04 ..> SOD : <<include>>
+ UC_ACC_04 ..> INS : <<include>>
+ UC_ACC_04 ..> CACHE_PERMISOS : <<include>>
+ UC_ACC_04 ..> EMI : <<include>>
  EMI --> view_audit_log
 
  note bottom of SOD

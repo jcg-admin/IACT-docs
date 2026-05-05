@@ -37,25 +37,25 @@ gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
  actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as AC01
-   usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as AC02
-   usecase "UC_ACC_03\nConsultar Permisos\nEfectivos" as AC03
-   usecase "UC_ACC_04\nAsignar Agrupador\na Usuario" as AC04
-   usecase "UC_ACC_05\nGestionar Reglas SoD" as AC05
-   usecase "UC_ACC_08\nOtorgar Permiso\nTemporal Excepcional" as AC08
-   usecase "UC_ACC_09\nAuditar Cambios\nde Acceso" as AC09
+   usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as UC_ACC_01
+   usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as UC_ACC_02
+   usecase "UC_ACC_03\nConsultar Permisos\nEfectivos" as UC_ACC_03
+   usecase "UC_ACC_04\nAsignar Agrupador\na Usuario" as UC_ACC_04
+   usecase "UC_ACC_05\nGestionar Reglas SoD" as UC_ACC_05
+   usecase "UC_ACC_08\nOtorgar Permiso\nTemporal Excepcional" as UC_ACC_08
+   usecase "UC_ACC_09\nAuditar Cambios\nde Acceso" as UC_ACC_09
  }
 
- assign_functions --> AC01
- assign_functions --> AC08
- revoke_functions --> AC02
- view_assignments --> AC03
- assign_function_groups --> AC04
- view_separation_rules --> AC05
- view_audit_log --> AC09
- view_assignments --> AC09
+ assign_functions --> UC_ACC_01
+ assign_functions --> UC_ACC_08
+ revoke_functions --> UC_ACC_02
+ view_assignments --> UC_ACC_03
+ assign_function_groups --> UC_ACC_04
+ view_separation_rules --> UC_ACC_05
+ view_audit_log --> UC_ACC_09
+ view_assignments --> UC_ACC_09
 
- AC08 ..> AC01 : <<extend>>
+ UC_ACC_08 ..> UC_ACC_01 : <<extend>>
 
  @enduml
 

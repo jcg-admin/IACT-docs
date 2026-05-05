@@ -14,7 +14,7 @@
  actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_01\nAsignar Funciones" as UC01
+   usecase "UC_ACC_01\nAsignar Funciones" as UC_ACC_01
    usecase "Validar User destino" as VALIDAR_USUARIO_DESTINO
    usecase "Validar funciones\n(existen + activas)" as VALIDAR_FUNCIONES
    usecase "Filtrar idempotente" as FILTRO_IDEMPOTENTE
@@ -25,15 +25,15 @@
    usecase "AuditEvent\nFUNCTIONS_ASSIGNED" as AuditEmitter
  }
 
- INVOKER --> UC01
- UC01 ..> VALIDAR_USUARIO_DESTINO : <<include>>
- UC01 ..> VALIDAR_FUNCIONES : <<include>>
- UC01 ..> FILTRO_IDEMPOTENTE : <<include>>
- UC01 ..> VALIDAR_SOD : <<include>>
- UC01 ..> INS : <<include>>
- UC01 ..> CACHE_PERMISOS : <<include>>
- UC01 ..> NOT : <<extend>>
- UC01 ..> EMI : <<include>>
+ INVOKER --> UC_ACC_01
+ UC_ACC_01 ..> VALIDAR_USUARIO_DESTINO : <<include>>
+ UC_ACC_01 ..> VALIDAR_FUNCIONES : <<include>>
+ UC_ACC_01 ..> FILTRO_IDEMPOTENTE : <<include>>
+ UC_ACC_01 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_01 ..> INS : <<include>>
+ UC_ACC_01 ..> CACHE_PERMISOS : <<include>>
+ UC_ACC_01 ..> NOT : <<extend>>
+ UC_ACC_01 ..> EMI : <<include>>
  NOT --> TARGET
  Sistema --> EMI
  EMI --> view_audit_log

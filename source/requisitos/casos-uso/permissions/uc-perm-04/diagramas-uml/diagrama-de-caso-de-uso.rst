@@ -12,16 +12,16 @@
  actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
-   usecase "UC_PERM_04\nRevocar\nExceptional" as UC04
+   usecase "UC_PERM_04\nRevocar\nExceptional" as UC_PERM_04
    usecase "actualizar state\nREVOKED" as ActualizarEntidad
    usecase "Notificar\nObligatorio" as NotificacionMailbox
    usecase "AuditEvent\nREVOKED" as AuditEmitter
  }
 
- INVOKER --> UC04
- UC04 ..> UPD : <<include>>
- UC04 ..> NOT : <<include>>
- UC04 ..> EMI : <<include>>
+ INVOKER --> UC_PERM_04
+ UC_PERM_04 ..> UPD : <<include>>
+ UC_PERM_04 ..> NOT : <<include>>
+ UC_PERM_04 ..> EMI : <<include>>
  NOT --> TARGET
  EMI --> view_audit_log
 

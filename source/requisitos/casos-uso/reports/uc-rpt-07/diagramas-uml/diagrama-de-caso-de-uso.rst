@@ -10,14 +10,14 @@
  actor "Scheduler" as Scheduler
 
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_07\nProgramar" as UC07
+   usecase "UC_RPT_07\nProgramar" as UC_RPT_07
    usecase "Crear/Update" as OPERACION_CRUD
    usecase "Auto execute" as AutoExecute
    usecase "UC_RPT_04\nExport" as ExportarDatos
  }
 
- schedule_report --> UC07
- UC07 ..> OPERACION_CRUD : <<include>>
+ schedule_report --> UC_RPT_07
+ UC_RPT_07 ..> OPERACION_CRUD : <<include>>
  Scheduler ..> AutoExecute : <<include>>
  AutoExecute ..> EXP : <<include>>
  @enduml

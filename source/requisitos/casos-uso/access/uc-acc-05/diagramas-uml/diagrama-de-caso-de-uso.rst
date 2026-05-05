@@ -13,7 +13,7 @@
  actor "Sistema (consumidores)" as SistemaConsumidores
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_05\nGestionar SoD" as UC05
+   usecase "UC_ACC_05\nGestionar SoD" as UC_ACC_05
    usecase "Listar reglas" as VistaListado
    usecase "Crear regla" as CREAR_AGRUPADOR
    usecase "Modificar regla" as MODIFICAR_AGRUPADOR
@@ -22,12 +22,12 @@
    usecase "Invalidar cache\nde reglas" as CACHE_PERMISOS
  }
 
- VIEWER --> UC05
- MANAGER --> UC05
- UC05 ..> LST : <<extend>>
- UC05 ..> CREAR_AGRUPADOR : <<extend>>
- UC05 ..> MODIFICAR_AGRUPADOR : <<extend>>
- UC05 ..> RETIRAR_AGRUPADOR : <<extend>>
+ VIEWER --> UC_ACC_05
+ MANAGER --> UC_ACC_05
+ UC_ACC_05 ..> LST : <<extend>>
+ UC_ACC_05 ..> CREAR_AGRUPADOR : <<extend>>
+ UC_ACC_05 ..> MODIFICAR_AGRUPADOR : <<extend>>
+ UC_ACC_05 ..> RETIRAR_AGRUPADOR : <<extend>>
  CREAR_AGRUPADOR ..> EMI : <<include>>
  MODIFICAR_AGRUPADOR ..> EMI : <<include>>
  RETIRAR_AGRUPADOR ..> EMI : <<include>>

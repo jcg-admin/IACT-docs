@@ -24,7 +24,7 @@ internos y externos.
      usecase "UC_RPT_01\nVer dashboard"       as RPT01
      usecase "UC_RPT_04\nExportar reporte"    as RPT04
      usecase "UC_ALR_03\nReconocer alerta"    as ALR03
-     usecase "UC_ACC_01\nAsignar funciones"   as ACC01
+     usecase "UC_ACC_01\nAsignar funciones"   as UC_ACC_01
      usecase "UC_PERM_07\nVerificar permiso"  as PERM07
      usecase "UC_PIP_01\nSupervisar ETL"      as PIP01
      usecase "UC_PIP_04\nSolicitar reintento" as PIP04
@@ -42,7 +42,7 @@ internos y externos.
    Supervisor --> RPT04
    Supervisor --> ALR03
 
-   Admin         --> ACC01
+   Admin         --> UC_ACC_01
    Admin         --> PIP01
    Admin         --> PIP04
    Auditor    --> AUD01
@@ -53,7 +53,7 @@ internos y externos.
 
    RPT01      ..> PERM07 : <<include>>
    RPT04      ..> PERM07 : <<include>>
-   ACC01      ..> PERM07 : <<include>>
+   UC_ACC_01      ..> PERM07 : <<include>>
    AUD01      ..> PERM07 : <<include>>
    PIP04      ..> PERM07 : <<include>>
    @enduml

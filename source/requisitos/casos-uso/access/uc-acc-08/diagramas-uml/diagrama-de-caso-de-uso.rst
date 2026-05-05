@@ -12,7 +12,7 @@
  actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_08\nPermiso Temporal" as UC08
+   usecase "UC_ACC_08\nPermiso Temporal" as UC_ACC_08
    usecase "Validar payload\n(justification +\nexpires_at bounds)" as VistaPipeline
    usecase "Validar SoD\nwrite-time" as VALIDAR_SOD
    usecase "registrar\nExceptionalPermissions" as RegistrarDatos
@@ -20,12 +20,12 @@
    usecase "AuditEvent\nGRANTED reforzado" as AuditEmitter
  }
 
- INVOKER --> UC08
- UC08 ..> VPL : <<include>>
- UC08 ..> VALIDAR_SOD : <<include>>
- UC08 ..> INS : <<include>>
- UC08 ..> NOT : <<include>>
- UC08 ..> EMI : <<include>>
+ INVOKER --> UC_ACC_08
+ UC_ACC_08 ..> VPL : <<include>>
+ UC_ACC_08 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_08 ..> INS : <<include>>
+ UC_ACC_08 ..> NOT : <<include>>
+ UC_ACC_08 ..> EMI : <<include>>
  NOT --> TARGET
  EMI --> view_audit_log
 
@@ -34,7 +34,7 @@
    (P-10) — sin notificacion
    no se completa
  end note
- note bottom of UC08
+ note bottom of UC_ACC_08
    Trazabilidad reforzada:
    justification + expires_at
    + ticket_reference

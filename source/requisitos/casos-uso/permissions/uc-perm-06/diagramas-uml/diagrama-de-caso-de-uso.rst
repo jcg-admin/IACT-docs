@@ -12,22 +12,22 @@
  actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
-   usecase "UC_PERM_06\nComposicion AGR" as UC06
+   usecase "UC_PERM_06\nComposicion AGR" as UC_PERM_06
    usecase "Validar SoD\ncascade" as VALIDAR_SOD
    usecase "registrar add" as RegistrarDatos
    usecase "DELETE remove" as EliminarRegistro
    usecase "Audit COMPOSITION_CHANGED" as AuditEmitter
  }
 
- assign_functions_to_group --> UC06
- UC06 ..> VALIDAR_SOD : <<include>>
- UC06 ..> INS : <<include>>
- UC06 ..> DEL : <<include>>
- UC06 ..> EMI : <<include>>
- UC06 ..> REPOSITORIO_USUARIOS : cascade
+ assign_functions_to_group --> UC_PERM_06
+ UC_PERM_06 ..> VALIDAR_SOD : <<include>>
+ UC_PERM_06 ..> INS : <<include>>
+ UC_PERM_06 ..> DEL : <<include>>
+ UC_PERM_06 ..> EMI : <<include>>
+ UC_PERM_06 ..> REPOSITORIO_USUARIOS : cascade
  EMI --> view_audit_log
 
- note bottom of UC06
+ note bottom of UC_PERM_06
    Cambios en composicion afectan
    a todos los Users con el AGR
  end note

@@ -14,18 +14,18 @@
  actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
-   usecase "UC_AUTH_03\nRecuperar Contrasena" as UC03
+   usecase "UC_AUTH_03\nRecuperar Contrasena" as UC_AUTH_03
    usecase "Generar password\ntemporal" as GenerarDato
    usecase "Cerrar Sessions\ndel User" as CerrarSesiones
    usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
    usecase "Emitir AuditEvent\nPASSWORD_RESET" as AuditEmitter
  }
 
- ADMINISTRADOR_SISTEMA --> UC03
- UC03 ..> GEN : <<include>>
- UC03 ..> CSE : <<include>>
- UC03 ..> NOT : <<include>>
- UC03 ..> EMI : <<include>>
+ ADMINISTRADOR_SISTEMA --> UC_AUTH_03
+ UC_AUTH_03 ..> GEN : <<include>>
+ UC_AUTH_03 ..> CSE : <<include>>
+ UC_AUTH_03 ..> NOT : <<include>>
+ UC_AUTH_03 ..> EMI : <<include>>
  NOT --> USUARIO_AUTENTICADO : InternalMessage
  Sistema --> EMI
  EMI --> view_audit_log : (consume\nUC_AUD_*)

@@ -14,7 +14,7 @@
  actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Auth" {
-   usecase "UC_AUTH_05\nGestionar Sesiones" as UC05
+   usecase "UC_AUTH_05\nGestionar Sesiones" as UC_AUTH_05
    usecase "Listar Sessions" as VistaListado
    usecase "Cerrar Session\nindividual" as CerrarSession
    usecase "Cerrar todas\nlas del User" as CERRAR_SESIONES_USUARIO
@@ -22,10 +22,10 @@
    usecase "AuditEvent\nSESSION_CLOSED" as AuditEmitter
  }
 
- ADMINISTRADOR_SISTEMA --> UC05
- UC05 ..> LST : <<extend>>
- UC05 ..> CerrarSession : <<extend>>
- UC05 ..> CERRAR_SESIONES_USUARIO : <<extend>>
+ ADMINISTRADOR_SISTEMA --> UC_AUTH_05
+ UC_AUTH_05 ..> LST : <<extend>>
+ UC_AUTH_05 ..> CerrarSession : <<extend>>
+ UC_AUTH_05 ..> CERRAR_SESIONES_USUARIO : <<extend>>
  CerrarSession ..> EMI : <<include>>
  CERRAR_SESIONES_USUARIO ..> EMI : <<include>>
  CerrarSession ..> NOT : <<extend>>

@@ -12,7 +12,7 @@
  actor "view_audit_log" as view_audit_log
 
  rectangle "UI MOD_Access" {
-   usecase "UC_ACC_08\nGrant excepcional" as ACC08
+   usecase "UC_ACC_08\nGrant excepcional" as UC_ACC_08
  }
  rectangle "UI MOD_Permissions" {
    usecase "UC_PERM_03\nGrant excepcional" as PERM03
@@ -21,9 +21,9 @@
    usecase "POST exceptional-permissions" as PostExceptionalPermissions
  }
 
- grant_exceptional_permission --> ACC08
+ grant_exceptional_permission --> UC_ACC_08
  grant_exceptional_permission --> PERM03
- ACC08 --> PostExceptionalPermissions : delega
+ UC_ACC_08 --> PostExceptionalPermissions : delega
  PERM03 --> PostExceptionalPermissions : delega
  PostExceptionalPermissions --> view_audit_log : AuditEvent\nhigh-priority
 
