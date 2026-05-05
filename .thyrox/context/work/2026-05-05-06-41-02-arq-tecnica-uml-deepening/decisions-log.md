@@ -270,9 +270,65 @@ solo refiere a este log.
 
 ----
 
+## D-11 — Excepción STD-008 para ``ServicioReportes`` (facade legacy)
+
+**Contexto:** ``ServicioReportes`` es la facade histórica
+del sistema y expone métodos en castellano
+(``llamadas_abandonadas``, ``menu_redirigidos``,
+``clientes``, ``centros_transferencia``).
+
+**Decisión:** mantener el nombre y métodos en castellano
+como **excepción documentada** a STD-008. Marcar como
+*deprecated* para clientes nuevos. Los servicios delegados
+(``AbandonoReportService``, etc.) usan inglés.
+
+**Justificación:**
+
+- Romper la API legada implicaría migrar consumidores
+  externos fuera del scope del WP.
+- La facade no contiene lógica — solo delega.
+- La excepción queda contenida en un único archivo y
+  documentada inline.
+
+----
+
+## D-12 — Gap de rigor UML reconocido (uml-04 no aplicado)
+
+**Contexto:** durante la completación de los 41 stubs se
+priorizó velocidad sobre rigor UML. Los 37 archivos
+escritos NO aplican consistentemente los conceptos de
+``source/base-cognitiva/_uml/uml-04-uso-relaciones/``:
+
+1. Multiplicidades (``1``, ``0..1``, ``*``, ``1..*``).
+2. Roles en extremos de asociación.
+3. Restricciones (``{ordered}``, ``{unique}``, ``{readOnly}``).
+4. Asociaciones calificadas (``[key]``).
+5. Clases de asociación (``AccessGroupFunction`` mal
+   modelada como clase suelta).
+6. Generalización / clases abstractas
+   (``BaseReportService``, ``Repository`` patrón).
+7. Asociaciones reflexivas (``Menu`` jerárquico,
+   ``NavDomain``).
+8. Distinción dependencia por uso vs por retorno.
+
+**Decisión:** completar los 4 stubs pendientes con el
+patrón actual (no bloquear merge), luego abrir un WP
+dedicado ``arq-tecnica-uml-rigor-pass`` que recorra los
+~37 archivos finales aplicando los 8 puntos.
+
+**Justificación:**
+
+- Cerrar el alcance original (41 stubs Vigentes) sin
+  arrastrar el rigor pendiente al WP en curso.
+- Trazabilidad limpia: un WP = un objetivo.
+- El nuevo WP puede usar el catálogo
+  ``uml-04-uso-relaciones/`` como checklist por archivo.
+
+----
+
 ## Pendientes de decisión
 
-- D-11 (futuro): cómo manejar clases con dependencias
-  cíclicas si aparecen al completar Reports/RBAC.
-- D-12 (futuro): si crear sub-bounded-contexts cuando
+- D-13 (futuro): si crear sub-bounded-contexts cuando
   Reports tiene 22 clases (¿AgentReports vs QueueReports?).
+- D-14 (futuro): cómo manejar clases con dependencias
+  cíclicas si aparecen en el rigor-pass.
