@@ -28,6 +28,16 @@ sin cambios al codigo/docs sustantivos).
   comparativa Brown 1998 vs IACT.
 - `track/functional-decomposition-antipattern-audit-lessons-learned.md` —
   L-01..L-07 + hallazgos secundarios.
+- `scripts/audit_functional_decomposition.py` — auditor reproducible
+  (heuristicas C-1..C-5).
+- `scripts/report_from_audit_data.py` — generador de reporte agregado
+  desde audit-data.json.
+- `scripts/run-audit.sh` — runner con persistencia de log ISO 8601.
+- `scripts/README.md` — documenta heuristicas, gap script-vs-final
+  (triaje automatico mas estricto que veredicto final), y trazabilidad
+  de las clarificaciones manuales aplicadas.
+- `track/build-logs/audit-run-<ISO>.log` + `audit-data-<ISO>.json` —
+  evidencia reproducible de la corrida.
 
 ## Changed
 
