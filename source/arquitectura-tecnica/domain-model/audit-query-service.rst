@@ -74,13 +74,17 @@ declarado.
 
  class ExportJob
 
- AuditQueryService o-- AuditRepo : reads
- AuditQueryService *-- CursorEncoder : composes
- AuditQueryService o-- ExportWorker : enqueues
- AuditQueryService *-- Sanitizer : composes
- AuditQueryService ..> ListPage : returns
- AuditQueryService ..> ExportJob : returns
- AuditQueryService ..> ExportFormat : uses
+ AuditQueryService "1" o-- "1" AuditRepo : reads
+ AuditQueryService "1" *-- "1" CursorEncoder : composes
+ AuditQueryService "1" o-- "1" ExportWorker : enqueues
+ AuditQueryService "1" *-- "1" Sanitizer : composes
+ AuditQueryService "1" ..> "1" ListPage : <<returns>>
+ AuditQueryService "1" ..> "0..1" ExportJob : <<returns>>
+ AuditQueryService "1" ..> "1" ExportFormat : <<uses>>
+
+ note bottom of ListPage
+   items : {ordered}
+ end note
 
  note right of AuditQueryService
    Filtros RBAC aplicados antes de consultar

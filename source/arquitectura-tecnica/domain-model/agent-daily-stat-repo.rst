@@ -67,9 +67,10 @@ específico para reportes individuales).
 
  class AgentFilters
 
- AgentDailyStatRepo ..> AgentDailyStat : reads
- AgentDailyStatRepo ..> AgentStats : aggregates
- AgentDailyStatRepo ..> AgentRanking : returns
+ AgentDailyStatRepo "1" -- "(agent_id, day)" AgentDailyStat : resolves
+ AgentDailyStatRepo "1" ..> "0..*" AgentDailyStat : <<reads>>
+ AgentDailyStatRepo "1" ..> "0..*" AgentStats : <<returns>>
+ AgentDailyStatRepo "1" ..> "0..*" AgentRanking : <<returns>>
 
  note right of AgentDailyStatRepo
    Read-only. Las stats se escriben

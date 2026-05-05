@@ -80,8 +80,10 @@ se archivan según política de retención.
    SKIPPED
  }
 
- ScheduledReportRepo ..> ScheduledReport : persists
- ScheduledReportRepo ..> ScheduledReportRun : persists
+ ScheduledReportRepo "1" -- "(scheduled_id)" ScheduledReport : resolves
+ ScheduledReportRepo "1" ..> "0..*" ScheduledReport : <<persists>>
+ ScheduledReportRepo "1" ..> "0..*" ScheduledReportRun : <<persists>>
+ ScheduledReport "1" *-- "0..*" ScheduledReportRun : runs
  ScheduledReport "1" -- "*" ScheduledReportRun : has
 
  note right of ScheduledReportRepo

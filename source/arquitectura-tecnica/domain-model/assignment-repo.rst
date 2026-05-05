@@ -52,8 +52,9 @@ afectado.
    + valid_at : DateTime
  }
 
- AssignmentRepo ..> Assignment : persists
- AssignmentRepo ..> AssignmentFilters : queries with
+ AssignmentRepo "1" -- "(user_id, access_group_id)" Assignment : resolves
+ AssignmentRepo "1" ..> "0..*" Assignment : <<persists>>
+ AssignmentRepo "1" ..> "0..1" AssignmentFilters : <<uses>>
 
  note right of AssignmentRepo
    No hay operacion delete: revoke

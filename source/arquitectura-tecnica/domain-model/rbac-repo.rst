@@ -48,9 +48,11 @@ unir múltiples queries).
 
  class AssignmentRepo
  class ExceptionalPermissionRepo
+ class Function
 
- RBACRepo o-- AssignmentRepo : aggregates
- RBACRepo o-- ExceptionalPermissionRepo : aggregates
+ RBACRepo "1" o-- "1" AssignmentRepo : aggregates
+ RBACRepo "1" o-- "1" ExceptionalPermissionRepo : aggregates
+ RBACRepo "1" -- "(user_id, function_code)" Function : resolves
 
  note right of RBACRepo
    Operaciones agregadas optimizadas

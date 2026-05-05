@@ -61,12 +61,12 @@ escritura.
  class AuditRepo
  class AlertHook
 
- AuditService *-- AuditValidator : composes
- AuditService *-- PIIScanner : composes
- AuditService *-- Sanitizer : composes
- AuditService o-- AuditRepo : uses
- AuditService o-- AlertHook : uses
- AuditService ..> EmitResult : returns
+ AuditService "1" *-- "1" AuditValidator : composes
+ AuditService "1" *-- "1" PIIScanner : composes
+ AuditService "1" *-- "1" Sanitizer : composes
+ AuditService "1" o-- "1" AuditRepo : uses
+ AuditService "1" o-- "1" AlertHook : uses
+ AuditService "1" ..> "1" EmitResult : <<returns>>
 
  note right of AuditService
    P-09 audit-or-abort:

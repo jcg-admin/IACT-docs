@@ -44,7 +44,7 @@ permitir SoD.
    INACTIVE
  }
 
- Subscription -- SubscriptionState
+ Subscription "*" -- "1" SubscriptionState : has
 
  note right of Subscription
    D-03: tres operaciones separadas para SoD a nivel RBAC.

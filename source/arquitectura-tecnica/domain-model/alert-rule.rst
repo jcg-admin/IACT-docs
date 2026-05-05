@@ -112,13 +112,18 @@ preservada por trazabilidad — BR-009).
    CAMPAIGN
  }
 
- AlertRule *-- Condition : has
- AlertRule *-- Scope : applies_to
- AlertRule -- RuleState
- AlertRule -- Severity
- Condition -- ComparisonOperator
- Condition -- Aggregation
- Scope -- ScopeType
+ AlertRule "1" *-- "1" Condition : has
+ AlertRule "1" *-- "1" Scope : applies_to
+ AlertRule "1" *-- "1..*" Action : triggers
+ AlertRule "1" -- "1" RuleState
+ AlertRule "1" -- "1" Severity
+ Condition "1" -- "1" ComparisonOperator
+ Condition "1" -- "1" Aggregation
+ Scope "1" -- "1" ScopeType
+
+ note bottom of AlertRule
+   actions : {ordered}
+ end note
 
  note right of AlertRule
    BR-009: archive en lugar de delete.

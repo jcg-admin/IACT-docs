@@ -45,7 +45,7 @@ definir la frecuencia de generacion. Se desactiva, no se elimina
    DISABLED
  }
 
- ScheduledReport -- ScheduleState
+ ScheduledReport "*" -- "1" ScheduleState : has
 
  @enduml
 

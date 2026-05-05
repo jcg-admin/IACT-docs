@@ -53,8 +53,9 @@ re-evaluación al expirar).
    + state : ExceptionalState
  }
 
- ExceptionalPermissionRepo ..> ExceptionalPermission : persists
- ExceptionalPermissionRepo ..> TemporalFilter : queries with
+ ExceptionalPermissionRepo "1" -- "(user_id, function_code)" ExceptionalPermission : resolves
+ ExceptionalPermissionRepo "1" ..> "0..*" ExceptionalPermission : <<persists>>
+ ExceptionalPermissionRepo "1" ..> "0..1" TemporalFilter : <<uses>>
 
  note right of ExceptionalPermissionRepo
    find_expiring_in: feed para alertas

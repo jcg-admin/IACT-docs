@@ -75,11 +75,11 @@ recalcula y persiste en cache.
  class RBACRepo
  class PermissionCache
 
- PermissionService o-- RBACRepo : reads
- PermissionService *-- PermissionCache : composes
- PermissionService ..> CheckResult : returns
- PermissionService ..> BulkCheckResult : returns
- CheckResult -- DenialReason
+ PermissionService "1" o-- "1" RBACRepo : reads
+ PermissionService "1" *-- "1" PermissionCache : composes
+ PermissionService "1" ..> "1" CheckResult : <<returns>>
+ PermissionService "1" ..> "1" BulkCheckResult : <<returns>>
+ CheckResult "0..*" -- "0..1" DenialReason : justified_by
 
  note right of PermissionService
    Determinismo: dado el mismo (user_id,

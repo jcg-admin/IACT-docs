@@ -47,7 +47,7 @@ via ``AccessGroup``.
    LOG
  }
 
- Function -- Module
+ Function "*" -- "1" Module : belongs_to
 
  @enduml
 

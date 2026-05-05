@@ -69,10 +69,15 @@ de gran volumen y agregaciones para reportes de compliance.
 
  class AuditEvent
 
- AuditRepo ..> AuditEvent : persists
- AuditRepo ..> AuditFilters : queries with
- AuditRepo ..> QueryResult : returns
- AuditRepo ..> AggregateResult : returns
+ AuditRepo "1" -- "(event_id)" AuditEvent : resolves
+ AuditRepo "1" ..> "0..*" AuditEvent : <<persists>>
+ AuditRepo "1" ..> "0..1" AuditFilters : <<uses>>
+ AuditRepo "1" ..> "1" QueryResult : <<returns>>
+ AuditRepo "1" ..> "1" AggregateResult : <<returns>>
+
+ note bottom of QueryResult
+   events : {ordered}
+ end note
 
  note right of AuditRepo
    CNST-025: append-only.
