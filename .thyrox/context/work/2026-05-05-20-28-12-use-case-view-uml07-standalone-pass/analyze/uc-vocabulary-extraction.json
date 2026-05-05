@@ -1,0 +1,1017 @@
+{
+  "canonical_domain_model": [
+    "abandonment-report-service",
+    "access-group",
+    "access-group-function",
+    "action",
+    "agent-daily-stat-repo",
+    "agent-report-service",
+    "alert",
+    "alert-hook",
+    "alert-repo",
+    "alert-rule",
+    "application-log",
+    "assignment",
+    "assignment-repo",
+    "audit-event",
+    "audit-query-service",
+    "audit-repo",
+    "audit-service",
+    "audit-validator",
+    "base-report-service",
+    "bucket",
+    "call",
+    "caller-report-service",
+    "campaign",
+    "column-catalog",
+    "comparative",
+    "cursor-encoder",
+    "evaluator-reloader",
+    "exceptional-permission",
+    "exceptional-permission-repo",
+    "export-job",
+    "export-worker",
+    "filter-validator",
+    "function",
+    "function-group",
+    "historical-report",
+    "infrastructure-log",
+    "internal-mailbox",
+    "ivr-navigation-report-service",
+    "kpi-calculator",
+    "menu",
+    "metric",
+    "nav-domain",
+    "permission-cache",
+    "permission-service",
+    "pii-scanner",
+    "pipeline-execution",
+    "pipeline-log",
+    "rbac-repo",
+    "report",
+    "rule-validator",
+    "sanitizer",
+    "saved-filter",
+    "saved-view",
+    "scheduled-report",
+    "scheduled-report-list-service",
+    "scheduled-report-repo",
+    "section",
+    "segment-resolver",
+    "separation-rule",
+    "session",
+    "subscription",
+    "system-health",
+    "technical-metric",
+    "threshold",
+    "timing-calculator",
+    "transfer-report-service",
+    "user"
+  ],
+  "doc_refs_dm": {
+    "access-group": [
+      "admin/uc-adm-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "reports/uc-rpt-11"
+    ],
+    "access-group-function": [
+      "admin/uc-adm-03",
+      "permissions/uc-perm-01"
+    ],
+    "action": [
+      "operator/uc-opr-06",
+      "operator/uc-opr-07"
+    ],
+    "agent-daily-stat-repo": [
+      "operator/uc-opr-08",
+      "pipeline/uc-pip-03",
+      "reports/uc-rpt-12"
+    ],
+    "agent-report-service": [
+      "reports/uc-rpt-12"
+    ],
+    "alert": [
+      "alerts/uc-alr-02",
+      "alerts/uc-alr-03",
+      "alerts/uc-alr-04"
+    ],
+    "alert-hook": [
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-03",
+      "operator/uc-opr-04"
+    ],
+    "alert-repo": [
+      "alerts/uc-alr-02",
+      "alerts/uc-alr-03",
+      "alerts/uc-alr-04",
+      "logs/uc-log-06"
+    ],
+    "alert-rule": [
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-02",
+      "alerts/uc-alr-03",
+      "alerts/uc-alr-04",
+      "alerts/uc-alr-05",
+      "operator/uc-opr-04"
+    ],
+    "application-log": [
+      "logs/uc-log-01",
+      "logs/uc-log-02",
+      "logs/uc-log-03",
+      "logs/uc-log-04"
+    ],
+    "assignment": [
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02"
+    ],
+    "assignment-repo": [
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02"
+    ],
+    "audit-event": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "pipeline/uc-pip-04",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "audit-query-service": [
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-04"
+    ],
+    "audit-repo": [
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04"
+    ],
+    "audit-service": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-03",
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "operator/uc-opr-01",
+      "operator/uc-opr-02",
+      "operator/uc-opr-03",
+      "operator/uc-opr-05",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "permissions/uc-perm-03",
+      "pipeline/uc-pip-04",
+      "reports/uc-rpt-11",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "audit-validator": [
+      "audit/uc-aud-02"
+    ],
+    "base-report-service": [
+      "reports/uc-rpt-12",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14",
+      "reports/uc-rpt-15",
+      "reports/uc-rpt-16",
+      "reports/uc-rpt-17"
+    ],
+    "bucket": [
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-16"
+    ],
+    "call": [
+      "caller/uc-cli-01",
+      "caller/uc-cli-02",
+      "caller/uc-cli-03",
+      "caller/uc-cli-04",
+      "caller/uc-cli-05",
+      "operator/uc-opr-02",
+      "operator/uc-opr-03",
+      "operator/uc-opr-04",
+      "operator/uc-opr-05",
+      "operator/uc-opr-06",
+      "operator/uc-opr-09",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14",
+      "reports/uc-rpt-15",
+      "reports/uc-rpt-16",
+      "reports/uc-rpt-17",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "caller-report-service": [
+      "reports/uc-rpt-17"
+    ],
+    "campaign": [
+      "operator/uc-opr-03",
+      "reports/uc-rpt-14"
+    ],
+    "column-catalog": [
+      "reports/uc-rpt-10"
+    ],
+    "comparative": [
+      "operator/uc-opr-08"
+    ],
+    "cursor-encoder": [
+      "alerts/uc-alr-04",
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "logs/uc-log-03",
+      "operator/uc-opr-09"
+    ],
+    "evaluator-reloader": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "alerts/uc-alr-01",
+      "operator/uc-opr-01",
+      "pipeline/uc-pip-04"
+    ],
+    "exceptional-permission": [
+      "permissions/uc-perm-03"
+    ],
+    "exceptional-permission-repo": [
+      "permissions/uc-perm-03"
+    ],
+    "export-job": [
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04"
+    ],
+    "export-worker": [
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04"
+    ],
+    "filter-validator": [
+      "logs/uc-log-03",
+      "reports/uc-rpt-10"
+    ],
+    "function": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03"
+    ],
+    "function-group": [
+      "admin/uc-adm-02"
+    ],
+    "infrastructure-log": [
+      "logs/uc-log-05"
+    ],
+    "internal-mailbox": [
+      "alerts/uc-alr-05",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04",
+      "operator/uc-opr-10",
+      "permissions/uc-perm-03",
+      "supervision/uc-sup-03"
+    ],
+    "ivr-navigation-report-service": [
+      "reports/uc-rpt-16"
+    ],
+    "kpi-calculator": [
+      "logs/uc-log-07",
+      "operator/uc-opr-08",
+      "reports/uc-rpt-12",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14",
+      "reports/uc-rpt-17"
+    ],
+    "metric": [
+      "caller/uc-cli-05",
+      "logs/uc-log-07"
+    ],
+    "permission-cache": [
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "permissions/uc-perm-03"
+    ],
+    "permission-service": [
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "reports/uc-inc-rpt-01"
+    ],
+    "pii-scanner": [
+      "audit/uc-aud-03",
+      "operator/uc-opr-06",
+      "pipeline/uc-pip-02"
+    ],
+    "pipeline-execution": [
+      "logs/uc-log-02",
+      "logs/uc-log-06",
+      "pipeline/uc-pip-01",
+      "pipeline/uc-pip-02",
+      "pipeline/uc-pip-03",
+      "pipeline/uc-pip-04"
+    ],
+    "pipeline-log": [
+      "logs/uc-log-02",
+      "pipeline/uc-pip-01",
+      "pipeline/uc-pip-02",
+      "pipeline/uc-pip-04"
+    ],
+    "rule-validator": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-03",
+      "operator/uc-opr-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-03"
+    ],
+    "sanitizer": [
+      "caller/uc-cli-01",
+      "logs/uc-log-01",
+      "operator/uc-opr-06",
+      "operator/uc-opr-09",
+      "pipeline/uc-pip-02",
+      "reports/uc-rpt-17"
+    ],
+    "saved-filter": [
+      "reports/uc-rpt-10"
+    ],
+    "saved-view": [
+      "reports/uc-rpt-10",
+      "reports/uc-rpt-11"
+    ],
+    "segment-resolver": [
+      "alerts/uc-alr-02",
+      "alerts/uc-alr-05",
+      "reports/uc-inc-rpt-01",
+      "reports/uc-rpt-11",
+      "reports/uc-rpt-12",
+      "supervision/uc-sup-03"
+    ],
+    "separation-rule": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-03"
+    ],
+    "session": [
+      "caller/uc-cli-01",
+      "caller/uc-cli-02",
+      "caller/uc-cli-03",
+      "caller/uc-cli-04",
+      "operator/uc-opr-01",
+      "operator/uc-opr-02",
+      "operator/uc-opr-05",
+      "operator/uc-opr-07",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "subscription": [
+      "alerts/uc-alr-05"
+    ],
+    "system-health": [
+      "logs/uc-log-06",
+      "pipeline/uc-pip-01",
+      "pipeline/uc-pip-03"
+    ],
+    "technical-metric": [
+      "logs/uc-log-06",
+      "logs/uc-log-07"
+    ],
+    "threshold": [
+      "alerts/uc-alr-01"
+    ],
+    "timing-calculator": [
+      "alerts/uc-alr-04",
+      "caller/uc-cli-03",
+      "operator/uc-opr-04",
+      "operator/uc-opr-07",
+      "pipeline/uc-pip-01",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-15"
+    ],
+    "transfer-report-service": [
+      "operator/uc-opr-05",
+      "reports/uc-rpt-15"
+    ],
+    "user": [
+      "operator/uc-opr-01",
+      "operator/uc-opr-10",
+      "reports/uc-inc-rpt-01",
+      "reports/uc-rpt-11",
+      "supervision/uc-sup-03"
+    ]
+  },
+  "rbac_functions": {
+    "AlertEngine": [
+      "permissions/uc-perm-09"
+    ],
+    "AnalyticsStream": [
+      "reports/uc-rpt-02"
+    ],
+    "AuditTable\\n(append-only)": [
+      "permissions/uc-perm-09"
+    ],
+    "Caller": [
+      "operator/uc-opr-04"
+    ],
+    "ExportWorker": [
+      "permissions/uc-perm-10",
+      "reports/uc-rpt-04"
+    ],
+    "Frontend": [
+      "permissions/uc-perm-08",
+      "reports/uc-rpt-01"
+    ],
+    "MailboxService": [
+      "reports/uc-rpt-04"
+    ],
+    "Nuevo User": [
+      "users/uc-usr-01"
+    ],
+    "Operator": [
+      "caller/uc-cli-03",
+      "supervision/uc-sup-02"
+    ],
+    "Operator (target)": [
+      "supervision/uc-sup-01"
+    ],
+    "Operator destino / Cola": [
+      "operator/uc-opr-05"
+    ],
+    "Operators (target)": [
+      "supervision/uc-sup-03"
+    ],
+    "Receptor User/AGR": [
+      "reports/uc-rpt-11"
+    ],
+    "Scheduler": [
+      "reports/uc-rpt-07"
+    ],
+    "Sistema": [
+      "access/uc-acc-09",
+      "auth/uc-auth-01"
+    ],
+    "Sistema (consumidores)": [
+      "access/uc-acc-05"
+    ],
+    "Supervisor": [
+      "operator/uc-opr-10"
+    ],
+    "User": [
+      "auth/uc-auth-01",
+      "auth/uc-auth-02"
+    ],
+    "User afectado": [
+      "auth/uc-auth-03",
+      "auth/uc-auth-05"
+    ],
+    "User autenticado": [
+      "permissions/uc-perm-08",
+      "reports/uc-rpt-09"
+    ],
+    "User consultado": [
+      "users/uc-usr-02"
+    ],
+    "User destino": [
+      "access/uc-acc-01",
+      "access/uc-acc-02",
+      "access/uc-acc-04",
+      "access/uc-acc-08",
+      "alerts/uc-alr-05",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "permissions/uc-perm-03",
+      "permissions/uc-perm-04"
+    ],
+    "User eliminado": [
+      "users/uc-usr-04"
+    ],
+    "User modificado": [
+      "users/uc-usr-03"
+    ],
+    "User\\nautenticado": [
+      "auth/uc-auth-04"
+    ],
+    "Users con AGR": [
+      "permissions/uc-perm-06"
+    ],
+    "acknowledge_alert": [
+      "alerts/uc-alr-03"
+    ],
+    "answer_inbound_calls": [
+      "operator/uc-opr-02"
+    ],
+    "assign_function_groups": [
+      "access/uc-acc-04",
+      "permissions/uc-perm-01"
+    ],
+    "assign_functions": [
+      "access/uc-acc-01"
+    ],
+    "assign_functions_to_group": [
+      "admin/uc-adm-03",
+      "permissions/uc-perm-06"
+    ],
+    "barge_in_calls": [
+      "supervision/uc-sup-02"
+    ],
+    "broadcast_team_messages": [
+      "supervision/uc-sup-03"
+    ],
+    "configure_team_alerts": [
+      "alerts/uc-alr-01"
+    ],
+    "create_function": [
+      "admin/uc-adm-02"
+    ],
+    "create_function_group": [
+      "permissions/uc-perm-05"
+    ],
+    "create_separation_rule": [
+      "admin/uc-adm-01"
+    ],
+    "create_users": [
+      "users/uc-usr-01"
+    ],
+    "deactivate_function": [
+      "admin/uc-adm-02"
+    ],
+    "deactivate_users": [
+      "users/uc-usr-04"
+    ],
+    "disable_separation_rule": [
+      "admin/uc-adm-01"
+    ],
+    "export_audit_log": [
+      "audit/uc-aud-03"
+    ],
+    "export_csv": [
+      "reports/uc-rpt-04"
+    ],
+    "export_logs": [
+      "logs/uc-log-04"
+    ],
+    "generate_compliance_report": [
+      "audit/uc-aud-04"
+    ],
+    "grant_exceptional_permission": [
+      "access/uc-acc-08",
+      "permissions/uc-perm-03"
+    ],
+    "hold_unhold_own_call": [
+      "operator/uc-opr-04"
+    ],
+    "initiate_outbound_call": [
+      "operator/uc-opr-03"
+    ],
+    "manage_own_agent_state": [
+      "operator/uc-opr-01"
+    ],
+    "manage_own_subscriptions": [
+      "alerts/uc-alr-05"
+    ],
+    "manage_own_views": [
+      "reports/uc-rpt-10"
+    ],
+    "monitor_live_calls": [
+      "supervision/uc-sup-01"
+    ],
+    "rbac_decorator": [
+      "permissions/uc-perm-07"
+    ],
+    "read_own_mailbox": [
+      "operator/uc-opr-10"
+    ],
+    "request_break": [
+      "operator/uc-opr-07"
+    ],
+    "request_pipeline_retry": [
+      "pipeline/uc-pip-04"
+    ],
+    "reset_password": [
+      "auth/uc-auth-03"
+    ],
+    "revoke_exceptional_permission": [
+      "permissions/uc-perm-04"
+    ],
+    "revoke_function_group": [
+      "permissions/uc-perm-02"
+    ],
+    "revoke_functions": [
+      "access/uc-acc-02"
+    ],
+    "schedule_report": [
+      "reports/uc-rpt-07"
+    ],
+    "search_audit_log": [
+      "audit/uc-aud-02"
+    ],
+    "search_logs": [
+      "logs/uc-log-03"
+    ],
+    "set_call_disposition": [
+      "operator/uc-opr-06"
+    ],
+    "share_reports": [
+      "reports/uc-rpt-11"
+    ],
+    "subscribe_to_alert": [
+      "alerts/uc-alr-05"
+    ],
+    "transfer_own_call": [
+      "operator/uc-opr-05"
+    ],
+    "update_function": [
+      "admin/uc-adm-02"
+    ],
+    "update_separation_rule": [
+      "admin/uc-adm-01"
+    ],
+    "update_users": [
+      "users/uc-usr-03"
+    ],
+    "view_alert_history": [
+      "alerts/uc-alr-04"
+    ],
+    "view_alerts": [
+      "alerts/uc-alr-02"
+    ],
+    "view_all_active_sessions": [
+      "auth/uc-auth-05"
+    ],
+    "view_application_logs": [
+      "logs/uc-log-01"
+    ],
+    "view_assignments": [
+      "access/uc-acc-03",
+      "permissions/uc-perm-07"
+    ],
+    "view_audit_log": [
+      "access/uc-acc-01",
+      "access/uc-acc-02",
+      "access/uc-acc-03",
+      "access/uc-acc-04",
+      "access/uc-acc-05",
+      "access/uc-acc-08",
+      "access/uc-acc-09",
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-03",
+      "audit/uc-aud-01",
+      "auth/uc-auth-01",
+      "auth/uc-auth-02",
+      "auth/uc-auth-03",
+      "auth/uc-auth-04",
+      "auth/uc-auth-05",
+      "operator/uc-opr-01",
+      "operator/uc-opr-02",
+      "operator/uc-opr-03",
+      "operator/uc-opr-05",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "permissions/uc-perm-03",
+      "permissions/uc-perm-04",
+      "permissions/uc-perm-05",
+      "permissions/uc-perm-06",
+      "permissions/uc-perm-10",
+      "pipeline/uc-pip-04",
+      "reports/uc-rpt-11",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02",
+      "users/uc-usr-01",
+      "users/uc-usr-02",
+      "users/uc-usr-03",
+      "users/uc-usr-04"
+    ],
+    "view_data_availability": [
+      "pipeline/uc-pip-03"
+    ],
+    "view_functions": [
+      "admin/uc-adm-02"
+    ],
+    "view_infrastructure_logs": [
+      "logs/uc-log-05"
+    ],
+    "view_kpis": [
+      "reports/uc-rpt-02"
+    ],
+    "view_own_call_history": [
+      "operator/uc-opr-09"
+    ],
+    "view_own_metrics": [
+      "operator/uc-opr-08"
+    ],
+    "view_own_navigation": [
+      "permissions/uc-perm-07"
+    ],
+    "view_pipeline_errors": [
+      "pipeline/uc-pip-02"
+    ],
+    "view_pipeline_logs": [
+      "logs/uc-log-02"
+    ],
+    "view_pipeline_status": [
+      "pipeline/uc-pip-01"
+    ],
+    "view_reports": [
+      "reports/uc-rpt-01",
+      "reports/uc-rpt-03",
+      "reports/uc-rpt-08",
+      "reports/uc-rpt-12",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14",
+      "reports/uc-rpt-15",
+      "reports/uc-rpt-16",
+      "reports/uc-rpt-17"
+    ],
+    "view_separation_rules": [
+      "access/uc-acc-05",
+      "access/uc-acc-05",
+      "admin/uc-adm-01"
+    ],
+    "view_system_groups": [
+      "admin/uc-adm-03"
+    ],
+    "view_system_health": [
+      "logs/uc-log-06"
+    ],
+    "view_technical_metrics": [
+      "logs/uc-log-07"
+    ],
+    "view_users": [
+      "users/uc-usr-02"
+    ],
+    "write_audit_event": [
+      "permissions/uc-perm-09"
+    ]
+  },
+  "system_actors": {
+    "AccessGroup": [
+      "reports/uc-rpt-11"
+    ],
+    "Action": [
+      "operator/uc-opr-06",
+      "operator/uc-opr-07"
+    ],
+    "AgentDailyStatRepo": [
+      "operator/uc-opr-08",
+      "reports/uc-rpt-12"
+    ],
+    "AgentReportService": [
+      "reports/uc-rpt-12"
+    ],
+    "Alert": [
+      "alerts/uc-alr-03"
+    ],
+    "AlertHook": [
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-03",
+      "operator/uc-opr-04"
+    ],
+    "AlertRepo": [
+      "alerts/uc-alr-02",
+      "alerts/uc-alr-03",
+      "alerts/uc-alr-04",
+      "logs/uc-log-06"
+    ],
+    "AlertRule": [
+      "alerts/uc-alr-01"
+    ],
+    "ApplicationLog": [
+      "logs/uc-log-01",
+      "logs/uc-log-03",
+      "logs/uc-log-04"
+    ],
+    "AuditQueryService": [
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-04"
+    ],
+    "AuditRepo": [
+      "audit/uc-aud-01",
+      "audit/uc-aud-04"
+    ],
+    "AuditRepo (FTS)": [
+      "audit/uc-aud-02"
+    ],
+    "AuditService": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "alerts/uc-alr-01",
+      "alerts/uc-alr-03",
+      "audit/uc-aud-01",
+      "audit/uc-aud-02",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "operator/uc-opr-01",
+      "operator/uc-opr-02",
+      "operator/uc-opr-03",
+      "operator/uc-opr-05",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02",
+      "permissions/uc-perm-03",
+      "pipeline/uc-pip-04",
+      "reports/uc-rpt-11",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "AuditValidator": [
+      "audit/uc-aud-02"
+    ],
+    "BaseReportService": [
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14"
+    ],
+    "Bucket": [
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-16"
+    ],
+    "Call": [
+      "caller/uc-cli-01",
+      "caller/uc-cli-02",
+      "caller/uc-cli-03",
+      "caller/uc-cli-04",
+      "caller/uc-cli-05",
+      "operator/uc-opr-02",
+      "operator/uc-opr-03",
+      "operator/uc-opr-04",
+      "operator/uc-opr-05",
+      "operator/uc-opr-06",
+      "operator/uc-opr-09",
+      "reports/uc-rpt-15",
+      "reports/uc-rpt-16",
+      "reports/uc-rpt-17",
+      "supervision/uc-sup-01",
+      "supervision/uc-sup-02"
+    ],
+    "Caller UC\\n(UC_RPT_01..17)": [
+      "reports/uc-inc-rpt-01"
+    ],
+    "CallerReportService": [
+      "reports/uc-rpt-17"
+    ],
+    "Campaign": [
+      "operator/uc-opr-03",
+      "reports/uc-rpt-14"
+    ],
+    "Cron expiracion": [
+      "permissions/uc-perm-03"
+    ],
+    "CursorEncoder": [
+      "logs/uc-log-03",
+      "operator/uc-opr-09"
+    ],
+    "EvaluatorReloader": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "alerts/uc-alr-01",
+      "operator/uc-opr-01",
+      "pipeline/uc-pip-04"
+    ],
+    "ExportJob": [
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04"
+    ],
+    "ExportWorker": [
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04"
+    ],
+    "FilterValidator": [
+      "logs/uc-log-03",
+      "reports/uc-rpt-10"
+    ],
+    "InfrastructureLog": [
+      "logs/uc-log-05"
+    ],
+    "InternalMailbox": [
+      "alerts/uc-alr-05",
+      "audit/uc-aud-03",
+      "audit/uc-aud-04",
+      "logs/uc-log-04",
+      "operator/uc-opr-10",
+      "permissions/uc-perm-03",
+      "supervision/uc-sup-03"
+    ],
+    "IvrNavigationReportService": [
+      "reports/uc-rpt-16"
+    ],
+    "KpiCalculator": [
+      "logs/uc-log-07",
+      "operator/uc-opr-08",
+      "reports/uc-rpt-12",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-14",
+      "reports/uc-rpt-17"
+    ],
+    "Metric": [
+      "caller/uc-cli-05"
+    ],
+    "PIIScanner": [
+      "audit/uc-aud-03",
+      "operator/uc-opr-06",
+      "pipeline/uc-pip-02"
+    ],
+    "PermissionCache": [
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-02"
+    ],
+    "PermissionService": [
+      "admin/uc-adm-02",
+      "admin/uc-adm-03",
+      "reports/uc-inc-rpt-01"
+    ],
+    "PipelineExecution": [
+      "logs/uc-log-06",
+      "pipeline/uc-pip-01",
+      "pipeline/uc-pip-02",
+      "pipeline/uc-pip-03",
+      "pipeline/uc-pip-04"
+    ],
+    "PipelineLog": [
+      "logs/uc-log-02",
+      "pipeline/uc-pip-02"
+    ],
+    "RuleValidator": [
+      "admin/uc-adm-01",
+      "admin/uc-adm-03",
+      "operator/uc-opr-03",
+      "permissions/uc-perm-01",
+      "permissions/uc-perm-03"
+    ],
+    "Sanitizer": [
+      "caller/uc-cli-01",
+      "operator/uc-opr-06",
+      "operator/uc-opr-09",
+      "pipeline/uc-pip-02",
+      "reports/uc-rpt-17"
+    ],
+    "SavedView": [
+      "reports/uc-rpt-10",
+      "reports/uc-rpt-11"
+    ],
+    "SegmentResolver": [
+      "reports/uc-inc-rpt-01",
+      "supervision/uc-sup-03"
+    ],
+    "Session": [
+      "caller/uc-cli-01",
+      "caller/uc-cli-02",
+      "caller/uc-cli-04",
+      "operator/uc-opr-01",
+      "operator/uc-opr-02",
+      "operator/uc-opr-07"
+    ],
+    "Sistema": [
+      "access/uc-acc-01",
+      "access/uc-acc-02",
+      "access/uc-acc-03",
+      "auth/uc-auth-02",
+      "auth/uc-auth-03",
+      "auth/uc-auth-04",
+      "auth/uc-auth-05",
+      "users/uc-usr-01",
+      "users/uc-usr-03",
+      "users/uc-usr-04"
+    ],
+    "Subscription": [
+      "alerts/uc-alr-05"
+    ],
+    "SystemHealth": [
+      "logs/uc-log-06"
+    ],
+    "TechnicalMetric": [
+      "logs/uc-log-07"
+    ],
+    "TimingCalculator": [
+      "alerts/uc-alr-04",
+      "operator/uc-opr-04",
+      "operator/uc-opr-07",
+      "pipeline/uc-pip-01",
+      "reports/uc-rpt-15"
+    ],
+    "TransferReportService": [
+      "reports/uc-rpt-15"
+    ],
+    "Trunk SIP": [
+      "caller/uc-cli-01"
+    ]
+  },
+  "ucs_no_diagram": 0,
+  "ucs_processed": 83,
+  "ucs_with_diagram": 83
+}

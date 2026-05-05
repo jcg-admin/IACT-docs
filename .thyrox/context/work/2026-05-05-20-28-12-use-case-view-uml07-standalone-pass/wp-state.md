@@ -2,11 +2,16 @@
 project: IACT-docs
 work_package: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 created_at: 2026-05-05 20:28:12
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 3 — ANALYZE
 status: Activo
 author: NestorMonroy
 flow: rm
-methodology_step: rm-elicitation
+methodology_step: rm-analysis
+sp01_approved_at: 2026-05-05 20:50:00
+sp01_decisions:
+  - status_inicial: Vigente v1.0.0
+  - actores: funciones RBAC (P-15)
+  - scope_domain_model_completion: incluido
 predecessor_wp: 2026-05-05-14-49-16-use-case-view-uml07-rebuild
 target: Construir 83 archivos uml-07 standalone en source/arquitectura-tecnica/use-case-view/<module>/uc-XXX-NN-<slug>.rst con funciones RBAC como actores (P-15), nombres auto-explicativos, conforme a uml-07 R-01..R-12 y BR-006 Flat NIST. Adicionalmente, completar domain-model/* con clases y métodos faltantes referenciados por los UCs.
 ```
