@@ -9,10 +9,11 @@
  left to right direction
 
  actor "configure_team_alerts" as INVOKER
- actor "AlertEvaluator" as EVALUATOR <<sistema>>
- actor "AlertRuleRepo" as REPO <<sistema>>
+ actor "AlertRule" as AR <<sistema>>
+ actor "AlertHook" as AH <<sistema>>
+ actor "EvaluatorReloader" as ER <<sistema>>
+ actor "AuditService" as AS <<sistema>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar\nUmbrales de Alertas" as UC_ALR_01
@@ -20,8 +21,8 @@
    usecase "Validar scope\n(segment | queue | campaign)" as VALIDAR_SCOPE
    usecase "Validar window\n+ severity" as VALIDAR_WINDOW
    usecase "Persistir AlertRule\n(BR-009 baja logica)" as PERSISTIR
-   usecase "AuditEvent\nALERT_RULE_*" as AUDIT
-   usecase "AlertEvaluator\n.reload_config()" as RELOAD
+   usecase "Emitir AuditEvent\nALERT_RULE_*" as AUDIT
+   usecase "Reloader.reload()\n(propagar a evaluator)" as RELOAD
  }
 
  INVOKER --> UC_ALR_01
@@ -32,10 +33,11 @@
  UC_ALR_01 ..> AUDIT : <<include>>
  UC_ALR_01 ..> RELOAD : <<include>>
 
- PERSISTIR --> REPO
- RELOAD --> EVALUATOR
- Sistema --> AUDIT
- AUDIT --> view_audit_log
+ PERSISTIR --> AR
+ RELOAD --> ER
+ RELOAD --> AH
+ AUDIT --> AS
+ AS --> view_audit_log
 
  note bottom of VALIDAR_SCOPE
    CNST-008: scope debe estar en
@@ -43,11 +45,25 @@
    No se puede crear regla cross-segment.
  end note
 
- note right of EVALUATOR
-   AlertEvaluator es UC interno —
-   consume reglas activas y dispara
-   alertas cuando metricas cruzan
-   umbral en window definido.
+ note right of AH
+   AlertHook consume reglas activas y
+   dispara alertas cuando metricas
+   cruzan umbral en window definido.
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/alert-rule` —
+   AlertRule persistida (metric, scope, condition, window).
+ - :doc:`/arquitectura-tecnica/domain-model/threshold` —
+   threshold definido en condition.
+ - :doc:`/arquitectura-tecnica/domain-model/alert-hook` —
+   evaluador continuo que consume reglas activas.
+ - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
+   coordinador del reload de configuracion.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent ALERT_RULE_*.

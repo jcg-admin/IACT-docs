@@ -9,7 +9,7 @@
  left to right direction
 
  actor "view_data_availability" as INVOKER
- actor "PipelineExecutionRepo" as REPO <<sistema>>
+ actor "PipelineExecution" as PE <<sistema>>
 
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_03\nConsultar Disponibilidad\nde Datos" as UC_PIP_03
@@ -23,8 +23,8 @@
  UC_PIP_03 ..> ULTIMO_REFRESH : <<include>>
  UC_PIP_03 ..> STALENESS : <<include>>
 
- ULTIMO_REFRESH --> REPO
- LIST_DATASETS --> REPO
+ ULTIMO_REFRESH --> PE
+ LIST_DATASETS --> PE
 
  note bottom of UC_PIP_03
    CNST-007 read-only Analytics +
@@ -40,3 +40,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` —
+   PipelineExecution (ultimo run exitoso por dataset).
+ - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo` —
+   AgentDailyStat (consumido por UC_RPT_12).
+ - :doc:`/arquitectura-tecnica/domain-model/system-health` —
+   estado agregado consumido por UC_LOG_06.

@@ -9,9 +9,9 @@
  left to right direction
 
  actor "request_break" as INVOKER
- actor "BreakPolicyRepo" as POLICY <<sistema>>
- actor "AgentStateRepo" as STATE <<sistema>>
- actor "AdherenceTracker" as ADHERENCE <<sistema>>
+ actor "Action" as POLICY <<sistema>>
+ actor "Session" as SESSION <<sistema>>
+ actor "TimingCalculator" as TC <<sistema>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_07\nSolicitar Break / Pausa" as UC_OPR_07
@@ -29,8 +29,8 @@
 
  VALIDAR_TYPE --> POLICY
  VALIDAR_QUOTA --> POLICY
- TRANSICIONAR --> STATE
- TRACK --> ADHERENCE
+ TRANSICIONAR --> SESSION
+ TRACK --> TC
 
  note bottom of VALIDAR_QUOTA
    Cada tipo tiene quota diaria
@@ -40,10 +40,21 @@
  end note
 
  note right of POLICY
-   BreakPolicyRepo: configurable
+   Action entity: configurable
    por team / segmento. Definido
    en MOD_Admin (out of scope
    para operator).
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/action` —
+   catalogo de break types + quota policy.
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   Session con state=break + break_type.
+ - :doc:`/arquitectura-tecnica/domain-model/timing-calculator` —
+   tracker de duracion del break.

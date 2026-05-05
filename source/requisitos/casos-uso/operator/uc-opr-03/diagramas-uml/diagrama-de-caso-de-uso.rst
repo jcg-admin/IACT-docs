@@ -10,11 +10,10 @@
 
  actor "initiate_outbound_call" as INVOKER
  actor "Caller (target)" as TARGET <<externo>>
- actor "TelephonyChannel" as CHANNEL <<sistema>>
- actor "CampaignRepo" as CAMP <<sistema>>
- actor "CallbackQueue" as CBQUEUE <<sistema>>
- actor "AntiFraudList" as ANTIFRAUD <<sistema>>
- actor "Sistema" as Sistema <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "Campaign" as CAMP <<sistema>>
+ actor "RuleValidator" as RV <<sistema>>
+ actor "AuditService" as AS <<sistema>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
 
  rectangle "MOD_Operator" {
@@ -22,8 +21,8 @@
    usecase "Validar mode\n(manual | preview | auto)" as VALIDAR_MODE
    usecase "Verificar AntiFraud\n(numero en lista permitida)" as VERIFY_AF
    usecase "Asociar campaign_id\no callback_id" as ASOCIAR
-   usecase "Iniciar llamada\nvia TelephonyChannel" as INICIAR
-   usecase "AuditEvent\nOUTBOUND_INITIATED" as AUDIT
+   usecase "Iniciar Call outbound" as INICIAR
+   usecase "Emitir AuditEvent\nOUTBOUND_INITIATED" as AUDIT
  }
 
  INVOKER --> UC_OPR_03
@@ -33,13 +32,12 @@
  UC_OPR_03 ..> INICIAR : <<include>>
  UC_OPR_03 ..> AUDIT : <<include>>
 
- VERIFY_AF --> ANTIFRAUD
+ VERIFY_AF --> RV
  ASOCIAR --> CAMP
- ASOCIAR --> CBQUEUE
- INICIAR --> CHANNEL
+ INICIAR --> CALL
  INICIAR --> TARGET
- Sistema --> AUDIT
- AUDIT --> view_audit_log
+ AUDIT --> AS
+ AS --> view_audit_log
 
  note bottom of VERIFY_AF
    Politica anti-fraud: numero NO en
@@ -55,3 +53,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Call con type=outbound, mode, dispositions.
+ - :doc:`/arquitectura-tecnica/domain-model/campaign` —
+   Campaign asociada (anti-fraud whitelist por campana).
+ - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
+   componente que valida anti-fraud.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent OUTBOUND_INITIATED.

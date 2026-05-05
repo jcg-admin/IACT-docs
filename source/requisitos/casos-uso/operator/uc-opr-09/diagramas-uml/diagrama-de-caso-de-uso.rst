@@ -9,7 +9,9 @@
  left to right direction
 
  actor "view_own_call_history" as INVOKER
- actor "CallSessionRepo" as REPO <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "Sanitizer" as SAN <<sistema>>
+ actor "CursorEncoder" as CE <<sistema>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_09\nVer Propio Historial\nde Llamadas" as UC_OPR_09
@@ -27,8 +29,10 @@
  UC_OPR_09 ..> DEVOLVER : <<include>>
  UC_OPR_09 ..> PAGINACION : <<include>>
 
- FILTRAR --> REPO
- DEVOLVER --> REPO
+ FILTRAR --> CALL
+ DEVOLVER --> CALL
+ HASH --> SAN
+ PAGINACION --> CE
 
  note bottom of UC_OPR_09
    BReq-007. Vista PROPIA del agente.
@@ -43,3 +47,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Calls del propio User.
+ - :doc:`/arquitectura-tecnica/domain-model/sanitizer` —
+   garantiza caller_hash en lugar de caller_id.
+ - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` —
+   cursor de paginacion.

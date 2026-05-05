@@ -9,7 +9,8 @@
  left to right direction
 
  actor "Caller UC\n(UC_RPT_01..17)" as CALLER_UC <<sistema>>
- actor "PermissionService" as PERM <<sistema>>
+ actor "PermissionService" as PS <<sistema>>
+ actor "SegmentResolver" as SR <<sistema>>
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento\ndel Usuario" as UC_INC_RPT_01
@@ -24,7 +25,9 @@
  UC_INC_RPT_01 ..> LISTAR : <<include>>
  UC_INC_RPT_01 ..> ISOLATION : <<include>>
 
- CONSULTAR --> PERM
+ CONSULTAR --> PS
+ LISTAR --> SR
+ ISOLATION --> SR
 
  note bottom of UC_INC_RPT_01
    UC de inclusion — no se ejecuta
@@ -42,3 +45,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver` —
+   componente principal del resolver.
+ - :doc:`/arquitectura-tecnica/domain-model/permission-service` —
+   verifica funciones view_*_reports del User.
+ - :doc:`/arquitectura-tecnica/domain-model/user` —
+   entidad User cuyos segmentos se resuelven.

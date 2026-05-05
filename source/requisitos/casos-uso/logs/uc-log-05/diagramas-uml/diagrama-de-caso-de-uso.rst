@@ -9,7 +9,7 @@
  left to right direction
 
  actor "view_infrastructure_logs" as INVOKER
- actor "InfraLogStore" as STORE <<sistema>>
+ actor "InfrastructureLog" as LOG <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as UC_LOG_05
@@ -23,8 +23,8 @@
  UC_LOG_05 ..> FILTRAR_HOST : <<include>>
  UC_LOG_05 ..> DEVOLVER : <<include>>
 
- FILTRAR_HOST --> STORE
- DEVOLVER --> STORE
+ FILTRAR_HOST --> LOG
+ DEVOLVER --> LOG
 
  note bottom of UC_LOG_05
    Fuente: agregadores de infra
@@ -33,3 +33,10 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/infrastructure-log` —
+   InfrastructureLog (host-level logs).

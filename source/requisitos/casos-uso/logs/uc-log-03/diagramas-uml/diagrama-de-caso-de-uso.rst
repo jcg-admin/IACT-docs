@@ -9,7 +9,9 @@
  left to right direction
 
  actor "search_logs" as INVOKER
- actor "LogStore (FTS)" as STORE <<sistema>>
+ actor "ApplicationLog" as LOG <<sistema>>
+ actor "FilterValidator" as FV <<sistema>>
+ actor "CursorEncoder" as CE <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_03\nBuscar Logs (FTS)" as UC_LOG_03
@@ -27,7 +29,11 @@
  UC_LOG_03 ..> FTS_QUERY : <<include>>
  UC_LOG_03 ..> PAGINACION : <<include>>
 
- FTS_QUERY --> STORE
+ VALIDAR_QUERY --> FV
+ VALIDAR_RANGE --> FV
+ FILTROS --> FV
+ FTS_QUERY --> LOG
+ PAGINACION --> CE
 
  note bottom of VALIDAR_RANGE
    Range obligatorio ≤ 7 dias para
@@ -37,3 +43,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/application-log` —
+   storage indexado para FTS.
+ - :doc:`/arquitectura-tecnica/domain-model/filter-validator` —
+   componente de validacion query/range/filtros.
+ - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` —
+   codificacion de cursor de paginacion.

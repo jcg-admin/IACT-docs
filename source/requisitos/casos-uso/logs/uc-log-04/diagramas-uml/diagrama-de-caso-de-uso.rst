@@ -10,30 +10,32 @@
 
  actor "export_logs" as INVOKER
  actor "ExportWorker" as WORKER <<sistema>>
- actor "Storage" as STORAGE <<sistema>>
- actor "MailboxService" as MAILBOX <<sistema>>
+ actor "ExportJob" as JOB <<sistema>>
+ actor "InternalMailbox" as MB <<sistema>>
+ actor "ApplicationLog" as LOG <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_04\nExportar Logs (async)" as UC_LOG_04
    usecase "Validar formato\n(jsonl | csv)" as VALIDAR_FORMATO
    usecase "Verificar\ninclude_archive" as VERIFY_ARCHIVE
-   usecase "Encolar export\njob (202)" as ENCOLAR
+   usecase "Crear ExportJob\n(202 + job_id)" as CREATE_JOB
    usecase "Generar archivo" as GENERAR
-   usecase "Persistir en\nStorage" as PERSIST_FILE
+   usecase "Persistir archivo" as PERSIST_FILE
    usecase "Notificar via\nInternalMailbox" as NOTIFICAR
  }
 
  INVOKER --> UC_LOG_04
  UC_LOG_04 ..> VALIDAR_FORMATO : <<include>>
  UC_LOG_04 ..> VERIFY_ARCHIVE : <<include>>
- UC_LOG_04 ..> ENCOLAR : <<include>>
- ENCOLAR ..> GENERAR : <<include>>
+ UC_LOG_04 ..> CREATE_JOB : <<include>>
+ CREATE_JOB ..> GENERAR : <<include>>
  GENERAR ..> PERSIST_FILE : <<include>>
  GENERAR ..> NOTIFICAR : <<include>>
 
- ENCOLAR --> WORKER
- PERSIST_FILE --> STORAGE
- NOTIFICAR --> MAILBOX
+ CREATE_JOB --> JOB
+ GENERAR --> WORKER
+ GENERAR --> LOG
+ NOTIFICAR --> MB
 
  note bottom of UC_LOG_04
    Async — devuelve 202 + job_id.
@@ -48,3 +50,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/application-log` —
+   fuente de los logs exportados.
+ - :doc:`/arquitectura-tecnica/domain-model/export-job` —
+   ExportJob con format + archive flag + period.
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker` —
+   worker async que genera el archivo.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
+   buzon donde se notifica completacion.

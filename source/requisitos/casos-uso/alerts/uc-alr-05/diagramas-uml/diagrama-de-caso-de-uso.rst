@@ -11,8 +11,8 @@
  actor "manage_own_subscriptions" as F_OWN
  actor "subscribe_to_alert" as F_ADMIN
  actor "User destino" as TARGET <<beneficiario>>
- actor "SubscriptionRepo" as REPO <<sistema>>
- actor "MailboxService" as MAILBOX <<sistema>>
+ actor "Subscription" as S <<sistema>>
+ actor "InternalMailbox" as MB <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_05\nGestionar\nSuscripciones" as UC_ALR_05
@@ -30,9 +30,9 @@
  UC_ALR_05 ..> PERSISTIR : <<include>>
  UC_ALR_05 ..> NOTIFICAR : <<include>>
 
- PERSISTIR --> REPO
- NOTIFICAR --> MAILBOX
- NOTIFICAR --> TARGET
+ PERSISTIR --> S
+ NOTIFICAR --> MB
+ MB --> TARGET
 
  note bottom of UC_ALR_05
    Tipos: (a) rule_id especifica,
@@ -49,3 +49,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/subscription` —
+   entidad Subscription persistida.
+ - :doc:`/arquitectura-tecnica/domain-model/alert-rule` —
+   regla referenciada en subscription_type=rule.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
+   buzon donde se envia invitacion al subscriber.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver` —
+   resuelve scope segun segmentos del User (CNST-008).

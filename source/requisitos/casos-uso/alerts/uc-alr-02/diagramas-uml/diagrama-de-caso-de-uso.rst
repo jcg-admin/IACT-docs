@@ -9,7 +9,7 @@
  left to right direction
 
  actor "view_alerts" as INVOKER
- actor "AlertRepo" as REPO <<sistema>>
+ actor "AlertRepo" as AR <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_02\nVer Alertas Activas" as UC_ALR_02
@@ -25,8 +25,8 @@
  UC_ALR_02 ..> ORDENAR : <<include>>
  REFRESH ..> UC_ALR_02 : <<extend>>
 
- FILTRAR_SCOPE --> REPO
- FILTRAR_ESTADO --> REPO
+ FILTRAR_SCOPE --> AR
+ FILTRAR_ESTADO --> AR
 
  note bottom of FILTRAR_SCOPE
    CNST-008 isolation: solo alertas
@@ -41,3 +41,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/alert` —
+   entidad Alert (instancia firing/acknowledged/resolved).
+ - :doc:`/arquitectura-tecnica/domain-model/alert-repo` —
+   repositorio de alertas activas.
+ - :doc:`/arquitectura-tecnica/domain-model/alert-rule` —
+   regla que origino la alerta.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver` —
+   resuelve segmentos accesibles del User (CNST-008).

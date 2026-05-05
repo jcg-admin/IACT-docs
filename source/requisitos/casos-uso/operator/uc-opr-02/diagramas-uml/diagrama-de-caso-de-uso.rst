@@ -10,17 +10,18 @@
 
  actor "answer_inbound_calls" as INVOKER
  actor "Caller" as CALLER <<externo>>
- actor "TelephonyChannel" as CHANNEL <<sistema>>
- actor "Sistema" as Sistema <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "Session" as SESSION <<sistema>>
+ actor "AuditService" as AS <<sistema>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_02\nAtender Llamada\nEntrante" as UC_OPR_02
    usecase "Validar sesion\nactiva + state=available" as VALIDAR_AGENT
-   usecase "Validar llamada\nofferred" as VALIDAR_OFFER
+   usecase "Validar Call\nofferred" as VALIDAR_OFFER
    usecase "Establecer canal\n(audio bidireccional)" as ESTABLECER
    usecase "Transicion estado\nbusy/in-call" as TRANSICION
-   usecase "AuditEvent\nCALL_ANSWERED" as AUDIT
+   usecase "Emitir AuditEvent\nCALL_ANSWERED" as AUDIT
  }
 
  INVOKER --> UC_OPR_02
@@ -30,10 +31,13 @@
  UC_OPR_02 ..> TRANSICION : <<include>>
  UC_OPR_02 ..> AUDIT : <<include>>
 
- ESTABLECER --> CHANNEL
+ VALIDAR_AGENT --> SESSION
+ VALIDAR_OFFER --> CALL
+ ESTABLECER --> CALL
  ESTABLECER --> CALLER
- Sistema --> AUDIT
- AUDIT --> view_audit_log
+ TRANSICION --> SESSION
+ AUDIT --> AS
+ AS --> view_audit_log
 
  note bottom of UC_OPR_02
    BReq-007. CNST-009 auth + CNST-013/025
@@ -44,3 +48,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   entidad Call cuyo offer es aceptado.
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   Session del agente que cambia a busy/in-call.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent CALL_ANSWERED.

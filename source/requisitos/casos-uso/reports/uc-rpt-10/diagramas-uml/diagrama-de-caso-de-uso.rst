@@ -9,7 +9,8 @@
  left to right direction
 
  actor "manage_own_views" as INVOKER
- actor "SavedViewRepo" as REPO <<sistema>>
+ actor "SavedView" as SV <<sistema>>
+ actor "FilterValidator" as FV <<sistema>>
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_10\nGuardar Vista" as UC_RPT_10
@@ -23,7 +24,8 @@
  UC_RPT_10 ..> VALIDAR : <<include>>
  UC_RPT_10 ..> PERSIST : <<include>>
 
- PERSIST --> REPO
+ VALIDAR --> FV
+ PERSIST --> SV
 
  note bottom of UC_RPT_10
    SavedView encapsula toda la
@@ -40,3 +42,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/saved-view` —
+   entidad SavedView persistida.
+ - :doc:`/arquitectura-tecnica/domain-model/saved-filter` —
+   filtros guardados (subset de SavedView, vease UC_RPT_09).
+ - :doc:`/arquitectura-tecnica/domain-model/filter-validator` —
+   componente de validacion del payload.
+ - :doc:`/arquitectura-tecnica/domain-model/column-catalog` —
+   catalogo de columnas validas.

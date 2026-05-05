@@ -10,15 +10,17 @@
 
  actor "Caller (cliente externo)" as CALLER <<externo>>
  actor "Trunk SIP" as TRUNK <<sistema>>
- actor "IVRRunner" as IVR <<sistema>>
- actor "CallSessionRepo" as REPO <<sistema>>
+ actor "Session" as SESSION <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "Sanitizer" as SAN <<sistema>>
 
  rectangle "MOD_Caller" {
    usecase "UC_CLI_01\nIniciar Llamada\nal Call Center" as UC_CLI_01
    usecase "Reproducir\nwelcome / saludo" as WELCOME
    usecase "Hashear caller_id\n(CNST-026)" as HASH
-   usecase "Crear CallSession\ncon caller_hash" as CREATE
-   usecase "Transferir control\na IVRRunner (UC_CLI_02)" as HANDOFF
+   usecase "Crear Session\ncon caller_hash" as CREATE_SESSION
+   usecase "Crear Call\nasociado a Session" as CREATE_CALL
+   usecase "Transferir control\na IVR (UC_CLI_02)" as HANDOFF
  }
 
  CALLER --> TRUNK
@@ -26,11 +28,13 @@
 
  UC_CLI_01 ..> WELCOME : <<include>>
  UC_CLI_01 ..> HASH : <<include>>
- UC_CLI_01 ..> CREATE : <<include>>
+ UC_CLI_01 ..> CREATE_SESSION : <<include>>
+ UC_CLI_01 ..> CREATE_CALL : <<include>>
  UC_CLI_01 ..> HANDOFF : <<include>>
 
- CREATE --> REPO
- HANDOFF --> IVR
+ HASH --> SAN
+ CREATE_SESSION --> SESSION
+ CREATE_CALL --> CALL
 
  note bottom of HASH
    CNST-026: caller_hash desde
@@ -47,3 +51,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   entidad Session creada con caller_hash.
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   entidad Call asociada a la Session.
+ - :doc:`/arquitectura-tecnica/domain-model/sanitizer` —
+   componente que hashea caller_id (CNST-026).

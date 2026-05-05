@@ -9,11 +9,11 @@
  left to right direction
 
  actor "read_own_mailbox" as INVOKER
- actor "MailboxService" as MAILBOX <<sistema>>
+ actor "InternalMailbox" as MB <<sistema>>
  actor "Supervisor" as SUPER <<beneficiario>>
 
  rectangle "MOD_Operator" {
-   usecase "UC_OPR_10\nLeer Buzon Interno\n(MailboxService)" as UC_OPR_10
+   usecase "UC_OPR_10\nLeer Buzon Interno" as UC_OPR_10
    usecase "Listar mensajes\n(unread first)" as LISTAR
    usecase "Marcar como leido" as MARCAR
    usecase "Soporta broadcasts\n(UC_SUP_03)" as BROADCAST <<extend>>
@@ -26,8 +26,8 @@
  BROADCAST ..> UC_OPR_10 : <<extend>>
  ALERTAS_OP ..> UC_OPR_10 : <<extend>>
 
- LISTAR --> MAILBOX
- MARCAR --> MAILBOX
+ LISTAR --> MB
+ MARCAR --> MB
  BROADCAST --> SUPER
 
  note bottom of UC_OPR_10
@@ -41,3 +41,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
+   InternalMailbox del User (CNST-002).
+ - :doc:`/arquitectura-tecnica/domain-model/user` —
+   User propietario del buzon.
+ - :doc:`/requisitos/casos-uso/supervision/uc-sup-03/index` —
+   broadcast origen.

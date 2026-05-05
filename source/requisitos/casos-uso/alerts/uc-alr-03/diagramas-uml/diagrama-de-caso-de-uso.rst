@@ -9,18 +9,20 @@
  left to right direction
 
  actor "acknowledge_alert" as INVOKER
- actor "AlertRepo" as REPO <<sistema>>
+ actor "AlertRepo" as AR <<sistema>>
+ actor "Alert" as A <<sistema>>
+ actor "AlertHook" as AH <<sistema>>
+ actor "AuditService" as AS <<sistema>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_03\nReconocer Alerta" as UC_ALR_03
    usecase "Validar Alert existe\n+ state=firing" as VALIDAR_ALERT
    usecase "Validar scope ⊆\nsegmentos del User" as VALIDAR_SCOPE
-   usecase "Transicionar\nstate=acknowledged" as TRANSICIONAR
+   usecase "Transicionar Alert\nstate=acknowledged" as TRANSICIONAR
    usecase "Registrar acknowledged_by\n+ acknowledged_at" as REGISTRAR
    usecase "Detener notificaciones\nde la regla" as STOP_NOT
-   usecase "AuditEvent\nALERT_ACKNOWLEDGED\n(P-39)" as AUDIT
+   usecase "Emitir AuditEvent\nALERT_ACKNOWLEDGED\n(P-39)" as AUDIT
  }
 
  INVOKER --> UC_ALR_03
@@ -31,10 +33,12 @@
  UC_ALR_03 ..> STOP_NOT : <<include>>
  UC_ALR_03 ..> AUDIT : <<include>>
 
- TRANSICIONAR --> REPO
- REGISTRAR --> REPO
- Sistema --> AUDIT
- AUDIT --> view_audit_log
+ VALIDAR_ALERT --> AR
+ TRANSICIONAR --> A
+ REGISTRAR --> AR
+ STOP_NOT --> AH
+ AUDIT --> AS
+ AS --> view_audit_log
 
  note bottom of VALIDAR_SCOPE
    CNST-008: User solo puede ack
@@ -53,3 +57,18 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/alert` —
+   entidad Alert (transita firing → acknowledged).
+ - :doc:`/arquitectura-tecnica/domain-model/alert-repo` —
+   repositorio que persiste la transicion.
+ - :doc:`/arquitectura-tecnica/domain-model/alert-rule` —
+   regla origen (consultada para stop notifications).
+ - :doc:`/arquitectura-tecnica/domain-model/alert-hook` —
+   detiene notificaciones de la regla.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent ALERT_ACKNOWLEDGED (P-39).

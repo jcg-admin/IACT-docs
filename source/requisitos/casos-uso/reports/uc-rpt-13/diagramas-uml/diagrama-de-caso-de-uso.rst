@@ -9,8 +9,9 @@
  left to right direction
 
  actor "view_reports" as INVOKER
- actor "QueueReportService" as SVC <<sistema>>
- actor "QueueDailyStatRepo" as REPO <<sistema>>
+ actor "BaseReportService" as SVC <<sistema>>
+ actor "Bucket" as BK <<sistema>>
+ actor "KpiCalculator" as KPI <<sistema>>
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_13\nReporte de Colas" as UC_RPT_13
@@ -29,8 +30,9 @@
  UC_RPT_13 ..> METRIC_QUEUE : <<include>>
 
  METRIC_VOL --> SVC
- METRIC_ASA --> SVC
- SVC --> REPO
+ METRIC_ASA --> KPI
+ METRIC_SL --> KPI
+ METRIC_QUEUE --> BK
 
  note bottom of UC_RPT_13
    BReq-001 + BReq-006. Detectar
@@ -39,3 +41,18 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/base-report-service` —
+   patron template-method que implementa el reporte de colas.
+ - :doc:`/arquitectura-tecnica/domain-model/bucket` —
+   bucket de agregacion (SL within threshold, queue depth).
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator` —
+   calculo de ASA, SL%, abandon rate.
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   fuente de datos (calls offered/answered/abandoned).
+ - :doc:`/arquitectura-tecnica/domain-model/timing-calculator` —
+   componente para calcular wait times y SL within.

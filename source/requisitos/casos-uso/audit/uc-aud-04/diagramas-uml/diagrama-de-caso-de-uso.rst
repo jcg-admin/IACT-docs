@@ -9,39 +9,41 @@
  left to right direction
 
  actor "generate_compliance_report" as INVOKER
- actor "ComplianceWorker" as WORKER <<sistema>>
- actor "AuditRepo" as REPO <<sistema>>
- actor "HMACSigner" as SIGNER <<sistema>>
- actor "MailboxService" as MAILBOX <<sistema>>
- actor "Sistema" as Sistema <<sistema>>
+ actor "ExportWorker" as WORKER <<sistema>>
+ actor "ExportJob" as JOB <<sistema>>
+ actor "AuditQueryService" as AQS <<sistema>>
+ actor "AuditRepo" as AR <<sistema>>
+ actor "InternalMailbox" as MB <<sistema>>
+ actor "AuditService" as AS <<sistema>>
 
  rectangle "MOD_Audit" {
    usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as UC_AUD_04
    usecase "Validar template\n(PRIVILEGED_ACCESS,\nCONFIG_CHANGES, ...)" as VALIDAR_TEMPLATE
    usecase "Validar period\n(date_from..date_to)" as VALIDAR_PERIOD
-   usecase "Encolar job\n(202)" as ENCOLAR
+   usecase "Crear ExportJob\n(202 + job_id)" as CREATE_JOB
    usecase "Consultar AuditRepo\npor template" as QUERY
    usecase "Renderizar reporte\n(pdf|csv|json)" as RENDER
-   usecase "Firmar digitalmente\n(HMAC)" as FIRMAR
+   usecase "Firmar HMAC\n(integridad)" as FIRMAR
    usecase "Notificar via\nInternalMailbox" as NOTIFICAR
-   usecase "Meta-audit\nP-39 reforzado" as METAAUDIT
+   usecase "Emitir meta-audit\nP-39 reforzado" as METAAUDIT
  }
 
  INVOKER --> UC_AUD_04
  UC_AUD_04 ..> VALIDAR_TEMPLATE : <<include>>
  UC_AUD_04 ..> VALIDAR_PERIOD : <<include>>
- UC_AUD_04 ..> ENCOLAR : <<include>>
- ENCOLAR ..> QUERY : <<include>>
+ UC_AUD_04 ..> CREATE_JOB : <<include>>
+ CREATE_JOB ..> QUERY : <<include>>
  QUERY ..> RENDER : <<include>>
  RENDER ..> FIRMAR : <<include>>
  FIRMAR ..> NOTIFICAR : <<include>>
  FIRMAR ..> METAAUDIT : <<include>>
 
- ENCOLAR --> WORKER
- QUERY --> REPO
- FIRMAR --> SIGNER
- NOTIFICAR --> MAILBOX
- Sistema --> METAAUDIT
+ CREATE_JOB --> JOB
+ CREATE_JOB --> WORKER
+ QUERY --> AQS
+ AQS --> AR
+ NOTIFICAR --> MB
+ METAAUDIT --> AS
 
  note bottom of VALIDAR_TEMPLATE
    Templates: PRIVILEGED_ACCESS,
@@ -64,3 +66,22 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event` —
+   eventos consumidos por templates de compliance.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-repo` —
+   fuente de datos para los templates.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-query-service` —
+   servicio que ejecuta queries por template.
+ - :doc:`/arquitectura-tecnica/domain-model/export-job` —
+   entidad ExportJob con campo template + signature.
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker` —
+   worker que renderiza pdf|csv|json.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
+   buzon donde se notifica completacion del reporte.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor del meta-audit COMPLIANCE_REPORT_GENERATED (P-39).

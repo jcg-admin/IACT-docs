@@ -11,6 +11,9 @@
  actor "assign_function_groups" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
+ actor "RuleValidator" as RV <<sistema>>
+ actor "PermissionCache" as PC <<sistema>>
+ actor "AuditService" as AS <<sistema>>
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_01\nAsignar Grupo a Usuario\n(vista PERM)" as UC_PERM_01
@@ -18,12 +21,12 @@
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR" as UC_ACC_04
-   usecase "Validar AGR\nexiste + ACTIVE" as VALIDAR_AGRUPADOR
-   usecase "Expandir funciones\ndel AGR" as EXPANDIR
+   usecase "Validar AccessGroup\nexiste + ACTIVE" as VALIDAR_AGRUPADOR
+   usecase "Expandir funciones\ndel AccessGroup" as EXPANDIR
    usecase "Validar SoD\n(set efectivo)" as VALIDAR_SOD
-   usecase "Persistir Assignment\n(target=AGR)" as PERSISTIR
-   usecase "Invalidar cache\npermisos" as CACHE_PERMISOS
-   usecase "AuditEvent\nAGR_ASSIGNED" as AUDIT
+   usecase "Persistir Assignment\n(target=AccessGroup)" as PERSISTIR
+   usecase "Invalidar PermissionCache" as CACHE_INV
+   usecase "Emitir AuditEvent\nAGR_ASSIGNED" as AUDIT
  }
 
  INVOKER --> UC_PERM_01
@@ -32,10 +35,13 @@
  UC_ACC_04 ..> EXPANDIR : <<include>>
  UC_ACC_04 ..> VALIDAR_SOD : <<include>>
  UC_ACC_04 ..> PERSISTIR : <<include>>
- UC_ACC_04 ..> CACHE_PERMISOS : <<include>>
+ UC_ACC_04 ..> CACHE_INV : <<include>>
  UC_ACC_04 ..> AUDIT : <<include>>
 
- AUDIT --> view_audit_log
+ VALIDAR_SOD --> RV
+ CACHE_INV --> PC
+ AUDIT --> AS
+ AS --> view_audit_log
  PERSISTIR --> TARGET
 
  note bottom of UC_PERM_01
@@ -54,3 +60,28 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/access-group` —
+   AccessGroup objetivo (validado en VALIDAR_AGRUPADOR).
+ - :doc:`/arquitectura-tecnica/domain-model/access-group-function` —
+   funciones del AccessGroup expandidas en EXPANDIR.
+ - :doc:`/arquitectura-tecnica/domain-model/assignment` —
+   entidad Assignment persistida con target=AccessGroup.
+ - :doc:`/arquitectura-tecnica/domain-model/assignment-repo` —
+   repositorio que persiste el Assignment.
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
+   reglas SoD evaluadas en VALIDAR_SOD (CNST-005).
+ - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
+   componente que ejecuta validacion SoD.
+ - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
+   cache invalidada post-COMMIT.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent AGR_ASSIGNED.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event` —
+   estructura del evento (CNST-025).
+ - :doc:`/requisitos/casos-uso/access/uc-acc-04/index` —
+   UC backing (operacion completa).

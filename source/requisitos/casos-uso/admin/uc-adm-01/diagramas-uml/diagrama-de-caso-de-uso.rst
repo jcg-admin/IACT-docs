@@ -13,17 +13,18 @@
  actor "disable_separation_rule" as F_DISABLE
  actor "view_separation_rules" as F_VIEW <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "EnforcementEngine" as EE <<sistema>>
- actor "Sistema" as Sistema <<sistema>>
+ actor "EvaluatorReloader" as EE <<sistema>>
+ actor "RuleValidator" as RV <<sistema>>
+ actor "AuditService" as AS <<sistema>>
 
  rectangle "MOD_Admin" {
    usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas SoD" as UC_ADM_01
    usecase "Validar conjuntos\ndisjuntos (CNST-030)" as VALIDAR_CONJUNTOS
    usecase "Validar funciones\nen catalogo activo\n(UC_ADM_02)" as VALIDAR_FUNCIONES
    usecase "Validar nombre\nunico" as VALIDAR_NOMBRE
-   usecase "Persistir SoDRule\n(BR-009 baja logica)" as PERSISTIR
-   usecase "AuditEvent\nSOD_RULE_*" as AUDIT
-   usecase "EnforcementEngine\n.reload()" as RELOAD
+   usecase "Persistir SeparationRule\n(BR-009 baja logica)" as PERSISTIR
+   usecase "Emitir AuditEvent\nSOD_RULE_*" as AUDIT
+   usecase "EvaluatorReloader\n.reload()" as RELOAD
  }
 
  F_CREATE --> UC_ADM_01
@@ -38,10 +39,11 @@
  UC_ADM_01 ..> AUDIT : <<include>>
  UC_ADM_01 ..> RELOAD : <<include>>
 
- Sistema --> AUDIT
- Sistema --> RELOAD
- AUDIT --> view_audit_log
+ VALIDAR_CONJUNTOS --> RV
+ VALIDAR_FUNCIONES --> RV
+ AUDIT --> AS
  RELOAD --> EE
+ AS --> view_audit_log
 
  note bottom of VALIDAR_CONJUNTOS
    CNST-030: group_a y group_b
@@ -64,3 +66,20 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
+   entidad SeparationRule (CNST-030, persistida por este UC).
+ - :doc:`/arquitectura-tecnica/domain-model/function` — catalogo
+   de funciones validado por VALIDAR_FUNCIONES (UC_ADM_02 backing).
+ - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
+   componente que ejecuta VALIDAR_CONJUNTOS / VALIDAR_FUNCIONES.
+ - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
+   notificado en RELOAD para refrescar reglas activas.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent SOD_RULE_*.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event` —
+   estructura del evento emitido (CNST-025).

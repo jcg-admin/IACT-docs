@@ -9,8 +9,9 @@
  left to right direction
 
  actor "view_reports" as INVOKER
- actor "CampaignReportService" as SVC <<sistema>>
- actor "CampaignStatRepo" as REPO <<sistema>>
+ actor "BaseReportService" as SVC <<sistema>>
+ actor "Campaign" as CAMP <<sistema>>
+ actor "KpiCalculator" as KPI <<sistema>>
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_14\nReporte de Campanas" as UC_RPT_14
@@ -29,7 +30,9 @@
  UC_RPT_14 ..> METRIC_DISP : <<include>>
 
  METRIC_CONTACTS --> SVC
- SVC --> REPO
+ METRIC_CONTACTS --> CAMP
+ METRIC_CONV --> KPI
+ METRIC_THROUGHPUT --> KPI
 
  note bottom of UC_RPT_14
    BReq-001 + BReq-003. Comparar
@@ -39,3 +42,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/campaign` —
+   entidad Campaign con metadata de campanas.
+ - :doc:`/arquitectura-tecnica/domain-model/base-report-service` —
+   patron template-method del reporte.
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator` —
+   calculo de Conversion, Calls/hora, TMO de campana.
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Calls asociadas a la campana (contacts attempted/reached).

@@ -9,8 +9,8 @@
  left to right direction
 
  actor "Caller (cliente externo)" as CALLER <<externo>>
- actor "IVRRunner" as IVR <<sistema>>
- actor "IVRDefinition" as IVRDEF <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "Session" as SESSION <<sistema>>
 
  rectangle "MOD_Caller" {
    usecase "UC_CLI_02\nNavegar IVR" as UC_CLI_02
@@ -23,7 +23,6 @@
  }
 
  CALLER --> UC_CLI_02
- IVR --> UC_CLI_02
 
  UC_CLI_02 ..> CARGAR : <<include>>
  UC_CLI_02 ..> CAPTURAR : <<include>>
@@ -32,7 +31,8 @@
  ROUTE_CALLBACK ..> UC_CLI_02 : <<extend>>
  HANGUP ..> UC_CLI_02 : <<extend>>
 
- CARGAR --> IVRDEF
+ CARGAR --> SESSION
+ CAPTURAR --> CALL
 
  note bottom of UC_CLI_02
    Sin entrada HTTP — input audio /
@@ -42,3 +42,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   Session activa con estado IVR.
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Call asociado durante navegacion IVR.
+ - :doc:`/requisitos/casos-uso/caller/uc-cli-03/index` —
+   transicion a cola para agente.
+ - :doc:`/requisitos/casos-uso/caller/uc-cli-04/index` —
+   transicion a callback request.

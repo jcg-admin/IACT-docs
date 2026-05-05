@@ -9,7 +9,7 @@
  left to right direction
 
  actor "view_application_logs" as INVOKER
- actor "LogStore" as STORE <<sistema>>
+ actor "ApplicationLog" as LOG <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nConsultar Logs\ndel Sistema" as UC_LOG_01
@@ -25,9 +25,9 @@
  UC_LOG_01 ..> FILTRAR_SERVICE : <<include>>
  UC_LOG_01 ..> DEVOLVER : <<include>>
 
- FILTRAR_LEVEL --> STORE
- FILTRAR_SERVICE --> STORE
- DEVOLVER --> STORE
+ FILTRAR_LEVEL --> LOG
+ FILTRAR_SERVICE --> LOG
+ DEVOLVER --> LOG
 
  note bottom of UC_LOG_01
    Diferencia AuditEvent: logs son
@@ -37,9 +37,18 @@
    CNST-026 sin PII.
  end note
 
- note right of STORE
-   LogStore: Loki / Elasticsearch /
+ note right of LOG
+   ApplicationLog: Loki / Elasticsearch /
    CloudWatch / similar.
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/application-log` —
+   entidad ApplicationLog (eventos operacionales).
+ - :doc:`/arquitectura-tecnica/domain-model/sanitizer` —
+   sanitizador de PII en log entries antes de persist.

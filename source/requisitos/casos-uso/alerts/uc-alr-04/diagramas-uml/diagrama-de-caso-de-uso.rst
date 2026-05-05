@@ -9,7 +9,8 @@
  left to right direction
 
  actor "view_alert_history" as INVOKER
- actor "AlertRepo" as REPO <<sistema>>
+ actor "AlertRepo" as AR <<sistema>>
+ actor "TimingCalculator" as TC <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_04\nVer Historial\nde Alertas" as UC_ALR_04
@@ -27,9 +28,11 @@
  UC_ALR_04 ..> METRICA_RESOLVE : <<include>>
  UC_ALR_04 ..> PAGINACION : <<include>>
 
- FILTRAR --> REPO
- METRICA_ACK --> REPO
- METRICA_RESOLVE --> REPO
+ FILTRAR --> AR
+ METRICA_ACK --> TC
+ METRICA_RESOLVE --> TC
+ METRICA_ACK --> AR
+ METRICA_RESOLVE --> AR
 
  note bottom of VALIDAR_PERIOD
    Hasta 1 ano online. Mas antiguo
@@ -45,3 +48,18 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/alert` —
+   entidad Alert con timestamps de transiciones.
+ - :doc:`/arquitectura-tecnica/domain-model/alert-repo` —
+   repositorio (filter por period + rule_id + severity).
+ - :doc:`/arquitectura-tecnica/domain-model/alert-rule` —
+   reglas origen referenciadas en el historial.
+ - :doc:`/arquitectura-tecnica/domain-model/timing-calculator` —
+   componente que calcula tiempo medio ack/resolve.
+ - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` —
+   cursor de paginacion.

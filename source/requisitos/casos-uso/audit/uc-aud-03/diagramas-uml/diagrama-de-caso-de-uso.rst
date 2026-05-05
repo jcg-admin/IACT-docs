@@ -10,34 +10,38 @@
 
  actor "export_audit_log" as INVOKER
  actor "ExportWorker" as WORKER <<sistema>>
- actor "Storage" as STORAGE <<sistema>>
- actor "MailboxService" as MAILBOX <<sistema>>
- actor "Sistema" as Sistema <<sistema>>
+ actor "ExportJob" as JOB <<sistema>>
+ actor "InternalMailbox" as MB <<sistema>>
+ actor "PIIScanner" as PII <<sistema>>
+ actor "AuditService" as AS <<sistema>>
 
  rectangle "MOD_Audit" {
    usecase "UC_AUD_03\nExportar Auditoria\n(async)" as UC_AUD_03
    usecase "Validar formato\n(csv|json)" as VALIDAR_FORMATO
    usecase "Verificar\ninclude_archive (>90d)" as VERIFY_ARCHIVE
-   usecase "Encolar export\njob (202)" as ENCOLAR
+   usecase "Crear ExportJob\n(202 + job_id)" as CREATE_JOB
    usecase "Generar archivo\n(workers)" as GENERAR
-   usecase "Persistir en\nStorage" as PERSIST_FILE
+   usecase "Escanear PII\nantes de write" as ESCANEAR_PII
+   usecase "Persistir archivo\nen storage" as PERSIST_FILE
    usecase "Notificar via\nInternalMailbox" as NOTIFICAR
-   usecase "AuditEvent\nAUDIT_EXPORTED (P-39)" as AUDIT
+   usecase "Emitir AuditEvent\nAUDIT_EXPORTED (P-39)" as AUDIT
  }
 
  INVOKER --> UC_AUD_03
  UC_AUD_03 ..> VALIDAR_FORMATO : <<include>>
  UC_AUD_03 ..> VERIFY_ARCHIVE : <<include>>
- UC_AUD_03 ..> ENCOLAR : <<include>>
- ENCOLAR ..> GENERAR : <<include>>
+ UC_AUD_03 ..> CREATE_JOB : <<include>>
+ CREATE_JOB ..> GENERAR : <<include>>
+ GENERAR ..> ESCANEAR_PII : <<include>>
  GENERAR ..> PERSIST_FILE : <<include>>
  GENERAR ..> NOTIFICAR : <<include>>
  GENERAR ..> AUDIT : <<include>>
 
- ENCOLAR --> WORKER
- PERSIST_FILE --> STORAGE
- NOTIFICAR --> MAILBOX
- Sistema --> AUDIT
+ CREATE_JOB --> JOB
+ GENERAR --> WORKER
+ ESCANEAR_PII --> PII
+ NOTIFICAR --> MB
+ AUDIT --> AS
 
  note bottom of UC_AUD_03
    Async — devuelve 202 + job_id.
@@ -59,3 +63,22 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event` —
+   estructura de eventos exportados.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-repo` —
+   AuditRepo con read-replica usado por ExportWorker.
+ - :doc:`/arquitectura-tecnica/domain-model/export-job` —
+   entidad ExportJob (state, format, period, archive flag).
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker` —
+   worker async que genera el archivo.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner` —
+   componente que detecta PII antes de write a archivo.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
+   buzon interno donde se notifica completacion.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent AUDIT_EXPORTED (P-39 reforzado).

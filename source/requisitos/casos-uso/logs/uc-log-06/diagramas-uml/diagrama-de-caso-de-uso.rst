@@ -9,10 +9,9 @@
  left to right direction
 
  actor "view_system_health" as INVOKER
- actor "HealthAggregator" as AGG <<sistema>>
- actor "Servicios HTTP/DB/Queue" as SERVICIOS <<sistema>>
- actor "AlertEvaluator" as ALERTAS <<sistema>>
- actor "PipelineExecutionRepo" as PIPELINE_REPO <<sistema>>
+ actor "SystemHealth" as SH <<sistema>>
+ actor "PipelineExecution" as PE <<sistema>>
+ actor "AlertRepo" as AR <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_06\nVer Estado del Sistema" as UC_LOG_06
@@ -30,10 +29,11 @@
  UC_LOG_06 ..> STATUS_ALR : <<include>>
  UC_LOG_06 ..> OVERALL : <<include>>
 
- STATUS_SVC --> SERVICIOS
- STATUS_SVC --> AGG
- STATUS_ETL --> PIPELINE_REPO
- STATUS_ALR --> ALERTAS
+ STATUS_SVC --> SH
+ STATUS_DEP --> SH
+ STATUS_ETL --> PE
+ STATUS_ALR --> AR
+ OVERALL --> SH
 
  note bottom of UC_LOG_06
    BReq-006. Single-pane-of-glass:
@@ -43,3 +43,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/system-health` —
+   entidad SystemHealth (estado agregado).
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` —
+   estado del Pipeline (UC_PIP_01 summary).
+ - :doc:`/arquitectura-tecnica/domain-model/alert-repo` —
+   alertas activas (UC_ALR_02 count).
+ - :doc:`/arquitectura-tecnica/domain-model/technical-metric` —
+   metricas tecnicas para overall calculation.

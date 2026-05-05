@@ -11,10 +11,9 @@
  actor "transfer_own_call" as INVOKER
  actor "Operator destino / Cola" as TARGET <<beneficiario>>
  actor "Caller" as CALLER <<externo>>
- actor "TelephonyClient" as CHANNEL <<sistema>>
- actor "TransferReportRepo" as REPO <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "AuditService" as AS <<sistema>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "Sistema" as Sistema <<sistema>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_05\nTransferir Llamada" as UC_OPR_05
@@ -23,7 +22,7 @@
    usecase "Validar mode\n(warm | cold)" as VALIDAR_MODE
    usecase "Conectar al target\n(warm: presentacion)" as CONECTAR
    usecase "Pasar caller" as PASAR
-   usecase "AuditEvent\nCALL_TRANSFERRED\n(insumo UC_RPT_15)" as AUDIT
+   usecase "Emitir AuditEvent\nCALL_TRANSFERRED\n(insumo UC_RPT_15)" as AUDIT
  }
 
  INVOKER --> UC_OPR_05
@@ -34,12 +33,11 @@
  UC_OPR_05 ..> PASAR : <<include>>
  UC_OPR_05 ..> AUDIT : <<include>>
 
- CONECTAR --> CHANNEL
+ CONECTAR --> CALL
  PASAR --> TARGET
  PASAR --> CALLER
- AUDIT --> REPO
- Sistema --> AUDIT
- AUDIT --> view_audit_log
+ AUDIT --> AS
+ AS --> view_audit_log
 
  note bottom of VALIDAR_MODE
    Warm: agente A consulta a B
@@ -56,3 +54,16 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Call con flag transferred=true + reason + target.
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   Sessions origen y destino.
+ - :doc:`/arquitectura-tecnica/domain-model/transfer-report-service` —
+   consume datos de transfers (UC_RPT_15).
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor de AuditEvent CALL_TRANSFERRED.

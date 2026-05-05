@@ -10,6 +10,7 @@
 
  actor "view_own_metrics" as INVOKER
  actor "AgentDailyStatRepo" as REPO <<sistema>>
+ actor "KpiCalculator" as KPI <<sistema>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_08\nVer Propio Dashboard" as UC_OPR_08
@@ -28,7 +29,9 @@
  RANKING ..> UC_OPR_08 : <<extend>>
 
  METRIC_CALLS --> REPO
- METRIC_SL --> REPO
+ METRIC_SL --> KPI
+ METRIC_ADH --> KPI
+ METRIC_BREAKS --> REPO
 
  note bottom of UC_OPR_08
    BReq-001. Vista PROPIA — sin
@@ -45,3 +48,14 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo` —
+   repositorio de stats agregadas (datos del propio User).
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator` —
+   componente de calculo de KPIs personales.
+ - :doc:`/arquitectura-tecnica/domain-model/comparative` —
+   componente de ranking team (opt-in).

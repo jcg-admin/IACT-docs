@@ -10,7 +10,9 @@
 
  actor "view_reports" as INVOKER
  actor "CallerReportService" as SVC <<sistema>>
- actor "CallerStatRepo" as REPO <<sistema>>
+ actor "Sanitizer" as SAN <<sistema>>
+ actor "Call" as CALL <<sistema>>
+ actor "KpiCalculator" as KPI <<sistema>>
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_17\nReporte de\nClientes Unicos" as UC_RPT_17
@@ -26,9 +28,10 @@
  UC_RPT_17 ..> METRIC_UNIQUE : <<include>>
  UC_RPT_17 ..> METRIC_RECUR : <<include>>
 
+ HASH --> SAN
  METRIC_UNIQUE --> SVC
- METRIC_RECUR --> SVC
- SVC --> REPO
+ METRIC_RECUR --> KPI
+ SVC --> CALL
 
  note bottom of HASH
    CNST-026 sin PII: identificador
@@ -45,3 +48,18 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/caller-report-service` —
+   servicio especifico para reporte de clientes unicos.
+ - :doc:`/arquitectura-tecnica/domain-model/base-report-service` —
+   patron template-method base.
+ - :doc:`/arquitectura-tecnica/domain-model/sanitizer` —
+   componente que hashea caller_id (CNST-026).
+ - :doc:`/arquitectura-tecnica/domain-model/call` —
+   Calls con caller_hash agrupado.
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator` —
+   calculo de distribucion de recurrencia.

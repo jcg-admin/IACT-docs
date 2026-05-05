@@ -9,7 +9,7 @@
  left to right direction
 
  actor "view_pipeline_logs" as INVOKER
- actor "LogStore" as STORE <<sistema>>
+ actor "PipelineLog" as PL <<sistema>>
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_02\nConsultar Logs\ndel Pipeline" as UC_LOG_02
@@ -25,16 +25,27 @@
  UC_LOG_02 ..> FILTRAR_PIP : <<include>>
  UC_LOG_02 ..> DEVOLVER : <<include>>
 
- FORZAR_SERVICE --> STORE
- FILTRAR_PIP --> STORE
- DEVOLVER --> STORE
+ FORZAR_SERVICE --> PL
+ FILTRAR_PIP --> PL
+ DEVOLVER --> PL
 
  note bottom of UC_LOG_02
    Variante de UC_LOG_01 con scope
-   ETL forzado. Funcion separada
+   Pipeline forzado. Funcion separada
    para granular: data engineers
    ven Pipeline logs sin acceder
    al sistema general.
  end note
 
  @enduml
+
+.. seealso::
+
+ Modelo del dominio relevante para este UC:
+
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-log` —
+   entidad PipelineLog (logs especificos del Pipeline).
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` —
+   PipelineExecution referenciado por pipeline_id.
+ - :doc:`/arquitectura-tecnica/domain-model/application-log` —
+   storage compartido (subset filtrado por service).
