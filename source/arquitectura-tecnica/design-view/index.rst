@@ -31,16 +31,16 @@ caso de uso individual.
  :maxdepth: 1
  :caption: Modulos funcionales
 
- mod-auth
- mod-users
- mod-access
- mod-permissions
- mod-admin
- mod-alerts
- mod-audit
- mod-pipeline
- mod-logs
- mod-reports
- mod-operator
- mod-caller
- mod-supervision
+ seq-auth
+ seq-users
+ seq-access
+ seq-permissions
+ seq-admin
+ seq-alerts
+ seq-audit
+ seq-pipeline
+ seq-logs
+ seq-reports
+ seq-operator
+ seq-caller
+ seq-supervision

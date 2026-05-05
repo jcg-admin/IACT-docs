@@ -29,16 +29,16 @@ Granularidad: un diagrama canonico por modulo funcional.
  :maxdepth: 1
  :caption: Modulos funcionales
 
- mod-auth
- mod-users
- mod-access
- mod-permissions
- mod-admin
- mod-alerts
- mod-audit
- mod-pipeline
- mod-logs
- mod-reports
- mod-operator
- mod-caller
- mod-supervision
+ impl-auth
+ impl-users
+ impl-access
+ impl-permissions
+ impl-admin
+ impl-alerts
+ impl-audit
+ impl-pipeline
+ impl-logs
+ impl-reports
+ impl-operator
+ impl-caller
+ impl-supervision
