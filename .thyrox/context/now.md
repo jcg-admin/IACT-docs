@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-05 04:14:30
+updated_at: 2026-05-05 05:08:18
 cold_boot: false
 current_epic: 28
 epic_name: alias-fix-uc-numericos
-current_work: .thyrox/context/work/2026-05-05-04-12-45-alias-fix-uc-numericos
+current_work: .thyrox/context/work/2026-05-05-05-07-43-merge-develop-pr-review
 stage: discover
 stage_number: 1
 current_phase: Phase 1 — DISCOVER
@@ -14,7 +14,7 @@ methodology_step: thyrox:discover
 blockers: []
 last_completed_phase: "alias-fix-abrev-corta — ABREV_CORTA (97 files), F_FUNCIONES+PREFIX_ABBREV+UC_PREFIX (9 files). Build: EXIT:0, 0 warnings."
 next_decision_required: "Ejecutar implementación WP alias-fix-uc-numericos: AC01-AC09 (5 files) + UC01-UC09 por módulo (49 files). Scope analysis aprobado."
-stage_sync_required: false
+stage_sync_required: true
 ```
 
 # IACT-docs — Estado de Sesión
