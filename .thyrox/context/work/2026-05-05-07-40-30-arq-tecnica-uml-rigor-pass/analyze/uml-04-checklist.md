@@ -40,7 +40,7 @@ Los 8 puntos:
 | exceptional-permission-repo.rst | ✓ | N/A | N/A | ✓ | N/A | N/A | N/A | ✓ |
 | function.rst | ✓ | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | menu.rst | ✓ | N/A | N/A | N/A | N/A | N/A | N/A | ✓ |
-| nav-domain.rst | ✓ | ✓ | ✓ | N/A | N/A | N/A | ✓ | N/A |
+| nav-domain.rst | ✓ | N/A | ✓ | N/A | N/A | N/A | N/A | N/A |
 | permission-cache.rst | ✓ | N/A | N/A | ✓ | N/A | N/A | N/A | ✓ |
 | permission-service.rst | ✓ | N/A | N/A | N/A | N/A | N/A | N/A | ✓ |
 | rbac-repo.rst | ✓ | N/A | N/A | ✓ | N/A | N/A | N/A | N/A |

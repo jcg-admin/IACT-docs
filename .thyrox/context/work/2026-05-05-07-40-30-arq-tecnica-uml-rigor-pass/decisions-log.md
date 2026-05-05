@@ -291,13 +291,116 @@ abstracción incorrecta.
 
 ----
 
+## D-14 — RBAC es plano: Function, Menu, Domain, Section sin reflexivas
+
+**Contexto:** D-08 dejó como pendiente verificar si
+``Function``, ``Menu`` y ``NavDomain`` tienen jerarquía
+parent/children. Consulté las specs canónicas del proyecto.
+
+**Evidencia consultada:**
+
+- ``source/requisitos/reglas-negocio/br-006-rbac-flat-nist.rst``
+  → "RBAC Flat NIST. NO existe jerarquia de roles. (...)
+  Flat: Sin jerarquia de herencia entre roles".
+- ``source/requisitos/reglas-negocio/rbac/catalogo-funciones.rst``
+  → "CNST-005: Flat RBAC (sin jerarquías)".
+- ``source/requisitos/casos-uso/permissions/uc-perm-08/flujo-principal.rst``
+  PASO 7 → estructura del menú ES de **3 niveles fijos**:
+  ``domains[d].sections[s].actions[a]``. Insertar es por
+  índice, no recursivo.
+- ``source/requisitos/casos-uso/permissions/uc-perm-08/datos-involucrados.rst``
+  → ``menu_domain`` y ``menu_section`` son strings
+  flat (``vistas/administracion``,
+  ``dashboards/users``), no nodos de árbol genérico.
+
+**Decisión:** **NINGUNA** clase RBAC del modelo lleva
+asociación reflexiva. Específicamente:
+
+- ``Function`` — NO reflexiva (BR-006, CNST-005).
+- ``Menu`` — NO reflexiva (proyección plana 3 niveles).
+- ``NavDomain`` (``Domain``) — NO reflexiva (UC-PERM-08
+  PASO 7: niveles fijos sin recursión).
+- ``Section`` — NO reflexiva (idem).
+
+**Consecuencia operativa:** revertir la asociación
+reflexiva ``Domain "0..1\nparent" -- "0..*\nchildren"``
+agregada erróneamente en batch 1 al archivo
+``nav-domain.rst``. Sustituir por nota documentando que
+la estructura es plana por contrato.
+
+**Justificación de cierre:** este pendiente queda cerrado
+con evidencia OBSERVABLE (3 documentos canónicos
+citados). No es SPECULATIVE. Cumple I-012 y permite
+avanzar el WP a Stage 11 sin pendientes RBAC.
+
+----
+
+## D-15 — Menu no tiene reflexiva: composición plana
+
+**Contexto:** D-08 originalmente declaró aplicar
+reflexiva en ``Menu`` (jerarquía padre/hijo del árbol
+IVR). Al inspeccionar ``menu.rst`` se constató que
+``Menu`` **compone** ``Domain`` (``Menu *-- Domain``)
+pero la jerarquía vive en ``Domain → Section → Action``,
+no en ``Menu`` mismo.
+
+**Decisión:** confirmar formalmente que ``Menu`` NO
+recibe reflexiva. La estructura jerárquica queda
+modelada como:
+
+.. code-block:: text
+
+   Menu "1" *-- "1..*" Domain : composes
+   Domain "1" *-- "1..*" Section : composes
+   Section "1" *-- "1..*" Action : composes
+
+— composición fuerte de profundidad fija (no recursión).
+
+**Justificación:** alineado con UC-PERM-08 PASO 7 (D-14)
+y con la naturaleza de ``Menu`` como **proyección
+generada por demanda**, no entidad jerárquica.
+
+----
+
+## D-16 — ServicioReportes: composición fuerte (cierre pendiente D-12 anterior)
+
+**Contexto:** quedaba pendiente D-12-anterior: si las
+asociaciones de delegación de ``ServicioReportes``
+debían ser composición o agregación.
+
+**Decisión:** **agregación** (``o--``) — ya aplicada en
+batch 3. Justificación final:
+
+- Los ``XxxReportService`` son inyectados por el
+  contenedor DI; tienen ciclo de vida **propio** y son
+  reutilizados por consumidores modernos directamente
+  (no solo vía la facade).
+- La facade no construye los servicios — los recibe.
+- LSP: la facade puede operar con cualquier
+  implementación de los servicios sin instanciarlos.
+
+----
+
+## D-17 — Catálogo de enums no se externaliza
+
+**Contexto:** D-14-anterior pendiente: si crear archivo
+separado para enums reutilizados entre BCs.
+
+**Decisión:** **NO** externalizar enums. Cada enum vive
+en el archivo de la clase que lo introduce
+canónicamente. Los enums realmente compartidos
+(``Severity`` entre Alerts y Audit) son redefiniciones
+locales sin relación de identidad — modelar como enums
+distintos por BC mantiene aislamiento del bounded
+context (Eric Evans, DDD).
+
+**Excepción documentada:** si en el futuro un enum
+necesita evolución coordinada (cambios atómicos en 2+
+BCs), considerar promoverlo a un módulo
+``shared-kernel``. No aplica hoy.
+
+----
+
 ## Pendientes de decisión
 
-- D-14 (futuro): si crear archivo separado para enums
-  cuando un enum es reutilizado entre BCs (ej:
-  ``AuditOutcome`` usado en Audit y RBAC).
-- D-15 (futuro): si las asociaciones de tipo "delegation"
-  de ``ServicioReportes`` deben dibujarse como
-  composición (la facade es dueña de las instancias) o
-  agregación (las instancias se inyectan). Inclinación
-  inicial: composición.
+(ninguno — WP cerrado)

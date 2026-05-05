@@ -48,8 +48,6 @@ llamado *domain* en DDD); la clase en sí se llama
  Domain "1..*" -- "1" Menu : belongs_to
  Domain "1" *-- "1..*" Section : composes
 
- Domain "0..1\nparent" -- "0..*\nchildren" Domain : nests
-
  note bottom of Section
    {ordered}
  end note
@@ -58,8 +56,9 @@ llamado *domain* en DDD); la clase en sí se llama
    "Domain" en navegacion ≠ bounded_context
    en DDD. Archivo nav-domain.rst para
    desambiguar en el filesystem.
-   Asociacion reflexiva: jerarquia
-   parent/children opcional para sub-areas.
+   Estructura plana 3 niveles fijos
+   (UC-PERM-08 PASO 7): NO hay
+   sub-Domains. BR-006 Flat NIST.
  end note
 
  @enduml
