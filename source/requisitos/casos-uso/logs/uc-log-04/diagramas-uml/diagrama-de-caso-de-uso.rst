@@ -8,18 +8,43 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "export_logs" as INVOKER
+ actor "ExportWorker" as WORKER <<sistema>>
+ actor "Storage" as STORAGE <<sistema>>
+ actor "MailboxService" as MAILBOX <<sistema>>
 
  rectangle "MOD_Logs" {
-   usecase "UC_LOG_04\nExportar Logs" as UC_LOG_04
+   usecase "UC_LOG_04\nExportar Logs (async)" as UC_LOG_04
+   usecase "Validar formato\n(jsonl | csv)" as VALIDAR_FORMATO
+   usecase "Verificar\ninclude_archive" as VERIFY_ARCHIVE
+   usecase "Encolar export\njob (202)" as ENCOLAR
+   usecase "Generar archivo" as GENERAR
+   usecase "Persistir en\nStorage" as PERSIST_FILE
+   usecase "Notificar via\nInternalMailbox" as NOTIFICAR
  }
 
  INVOKER --> UC_LOG_04
+ UC_LOG_04 ..> VALIDAR_FORMATO : <<include>>
+ UC_LOG_04 ..> VERIFY_ARCHIVE : <<include>>
+ UC_LOG_04 ..> ENCOLAR : <<include>>
+ ENCOLAR ..> GENERAR : <<include>>
+ GENERAR ..> PERSIST_FILE : <<include>>
+ GENERAR ..> NOTIFICAR : <<include>>
+
+ ENCOLAR --> WORKER
+ PERSIST_FILE --> STORAGE
+ NOTIFICAR --> MAILBOX
+
+ note bottom of UC_LOG_04
+   Async — devuelve 202 + job_id.
+   Reusa P-57/P-64/P-65/P-72.
+   Patron consistente con UC_AUD_03.
+ end note
+
+ note bottom of NOTIFICAR
+   CNST-001 NO email externo.
+   CNST-002 mailbox interno.
+   CNST-026 sin PII.
+ end note
 
  @enduml
