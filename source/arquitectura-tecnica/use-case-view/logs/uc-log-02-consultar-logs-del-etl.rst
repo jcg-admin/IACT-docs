@@ -13,9 +13,9 @@
 
 .. _at_uc_log_02_consultar_logs_del_etl:
 
-==============================
+============================================================
 UC_LOG_02 — Consultar Logs Pipeline
-==============================
+============================================================
 
 Variante de UC_LOG_01 con scope Pipeline (rename CNST-033 §8.2).
 Funcion separada P-15: ``view_pipeline_logs`` para data engineers

@@ -13,9 +13,9 @@
 
 .. _at_uc_auth_03_recuperar_contrasena:
 
-==============================
+============================================================
 UC_AUTH_03 — Recuperar Contrasena
-==============================
+============================================================
 
 User olvida password. Admin con ``reset_password`` genera password
 temporal via ``PasswordGenerator`` (TTL corto), lo entrega al destino

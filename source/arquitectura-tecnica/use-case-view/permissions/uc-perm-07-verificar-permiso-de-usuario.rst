@@ -13,9 +13,9 @@
 
 .. _at_uc_perm_07_verificar_permiso_de_usuario:
 
-==============================================
+============================================================
 UC_PERM_07 — Verificar Permiso (consulta admin)
-==============================================
+============================================================
 
 Verifica si un User especifico tiene una funcion especifica. Tiene
 dos modos: **interno** (otros UCs lo invocan via PermissionService —

@@ -13,9 +13,9 @@
 
 .. _at_uc_alr_04_ver_historial_de_alertas:
 
-==============================
+============================================================
 UC_ALR_04 — Ver Historial Alertas
-==============================
+============================================================
 
 Analiza tendencias: alertas mas frecuentes, tiempo medio de ack,
 tiempo medio de resolve. ``view_alert_history`` con period max 1 ano

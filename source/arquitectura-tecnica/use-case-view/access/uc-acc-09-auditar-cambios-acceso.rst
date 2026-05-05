@@ -13,9 +13,9 @@
 
 .. _at_uc_acc_09_auditar_cambios_acceso:
 
-==================================================
+============================================================
 UC_ACC_09 — Auditar Cambios de Acceso (vista MOD_Access)
-==================================================
+============================================================
 
 Vista de AuditEvent con scope **MOD_Access** (subset de UC_AUD_01).
 Muestra cambios de Assignments, ExceptionalPermissions, AGR vencidos.

@@ -13,9 +13,9 @@
 
 .. _at_uc_log_05_ver_logs_de_infraestructura:
 
-==============================
+============================================================
 UC_LOG_05 — Ver Logs de Infraestructura
-==============================
+============================================================
 
 Logs a nivel host: agregadores de infraestructura (node-exporter,
 fluent-bit, etc.). ``view_infrastructure_logs``. Filter por host.

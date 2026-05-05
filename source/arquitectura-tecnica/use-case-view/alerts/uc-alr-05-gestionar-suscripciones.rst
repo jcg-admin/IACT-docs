@@ -13,9 +13,9 @@
 
 .. _at_uc_alr_05_gestionar_suscripciones:
 
-==============================
+============================================================
 UC_ALR_05 — Gestionar Suscripciones
-==============================
+============================================================
 
 User suscribe/unsubscribe a reglas de alertas para recibir
 notificaciones via mailbox. ``manage_own_subscriptions`` (self) +

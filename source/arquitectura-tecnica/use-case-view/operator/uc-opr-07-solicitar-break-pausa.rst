@@ -13,9 +13,9 @@
 
 .. _at_uc_opr_07_solicitar_break_pausa:
 
-==============================
+============================================================
 UC_OPR_07 — Solicitar Break / Pausa
-==============================
+============================================================
 
 Agente solicita break (coffee, lunch, bathroom, training, meeting).
 Cada tipo tiene quota policy. Sistema transiciona estado, inicia

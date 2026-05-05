@@ -13,9 +13,9 @@
 
 .. _at_uc_log_04_exportar_logs:
 
-==============================
+============================================================
 UC_LOG_04 — Exportar Logs (async)
-==============================
+============================================================
 
 Genera archivo (jsonl/csv) con ApplicationLogs para entrega via mailbox.
 ``export_logs`` async — devuelve 202 + job_id; worker procesa.

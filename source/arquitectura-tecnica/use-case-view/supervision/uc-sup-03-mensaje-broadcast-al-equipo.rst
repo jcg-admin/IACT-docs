@@ -13,9 +13,9 @@
 
 .. _at_uc_sup_03_mensaje_broadcast_al_equipo:
 
-==============================
+============================================================
 UC_SUP_03 — Mensaje Broadcast al Equipo
-==============================
+============================================================
 
 Supervisor envia ``InternalMessage`` masivo al equipo (target=team_id
 o segment_codes). Tipos: info, warning, urgente. Urgente dispara push

@@ -13,9 +13,9 @@
 
 .. _at_uc_rpt_14_reporte_de_campanas:
 
-==============================
+============================================================
 UC_RPT_14 — Reporte de Campanas
-==============================
+============================================================
 
 Performance por campana (inbound/outbound): contacts attempted/reached,
 conversion, calls/hora, TMO, disposition mix. ``view_reports``.

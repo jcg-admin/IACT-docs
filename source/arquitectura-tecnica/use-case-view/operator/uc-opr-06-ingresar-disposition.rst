@@ -13,9 +13,9 @@
 
 .. _at_uc_opr_06_ingresar_disposition:
 
-==============================
+============================================================
 UC_OPR_06 — Ingresar Disposition
-==============================
+============================================================
 
 Tras after_call_work, agente registra disposition (resolved,
 follow_up, escalation, unreachable, do_not_call). Notes opcionales

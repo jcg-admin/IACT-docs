@@ -13,9 +13,9 @@
 
 .. _at_uc_rpt_04_exportar_reporte:
 
-==============================
+============================================================
 UC_RPT_04 — Exportar Reporte (async)
-==============================
+============================================================
 
 Genera CSV de un reporte filtrado con period + filtros aplicados.
 ``export_csv`` async — devuelve 202 + job_id; ExportWorker procesa.

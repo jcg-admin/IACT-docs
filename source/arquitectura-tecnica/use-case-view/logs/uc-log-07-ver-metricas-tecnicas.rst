@@ -13,9 +13,9 @@
 
 .. _at_uc_log_07_ver_metricas_tecnicas:
 
-==============================
+============================================================
 UC_LOG_07 — Ver Metricas Tecnicas
-==============================
+============================================================
 
 Latencias y rates por servicio/endpoint. ``view_technical_metrics``
 sobre TechnicalMetric (TSDB Prometheus-compatible). Agregados avg,

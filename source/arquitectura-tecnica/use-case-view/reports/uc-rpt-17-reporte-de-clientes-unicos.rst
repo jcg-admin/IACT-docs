@@ -13,9 +13,9 @@
 
 .. _at_uc_rpt_17_reporte_de_clientes_unicos:
 
-==============================
+============================================================
 UC_RPT_17 — Reporte de Clientes Unicos
-==============================
+============================================================
 
 Mide alcance: cuantos clientes distintos contactaron, recurrencia,
 distribucion de frecuencia. ``view_reports``. CNST-026 sin PII —

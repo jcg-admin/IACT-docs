@@ -13,9 +13,9 @@
 
 .. _at_uc_opr_01_cambiar_estado_del_agente:
 
-==============================
+============================================================
 UC_OPR_01 — Cambiar Estado del Agente
-==============================
+============================================================
 
 Agente declara disponibilidad para recibir llamadas. State machine:
 available, not_ready, break, busy, offline. Sistema usa estado para

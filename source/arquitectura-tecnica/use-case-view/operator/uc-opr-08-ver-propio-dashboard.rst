@@ -13,9 +13,9 @@
 
 .. _at_uc_opr_08_ver_propio_dashboard:
 
-==============================
+============================================================
 UC_OPR_08 — Ver Propio Dashboard
-==============================
+============================================================
 
 Vista PROPIA del agente con KPIs (Calls handled, TMO, SL personal,
 Adherence, Breaks, ranking team opt-in). Sin RBAC adicional al rol User.

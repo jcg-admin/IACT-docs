@@ -13,9 +13,9 @@
 
 .. _at_uc_perm_01_asignar_grupo_a_usuario:
 
-==============================================
+============================================================
 UC_PERM_01 — Asignar Grupo a Usuario (vista PERM)
-==============================================
+============================================================
 
 Vista PERM (governance) de la asignacion de AccessGroup a User. Misma
 funcion canonica que UC_ACC_04 (vista ACC operacional):

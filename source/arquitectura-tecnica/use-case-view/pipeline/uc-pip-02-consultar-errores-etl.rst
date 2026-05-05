@@ -13,9 +13,9 @@
 
 .. _at_uc_pip_02_consultar_errores_etl:
 
-==============================
+============================================================
 UC_PIP_02 — Consultar Errores Pipeline
-==============================
+============================================================
 
 Diagnostica pipelines failed: stack trace, error code, payload muestra
 (sin PII), correlation_id para tracing. ``view_pipeline_errors``.

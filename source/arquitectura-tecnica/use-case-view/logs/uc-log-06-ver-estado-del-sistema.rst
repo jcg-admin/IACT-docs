@@ -13,9 +13,9 @@
 
 .. _at_uc_log_06_ver_estado_del_sistema:
 
-==============================
+============================================================
 UC_LOG_06 — Ver Estado del Sistema
-==============================
+============================================================
 
 Single-pane-of-glass: agrega Servicios HTTP/DB/Queue + Dependencies +
 Pipeline summary (UC_PIP_01) + Alertas count (UC_ALR_02) en un overall

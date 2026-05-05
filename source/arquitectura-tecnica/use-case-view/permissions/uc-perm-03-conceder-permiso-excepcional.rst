@@ -13,9 +13,9 @@
 
 .. _at_uc_perm_03_conceder_permiso_excepcional:
 
-================================================
+============================================================
 UC_PERM_03 — Conceder Permiso Excepcional (vista PERM)
-================================================
+============================================================
 
 Vista PERM (governance) del grant de permisos excepcionales. Otorga
 funciones temporales con ``expires_at`` y ``justification`` obligatorios.

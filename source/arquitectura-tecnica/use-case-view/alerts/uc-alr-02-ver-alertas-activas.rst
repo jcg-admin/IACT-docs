@@ -13,9 +13,9 @@
 
 .. _at_uc_alr_02_ver_alertas_activas:
 
-==============================
+============================================================
 UC_ALR_02 — Ver Alertas Activas
-==============================
+============================================================
 
 List de ``Alert`` en estado firing/acknowledged ordenadas por severity
 + recency. Auto-refresh 10s. CNST-008 isolation: solo alertas con

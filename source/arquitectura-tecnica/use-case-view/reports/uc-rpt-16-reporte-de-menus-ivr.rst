@@ -13,9 +13,9 @@
 
 .. _at_uc_rpt_16_reporte_de_menus_ivr:
 
-==============================
+============================================================
 UC_RPT_16 — Reporte de Menus IVR
-==============================
+============================================================
 
 Identifica cuello de botella en menus IVR: total ingresos, distribucion
 por opcion del menu raiz, drop-off rate por nodo, avg time in menu,

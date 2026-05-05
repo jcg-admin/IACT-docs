@@ -13,9 +13,9 @@
 
 .. _at_uc_pip_01_supervisar_etl:
 
-==============================
+============================================================
 UC_PIP_01 — Supervisar Pipeline
-==============================
+============================================================
 
 Dashboard de salud del Pipeline (Servicio ETL): jobs running/completed/
 failed, lag por source, throughput rows/min, latencia. CNST-007

@@ -13,9 +13,9 @@
 
 .. _at_uc_perm_02_revocar_grupo_a_usuario:
 
-==============================================
+============================================================
 UC_PERM_02 — Revocar Grupo a Usuario (vista PERM)
-==============================================
+============================================================
 
 Vista PERM (governance) del revoke de AccessGroup. ``Assignment.state``
 transita ACTIVE → REVOKED preservando historial (BR-009 soft-delete).

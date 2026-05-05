@@ -13,9 +13,9 @@
 
 .. _at_uc_sup_02_barge_in_en_llamada:
 
-==============================
+============================================================
 UC_SUP_02 — Barge-in en Llamada
-==============================
+============================================================
 
 Supervisor se conecta a llamada activa en modo 3-way (audible para
 Operator y Caller). Mas sensitivo que UC_SUP_01 (silent/whisper) —

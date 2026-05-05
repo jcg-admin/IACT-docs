@@ -13,9 +13,9 @@
 
 .. _at_uc_auth_04_cambiar_contrasena:
 
-==============================
+============================================================
 UC_AUTH_04 — Cambiar Contrasena
-==============================
+============================================================
 
 User cambia su propio password. Requiere proporcionar password actual
 para verificacion + nuevo password (PasswordPolicy aplicada). Sesion

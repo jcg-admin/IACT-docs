@@ -13,9 +13,9 @@
 
 .. _at_uc_log_01_consultar_logs_del_sistema:
 
-==============================
+============================================================
 UC_LOG_01 — Consultar Logs Sistema
-==============================
+============================================================
 
 List de ApplicationLog con filtros (period, level, service).
 ``view_application_logs``. Diferencia con AuditEvent: logs son

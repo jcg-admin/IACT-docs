@@ -13,9 +13,9 @@
 
 .. _at_uc_auth_05_gestionar_sesiones:
 
-==============================
+============================================================
 UC_AUTH_05 — Gestionar Sesiones
-==============================
+============================================================
 
 User consulta sesiones activas propias (web, mobile, API) y puede
 revocar sesiones individuales (logout remoto). Tambien soporta renovar
