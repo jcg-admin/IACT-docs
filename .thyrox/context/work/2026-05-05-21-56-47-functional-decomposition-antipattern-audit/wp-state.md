@@ -2,11 +2,18 @@
 project: IACT-docs
 work_package: 2026-05-05-21-56-47-functional-decomposition-antipattern-audit
 created_at: 2026-05-05 21:56:47
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-05 22:15:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+audit_result: clean — 84/84 OK, 0 antipatrones detectados
 author: NestorMonroy
 flow: rm
-methodology_step: rm-elicitation
+methodology_step: rm-analysis
+sp01_approved_at: 2026-05-05 22:05:00
+sp01_decisions:
+  - scope: 99 archivos domain-model (67 base + 16 nuevos + index + overview)
+  - profundidad: nombres de clase Y nombres de metodos
+  - referencia_normativa: leer metodologia-oop-para-ucs.rst y citar junto a Brown 1998
 predecessor_wp: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 target: Auditar el modelo de dominio (source/arquitectura-tecnica/domain-model/* y use-case-view/*) contra el antipatron Functional Decomposition de William Brown. Detectar y reportar sintomas; proponer fixes para los hallazgos confirmados.
 related_normativa: source/normativa/estandares/metodologia-oop-para-ucs.rst (si existe)
