@@ -8,18 +8,35 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "view_data_availability" as INVOKER
+ actor "PipelineExecutionRepo" as REPO <<sistema>>
 
  rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_03\nConsultar Disponibilidad de Datos" as UC_PIP_03
+   usecase "UC_PIP_03\nConsultar Disponibilidad\nde Datos" as UC_PIP_03
+   usecase "Calcular timestamp\nultimo refresh por dataset" as ULTIMO_REFRESH
+   usecase "Listar datasets\n(CallSummary, AgentDailyStat,\nQueueDailyStat, ...)" as LIST_DATASETS
+   usecase "Marcar staleness\nthreshold (verde/rojo)" as STALENESS
  }
 
  INVOKER --> UC_PIP_03
+ UC_PIP_03 ..> LIST_DATASETS : <<include>>
+ UC_PIP_03 ..> ULTIMO_REFRESH : <<include>>
+ UC_PIP_03 ..> STALENESS : <<include>>
+
+ ULTIMO_REFRESH --> REPO
+ LIST_DATASETS --> REPO
+
+ note bottom of UC_PIP_03
+   CNST-007 read-only Analytics +
+   pipeline metadata. Util para
+   usuarios de reportes que verifican
+   disponibilidad antes de query.
+ end note
+
+ note bottom of STALENESS
+   Threshold por dataset: 24h por
+   default. Configurable en
+   futuro (out of scope).
+ end note
 
  @enduml

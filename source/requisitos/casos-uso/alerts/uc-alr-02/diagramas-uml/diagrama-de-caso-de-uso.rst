@@ -8,18 +8,36 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "view_alerts" as INVOKER
+ actor "AlertRepo" as REPO <<sistema>>
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_02\nVer Alertas Activas" as UC_ALR_02
+   usecase "Filtrar por scope\n(segmentos del User)" as FILTRAR_SCOPE
+   usecase "Filtrar por estado\n(firing | acknowledged)" as FILTRAR_ESTADO
+   usecase "Ordenar por\nseveridad + recencia" as ORDENAR
+   usecase "Auto-refresh 10s" as REFRESH <<extend>>
  }
 
  INVOKER --> UC_ALR_02
+ UC_ALR_02 ..> FILTRAR_SCOPE : <<include>>
+ UC_ALR_02 ..> FILTRAR_ESTADO : <<include>>
+ UC_ALR_02 ..> ORDENAR : <<include>>
+ REFRESH ..> UC_ALR_02 : <<extend>>
+
+ FILTRAR_SCOPE --> REPO
+ FILTRAR_ESTADO --> REPO
+
+ note bottom of FILTRAR_SCOPE
+   CNST-008 isolation: solo alertas
+   cuyo scope ⊆ segmentos del User.
+   Read-only sin auditoria de invocacion.
+ end note
+
+ note bottom of REFRESH
+   Auto-refresh 10s default —
+   mas frecuente que UC_RPT_01
+   por naturaleza operacional.
+ end note
 
  @enduml

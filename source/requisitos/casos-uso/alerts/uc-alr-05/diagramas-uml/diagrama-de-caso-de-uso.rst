@@ -8,18 +8,44 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "manage_own_subscriptions" as F_OWN
+ actor "subscribe_to_alert" as F_ADMIN
+ actor "User destino" as TARGET <<beneficiario>>
+ actor "SubscriptionRepo" as REPO <<sistema>>
+ actor "MailboxService" as MAILBOX <<sistema>>
 
  rectangle "MOD_Alerts" {
-   usecase "UC_ALR_05\nGestionar Suscripciones" as UC_ALR_05
+   usecase "UC_ALR_05\nGestionar\nSuscripciones" as UC_ALR_05
+   usecase "Validar tipo\n(rule | severity | scope)" as VALIDAR_TIPO
+   usecase "Validar scope ⊆\nsegmentos del User" as VALIDAR_SCOPE
+   usecase "Persistir\nSubscription" as PERSISTIR
+   usecase "Notificar\n(invitacion mailbox)" as NOTIFICAR
  }
 
- INVOKER --> UC_ALR_05
+ F_OWN --> UC_ALR_05
+ F_ADMIN --> UC_ALR_05
+
+ UC_ALR_05 ..> VALIDAR_TIPO : <<include>>
+ UC_ALR_05 ..> VALIDAR_SCOPE : <<include>>
+ UC_ALR_05 ..> PERSISTIR : <<include>>
+ UC_ALR_05 ..> NOTIFICAR : <<include>>
+
+ PERSISTIR --> REPO
+ NOTIFICAR --> MAILBOX
+ NOTIFICAR --> TARGET
+
+ note bottom of UC_ALR_05
+   Tipos: (a) rule_id especifica,
+   (b) severity_filter, (c) scope_filter.
+   manage_own_subscriptions = self-service.
+   subscribe_to_alert = admin/onboarding
+   gestiona suscripciones de otros.
+ end note
+
+ note bottom of NOTIFICAR
+   CNST-001 NO email externo.
+   CNST-002 mailbox interno.
+   CNST-008 isolation por scope.
+ end note
 
  @enduml
