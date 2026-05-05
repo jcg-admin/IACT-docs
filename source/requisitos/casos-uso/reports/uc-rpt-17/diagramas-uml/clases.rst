@@ -4,13 +4,9 @@
 .. uml::
 
  @startuml
- class ClientesReportService {
+ class CallerReportService {
    + get(trimestre, invoker) : ReporteClientes
  }
- class ServicioReportes {
-   + clientes(trimestre) : list[dict]
- }
  class SegmentResolver
- ClientesReportService --> ServicioReportes
- ClientesReportService --> SegmentResolver
+ CallerReportService --> SegmentResolver
  @enduml

@@ -11,7 +11,7 @@
  participant "DashboardEndpoint" as Dashboardendpoint
  participant "SegmentResolver" as Segmentresolver
  participant "MetricsCache" as Metricscache
- participant "ServicioReportes\n(sp_rpt_*)" as Servicioreportes
+ participant "ReportingService\n(sp_rpt_*)" as Servicioreportes
  participant "KPICalculator" as Kpicalculator
 
  User -> Frontend: abrir dashboard

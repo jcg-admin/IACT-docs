@@ -14,7 +14,7 @@
 .. _dm_class_transferencias_report_service:
 
 ===========================
-TransferenciasReportService
+TransferReportService
 ===========================
 
 Servicio de reporte de **transferencias entre centros**:
@@ -25,14 +25,14 @@ cuellos de botella en el routing.
 Aplica filtros de segmento (CNST-008) antes de agregar.
 
 .. uml::
- :caption: Clase TransferenciasReportService — reporte de
+ :caption: Clase TransferReportService — reporte de
            transferencias entre centros con matriz O/D.
 
  @startuml
 
  abstract class BaseReportService
 
- class TransferenciasReportService {
+ class TransferReportService {
    --
    + get(invoker : User, period : Period, \
          filters : TransferFilters) : TransferenciasReport
@@ -41,7 +41,7 @@ Aplica filtros de segmento (CNST-008) antes de agregar.
                                  period : Period) : OriginDestinationMatrix
  }
 
- BaseReportService <|-- TransferenciasReportService
+ BaseReportService <|-- TransferReportService
 
  class TransferenciasReport {
    + period : Period
@@ -72,12 +72,12 @@ Aplica filtros de segmento (CNST-008) antes de agregar.
 
  class TransferDailyStatRepo
 
- TransferenciasReportService "1" o-- "1" TransferDailyStatRepo : reads
- TransferenciasReportService "1" ..> "1" TransferenciasReport : <<returns>>
- TransferenciasReportService "1" ..> "0..*" CenterTransferStats : <<returns>>
- TransferenciasReportService "1" ..> "0..1" OriginDestinationMatrix : <<returns>>
+ TransferReportService "1" o-- "1" TransferDailyStatRepo : reads
+ TransferReportService "1" ..> "1" TransferenciasReport : <<returns>>
+ TransferReportService "1" ..> "0..*" CenterTransferStats : <<returns>>
+ TransferReportService "1" ..> "0..1" OriginDestinationMatrix : <<returns>>
 
- note right of TransferenciasReportService
+ note right of TransferReportService
    Hereda apply_segment_filter de
    BaseReportService.
    origin_destination_matrix expone

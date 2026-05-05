@@ -43,16 +43,16 @@ delegar la consulta a la subclase concreta.
  }
 
  class AgentReportService
- class AbandonoReportService
- class ClientesReportService
- class MenuIvrReportService
- class TransferenciasReportService
+ class AbandonmentReportService
+ class CallerReportService
+ class IvrNavigationReportService
+ class TransferReportService
 
  BaseReportService <|-- AgentReportService
- BaseReportService <|-- AbandonoReportService
- BaseReportService <|-- ClientesReportService
- BaseReportService <|-- MenuIvrReportService
- BaseReportService <|-- TransferenciasReportService
+ BaseReportService <|-- AbandonmentReportService
+ BaseReportService <|-- CallerReportService
+ BaseReportService <|-- IvrNavigationReportService
+ BaseReportService <|-- TransferReportService
 
  note right of BaseReportService
    Clase abstracta — no instanciable.
@@ -108,10 +108,10 @@ Trazabilidad a UCs
 - Esta clase no tiene UC propio — es el contrato común.
 - Subclases concretas (5):
   :doc:`agent-report-service`,
-  :doc:`abandono-report-service`,
-  :doc:`clientes-report-service`,
-  :doc:`menu-ivr-report-service`,
-  :doc:`transferencias-report-service`.
+  :doc:`abandonment-report-service`,
+  :doc:`caller-report-service`,
+  :doc:`ivr-navigation-report-service`,
+  :doc:`transfer-report-service`.
 
 .. note::
 

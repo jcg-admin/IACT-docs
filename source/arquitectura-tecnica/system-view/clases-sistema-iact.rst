@@ -21,7 +21,7 @@ Sistema IACT — Diagrama de Clases
 
 Los actores (grupos RBAC) acceden a los recursos del sistema
 a traves de sus clases de servicio. ``SistemaIACT`` centraliza
-la autenticacion y carga de funciones RBAC. ``ServicioReportes``
+la autenticacion y carga de funciones RBAC. ``ReportingService``
 encapsula las llamadas ``cursor.callproc(sp_rpt_*)``. La
 composicion entre ``SistemaIACT`` y ``AuditoriaAcceso`` garantiza
 que toda accion quede registrada en ``audit_log``.
@@ -45,7 +45,7 @@ que toda accion quede registrada en ``audit_log``.
    +segments_for(user_id: int): list
  }
 
- class ServicioReportes {
+ class ReportingService {
    +trimestre: str
    +segmentos: list
    +callproc(sp_name, params): list
@@ -117,11 +117,11 @@ que toda accion quede registrada en ``audit_log``.
  }
 
  SistemaIACT --> SegmentResolver : usa
- SistemaIACT --> ServicioReportes : invoca
+ SistemaIACT --> ReportingService : invoca
  SistemaIACT --> ETLEjecucion : gestiona
  DisparadorETL --> ETLEjecucion : crea
- ReporteLlamadasAbandonadas --> ServicioReportes
- ReporteTransferencias --> ServicioReportes
+ ReporteLlamadasAbandonadas --> ReportingService
+ ReporteTransferencias --> ReportingService
  AuditoriaAcceso *-- SistemaIACT
  ReintentoETL --> ETLEjecucion
  CancelEjecucionETL --> ETLEjecucion

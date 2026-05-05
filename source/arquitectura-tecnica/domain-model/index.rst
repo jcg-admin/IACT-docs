@@ -85,14 +85,13 @@ directas con otras clases del mismo bounded context.
  filter-validator
  kpi-calculator
  segment-resolver
- servicio-reportes
  base-report-service
- abandono-report-service
+ abandonment-report-service
  agent-report-service
  agent-daily-stat-repo
- clientes-report-service
- menu-ivr-report-service
- transferencias-report-service
+ caller-report-service
+ ivr-navigation-report-service
+ transfer-report-service
  scheduled-report-list-service
  scheduled-report-repo
 

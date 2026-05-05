@@ -24,7 +24,7 @@ Secuencia sp_rpt_* — Flujo Completo
  actor "view_reports" as view_reports
  participant "DashboardEndpoint\n(/api/reportes/)" as Dashboardendpoint
  participant "SegmentResolver" as Segmentresolver
- participant "ServicioReportes\n(cursor.callproc)" as Servicioreportes
+ participant "ReportingService\n(cursor.callproc)" as Servicioreportes
  database "base_ivr_detalle\nbase_ivr_clientes" as BD_IVR
 
  view_reports -> Dashboardendpoint : GET /api/reportes/?trimestre=Q1

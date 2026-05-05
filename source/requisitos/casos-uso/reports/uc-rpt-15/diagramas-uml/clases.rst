@@ -4,14 +4,9 @@
 .. uml::
 
  @startuml
- class TransferenciasReportService {
+ class TransferReportService {
    + get(trimestre, invoker) : ReporteTransferencias
  }
- class ServicioReportes {
-   + centros_transferencia(trimestre) : list[dict]
-   + centros_xsegmento(trimestre) : list[dict]
- }
  class SegmentResolver
- TransferenciasReportService --> ServicioReportes
- TransferenciasReportService --> SegmentResolver
+ TransferReportService --> SegmentResolver
  @enduml

@@ -10,7 +10,6 @@ Parte 11 — Implementacion tecnica
 - ``MenuIVRReportView`` (DRF APIView)
 - ``AuthorizationGuard``
 - ``SegmentResolver`` (``<<include>>`` UC_INC_RPT_01)
-- ``ServicioReportes``
 - ``MetricsCache``
 
 11.2 Contrato
@@ -35,38 +34,13 @@ Parte 11 — Implementacion tecnica
        cached = MetricsCache.get('menu_ivr', trimestre, vista, segmentos)
        if cached: return cached
        if vista == 'redirigidos':
-           data = ServicioReportes.menu_redirigidos(trimestre)
+           data = IvrNavigationReportService.get(trimestre)
        elif vista == 'menu_centro':
-           data = ServicioReportes.menu_centro(trimestre)
+           data = IvrNavigationReportService.menu_centro(trimestre)
        else:
-           data = ServicioReportes.cmenu_error(trimestre)
+           data = IvrNavigationReportService.cmenu_error(trimestre)
        reporte = filtrar_por_segmentos(data, segmentos)
        MetricsCache.set('menu_ivr', trimestre, vista, segmentos,
                         reporte, ttl=300)
        return reporte
 
-11.4 Implementacion ServicioReportes
-=====================================
-
-::
-
-   ServicioReportes.menu_redirigidos(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_menu_redirigidos', [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]
-
-   ServicioReportes.menu_centro(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_menu_centro', [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]
-
-   ServicioReportes.cmenu_error(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_cMENU_ERROR', [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]

@@ -14,7 +14,7 @@
 .. _dm_class_clientes_report_service:
 
 =====================
-ClientesReportService
+CallerReportService
 =====================
 
 Servicio de reporte de **clientes únicos** que llamaron en
@@ -26,14 +26,14 @@ fidelización. Aplica filtros de segmento (CNST-008) antes
 de agregar.
 
 .. uml::
- :caption: Clase ClientesReportService — reporte de
+ :caption: Clase CallerReportService — reporte de
            clientes únicos y retención.
 
  @startuml
 
  abstract class BaseReportService
 
- class ClientesReportService {
+ class CallerReportService {
    --
    + get(invoker : User, period : Period, \
          filters : ClientFilters) : ClientesReport
@@ -41,7 +41,7 @@ de agregar.
    + retention_curve(invoker : User, period : Period) : RetentionCurve
  }
 
- BaseReportService <|-- ClientesReportService
+ BaseReportService <|-- CallerReportService
 
  class ClientesReport {
    + period : Period
@@ -64,16 +64,16 @@ de agregar.
 
  class CallerDailyStatRepo
 
- ClientesReportService "1" o-- "1" CallerDailyStatRepo : reads
- ClientesReportService "1" ..> "1" ClientesReport : <<returns>>
- ClientesReportService "1" ..> "0..*" SegmentClientStats : <<returns>>
- ClientesReportService "1" ..> "0..1" RetentionCurve : <<returns>>
+ CallerReportService "1" o-- "1" CallerDailyStatRepo : reads
+ CallerReportService "1" ..> "1" ClientesReport : <<returns>>
+ CallerReportService "1" ..> "0..*" SegmentClientStats : <<returns>>
+ CallerReportService "1" ..> "0..1" RetentionCurve : <<returns>>
 
  note bottom of ClientesReport
    retention_by_month : {ordered}
  end note
 
- note right of ClientesReportService
+ note right of CallerReportService
    Hereda apply_segment_filter de
    BaseReportService. retention_curve
    mide qué porcentaje de callers del

@@ -14,7 +14,7 @@
 .. _dm_class_menu_ivr_report_service:
 
 ====================
-MenuIvrReportService
+IvrNavigationReportService
 ====================
 
 Servicio de reporte de **navegación del IVR**: cuenta
@@ -26,14 +26,14 @@ abandonadas.
 el árbol IVR. Aplica filtros de segmento (CNST-008).
 
 .. uml::
- :caption: Clase MenuIvrReportService — reporte de
+ :caption: Clase IvrNavigationReportService — reporte de
            navegación del IVR.
 
  @startuml
 
  abstract class BaseReportService
 
- class MenuIvrReportService {
+ class IvrNavigationReportService {
    --
    + get(invoker : User, period : Period, \
          filters : MenuFilters) : MenuIvrReport
@@ -41,7 +41,7 @@ el árbol IVR. Aplica filtros de segmento (CNST-008).
    + drop_off_curve(invoker : User, period : Period) : DropOffCurve
  }
 
- BaseReportService <|-- MenuIvrReportService
+ BaseReportService <|-- IvrNavigationReportService
 
  class MenuIvrReport {
    + period : Period
@@ -65,16 +65,16 @@ el árbol IVR. Aplica filtros de segmento (CNST-008).
 
  class MenuDailyStatRepo
 
- MenuIvrReportService "1" o-- "1" MenuDailyStatRepo : reads
- MenuIvrReportService "1" ..> "1" MenuIvrReport : <<returns>>
- MenuIvrReportService "1" ..> "0..*" MenuOptionStats : <<returns>>
- MenuIvrReportService "1" ..> "0..1" DropOffCurve : <<returns>>
+ IvrNavigationReportService "1" o-- "1" MenuDailyStatRepo : reads
+ IvrNavigationReportService "1" ..> "1" MenuIvrReport : <<returns>>
+ IvrNavigationReportService "1" ..> "0..*" MenuOptionStats : <<returns>>
+ IvrNavigationReportService "1" ..> "0..1" DropOffCurve : <<returns>>
 
  note bottom of MenuIvrReport
    by_option : {ordered}
  end note
 
- note right of MenuIvrReportService
+ note right of IvrNavigationReportService
    Hereda apply_segment_filter de
    BaseReportService. drop_off_curve
    agrupa por nivel del árbol IVR.

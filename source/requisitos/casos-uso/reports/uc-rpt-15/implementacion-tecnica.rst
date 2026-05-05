@@ -10,7 +10,6 @@ Parte 11 — Implementacion tecnica
 - ``TransferenciasReportView`` (DRF APIView)
 - ``AuthorizationGuard``
 - ``SegmentResolver`` (``<<include>>`` UC_INC_RPT_01)
-- ``ServicioReportes``
 - ``MetricsCache``
 
 11.2 Contrato
@@ -18,7 +17,7 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract TransferenciasReportService:
+   contract TransferReportService:
      get(trimestre, segmentos, invoker, ctx)
        returns: ReporteTransferencias
 
@@ -32,8 +31,8 @@ Parte 11 — Implementacion tecnica
        segmentos = SegmentResolver.resolve(invoker.id)
        cached = MetricsCache.get('transferencias', trimestre, segmentos)
        if cached: return cached
-       centros = ServicioReportes.centros_transferencia(trimestre)
-       centros_seg = ServicioReportes.centros_xsegmento(trimestre)
+       centros = TransferReportService.get(trimestre)
+       centros_seg = TransferReportService.by_center(trimestre)
        reporte = construir_reporte_transferencias(
            centros, centros_seg, segmentos
        )
@@ -41,23 +40,3 @@ Parte 11 — Implementacion tecnica
                         reporte, ttl=300)
        return reporte
 
-11.4 Implementacion ServicioReportes
-=====================================
-
-::
-
-   ServicioReportes.centros_transferencia(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_centros_transferencia',
-                           [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]
-
-   ServicioReportes.centros_xsegmento(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_centros_xsegmento',
-                           [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]

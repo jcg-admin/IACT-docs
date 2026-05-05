@@ -14,7 +14,7 @@
 .. _dm_class_abandono_report_service:
 
 =====================
-AbandonoReportService
+AbandonmentReportService
 =====================
 
 Servicio de reporte especializado en **llamadas
@@ -27,14 +27,14 @@ Usa el ``QueueDailyStatRepo`` (lectura) y aplica filtros
 de segmento (CNST-008) antes de agregar.
 
 .. uml::
- :caption: Clase AbandonoReportService — reporte de
+ :caption: Clase AbandonmentReportService — reporte de
            llamadas abandonadas con KPIs especializados.
 
  @startuml
 
  abstract class BaseReportService
 
- class AbandonoReportService {
+ class AbandonmentReportService {
    --
    + get(invoker : User, period : Period, \
          filters : AbandonFilters) : AbandonReport
@@ -42,7 +42,7 @@ de segmento (CNST-008) antes de agregar.
    + abandonment_curve(invoker : User, period : Period) : AbandonmentCurve
  }
 
- BaseReportService <|-- AbandonoReportService
+ BaseReportService <|-- AbandonmentReportService
 
  class AbandonReport {
    + period : Period
@@ -73,16 +73,16 @@ de segmento (CNST-008) antes de agregar.
 
  class QueueDailyStatRepo
 
- AbandonoReportService "1" o-- "1" QueueDailyStatRepo : reads
- AbandonoReportService "1" ..> "1" AbandonReport : <<returns>>
- AbandonoReportService "1" ..> "0..*" QueueAbandonStats : <<returns>>
- AbandonoReportService "1" ..> "0..1" AbandonmentCurve : <<returns>>
+ AbandonmentReportService "1" o-- "1" QueueDailyStatRepo : reads
+ AbandonmentReportService "1" ..> "1" AbandonReport : <<returns>>
+ AbandonmentReportService "1" ..> "0..*" QueueAbandonStats : <<returns>>
+ AbandonmentReportService "1" ..> "0..1" AbandonmentCurve : <<returns>>
 
  note bottom of AbandonReport
    by_interval : {ordered}
  end note
 
- note right of AbandonoReportService
+ note right of AbandonmentReportService
    Hereda apply_segment_filter de
    BaseReportService. abandonment_curve
    agrupa por WaitInterval para

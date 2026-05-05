@@ -62,7 +62,7 @@ solo por sí mismo revela el rol o nombre del participante.
    - ``as SegmentResolver``
    - 2 letras, no identificable
  * - ``as SRP``
-   - ``as ServicioReportes``
+   - ``as ReportingService``
    - acrónimo sin significado claro
  * - ``as RVG``
    - ``as view_reports``
@@ -109,7 +109,7 @@ El alias es el nombre de la clase/servicio en CamelCase, sin espacios:
    participant "AuthEndpoint" as AuthEndpoint
    participant "DashboardEndpoint" as DashboardEndpoint
    participant "SegmentResolver" as SegmentResolver
-   participant "ServicioReportes" as ServicioReportes
+   participant "ReportingService" as ReportingService
    participant "DisparadorETL" as DisparadorETL
 
 Para nombres semánticos con espacios (vistas Kruchten):

@@ -29,7 +29,7 @@ QUEUED → PROCESSING → DONE.
  actor AGR_OPERADOR
 
  participant InterfazReportes   <<frontend>>
- participant ServicioReportes   <<api>>
+ participant ReportingService   <<api>>
  participant RepositorioReport  <<repository>>
  participant ColaProcesamiento  <<queue>>
  database    AlmacenDatos       <<postgresql>>
@@ -37,38 +37,38 @@ QUEUED → PROCESSING → DONE.
  AGR_OPERADOR -> InterfazReportes : GET /reports\n?scope=AGENTS\n&from=2026-01-01
  activate InterfazReportes
 
- InterfazReportes -> ServicioReportes : filtrarReportes(scope:ReportScope.AGENTS, filtros)
- activate ServicioReportes
+ InterfazReportes -> ReportingService : filtrarReportes(scope:ReportScope.AGENTS, filtros)
+ activate ReportingService
 
- ServicioReportes -> RepositorioReport : filter(ReportScope.AGENTS, filtros)
+ ReportingService -> RepositorioReport : filter(ReportScope.AGENTS, filtros)
  activate RepositorioReport
  RepositorioReport -> AlmacenDatos : SELECT reports WHERE scope=AGENTS
  AlmacenDatos --> RepositorioReport : List<Report>
- RepositorioReport --> ServicioReportes : reportes
+ RepositorioReport --> ReportingService : reportes
  deactivate RepositorioReport
 
- ServicioReportes -> AlmacenDatos : SELECT metrics\nWHERE name IN (\n  ABANDONMENT_RATE,\n  AVG_WAIT_TIME\n)
- AlmacenDatos --> ServicioReportes : List<Metric>
+ ReportingService -> AlmacenDatos : SELECT metrics\nWHERE name IN (\n  ABANDONMENT_RATE,\n  AVG_WAIT_TIME\n)
+ AlmacenDatos --> ReportingService : List<Metric>
 
- ServicioReportes --> InterfazReportes : Report + Metric[]
- deactivate ServicioReportes
+ ReportingService --> InterfazReportes : Report + Metric[]
+ deactivate ReportingService
  InterfazReportes --> AGR_OPERADOR : dashboard
  deactivate InterfazReportes
 
  AGR_OPERADOR -> InterfazReportes : POST /reports/{id}/export\n{format:EXCEL}
  activate InterfazReportes
 
- InterfazReportes -> ServicioReportes : exportar(report_id, ExportFormat.EXCEL)
- activate ServicioReportes
+ InterfazReportes -> ReportingService : exportar(report_id, ExportFormat.EXCEL)
+ activate ReportingService
 
- ServicioReportes -> AlmacenDatos : INSERT export_jobs{\n  job_id:UUID,\n  report_id,\n  format:EXCEL,\n  state:JobState.QUEUED,\n  enqueued_at\n}
- AlmacenDatos --> ServicioReportes : ExportJob creado
+ ReportingService -> AlmacenDatos : INSERT export_jobs{\n  job_id:UUID,\n  report_id,\n  format:EXCEL,\n  state:JobState.QUEUED,\n  enqueued_at\n}
+ AlmacenDatos --> ReportingService : ExportJob creado
 
- ServicioReportes -> ColaProcesamiento : encolar(job_id)
- ColaProcesamiento --> ServicioReportes : OK
+ ReportingService -> ColaProcesamiento : encolar(job_id)
+ ColaProcesamiento --> ReportingService : OK
 
- ServicioReportes --> InterfazReportes : 202 Accepted {job_id}
- deactivate ServicioReportes
+ ReportingService --> InterfazReportes : 202 Accepted {job_id}
+ deactivate ReportingService
  InterfazReportes --> AGR_OPERADOR : job_id
 
  ... procesamiento asincrono ...
