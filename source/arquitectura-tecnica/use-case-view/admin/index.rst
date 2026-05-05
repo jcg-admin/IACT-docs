@@ -21,8 +21,8 @@ MOD_Admin — Administracion del Modelo RBAC
 
 Plano de **configuracion del modelo RBAC**: gestiona QUE funciones,
 grupos del sistema y reglas SoD EXISTEN — anterior e independiente de
-a quien se asignan (:doc:`uc-access`) o de como se verifican en runtime
-(:doc:`uc-permissions`).
+a quien se asignan (:doc:`/arquitectura-tecnica/use-case-view/access/index`) o de como se verifican en runtime
+(:doc:`/arquitectura-tecnica/use-case-view/permissions/index`).
 
 **Actor principal:** ``SystemAdmin`` (AGR-010).
 
@@ -121,13 +121,13 @@ Relacion con otros modulos
 
  * - Modulo
    - Relacion
- * - :doc:`uc-access`
+ * - :doc:`/arquitectura-tecnica/use-case-view/access/index`
    - MOD_Access lee las reglas SoD configuradas por MOD_Admin.
      UC_ACC_05 (ver reglas) consume lo que UC_ADM_01 configura.
- * - :doc:`uc-permissions`
+ * - :doc:`/arquitectura-tecnica/use-case-view/permissions/index`
    - MOD_Permissions lee el catalogo de funciones para construir
      el effective_set y el menu dinamico.
- * - :doc:`uc-audit`
+ * - :doc:`/arquitectura-tecnica/use-case-view/audit/index`
    - Toda operacion de MOD_Admin genera evento de auditoria de
      alta criticidad (cambios al modelo RBAC).
 

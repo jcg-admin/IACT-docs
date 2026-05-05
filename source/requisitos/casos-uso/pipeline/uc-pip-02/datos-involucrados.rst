@@ -12,7 +12,7 @@ Parte 7 — Datos involucrados
   para este UC.
 
 7.2 Modelo PipelineExecution (subset relevante)
-==========================================
+===============================================
 
 ::
 

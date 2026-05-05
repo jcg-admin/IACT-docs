@@ -122,7 +122,7 @@ Trazabilidad a UCs
   — verificación de permiso (consume cache).
 - :doc:`/requisitos/casos-uso/permissions/uc-perm-06/index`
   — gestión de composición (dispara invalidación).
-- :doc:`/requisitos/casos-uso/access/uc-acc-06/index`
+- :doc:`/requisitos/casos-uso/permissions/uc-perm-03/index`
   — concesión excepcional (dispara invalidación).
 
 Relaciones

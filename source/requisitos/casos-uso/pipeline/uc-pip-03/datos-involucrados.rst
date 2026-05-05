@@ -13,7 +13,7 @@ Parte 7 — Datos involucrados
   partir de PipelineExecution y el conteo de la Base Analitica IVR.
 
 7.2 Modelo PipelineExecution (subset relevante)
-==========================================
+===============================================
 
 ::
 

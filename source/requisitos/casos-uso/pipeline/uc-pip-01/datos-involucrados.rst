@@ -12,7 +12,7 @@ Parte 7 — Datos involucrados
   los ultimos registros de PipelineExecution.
 
 7.2 Modelo PipelineExecution
-=======================
+============================
 
 ::
 

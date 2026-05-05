@@ -13,9 +13,9 @@
 
 .. _dm_class_abandono_report_service:
 
-=====================
+========================
 AbandonmentReportService
-=====================
+========================
 
 Servicio de reporte especializado en **llamadas
 abandonadas**: agrega métricas de abandono (tasa, tiempo

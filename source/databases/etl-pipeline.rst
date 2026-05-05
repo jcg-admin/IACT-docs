@@ -88,7 +88,7 @@ resultado que ejecutarlo una vez.
  FROM tbl_historico_t3_2025;
 
 2.3 Tabla de tracking pipeline_runs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cada ejecucion del ETL queda registrada en ``pipeline_runs`` (tabla
 propia de IACT en MariaDB):

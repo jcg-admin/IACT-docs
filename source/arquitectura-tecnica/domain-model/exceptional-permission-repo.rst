@@ -92,9 +92,9 @@ Restricciones aplicables
 Trazabilidad a UCs
 ==================
 
-- :doc:`/requisitos/casos-uso/access/uc-acc-06/index` —
+- :doc:`/requisitos/casos-uso/permissions/uc-perm-03/index` —
   concesión excepcional (``grant``).
-- :doc:`/requisitos/casos-uso/access/uc-acc-07/index` —
+- :doc:`/requisitos/casos-uso/permissions/uc-perm-04/index` —
   revocación excepcional (``revoke``).
 - :doc:`/requisitos/casos-uso/access/uc-acc-09/index` —
   vencimiento de agrupador (cron consume

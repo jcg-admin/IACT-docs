@@ -242,10 +242,97 @@ progreso, build limpio); commit `405751c1` (fix parcial).
 
 ---
 
+## D-07 — Híbrido B+A para los 53 UC diagrams faltantes
+
+**Fecha:** 2026-05-05 17:05
+**Contexto:** Build limpio confirma 73 warnings (66 únicos):
+
+- 53 `ref.doc` UC `diagrama-de-caso-de-uso.rst` faltantes
+- 3 refs `uc-access`/`uc-permissions`/`uc-audit` rotos en `use-case-
+  view/admin/index.rst` (paths relativos incorrectos)
+- 2-3 refs UC index faltantes (`uc-acc-06/index`, `uc-acc-07/index`)
+- 7 typography warnings (Title underline/overline too short)
+
+**Decisión:** Híbrido **Nivel B (ahora) + Nivel A (después)**.
+
+### Nivel B — esta sesión
+
+1. Crear 53 stubs estructurados de `diagrama-de-caso-de-uso.rst`
+   desde `inventory.json` con marca TODO explícita:
+
+   ```rst
+   8.1 Diagrama de caso de uso
+   ===========================
+
+   .. uml::
+    :caption: UC_XXX_NN — actores y casos asociados
+
+    @startuml
+    ' TODO (use-case-view-uml07-rebuild Nivel A): completar
+    ' actores, includes/extends y notas según uc-acc-01.
+    actor "INVOKER" as INVOKER
+    rectangle "MOD_<Module>" {
+      usecase "UC_XXX_NN\n<title>" as UC_XXX_NN
+    }
+    INVOKER --> UC_XXX_NN
+    @enduml
+   ```
+
+2. Fix typography (7 archivos): ajustar underline/overline al ancho
+   del título.
+3. Fix refs cortos en `use-case-view/admin/index.rst`: cambiar
+   `uc-access` → `../access` (idem permissions, audit).
+4. Crear `uc-acc-06/index.rst` y `uc-acc-07/index.rst` (o ajustar
+   refs si esos UCs no existen).
+5. Verificar build limpio: EXIT=0, 0 warnings.
+6. Commit + push.
+7. PR #14 se vuelve verde y mergeable.
+
+### Nivel A — sesiones futuras
+
+WPs subsecuentes por módulo (`use-case-view-uml07-rebuild-batch-
+<module>`), reemplazando stubs por contenido real:
+
+1. Leer spec del UC (`caso-de-uso.rst`, `flujo-principal.rst`,
+   `flujos-alternos.rst`, `excepciones.rst`).
+2. Inferir actor INVOKER (función RBAC del UC).
+3. Inferir beneficiarios y Sistema.
+4. Inferir sub-usecases (validations, side-effects, audit emit).
+5. Definir relaciones `..> <<include>>` / `..> <<extend>>`.
+6. Agregar notas referenciando BRs/CNSTs.
+
+Orden propuesto de batches (de menor a mayor complejidad):
+admin (3) → permissions (3) → audit (4) → pipeline (4) →
+alerts (5) → caller (5) → supervision (3) → reports (9) →
+logs (7) → operator (10).
+
+**Alternativas descartadas:**
+
+- Nivel A puro: 5-10 días, bloquea `feature/arquitectura-tecnica-
+  content` y `review-project-config-V8Fg5`.
+- Nivel B puro: rápido pero deja deuda invisible (sin TODOs marcados
+  no se sabe qué hace falta).
+- Nivel C bloquear PR #14: misma duración que A puro sin valor extra.
+
+**Beneficios del híbrido:**
+
+- CI verde HOY → desbloquea integración del WP cnst-033 + uml-07
+  conformance (1455 archivos cambios reales que SÍ están listos).
+- Stubs marcados con TODO → deuda explícita, trazable, scripted-
+  detectable.
+- Nivel A se trabaja sin presión, módulo por módulo, con tiempo
+  para análisis de spec.
+
+**Refs:** `discover/build-logs/sphinx-strict-postfix-16-51.log`,
+`discover/inventory.json`, PR #14, commit `c97d7bfd`.
+
+---
+
 ## Decisiones pendientes
 
-- **D-07 (post-merge PR #14):** orden de revisión de `feature/
-  arquitectura-tecnica-content` y `claude/review-project-config-V8Fg5`.
+- **D-08 (post-merge PR #14):** orden de revisión de `feature/
+  arquitectura-tecnica-content` y `claude/review-project-config-
+  V8Fg5`.
 - **TD-NN (track separado):** vocabulario PlantUML interno
-  (ETLScheduler, sp_etl_maestro, /logs/etl/, ETLLogEndpoint) — decidir
-  si CNST-033 §8.2 lo cubre o requiere addendum.
+  (ETLScheduler, sp_etl_maestro, /logs/etl/, ETLLogEndpoint) —
+  decidir si CNST-033 §8.2 lo cubre o requiere addendum.

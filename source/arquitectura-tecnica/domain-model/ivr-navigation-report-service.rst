@@ -13,9 +13,9 @@
 
 .. _dm_class_menu_ivr_report_service:
 
-====================
+==========================
 IvrNavigationReportService
-====================
+==========================
 
 Servicio de reporte de **navegación del IVR**: cuenta
 selecciones por opción de menú, tasa de fall-through (no
