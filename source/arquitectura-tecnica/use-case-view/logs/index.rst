@@ -139,3 +139,19 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-log-01-consultar-logs-del-sistema
+ uc-log-02-consultar-logs-del-etl
+ uc-log-03-buscar-logs
+ uc-log-04-exportar-logs
+ uc-log-05-ver-logs-de-infraestructura
+ uc-log-06-ver-estado-del-sistema
+ uc-log-07-ver-metricas-tecnicas

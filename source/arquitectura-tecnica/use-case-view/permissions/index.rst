@@ -165,3 +165,22 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-perm-01-asignar-grupo-a-usuario
+ uc-perm-02-revocar-grupo-a-usuario
+ uc-perm-03-conceder-permiso-excepcional
+ uc-perm-04-revocar-permiso-excepcional
+ uc-perm-05-crear-grupo-de-permisos
+ uc-perm-06-asignar-funciones-a-grupo
+ uc-perm-07-verificar-permiso-de-usuario
+ uc-perm-08-generar-menu-dinamico
+ uc-perm-09-auditar-acceso-write-side
+ uc-perm-10-consultar-auditoria-de-permisos

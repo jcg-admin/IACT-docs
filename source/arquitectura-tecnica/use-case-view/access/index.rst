@@ -134,6 +134,22 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
    - Auditar Cambios Acceso
    - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-09/diagramas-uml/diagrama-de-caso-de-uso>`
 
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-acc-01-asignar-funciones
+ uc-acc-02-revocar-funciones
+ uc-acc-03-consultar-permisos-efectivos
+ uc-acc-04-asignar-agrupador
+ uc-acc-05-gestionar-reglas-sod
+ uc-acc-08-permiso-temporal
+ uc-acc-09-auditar-cambios-acceso
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

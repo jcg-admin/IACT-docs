@@ -153,3 +153,22 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-opr-01-cambiar-estado-del-agente
+ uc-opr-02-atender-llamada-entrante
+ uc-opr-03-realizar-llamada-saliente
+ uc-opr-04-hold-unhold-llamada
+ uc-opr-05-transferir-llamada
+ uc-opr-06-ingresar-disposition
+ uc-opr-07-solicitar-break-pausa
+ uc-opr-08-ver-propio-dashboard
+ uc-opr-09-ver-propio-historial-de-llamadas
+ uc-opr-10-recibir-notificacion-supervisor

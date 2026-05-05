@@ -213,3 +213,28 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-uc-rpt-04-exportar-reporte`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-inc-rpt-01-uc-inc-rpt-01-resolver-segmento
+ uc-rpt-01-ver-dashboard
+ uc-rpt-02-ver-metricas-en-tiempo-real
+ uc-rpt-03-ver-reportes-historicos
+ uc-rpt-04-exportar-reporte
+ uc-rpt-07-programar-reporte
+ uc-rpt-08-ver-reportes-programados
+ uc-rpt-09-configurar-filtros
+ uc-rpt-10-guardar-vista
+ uc-rpt-11-compartir-reporte
+ uc-rpt-12-reporte-de-agentes
+ uc-rpt-13-reporte-de-colas
+ uc-rpt-14-reporte-de-campanas
+ uc-rpt-15-reporte-de-transferencias
+ uc-rpt-16-reporte-de-menus-ivr
+ uc-rpt-17-reporte-de-clientes-unicos

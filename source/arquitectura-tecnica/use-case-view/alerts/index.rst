@@ -127,3 +127,17 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-alr-01-configurar-umbrales-de-alertas
+ uc-alr-02-ver-alertas-activas
+ uc-alr-03-reconocer-alerta
+ uc-alr-04-ver-historial-de-alertas
+ uc-alr-05-gestionar-suscripciones

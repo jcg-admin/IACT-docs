@@ -109,3 +109,15 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-sup-01-monitorear-llamada-whisper
+ uc-sup-02-barge-in-en-llamada
+ uc-sup-03-mensaje-broadcast-al-equipo

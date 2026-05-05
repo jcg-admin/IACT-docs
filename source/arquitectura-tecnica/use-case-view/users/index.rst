@@ -110,3 +110,16 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-usr-01-crear-usuario
+ uc-usr-02-consultar-usuarios
+ uc-usr-03-modificar-usuario
+ uc-usr-04-eliminar-usuario

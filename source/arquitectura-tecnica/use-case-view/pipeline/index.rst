@@ -120,3 +120,16 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-pip-01-supervisar-etl
+ uc-pip-02-consultar-errores-etl
+ uc-pip-03-consultar-disponibilidad-de-datos
+ uc-pip-04-solicitar-reintento-de-pipeline

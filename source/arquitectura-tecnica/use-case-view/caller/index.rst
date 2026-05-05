@@ -120,3 +120,17 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-cli-01-iniciar-llamada-al-call-center
+ uc-cli-02-navegar-ivr
+ uc-cli-03-esperar-en-cola
+ uc-cli-04-solicitar-callback
+ uc-cli-05-calificar-atencion-post-call

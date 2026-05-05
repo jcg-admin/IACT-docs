@@ -199,3 +199,15 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-adm-01-gestionar-ciclo-de-vida-de-reglas-sod
+ uc-adm-02-gestionar-catalogo-de-funciones
+ uc-adm-03-gestionar-catalogo-de-agrupadores-del-sistema

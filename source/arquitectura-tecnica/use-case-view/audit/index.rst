@@ -118,3 +118,16 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-aud-01-consultar-auditoria-general
+ uc-aud-02-buscar-auditoria
+ uc-aud-03-exportar-auditoria-async
+ uc-aud-04-generar-reporte-de-compliance

@@ -123,3 +123,17 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
 
  :doc:`/requisitos/casos-uso/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
+
+UC standalone uml-07
+====================
+
+Diagramas standalone uml-07 por UC (auto-explicativos):
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-auth-01-iniciar-sesion
+ uc-auth-02-cerrar-sesion
+ uc-auth-03-recuperar-contrasena
+ uc-auth-04-cambiar-contrasena
+ uc-auth-05-gestionar-sesiones
