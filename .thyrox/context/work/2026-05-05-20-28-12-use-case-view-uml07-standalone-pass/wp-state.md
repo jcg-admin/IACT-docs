@@ -2,16 +2,22 @@
 project: IACT-docs
 work_package: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 created_at: 2026-05-05 20:28:12
-current_phase: Phase 3 — ANALYZE
+current_phase: Phase 5 — STRATEGY
 status: Activo
 author: NestorMonroy
 flow: rm
-methodology_step: rm-analysis
+methodology_step: rm-specification
 sp01_approved_at: 2026-05-05 20:50:00
 sp01_decisions:
   - status_inicial: Vigente v1.0.0
   - actores: funciones RBAC (P-15)
   - scope_domain_model_completion: incluido
+sp_phase3_approved_at: 2026-05-05 21:05:00
+sp_phase3_decisions:
+  - clases_nuevas_aprobadas: 9 (AuthorizationGuard, BlacklistedToken, InternalMessage, PipelineExecutionRepo, MetricsCache, IdempotencyPolicy, ExpirationPolicy, PasswordGenerator, EffectivePermissionsAggregator)
+  - repos_canonicos_aprobados: 5 (UserRepo, FunctionRepo, FunctionGroupRepo, SeparationRuleRepo, AccessGroupRepo)
+  - specification_strategy_patterns: archivo separado documental
+  - orden_ejecucion: 14 archivos domain-model PRIMERO, luego 83 uml-07 standalone
 predecessor_wp: 2026-05-05-14-49-16-use-case-view-uml07-rebuild
 target: Construir 83 archivos uml-07 standalone en source/arquitectura-tecnica/use-case-view/<module>/uc-XXX-NN-<slug>.rst con funciones RBAC como actores (P-15), nombres auto-explicativos, conforme a uml-07 R-01..R-12 y BR-006 Flat NIST. Adicionalmente, completar domain-model/* con clases y métodos faltantes referenciados por los UCs.
 ```
