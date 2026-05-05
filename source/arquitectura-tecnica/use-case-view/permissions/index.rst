@@ -95,6 +95,24 @@ Lectura del diagrama
   ``UC_PERM_09 Auditar Acceso`` (P-09: audit-or-abort).
 - ``Auditor`` consulta ``UC_PERM_10`` (read-only).
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/permission-service` — PermissionService (UC_PERM_07).
+- :doc:`/arquitectura-tecnica/domain-model/permission-cache` — PermissionCache.
+- :doc:`/arquitectura-tecnica/domain-model/rbac-repo` — RbacRepo.
+- :doc:`/arquitectura-tecnica/domain-model/access-group` — AccessGroup.
+- :doc:`/arquitectura-tecnica/domain-model/access-group-function` — AccessGroupFunction (clase de asociación).
+- :doc:`/arquitectura-tecnica/domain-model/function` — Function.
+- :doc:`/arquitectura-tecnica/domain-model/function-group` — FunctionGroup (UC_PERM_05).
+- :doc:`/arquitectura-tecnica/domain-model/section` — Section.
+- :doc:`/arquitectura-tecnica/domain-model/action` — Action.
+- :doc:`/arquitectura-tecnica/domain-model/menu` — Menu (UC_PERM_08).
+- :doc:`/arquitectura-tecnica/domain-model/nav-domain` — NavDomain.
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

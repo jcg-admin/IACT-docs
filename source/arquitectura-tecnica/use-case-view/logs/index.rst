@@ -90,6 +90,18 @@ Lectura del diagrama
   vista — es capacidad transversal disparada por filtros
   del usuario.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/application-log` — ApplicationLog (UC_LOG_01).
+- :doc:`/arquitectura-tecnica/domain-model/pipeline-log` — PipelineLog (UC_LOG_02).
+- :doc:`/arquitectura-tecnica/domain-model/infrastructure-log` — InfrastructureLog (UC_LOG_05).
+- :doc:`/arquitectura-tecnica/domain-model/system-health` — SystemHealth (UC_LOG_06).
+- :doc:`/arquitectura-tecnica/domain-model/technical-metric` — TechnicalMetric (UC_LOG_07).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

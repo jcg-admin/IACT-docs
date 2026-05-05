@@ -82,6 +82,20 @@ Lectura del diagrama
 - ``Auditor`` (AGR-008) consume ``UC_ACC_09`` para
   trazar cambios de acceso (read-only).
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/assignment` — Assignment entity.
+- :doc:`/arquitectura-tecnica/domain-model/assignment-repo` — AssignmentRepo (UC_ACC_01/02/04).
+- :doc:`/arquitectura-tecnica/domain-model/exceptional-permission` — ExceptionalPermission entity.
+- :doc:`/arquitectura-tecnica/domain-model/exceptional-permission-repo` — ExceptionalPermissionRepo (UC_ACC_08).
+- :doc:`/arquitectura-tecnica/domain-model/rbac-repo` — RbacRepo.
+- :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ACC_05).
+- :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (UC_ACC_09).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

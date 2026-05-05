@@ -73,6 +73,22 @@ Lectura del diagrama
   reporte de compliance se construye sobre búsquedas
   predefinidas.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (CNST-025 append-only).
+- :doc:`/arquitectura-tecnica/domain-model/audit-service` — AuditService (P-09 audit-or-abort).
+- :doc:`/arquitectura-tecnica/domain-model/audit-repo` — AuditRepo.
+- :doc:`/arquitectura-tecnica/domain-model/audit-query-service` — AuditQueryService (UC_AUD_01/02).
+- :doc:`/arquitectura-tecnica/domain-model/audit-validator` — AuditValidator.
+- :doc:`/arquitectura-tecnica/domain-model/pii-scanner` — PiiScanner (CNST-026).
+- :doc:`/arquitectura-tecnica/domain-model/sanitizer` — Sanitizer.
+- :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` — CursorEncoder (paginación).
+- :doc:`/arquitectura-tecnica/domain-model/export-worker` — ExportWorker (UC_AUD_03).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

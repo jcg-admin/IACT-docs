@@ -68,6 +68,14 @@ Lectura del diagrama
   (BR-009): marca ``state=DELETED``, nunca borra el
   registro.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/user` — User entity (CRUD CNST + BR-009 baja lógica).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -159,6 +159,17 @@ el catalogo v5.5.0 actual):
      Requiere migracion de datos y control de versiones del
      catalogo.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/function` — Function (UC_ADM_02 catálogo).
+- :doc:`/arquitectura-tecnica/domain-model/function-group` — FunctionGroup (UC_ADM_03).
+- :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ADM_01).
+- :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (toda escritura emite evento).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -84,6 +84,15 @@ Lectura del diagrama
   reintento siempre consulta el estado actual antes de
   proceder.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` — PipelineExecution (UC_PIP_01/04).
+- :doc:`/arquitectura-tecnica/domain-model/pipeline-log` — PipelineLog (registro de ejecución).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

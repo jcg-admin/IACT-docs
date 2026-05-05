@@ -80,6 +80,22 @@ Lectura del diagrama
 - ``UC_ALR_02`` ``<<extend>>`` ``UC_ALR_03``: tras ver
   una alerta el supervisor puede reconocerla.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/alert` — Alert entity.
+- :doc:`/arquitectura-tecnica/domain-model/alert-rule` — AlertRule (UC_ALR_01).
+- :doc:`/arquitectura-tecnica/domain-model/alert-repo` — AlertRepo.
+- :doc:`/arquitectura-tecnica/domain-model/alert-hook` — AlertHook (notificación).
+- :doc:`/arquitectura-tecnica/domain-model/rule-validator` — RuleValidator.
+- :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` — EvaluatorReloader.
+- :doc:`/arquitectura-tecnica/domain-model/timing-calculator` — TimingCalculator.
+- :doc:`/arquitectura-tecnica/domain-model/threshold` — Threshold.
+- :doc:`/arquitectura-tecnica/domain-model/subscription` — Subscription.
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

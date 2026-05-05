@@ -112,6 +112,42 @@ Lectura del diagrama
   ``UC_RPT_04 Exportar`` y ``UC_RPT_07 Programar``
   (relación ``<<extend>>``).
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/base-report-service`
+  — clase abstracta raíz (template-method
+  ``apply_segment_filter`` para CNST-008).
+- :doc:`/arquitectura-tecnica/domain-model/agent-report-service`
+  (UC_RPT_12 Reporte de Agentes).
+- :doc:`/arquitectura-tecnica/domain-model/abandonment-report-service`
+  (UC_RPT_13 Reporte de Colas).
+- :doc:`/arquitectura-tecnica/domain-model/caller-report-service`
+  (UC_RPT_17 Clientes Únicos).
+- :doc:`/arquitectura-tecnica/domain-model/ivr-navigation-report-service`
+  (UC_RPT_16 Reporte de Menús IVR).
+- :doc:`/arquitectura-tecnica/domain-model/transfer-report-service`
+  (UC_RPT_15 Reporte de Transferencias).
+- :doc:`/arquitectura-tecnica/domain-model/scheduled-report-list-service`
+  (UC_RPT_07/08 programación y listado).
+- :doc:`/arquitectura-tecnica/domain-model/scheduled-report`
+  / :doc:`/arquitectura-tecnica/domain-model/scheduled-report-repo`.
+- :doc:`/arquitectura-tecnica/domain-model/kpi-calculator`
+  / :doc:`/arquitectura-tecnica/domain-model/segment-resolver`
+  / :doc:`/arquitectura-tecnica/domain-model/filter-validator`.
+- :doc:`/arquitectura-tecnica/domain-model/saved-filter`
+  (UC_RPT_09 Configurar Filtros)
+  / :doc:`/arquitectura-tecnica/domain-model/saved-view`
+  (UC_RPT_10 Guardar Vista).
+- :doc:`/arquitectura-tecnica/domain-model/historical-report`
+  / :doc:`/arquitectura-tecnica/domain-model/bucket`
+  / :doc:`/arquitectura-tecnica/domain-model/comparative`
+  / :doc:`/arquitectura-tecnica/domain-model/column-catalog`.
+- :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo`.
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

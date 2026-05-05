@@ -69,6 +69,15 @@ Lectura del diagrama
   ``UC_SUP_01 Monitorear``: la intervención requiere
   estar monitoreando previamente.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/call` — Call (UC_SUP_01 monitoreo).
+- :doc:`/arquitectura-tecnica/domain-model/user` — User (operador receptor de UC_SUP_03).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

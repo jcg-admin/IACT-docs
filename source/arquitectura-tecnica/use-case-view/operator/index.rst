@@ -93,6 +93,17 @@ Lectura del diagrama
   (``UC_OPR_04/05/06``): no se puede transferir, hold
   ni disponer si no hay una llamada atendida primero.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/user` — User (agente).
+- :doc:`/arquitectura-tecnica/domain-model/call` — Call (UC_OPR_02..06).
+- :doc:`/arquitectura-tecnica/domain-model/campaign` — Campaign (UC_OPR_03 outbound).
+- :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` — InternalMailbox (UC_OPR_10).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

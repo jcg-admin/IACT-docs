@@ -81,6 +81,17 @@ Lectura del diagrama
 - ``UC_AUTH_01`` ``<<include>>`` ``UC_PERM_08`` para
   generar el menú dinámico tras login exitoso.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/user` — User entity.
+- :doc:`/arquitectura-tecnica/domain-model/session` — Session entity.
+- :doc:`/arquitectura-tecnica/domain-model/permission-service` — PermissionService (UC_PERM_07 include).
+- :doc:`/arquitectura-tecnica/domain-model/permission-cache` — PermissionCache.
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

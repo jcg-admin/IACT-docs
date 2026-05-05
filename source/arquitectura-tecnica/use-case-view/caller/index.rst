@@ -80,6 +80,14 @@ Lectura del diagrama
   caller cuelga durante la espera, puede recibir
   callback.
 
+Implementación en domain-model
+==============================
+
+Las clases canónicas que materializan estos UCs viven en
+``source/arquitectura-tecnica/domain-model/``:
+
+- :doc:`/arquitectura-tecnica/domain-model/call` — Call (entidad creada al atender).
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`
