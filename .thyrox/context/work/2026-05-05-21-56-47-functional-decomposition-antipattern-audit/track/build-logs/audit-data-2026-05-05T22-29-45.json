@@ -3,7 +3,7 @@
     {
       "evidence": {
         "C-2": "3 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Service sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -25,9 +25,9 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -93,7 +93,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -199,14 +199,14 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
     {
       "evidence": {
         "C-2": "3 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Service sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -228,9 +228,9 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -304,7 +304,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -457,7 +457,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -573,7 +573,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -610,7 +610,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -650,7 +650,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -689,7 +689,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -724,7 +724,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -756,7 +756,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -871,7 +871,7 @@
     {
       "evidence": {
         "C-2": "3 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Service sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -893,9 +893,9 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1072,7 +1072,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1144,7 +1144,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1218,7 +1218,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1331,7 +1331,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1367,7 +1367,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1438,7 +1438,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1546,7 +1546,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1662,7 +1662,7 @@
     {
       "evidence": {
         "C-2": "3 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Service sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -1684,16 +1684,16 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
     {
       "evidence": {
         "C-2": "6 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Calculator sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -1718,9 +1718,9 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1897,7 +1897,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -1970,7 +1970,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2041,7 +2041,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2152,7 +2152,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2227,7 +2227,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2377,7 +2377,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2413,7 +2413,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2522,7 +2522,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2558,7 +2558,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2659,8 +2659,8 @@
       "pascal": "SpecificationPattern",
       "verdicts": {
         "C-1": "PASS",
-        "C-2": "REVISION",
-        "C-3": "REVISION",
+        "C-2": "REVIEW",
+        "C-3": "REVIEW",
         "C-4": "PASS",
         "C-5": "N/A"
       },
@@ -2686,8 +2686,8 @@
       "pascal": "StrategyPattern",
       "verdicts": {
         "C-1": "PASS",
-        "C-2": "REVISION",
-        "C-3": "REVISION",
+        "C-2": "REVIEW",
+        "C-3": "REVIEW",
         "C-4": "PASS",
         "C-5": "N/A"
       },
@@ -2869,14 +2869,14 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
     {
       "evidence": {
         "C-2": "3 metodos",
-        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-3": "Sin atributos pero con metodos (stateless)",
         "C-4": "Usa relaciones OOP",
         "C-5": "Sufijo Service sin declaracion explicita de pattern",
         "attr_count": 0,
@@ -2898,9 +2898,9 @@
       "verdicts": {
         "C-1": "PASS",
         "C-2": "PASS",
-        "C-3": "REVISION",
+        "C-3": "REVIEW",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },
@@ -2936,7 +2936,7 @@
         "C-2": "PASS",
         "C-3": "PASS",
         "C-4": "PASS",
-        "C-5": "REVISION"
+        "C-5": "REVIEW"
       },
       "vereditcto_global": "REVISION"
     },

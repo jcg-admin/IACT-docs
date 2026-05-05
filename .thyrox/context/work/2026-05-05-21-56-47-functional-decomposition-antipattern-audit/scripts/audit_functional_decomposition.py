@@ -1,27 +1,16 @@
 #!/usr/bin/env python3
-"""
-Functional Decomposition Antipattern Audit (William Brown 1998).
+"""Functional Decomposition (Brown 1998) audit — config-driven.
 
-Audits source/arquitectura-tecnica/domain-model/*.rst against criteria
-C-1..C-5 documented in wp-state.md.
+The script contains NO hardcoded vocabulary. All heuristics
+(forbidden prefixes, pattern suffixes, regexes, thresholds, target
+glob, exclusions) are loaded from a YAML config file.
 
 Usage:
     python3 audit_functional_decomposition.py \\
         --root <repo-root> \\
-        --out <output-json>
-
-Output: JSON with one finding per file:
-    {
-      "findings": [
-        {
-          "file": "...", "name": "...", "pascal": "...",
-          "evidence": {...},
-          "verdicts": {"C-1": "PASS|FAIL|N/A", ...},
-          "vereditcto_global": "OK|REVISION|ANTIPATRON"
-        },
-        ...
-      ]
-    }
+        --out <output-json> \\
+        --config <config-yml> \\
+        [--glob <override-glob>]
 """
 from __future__ import annotations
 
@@ -30,59 +19,26 @@ import json
 import re
 import sys
 from pathlib import Path
+from typing import Any
 
-# C-1: verbos prohibidos como prefijo (lowercase comparison)
-FORBIDDEN_VERB_PREFIXES = (
-    "calcular", "procesar", "validar", "ejecutar", "generar",
-    "realizar", "crear", "obtener", "computar",
-    "calculate", "process", "validate", "execute", "generate",
-    "compute", "get", "make", "do", "run", "handle",
-)
-
-# Sufijos de pattern legitimos (no penalizar C-1)
-PATTERN_SUFFIXES = (
-    "Repository", "Repo", "Strategy", "Policy", "Specification",
-    "Aggregator", "Generator", "Validator", "Guard", "Resolver",
-    "Calculator", "Service", "Factory", "Builder", "Adapter",
-)
-
-# C-2: metodos "funcion-like" sospechosos cuando son unicos
-SUSPECT_SINGLE_METHODS = {
-    "execute", "process", "run", "handle", "apply",
-    "ejecutar", "procesar", "correr", "compute", "calculate",
-}
-
-# C-5: declaraciones explicitas de pattern (regex case-insensitive)
-PATTERN_DECLARATIONS = [
-    (re.compile(r"\brepository\s+pattern\b", re.I), "Repository pattern"),
-    (re.compile(r"\bstrategy\s+pattern\b", re.I), "Strategy pattern"),
-    (re.compile(r"\bspecification\s+pattern\b", re.I), "Specification pattern"),
-    (re.compile(r"\bdomain\s+service\b", re.I), "Domain Service"),
-    (re.compile(r"\bvalue\s+object\b", re.I), "Value Object"),
-    (re.compile(r"\baggregate\s+root\b", re.I), "Aggregate Root"),
-    (re.compile(r"\bfactory\s+pattern\b", re.I), "Factory pattern"),
-    (re.compile(r"\bpolicy\s+pattern\b", re.I), "Policy pattern"),
-    (re.compile(r"\bguard\s+pattern\b", re.I), "Guard pattern"),
-    (re.compile(r"\bpure\s+function\b", re.I), "Pure Function"),
-    (re.compile(r"\bstateless\b.*\bstrategy\b", re.I), "Stateless Strategy"),
-]
+try:
+    import yaml
+except ImportError:  # pragma: no cover
+    sys.stderr.write(
+        "PyYAML is required: pip install pyyaml\n"
+    )
+    sys.exit(2)
 
 
-def kebab_to_pascal(name: str) -> str:
-    return "".join(part.capitalize() for part in name.split("-"))
+def load_config(path: Path) -> dict[str, Any]:
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
 def extract_plantuml_blocks(text: str) -> list[str]:
-    """Extract @startuml..@enduml blocks."""
     return re.findall(r"@startuml(.*?)@enduml", text, re.S)
 
 
-def parse_class_block(uml: str) -> dict:
-    """Parse first `class Name { ... }` block found.
-
-    Returns dict with: class_name, methods (list[str]), attrs (list[str]),
-    static_methods (list[str]), has_inheritance, has_relations, class_count.
-    """
+def parse_class_block(uml: str) -> dict[str, Any]:
     classes = re.findall(
         r"class\s+(\w+)\s*(?:<<[^>]+>>\s*)?\{([^}]*)\}", uml, re.S
     )
@@ -100,18 +56,17 @@ def parse_class_block(uml: str) -> dict:
         line = raw.strip()
         if not line or line.startswith(("--", "==", "..")):
             continue
-        # eliminar prefijos de visibilidad
         m = re.match(r"^[+\-#~]\s*(\{static\}\s*)?(.+)$", line)
         if not m:
             continue
         is_static = bool(m.group(1))
         rest = m.group(2).strip()
-        if "(" in rest:  # method
+        if "(" in rest:
             name = rest.split("(", 1)[0].strip()
             methods.append(name)
             if is_static:
                 static_methods.append(name)
-        else:  # attribute
+        else:
             name = rest.split(":", 1)[0].strip()
             attrs.append(name)
     return {
@@ -123,56 +78,73 @@ def parse_class_block(uml: str) -> dict:
     }
 
 
-def detect_pattern_declaration(text: str) -> str | None:
-    for regex, label in PATTERN_DECLARATIONS:
-        if regex.search(text):
-            return label
+def kebab_to_pascal(name: str) -> str:
+    return "".join(part.capitalize() for part in name.split("-"))
+
+
+def detect_pattern_declaration(text: str, decls: list[dict]) -> str | None:
+    for entry in decls:
+        if re.search(entry["regex"], text, re.I):
+            return entry["label"]
     return None
 
 
-def detect_pattern_suffix(class_name: str | None) -> str | None:
+def detect_pattern_suffix(class_name: str | None,
+                          suffixes: list[str]) -> str | None:
     if not class_name:
         return None
-    for suf in PATTERN_SUFFIXES:
+    for suf in suffixes:
         if class_name.endswith(suf):
             return suf
     return None
 
 
-def evaluate_c1(class_name: str | None, pattern_suffix: str | None) -> str:
+def evaluate_c1(class_name: str | None,
+                pattern_suffix: str | None,
+                forbidden: list[str]) -> str:
     if not class_name:
         return "N/A"
     lower = class_name.lower()
-    for verb in FORBIDDEN_VERB_PREFIXES:
-        if lower.startswith(verb):
-            # excepcion: si tambien tiene sufijo de pattern, REVISION
-            return "REVISION" if pattern_suffix else "FAIL"
+    for verb in forbidden:
+        if lower.startswith(verb.lower()):
+            return "REVIEW" if pattern_suffix else "FAIL"
     return "PASS"
 
 
-def evaluate_c2(parsed: dict) -> tuple[str, str]:
+def evaluate_c2(parsed: dict, suspect: list[str],
+                thresholds: dict) -> tuple[str, str]:
     methods, attrs = parsed["methods"], parsed["attrs"]
-    if len(methods) >= 2:
+    if len(methods) >= thresholds["min_methods_for_pass"]:
         return "PASS", f"{len(methods)} metodos"
-    if len(methods) == 1 and len(attrs) >= 3:
-        return "PASS", f"1 metodo + {len(attrs)} atributos (entity con state)"
-    if len(methods) == 1 and methods[0].lower() in SUSPECT_SINGLE_METHODS \
-            and len(attrs) == 0:
-        return "REVISION", f"1 metodo sospechoso ({methods[0]}) sin state"
+    if (len(methods) == 1
+            and len(attrs) >= thresholds["min_attrs_when_one_method"]):
+        return "PASS", (
+            f"1 metodo + {len(attrs)} atributos (entity con state)"
+        )
+    suspect_lower = {s.lower() for s in suspect}
+    if (len(methods) == 1 and methods[0].lower() in suspect_lower
+            and len(attrs) == 0):
+        return "REVIEW", f"1 metodo sospechoso ({methods[0]}) sin state"
     if len(methods) == 1:
-        return "REVISION", f"1 metodo ({methods[0]}), {len(attrs)} atributos"
-    if len(methods) == 0 and len(attrs) >= 1:
+        return "REVIEW", (
+            f"Solo 1 metodo: '{methods[0]}'"
+        )
+    if (len(methods) == 0
+            and len(attrs) >= thresholds["min_attrs_when_zero_methods"]):
         return "PASS", "Sin metodos (entity con solo atributos)"
-    return "REVISION", "Sin metodos ni atributos significativos"
+    return "REVIEW", "Sin metodos ni atributos significativos"
 
 
 def evaluate_c3(parsed: dict, pattern_decl: str | None) -> tuple[str, str]:
     if len(parsed["attrs"]) >= 1:
         return "PASS", f"{len(parsed['attrs'])} atributos"
-    if pattern_decl and ("Strategy" in pattern_decl
-                         or "Pure Function" in pattern_decl):
+    if pattern_decl and (
+        "Strategy" in pattern_decl or "Pure Function" in pattern_decl
+    ):
         return "PASS", f"Stateless legitimo ({pattern_decl})"
-    return "REVISION", "Stateless sin declaracion de Strategy/Pure"
+    if len(parsed["methods"]) >= 1:
+        return "REVIEW", "Sin atributos pero con metodos (stateless)"
+    return "REVIEW", "Stateless sin declaracion de Strategy/Pure"
 
 
 def evaluate_c4(parsed: dict) -> tuple[str, str]:
@@ -186,8 +158,9 @@ def evaluate_c5(pattern_suffix: str | None,
     if pattern_suffix and pattern_decl:
         return "PASS", f"Declara pattern: {pattern_decl}"
     if pattern_suffix and not pattern_decl:
-        return "REVISION", \
+        return "REVIEW", (
             f"Sufijo {pattern_suffix} sin declaracion explicita de pattern"
+        )
     if not pattern_suffix and pattern_decl:
         return "PASS", f"Declara pattern: {pattern_decl}"
     return "N/A", "Sin sufijo de pattern"
@@ -197,12 +170,13 @@ def aggregate_verdict(verdicts: dict[str, str]) -> str:
     values = list(verdicts.values())
     if any(v == "FAIL" for v in values):
         return "ANTIPATRON"
-    if any(v == "REVISION" for v in values):
+    if any(v == "REVIEW" for v in values):
         return "REVISION"
     return "OK"
 
 
-def audit_file(path: Path, repo_root: Path) -> dict:
+def audit_file(path: Path, repo_root: Path,
+               cfg: dict[str, Any]) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     blocks = extract_plantuml_blocks(text)
     uml = "\n".join(blocks) if blocks else ""
@@ -210,11 +184,15 @@ def audit_file(path: Path, repo_root: Path) -> dict:
     name = path.stem
     pascal = parsed["class_name"] or kebab_to_pascal(name)
 
-    pattern_suffix = detect_pattern_suffix(pascal)
-    pattern_decl = detect_pattern_declaration(text)
+    pattern_suffix = detect_pattern_suffix(pascal, cfg["pattern_suffixes"])
+    pattern_decl = detect_pattern_declaration(
+        text, cfg["c5_pattern_declarations"]
+    )
 
-    c1 = evaluate_c1(pascal, pattern_suffix)
-    c2, c2_evi = evaluate_c2(parsed)
+    c1 = evaluate_c1(pascal, pattern_suffix, cfg["c1_forbidden_verb_prefixes"])
+    c2, c2_evi = evaluate_c2(
+        parsed, cfg["c2_suspect_single_methods"], cfg["c2_thresholds"]
+    )
     c3, c3_evi = evaluate_c3(parsed, pattern_decl)
     c4, c4_evi = evaluate_c4(parsed)
     c5, c5_evi = evaluate_c5(pattern_suffix, pattern_decl)
@@ -245,16 +223,21 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", required=True, type=Path)
     ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--config", required=True, type=Path)
     ap.add_argument(
-        "--glob", default="source/arquitectura-tecnica/domain-model/*.rst",
+        "--glob", default=None,
+        help="override target.glob from config",
     )
     args = ap.parse_args()
 
-    files = sorted(args.root.glob(args.glob))
-    skip = {"index.rst", "overview.rst"}
+    cfg = load_config(args.config)
+    glob = args.glob or cfg["target"]["glob"]
+    skip = set(cfg["target"].get("exclude_basenames", []))
+
+    files = sorted(args.root.glob(glob))
     files = [f for f in files if f.name not in skip]
 
-    findings = [audit_file(f, args.root) for f in files]
+    findings = [audit_file(f, args.root, cfg) for f in files]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(
         json.dumps({"findings": findings}, indent=2, sort_keys=True,
@@ -265,10 +248,12 @@ def main() -> int:
     counts = {"OK": 0, "REVISION": 0, "ANTIPATRON": 0}
     for f in findings:
         counts[f["vereditcto_global"]] += 1
-    print(f"Total: {len(findings)}  "
-          f"OK: {counts['OK']}  "
-          f"REVISION: {counts['REVISION']}  "
-          f"ANTIPATRON: {counts['ANTIPATRON']}")
+    print(
+        f"Total: {len(findings)}  "
+        f"OK: {counts['OK']}  "
+        f"REVISION: {counts['REVISION']}  "
+        f"ANTIPATRON: {counts['ANTIPATRON']}"
+    )
     return 0
 
 

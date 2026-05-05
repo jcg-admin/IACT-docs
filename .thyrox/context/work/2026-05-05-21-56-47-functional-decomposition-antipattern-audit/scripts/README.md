@@ -19,19 +19,37 @@ re-ejecutable y verificable.
 
 | Script | Proposito | Output |
 |---|---|---|
-| `audit_functional_decomposition.py` | Auditor principal — aplica C-1..C-5 sobre 84 archivos `domain-model/*.rst` | `audit-data.json` |
-| `report_from_audit_data.py` | Genera reporte agregado (counts, distribucion, top patterns) desde el JSON | resumen markdown a stdout |
-| `run-audit.sh` | Wrapper de ejecucion + redireccion a build-logs ISO 8601 | log en `track/build-logs/` |
+| `audit-config.yml` | Heuristicas externas (verbos, sufijos, regex C-5, thresholds, glob, exclusiones) | — |
+| `audit_functional_decomposition.py` | Auditor principal config-driven — aplica C-1..C-5 sobre archivos `*.rst` | `<out>.json` |
+| `report_from_audit_data.py` | Genera reporte agregado desde el JSON | resumen markdown a stdout |
+| `run-audit.sh` | Runner parametrico (repo + WP) con persistencia de log ISO 8601 | log y json en `<wp>/track/build-logs/` |
+
+**Sin valores hardcoded:** `run-audit.sh` recibe `<repo-root>` y
+`<wp-dir>` como argumentos. `audit_functional_decomposition.py`
+recibe `--root`, `--out`, `--config`. Toda heuristica vive en
+`audit-config.yml` y es modificable sin tocar codigo.
 
 ## Como reproducir el audit
 
 ```bash
-WP=.thyrox/context/work/2026-05-05-21-56-47-functional-decomposition-antipattern-audit
-cd "$(git rev-parse --show-toplevel)"
-bash "$WP/scripts/run-audit.sh"
+REPO=$(git rev-parse --show-toplevel)
+WP="$REPO/.thyrox/context/work/2026-05-05-21-56-47-functional-decomposition-antipattern-audit"
+bash "$WP/scripts/run-audit.sh" "$REPO" "$WP"
 # Output:
-#   - $WP/analyze/audit-data.json (regenerado)
-#   - $WP/track/build-logs/audit-run-<ISO>.log
+#   $WP/track/build-logs/audit-run-<ISO>.log
+#   $WP/track/build-logs/audit-data-<ISO>.json
+```
+
+Para auditar otra carpeta o glob:
+
+```bash
+bash "$WP/scripts/run-audit.sh" "$REPO" "$WP" "src/domain/*.py"
+```
+
+Para auditar otro proyecto (mismas heuristicas):
+
+```bash
+bash /path/to/this/scripts/run-audit.sh /path/to/other-repo /path/to/other-wp
 ```
 
 ## Heuristicas implementadas
