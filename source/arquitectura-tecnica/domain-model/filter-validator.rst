@@ -4,10 +4,10 @@
  :dominio: arquitectura_tecnica
  :subdominio: DomainModel
  :bounded_context: Reports
- :estado: Pendiente
- :version: 0.1.0
+ :estado: Vigente
+ :version: 1.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -17,18 +17,87 @@
 FilterValidator
 ===============
 
-Validador de SavedFilter contra segmentos y permisos del usuario.
+Valida un ``SavedFilter`` contra el ``Segment`` del usuario
+y el ``ColumnCatalog`` del reporte destino. Detecta tres
+clases de invalidez:
 
-.. TODO: Pendiente de desarrollo — agregar atributos canonicos, enums propios y
-   relaciones completas.
+1. **Estructural** — clausula con operador incompatible
+   con el tipo de la columna.
+2. **Catálogo** — referencia a columna que no existe
+   para el ``ReportType``.
+3. **Autorización** — referencia a entidad fuera del
+   segmento del usuario (CNST-008).
+
+Marca el filtro como ``is_invalid`` si alguna validación
+falla, con detalle por clausula.
 
 .. uml::
- :caption: Clase FilterValidator — stub pendiente de desarrollo.
+ :caption: Clase FilterValidator — validación estructural
+           + catálogo + autorización de SavedFilter.
 
  @startuml
 
  class FilterValidator {
-  + validate(filter, user_segments)
+   - column_catalog : ColumnCatalog
+   - segment_resolver : SegmentResolver
+   --
+   + validate(filter : SavedFilter, user_id : UUID) : FilterValidationReport
+   + validate_structure(clause : FilterClause, column_spec : ColumnSpec) : List<ValidationError>
+   + validate_catalog(filter : SavedFilter) : List<ValidationError>
+   + validate_authorization(filter : SavedFilter, segment : Segment) : List<ValidationError>
  }
 
+ class FilterValidationReport {
+   + ok : Boolean
+   + errors_by_clause : Map<Integer, List<ValidationError>>
+   --
+   + has_errors() : Boolean
+   + first_error() : ValidationError
+ }
+
+ class ValidationError {
+   + code : ErrorCode
+   + clause_index : Integer
+   + message : String
+ }
+
+ enum ErrorCode {
+   OPERATOR_TYPE_MISMATCH
+   COLUMN_UNKNOWN
+   COLUMN_NOT_APPLICABLE
+   ENTITY_OUT_OF_SCOPE
+   VALUE_INVALID
+ }
+
+ class ColumnCatalog
+ class SegmentResolver
+ class SavedFilter
+
+ FilterValidator o-- ColumnCatalog : reads
+ FilterValidator o-- SegmentResolver : reads
+ FilterValidator ..> SavedFilter : validates
+ FilterValidator ..> FilterValidationReport : returns
+ FilterValidationReport *-- "*" ValidationError
+ ValidationError -- ErrorCode
+
+ note right of FilterValidator
+   3 capas separadas (estructura,
+   catalogo, autorizacion). Permite
+   reportar errores agrupados por
+   capa al UI.
+ end note
+
  @enduml
+
+Trazabilidad a UCs
+==================
+
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-09/index`
+  — configurar filtros (validación previa a save).
+
+Relaciones
+==========
+
+- Agregación con ``ColumnCatalog`` y ``SegmentResolver``.
+- Valida ``SavedFilter``.
+- Devuelve ``FilterValidationReport``.

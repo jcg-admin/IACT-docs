@@ -4,10 +4,10 @@
  :dominio: arquitectura_tecnica
  :subdominio: DomainModel
  :bounded_context: Reports
- :estado: Pendiente
- :version: 0.1.0
+ :estado: Vigente
+ :version: 1.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -17,18 +17,89 @@
 AbandonoReportService
 =====================
 
-Servicio de reporte de llamadas abandonadas por trimestre.
+Servicio de reporte especializado en **llamadas
+abandonadas**: agrega métricas de abandono (tasa, tiempo
+medio antes del abandono, distribución por intervalo de
+espera) sobre un período. Particularmente útil para
+detectar SLA breaches y dimensionar staffing.
 
-.. TODO: Pendiente de desarrollo — agregar atributos canonicos, enums propios y
-   relaciones completas.
+Usa el ``QueueDailyStatRepo`` (lectura) y aplica filtros
+de segmento (CNST-008) antes de agregar.
 
 .. uml::
- :caption: Clase AbandonoReportService — stub pendiente de desarrollo.
+ :caption: Clase AbandonoReportService — reporte de
+           llamadas abandonadas con KPIs especializados.
 
  @startuml
 
  class AbandonoReportService {
-  + get(trimestre, invoker) : ReporteAbandono
+   - queue_stat_repo : QueueDailyStatRepo
+   - kpi_calculator : KPICalculator
+   - segment_resolver : SegmentResolver
+   --
+   + get(invoker : User, period : Period, \
+         filters : AbandonFilters) : AbandonReport
+   + by_queue(invoker : User, period : Period) : List<QueueAbandonStats>
+   + abandonment_curve(invoker : User, period : Period) : AbandonmentCurve
  }
 
+ class AbandonReport {
+   + period : Period
+   + total_offered : Integer
+   + total_abandoned : Integer
+   + abandonment_rate : Double
+   + average_wait_before_abandon : Duration
+   + by_interval : Map<WaitInterval, Integer>
+ }
+
+ class QueueAbandonStats {
+   + queue_id : UUID
+   + abandonment_rate : Double
+   + worst_hour : DateTime
+ }
+
+ class AbandonmentCurve {
+   + buckets : List<Bucket>
+ }
+
+ enum WaitInterval {
+   UNDER_5S
+   FROM_5S_TO_10S
+   FROM_10S_TO_30S
+   FROM_30S_TO_60S
+   OVER_60S
+ }
+
+ class QueueDailyStatRepo
+ class KPICalculator
+ class SegmentResolver
+
+ AbandonoReportService o-- QueueDailyStatRepo : reads
+ AbandonoReportService *-- KPICalculator : composes
+ AbandonoReportService o-- SegmentResolver : reads
+ AbandonoReportService ..> AbandonReport : returns
+ AbandonoReportService ..> QueueAbandonStats : returns
+ AbandonoReportService ..> AbandonmentCurve : returns
+
+ note right of AbandonoReportService
+   abandonment_curve agrupa abandonos
+   por intervalo de espera para
+   identificar el "punto critico".
+ end note
+
  @enduml
+
+Trazabilidad a UCs
+==================
+
+Reporte derivado del cluster ``uc-rpt-*``. Reutilizado por
+dashboards y reportes históricos cuando filtran por
+abandono.
+
+Relaciones
+==========
+
+- Agregación con ``QueueDailyStatRepo`` y
+  ``SegmentResolver``.
+- Composición con ``KPICalculator``.
+- Devuelve DTOs especializados.
