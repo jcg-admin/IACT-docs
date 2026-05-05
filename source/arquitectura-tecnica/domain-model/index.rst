@@ -36,24 +36,34 @@ directas con otras clases del mismo bounded context.
  :caption: BC Auth — Autenticacion
 
  user
+ user-repo
  session
  internal-mailbox
+ internal-message
+ blacklisted-token
+ password-generator
 
 .. toctree::
  :maxdepth: 1
  :caption: BC RBAC — Control de Acceso
 
  function
+ function-repo
  function-group
+ function-group-repo
  access-group
+ access-group-repo
  access-group-function
  assignment
+ assignment-repo
  exceptional-permission
+ exceptional-permission-repo
  separation-rule
+ separation-rule-repo
  permission-service
  permission-cache
- assignment-repo
- exceptional-permission-repo
+ effective-permissions-aggregator
+ authorization-guard
  rbac-repo
  rule-validator
  menu
@@ -100,6 +110,7 @@ directas con otras clases del mismo bounded context.
  :caption: BC Pipeline
 
  pipeline-execution
+ pipeline-execution-repo
 
 .. toctree::
  :maxdepth: 1
@@ -138,3 +149,18 @@ directas con otras clases del mismo bounded context.
  infrastructure-log
  system-health
  technical-metric
+
+.. toctree::
+ :maxdepth: 1
+ :caption: BC CrossCutting — Politicas y caches
+
+ idempotency-policy
+ expiration-policy
+ metrics-cache
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Patrones documentales
+
+ specification-pattern
+ strategy-pattern

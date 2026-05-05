@@ -2,11 +2,17 @@
 project: IACT-docs
 work_package: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 created_at: 2026-05-05 20:28:12
-current_phase: Phase 8 — PLAN EXECUTION
+current_phase: Phase 10 — EXECUTE
 status: Activo
 author: NestorMonroy
 flow: rm
-methodology_step: rm-specification
+methodology_step: rm-management
+sp_phase8_approved_at: 2026-05-05 21:50:00
+sp_phase8_decisions:
+  - std012_ubicacion: opcion 2 (auto-explicativo flat) — target del WP
+  - std012_actualizar_versiones: pendiente WP futuro v1.1.0
+  - std011_aliases: alias = label exacto, sin abreviar
+  - ejecutar_loop: aprobado
 sp01_approved_at: 2026-05-05 20:50:00
 sp01_decisions:
   - status_inicial: Vigente v1.0.0
