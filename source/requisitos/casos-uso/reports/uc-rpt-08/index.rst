@@ -28,7 +28,7 @@ del User. Vista CRUD de UC_RPT_07.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_scheduled_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================
@@ -44,7 +44,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

@@ -35,7 +35,7 @@ con RBAC granular distinto (P-15):
 
 - **Lectura** con ``view_separation_rules``:
   listar y ver detalle de reglas SoD.
-- **Gestion** con ``manage_separation_rules``:
+- **Gestion** con ``view_separation_rules``:
   crear, modificar, retirar reglas (CRUD).
 
 Las reglas configuradas por este UC son
@@ -59,10 +59,10 @@ excepcionales) al validar SoD write-time.
  * - **Actor Principal**
    - User con funcion
      ``view_separation_rules`` (lectura) y/o
-     ``manage_separation_rules`` (CRUD)
+     ``view_separation_rules`` (CRUD)
  * - **Funciones RBAC**
    - ``view_separation_rules``,
-     ``manage_separation_rules``
+     ``view_separation_rules``
  * - **BReq satisfecho**
    - BReq-004
  * - **BRQ legacy**
@@ -92,7 +92,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

@@ -45,7 +45,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker con manage_separation_rules
+   GIVEN invoker con view_separation_rules
      AND payload valido
    WHEN  create
    THEN  SoDRule ACTIVE creada
@@ -147,7 +147,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin manage_separation_rules
+   GIVEN invoker sin view_separation_rules
    WHEN  create / modify / retire
    THEN  raise SinPermiso
 
@@ -301,7 +301,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN admin con manage_separation_rules
+   GIVEN admin con view_separation_rules
    WHEN  define functions, descripcion,
          severity, click Crear
    THEN  toast confirma con violations_count

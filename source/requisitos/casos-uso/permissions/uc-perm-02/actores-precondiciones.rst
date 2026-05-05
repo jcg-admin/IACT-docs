@@ -7,7 +7,7 @@ Parte 2 — Actores, precondiciones y postcondiciones
 2.1 Actor Principal
 ===================
 
-**User con funcion** ``revoke_function_groups``
+**User con funcion** ``revoke_function_group``
 (P-15 RBAC granular distinta de
 ``assign_function_groups``).
 
@@ -34,7 +34,7 @@ Adicional vista PERM:
 Identicas a UC_ACC_02 sobre Assignment AGR:
 
 - Backend respondiendo, BD accesible.
-- Invocante con ``revoke_function_groups``.
+- Invocante con ``revoke_function_group``.
 - User destino existe, no ELIMINATED.
 - Existe Assignment ACTIVE
   (target_type='AccessGroup',

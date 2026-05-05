@@ -124,7 +124,7 @@ trazabilidad de acciones en el sistema.
    - Registra login/logout
  * - MOD_Audit
    - Almacena y consulta logs
- * - Middleware DRF
+ * - Middleware de API
    - Captura todas las operaciones
 
 ----

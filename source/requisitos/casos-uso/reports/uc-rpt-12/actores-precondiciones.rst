@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``view_agent_reports``
+  ``view_reports``
 - **AnalyticsRepo**
 - **MetricsCache**
 

@@ -256,12 +256,11 @@ PASOS 11-13 dentro de transaccion atomica:
 
    BEGIN
      # PASO 10 ya valido SoD (lectura)
-     INSERT INTO assignment ...; -- N filas
+     registrar en assignment ...; -- N filas
      -- (cache invalidation en PASO 12 fuera
      --  de la tx para evitar lock)
-     INSERT INTO audit_event (
-       event_type='FUNCTIONS_ASSIGNED', ...);
-     [opcional] INSERT INTO internal_message;
+     registrar en audit_event (...);
+     [opcional] registrar en internal_message;
    COMMIT
 
    -- PASO 12 cache invalidation post-COMMIT

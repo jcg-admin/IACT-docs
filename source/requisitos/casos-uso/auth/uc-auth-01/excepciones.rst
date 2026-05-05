@@ -47,7 +47,7 @@ EX-02: Password incorrecto
  :header-rows: 0
 
  * - **Activador**
-   - PASO 9 — ``bcrypt.check_password()`` retorna
+   - PASO 9 — ``verificarHash()`` retorna
      ``False``
  * - **Status HTTP**
    - 401 Unauthorized
@@ -161,7 +161,7 @@ EX-06: Datos malformados
  :header-rows: 0
 
  * - **Activador**
-   - PASO 5 — DRF Serializer rechaza el body
+   - PASO 5 — plataforma de API Serializer rechaza el body
      (campo faltante, tipo invalido, longitud
      fuera de rango)
  * - **Status HTTP**

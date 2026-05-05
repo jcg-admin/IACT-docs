@@ -28,7 +28,7 @@ Stack
 Modulos arquitectonicos
 =======================
 
-El backend implementa los 8 modulos definidos en
+El backend implementa los 12 modulos definidos en
 :doc:`/arquitectura-tecnica/modulos/index`:
 
 - AUTH — autenticacion y sesion
@@ -47,7 +47,7 @@ Aspectos cubiertos por esta documentacion:
 
 - **Settings** — configuracion por entorno (dev, staging, prod).
 - **Apps** — descomposicion por dominio funcional alineada con
-  los 8 modulos arquitectonicos.
+  los 12 modulos arquitectonicos.
 - **Middleware** — pipeline de procesamiento de request/response.
 - **URLs** — convenciones de routing y versionado de API.
 - **Serializers / ViewSets / Permisos** — capas DRF.

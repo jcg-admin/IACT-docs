@@ -32,8 +32,8 @@ INACTIVE, BLOCKED}.
 
 Sub-tipos del Usuario por ``AccessGroup``
 asignado (catalogo canonico de
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
-v5.4.0 lineas 1090-1135):
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
+v5.5.0 lineas 1090-1135):
 
 .. list-table::
  :widths: 18 30 52
@@ -86,7 +86,7 @@ iniciarla.
 2.2 Actores Secundarios
 =======================
 
-2.2.1 Sistema (Backend Django)
+2.2.1 Sistema (Backend)
 ------------------------------
 
 .. list-table::
@@ -99,17 +99,17 @@ iniciarla.
    - Validacion automatica + persistencia +
      auditoria
  * - **Responsabilidades**
-   - Recibir request HTTPS, validar via DRF
+   - Recibir request HTTPS, validar via plataforma de API
      Serializer (CNST-012), aplicar throttling
      (CNST-011), buscar ``User`` en BD, verificar
-     password (bcrypt), aplicar CNST-004 sesion
+     password (hash criptografico), aplicar CNST-004 sesion
      unica (invalidar Sessions previas del User),
      crear ``Session`` (CNST-003), generar tokens
      JWT, emitir AuditEvent LOGIN (CNST-025),
      retornar respuesta JSON estandar (CNST-013).
 
-2.2.2 Base de datos analitica (MySQL)
--------------------------------------
+2.2.2 Base de datos analitica (Base de Datos)
+---------------------------------------------
 
 .. list-table::
  :widths: 25 75
@@ -149,8 +149,8 @@ iniciarla.
      ``User``;
      3) NO usar email externo (CNST-001).
 
-2.2.4 Frontend (React)
-----------------------
+2.2.4 Interfaz de Usuario
+-------------------------
 
 .. list-table::
  :widths: 25 75
@@ -200,9 +200,9 @@ UC_AUTH_01:
 2.3.1 Sistema disponible
 ------------------------
 
-- Backend Django respondiendo en
+- Backend respondiendo en
   ``/api/auth/login/``.
-- BD analitica MySQL accesible y consistente.
+- BD analitica Base de Datos accesible y consistente.
 - HTTPS configurado (sin HTTP plano —
   ADR-DEVOPS-001).
 - InternalMailbox service operativo (necesario
@@ -220,7 +220,7 @@ UC_AUTH_01:
 - ``User.state`` ∈ {ACTIVE, INACTIVE, BLOCKED}.
   Solo ACTIVE permite login exitoso; INACTIVE y
   BLOCKED van a EX-04 / EX-03.
-- ``User.password_hash`` poblado (bcrypt).
+- ``User.password_hash`` poblado (hash criptografico).
 - Si es primer login (``User.first_login =
   true``): la ruta alterna FA-01 forza cambio de
   contrasena.
@@ -252,7 +252,7 @@ UC_AUTH_01:
 ------------------------------
 
 - El ``User`` tiene al menos un ``Assignment``
-  vigente con un ``AccessGroup`` (AGR-001..010)
+  vigente con un ``AccessGroup`` (AGR-001..012)
   o con un ``FunctionGroup`` que le otorgue al
   menos una funcion. De lo contrario login
   exitoso pero el usuario veria UI vacia (no

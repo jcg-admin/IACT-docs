@@ -31,7 +31,7 @@ Parte 11 — Implementacion tecnica
  * - **AuthorizationGuard**
    - Verificar
      ``view_separation_rules`` (read) o
-     ``manage_separation_rules`` (CRUD)
+     ``view_separation_rules`` (CRUD)
  * - **SoDRuleRepository**
    - CRUD de SoDRule
  * - **FunctionRepository**
@@ -95,7 +95,7 @@ Parte 11 — Implementacion tecnica
 
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'manage_separation_rules')
+                 invoker, 'view_separation_rules')
        require ThrottlePolicy.is_allowed(invoker)
 
        PayloadValidator.validate(payload)
@@ -164,7 +164,7 @@ Parte 11 — Implementacion tecnica
 
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'manage_separation_rules')
+                 invoker, 'view_separation_rules')
 
        if not retire_reason:
            raise ValidationError(

@@ -26,7 +26,7 @@ Analisis Comparativo — Modelo RBAC v4.0 vs BR IACT (Genealogia)
  modelo y los gaps que motivaron la evolucion a v5.x.
 
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` y las BR
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` y las BR
  vigentes en :doc:`/requisitos/reglas-negocio/index`.
 
 ----
@@ -228,7 +228,7 @@ Resolucion vigente:
  * - Artefacto sugerido 2026-01
    - Estado vigente 2026-04
  * - Catalogo de bundles
-   - **Cerrado** — 10 grupos AGR-001..AGR-010 en :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` § 4
+   - **Cerrado** — 10 grupos AGR-001..AGR-010 en :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` § 4
  * - Modelo de datos RBAC formal
    - **Cerrado** — :doc:`/base-cognitiva/_taxonomias-y-metamodelos/metamodelos/mtm-03-metamodelo-rbac`
  * - Vocabulario unico canonico
@@ -269,7 +269,7 @@ explicitamente para evitar regresion.
 
 **Estado vigente:**
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`

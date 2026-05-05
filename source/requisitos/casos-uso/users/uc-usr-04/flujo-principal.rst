@@ -279,24 +279,23 @@ PASOS 9-14 dentro de una transaccion atomica:
 ::
 
    BEGIN
-     UPDATE user SET state='ELIMINATED',
+     actualizar usuario: state=ELIMINATED,
        eliminated_at=NOW(),
        eliminated_by_admin_id=admin.id
        WHERE id=target.id;
-     UPDATE assignment SET state='REVOKED',
+     actualizar assignment: state=REVOKED,
        revoked_at=NOW(), revoked_by=admin.id,
        revoke_reason='USER_ELIMINATED'
        WHERE user_id=target.id
          AND state='ACTIVE';
-     UPDATE session SET state='CLOSED',
+     actualizar session: state=CLOSED,
        close_reason='USER_ELIMINATED',
        closed_at=NOW(), closed_by=admin.id
        WHERE user_id=target.id
          AND state='ACTIVE';
-     INSERT INTO blacklisted_token (...) FOR EACH closed_session;
-     [opcional] INSERT INTO internal_message (...);
-     INSERT INTO audit_event (
-       event_type='USER_ELIMINATED', ...);
+     registrar tokens revocados para cada sesion cerrada;
+     [opcional] registrar en internal_message;
+     registrar en audit_event (...);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK total. **No

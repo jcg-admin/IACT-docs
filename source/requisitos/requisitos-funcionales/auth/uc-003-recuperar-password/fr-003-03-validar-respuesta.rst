@@ -107,14 +107,14 @@ FR-003.03: Validar respuesta de seguridad
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
   - CNST-009: Auditoría (registrar intentos)
 
 **Límites:**
 
 - Máximo 3 intentos por sesión de recuperación
 - Bloqueo de 30 minutos tras 3 fallos
-- Respuesta hasheada con bcrypt (no almacenada en texto plano)
+- Respuesta almacenada como hash seguro (no en texto plano)
 
 ----
 

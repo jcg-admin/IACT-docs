@@ -128,9 +128,9 @@ BReq-004 se considera satisfecho cuando:
  * - CNST-005
    - Timeout 15 min
  * - CNST-009
-   - Autenticación DRF obligatoria
+   - Autenticación de API obligatoria
  * - CNST-013
-   - Manejo estandarizado excepciones DRF
+   - Manejo estandarizado excepciones de API
  * - CNST-025
    - Auditoría inmutable append-only
  * - CNST-026

@@ -58,7 +58,7 @@ administrativa.
  VOCABULARIO:
  - RBAC: Role-Based Access Control
  - Flat: Sin jerarquia de herencia entre roles
- - Funcion atomica: Permiso indivisible (ej: USR-001)
+ - Funcion atomica: Permiso indivisible (ej: create_users)
  - Agrupador: Conjunto de funciones para asignacion conveniente
 
  REGLA:
@@ -132,8 +132,8 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  * - Componente
    - Descripcion de Aplicacion
  * - MOD_Access
-   - Implementa modelo RBAC con 42 funciones atomicas
- * - Middleware DRF
+   - Implementa modelo RBAC con 74 funciones atomicas
+ * - Middleware de API
    - Valida permisos por funcion, no por rol
  * - Base Analytics
    - Tablas: funciones, agrupadores, user_funciones
@@ -141,7 +141,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-010)
+- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-012)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
@@ -163,9 +163,9 @@ Sin excepciones. El modelo Flat es absoluto.
  * - CNST
    - Relacion
  * - CNST-005
-   - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
- * - :ref:`cnst-012`
-   - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
+   - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
+ * - :ref:`cnst-029`
+   - Modelo RBAC Flat consolidado: 74 funciones, 12 grupos, 3 reglas SoD,
      permisos temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
@@ -193,11 +193,11 @@ Sin excepciones. El modelo Flat es absoluto.
    - Asignar Funciones a Usuario
  * - UC-011
    - Gestionar Permisos por Agrupador
- * - UC-044
+ * - UC_ACC_03
    - Consultar Permisos Efectivos
- * - UC-045
-   - Gestionar Catalogo de Agrupadores
- * - UC-046
+ * - UC_ADM_03
+   - Gestionar Catalogo de Agrupadores del Sistema
+ * - UC_ADM_02
    - Gestionar Catalogo de Funciones
 
 ----
@@ -210,7 +210,7 @@ Sin excepciones. El modelo Flat es absoluto.
 
 1. No existe tabla de herencia de roles
 2. Permisos se resuelven por union de funciones asignadas
-3. 42 funciones atomicas definidas en catalogo
+3. 74 funciones atomicas definidas en catalogo
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

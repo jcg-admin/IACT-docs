@@ -9,8 +9,8 @@ Parte 3 — Flujo principal
 
 PASO 1 — POST.
 PASO 2 — JWT.
-PASO 3 — RBAC ``schedule_reports`` +
-``export_reports``.
+PASO 3 — RBAC ``schedule_report`` +
+``export_csv``.
 PASO 4 — Validar payload (cron parseable,
 period_relative valido para frequency).
 PASO 5 — Validar User no excede 10

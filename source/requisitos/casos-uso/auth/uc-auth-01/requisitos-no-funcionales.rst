@@ -22,7 +22,7 @@ constraints que los gobiernan.
      dentro del SLA declarado en CNST-017 SLA
      de tiempos de respuesta.
  * - **Componentes que dominan la latencia**
-   - 1) ``bcrypt.check_password()`` (paso 9) —
+   - 1) ``verificarHash()`` (paso 9) —
      intencionalmente lento por seguridad,
      domina el coste.
      2) Query ``Session.objects.filter(user_id,
@@ -58,11 +58,10 @@ constraints que los gobiernan.
  * - **TLS minimo**
    - TLS 1.2+ (no SSL v3 ni TLS 1.0/1.1).
  * - **Storage de password**
-   - bcrypt con coste configurado segun ADR de
-     implementacion. **Nunca** plaintext en BD,
+   - el algoritmo de hash seguro con costo configurado. **Nunca** plaintext en BD,
      logs o respuesta.
  * - **Comparacion de password**
-   - Constant-time (``bcrypt.checkpw()``) para
+   - Constant-time (``verificarHash()``) para
      prevenir timing attacks.
  * - **Throttling**
    - CNST-011 — los limites concretos viven en
@@ -92,7 +91,7 @@ constraints que los gobiernan.
      nunca password ni tokens.
  * - **Validacion de input**
    - CNST-012 — toda entrada del cliente pasa
-     por DRF Serializer antes de llegar a la
+     por plataforma de API Serializer antes de llegar a la
      logica del UC.
 
 6.3 Confiabilidad
@@ -141,7 +140,7 @@ constraints que los gobiernan.
  * - **Idioma**
    - Mensajes al usuario en espanol claro y
      directo. Nada de jerga tecnica como
-     "JWT invalido" o "bcrypt mismatch".
+     "JWT invalido" o "fallo de verificacion de hash".
  * - **Feedback inmediato**
    - El boton "Iniciar sesion" muestra spinner
      mientras se procesa la respuesta. Tras
@@ -246,22 +245,22 @@ constraints que los gobiernan.
      anterior.
  * - CNST-003
    - Sesiones persistidas en BD — la ``Session``
-     se persiste en MySQL, no en memoria de
-     Django.
+     se persiste en Base de Datos, no en memoria de
+     la plataforma.
  * - CNST-004
    - Sesion unica por usuario — gobernada en
      paso 10 del flujo principal.
  * - CNST-005
    - Timeout 15 min — gobierna ``Session.expires_at``.
  * - CNST-009
-   - Autenticacion DRF obligatoria — el endpoint
-     usa el framework de DRF.
+   - Autenticacion plataforma de API obligatoria — el endpoint
+     usa el framework de plataforma de API.
  * - CNST-011
    - Throttling endpoints publicos — paso 6.
  * - CNST-012
    - Validacion via Serializer — paso 5.
  * - CNST-013
-   - Manejo estandarizado de excepciones DRF —
+   - Manejo estandarizado de excepciones plataforma de API —
      todas las respuestas 4xx/5xx siguen el
      shape de error estandar.
  * - CNST-016

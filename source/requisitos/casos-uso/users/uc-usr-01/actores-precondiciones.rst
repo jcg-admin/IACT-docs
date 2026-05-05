@@ -39,7 +39,7 @@ Receptor pasivo durante el flujo. Posteriormente:
 - Inicia sesion via UC_AUTH_01 → detectara
   first_login → forzar UC_AUTH_04.
 
-2.2.2 Sistema (Backend Django)
+2.2.2 Sistema (Backend)
 ------------------------------
 
 Responsabilidades:
@@ -48,12 +48,12 @@ Responsabilidades:
 - Validar email unico, formato valido.
 - Generar username (CNST-029).
 - Generar password temporal seguro.
-- Hashear bcrypt cost 12.
+- Hashear costo de hash configurado.
 - Crear User + Assignments + InternalMessage +
   AuditEvent en transaccion atomica.
 
-2.2.3 BD MySQL
---------------
+2.2.3 BD Base de Datos
+----------------------
 
 - Atomicidad ACID en pasos 11-15.
 - UNIQUE constraint en ``email`` y ``username``.
@@ -65,8 +65,8 @@ Responsabilidades:
 - Recibe el INSERT del mensaje con credenciales.
 - El nuevo User las consulta al primer login.
 
-2.2.5 Frontend (React)
-----------------------
+2.2.5 Interfaz de Usuario
+-------------------------
 
 - Pagina de creacion con form (visible solo con
   AGR-006).
@@ -90,7 +90,7 @@ Consume AuditEvent USER_CREATED para detectar:
 ------------------------
 
 - Backend respondiendo en ``/api/users/``.
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - HTTPS configurado.
 
 2.3.2 Admin autenticado y autorizado
@@ -118,7 +118,7 @@ Consume AuditEvent USER_CREATED para detectar:
   ``state='ACTIVE'``,
   ``first_login=true``,
   ``password_changed_at=NOW()``,
-  ``password_hash=bcrypt(temp)``,
+  ``password_hash=hash(temp)``,
   ``username=<generado>``.
 - Si se asigno AGR: 1 ``Assignment`` activo
   (``user``, ``access_group``,

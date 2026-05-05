@@ -275,5 +275,5 @@ inviolable.
   formaliza vocabulario "Funcion" / "Function".
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm` —
   documenta D-RBAC-1.
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` —
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` —
   catalogo vigente (42 funciones + 10 grupos AGR).

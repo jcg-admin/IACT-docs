@@ -16,7 +16,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - export_reports
+   - export_csv
  * - **P-39**
    - Audit reforzado
    - QUEUED / COMPLETED / FAILED

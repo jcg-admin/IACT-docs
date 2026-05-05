@@ -17,7 +17,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-006 (operacion continua)
  * - **Funcion RBAC**
-   - ``manage_alert_thresholds``
+   - ``configure_team_alerts``
 
 1.2 Proposito
 =============

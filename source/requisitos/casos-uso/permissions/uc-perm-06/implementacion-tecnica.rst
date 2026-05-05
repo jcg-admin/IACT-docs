@@ -17,7 +17,7 @@ Parte 11 — Implementacion tecnica
    - POST ``/api/access-groups/{id}/functions/``
  * - **AuthorizationGuard**
    - Verificar
-     ``manage_access_group_composition``
+     ``assign_functions_to_group``
  * - **AccessGroupRepository**
    - get, validate state + custom
  * - **FunctionRepository**
@@ -90,7 +90,7 @@ Parte 11 — Implementacion tecnica
                  .is_valid(invoker)
        require AuthorizationGuard
                  .has_function(invoker,
-                   'manage_access_group_composition')
+                   'assign_functions_to_group')
        require ThrottlePolicy.is_allowed(invoker)
 
        PayloadValidator.validate(

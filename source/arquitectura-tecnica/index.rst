@@ -18,6 +18,15 @@ high-level, vistas, modelos de datos y diagramas.
 
 .. toctree::
  :maxdepth: 2
+ :caption: Vista general del sistema
+
+ arquitectura-sistema
+ diagramas-uml-sistema
+ diagramas-uc-por-modulo
+ vistas-kruchten
+
+.. toctree::
+ :maxdepth: 2
  :caption: Modelos arquitectonicos
 
  rbac/index
@@ -34,12 +43,6 @@ high-level, vistas, modelos de datos y diagramas.
  :caption: Modulos arquitectonicos
 
  modulos/index
-
-.. toctree::
- :maxdepth: 2
- :caption: Catálogos del sistema
-
- catalogos/index
 
 .. note::
 

@@ -50,7 +50,7 @@ Parte 11 — Implementacion tecnica
      entropia criptograficamente segura
  * - **PasswordHasher**
    - Hashear con algoritmo resistente
-     (recomendado: bcrypt cost 12 o
+     (recomendado: algoritmo-de-hash cost 12 o
      equivalente)
  * - **UserRepository**
    - Persistir el User
@@ -119,7 +119,7 @@ Parte 11 — Implementacion tecnica
    contract PasswordHasher:
      hash(plaintext: string) returns string
        postcondition: hash es resistente a fuerza
-                      bruta (cost >= 12 si bcrypt)
+                      bruta (cost >= 12 si algoritmo-de-hash)
      verify(plaintext, hash) returns bool
 
    contract UserRepository:
@@ -336,7 +336,7 @@ NO pertenece al UC; vive en
 ``arquitectura-tecnica/`` y en los modulos del
 backend del proyecto:
 
-- Stack web Python: Django/DRF + bcrypt + ORM
+- Stack web Python: Django/DRF + algoritmo-de-hash + ORM
   + transaction.atomic.
 - Stack web Node.js: Express + Argon2 +
   Sequelize + transactions.

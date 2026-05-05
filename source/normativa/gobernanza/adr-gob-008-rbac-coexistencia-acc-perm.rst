@@ -31,9 +31,9 @@ formal:
 
 **Vista funcional (MOD_Access — modelo conceptual v5.2.1):**
 
-- Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact``.
-- Catalogo cerrado: 42 funciones atomicas + 10 grupos predefinidos
-  AGR-001..AGR-010 + 3 reglas SoD.
+- Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index``.
+- Catalogo cerrado: 74 funciones atomicas + 12 grupos predefinidos
+  AGR-001..AGR-012 + 3 reglas SoD.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
 - Casos de uso: UC_ACC_01..UC_ACC_09 (admin no-tech asigna
   agrupadores predefinidos al usuario).
@@ -96,7 +96,7 @@ Decision
 
 Justificacion:
 
-1. Los 49 UCs canonicos del backup (8 modulos) son **fuente de verdad
+1. Los 80 UCs canonicos del catalogo (12 modulos) son **fuente de verdad
    confirmada** con metadata ``:version: 4.0.0`` declarada. No hay
    ADR previo que los invalide.
 2. Los 10 UC_PERM tienen contenido sustantivo (1 894 lineas en
@@ -157,7 +157,7 @@ actualizados:
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
   — fija vocabulario canonico "Funcion" (D-RBAC-1, D-RBAC-6).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-  enriquecido con catalogo de los 10 grupos AGR-001..010 +
+  enriquecido con catalogo de los 12 grupos AGR-001..012 +
   distincion system vs custom (D-RBAC-4).
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
   enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
@@ -179,7 +179,7 @@ Implementacion
 3. **iteracion correspondiente** (este ADR): ADR-GOB-008 oficializa la coexistencia.
 4. **iteracion correspondiente** (en curso): cross-refs UC_ACC ↔ UC_PERM + mapeo refs
    CNST en bodies + Capacidad → Funcion.
-5. **WP #7** (pendiente): migrar `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`` a
+5. **WP #7** (pendiente): migrar `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`` a
    ``source/arquitectura_tecnica/rbac/`` para que sea consultable.
 6. **Codigo backend**: migracion ``Capacidad`` → ``Function``
    (D-RBAC-2 + D-RBAC-8) — fuera de scope del rebuild documental.
@@ -200,7 +200,7 @@ Decisiones Relacionadas
  * - D-RBAC-3
    - AuditoriaPermiso vs AuditLog — tablas separadas
  * - D-RBAC-4
-   - Grupos: system inmutables (AGR-001..010) + custom creables
+   - Grupos: system inmutables (AGR-001..012) + custom creables
  * - D-RBAC-5
    - Crear CNST_032 Menu Dinamico Obligatorio
  * - D-RBAC-6

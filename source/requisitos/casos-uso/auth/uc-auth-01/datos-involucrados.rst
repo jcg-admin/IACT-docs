@@ -195,18 +195,12 @@ canonica en
 - ``expires_at`` — ``started_at + 15 min``
   (CNST-005). Se extiende en cada actividad
   del usuario.
-- ``state`` — enum SessionState; ACTIVE al
-  crear; CLOSED al cerrar; EXPIRED si supera
-  ``expires_at`` sin actividad.
+- ``state`` — enum SessionState: ACTIVE al
+  crear; CLOSED al cerrar (Session.close());
+  EXPIRED si supera ``expires_at`` sin actividad.
 - ``client_info`` — string informativo del
   dispositivo; usado para FA-03 mensaje al
   cerrar.
-- ``closed_at`` — NULL al crear; NOW() cuando
-  transita a CLOSED.
-- ``close_reason`` — NULL al crear; valores
-  posibles al cerrar: ``USER_LOGOUT`` (UC_AUTH_02),
-  ``SUPERSEDED`` (CNST-004), ``ADMIN_CLOSE``
-  (UC_AUTH_05), ``EXPIRED`` (timeout).
 
 7.5.2 User
 ----------
@@ -216,7 +210,7 @@ Campos consultados/escritos:
 - ``user_id``, ``username`` — para localizar
   (paso 7).
 - ``password_hash`` — para verificar (paso 9,
-  bcrypt).
+  verificarHash).
 - ``state`` — para validar elegibilidad (paso 8).
 - ``first_login`` — para decidir FA-01.
 - ``password_expires_at`` — para decidir FA-02.
@@ -291,7 +285,6 @@ Para evitar confusion sobre el alcance:
  :caption: Clases tocadas por UC_AUTH_01
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  class User {
    + user_id : UUID
@@ -306,10 +299,16 @@ Para evitar confusion sobre el alcance:
    + session_id : UUID
    + user_id : UUID
    + started_at : DateTime
+   + last_activity_at : DateTime
    + expires_at : DateTime
    + state : SessionState
-   + close_reason : String
  }
+ enum SessionState {
+  ACTIVE
+  CLOSED
+  EXPIRED
+ }
+ Session -- SessionState
 
  class AuditEvent {
    + event_id : UUID

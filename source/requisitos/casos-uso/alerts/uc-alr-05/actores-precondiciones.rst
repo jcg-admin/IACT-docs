@@ -19,6 +19,6 @@ Auth + RBAC + segmento (admin).
    }
 
    POST /api/users/{user_id}/alert-subscriptions/
-     (requiere manage_user_subscriptions)
+     (requiere subscribe_to_alert)
 
 Response: Subscription completo.

@@ -157,7 +157,7 @@ El sistema IACT se compone de:
 1.3.2 Los 8 Módulos Funcionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-El sistema IACT se divide en 8 módulos funcionales:
+El sistema IACT se divide en 12 módulos funcionales:
 
 .. list-table:: Módulos del Sistema IACT
  :widths: 10 20 15 10 45
@@ -181,7 +181,7 @@ El sistema IACT se divide en 8 módulos funcionales:
  * - MOD_Access
    - Control Acceso
    - UC_ACC
-   - 9
+   - 7
    - RBAC, permisos, agrupadores, SoD, segmentos
  * - MOD_Pipeline
    - Supervisión ETL
@@ -191,7 +191,7 @@ El sistema IACT se divide en 8 módulos funcionales:
  * - MOD_Reports
    - Reportería
    - UC_RPT
-   - 14
+   - 16
    - Dashboards, reportes, exportaciones, métricas
  * - MOD_Alerts
    - Sistema Alertas
@@ -206,10 +206,25 @@ El sistema IACT se divide en 8 módulos funcionales:
  * - MOD_Logs
    - Bitácoras
    - UC_LOG
-   - 4
+   - 7
    - Consulta logs técnicos, exportación
+ * - MOD_Operator
+   - Operación Agente
+   - UC_OPR
+   - 10
+   - Estado agente, llamadas, disposición, autogestion
+ * - MOD_Supervision
+   - Supervisión Tiempo Real
+   - UC_SUP
+   - 3
+   - Monitor llamadas, barge-in, broadcast equipo
+ * - MOD_Caller
+   - Llamante Externo
+   - UC_CLI
+   - 5
+   - Flujo IVR: marcado, menú, cola, callback, CSAT
 
-**Total:** 49 Casos de Uso, 23,401 líneas de documentación RST, 147 diagramas PlantUML
+**Total:** 80 Casos de Uso, 23,401+ líneas de documentación RST, 147+ diagramas PlantUML
 
 ----
 
@@ -222,14 +237,14 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 
 - 8 Business Requirements (BReq) - Objetivos de alto nivel
 - 20 Business Rules (BR) - Reglas de negocio clasificadas en 5 tipos
-- 49 Use Cases (UC) - Casos de uso completos con diagramas
+- 80 Use Cases (UC) - Casos de uso completos con diagramas
 - 55 Functional Requirements (FR) - En progreso (14% completado)
 
 **Arquitectura:**
 
-- 8 Módulos funcionales (MOD)
+- 12 Módulos funcionales (MOD)
 - 31 Restricciones arquitectonicas (CNST) — set canonico SRP (WP #4)
-- Modelo RBAC v5.2.x con 42 funciones atómicas y 10 agrupadores
+- Modelo RBAC v5.5.0 con 74 funciones atómicas y 12 agrupadores
 
 **Gobernanza:**
 
@@ -244,7 +259,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 
 .. code-block:: text
 
- CASOS DE USO (49 UC):
+ CASOS DE USO (80 UC):
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  MOD_Auth 5 UC 3,251 líneas (14%)
  MOD_Users 4 UC 2,584 líneas (11%)
@@ -255,7 +270,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  MOD_Audit 4 UC 1,900 líneas ( 8%)
  MOD_Logs 4 UC 1,855 líneas ( 8%)
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- TOTAL 49 UC 23,401 líneas (100%)
+ TOTAL 80 UC 23,401+ líneas (100%)
 
  BUSINESS RULES (20 BR):
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -265,10 +280,10 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  Inferencias 1 BR ( 5%)
  Cálculos 3 BR (15%)
 
- MODELO RBAC v5.2.x:
+ MODELO RBAC v5.5.0:
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Agrupadores (AGR) 10
- Funciones atómicas 42
+ Agrupadores (AGR) 12
+ Funciones atómicas 74
  Reglas SoD 3
 
 ----
@@ -337,7 +352,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_04_Exportar_CSV.rst`` (489 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-004 (exporta_csv)
+:Función RBAC: export_csv
 :Precondición: Verificar ``COUNT(registros) <= 100,000`` (BR_011)
 
 **Flujo Normal - Paso de Validación:**
@@ -389,7 +404,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_05_Exportar_Excel.rst`` (450 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-005 (exporta_excel)
+:Función RBAC: export_excel
 :Precondición: Verificar ``COUNT(registros) <= 50,000`` (BR_011)
 
 **Diferencia con CSV:**
@@ -405,7 +420,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_06_Exportar_PDF.rst`` (427 líneas)
 
 :Actor Principal: AGR_008 (agr_exportador)
-:Función RBAC: RPT-006 (exporta_pdf)
+:Función RBAC: export_pdf
 :Precondición: Verificar ``COUNT(registros) <= 10,000`` (BR_011)
 
 **Diferencia con otros formatos:**
@@ -421,7 +436,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 **Ubicación:** ``casos_uso_v4/audit/UC_AUD_03_Exportar_Auditoria.rst`` (453 líneas)
 
 :Actor Principal: AGR_006 (agr_auditor)
-:Función RBAC: AUD-003 (exporta_auditoria)
+:Función RBAC: ``export_audit_log``
 :Aplicación BR_011: Mismos límites que reportes
 
 **Nota:** Los registros de auditoría también están sujetos a los límites 
@@ -435,7 +450,7 @@ de exportación para mantener consistencia en el sistema.
 **Ubicación:** ``casos_uso_v4/logs/UC_LOG_04_Exportar_Logs.rst`` (475 líneas)
 
 :Actor Principal: AGR_010 (agr_soporte)
-:Función RBAC: LOG-002 (exporta_logs)
+:Función RBAC: ``export_logs``
 :Aplicación BR_011: Mismos límites, principalmente CSV
 
 ------------------------------------
@@ -783,7 +798,7 @@ La trazabilidad permite navegar en ambas direcciones:
 
 Esta introducción ha establecido:
 
-OK El contexto del Sistema IACT (8 módulos, 49 UC, 20 BR)
+OK El contexto del Sistema IACT (12 módulos, 80 UC, 20+ BR)
 OK La estructura de la documentación base_cognitiva/
 OK Un ejemplo completo de Business Rule (BR_011)
 OK La relación entre BR, UC, FR y código
@@ -811,7 +826,7 @@ OK La jerarquía de transformación de requisitos
  Todos los UC, BR y ejemplos de código corresponden a la 
  implementación real del proyecto documentado en:
  
- - 49 Casos de Uso (23,401 líneas RST)
+ - 80 Casos de Uso (23,401+ líneas RST)
  - 20 Business Rules clasificadas
  - 147 Diagramas PlantUML
  - Código Python/SQL funcional

@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``view_transfer_reports``
+  ``view_reports``
 - **AnalyticsRepo**
 
 2.2 Precondiciones

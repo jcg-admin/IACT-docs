@@ -36,7 +36,7 @@ Parte 11 — Implementacion tecnica
                   invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'view_scheduled_reports')
+                 'view_reports')
        scope = ScopeFilter.for(invoker)
        items =
          ScheduledReportRepo

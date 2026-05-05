@@ -364,20 +364,20 @@ Plantilla
    }
 
    package "MOD_[Nombre]" {
-   [Views/ViewSets] as V
-   [Serializers] as S
+   [Views/ViewSets] as ViewsViewsets
+   [Serializers] as Serializers
    [Services] as SVC
-   [Models] as M
-   [Permissions] as P
+   [Models] as Models
+   [Permissions] as Permissions
    }
 
-   database "PostgreSQL" as DB
+   database "PostgreSQL" as PostgreSQL
 
-   V --> S : usa
-   V --> P : verifica
-   S --> SVC : delega
-   SVC --> M : opera
-   M --> DB : persiste
+   ViewsViewsets --> Serializers : usa
+   ViewsViewsets --> Permissions : verifica
+   Serializers --> SVC : delega
+   SVC --> Models : opera
+   Models --> PostgreSQL : persiste
 
    @enduml
 

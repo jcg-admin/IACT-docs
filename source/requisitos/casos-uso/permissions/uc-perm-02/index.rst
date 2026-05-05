@@ -50,7 +50,7 @@ Assignments AGR. Mismo backend, diferente UI.
  * - **UC backing**
    - UC_ACC_02 (sobre Assignment AGR)
  * - **Funcion RBAC**
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
  * - **BReq satisfecho**
    - BReq-004
  * - **Origen legacy**
@@ -78,7 +78,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

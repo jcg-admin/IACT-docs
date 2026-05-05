@@ -67,8 +67,8 @@ Documentos vinculados
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
   v1.0.0
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
-  v5.4.0 (AGR-006)
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
+  v5.5.0 (AGR-006)
 - :doc:`/requisitos/casos-uso/auth/uc-auth-01/index`
   (login con first_login)
 - :doc:`/requisitos/casos-uso/auth/uc-auth-04/index`
@@ -88,7 +88,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

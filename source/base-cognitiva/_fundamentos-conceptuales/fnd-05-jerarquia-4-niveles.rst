@@ -84,7 +84,7 @@ IACT implementa los 4 niveles completos de la jerarquia:
 
  Nivel 0 (BR): requisitos/reglas_negocio/ -> 20 BR
  Nivel 1 (BReq): requisitos/objetivos/ -> 5 BReq
- Nivel 2 (UC): requisitos/casos_uso/ -> 49 UC
+ Nivel 2 (UC): requisitos/casos_uso/ -> 80 UC
  Nivel 3 (FR): requisitos/funcionales/ -> ~400 FR (estimado)
 
 **Clarificacion sobre META_04:**
@@ -314,20 +314,20 @@ especifican interacciones completas entre actores y sistema.
     BR_002 (ETL Nocturno) --genera--> UC-050 (Supervisar ETL)
 
  3. BR tipo Restriccion influye en UC:
-    BR_007 (SoD) --influye--> UC-043 (Configurar SoD)
+    BR_007 (SoD) --influye--> UC_ADM_01 (Gestionar Ciclo de Vida de Reglas SoD)
 
 4.4 Ejemplo
 ^^^^^^^^^^^
 
 ::
 
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
- Actor Primario: AGR-008 (admin_seguridad)
+ Actor Primario: AGR-009 (admin_sistema)
  Objetivo: Crear restricciones para prevenir conflictos de funciones
 
  Flujo Normal:
- 1. Admin Seguridad selecciona Gestionar SoD
+ 1. admin_sistema selecciona Gestionar Reglas SoD
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
@@ -394,11 +394,11 @@ los Casos de Uso.
 
  Cada paso de UC deriva multiples FR:
 
- UC-043, Paso 2: Sistema muestra lista de restricciones actuales
+ UC_ADM_01, Paso 2: Sistema muestra lista de restricciones actuales
  |
- +---> FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
- +---> FR-043.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
- +---> FR-043.3: Lista DEBE estar ordenada por fecha de creacion
+ +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
+ +---> FR-ADM-01.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
+ +---> FR-ADM-01.3: Lista DEBE estar ordenada por fecha de creacion
 
  Regla: Cada paso que dice Sistema [verbo] genera FR
 
@@ -407,9 +407,9 @@ los Casos de Uso.
 
 ::
 
- Derivados de UC-043:
+ Derivados de UC_ADM_01:
 
- FR-043.1: Sistema DEBE mostrar lista de restricciones SoD existentes
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD existentes
  FR-043.2: Sistema DEBE validar conflictos al crear nueva SoD
  FR-043.3: Sistema DEBE impedir asignacion que viole SoD
  FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
@@ -422,7 +422,7 @@ los Casos de Uso.
 
  Estimacion basada en ratio 1 UC : 8 FR
 
- 49 UC x 8 FR/UC = ~400 FR esperados
+ 80 UC x 8 FR/UC = ~640 FR esperados
 
  Distribucion por modulo:
  - MOD_Auth: 5 UC x 8 = ~40 FR
@@ -543,7 +543,7 @@ los Casos de Uso.
  5-20 BR -> 3-10 BReq -> 30-100 UC -> 200-1000 FR
 
  IACT:
- 20 BR -> 5 BReq -> 49 UC -> ~400 FR (estimado)
+ 20 BR -> 5 BReq -> 80 UC -> ~640 FR (estimado)
 
  Ratios IACT:
  BR:BReq = 4:1
@@ -630,12 +630,12 @@ los Casos de Uso.
 
  NIVEL 2 - UC:
  UC-025: Ver Dashboard Principal
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
  UC-050: Supervisar Estado ETL
 
  NIVEL 3 - FR:
  FR-025.1: Sistema DEBE mostrar grafico de llamadas por hora
- FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
  FR-050.1: Sistema DEBE mostrar estado del ultimo job ETL
 
 ----

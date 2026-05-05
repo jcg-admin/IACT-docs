@@ -20,7 +20,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-001, BReq-003
  * - **Funcion RBAC**
-   - ``export_reports``
+   - ``export_csv``
 
 1.2 Proposito
 =============

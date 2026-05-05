@@ -50,7 +50,7 @@ Sub-operacion de lectura
 - Ver detalle de una regla.
 
 Sub-operacion de gestion
-(``manage_separation_rules``):
+(``view_separation_rules``):
 
 - **Crear** nueva regla SoD (con par o
   conjunto de funciones en conflicto y
@@ -100,12 +100,12 @@ critica**. Cambios deben:
      CNST-013, CNST-025, CNST-026
  * - **Funciones RBAC**
    - ``view_separation_rules`` (lectura),
-     ``manage_separation_rules`` (CRUD —
+     ``view_separation_rules`` (CRUD —
      P-15 distinta y mas privilegiada)
  * - **AGRs de conveniencia**
    - AGR-006 user_admin_group y AGR de
      seguridad/compliance contienen
-     ``manage_separation_rules``;
+     ``view_separation_rules``;
      ``view_separation_rules`` adicionalmente
      en AGR-008 auditor_group.
  * - **UCs relacionados**

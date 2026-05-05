@@ -49,7 +49,7 @@ El proposito desde el punto de vista del usuario
 es **acceder funcionalmente al sistema** —
 visualizar dashboards, gestionar reportes,
 consultar auditoria, supervisar el ETL, segun el
-``AccessGroup`` (AGR-001..010) al que pertenece.
+``AccessGroup`` (AGR-001..012) al que pertenece.
 Los tokens JWT que el sistema genera son el
 **mecanismo**, no el resultado de valor.
 
@@ -69,13 +69,13 @@ de nueva sesion en otro dispositivo (CNST-004).
 - Recoleccion de credenciales en formulario
   ``/login`` servido por HTTPS.
 - Validacion de formato y completitud de input
-  vía DRF Serializer (CNST-012).
+  vía plataforma de API Serializer (CNST-012).
 - Throttling de intentos por usuario / IP
   (CNST-011: 5 intentos / 5 minutos).
 - Verificacion de existencia y estado del
   ``User`` (state ∈ {ACTIVE, INACTIVE, BLOCKED}
   per BR-009 v2.0.0).
-- Verificacion del password vía bcrypt
+- Verificacion del password vía algoritmo de hash
   constant-time.
 - Aplicacion de **CNST-004 sesion unica** —
   cierre de Sessions previas activas del mismo
@@ -84,7 +84,7 @@ de nueva sesion en otro dispositivo (CNST-004).
   persistencia de ``Session`` en BD (CNST-003).
 - Emision de ``AuditEvent`` ``LOGIN`` inmutable
   (CNST-025).
-- Manejo estandarizado de excepciones DRF
+- Manejo estandarizado de excepciones plataforma de API
   (CNST-013): respuestas 4xx con error_code y
   estructura JSON consistente.
 - Respuestas con manejo de errores (UC-AUTH-01:
@@ -147,7 +147,7 @@ FA-02.
  :header-rows: 0
 
  * - **BReq origen**
-   - BRQ-AUTH-001 — el sistema debe permitir
+   - BRQ-view_own_sessions — el sistema debe permitir
      autenticacion segura de usuarios con
      credenciales username + password.
  * - **Reglas de Negocio**
@@ -158,13 +158,13 @@ FA-02.
      buzon interno obligatorio; CNST-003
      sesiones persistidas en BD; CNST-004 sesion
      unica por usuario; CNST-005 timeout 15 min;
-     CNST-009 autenticacion DRF; CNST-011
+     CNST-009 autenticacion plataforma de API; CNST-011
      throttling endpoints publicos; CNST-013
-     manejo estandarizado excepciones DRF;
+     manejo estandarizado excepciones plataforma de API;
      CNST-025 auditoria inmutable.
  * - **Funcion RBAC**
    - publica (no requiere funcion previa);
-     post-login el ``User`` recibe AUTH-001
+     post-login el ``User`` recibe view_own_sessions
      ``view_own_sessions`` que habilita
      UC_AUTH_05 sobre sus propias Sessions.
  * - **UC Relacionados**

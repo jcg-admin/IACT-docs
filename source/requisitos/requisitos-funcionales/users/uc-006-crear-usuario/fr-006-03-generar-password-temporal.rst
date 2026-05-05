@@ -53,7 +53,7 @@ FR-006.03: Generar password temporal
  
  1. Genera password aleatorio criptográficamente seguro
  2. Características: 12 caracteres, alfanuméricos sin ambiguos
- 3. Hashea con bcrypt (cost=12) para almacenamiento
+ 3. Genera hash seguro con el costo configurado para almacenamiento
  4. Marca usuario con ``must_change_password = true``
  5. Muestra password en pantalla (única vez)
  6. NO envía por email (BR_004: comunicaciones internas)

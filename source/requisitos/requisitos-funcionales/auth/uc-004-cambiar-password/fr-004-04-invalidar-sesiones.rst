@@ -54,7 +54,7 @@ FR-004.04: Invalidar sesiones tras cambio de password
  
  1. Identifica todas las sesiones activas del usuario
  2. Actualiza status a 'PASSWORD_CHANGED' en user_sessions
- 3. Agrega todos los tokens a blacklist de Redis
+ 3. Agrega todos los tokens a lista de revocacion de tokens
  4. Registra evento de invalidación masiva en auditoría
  5. Redirige al usuario a pantalla de login
  6. Muestra mensaje "Password cambiado. Inicie sesión nuevamente"

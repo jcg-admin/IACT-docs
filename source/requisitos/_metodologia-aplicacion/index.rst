@@ -44,21 +44,21 @@ Catálogo
  :maxdepth: 1
  :caption: Aplicaciones de técnicas al dominio
 
- diagramas-uml
- orientacion-objetos
- analisis-dominio
- relaciones-uml
- agregacion-interfaces
- casos-uso-especificacion
- casos-uso-diagramas
- diagramas-estados
- diagramas-secuencias
- diagramas-colaboraciones
- diagramas-actividades
- diagramas-componentes
- diagramas-distribucion
+ diagramas-uml/index
+ orientacion-objetos/index
+ analisis-dominio/index
+ relaciones-uml/index
+ agregacion-interfaces/index
+ casos-uso-especificacion/index
+ casos-uso-diagramas/index
+ diagramas-estados/index
+ diagramas-secuencias/index
+ diagramas-colaboraciones/index
+ diagramas-actividades/index
+ diagramas-componentes/index
+ diagramas-distribucion/index
  diagramas-tiempo
- patrones-diseno
+ patrones-diseno/index
 
 Mapeo a skills RM
 =================
@@ -73,49 +73,49 @@ Mapeo a skills RM
  * - :doc:`plan-documentacion-uc`
    - ``rm-management``
    - Gestión de baseline + trazabilidad
- * - :doc:`diagramas-uml`
+ * - :doc:`diagramas-uml/index`
    - ``rm-specification``
    - Formalizar requisitos con UML
- * - :doc:`orientacion-objetos`
+ * - :doc:`orientacion-objetos/index`
    - ``rm-analysis``
    - Análisis OOP de requisitos
- * - :doc:`analisis-dominio`
+ * - :doc:`analisis-dominio/index`
    - ``rm-elicitation`` + ``rm-analysis``
    - Sustantivos→clases / verbos→operaciones
- * - :doc:`relaciones-uml`
+ * - :doc:`relaciones-uml/index`
    - ``rm-specification``
    - Modelado de relaciones entre entidades
- * - :doc:`agregacion-interfaces`
+ * - :doc:`agregacion-interfaces/index`
    - ``rm-specification``
    - Modelado de aggregation/composition/interfaces
- * - :doc:`casos-uso-especificacion`
+ * - :doc:`casos-uso-especificacion/index`
    - ``rm-elicitation`` + ``rm-analysis`` + ``rm-specification``
    - Especificación textual completa de UCs (Hora 6)
- * - :doc:`casos-uso-diagramas`
+ * - :doc:`casos-uso-diagramas/index`
    - ``rm-elicitation`` + ``rm-specification``
    - Modelado visual de UCs con PlantUML (Hora 7)
- * - :doc:`diagramas-estados`
+ * - :doc:`diagramas-estados/index`
    - ``rm-specification`` + ``rm-analysis``
    - Comportamiento temporal de objetos (Hora 8)
- * - :doc:`diagramas-secuencias`
+ * - :doc:`diagramas-secuencias/index`
    - ``rm-specification`` + ``rm-analysis``
    - Interacciones entre objetos en el tiempo (Hora 9)
- * - :doc:`diagramas-colaboraciones`
+ * - :doc:`diagramas-colaboraciones/index`
    - ``rm-specification`` + ``rm-analysis``
    - Contexto espacial e interacciones (Hora 10)
- * - :doc:`diagramas-actividades`
+ * - :doc:`diagramas-actividades/index`
    - ``rm-specification`` + ``rm-analysis``
    - Flujos, decisiones y paralelismo en procesos (Hora 11)
- * - :doc:`diagramas-componentes`
+ * - :doc:`diagramas-componentes/index`
    - ``rm-specification`` + ``rm-analysis``
    - Arquitectura física y contratos entre apps (Hora 12)
- * - :doc:`diagramas-distribucion`
+ * - :doc:`diagramas-distribucion/index`
    - ``rm-specification`` + ``rm-analysis``
    - Despliegue, nodos y protocolos en intranet (Hora 13)
  * - :doc:`diagramas-tiempo`
    - ``rm-specification``
    - Timing diagram preliminar (WP abierto en HOLD)
- * - :doc:`patrones-diseno`
+ * - :doc:`patrones-diseno/index`
    - ``rm-specification`` + ``rm-analysis``
    - Patrones GoF aplicados a Django/Python en IACT
 

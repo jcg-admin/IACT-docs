@@ -9,8 +9,8 @@ Parte 5 — Excepciones
 
 401.
 
-5.2 EX-02: Sin manage_access_groups
-===================================
+5.2 EX-02: Sin create_function_group
+====================================
 
 403 + AuditEvent UNAUTHORIZED.
 
@@ -23,7 +23,7 @@ Parte 5 — Excepciones
 =================================
 
 400 PREDEFINED_NOT_MUTABLE para
-PATCH/DELETE sobre AGR-001..010.
+PATCH/DELETE sobre AGR-001..012.
 
 5.5 EX-05: AGR ya RETIRED (PATCH/DELETE)
 ========================================

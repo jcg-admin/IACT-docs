@@ -22,13 +22,13 @@ Parte 7 — Datos involucrados
    - ``view_separation_rules``
  * - ``/api/access/sod-rules/``
    - POST
-   - ``manage_separation_rules``
+   - ``view_separation_rules``
  * - ``/api/access/sod-rules/{id}/``
    - PATCH
-   - ``manage_separation_rules``
+   - ``view_separation_rules``
  * - ``/api/access/sod-rules/{id}/``
    - DELETE
-   - ``manage_separation_rules``
+   - ``view_separation_rules``
 
 7.2 Listar — Request
 ====================

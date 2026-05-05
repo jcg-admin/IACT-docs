@@ -283,7 +283,7 @@ Distribución por módulo (de ``MODELO_RBAC_IACT_v5_2_1`` § 3):
  * - MOD_Logs
    - LOG-NNN
    - 2
-   - view_system_logs, search_logs
+   - view_application_logs, search_logs
  * - **TOTAL (estado actual)**
    -
    - **42** (v5.2.1)
@@ -630,4 +630,4 @@ Estado documentado como **referencia**, no compromiso inmutable:
  * - **ADR canónico**
    - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo técnico**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`

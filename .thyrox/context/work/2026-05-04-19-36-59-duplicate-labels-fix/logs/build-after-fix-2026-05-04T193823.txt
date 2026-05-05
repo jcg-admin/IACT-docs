@@ -1,0 +1,450 @@
+.venv/bin/sphinx-build -b html -d build/doctrees  -j1 source build/html
+Running Sphinx v8.2.3
+loading translations [es]... done
+Initializing Spelling Checker 8.0.2
+Converting `source_suffix = '.rst'` to `source_suffix = {'.rst': 'restructuredtext'}`.
+loading pickled environment... The configuration has changed (4 options: 'html_css_files', 'html_js_files', 'html_static_path', 'pygments_dark_style')
+done
+[autosummary] generating autosummary for: arquitectura-tecnica/arquitectura-sistema.rst, arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-0-contexto.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst, arquitectura-tecnica/context-view/context-diagram.rst, arquitectura-tecnica/context-view/external-interfaces.rst, arquitectura-tecnica/context-view/index.rst, arquitectura-tecnica/context-view/stakeholders.rst, arquitectura-tecnica/deploy-view/deploy-auth-cache.rst, arquitectura-tecnica/deploy-view/deploy-estandar.rst, ..., requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-01-obtener-lista-paginada.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-02-aplicar-filtros.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-03-ordenar-resultados.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad.rst, requisitos/requisitos-no-funcionales/index.rst, requisitos/requisitos-no-funcionales/rnf-proc-001-proceso-sdlc.rst, requisitos/requisitos-no-funcionales/rnf-proc-002-metricas-proceso.rst, risks-technical-debt/deuda-tecnica-rebuild.rst, risks-technical-debt/index.rst, risks-technical-debt/riesgos-conocidos.rst
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 331 source files that are out of date
+updating environment: 0 added, 33 changed, 0 removed
+reading sources... [  3%] arquitectura-tecnica/domain-model/overview
+reading sources... [  6%] arquitectura-tecnica/modulos/alerts/diagramas/ciclo-vida-alerta
+reading sources... [  9%] arquitectura-tecnica/modulos/alerts/diagramas/componentes-mod-alerts
+reading sources... [ 12%] arquitectura-tecnica/modulos/alerts/diagramas/secuencia-disparo-alerta-br016
+reading sources... [ 15%] arquitectura-tecnica/modulos/audit/diagramas/componentes-mod-audit
+reading sources... [ 18%] arquitectura-tecnica/modulos/audit/diagramas/estados-exportacion-audit
+reading sources... [ 21%] arquitectura-tecnica/modulos/audit/diagramas/flujo-emision-evento-auditoria
+reading sources... [ 24%] arquitectura-tecnica/modulos/auth/diagramas/diagrama-contexto-dependencias
+reading sources... [ 27%] arquitectura-tecnica/modulos/auth/diagramas/flujo-autenticacion
+reading sources... [ 30%] arquitectura-tecnica/modulos/caller/diagramas/flujo-llamante-ivr
+reading sources... [ 33%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline
+reading sources... [ 36%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/flujo-etl-nocturno
+reading sources... [ 39%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/sub-estados-proceso-etl
+reading sources... [ 42%] arquitectura-tecnica/modulos/operator/diagramas/ciclo-vida-estado-agente
+reading sources... [ 45%] arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator
+reading sources... [ 48%] arquitectura-tecnica/modulos/operator/diagramas/secuencia-atencion-llamada-entrante
+reading sources... [ 52%] arquitectura-tecnica/modulos/rbac-core/diagramas/evaluacion-conflicto-sod
+reading sources... [ 55%] arquitectura-tecnica/modulos/rbac-core/diagramas/precedencia-permisos
+reading sources... [ 58%] arquitectura-tecnica/modulos/supervision/diagramas/barge-in-intervencion-tripartita
+reading sources... [ 61%] arquitectura-tecnica/modulos/supervision/diagramas/componentes-mod-supervision
+reading sources... [ 64%] arquitectura-tecnica/modulos/supervision/diagramas/flujo-monitoreo-tiempo-real
+reading sources... [ 67%] arquitectura-tecnica/modulos/sys-logs/diagramas/componentes-mod-logs
+reading sources... [ 70%] arquitectura-tecnica/modulos/sys-logs/diagramas/flujo-health-check
+reading sources... [ 73%] arquitectura-tecnica/modulos/sys-logs/diagramas/secuencia-consulta-logs-sistema
+reading sources... [ 76%] arquitectura-tecnica/modulos/user-identity/diagramas/ciclo-vida-usuario
+reading sources... [ 79%] arquitectura-tecnica/modulos/user-identity/diagramas/clases-modulo-identidad
+reading sources... [ 82%] arquitectura-tecnica/modulos/user-identity/diagramas/secuencia-creacion-usuario
+reading sources... [ 85%] arquitectura-tecnica/modulos/vis-reports/diagramas/componentes-mod-reports
+reading sources... [ 88%] arquitectura-tecnica/modulos/vis-reports/diagramas/flujo-acceso-visualizaciones
+reading sources... [ 91%] arquitectura-tecnica/modulos/vis-reports/diagramas/secuencia-sp-rpt-flujo-completo
+reading sources... [ 94%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/ciclo-vida-asignacion
+reading sources... [ 97%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/clases-entidades-rbac
+reading sources... [100%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/flujo-enforcement-rbac
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... /home/user/IACT-docs/source/arquitectura-tecnica/domain-model/overview.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/domain-model/index', 'arquitectura-tecnica/modelo-dominio-iact'], selecting: arquitectura-tecnica/modelo-dominio-iact <- arquitectura-tecnica/domain-model/overview
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-access.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-access
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-admin.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-admin
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-alerts.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-alerts
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-audit.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-audit
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-auth.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-auth
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-caller.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-caller
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-logs.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-logs
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-operator.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-operator
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-permissions.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-permissions
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-pipeline.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-pipeline
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-reports.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-reports
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-supervision.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-supervision
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/mod-users.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/mod-users
+done
+preparing documents... WARNING: search index couldn't be loaded, but not all documents will be built: the index will be incomplete.
+done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/basic.css
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/documentation_options.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/language_data.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/copybutton.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  0%] arquitectura-tecnica/domain-model/index
+writing output... [  1%] arquitectura-tecnica/domain-model/overview
+writing output... [  1%] arquitectura-tecnica/modelo-dominio-iact
+writing output... [  1%] arquitectura-tecnica/modulos/alerts/diagramas/ciclo-vida-alerta
+writing output... [  1%] arquitectura-tecnica/modulos/alerts/diagramas/componentes-mod-alerts
+writing output... [  2%] arquitectura-tecnica/modulos/alerts/diagramas/index
+writing output... [  2%] arquitectura-tecnica/modulos/alerts/diagramas/secuencia-disparo-alerta-br016
+writing output... [  2%] arquitectura-tecnica/modulos/audit/diagramas/componentes-mod-audit
+writing output... [  3%] arquitectura-tecnica/modulos/audit/diagramas/estados-exportacion-audit
+writing output... [  3%] arquitectura-tecnica/modulos/audit/diagramas/flujo-emision-evento-auditoria
+writing output... [  3%] arquitectura-tecnica/modulos/audit/diagramas/index
+writing output... [  3%] arquitectura-tecnica/modulos/auth/diagramas/diagrama-contexto-dependencias
+writing output... [  4%] arquitectura-tecnica/modulos/auth/diagramas/flujo-autenticacion
+writing output... [  4%] arquitectura-tecnica/modulos/auth/diagramas/index
+writing output... [  4%] arquitectura-tecnica/modulos/caller/diagramas/flujo-llamante-ivr
+writing output... [  4%] arquitectura-tecnica/modulos/caller/diagramas/index
+writing output... [  5%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline
+writing output... [  5%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/flujo-etl-nocturno
+writing output... [  5%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/index
+writing output... [  6%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/sub-estados-proceso-etl
+writing output... [  6%] arquitectura-tecnica/modulos/operator/diagramas/ciclo-vida-estado-agente
+writing output... [  6%] arquitectura-tecnica/modulos/operator/diagramas/componentes-mod-operator
+writing output... [  6%] arquitectura-tecnica/modulos/operator/diagramas/index
+writing output... [  7%] arquitectura-tecnica/modulos/operator/diagramas/secuencia-atencion-llamada-entrante
+writing output... [  7%] arquitectura-tecnica/modulos/rbac-core/diagramas/evaluacion-conflicto-sod
+writing output... [  7%] arquitectura-tecnica/modulos/rbac-core/diagramas/index
+writing output... [  8%] arquitectura-tecnica/modulos/rbac-core/diagramas/precedencia-permisos
+writing output... [  8%] arquitectura-tecnica/modulos/supervision/diagramas/barge-in-intervencion-tripartita
+writing output... [  8%] arquitectura-tecnica/modulos/supervision/diagramas/componentes-mod-supervision
+writing output... [  8%] arquitectura-tecnica/modulos/supervision/diagramas/flujo-monitoreo-tiempo-real
+writing output... [  9%] arquitectura-tecnica/modulos/supervision/diagramas/index
+writing output... [  9%] arquitectura-tecnica/modulos/sys-logs/diagramas/componentes-mod-logs
+writing output... [  9%] arquitectura-tecnica/modulos/sys-logs/diagramas/flujo-health-check
+writing output... [  9%] arquitectura-tecnica/modulos/sys-logs/diagramas/index
+writing output... [ 10%] arquitectura-tecnica/modulos/sys-logs/diagramas/secuencia-consulta-logs-sistema
+writing output... [ 10%] arquitectura-tecnica/modulos/user-identity/diagramas/ciclo-vida-usuario
+writing output... [ 10%] arquitectura-tecnica/modulos/user-identity/diagramas/clases-modulo-identidad
+writing output... [ 11%] arquitectura-tecnica/modulos/user-identity/diagramas/index
+writing output... [ 11%] arquitectura-tecnica/modulos/user-identity/diagramas/secuencia-creacion-usuario
+writing output... [ 11%] arquitectura-tecnica/modulos/vis-reports/diagramas/componentes-mod-reports
+writing output... [ 11%] arquitectura-tecnica/modulos/vis-reports/diagramas/flujo-acceso-visualizaciones
+writing output... [ 12%] arquitectura-tecnica/modulos/vis-reports/diagramas/index
+writing output... [ 12%] arquitectura-tecnica/modulos/vis-reports/diagramas/secuencia-sp-rpt-flujo-completo
+writing output... [ 12%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/ciclo-vida-asignacion
+writing output... [ 13%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/clases-entidades-rbac
+writing output... [ 13%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/flujo-enforcement-rbac
+writing output... [ 13%] arquitectura-tecnica/rbac/modelo-rbac-iact/diagramas/index
+writing output... [ 13%] base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/index
+writing output... [ 14%] base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/metamodelo-descripcion
+writing output... [ 14%] databases/index
+writing output... [ 14%] databases/modelo-dual
+writing output... [ 14%] index
+writing output... [ 15%] requisitos/casos-uso/auth/uc-auth-01/actores-precondiciones
+writing output... [ 15%] requisitos/casos-uso/auth/uc-auth-01/index
+writing output... [ 15%] requisitos/casos-uso/auth/uc-auth-02/actores-precondiciones
+writing output... [ 16%] requisitos/casos-uso/auth/uc-auth-02/index
+writing output... [ 16%] requisitos/casos-uso/auth/uc-auth-03/actores-precondiciones
+writing output... [ 16%] requisitos/casos-uso/auth/uc-auth-03/index
+writing output... [ 16%] requisitos/casos-uso/auth/uc-auth-04/actores-precondiciones
+writing output... [ 17%] requisitos/casos-uso/auth/uc-auth-04/index
+writing output... [ 17%] requisitos/casos-uso/auth/uc-auth-05/actores-precondiciones
+writing output... [ 17%] requisitos/casos-uso/auth/uc-auth-05/index
+writing output... [ 18%] requisitos/casos-uso/reports/uc-rpt-03/index
+writing output... [ 18%] requisitos/casos-uso/reports/uc-rpt-03/requisitos-no-funcionales
+writing output... [ 18%] requisitos/casos-uso/reports/uc-rpt-11/diagramas-uml/estado-del-share
+writing output... [ 18%] requisitos/casos-uso/reports/uc-rpt-11/diagramas-uml/index
+writing output... [ 19%] requisitos/casos-uso/reports/uc-rpt-11/excepciones
+writing output... [ 19%] requisitos/casos-uso/reports/uc-rpt-11/index
+writing output... [ 19%] requisitos/casos-uso/reports/uc-rpt-16/index
+writing output... [ 19%] requisitos/casos-uso/reports/uc-rpt-16/requisitos-no-funcionales
+writing output... [ 20%] requisitos/casos-uso/reports/uc-rpt-16/testing
+writing output... [ 20%] requisitos/casos-uso/reports/uc-rpt-17/actores-precondiciones
+writing output... [ 20%] requisitos/casos-uso/reports/uc-rpt-17/criterios-aceptacion
+writing output... [ 21%] requisitos/casos-uso/reports/uc-rpt-17/index
+writing output... [ 21%] requisitos/casos-uso/users/index
+writing output... [ 21%] requisitos/casos-uso/users/uc-usr-01/actores-precondiciones
+writing output... [ 21%] requisitos/casos-uso/users/uc-usr-01/flujo-principal
+writing output... [ 22%] requisitos/casos-uso/users/uc-usr-01/index
+writing output... [ 22%] requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-caso-de-uso
+writing output... [ 22%] requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-secuencia-detalle
+writing output... [ 23%] requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-secuencia-listado
+writing output... [ 23%] requisitos/casos-uso/users/uc-usr-02/diagramas-uml/index
+writing output... [ 23%] requisitos/casos-uso/users/uc-usr-02/excepciones
+writing output... [ 23%] requisitos/casos-uso/users/uc-usr-02/flujo-principal
+writing output... [ 24%] requisitos/casos-uso/users/uc-usr-02/flujos-alternos
+writing output... [ 24%] requisitos/casos-uso/users/uc-usr-02/implementacion-tecnica
+writing output... [ 24%] requisitos/casos-uso/users/uc-usr-02/index
+writing output... [ 25%] requisitos/casos-uso/users/uc-usr-02/informacion-general
+writing output... [ 25%] requisitos/casos-uso/users/uc-usr-02/patrones-diseno
+writing output... [ 25%] requisitos/casos-uso/users/uc-usr-02/requisitos-no-funcionales
+writing output... [ 25%] requisitos/casos-uso/users/uc-usr-02/testing
+writing output... [ 26%] requisitos/casos-uso/users/uc-usr-03/actores-precondiciones
+writing output... [ 26%] requisitos/casos-uso/users/uc-usr-03/criterios-aceptacion
+writing output... [ 26%] requisitos/casos-uso/users/uc-usr-03/datos-involucrados
+writing output... [ 26%] requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-actividad
+writing output... [ 27%] requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso
+writing output... [ 27%] requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-estados-user-state
+writing output... [ 27%] requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-secuencia
+writing output... [ 28%] requisitos/casos-uso/users/uc-usr-03/diagramas-uml/index
+writing output... [ 28%] requisitos/casos-uso/users/uc-usr-03/excepciones
+writing output... [ 28%] requisitos/casos-uso/users/uc-usr-03/flujo-principal
+writing output... [ 28%] requisitos/casos-uso/users/uc-usr-03/flujos-alternos
+writing output... [ 29%] requisitos/casos-uso/users/uc-usr-03/implementacion-tecnica
+writing output... [ 29%] requisitos/casos-uso/users/uc-usr-03/index
+writing output... [ 29%] requisitos/casos-uso/users/uc-usr-03/informacion-general
+writing output... [ 30%] requisitos/casos-uso/users/uc-usr-03/patrones-diseno
+writing output... [ 30%] requisitos/casos-uso/users/uc-usr-03/requisitos-no-funcionales
+writing output... [ 30%] requisitos/casos-uso/users/uc-usr-03/testing
+writing output... [ 30%] requisitos/casos-uso/users/uc-usr-04/actores-precondiciones
+writing output... [ 31%] requisitos/casos-uso/users/uc-usr-04/criterios-aceptacion
+writing output... [ 31%] requisitos/casos-uso/users/uc-usr-04/datos-involucrados
+writing output... [ 31%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-actividad
+writing output... [ 31%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-actividad-side-effects-post-eliminacion
+writing output... [ 32%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso
+writing output... [ 32%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-estados-user-state
+writing output... [ 32%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-secuencia
+writing output... [ 33%] requisitos/casos-uso/users/uc-usr-04/diagramas-uml/index
+writing output... [ 33%] requisitos/casos-uso/users/uc-usr-04/excepciones
+writing output... [ 33%] requisitos/casos-uso/users/uc-usr-04/flujo-principal
+writing output... [ 33%] requisitos/casos-uso/users/uc-usr-04/flujos-alternos
+writing output... [ 34%] requisitos/casos-uso/users/uc-usr-04/implementacion-tecnica
+writing output... [ 34%] requisitos/casos-uso/users/uc-usr-04/index
+writing output... [ 34%] requisitos/casos-uso/users/uc-usr-04/informacion-general
+writing output... [ 35%] requisitos/casos-uso/users/uc-usr-04/patrones-diseno
+writing output... [ 35%] requisitos/casos-uso/users/uc-usr-04/requisitos-no-funcionales
+writing output... [ 35%] requisitos/casos-uso/users/uc-usr-04/testing
+writing output... [ 35%] requisitos/index
+writing output... [ 36%] requisitos/reglas-negocio/br-001-fuente-operacional-inmutable
+writing output... [ 36%] requisitos/reglas-negocio/br-002-etl-batch-nocturno
+writing output... [ 36%] requisitos/reglas-negocio/br-003-usuario-inactivo-90-dias
+writing output... [ 36%] requisitos/reglas-negocio/br-004-comunicaciones-internas-only
+writing output... [ 37%] requisitos/reglas-negocio/br-005-sesion-unica-por-usuario
+writing output... [ 37%] requisitos/reglas-negocio/br-006-rbac-flat-nist
+writing output... [ 37%] requisitos/reglas-negocio/br-007-separacion-funciones-sod
+writing output... [ 38%] requisitos/reglas-negocio/br-008-auditoria-accesos
+writing output... [ 38%] requisitos/reglas-negocio/br-009-bajas-logicas
+writing output... [ 38%] requisitos/reglas-negocio/br-010-auditoria-inmutable
+writing output... [ 38%] requisitos/reglas-negocio/br-011-limites-exportacion
+writing output... [ 39%] requisitos/reglas-negocio/br-012-usuario-segmento-unico
+writing output... [ 39%] requisitos/reglas-negocio/br-013-username-unico
+writing output... [ 39%] requisitos/reglas-negocio/br-014-alerta-por-umbral
+writing output... [ 40%] requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos
+writing output... [ 40%] requisitos/reglas-negocio/br-016-tasa-abandono
+writing output... [ 40%] requisitos/reglas-negocio/br-017-tiempo-promedio-espera
+writing output... [ 40%] requisitos/reglas-negocio/br-018-indice-eficiencia
+writing output... [ 41%] requisitos/reglas-negocio/br-019-retencion-2-anios
+writing output... [ 41%] requisitos/reglas-negocio/br-020-clasificacion-datos
+writing output... [ 41%] requisitos/reglas-negocio/index
+writing output... [ 42%] requisitos/reglas-negocio/rbac/catalogo-funciones
+writing output... [ 42%] requisitos/reglas-negocio/rbac/grupos-funciones
+writing output... [ 42%] requisitos/reglas-negocio/rbac/index
+writing output... [ 42%] requisitos/reglas-negocio/rbac/mapeo-uc
+writing output... [ 43%] requisitos/reglas-negocio/rbac/sod
+writing output... [ 43%] requisitos/requisitos-funcionales/access/index
+writing output... [ 43%] requisitos/requisitos-funcionales/access/uc-010-asignar-funciones/fr-010-01-listar-funciones-disponibles
+writing output... [ 43%] requisitos/requisitos-funcionales/access/uc-010-asignar-funciones/fr-010-02-validar-sod-antes-asignar
+writing output... [ 44%] requisitos/requisitos-funcionales/access/uc-010-asignar-funciones/fr-010-03-crear-asignacion-usuario-funcion
+writing output... [ 44%] requisitos/requisitos-funcionales/access/uc-010-asignar-funciones/fr-010-04-calcular-permisos-efectivos
+writing output... [ 44%] requisitos/requisitos-funcionales/access/uc-010-asignar-funciones/index
+writing output... [ 45%] requisitos/requisitos-funcionales/access/uc-011-revocar-funciones/fr-011-01-listar-funciones-asignadas
+writing output... [ 45%] requisitos/requisitos-funcionales/access/uc-011-revocar-funciones/fr-011-02-eliminar-asignacion
+writing output... [ 45%] requisitos/requisitos-funcionales/access/uc-011-revocar-funciones/fr-011-03-recalcular-permisos-efectivos
+writing output... [ 45%] requisitos/requisitos-funcionales/access/uc-011-revocar-funciones/index
+writing output... [ 46%] requisitos/requisitos-funcionales/alerts/index
+writing output... [ 46%] requisitos/requisitos-funcionales/alerts/uc-050-configurar-umbrales-alertas/fr-050-01-crud-reglas-alerta
+writing output... [ 46%] requisitos/requisitos-funcionales/alerts/uc-050-configurar-umbrales-alertas/index
+writing output... [ 47%] requisitos/requisitos-funcionales/alerts/uc-051-ver-alertas-activas/fr-051-01-consultar-alertas-activas
+writing output... [ 47%] requisitos/requisitos-funcionales/alerts/uc-051-ver-alertas-activas/index
+writing output... [ 47%] requisitos/requisitos-funcionales/alerts/uc-052-reconocer-alerta/fr-052-01-reconocer-alerta-firing
+writing output... [ 47%] requisitos/requisitos-funcionales/alerts/uc-052-reconocer-alerta/index
+writing output... [ 48%] requisitos/requisitos-funcionales/alerts/uc-053-ver-historial-alertas/fr-053-01-consultar-historial-alertas
+writing output... [ 48%] requisitos/requisitos-funcionales/alerts/uc-053-ver-historial-alertas/index
+writing output... [ 48%] requisitos/requisitos-funcionales/alerts/uc-054-gestionar-suscripciones-alertas/fr-054-01-crud-suscripciones-alertas
+writing output... [ 48%] requisitos/requisitos-funcionales/alerts/uc-054-gestionar-suscripciones-alertas/index
+writing output... [ 49%] requisitos/requisitos-funcionales/audit/index
+writing output... [ 49%] requisitos/requisitos-funcionales/audit/uc-055-consultar-audit-log/fr-055-01-consultar-audit-log-general
+writing output... [ 49%] requisitos/requisitos-funcionales/audit/uc-055-consultar-audit-log/index
+writing output... [ 50%] requisitos/requisitos-funcionales/audit/uc-056-buscar-en-audit-log/fr-056-01-buscar-full-text-audit
+writing output... [ 50%] requisitos/requisitos-funcionales/audit/uc-056-buscar-en-audit-log/index
+writing output... [ 50%] requisitos/requisitos-funcionales/audit/uc-057-exportar-audit-log/fr-057-01-exportar-audit-async
+writing output... [ 50%] requisitos/requisitos-funcionales/audit/uc-057-exportar-audit-log/index
+writing output... [ 51%] requisitos/requisitos-funcionales/audit/uc-058-reporte-cumplimiento/fr-058-01-generar-reporte-cumplimiento-firmado
+writing output... [ 51%] requisitos/requisitos-funcionales/audit/uc-058-reporte-cumplimiento/index
+writing output... [ 51%] requisitos/requisitos-funcionales/auth/index
+writing output... [ 52%] requisitos/requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-01-validar-formato-username
+writing output... [ 52%] requisitos/requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-02-validar-credenciales
+writing output... [ 52%] requisitos/requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-03-generar-token-jwt
+writing output... [ 52%] requisitos/requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-04-invalidar-sesiones-previas
+writing output... [ 53%] requisitos/requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-05-registrar-evento-auditoria
+writing output... [ 53%] requisitos/requisitos-funcionales/auth/uc-002-cerrar-sesion/fr-002-01-invalidar-token-jwt
+writing output... [ 53%] requisitos/requisitos-funcionales/auth/uc-002-cerrar-sesion/fr-002-02-registrar-evento-logout
+writing output... [ 53%] requisitos/requisitos-funcionales/auth/uc-002-cerrar-sesion/fr-002-03-limpiar-datos-sesion-cliente
+writing output... [ 54%] requisitos/requisitos-funcionales/auth/uc-003-recuperar-password/fr-003-01-validar-username-existe
+writing output... [ 54%] requisitos/requisitos-funcionales/auth/uc-003-recuperar-password/fr-003-02-mostrar-pregunta-seguridad
+writing output... [ 54%] requisitos/requisitos-funcionales/auth/uc-003-recuperar-password/fr-003-03-validar-respuesta
+writing output... [ 55%] requisitos/requisitos-funcionales/auth/uc-003-recuperar-password/fr-003-04-generar-password-temporal
+writing output... [ 55%] requisitos/requisitos-funcionales/auth/uc-003-recuperar-password/fr-003-05-forzar-cambio-siguiente-login
+writing output... [ 55%] requisitos/requisitos-funcionales/auth/uc-004-cambiar-password/fr-004-01-validar-password-actual
+writing output... [ 55%] requisitos/requisitos-funcionales/auth/uc-004-cambiar-password/fr-004-02-validar-complejidad-nuevo-password
+writing output... [ 56%] requisitos/requisitos-funcionales/auth/uc-004-cambiar-password/fr-004-03-actualizar-hash-bd
+writing output... [ 56%] requisitos/requisitos-funcionales/auth/uc-004-cambiar-password/fr-004-04-invalidar-sesiones
+writing output... [ 56%] requisitos/requisitos-funcionales/auth/uc-005-gestionar-sesiones/fr-005-01-listar-sesiones-activas
+writing output... [ 57%] requisitos/requisitos-funcionales/auth/uc-005-gestionar-sesiones/fr-005-02-mostrar-detalle-sesion
+writing output... [ 57%] requisitos/requisitos-funcionales/auth/uc-005-gestionar-sesiones/fr-005-03-invalidar-sesion-individual
+writing output... [ 57%] requisitos/requisitos-funcionales/auth/uc-005-gestionar-sesiones/fr-005-04-invalidar-sesiones-por-usuario
+writing output... [ 57%] requisitos/requisitos-funcionales/caller/index
+writing output... [ 58%] requisitos/requisitos-funcionales/caller/uc-066-recibir-llamada/fr-066-01-iniciar-sesion-llamada-entrante
+writing output... [ 58%] requisitos/requisitos-funcionales/caller/uc-066-recibir-llamada/index
+writing output... [ 58%] requisitos/requisitos-funcionales/caller/uc-067-navegar-ivr/fr-067-01-ejecutar-flujo-ivr
+writing output... [ 58%] requisitos/requisitos-funcionales/caller/uc-067-navegar-ivr/index
+writing output... [ 59%] requisitos/requisitos-funcionales/caller/uc-068-esperar-en-cola/fr-068-01-gestionar-espera-en-cola
+writing output... [ 59%] requisitos/requisitos-funcionales/caller/uc-068-esperar-en-cola/index
+writing output... [ 59%] requisitos/requisitos-funcionales/caller/uc-069-solicitar-callback/fr-069-01-registrar-solicitud-callback
+writing output... [ 60%] requisitos/requisitos-funcionales/caller/uc-069-solicitar-callback/index
+writing output... [ 60%] requisitos/requisitos-funcionales/caller/uc-070-encuesta-post-llamada/fr-070-01-ejecutar-encuesta-posl-llamada
+writing output... [ 60%] requisitos/requisitos-funcionales/caller/uc-070-encuesta-post-llamada/index
+writing output... [ 60%] requisitos/requisitos-funcionales/index
+writing output... [ 61%] requisitos/requisitos-funcionales/logs/index
+writing output... [ 61%] requisitos/requisitos-funcionales/logs/uc-059-ver-logs-aplicacion/fr-059-01-consultar-logs-aplicacion
+writing output... [ 61%] requisitos/requisitos-funcionales/logs/uc-059-ver-logs-aplicacion/index
+writing output... [ 62%] requisitos/requisitos-funcionales/logs/uc-060-ver-logs-etl/fr-060-01-consultar-logs-etl
+writing output... [ 62%] requisitos/requisitos-funcionales/logs/uc-060-ver-logs-etl/index
+writing output... [ 62%] requisitos/requisitos-funcionales/logs/uc-061-buscar-en-logs/fr-061-01-buscar-full-text-logs
+writing output... [ 62%] requisitos/requisitos-funcionales/logs/uc-061-buscar-en-logs/index
+writing output... [ 63%] requisitos/requisitos-funcionales/logs/uc-062-exportar-logs/fr-062-01-exportar-logs-async
+writing output... [ 63%] requisitos/requisitos-funcionales/logs/uc-062-exportar-logs/index
+writing output... [ 63%] requisitos/requisitos-funcionales/logs/uc-063-ver-logs-infra/fr-063-01-consultar-logs-infra
+writing output... [ 64%] requisitos/requisitos-funcionales/logs/uc-063-ver-logs-infra/index
+writing output... [ 64%] requisitos/requisitos-funcionales/logs/uc-064-ver-estado-sistema/fr-064-01-consultar-estado-sistema
+writing output... [ 64%] requisitos/requisitos-funcionales/logs/uc-064-ver-estado-sistema/index
+writing output... [ 64%] requisitos/requisitos-funcionales/logs/uc-065-ver-metricas-rendimiento/fr-065-01-consultar-metricas-rendimiento
+writing output... [ 65%] requisitos/requisitos-funcionales/logs/uc-065-ver-metricas-rendimiento/index
+writing output... [ 65%] requisitos/requisitos-funcionales/operator/index
+writing output... [ 65%] requisitos/requisitos-funcionales/operator/uc-022-cambiar-estado-agente/fr-022-01-registrar-cambio-estado
+writing output... [ 65%] requisitos/requisitos-funcionales/operator/uc-022-cambiar-estado-agente/index
+writing output... [ 66%] requisitos/requisitos-funcionales/operator/uc-023-atender-llamada-entrante/fr-023-01-aceptar-oferta-llamada
+writing output... [ 66%] requisitos/requisitos-funcionales/operator/uc-023-atender-llamada-entrante/index
+writing output... [ 66%] requisitos/requisitos-funcionales/operator/uc-024-iniciar-llamada-saliente/fr-024-01-iniciar-llamada-saliente-validada
+writing output... [ 67%] requisitos/requisitos-funcionales/operator/uc-024-iniciar-llamada-saliente/index
+writing output... [ 67%] requisitos/requisitos-funcionales/operator/uc-025-pausar-llamada/fr-025-01-pausar-reanudar-llamada
+writing output... [ 67%] requisitos/requisitos-funcionales/operator/uc-025-pausar-llamada/index
+writing output... [ 67%] requisitos/requisitos-funcionales/operator/uc-026-transferir-llamada/fr-026-01-transferir-llamada-warm-cold
+writing output... [ 68%] requisitos/requisitos-funcionales/operator/uc-026-transferir-llamada/index
+writing output... [ 68%] requisitos/requisitos-funcionales/operator/uc-027-registrar-disposicion-llamada/fr-027-01-registrar-disposicion-post-atencion
+writing output... [ 68%] requisitos/requisitos-funcionales/operator/uc-027-registrar-disposicion-llamada/index
+writing output... [ 69%] requisitos/requisitos-funcionales/operator/uc-028-solicitar-descanso/fr-028-01-registrar-solicitud-descanso
+writing output... [ 69%] requisitos/requisitos-funcionales/operator/uc-028-solicitar-descanso/index
+writing output... [ 69%] requisitos/requisitos-funcionales/operator/uc-029-ver-metricas-propias/fr-029-01-consultar-metricas-desempeno
+writing output... [ 69%] requisitos/requisitos-funcionales/operator/uc-029-ver-metricas-propias/index
+writing output... [ 70%] requisitos/requisitos-funcionales/operator/uc-030-ver-historial-llamadas/fr-030-01-consultar-historial-llamadas-propias
+writing output... [ 70%] requisitos/requisitos-funcionales/operator/uc-030-ver-historial-llamadas/index
+writing output... [ 70%] requisitos/requisitos-funcionales/operator/uc-031-leer-buzon-interno/fr-031-01-leer-mensajes-buzon-interno
+writing output... [ 70%] requisitos/requisitos-funcionales/operator/uc-031-leer-buzon-interno/index
+writing output... [ 71%] requisitos/requisitos-funcionales/permissions/index
+writing output... [ 71%] requisitos/requisitos-funcionales/permissions/uc-012-asignar-grupo-usuario-perm/fr-012-01-obtener-catalogo-grupos
+writing output... [ 71%] requisitos/requisitos-funcionales/permissions/uc-012-asignar-grupo-usuario-perm/fr-012-02-mostrar-composicion-grupo
+writing output... [ 72%] requisitos/requisitos-funcionales/permissions/uc-012-asignar-grupo-usuario-perm/fr-012-03-asignar-grupo-con-validacion
+writing output... [ 72%] requisitos/requisitos-funcionales/permissions/uc-012-asignar-grupo-usuario-perm/fr-012-04-actualizar-contadores-catalogo
+writing output... [ 72%] requisitos/requisitos-funcionales/permissions/uc-012-asignar-grupo-usuario-perm/index
+writing output... [ 72%] requisitos/requisitos-funcionales/permissions/uc-013-revocar-grupo-usuario-perm/fr-013-01-mostrar-efectos-revocacion
+writing output... [ 73%] requisitos/requisitos-funcionales/permissions/uc-013-revocar-grupo-usuario-perm/fr-013-02-revocar-grupo-con-audit
+writing output... [ 73%] requisitos/requisitos-funcionales/permissions/uc-013-revocar-grupo-usuario-perm/index
+writing output... [ 73%] requisitos/requisitos-funcionales/permissions/uc-014-conceder-permiso-excepcional-perm/fr-014-01-validar-permiso-excepcional
+writing output... [ 74%] requisitos/requisitos-funcionales/permissions/uc-014-conceder-permiso-excepcional-perm/fr-014-02-registrar-permiso-excepcional
+writing output... [ 74%] requisitos/requisitos-funcionales/permissions/uc-014-conceder-permiso-excepcional-perm/index
+writing output... [ 74%] requisitos/requisitos-funcionales/permissions/uc-015-revocar-permiso-excepcional/fr-015-01-validar-estado-activo-excepcion
+writing output... [ 74%] requisitos/requisitos-funcionales/permissions/uc-015-revocar-permiso-excepcional/fr-015-02-revocar-permiso-excepcional-audit
+writing output... [ 75%] requisitos/requisitos-funcionales/permissions/uc-015-revocar-permiso-excepcional/index
+writing output... [ 75%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/fr-016-01-crear-grupo-permisos
+writing output... [ 75%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/fr-016-02-modificar-grupo-permisos
+writing output... [ 75%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/fr-016-03-retirar-grupo-permisos
+writing output... [ 76%] requisitos/requisitos-funcionales/permissions/uc-016-gestionar-grupo-permisos/index
+writing output... [ 76%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/fr-017-01-actualizar-composicion-agr
+writing output... [ 76%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/fr-017-02-invalidar-cache-post-composicion
+writing output... [ 77%] requisitos/requisitos-funcionales/permissions/uc-017-asignar-funciones-grupo/index
+writing output... [ 77%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/fr-018-01-verificar-permiso-via-cache
+writing output... [ 77%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/fr-018-02-verificar-permiso-resolucion-completa
+writing output... [ 77%] requisitos/requisitos-funcionales/permissions/uc-018-verificar-permiso-usuario/index
+writing output... [ 78%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/fr-019-01-resolver-conjunto-efectivo-menu
+writing output... [ 78%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/fr-019-02-generar-menu-localizado-con-cache
+writing output... [ 78%] requisitos/requisitos-funcionales/permissions/uc-019-generar-menu-dinamico/index
+writing output... [ 79%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/fr-020-01-validar-emitir-evento-auditoria
+writing output... [ 79%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/fr-020-02-garantizar-inmutabilidad-auditoria
+writing output... [ 79%] requisitos/requisitos-funcionales/permissions/uc-020-auditar-acceso/index
+writing output... [ 79%] requisitos/requisitos-funcionales/permissions/uc-021-consultar-auditoria-permisos/fr-021-01-consultar-auditoria-con-filtros
+writing output... [ 80%] requisitos/requisitos-funcionales/permissions/uc-021-consultar-auditoria-permisos/index
+writing output... [ 80%] requisitos/requisitos-funcionales/pipeline/index
+writing output... [ 80%] requisitos/requisitos-funcionales/pipeline/uc-071-ver-estado-pipeline/fr-071-01-consultar-estado-pipeline-etl
+writing output... [ 81%] requisitos/requisitos-funcionales/pipeline/uc-071-ver-estado-pipeline/index
+writing output... [ 81%] requisitos/requisitos-funcionales/pipeline/uc-072-ver-errores-pipeline/fr-072-01-consultar-errores-pipeline
+writing output... [ 81%] requisitos/requisitos-funcionales/pipeline/uc-072-ver-errores-pipeline/index
+writing output... [ 81%] requisitos/requisitos-funcionales/pipeline/uc-073-ver-disponibilidad-datos/fr-073-01-consultar-disponibilidad-datos
+writing output... [ 82%] requisitos/requisitos-funcionales/pipeline/uc-073-ver-disponibilidad-datos/index
+writing output... [ 82%] requisitos/requisitos-funcionales/pipeline/uc-074-reintentar-pipeline/fr-074-01-solicitar-reintento-pipeline
+writing output... [ 82%] requisitos/requisitos-funcionales/pipeline/uc-074-reintentar-pipeline/index
+writing output... [ 82%] requisitos/requisitos-funcionales/reports/index
+writing output... [ 83%] requisitos/requisitos-funcionales/reports/uc-032-ver-dashboard/fr-032-01-renderizar-dashboard-segmentado
+writing output... [ 83%] requisitos/requisitos-funcionales/reports/uc-032-ver-dashboard/index
+writing output... [ 83%] requisitos/requisitos-funcionales/reports/uc-033-ver-metricas-tiempo-real/fr-033-01-emitir-kpis-tiempo-real
+writing output... [ 84%] requisitos/requisitos-funcionales/reports/uc-033-ver-metricas-tiempo-real/index
+writing output... [ 84%] requisitos/requisitos-funcionales/reports/uc-034-ver-reportes-historicos/fr-034-01-consultar-reportes-historicos
+writing output... [ 84%] requisitos/requisitos-funcionales/reports/uc-034-ver-reportes-historicos/index
+writing output... [ 84%] requisitos/requisitos-funcionales/reports/uc-035-exportar-reporte/fr-035-01-encolar-exportacion-reporte
+writing output... [ 85%] requisitos/requisitos-funcionales/reports/uc-035-exportar-reporte/index
+writing output... [ 85%] requisitos/requisitos-funcionales/reports/uc-036-programar-reporte/fr-036-01-crear-reporte-programado
+writing output... [ 85%] requisitos/requisitos-funcionales/reports/uc-036-programar-reporte/index
+writing output... [ 86%] requisitos/requisitos-funcionales/reports/uc-037-ver-reportes-programados/fr-037-01-consultar-reportes-programados
+writing output... [ 86%] requisitos/requisitos-funcionales/reports/uc-037-ver-reportes-programados/index
+writing output... [ 86%] requisitos/requisitos-funcionales/reports/uc-038-gestionar-filtros-guardados/fr-038-01-crud-filtros-guardados
+writing output... [ 86%] requisitos/requisitos-funcionales/reports/uc-038-gestionar-filtros-guardados/index
+writing output... [ 87%] requisitos/requisitos-funcionales/reports/uc-039-guardar-vista/fr-039-01-crud-vistas-reporte
+writing output... [ 87%] requisitos/requisitos-funcionales/reports/uc-039-guardar-vista/index
+writing output... [ 87%] requisitos/requisitos-funcionales/reports/uc-040-compartir-reporte/fr-040-01-compartir-vista-reporte
+writing output... [ 87%] requisitos/requisitos-funcionales/reports/uc-040-compartir-reporte/index
+writing output... [ 88%] requisitos/requisitos-funcionales/reports/uc-041-reporte-agentes/fr-041-01-generar-reporte-agentes
+writing output... [ 88%] requisitos/requisitos-funcionales/reports/uc-041-reporte-agentes/index
+writing output... [ 88%] requisitos/requisitos-funcionales/reports/uc-042-reporte-colas/fr-042-01-generar-reporte-colas
+writing output... [ 89%] requisitos/requisitos-funcionales/reports/uc-042-reporte-colas/index
+writing output... [ 89%] requisitos/requisitos-funcionales/reports/uc-043-reporte-campanas/fr-043-01-generar-reporte-campanas
+writing output... [ 89%] requisitos/requisitos-funcionales/reports/uc-043-reporte-campanas/index
+writing output... [ 89%] requisitos/requisitos-funcionales/reports/uc-044-reporte-transferencias/fr-044-01-generar-reporte-transferencias
+writing output... [ 90%] requisitos/requisitos-funcionales/reports/uc-044-reporte-transferencias/index
+writing output... [ 90%] requisitos/requisitos-funcionales/reports/uc-045-reporte-menus-ivr/fr-045-01-generar-reporte-menus-ivr
+writing output... [ 90%] requisitos/requisitos-funcionales/reports/uc-045-reporte-menus-ivr/index
+writing output... [ 91%] requisitos/requisitos-funcionales/reports/uc-046-reporte-clientes-unicos/fr-046-01-generar-reporte-clientes-unicos
+writing output... [ 91%] requisitos/requisitos-funcionales/reports/uc-046-reporte-clientes-unicos/index
+writing output... [ 91%] requisitos/requisitos-funcionales/reports/uc-047-resolver-segmento-usuario/fr-047-01-resolver-segmento-dids
+writing output... [ 91%] requisitos/requisitos-funcionales/reports/uc-047-resolver-segmento-usuario/index
+writing output... [ 92%] requisitos/requisitos-funcionales/supervision/index
+writing output... [ 92%] requisitos/requisitos-funcionales/supervision/uc-075-monitorear-llamada/fr-075-01-monitorear-llamada-silencio
+writing output... [ 92%] requisitos/requisitos-funcionales/supervision/uc-075-monitorear-llamada/index
+writing output... [ 92%] requisitos/requisitos-funcionales/supervision/uc-076-intervenir-llamada/fr-076-01-intervenir-llamada-barge
+writing output... [ 93%] requisitos/requisitos-funcionales/supervision/uc-076-intervenir-llamada/index
+writing output... [ 93%] requisitos/requisitos-funcionales/supervision/uc-077-enviar-mensaje-masivo/fr-077-01-enviar-mensaje-masivo-buzon
+writing output... [ 93%] requisitos/requisitos-funcionales/supervision/uc-077-enviar-mensaje-masivo/index
+writing output... [ 94%] requisitos/requisitos-funcionales/users/index
+writing output... [ 94%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-01-validar-campos-obligatorios
+writing output... [ 94%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-02-verificar-unicidad-username
+writing output... [ 94%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-03-generar-password-temporal
+writing output... [ 95%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-04-crear-registro-usuario
+writing output... [ 95%] requisitos/requisitos-funcionales/users/uc-006-crear-usuario/fr-006-05-registrar-auditoria
+writing output... [ 95%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-01-cargar-datos-usuario
+writing output... [ 96%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-02-validar-campos-modificados
+writing output... [ 96%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-03-actualizar-registro
+writing output... [ 96%] requisitos/requisitos-funcionales/users/uc-007-modificar-usuario/fr-007-04-registrar-cambios-auditoria
+writing output... [ 96%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-01-validar-usuario-activo
+writing output... [ 97%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-02-cambiar-estado-inactivo
+writing output... [ 97%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-03-invalidar-sesiones
+writing output... [ 97%] requisitos/requisitos-funcionales/users/uc-008-baja-usuario/fr-008-04-preservar-registro-historico
+writing output... [ 97%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-01-obtener-lista-paginada
+writing output... [ 98%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-02-aplicar-filtros
+writing output... [ 98%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-03-ordenar-resultados
+writing output... [ 98%] requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad
+writing output... [ 99%] requisitos/requisitos-no-funcionales/index
+writing output... [ 99%] requisitos/requisitos-no-funcionales/rnf-proc-001-proceso-sdlc
+writing output... [ 99%] requisitos/requisitos-no-funcionales/rnf-proc-002-metricas-proceso
+writing output... [ 99%] risks-technical-debt/deuda-tecnica-rebuild
+writing output... [100%] risks-technical-debt/index
+writing output... [100%] risks-technical-debt/riesgos-conocidos
+
+/home/user/IACT-docs/source/arquitectura-tecnica/modulos/user-identity/diagramas/clases-modulo-identidad.rst:: WARNING: error while running plantuml
+
+b'ERROR\n13\nSyntax Error?\nSome diagram description contains errors\n' [plantuml]
+generating indices... genindex done
+highlighting module code... 
+writing additional pages... search done
+copying images... [100%] _static/img/logo.svg
+
+dumping search index in Spanish (code: es)... done
+dumping object inventory... done
+build succeeded, 2 warnings.
+
+The HTML pages are in build/html.
+
+Construcción finalizada. Los archivos HTML están en build/html.

@@ -6,7 +6,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — GET con filtros.
 PASO 2 — JWT.
-PASO 3 — RBAC view_active_alerts.
+PASO 3 — RBAC view_alerts.
 PASO 4 — Resolver segmento.
 PASO 5 — Validar filtros.
 PASO 6 — Query AlertRepo: state ∈ {firing,

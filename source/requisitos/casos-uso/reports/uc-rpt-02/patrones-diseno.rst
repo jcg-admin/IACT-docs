@@ -16,7 +16,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - view_realtime_metrics
+   - view_kpis
  * - **P-44**
    - Visibility audit prio
    - audit apertura / cierre stream

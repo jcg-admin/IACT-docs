@@ -192,10 +192,10 @@ Produce a MOD_Audit. TODOS los módulos consumen vía SEC_RULES.
 **Propósito:** Supervisar, monitorear y validar estado del ETL y
 disponibilidad de datos.
 
-**PUEDE:** Consultar histórico ETLExecution + ETLError, ver última/
-próxima ejecución, consultar disponibilidad por período,
-identificar desfasajes (>48h), indicadores de calidad, solicitar
-reintento controlado.
+**PUEDE:** Consultar historico de ETLEjecucion (exitosas y fallidas),
+ver ultima ejecucion y estado de salud del Servicio ETL, consultar
+disponibilidad por trimestre, identificar desfasajes (>12h-24h),
+indicadores de calidad, solicitar reintento controlado.
 
 **NO PUEDE:** Ejecutar ETL directamente, modificar configuración,
 hacer reportes de negocio, consultar BD IVR directamente.
@@ -473,7 +473,7 @@ de arquitectura.
    - | :doc:`/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm`
      | :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo conceptual vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Origen documental**
    - | § 1, § 2: REF-GLOBAL líneas 11–658
      | § 3: ANL-RBAC § 6 líneas 421–502

@@ -30,7 +30,7 @@ Personal (own) o admin (de otros).
  * - **Funcion RBAC**
    - ``manage_own_subscriptions``
      (implícita) +
-     ``manage_user_subscriptions``
+     ``subscribe_to_alert``
      (admin)
 
 Estructura de la spec
@@ -47,7 +47,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

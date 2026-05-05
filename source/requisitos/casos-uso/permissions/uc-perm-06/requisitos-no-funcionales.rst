@@ -22,8 +22,8 @@ delta).
 =============
 
 - HTTPS, JWT (CNST-009).
-- ``manage_access_group_composition``
-  (P-15 separable de manage_access_groups).
+- ``assign_functions_to_group``
+  (P-15 separable de create_function_group).
 - Cascade SoD enforcement obligatorio (P-27
   + P-28 escalado).
 - Throttling 30/hora (operacion poco

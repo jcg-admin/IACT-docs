@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``search_audit``
+- **User con funcion** ``search_audit_log``
 - **AuditSearchEngine** (FTS)
 
 ::

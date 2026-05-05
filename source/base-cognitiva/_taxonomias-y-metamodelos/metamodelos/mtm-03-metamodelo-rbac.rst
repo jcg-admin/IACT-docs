@@ -157,10 +157,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  .. list-table::
 
     * - Rol
-    * - <<primary key>> - role_id: SERIAL <<unique>> - codigo: VARCHAR(50) // ej. AGR-001..AGR-010 (system groups) <<attributes>> - nombre: VARCHAR(100) - descripcion: TEXT - categoria: CategoriaRol - is_active: BOOLEAN DEFAULT TRUE
+    * - <<primary key>> - role_id: SERIAL <<unique>> - codigo: VARCHAR(50) // ej. AGR-001..AGR-012 (system groups) <<attributes>> - nombre: VARCHAR(100) - descripcion: TEXT - categoria: CategoriaRol - is_active: BOOLEAN DEFAULT TRUE
     * - <<operations>> + containsPermission(permission): Boolean + isCompatibleWith(otherRole): Boolean + getPermissions: Set<Permission>
 
- CATALOGO DEL MODELO v5.2.x (vigente):
+ CATALOGO DEL MODELO v5.5.0 (vigente):
 
  El modelo v4.0 legacy (18 roles tipo USERS_FULL_MANAGER /
  SYSTEM_ADMIN basados en cargos) fue ABANDONADO en v5.0 a favor del
@@ -169,15 +169,15 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  El catalogo vigente declara:
 
- - **42 funciones atomicas** (capabilities) en formato accion-recurso:
-   manage_sessions, view_reports, export_csv, etc.
- - **10 grupos predefinidos** (system groups, inmutables)
-   AGR-001..AGR-010 que agrupan funciones por uso tipico.
+ - **74 funciones atomicas** (capabilities) en formato accion-recurso:
+   view_own_sessions, view_reports, export_csv, etc.
+ - **12 grupos predefinidos** (system groups, inmutables)
+   AGR-001..AGR-012 que agrupan funciones por uso tipico.
  - **3 reglas SoD** (Separation of Duties) atomicas: SOD-001
    pipeline_audit_separation, SOD-002 user_audit_separation,
    SOD-003 access_audit_separation.
 
- Tabla de los 10 grupos predefinidos:
+ Tabla de los 12 grupos predefinidos:
 
  .. list-table::
 
@@ -190,13 +190,13 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
       - 6 8 11 14 6 9 5 4 4 6
       - Operador Analista Supervisor Data Analyst Gestor Alertas Admin Usuarios Admin Permisos Auditor Admin Pipeline Sysadmin
 
- Ademas de los 10 grupos predefinidos (system, inmutables), el
+ Ademas de los 12 grupos predefinidos (system, inmutables), el
  admin puede crear **custom groups** dinamicamente via
  :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  Las 3 reglas SoD aplican TANTO a system como a custom groups.
 
- La materializacion concreta de este metamodelo (las 42 funciones,
- los 10 grupos, las 3 reglas SoD, la politica de permisos
+ La materializacion concreta de este metamodelo (las 74 funciones,
+ los 12 grupos, las 3 reglas SoD, la politica de permisos
  temporales) esta documentada en la restriccion
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` (cuyo
  detalle pendiente de enriquecer en iteracion v3 del WP #4).
@@ -298,7 +298,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
     * - role_conflicts
     * - <<composite key>> - role_a: FK -> Rol - role_b: FK -> Rol <<attributes>> - razon: TEXT
 
- PARES CONFLICTIVOS IACT (modelo v5.2.x — 3 reglas SoD atomicas):
+ PARES CONFLICTIVOS IACT (modelo v5.5.0 — 3 reglas SoD atomicas):
  .. list-table::
 
     * - Grupo A
@@ -598,7 +598,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    - 6
    - Sysadmin
 
-Detalle completo de los 10 grupos: ver
+Detalle completo de los 12 grupos: ver
 :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` § 2.1.
 
 ----
@@ -647,7 +647,7 @@ Modelo_RBAC_Completo_IACT y referenciado en los UC de gestion
 de usuarios (UC-005 a UC-011).
 
 **Catalogo poblado:** la materializacion concreta de este metamodelo
-(las 42 funciones, los 10 grupos, las 3 reglas SoD, la politica de
+(las 74 funciones, los 12 grupos, las 3 reglas SoD, la politica de
 permisos temporales) esta documentada como restricción
 :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 

@@ -29,7 +29,7 @@ UC_USR_04 ejecuta la **baja logica** de un User:
 transicion de su ``state`` a ``ELIMINATED``,
 revocacion logica de todos sus Assignments (
 ``state → REVOKED``), cierre de sus Sessions
-activas y blacklist de tokens vivos.
+activas y lista de revocacion de tokens vivos.
 
 **Nunca hay DELETE fisico** del registro
 ``User`` — BR-009 (Bajas Logicas) y CNST-006
@@ -55,7 +55,7 @@ activas y blacklist de tokens vivos.
 - Cierre de todas las Sessions ACTIVE
   (``state → CLOSED``,
   ``close_reason='USER_ELIMINATED'``) +
-  blacklist de tokens vivos.
+  lista de revocacion de tokens vivos.
 - Emision de ``AuditEvent USER_ELIMINATED`` con
   contadores (sessions_closed, assignments_revoked).
 - (Opcional) InternalMessage al User notificando

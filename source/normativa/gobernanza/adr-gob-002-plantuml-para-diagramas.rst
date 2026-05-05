@@ -450,21 +450,21 @@ Diagrama de Secuencia
  autonumber
 
  actor Usuario
- participant "Frontend" as FE
+ participant "Frontend" as Frontend
  participant "Backend API" as API
  participant "Auth Service" as Auth
- database "PostgreSQL" as DB
+ database "PostgreSQL" as PostgreSQL
 
- Usuario -> FE: Ingresa credenciales
- FE -> API: POST /api/auth/login\n{username, password}
+ Usuario -> Frontend: Ingresa credenciales
+ Frontend -> API: POST /api/auth/login\n{username, password}
  API -> Auth: authenticate(username, password)
- Auth -> DB: SELECT user WHERE username=?
- DB --> Auth: user data
+ Auth -> PostgreSQL: SELECT user WHERE username=?
+ PostgreSQL --> Auth: user data
  Auth -> Auth: verify_password(password, hash)
  Auth -> Auth: generate_jwt_token(user)
  Auth --> API: {access_token, refresh_token}
- API --> FE: 200 OK\n{tokens}
- FE --> Usuario: Redirigir a dashboard
+ API --> Frontend: 200 OK\n{tokens}
+ Frontend --> Usuario: Redirigir a dashboard
 
  @enduml
 

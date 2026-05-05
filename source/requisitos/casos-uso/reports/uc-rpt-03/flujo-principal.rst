@@ -12,7 +12,7 @@ paginacion.
 
 **PASO 2** — JWT.
 
-**PASO 3** — RBAC ``view_historical_reports``.
+**PASO 3** — RBAC ``view_reports``.
 
 **PASO 4** — Resolver segmento.
 

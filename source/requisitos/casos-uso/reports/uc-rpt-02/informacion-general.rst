@@ -20,7 +20,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-001, BReq-006
  * - **Funcion RBAC**
-   - ``view_realtime_metrics``
+   - ``view_kpis``
  * - **Criticidad**
    - Importante (operacional)
 

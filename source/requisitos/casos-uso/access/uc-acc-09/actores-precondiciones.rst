@@ -7,7 +7,7 @@ Parte 2 — Actores, precondiciones y postcondiciones
 2.1 Actor Principal
 ===================
 
-**User con funcion** ``view_access_audit``
+**User con funcion** ``view_audit_log``
 (P-15 RBAC granular). Tipicamente AGR-008
 auditor_group la contiene.
 
@@ -26,7 +26,7 @@ auditor_group la contiene.
 
 - Backend respondiendo en
   ``/api/access/audit/`` (GET).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - Invocante con la funcion.
 
 2.4 Postcondiciones

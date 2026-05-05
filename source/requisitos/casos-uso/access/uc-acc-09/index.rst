@@ -50,9 +50,9 @@ agregaciones especificas del modulo.
  * - **Complejidad**
    - MEDIA
  * - **Actor Principal**
-   - User con funcion ``view_access_audit``
+   - User con funcion ``view_audit_log``
  * - **Funcion RBAC**
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - **BReq satisfecho**
    - BReq-004
  * - **BRQ legacy**
@@ -83,7 +83,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

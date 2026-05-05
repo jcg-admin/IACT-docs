@@ -23,7 +23,7 @@ en Parte 4 (FA-NN) o Parte 5 (EX-NN).
    PASO 6   Backend aplica throttling CNST-011         (Backend)
    PASO 7   Backend localiza User por username         (Backend → BD)
    PASO 8   Backend valida state del User              (Backend)
-   PASO 9   Backend verifica password (bcrypt)         (Backend)
+   PASO 9   Backend verifica password (hash criptografico)         (Backend)
    PASO 10  Backend cierra Sessions previas CNST-004   (Backend → BD)
    PASO 11  Backend crea Session nueva CNST-003        (Backend → BD)
    PASO 12  Backend genera tokens JWT                  (Backend)
@@ -48,7 +48,7 @@ PASO 1 — Usuario abre /login
  * - **Accion**
    - Navega a ``https://iact.example.com/login``
  * - **Sistema responde**
-   - Frontend (React) renderiza ``<LoginForm>``
+   - Interfaz de Usuario renderiza ``<LoginForm>``
      con dos campos (username, password) +
      boton "Iniciar sesion"
  * - **Clase tocada**
@@ -108,8 +108,8 @@ PASO 4 — Frontend envia request
    - HTTP POST a ``/api/auth/login/`` con body
      JSON ``{username, password, client_info?}``
  * - **Sistema responde**
-   - Backend Django recibe la request en la vista
-     ``LoginView`` (CNST-009 autenticacion DRF)
+   - Backend recibe la request en la vista
+     ``Vista de autenticacion`` (CNST-009 autenticacion plataforma de API)
  * - **Headers requeridos**
    - ``Content-Type: application/json``;
      ``X-Forwarded-For`` o equivalente para IP real
@@ -127,7 +127,7 @@ PASO 5 — Backend valida formato
  * - **Actor**
    - Backend
  * - **Accion**
-   - DRF Serializer valida tipo y rango de cada
+   - plataforma de API Serializer valida tipo y rango de cada
      campo
  * - **Sistema responde**
    - Si valido pasa a paso 6; si no, retorna
@@ -209,7 +209,7 @@ PASO 9 — Verificar password
  * - **Actor**
    - Backend
  * - **Accion**
-   - ``bcrypt.check_password(password,
+   - ``verificarHash(password,
      User.password_hash)`` — comparacion
      constant-time
  * - **Sistema responde**
@@ -398,16 +398,13 @@ atomica** en BD:
 
    BEGIN
      -- Paso 10: invalidar Sessions previas
-     UPDATE session SET state='CLOSED', ...
+     actualizar session: state=CLOSED ...;
        WHERE user_id=X AND state='ACTIVE';
      -- Paso 10b (por cada Session cerrada)
-     INSERT INTO audit_event (event_type='SESSION_CLOSED', ...);
-     -- Paso 11: crear Session nueva
-     INSERT INTO session (state='ACTIVE', ...) RETURNING id;
-     -- Paso 13: AuditEvent LOGIN
-     INSERT INTO audit_event (event_type='LOGIN', ...);
-     -- Paso 14: User.last_login_at
-     UPDATE "user" SET last_login_at=NOW() WHERE id=X;
+     registrar en audit_event (con datos correspondientes)
+     registrar en session (con datos correspondientes)
+     registrar en audit_event (con datos correspondientes)
+     actualizar usuario: last_login_at=marca_tiempo_actual ...;
    COMMIT
 
 Si cualquier paso 10-14 falla, ROLLBACK.

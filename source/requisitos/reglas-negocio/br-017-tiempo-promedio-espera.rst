@@ -171,58 +171,20 @@ El TPE es un KPI crítico porque:
 4.1 SQL de Cálculo
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: sql
+.. note::
 
- -- BR_017: Cálculo de Tiempo Promedio de Espera
- SELECT 
- fecha,
- centro_id,
- ROUND(
- AVG(tiempo_espera_segundos)::DECIMAL,
- 2
- ) AS tiempo_promedio_espera
- FROM llamadas
- WHERE 
- fecha BETWEEN :fecha_inicio AND :fecha_fin
- AND estado = 'ATENDIDA' -- Solo llamadas atendidas
- GROUP BY fecha, centro_id;
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
-4.2 Modelo Django
-^^^^^^^^^^^^^^^^^
+4.2 Modelo de datos
+^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/reports/services/kpi_calculator.py
- 
- class KPICalculator:
- 
- Calculador de KPIs que implementa BR_017.
- 
- 
- @staticmethod
- def calcular_tiempo_promedio_espera(fecha_inicio, fecha_fin, centro_id=None):
- 
- BR_017: Calcula tiempo promedio de espera.
- 
- Returns:
- Decimal: Segundos con 2 decimales
- 
- queryset = Llamada.objects.filter(
- fecha__range=(fecha_inicio, fecha_fin),
- estado='ATENDIDA' # BR_017: Solo atendidas
- )
- 
- if centro_id:
- queryset = queryset.filter(centro_id=centro_id)
- 
- resultado = queryset.aggregate(
- tpe=Avg('tiempo_espera_segundos')
- )
- 
- if resultado['tpe'] is None:
- return Decimal('0.00')
- 
- return Decimal(resultado['tpe']).quantize(Decimal('0.01'))
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 ----
 

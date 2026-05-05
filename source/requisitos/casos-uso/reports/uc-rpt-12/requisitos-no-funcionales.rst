@@ -20,7 +20,7 @@ Parte 6 — Requisitos no funcionales
 6.3 Seguridad
 =============
 
-- ``view_agent_reports`` enforcement.
+- ``view_reports`` enforcement.
 - ``view_agent_detail`` para detalle.
 - Filtro segmento.
 - CNST-026 sin PII.

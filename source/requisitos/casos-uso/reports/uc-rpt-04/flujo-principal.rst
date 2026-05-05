@@ -11,7 +11,7 @@ Parte 3 — Flujo principal
 
 **PASO 2** — JWT.
 
-**PASO 3** — RBAC ``export_reports``.
+**PASO 3** — RBAC ``export_csv``.
 
 **PASO 4** — Validar:
 

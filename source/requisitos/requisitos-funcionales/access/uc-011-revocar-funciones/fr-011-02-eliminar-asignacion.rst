@@ -80,7 +80,7 @@ FR-011.02: Eliminar asignación de función
  ENTONCES se eliminan/marcan las asignaciones
  
  Escenario 1: Revocación simple
- DADO función ACC-003 seleccionada
+ DADO función view_assignments seleccionada
  CUANDO se confirma revocación
  ENTONCES el registro tiene revoked_at = NOW
  Y revoked_by = ID del admin

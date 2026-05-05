@@ -67,7 +67,7 @@ FR-010.02: Validar SoD antes de asignar
  
  **Ejemplo de Conflicto:**
  
- - ACC-001 (asignar permisos) vs ACC-005 (auditar permisos)
+ - assign_functions vs view_separation_rules
  - Motivo: "Quien asigna no debe auditar sus propias asignaciones"
 
 ----
@@ -88,10 +88,10 @@ FR-010.02: Validar SoD antes de asignar
  Y se permite continuar con asignación
  
  Escenario 2: Conflicto HARD detectado
- DADO función ACC-001 ya asignada
- Y se intenta asignar ACC-005 (conflicto HARD)
+ DADO función assign_functions ya asignada
+ Y se intenta asignar view_separation_rules
  CUANDO se valida
- ENTONCES se muestra "Conflicto SoD: ACC-001 incompatible con ACC-005"
+ ENTONCES se muestra "Conflicto SoD: assign_functions incompatible con view_separation_rules"
  Y se muestra motivo del conflicto
  Y se BLOQUEA la asignación
  
@@ -120,7 +120,7 @@ FR-010.02: Validar SoD antes de asignar
 
 **Configuración SoD:**
 
-Las restricciones SoD se configuran en UC_043 y son mantenidas
+Las restricciones SoD se configuran en UC_ADM_01 y son mantenidas
 por el administrador de seguridad.
 
 ----
@@ -136,7 +136,7 @@ por el administrador de seguridad.
  * - **UC**
    - UC_010: Asignar Funciones
  * - **Depende de**
-   - FR-010.01, UC_043 (configuración SoD)
+   - FR-010.01, UC_ADM_01 (configuración SoD)
  * - **Requerido por**
    - FR-010.03
  * - **BR**

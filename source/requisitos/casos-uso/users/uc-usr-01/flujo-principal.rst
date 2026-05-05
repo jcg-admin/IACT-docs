@@ -17,7 +17,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 6   Backend valida datos + email unico     (Backend → BD)
    PASO 7   Backend genera username (CNST-029)     (Backend → BD)
    PASO 8   Backend genera password temporal       (Backend)
-   PASO 9   Backend hashea bcrypt cost 12          (Backend)
+   PASO 9   Backend hashea costo de hash configurado          (Backend)
    PASO 10  Backend INSERT User                    (Backend → BD)
    PASO 11  Backend INSERT Assignment (si AGR)     (Backend → BD)
    PASO 12  Backend crea InternalMessage           (Backend → BD)
@@ -73,7 +73,7 @@ PASO 4 — POST /api/users/
 PASO 5 — Validar JWT + RBAC
 ---------------------------
 
-DRF middleware valida JWT. ``HasCreateUsers``
+plataforma de API middleware valida JWT. ``HasCreateUsers``
 permission verifica ``create_users`` en AGRs del
 admin. Si falla, EX-01 (403).
 
@@ -85,7 +85,7 @@ PASO 6 — Validar datos + email unico
  :header-rows: 0
 
  * - **Accion**
-   - Serializer DRF valida formato email y
+   - Serializer plataforma de API valida formato email y
      campos. Backend hace
      ``User.objects.filter(email=email).exists()``
  * - **Sistema**
@@ -128,10 +128,10 @@ pattern). Charset mixto (mayus + minus + digit
 **Critico**: la contrasena vive solo en memoria.
 NO se loggea, NO se incluye en response.
 
-PASO 9 — Hashear con bcrypt
----------------------------
+PASO 9 — Hashear con algoritmo de hash
+--------------------------------------
 
-``bcrypt.hashpw(temp_password, gensalt(12))``.
+``generarHash(temp_password, gensalt(12))``.
 
 PASO 10 — INSERT User
 ---------------------
@@ -241,11 +241,10 @@ Pasos 10-13 dentro de una transaccion atomica:
 ::
 
    BEGIN
-     INSERT INTO user (username, email, ...,
-       first_login=true, ...);
-     INSERT INTO assignment (user_id, access_group_id, ...);  -- si aplica
-     INSERT INTO internal_message (recipient_id, body=...);
-     INSERT INTO audit_event (event_type='USER_CREATED', ...);
+     registrar en user (con datos correspondientes);
+     registrar en assignment (con datos correspondientes)
+     registrar en internal_message (con datos correspondientes);
+     registrar en audit_event (con datos correspondientes);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. **No se acepta

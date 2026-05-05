@@ -41,21 +41,19 @@ es infraestructura.
 
 Key:
 
-::
+.. note::
 
-   perm:{user_id}:{function_code}
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 Value:
 
-::
+.. note::
 
-   {
-     allowed: bool,
-     origin: enum,
-     via_agr_codes: list,
-     valid_until: timestamp | null,
-     written_at: timestamp
-   }
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 TTL: ``min(default_ttl, remaining_validity)``
 = 60s typical, < 60s si concesion proxima a
@@ -79,44 +77,11 @@ cache miss:
 
 Stack-agnostico, una sola peticion:
 
-::
+.. note::
 
-   SELECT
-     -- Excepcional REVOKE?
-     EXISTS(
-       SELECT 1 FROM excep_perm
-       WHERE user_id = :uid
-         AND function_code = :fc
-         AND type = 'REVOKE'
-         AND state = 'ACTIVE'
-         AND (valid_until IS NULL
-              OR valid_until > NOW())
-     ) AS revoked,
-     -- Excepcional GRANT?
-     ( SELECT valid_until FROM excep_perm
-       WHERE user_id = :uid
-         AND function_code = :fc
-         AND type = 'GRANT'
-         AND state = 'ACTIVE'
-         AND (valid_until IS NULL
-              OR valid_until > NOW())
-       LIMIT 1
-     ) AS grant_valid_until,
-     -- AGRs?
-     ARRAY(
-       SELECT ag.code FROM assignment a
-       JOIN access_group ag
-         ON a.target_id = ag.id
-       JOIN access_group_function agf
-         ON agf.access_group_id = ag.id
-       WHERE a.user_id = :uid
-         AND a.target_type = 'AGR'
-         AND a.state = 'ACTIVE'
-         AND ag.state = 'ACTIVE'
-         AND agf.function_code = :fc
-         AND (a.valid_until IS NULL
-              OR a.valid_until > NOW())
-     ) AS agr_codes;
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 Nota: representacion conceptual; cada motor
 expresa esto en su dialecto. Lo importante es

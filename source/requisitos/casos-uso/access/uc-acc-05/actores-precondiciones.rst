@@ -8,7 +8,7 @@ Parte 2 — Actores, precondiciones y postcondiciones
 ===================
 
 **User con funcion** ``view_separation_rules``
-(lectura) o ``manage_separation_rules``
+(lectura) o ``view_separation_rules``
 (CRUD). P-15 RBAC granular: la lectura puede
 otorgarse sin la gestion (perfil auditor).
 
@@ -30,7 +30,7 @@ otorgarse sin la gestion (perfil auditor).
 - Backend respondiendo en
   ``/api/access/sod-rules/`` (GET/POST/
   PATCH/DELETE).
-- BD MySQL accesible.
+- BD Base de Datos accesible.
 - Invocante con la funcion correspondiente.
 
 Para crear/modificar:

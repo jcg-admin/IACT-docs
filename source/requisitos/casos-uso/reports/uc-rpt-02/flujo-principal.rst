@@ -18,7 +18,7 @@ cierre.
 
 **PASO 3 — RBAC**
 
-``view_realtime_metrics``. Falla → 403 +
+``view_kpis``. Falla → 403 +
 UNAUTHORIZED audit + cierre.
 
 **PASO 4 — Resolver segmento**

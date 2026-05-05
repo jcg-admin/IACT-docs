@@ -25,7 +25,7 @@ Parte 11 — Implementacion tecnica
  * - **HTTPAggregateEndpoint**
    - GET ``/aggregations/``
  * - **AuthorizationGuard**
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - **ThrottlePolicy**
    - 200 GET/min
  * - **FilterValidator**
@@ -78,7 +78,7 @@ Parte 11 — Implementacion tecnica
 
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'view_access_audit')
+                 invoker, 'view_audit_log')
        require ThrottlePolicy.is_allowed(invoker)
 
        FilterValidator.validate(filters, ordering)

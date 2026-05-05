@@ -166,7 +166,7 @@ Parte 6 — Requisitos no funcionales
 - BR-009 (Bajas Logicas): NO DELETE fisico,
   solo UPDATE state.
 - CNST-006: retencion 2 anios automatica.
-- CNST-009: autenticacion DRF.
+- CNST-009: autenticacion plataforma de API.
 - CNST-013: manejo estandar de excepciones.
 - CNST-025: AuditEvent inmutable.
 - CNST-026: payload sin PII.

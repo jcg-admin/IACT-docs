@@ -38,6 +38,7 @@ Catalogo
  adr-gob-007-trazabilidad-artefactos-requisitos
  adr-gob-008-rbac-coexistencia-acc-perm
  adr-gob-009-rbac-modelo-conceptual
+ adr-gob-010-rbac-autorizacion-drf-backend
 
 Estructura por dominio
 ----------------------
@@ -64,6 +65,15 @@ Estructura por dominio
   los UCs.
 - :doc:`adr-gob-007-trazabilidad-artefactos-requisitos` — matrices
   de trazabilidad bidireccional entre BR/UC/FR/CNST.
+
+RACI — Gobernanza RBAC
+----------------------
+
+.. toctree::
+ :maxdepth: 1
+ :caption: RACI RBAC
+
+ raci-rbac/index
 
 Convenciones
 ------------

@@ -75,7 +75,7 @@ Nomenclatura
 
  Donde:
  - TST: Prefijo fijo (Test)
- - [MOD]: Código de módulo (AUTH, USR, ACC, PIP, RPT, ALR, AUD, LOG)
+ - [MOD]: Código de módulo (AUTH, USR, ACC, PERM, PIP, RPT, ALR, AUD, LOG, OPR, SUP, CLI)
  - [NNN]: Número secuencial de 3 dígitos (001-999)
 
 **Ejemplos:**

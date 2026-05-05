@@ -188,8 +188,9 @@ length):
    - ``UserGroupMembership``
    - Sigue convencion ``*Membership`` para join tables
  * - ``PermisoExcepcional``
-   - ``ExceptionalGrant``
-   - Sustantivo apropiado al scope
+   - ``ExceptionalPermission``
+   - Nombre de dominio establecido en todo el corpus (UC docs,
+     bounded context, domain models)
  * - ``AuditoriaPermiso``
    - ``FunctionAccessAudit``
    - Especifico (audit de access, no audit generico)
@@ -267,8 +268,11 @@ permisos. Cuando el codigo se materialice:
 
 - Decoradores ``@verificar_permiso`` (legacy espanol) ->
   ``@require_function`` (canonico ingles, scope-appropriate).
-- ``GranularPermission`` DRF class -> usar la funcion SQL
-  ``user_has_function()`` internamente.
+- ``GranularPermission`` DRF class (legacy) ->
+  ``FunctionPermission`` (CIA-RBAC-002 DEC-005), que delega en el
+  backend ``FunctionAuthorization`` (DEC-003) el cual usa
+  ``calculate_effective_functions()`` via Python —
+  **no** llama a ``user_has_function()`` SQL directamente.
 
 Ver :doc:`/backend/adr-back-005-middleware-decoradores-permisos`
 para detalles tecnicos.

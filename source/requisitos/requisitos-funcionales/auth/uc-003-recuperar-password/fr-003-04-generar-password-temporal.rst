@@ -52,7 +52,7 @@ FR-003.04: Generar password temporal
  El proceso de generación:
  
  1. Genera password aleatorio criptográficamente seguro
- 2. Hashea el password con bcrypt
+ 2. Genera hash seguro del password
  3. Actualiza el hash en tabla ``users``
  4. Muestra password en pantalla (una sola vez)
  5. Marca cuenta para forzar cambio (FR-003.05)
@@ -110,20 +110,14 @@ FR-003.04: Generar password temporal
 - **CNST aplicables:**
   - CNST-005: Seguridad (generación criptográfica)
 
-**Algoritmo de Generación:**
+**Algoritmo de Generacion (pseudocodigo):**
 
-.. code-block:: python
+::
 
- import secrets
- import string
- 
- def generate_temp_password(length=12):
- # Excluir caracteres ambiguos
- alphabet = string.ascii_letters + string.digits
- alphabet = alphabet.replace('0', '').replace('O', '')
- alphabet = alphabet.replace('l', '').replace('1', '').replace('I', '')
- 
- return ''.join(secrets.choice(alphabet) for _ in range(length))
+ FUNCION generar_password_temporal(longitud = 12):
+   alfabeto := letras_ascii + digitos
+   alfabeto := alfabeto SIN caracteres_ambiguos (0, O, l, 1, I)
+   RETORNAR concatenar(seleccion_criptografica_aleatoria(alfabeto) × longitud)
 
 ----
 

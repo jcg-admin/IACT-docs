@@ -36,7 +36,7 @@ Parte 11 — Implementacion tecnica
                   invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'view_agent_reports')
+                 'view_reports')
        segments =
          SegmentResolver.for(invoker.id)
        key = build_cache_key(

@@ -22,10 +22,10 @@ Resumen
 
 UC_PERM_05 expone la **gestion del catalogo de
 AccessGroups custom**: crear, modificar, retirar
-AGRs. Los AGRs predefinidos AGR-001..010 NO se
+AGRs. Los AGRs predefinidos AGR-001..012 NO se
 modifican via este UC (son inmutables; politica
 documentada en
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`).
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ documentada en
  * - **Modulo**
    - MOD_Permissions
  * - **Funcion RBAC**
-   - ``manage_access_groups``
+   - ``create_function_group``
  * - **BReq satisfecho**
    - BReq-004
 
@@ -61,7 +61,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

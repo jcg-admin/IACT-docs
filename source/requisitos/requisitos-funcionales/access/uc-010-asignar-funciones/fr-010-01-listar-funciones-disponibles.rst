@@ -95,10 +95,10 @@ FR-010.01: Listar funciones disponibles
  ENTONCES las funciones del AGR-003 aparecen con badge "vía AGR-003"
  
  Escenario 3: Indicador de conflicto SoD
- DADO función ACC-005 en conflicto SoD con función ya asignada
+ DADO función view_separation_rules en conflicto SoD con función ya asignada
  CUANDO se lista en disponibles
  ENTONCES aparece icono de advertencia
- Y tooltip indica "Conflicto SoD con ACC-002"
+ Y tooltip indica "Conflicto SoD con revoke_functions"
  
  Escenario 4: Filtro por módulo
  DADO catálogo de funciones visible

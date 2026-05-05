@@ -30,7 +30,7 @@ Metodología de Análisis de Dominio para UCs
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  **Ejemplos canónicos aplicados al dominio IACT:** ver
- :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio`
+ :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index`
  para la técnica aplicada al dominio real (sustantivos del
  ecosistema call center IVR / RBAC / ETL).
 
@@ -59,7 +59,7 @@ Metodología de Análisis de Dominio para UCs
    - ``- adjetivo : Boolean``
 
 Para los fundamentos de esta técnica ver
-:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
 § "Qué hacen las clases y cómo encontrarlas" (ejemplo del
 entrenador de baloncesto).
 
@@ -122,7 +122,6 @@ entrenador de baloncesto).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      - id : Integer
@@ -325,7 +324,6 @@ responsabilidades y restricciones**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      .. atributos básicos ..
@@ -402,7 +400,6 @@ responsabilidades y restricciones**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class User {
      - id : Integer
@@ -456,7 +453,6 @@ Eliminar, Agregar imagen, Crear variante.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Product {
      - id : Integer
@@ -525,7 +521,6 @@ Los **paquetes** organizan clases en grupos lógicos
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Authentication" {
      class User
@@ -614,7 +609,6 @@ Cada sustantivo es una clase candidata.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class User {
      - id : Integer
@@ -686,7 +680,6 @@ Cada sustantivo es una clase candidata.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Orden {
      - numero_orden : String
@@ -818,7 +811,7 @@ Cada documento generado per
      MERMAID v4.0.0" (propuesta interna), reescrito para
      PlantUML.
  * - **Fundamento UML**
-   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+   - :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos/index`
      (técnica original de Schmuller con el ejemplo del
      entrenador de baloncesto)
  * - **Metodología hermana (OOP)**

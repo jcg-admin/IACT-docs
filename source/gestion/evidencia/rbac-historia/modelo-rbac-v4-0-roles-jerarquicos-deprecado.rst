@@ -23,7 +23,7 @@ Modelo RBAC v4.0 — Resumen historico (predecesor de v5.x)
  Resumen narrativo del documento legacy ``Modelo RBAC Sin
  Pretensiones v4.0`` (~99 KB, octubre 2025). NO es spec
  vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
  Documento original NO publicado en el corpus para evitar
  confusion con la spec vigente; este resumen preserva los
@@ -243,7 +243,7 @@ preservo el principio y simplifico el catalogo a 42 funciones +
 (~99 KB, no publicado).
 
 **Documento sucesor publicado:**
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
 **Decision arquitectonica que reconcilio las vistas (v4.0 ->
 v5.x):**

@@ -221,16 +221,15 @@ PASOS 12-15 dentro de transaccion atomica:
 ::
 
    BEGIN
-     UPDATE assignment SET state='REVOKED',
+     actualizar assignment: state='REVOKED',
        revoked_at=NOW(),
        revoked_by_admin_id=invoker.id,
        revoke_reason=...
        WHERE user_id=target.id
          AND function_id IN (to_revoke_ids)
          AND state='ACTIVE';
-     INSERT INTO audit_event (
-       event_type='FUNCTIONS_REVOKED', ...);
-     [opcional] INSERT INTO internal_message;
+     registrar en audit_event (...);
+     [opcional] registrar en internal_message;
    COMMIT
 
    -- Cache invalidate post-COMMIT (P-29)

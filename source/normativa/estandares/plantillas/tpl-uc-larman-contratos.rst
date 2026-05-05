@@ -140,11 +140,11 @@ PRE-2: [Otra precondición]
 
 .. code-block:: text
 
- Ejemplo: Usuario tiene permiso 'RPT-001'
+ Ejemplo: Usuario tiene permiso 'view_reports'
  
  Verificación:
  SELECT 1 FROM user_permissions
- WHERE user_id = :userId AND permission = 'RPT-001'
+ WHERE user_id = :userId AND permission = 'view_reports'
 
 PRE-3: [Otra precondición]
 
@@ -205,7 +205,7 @@ Precondiciones:
 
 PRE-1: Usuario con id=userId existe
 
-PRE-2: Usuario tiene permiso 'RPT-001' asignado
+PRE-2: Usuario tiene permiso 'view_reports' asignado
 
 PRE-3: quarter está en conjunto {'Q1', 'Q2', 'Q3', 'Q4'}
 
@@ -419,7 +419,7 @@ representa:
  """
  # Verificar precondiciones
  self.auth_service.check_permission(
- command.user_id, 'RPT-001'
+ command.user_id, 'view_reports'
  )
  
  # Delegar a servicio
@@ -473,7 +473,7 @@ Asignar responsabilidades para minimizar dependencias entre clases.
  Permission.user_id == user_id
  ).all
  
- if 'RPT-001' not in [p.code for p in perms]:
+ if 'view_reports' not in [p.code for p in perms]:
  raise Unauthorized
 
 **Código Buen Diseño:**
@@ -491,7 +491,7 @@ Asignar responsabilidades para minimizar dependencias entre clases.
  
  def generate_report(self, user_id):
  # No conoce implementación de autorización
- self.auth_service.check_permission(user_id, 'RPT-001')
+ self.auth_service.check_permission(user_id, 'view_reports')
 
 **Beneficio:** Cambios en autorización no afectan ReportService
 
@@ -966,7 +966,7 @@ CODIGO EJEMPLO COMPLETO
  def generate_quarterly_report(self, quarter, year, segment, user_id):
  """Creator: crea y gestiona Reports"""
  # Verificar permiso
- self.auth_service.check_permission(user_id, 'RPT-001')
+ self.auth_service.check_permission(user_id, 'view_reports')
  
  # Crear Report (Creator)
  report = Report(

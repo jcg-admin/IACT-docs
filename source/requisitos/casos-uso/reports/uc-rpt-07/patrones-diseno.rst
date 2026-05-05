@@ -16,7 +16,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - schedule_reports
+   - schedule_report
  * - **P-39**
    - Audit reforzado
    - lifecycle eventos

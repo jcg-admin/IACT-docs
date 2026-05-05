@@ -409,16 +409,16 @@ toda documentación nueva del proyecto (formalizado en
  * - **Función**
    - Capacidad atómica del sistema RBAC: una acción concreta
      verificable expresada como verbo+recurso (``view_audit_log``,
-     ``manage_sessions``, ``export_csv``). En código: ``Function``
+     ``view_own_sessions``, ``export_csv``). En código: ``Function``
      (modelo Django, en inglés). Sustituye al término "Capacidad"
      del sistema PERM granular (D-RBAC-1).
  * - **Grupo de Permisos**
    - Set de funciones asignables como bloque. Puede ser
-     **predefinido** (system group AGR-001..010, inmutable) o
+     **predefinido** (system group AGR-001..012, inmutable) o
      **creable** dinámicamente por admin via
      :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  * - **Agrupador**
-   - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
+   - Sinónimo de "Grupo predefinido AGR-001..012" (terminología
      del modelo legacy v5.2.1). Equivalente a system group.
  * - **Permiso Excepcional**
    - Asignación directa de funciones a un usuario fuera de grupos,
@@ -435,9 +435,9 @@ toda documentación nueva del proyecto (formalizado en
  * - **Verificación de Permiso**
    - Función SQL nativa que evalúa en tiempo real si un usuario
      tiene una función específica. Implementación PostgreSQL:
-     ``usuario_tiene_permiso(user_id, function_code)`` y la
-     variante ``verificar_permiso_y_auditar`` que registra cada
-     verificación.
+     ``user_has_function(p_user_id, p_function_code)`` y la
+     variante ``check_function_and_audit`` que registra cada
+     verificación (adr-back-006 §2.3).
  * - **Menú Dinámico**
    - Estructura de navegación jerárquica calculada en runtime
      según las funciones del usuario. Implementación PostgreSQL:
@@ -463,8 +463,8 @@ toda documentación nueva del proyecto (formalizado en
      ETL); (b) la visibilidad funcional ya queda cubierta por
      la combinación **AGR (perfil operativo) + MOD (categoría
      de información) + Función (acción específica)**. Las dos
-     funciones que operaban sobre segmentos (USR-010
-     ``asigna_segmento`` y ACC-006 ``gestiona_segmentos``) se
+     funciones que operaban sobre segmentos (manage_user_segments
+     ``asigna_segmento`` y create_function_group ``gestiona_segmentos``) se
      eliminaron en la transición v5.1.1 → v5.2.0 (44 → 42
      funciones). NO usar este término en docs nuevas.
 

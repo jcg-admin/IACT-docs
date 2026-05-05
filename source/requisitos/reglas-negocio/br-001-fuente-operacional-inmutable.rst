@@ -84,7 +84,7 @@ cliente como requisito no negociable.
 ^^^^^^^^^^^^^^
 
 - **Estatica/Dinamica**: Estatica - restriccion arquitectonica permanente
-- **Automatizable**: Si - mediante Database Router de Django
+- **Automatizable**: Si - mediante Router de base de datos
 - **Alcance**: Sistema completo
 
 ----
@@ -133,14 +133,14 @@ cliente como requisito no negociable.
    - IVRReadOnlyRouter bloquea escrituras a base IVR
  * - MOD_Pipeline
    - ETL solo extrae datos, no modifica origen
- * - Django ORM
+ * - ORM de la plataforma
    - Modelos IVR marcados como managed=False
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
 - **Roles**: Todos los agrupadores RBAC (ninguno puede escribir en IVR)
-- **Sistemas Externos**: Sistema IVR (MariaDB)
+- **Sistemas Externos**: Sistema IVR (Almacen de Datos)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^

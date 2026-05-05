@@ -288,7 +288,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  
  Donde:
  UC = Prefijo estándar
- [MOD] = Código módulo (AUTH, USR, ACC, PIP, RPT, ALR, AUD, LOG)
+ [MOD] = Código módulo (AUTH, USR, ACC, PERM, PIP, RPT, ALR, AUD, LOG, OPR, SUP, CLI)
  [NN] = Secuencial de 2 dígitos dentro del módulo (01, 02, 03, ...)
 
 **Nombre de Archivo:**
@@ -304,12 +304,12 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  UC_USR_01_Crear_Usuario_4_0_0.rst
  UC_ACC_01_Asignar_Funciones_4_0_0.rst
  UC_PIP_01_Supervisar_ETL_4_0_0.rst
- UC_RPT_06_Exportar_CSV_4_0_0.rst
+ UC_RPT_04_Exportar_Reporte_4_0_0.rst
  UC_ALR_01_Configurar_Alerta_4_0_0.rst
  UC_AUD_01_Consultar_Auditoria_4_0_0.rst
  UC_LOG_01_Consultar_Logs_4_0_0.rst
 
-**Códigos de Módulo (8):**
+**Códigos de Módulo (12):**
 
 .. list-table::
  :widths: 15 25 60
@@ -326,7 +326,10 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
    - Gestión de usuarios e identidades
  * - ACC
    - MOD_Access
-   - Control de acceso RBAC
+   - Control de acceso RBAC (vista funcional)
+ * - PERM
+   - MOD_Permissions
+   - Gestión granular de permisos (vista técnica)
  * - PIP
    - MOD_Pipeline
    - Supervisión del proceso ETL
@@ -342,6 +345,15 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  * - LOG
    - MOD_Logs
    - Bitácoras técnicas del sistema
+ * - OPR
+   - MOD_Operator
+   - Acciones de agentes call center
+ * - SUP
+   - MOD_Supervision
+   - Supervisión en tiempo real
+ * - CLI
+   - MOD_Caller
+   - Experiencia del cliente IVR (sin RBAC)
 
 4.3 Reglas de Negocio (BR)
 ---------------------------

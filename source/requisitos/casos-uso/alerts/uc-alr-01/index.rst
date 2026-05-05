@@ -29,7 +29,7 @@ async (UC_ALR_02 backend).
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``manage_alert_thresholds``
+   - ``configure_team_alerts``
 
 Estructura de la spec
 =====================
@@ -45,7 +45,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

@@ -61,7 +61,7 @@ Sin AuditEvent no se acepta el cambio
 -------------------------
 
 ``view_separation_rules`` (lectura) distinta
-de ``manage_separation_rules`` (CRUD). El
+de ``view_separation_rules`` (CRUD). El
 auditor puede tener solo lectura.
 
 10.2.4 P-16 Audit selectivo

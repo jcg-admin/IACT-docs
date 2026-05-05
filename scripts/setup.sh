@@ -8,10 +8,11 @@
 # Pasos:
 #   1. uv (gestor de Python)        — debe existir en sistema
 #   2. enchant (libsystem C)        — apt/brew si falta
-#   3. Java JRE 11+                 — sistema o JRE portable Adoptium
-#   4. plantuml.jar                 — descarga a tools/plantuml.jar (~10 MB)
-#   5. uv sync                      — deps Python en .venv/
-#   6. git hooks                    — core.hooksPath = .githooks
+#   3. graphviz (dot)               — requerido por PlantUML para use-case/class diagrams
+#   4. Java JRE 11+                 — sistema o JRE portable Adoptium
+#   5. plantuml.jar                 — descarga a tools/plantuml.jar (~10 MB)
+#   6. uv sync                      — deps Python en .venv/
+#   7. git hooks                    — core.hooksPath = .githooks
 set -euo pipefail
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
@@ -68,7 +69,7 @@ brew_install() {
 # ---------------------------------------------------------------------------
 # 1. uv
 # ---------------------------------------------------------------------------
-step "1/6 Verificando uv (gestor Python)"
+step "1/7 Verificando uv (gestor Python)"
 if ! command -v uv >/dev/null 2>&1; then
   die "uv no está instalado. Instalar con: pip install uv  o  curl -LsSf https://astral.sh/uv/install.sh | sh"
 fi
@@ -77,7 +78,7 @@ ok "uv $(uv --version 2>&1 | head -1)"
 # ---------------------------------------------------------------------------
 # 2. enchant (libsystem C — sphinxcontrib-spelling)
 # ---------------------------------------------------------------------------
-step "2/6 Verificando libsystem enchant"
+step "2/7 Verificando libsystem enchant"
 have_enchant=false
 if ldconfig -p 2>/dev/null | grep -qi enchant; then have_enchant=true; fi
 if [ "$have_enchant" = false ] && \
@@ -101,9 +102,29 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-# 3. Java JRE
+# 3. graphviz (dot) — requerido por PlantUML para use-case y class diagrams
 # ---------------------------------------------------------------------------
-step "3/6 Verificando Java JRE (requerido por plantuml)"
+step "3/7 Verificando graphviz (dot)"
+if command -v dot >/dev/null 2>&1; then
+  ok "graphviz dot ya disponible ($(dot -V 2>&1 | head -1))"
+else
+  echo "    graphviz no encontrado. Intentando instalar..."
+  if apt_install graphviz; then
+    ok "graphviz instalado via apt"
+  elif brew_install graphviz; then
+    ok "graphviz instalado via brew"
+  else
+    warn "graphviz no encontrado y no se pudo instalar automáticamente."
+    warn "  Linux: sudo apt-get install graphviz"
+    warn "  macOS: brew install graphviz"
+    warn "  Sin graphviz, PlantUML fallará en use-case y class diagrams."
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 4. Java JRE
+# ---------------------------------------------------------------------------
+step "4/7 Verificando Java JRE (requerido por plantuml)"
 have_java=false
 
 # Helper: probar si un java dado responde
@@ -163,9 +184,9 @@ if [ "$have_java" = false ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# 4. plantuml.jar (download idempotente)
+# 5. plantuml.jar (download idempotente)
 # ---------------------------------------------------------------------------
-step "4/6 Verificando plantuml.jar bundled"
+step "5/7 Verificando plantuml.jar bundled"
 need_download=false
 if [ ! -f "$PLANTUML_JAR" ]; then
   need_download=true
@@ -205,14 +226,14 @@ fi
 # ---------------------------------------------------------------------------
 # 5. uv sync
 # ---------------------------------------------------------------------------
-step "5/6 Sincronizando dependencias Python (uv sync)"
+step "6/7 Sincronizando dependencias Python (uv sync)"
 uv sync
 ok ".venv/ sincronizado"
 
 # ---------------------------------------------------------------------------
 # 6. git hooks
 # ---------------------------------------------------------------------------
-step "6/6 Activando git hooks"
+step "7/7 Activando git hooks"
 bash "$REPO_ROOT/scripts/install-hooks.sh"
 
 # ---------------------------------------------------------------------------

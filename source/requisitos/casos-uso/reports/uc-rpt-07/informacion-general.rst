@@ -19,7 +19,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-001, BReq-007
  * - **Funcion RBAC**
-   - ``schedule_reports``
+   - ``schedule_report``
 
 1.2 Proposito
 =============

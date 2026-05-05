@@ -86,7 +86,8 @@ analisis historico, no para operacion en tiempo real.
 
 - django-crontab
 - Scheduler (cron / systemd timers)
-- Modelo ETLRun para tracking
+- Tabla ``etl_runs`` en MariaDB para tracking de ejecuciones
+- APScheduler o cron como mecanismo de disparo
 
 3. Impacto en Sistema
 ---------------------
@@ -143,9 +144,18 @@ el WP de requisitos (deuda diferida).
 
 .. code-block:: python
 
- from etl.models import ETLRun
- last = ETLRun.objects.latest("finished_at")
- assert (now - last.finished_at).total_seconds <= 12 * 3600
+ # Consulta directa sobre etl_runs en MariaDB
+ from django.db import connections
+ with connections['ivr'].cursor() as cursor:
+     cursor.execute(
+         "SELECT finalizado_en FROM etl_runs "
+         "WHERE estado = 'exitoso' "
+         "ORDER BY finalizado_en DESC LIMIT 1"
+     )
+     row = cursor.fetchone()
+ last_finished_at = row[0] if row else None
+ assert last_finished_at is not None
+ assert (now - last_finished_at).total_seconds() <= 12 * 3600
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,7 +193,8 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 
 - **Tipo:** Automatico
 - **Frecuencia:** Continuo (monitoreo de jobs)
-- **Herramienta:** Alerta si ETLRun.latest no se ejecuto en > 12h
+- **Herramienta:** Alerta si la ultima fila ``estado = 'exitoso'``
+  en ``etl_runs`` tiene ``finalizado_en`` con mas de 12 horas
 
 8. Trazabilidad
 ---------------

@@ -41,7 +41,7 @@ Parte 6 — Requisitos no funcionales
 6.3 Seguridad
 =============
 
-- ``view_realtime_metrics`` enforcement.
+- ``view_kpis`` enforcement.
 - Filtro segmento (CNST-008) en server-side.
 - TLS obligatorio para stream.
 

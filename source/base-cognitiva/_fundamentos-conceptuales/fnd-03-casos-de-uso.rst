@@ -23,8 +23,8 @@ FND_03: Casos de Uso
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.5.0: 74 funciones
+ atomicas + 12 grupos predefinidos AGR-001..AGR-012 + 3 reglas SoD.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -110,8 +110,8 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    - Escenario end-to-end
    - Test unitario/aislado
  * - Ejemplo
-   - UC-043: Configurar SoD
-   - FR-043.1: Sistema DEBE mostrar lista SoD
+   - UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+   - FR-ADM-01.1: Sistema DEBE mostrar lista SoD
 
 **Analogia:**
 
@@ -170,12 +170,12 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 
 .. code-block:: text
 
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
  IDENTIFICACION:
- ID: UC-043
- Nombre: Configurar Segregacion de Funciones
- Actor Primario: AGR-008 (admin_seguridad)
+ ID: UC_ADM_01
+ Nombre: Gestionar Ciclo de Vida de Reglas SoD
+ Actor Primario: AGR-009 (admin_sistema)
  Actores Secundarios: AGR-007 (auditor)
 
  CONTEXTO:
@@ -265,26 +265,27 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  - Proporciona informacion o recibe notificacion
  - Ejemplo: AGR-007 que recibe notificacion de cambio
 
-3.4 Actores en IACT (Agrupadores RBAC v5.2.x)
+3.4 Actores en IACT (Agrupadores RBAC v5.5.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.2.x,
+Los actores en IACT corresponden a los 12 Agrupadores del modelo RBAC v5.5.0,
 siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
 
  AGRUPADOR FUNCIONES UC TIPICOS
  
- AGR-001: administrador_usuarios USR-001 a USR-010 UC-006 a UC-009
- AGR-002: visor_usuarios USR-005, USR-006 UC-009
- AGR-003: analista_reportes RPT-001 a RPT-008 UC-017 a UC-024
- AGR-004: visor_dashboard RPT-001, RPT-007/08 UC-025 a UC-030
- AGR-005: gestor_alertas ALR-001 a ALR-006 UC-036 a UC-040
- AGR-006: supervisor_equipo USR-005/06, RPT-001 UC-009, UC-017
- AGR-007: auditor AUD-001 a AUD-004 UC-060 a UC-063
- AGR-008: admin_seguridad ACC-001 a ACC-006 UC-010, UC-043-047
- AGR-009: admin_sistema PIP-*, LOG-*, config UC-050-053, UC-070-072
- AGR-010: operador_etl PIP-001 a PIP-004 UC-050 a UC-053
+ AGR-001: administrador_usuarios (manage_users, ...) UC-006 a UC-009
+ AGR-002: visor_usuarios (search_users, block_users) UC-009
+ AGR-003: analista_reportes (view_reports..view_charts) UC-017 a UC-024
+ AGR-004: visor_dashboard (view_reports, view_kpis, view_charts) UC-025 a UC-030
+ AGR-005: gestor_alertas (view_alerts, ...) UC-036 a UC-040
+ AGR-006: supervisor_equipo (search_users, block_users, view_reports) UC-009, UC-017
+ AGR-007: auditor (view_audit_log, ...) UC-060 a UC-063
+ AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC_ACC_03, UC_ACC_05, UC_ACC_09
+ AGR-009: admin_sistema (...) UC_ADM_01, UC_ADM_02, UC_ADM_03
+ AGR-009: admin_sistema (view_pipeline_status, ...) UC-050-053, UC-070-072
+ AGR-010: operador_etl (view_pipeline_status, ...) UC-050 a UC-053
 
  ACTOR ESPECIAL:
  - TIEMPO: Para procesos batch (ETL nocturno) - UC-050
@@ -518,7 +519,7 @@ UC que provienen de necesidades explicitas no capturadas como BR.
       - 11 UC 20 UC 11 UC 5 UC 2 UC
     * - TOTAL
       - 100%
-      - 49 UC
+      - 80 UC
 
 ----
 
@@ -576,7 +577,7 @@ Los Casos de Uso en IACT siguen la convencion:
 
  Ejemplos:
  - UC_006_Crear_Usuario.rst
- - UC_043_Configurar_SoD.rst
+ - UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst
  - UC_050_Supervisar_ETL.rst
 
 7.2 Ubicacion en el Modelo IACT
@@ -613,11 +614,11 @@ Los Casos de Uso en IACT siguen la convencion:
 
 ----
 
-8. Lista de UC Identificados en IACT (49 UC)
+8. Lista de UC Identificados en IACT (80 UC)
 --------------------------------------------
 
-Basado en el analisis del modelo RBAC v5.2.x, se han identificado 49 Casos de Uso
-distribuidos en 8 modulos funcionales.
+Basado en el analisis del modelo RBAC v5.5.0, se han identificado 80 Casos de Uso
+distribuidos en 12 modulos funcionales.
 
 8.1 Autenticacion - MOD_Auth (5 UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -655,13 +656,13 @@ distribuidos en 8 modulos funcionales.
  UC-011: Gestionar Permisos por Agrupador
  UC-041: Asignar Segmento de Datos
  UC-042: Asignar Permiso Directo
- UC-043: Configurar SoD
- UC-044: Consultar Permisos Efectivos
- UC-045: Gestionar Catalogo de Agrupadores
- UC-046: Gestionar Catalogo de Funciones
- UC-047: Auditar Cambios de Permisos
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ACC_03: Consultar Permisos Efectivos
+ UC_ADM_03: Gestionar Catalogo de Agrupadores del Sistema
+ UC_ADM_02: Gestionar Catalogo de Funciones
+ UC_ACC_09: Auditar Cambios de Permisos
 
- Actor Primario: AGR-008 (admin_seguridad)
+ Actor Primario: AGR-008 (admin_seguridad) para ACC; AGR-009 (admin_sistema) para ADM
  BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
 
 8.4 Pipeline ETL - MOD_Pipeline (4 UC)
@@ -764,8 +765,11 @@ distribuidos en 8 modulos funcionales.
    - 4
    - UC-006 a UC-009
  * - MOD_Access
-   - 9
-   - UC-010, UC-011, UC-041 a UC-047
+   - 7
+   - UC-010, UC-011, UC_ACC_03, UC_ACC_05, UC_ACC_08, UC_ACC_09, UC-041..042
+ * - MOD_Admin
+   - 3
+   - UC_ADM_01, UC_ADM_02, UC_ADM_03
  * - MOD_Pipeline
    - 4
    - UC-050 a UC-053

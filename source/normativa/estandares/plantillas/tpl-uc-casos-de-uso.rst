@@ -87,7 +87,7 @@ Nomenclatura
 
  Ejemplos:
  - UC_001_Iniciar_Sesion.rst
- - UC_043_Configurar_SoD.rst
+ - UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst
 
 ----
 
@@ -170,13 +170,13 @@ Plantilla
    BorderColor #1976D2
    }
 
-   actor "[Actor Primario]" as AP
+   actor "[Actor Primario]" as ActorPrimario
 
    rectangle "MOD_[Modulo]" {
-   usecase "UC-[NNN]:\n[Nombre]" as UC
+   usecase "UC-[NNN]:\n[Nombre]" as CasoDeUso
    }
 
-   AP --> UC
+   ActorPrimario --> CasoDeUso
    @enduml
 
    ----
@@ -252,32 +252,32 @@ Plantilla
    BorderColor #F57C00
    }
 
-   actor "[Actor]" as A
-   participant "Frontend" as FE #E3F2FD
+   actor "[Actor]" as Actor
+   participant "Frontend" as Frontend #E3F2FD
    participant "[Controller]" as CTRL #E8F5E9
    participant "[Service]" as SVC #E8F5E9
-   database "PostgreSQL" as DB #FFF3E0
+   database "PostgreSQL" as PostgreSQL #FFF3E0
 
-   A -> FE: 1. [Accion inicial]
-   activate FE
+   Actor -> Frontend: 1. [Accion inicial]
+   activate Frontend
 
-   FE -> CTRL: 2. [HTTP Request]
+   Frontend -> CTRL: 2. [HTTP Request]
    activate CTRL
 
    CTRL -> SVC: 3. [Llamada a servicio]
    activate SVC
 
-   SVC -> DB: 4. [Query]
-   DB --> SVC: 5. [Resultado]
+   SVC -> PostgreSQL: 4. [Query]
+   PostgreSQL --> SVC: 5. [Resultado]
 
    SVC --> CTRL: 6. [Respuesta]
    deactivate SVC
 
-   CTRL --> FE: 7. [HTTP Response]
+   CTRL --> Frontend: 7. [HTTP Response]
    deactivate CTRL
 
-   FE --> A: 8. [Actualiza UI]
-   deactivate FE
+   Frontend --> Actor: 8. [Actualiza UI]
+   deactivate Frontend
    @enduml
 
    ----

@@ -37,7 +37,7 @@ mínimal sólo se migró **1** (``MODELO_RBAC_IACT_v5_2_1.md``).
 -------------------------
 
 - ``MODELO_RBAC_IACT_v5_2_1.md`` →
-  ``source/arquitectura-tecnica/rbac/modelo-rbac-iact.rst``
+  ``source/arquitectura-tecnica/rbac/modelo-rbac-iact/index.rst``
 - ``ARQ_MOD_001..008.rst`` (8 archivos) →
   ``source/arquitectura-tecnica/modulos/`` (agregado en v1.1)
 

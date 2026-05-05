@@ -110,7 +110,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker con revoke_function_groups
+   GIVEN invoker con revoke_function_group
    WHEN  DELETE
    THEN  status == 200
    AND   AuditEvent AGR_REVOKED
@@ -129,7 +129,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin revoke_function_groups
+   GIVEN invoker sin revoke_function_group
    WHEN  DELETE
    THEN  status == 403
 
@@ -168,7 +168,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN admin con revoke_function_groups en
+   GIVEN admin con revoke_function_group en
          vista PERM
    WHEN  abre detalle del User en catalogo,
          click "Revocar AGR-006", ingresa
@@ -192,7 +192,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin revoke_function_groups
+   GIVEN invoker sin revoke_function_group
    WHEN  abre detalle del User
    THEN  boton "Revocar AGR" no visible
 

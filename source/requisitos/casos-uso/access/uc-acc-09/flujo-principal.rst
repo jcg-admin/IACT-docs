@@ -14,10 +14,10 @@ Parte 3 — Flujo principal (Camino feliz)
             target, fecha, function_id)              (Frontend)
    PASO 3   GET /api/access/audit/?...               (FE → BE)
    PASO 4   Validar JWT (CNST-009)                   (Backend)
-   PASO 5   Validar funcion view_access_audit        (Backend)
+   PASO 5   Validar funcion view_audit_log        (Backend)
    PASO 6   Validar filtros (whitelist anti-SQLi)    (Backend)
    PASO 7   Construir query con filtros + ordering   (Backend)
-   PASO 8   SELECT AuditEvent paginado               (Backend → BD)
+   PASO 8   consultar AuditEvent paginado               (Backend → BD)
    PASO 9   Aplicar mascarado PII (CNST-026)         (Backend)
    PASO 10  Audit selectivo P-16 si target_user_id   (Backend → BD)
    PASO 11  200 OK con resultados                    (BE → FE)
@@ -54,8 +54,8 @@ Pre-filtro por
 el scope a eventos de MOD_Access (vs UC_AUD_*
 que muestra todos).
 
-PASO 8 — SELECT paginado
-------------------------
+PASO 8 — consultar paginado
+---------------------------
 
 Cursor-based pagination recomendado para
 volumenes grandes (> 100k eventos).

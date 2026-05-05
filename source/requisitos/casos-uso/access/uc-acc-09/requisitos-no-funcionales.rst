@@ -19,7 +19,7 @@ Parte 6 — Requisitos no funcionales
 =============
 
 - HTTPS, JWT (CNST-009).
-- ``view_access_audit`` (P-15 granular).
+- ``view_audit_log`` (P-15 granular).
 - Whitelist anti-SQLi (P-20).
 - Throttling 200/min/invoker.
 
@@ -70,7 +70,7 @@ Parte 6 — Requisitos no funcionales
   - ``audit_event(event_type, occurred_at)``
   - ``audit_event(actor_user_id, occurred_at)``
   - ``audit_event((payload->target_user_id))``
-    funcional (MySQL 8 JSON virtual column)
+    funcional (Base de Datos 8 JSON virtual column)
 
 6.7 Cumplimiento
 ================

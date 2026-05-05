@@ -53,7 +53,7 @@ FR-004.01: Validar password actual
  
  1. Recibe password actual del formulario
  2. Obtiene hash almacenado del usuario autenticado
- 3. Compara usando bcrypt.verify
+ 3. Verifica la contrasena contra el hash almacenado
  4. Si coincide, permite continuar al siguiente paso
  5. Si no coincide, muestra error y permite reintentar
  
@@ -100,7 +100,7 @@ FR-004.01: Validar password actual
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
 
 **Límites:**
 

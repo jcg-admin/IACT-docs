@@ -8,7 +8,7 @@ Parte 5 — Excepciones
 ==========================
 
 - EX-01 Token invalido (401)
-- EX-02 Sin ``revoke_function_groups`` (403,
+- EX-02 Sin ``revoke_function_group`` (403,
   AuditEvent UNAUTHORIZED ALERTA)
 - EX-03 User no existe (404)
 - EX-04 Auto-revocacion P-11 (400 ALERTA)

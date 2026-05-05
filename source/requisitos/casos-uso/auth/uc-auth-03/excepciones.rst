@@ -135,7 +135,7 @@ Parte 5 — Excepciones
  * - **Paso de origen**
    - PASO 10
  * - **Condicion**
-   - ``OperationalError`` por lock contention
+   - ``error de base de datos`` por lock contention
      (UC_USR_03 modificando el User
      simultaneamente) o BD lenta
  * - **Accion sistema**

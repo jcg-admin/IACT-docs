@@ -15,7 +15,7 @@ Parte 2 — Actores y precondiciones
    - Tipo
    - Rol
  * - **User con funcion**
-     ``view_realtime_metrics``
+     ``view_kpis``
    - Humano
    - supervisor / lider
  * - **Frontend**
@@ -32,7 +32,7 @@ Parte 2 — Actores y precondiciones
 ==================
 
 - User autenticado.
-- ``view_realtime_metrics`` activa.
+- ``view_kpis`` activa.
 - Segmento del User definido.
 - AnalyticsStream operativo.
 

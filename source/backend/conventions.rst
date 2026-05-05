@@ -60,7 +60,7 @@ URLs / API
 Estructura de apps
 ==================
 
-Por dominio funcional, alineado con los 8 modulos
+Por dominio funcional, alineado con los 12 modulos
 arquitectonicos:
 
 .. code-block:: text
@@ -102,7 +102,7 @@ Permisos
 ========
 
 - Usar el modelo RBAC canonico documentado en
-  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 - Las clases de permiso DRF deben mapear a las funciones (no a
   permisos legacy tabla-PERM). La migracion vocabulario
   ``Capacidad`` → ``Function`` (D-RBAC-2 + D-RBAC-8) esta

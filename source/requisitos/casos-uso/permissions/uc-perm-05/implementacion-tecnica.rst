@@ -20,7 +20,7 @@ Parte 11 — Implementacion tecnica
  * - **HTTPDeleteEndpoint**
    - DELETE ``/api/access-groups/{id}/``
  * - **AuthorizationGuard**
-   - Verificar ``manage_access_groups``
+   - Verificar ``create_function_group``
  * - **CodeValidator**
    - Regex + uniqueness
  * - **PredefinedGuard**
@@ -72,7 +72,7 @@ Parte 11 — Implementacion tecnica
    procedure create(payload, invoker, ctx):
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'manage_access_groups')
+                 invoker, 'create_function_group')
 
        CodeValidator.validate_format(payload.code)
        if AccessGroupRepository

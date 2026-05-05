@@ -110,7 +110,7 @@ Parte 5 — Excepciones
  * - **Origen**
    - 3.B PASO 8 / 3.C PASO 8
  * - **Condicion**
-   - OperationalError
+   - error de base de datos
  * - **Response**
    - 503
 

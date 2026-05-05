@@ -28,7 +28,7 @@ Diseno de Referencia — Implementacion Permisos Legacy (Code)
  **referencia para la implementacion futura**.
 
  Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` y
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` y
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.
 
 ----
@@ -46,7 +46,7 @@ al rebuild documental de IACT-docs.
 **Estado:** legacy preservado para trazabilidad. NO es codigo
 del proyecto IACT vigente. La spec vigente para implementacion
 futura esta en
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 ----
 
@@ -279,9 +279,9 @@ Para el implementador futuro:
 
 **Spec vigente para implementacion futura:**
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` — modelo
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo
   conceptual.
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-003-rbac-core` —
+- :doc:`/arquitectura-tecnica/modulos/rbac-core/index` —
   modulo arquitectonico RBAC_CORE.
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` —
   modelo plano.

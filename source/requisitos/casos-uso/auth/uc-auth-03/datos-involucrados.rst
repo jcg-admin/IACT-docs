@@ -100,7 +100,7 @@ para resetear contrasenas"}``
    - Cambio
  * - password_hash
    - VARCHAR(60)
-   - reemplazado con bcrypt(temp_password)
+   - reemplazado con hash(temp_password)
  * - first_login
    - BOOLEAN
    - ``false → true`` (o permanece true en FA-02)

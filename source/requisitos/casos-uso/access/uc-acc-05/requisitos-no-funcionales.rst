@@ -19,7 +19,7 @@ Parte 6 — Requisitos no funcionales
 - HTTPS, JWT (CNST-009).
 - RBAC granular (P-15):
   ``view_separation_rules`` vs
-  ``manage_separation_rules``.
+  ``view_separation_rules``.
 - Throttling: 60/min/invoker.
 
 6.3 Confiabilidad

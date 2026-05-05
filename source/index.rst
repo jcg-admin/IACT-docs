@@ -18,8 +18,8 @@ El proyecto IACT es una solución de **Dashboard Analytics** que conecta
 datos operativos (origen MySQL, modo solo-lectura) con necesidades de
 análisis de negocio (destino PostgreSQL, optimizado) mediante un proceso
 ETL trazable. El frontend (React + Webpack) consume la API REST del
-backend (Django REST Framework) servido por Apache + mod_wsgi sobre
-Ubuntu.
+backend (Framework de API REST) servido por el servidor de aplicaciones
+sobre Ubuntu.
 
 Stack del producto
 ==================
@@ -33,9 +33,9 @@ Stack del producto
    * - Frontend
      - React + Webpack
    * - Backend
-     - Django REST Framework (Python 3.11+)
+     - Framework de API REST (Python 3.11+)
    * - Infraestructura
-     - Ubuntu + Apache (mod_wsgi)
+     - Ubuntu + Servidor Web
    * - Bases de datos
      - MySQL (operativa, RO) + PostgreSQL (analítica)
 

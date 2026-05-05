@@ -22,8 +22,8 @@ Parte 10 — Patrones de diseno
 - P-08 Fail-closed.
 - P-09 Audit-or-abort.
 - P-15 RBAC granular
-  (manage_access_group_composition distinta
-  de manage_access_groups).
+  (assign_functions_to_group distinta
+  de create_function_group).
 - P-22 Idempotencia parcial.
 - P-27 SoD write-time.
 - P-28 All-or-nothing escalado a cascade.

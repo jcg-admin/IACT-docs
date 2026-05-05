@@ -896,7 +896,7 @@ Template PlantUML
 
  ' Definir actores
  actor "Auditor" as auditor
- actor "Sistema de Base de Datos" as db
+ actor "Sistema de Base de Datos" as SistemaDeBaseDeDatos
 
  ' Definir sistema
  rectangle "Sistema IACT - Módulo de Auditoría" {
@@ -912,8 +912,8 @@ Template PlantUML
  auditor --> UC022
 
  ' Actor secundario (flecha de UC a actor)
- UC020 --> db
- UC021 --> db
+ UC020 --> SistemaDeBaseDeDatos
+ UC021 --> SistemaDeBaseDeDatos
 
  ' Notas explicativas
  note right of UC020
@@ -942,7 +942,7 @@ Ejemplo: UC-BACK-020
  skinparam packageStyle rectangle
 
  actor "Auditor" as auditor
- actor "Sistema de Base de Datos" as db
+ actor "Sistema de Base de Datos" as SistemaDeBaseDeDatos
  actor "Sistema de Reportes" as reportes
 
  rectangle "Sistema IACT - Módulo de Auditoría" {
@@ -953,7 +953,7 @@ Ejemplo: UC-BACK-020
  auditor --> UC020
 
  ' Actores secundarios
- UC020 --> db
+ UC020 --> SistemaDeBaseDeDatos
  UC020 --> reportes
 
  note right of UC020
@@ -1276,7 +1276,7 @@ PASO 10: Diagrama UML
 
  actor "Administrador de Usuarios" as admin
  actor "Sistema de Autenticación" as auth
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  rectangle "Sistema IACT - Módulo de Gestión de Usuarios" {
@@ -1294,12 +1294,12 @@ PASO 10: Diagrama UML
 
  ' Actores secundarios
  UC010 --> auth
- UC010 --> db
+ UC010 --> BaseDeDatosDeUsuarios
  UC010 --> email
 
- UC011 --> db
- UC012 --> db
- UC013 --> db
+ UC011 --> BaseDeDatosDeUsuarios
+ UC012 --> BaseDeDatosDeUsuarios
+ UC013 --> BaseDeDatosDeUsuarios
 
  note right of UC010
  Genera contraseña temporal

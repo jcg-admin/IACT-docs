@@ -95,7 +95,7 @@ Forma estandar CNST-013.
    - Cambio
  * - password_hash
    - VARCHAR(60)
-   - bcrypt(new_password)
+   - hash(new_password)
  * - first_login
    - BOOLEAN
    - ``true → false`` (si era true)

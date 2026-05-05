@@ -112,7 +112,8 @@ Cumple con principios de auditoria y control interno.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **Responsable**: admin_seguridad (AGR-008)
-- **Proceso de Cambio**: Configuracion via UC-043
+- **Proceso de Cambio**: Configuracion via UC_ADM_01 (ciclo de vida de
+  reglas SoD) y vista operativa via UC_ACC_05
 - **Frecuencia de Revision**: Semestral
 
 ----
@@ -187,10 +188,13 @@ documentada del sponsor y registro en auditoria.
    - Donde Aplica
  * - UC-010
    - Asignar Funciones - validacion SoD
- * - UC-043
-   - Configurar SoD - definir restricciones
- * - UC-044
-   - Consultar Permisos Efectivos - muestra conflictos
+ * - UC_ADM_01
+   - Gestionar Ciclo de Vida de Reglas SoD (crear, actualizar,
+     activar/desactivar)
+ * - UC_ACC_05
+   - Vista operativa de reglas SoD vigentes
+ * - UC_ACC_03
+   - Consultar Permisos Efectivos - muestra conflictos SoD
 
 ----
 
@@ -225,9 +229,14 @@ documentada del sponsor y registro en auditoria.
 
 ::
 
- SOD_001: USR-001 (crear usuario) vs ACC-001 (asignar funcion admin)
- SOD_002: AUD-001 (ver auditoria) vs AUD-004 (exportar auditoria)
- SOD_003: PIP-001 (ejecutar ETL) vs PIP-004 (modificar config ETL)
+ SOD_001 (pipeline_audit_separation):
+   view_pipeline_status vs view_audit_log
+
+ SOD_002 (user_audit_separation):
+   create_users vs view_audit_log
+
+ SOD_003 (access_audit_separation):
+   assign_functions vs view_audit_log
 
 ----
 

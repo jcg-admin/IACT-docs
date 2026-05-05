@@ -4,38 +4,47 @@
 Parte 7 — Datos involucrados
 ================================
 
-7.1 Entidades
-=============
+7.1 Entidades leidas
+====================
 
-- **TransferEvent** (Analytics): row por
-  cada transfer.
+- **Base Analitica IVR** — datos de llamadas por centro de
+  transferencia y segmento, generados por el ETL y consultados
+  via Servicio de Reportes.
 
-7.2 Modelo
-==========
+7.2 Datos retornados por el Servicio de Reportes
+=================================================
+
+El Servicio de Reportes provee dos dimensiones de analisis:
+
+**Por centro de transferencia** (``sp_rpt_centros_transferencia``):
 
 ::
 
-   TransferEvent:
-     event_id, occurred_at,
-     segment_code,
-     direction: internal|external,
-     from_agent_id, from_queue_id,
-     to_agent_id, to_queue_id,
-     reason_code,
-     pre_transfer_seconds,
-     post_transfer_outcome:
-       resolved|abandoned|escalated
+   ReporteCentros:
+     centro_transferencia : valor de cDID_Centro_Transferencia
+     segmento             : codigo de segmento
+     total_llamadas       : total transferidas al centro
+     trimestre            : codigo del trimestre
 
-7.3 Indices
-===========
+**Por segmento** (``sp_rpt_centros_xsegmento``):
 
-- ``TransferEvent(segment_code,
-  occurred_at DESC)``.
-- ``TransferEvent(from_queue_id,
-  to_queue_id)``.
-- ``TransferEvent(reason_code)``.
+::
 
-7.4 Datos NO involucrados
-=========================
+   ReporteCentrosSegmento:
+     segmento         : codigo de segmento
+     centro           : centro de transferencia
+     total            : llamadas en ese cruce
 
-- PII de cliente.
+7.3 Datos NO involucrados
+==========================
+
+- PII del caller.
+- Tiempos de agente (el IVR no tiene datos de atencion).
+- Audio / transcripciones.
+
+7.4 Filtros aplicables
+=======================
+
+- Por segmento (filtro de perfil de usuario via UC_INC_RPT_01).
+- Por trimestre.
+- Por centro de transferencia (opcional).
