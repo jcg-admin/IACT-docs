@@ -65,6 +65,7 @@ Los estándares cubren:
  std-009-profesional-documentacion
  std-010-vocabulario-abstracto
  std-011-alias-diagramas-uml
+ std-012-tipos-de-diagramas-uml
 
 .. toctree::
  :maxdepth: 1
