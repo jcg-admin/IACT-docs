@@ -198,15 +198,15 @@ UC_XXX_NN — <Título descriptivo del UC>
 
  left to right direction
 
- ' Funciones RBAC iniciadoras
- actor "<funcion_rbac>" as INVOKER
- actor "<otra_funcion>" as F_OTHER
+ ' Funciones RBAC iniciadoras (STD-011: alias = nombre función exacto)
+ actor "<funcion_rbac>" as <funcion_rbac>
+ actor "<otra_funcion>" as <otra_funcion>
  ' Funciones RBAC beneficiarias
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- ' Sistemas (entidades del domain-model)
- actor "<EntityCanonical>" as ABBR <<sistema>>
+ ' Sistemas (entidades del domain-model — STD-011: alias = CamelCase clase)
+ actor "<EntityCanonical>" as <EntityCanonical> <<sistema>>
  ' Sistemas externos (fuera del dominio)
- actor "<Boundary>" as B <<sistema_externo>>
+ actor "<Boundary>" as <Boundary> <<sistema_externo>>
 
  rectangle "MOD_<Module>" {
    usecase "UC_XXX_NN\n<Titulo>" as UC_XXX_NN
