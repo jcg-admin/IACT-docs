@@ -34,48 +34,48 @@ Sistema IACT — Diagrama de Casos de Uso
  actor "Sistema IVR\n(fuente datos)" as SistemaIVR
 
  rectangle "Sistema IACT" {
-   usecase "Autenticar JWT" as UC_AUTH
-   usecase "Acceder a\nModulos" as UC_ACC
-   usecase "Ver Dashboard IVR" as UC_DASH
-   usecase "Ver Reportes IVR" as UC_RPT
-   usecase "Resolver Segmento\nUC_INC_RPT_01" as UC_INC
-   usecase "Ver Llamadas\nAbandonadas\n(sp_rpt_llamadas_abandonadas)" as UC_R13
-   usecase "Ver\nTransferencias\n(sp_rpt_centros_transferencia)" as UC_R15
-   usecase "Ver Menus IVR\n(sp_rpt_menu_redirigidos)" as UC_R16
-   usecase "Ver Clientes\nUnicos\n(sp_rpt_clientes)" as UC_R17
-   usecase "Gestionar\nPipeline ETL" as UC_PIP
-   usecase "Ver Disponibilidad\nde Datos" as UC_DISP
-   usecase "Consultar Logs\n(view_audit_log)" as UC_LOG
-   usecase "Gestionar\nFunciones RBAC" as UC_RBAC
-   usecase "Cerrar Sesion" as UC_LOGOUT
+   usecase "Autenticar JWT" as CLUSTER_AUTH
+   usecase "Acceder a\nModulos" as CLUSTER_ACCESO
+   usecase "Ver Dashboard IVR" as VER_DASHBOARD_IVR
+   usecase "Ver Reportes IVR" as CLUSTER_REPORTES
+   usecase "Resolver Segmento\nUC_INC_RPT_01" as RESOLVER_SEGMENTO
+   usecase "Ver Llamadas\nAbandonadas\n(sp_rpt_llamadas_abandonadas)" as VER_LLAMADAS_ABANDONADAS
+   usecase "Ver\nTransferencias\n(sp_rpt_centros_transferencia)" as VER_TRANSFERENCIAS
+   usecase "Ver Menus IVR\n(sp_rpt_menu_redirigidos)" as VER_MENUS_IVR
+   usecase "Ver Clientes\nUnicos\n(sp_rpt_clientes)" as VER_CLIENTES_UNICOS
+   usecase "Gestionar\nPipeline ETL" as CLUSTER_ETL
+   usecase "Ver Disponibilidad\nde Datos" as VER_DISPONIBILIDAD_DATOS
+   usecase "Consultar Logs\n(view_audit_log)" as CLUSTER_LOGS
+   usecase "Gestionar\nFunciones RBAC" as CLUSTER_RBAC
+   usecase "Cerrar Sesion" as CERRAR_SESION
  }
 
- view_reports --> UC_AUTH
- view_pipeline_status --> UC_AUTH
- request_pipeline_retry --> UC_AUTH
- assign_functions --> UC_AUTH
- view_audit_log --> UC_AUTH
- APScheduler --> UC_PIP
- IVR --> UC_PIP
+ view_reports --> CLUSTER_AUTH
+ view_pipeline_status --> CLUSTER_AUTH
+ request_pipeline_retry --> CLUSTER_AUTH
+ assign_functions --> CLUSTER_AUTH
+ view_audit_log --> CLUSTER_AUTH
+ APScheduler --> CLUSTER_ETL
+ IVR --> CLUSTER_ETL
 
- UC_AUTH ..> UC_ACC : <<include>>
- UC_ACC ..> UC_DASH : <<extend>>
- UC_ACC ..> UC_RPT : <<extend>>
- UC_ACC ..> UC_PIP : <<extend>>
- UC_ACC ..> UC_LOG : <<extend>>
- UC_ACC ..> UC_LOGOUT : <<extend>>
- assign_functions --> UC_RBAC
- UC_RBAC ..> UC_AUTH : <<include>>
+ CLUSTER_AUTH ..> CLUSTER_ACCESO : <<include>>
+ CLUSTER_ACCESO ..> VER_DASHBOARD_IVR : <<extend>>
+ CLUSTER_ACCESO ..> CLUSTER_REPORTES : <<extend>>
+ CLUSTER_ACCESO ..> CLUSTER_ETL : <<extend>>
+ CLUSTER_ACCESO ..> CLUSTER_LOGS : <<extend>>
+ CLUSTER_ACCESO ..> CERRAR_SESION : <<extend>>
+ assign_functions --> CLUSTER_RBAC
+ CLUSTER_RBAC ..> CLUSTER_AUTH : <<include>>
 
- UC_RPT ..> UC_INC : <<include>>
- UC_DASH ..> UC_INC : <<include>>
+ CLUSTER_REPORTES ..> RESOLVER_SEGMENTO : <<include>>
+ VER_DASHBOARD_IVR ..> RESOLVER_SEGMENTO : <<include>>
 
- UC_RPT ..> UC_R13 : <<extend>>
- UC_RPT ..> UC_R15 : <<extend>>
- UC_RPT ..> UC_R16 : <<extend>>
- UC_RPT ..> UC_R17 : <<extend>>
+ CLUSTER_REPORTES ..> VER_LLAMADAS_ABANDONADAS : <<extend>>
+ CLUSTER_REPORTES ..> VER_TRANSFERENCIAS : <<extend>>
+ CLUSTER_REPORTES ..> VER_MENUS_IVR : <<extend>>
+ CLUSTER_REPORTES ..> VER_CLIENTES_UNICOS : <<extend>>
 
- UC_PIP ..> UC_DISP : <<extend>>
+ CLUSTER_ETL ..> VER_DISPONIBILIDAD_DATOS : <<extend>>
 
  @enduml
 

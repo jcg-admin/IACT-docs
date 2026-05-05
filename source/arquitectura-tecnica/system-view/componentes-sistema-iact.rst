@@ -30,47 +30,47 @@ ETL (``sp_etl_*``). ``PostgreSQL`` gestiona usuarios y auditoria.
 
  @startuml
 
- component "<<System>>\nview_reports\n(view_reports / view_dashboard)" as COMP_RVG {
-   artifact "<<artifact>>\nReport Request Buffer\n(JWT + trimestre)" as ART_REQ
+ component "<<System>>\nview_reports\n(view_reports / view_dashboard)" as SISTEMA_VER_REPORTES {
+   artifact "<<artifact>>\nReport Request Buffer\n(JWT + trimestre)" as ARTEFACTO_REPORT_REQUEST
  }
 
- component "<<System>>\nBackend IACT" as COMP_BACK {
-   component "Suggestion\nServicio de Reportes" as SVC_OUTER {
-     artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ART_R1
-     artifact "<<artifact>>\nsp_rpt_centros_transferencia" as ART_R2
-     artifact "<<artifact>>\nsp_rpt_menu_redirigidos" as ART_R3
-     artifact "<<artifact>>\nsp_rpt_clientes" as ART_R4
-     artifact "<<artifact>>\nsp_rpt_centros_xsegmento" as ART_R5
-     artifact "<<artifact>>\nsp_rpt_menu_centro" as ART_R6
-     artifact "<<artifact>>\nsp_rpt_cMENU_ERROR" as ART_R7
+ component "<<System>>\nBackend IACT" as SISTEMA_BACKEND_IACT {
+   component "Suggestion\nServicio de Reportes" as SERVICIO_REPORTES_EXTERNO {
+     artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ARTEFACTO_SP_RPT_LLAMADAS_ABANDONADAS
+     artifact "<<artifact>>\nsp_rpt_centros_transferencia" as ARTEFACTO_SP_RPT_TRANSFERENCIAS
+     artifact "<<artifact>>\nsp_rpt_menu_redirigidos" as ARTEFACTO_SP_RPT_MENUS_REDIRIGIDOS
+     artifact "<<artifact>>\nsp_rpt_clientes" as ARTEFACTO_SP_RPT_CLIENTES
+     artifact "<<artifact>>\nsp_rpt_centros_xsegmento" as ARTEFACTO_SP_RPT_CENTROS_XSEGMENTO
+     artifact "<<artifact>>\nsp_rpt_menu_centro" as ARTEFACTO_SP_RPT_MENU_CENTRO
+     artifact "<<artifact>>\nsp_rpt_cMENU_ERROR" as ARTEFACTO_SP_RPT_MENU_ERROR
    }
-   component "<<process>>\nAuthService\n(JWT + RBAC)" as SVC_AUTH
-   component "<<process>>\nSegmentResolver\n(DID_MAP)" as SVC_SEG
-   component "<<process>>\nDisparadorETL\n(management command)" as SVC_ETL
+   component "<<process>>\nAuthService\n(JWT + RBAC)" as SERVICIO_AUTH_PROCESO
+   component "<<process>>\nSegmentResolver\n(DID_MAP)" as SERVICIO_SEGMENT_RESOLVER
+   component "<<process>>\nDisparadorETL\n(management command)" as SERVICIO_ETL_DISPARADOR
  }
 
- database "<<subsystem>>\nMariaDB 10.1.48" as DB_MARIA {
-   artifact "tbl_historico_*\n(Repositorio IVR)" as ART_HIST
-   artifact "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ART_BASE
-   artifact "etl_runs\n(Registro ETL)" as ART_ETLRUNS
+ database "<<subsystem>>\nMariaDB 10.1.48" as BASE_DATOS_MARIADB {
+   artifact "tbl_historico_*\n(Repositorio IVR)" as ARTEFACTO_HISTORICO_IVR
+   artifact "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ARTEFACTO_BASE_ANALITICA
+   artifact "etl_runs\n(Registro ETL)" as ARTEFACTO_ETL_RUNS
  }
 
- database "<<subsystem>>\nPostgreSQL" as DB_PG {
-   artifact "auth_user\n(AccessGroup / AccessFunction)" as ART_USERS
-   artifact "audit_log" as ART_AUDIT
+ database "<<subsystem>>\nPostgreSQL" as BASE_DATOS_POSTGRESQL {
+   artifact "auth_user\n(AccessGroup / AccessFunction)" as ARTEFACTO_AUTH_USER
+   artifact "audit_log" as ARTEFACTO_AUDIT_LOG
  }
 
- COMP_RVG --> COMP_BACK : +Request\n1..* a 1\nHTTPS
- COMP_BACK --> DB_MARIA : communicates\nSQL/TCP :3306
- COMP_BACK --> DB_PG : communicates\nSQL/TCP :5432
+ SISTEMA_VER_REPORTES --> SISTEMA_BACKEND_IACT : +Request\n1..* a 1\nHTTPS
+ SISTEMA_BACKEND_IACT --> BASE_DATOS_MARIADB : communicates\nSQL/TCP :3306
+ SISTEMA_BACKEND_IACT --> BASE_DATOS_POSTGRESQL : communicates\nSQL/TCP :5432
 
- SVC_ETL --> ART_HIST : lee (fuente IVR)
- SVC_ETL --> ART_BASE : escribe via sp_etl_*
- SVC_ETL --> ART_ETLRUNS : registra ejecucion
- SVC_OUTER --> ART_BASE : lee via sp_rpt_*
- SVC_SEG --> ART_USERS : lee DIDs RBAC
- SVC_AUTH --> ART_USERS : valida usuario
- SVC_AUTH --> ART_AUDIT : registra acciones
+ SERVICIO_ETL_DISPARADOR --> ARTEFACTO_HISTORICO_IVR : lee (fuente IVR)
+ SERVICIO_ETL_DISPARADOR --> ARTEFACTO_BASE_ANALITICA : escribe via sp_etl_*
+ SERVICIO_ETL_DISPARADOR --> ARTEFACTO_ETL_RUNS : registra ejecucion
+ SERVICIO_REPORTES_EXTERNO --> ARTEFACTO_BASE_ANALITICA : lee via sp_rpt_*
+ SERVICIO_SEGMENT_RESOLVER --> ARTEFACTO_AUTH_USER : lee DIDs RBAC
+ SERVICIO_AUTH_PROCESO --> ARTEFACTO_AUTH_USER : valida usuario
+ SERVICIO_AUTH_PROCESO --> ARTEFACTO_AUDIT_LOG : registra acciones
 
  @enduml
 

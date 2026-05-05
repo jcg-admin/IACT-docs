@@ -30,57 +30,57 @@ con los artefactos correspondientes.
 
  @startuml
 
- node "view_reports\nos WINDOWS / MacOS" as CLI_RVG {
-   node "<<app>>\nNavegador (Chrome / Firefox)" as BR_RVG {
-     artifact "<<artifact>>\nUser_View\n(JWT + view_reports)" as ART_RVG
+ node "view_reports\nos WINDOWS / MacOS" as CLIENTE_REPORTES {
+   node "<<app>>\nNavegador (Chrome / Firefox)" as NAVEGADOR_REPORTES {
+     artifact "<<artifact>>\nUser_View\n(JWT + view_reports)" as ARTEFACTO_VISTA_REPORTES
    }
  }
 
- node "request_pipeline_retry\nos WINDOWS / Linux" as CLI_PAG {
-   node "<<app>>\nNavegador (Chrome / Firefox)" as BR_PAG {
-     artifact "<<artifact>>\nUser_View\n(JWT + view_pipeline_status)" as ART_PAG
+ node "request_pipeline_retry\nos WINDOWS / Linux" as CLIENTE_PIPELINE {
+   node "<<app>>\nNavegador (Chrome / Firefox)" as NAVEGADOR_PIPELINE {
+     artifact "<<artifact>>\nUser_View\n(JWT + view_pipeline_status)" as ARTEFACTO_VISTA_PIPELINE_ADMIN
    }
  }
 
- node "assign_functions\nos WINDOWS" as CLI_UAG {
-   node "<<app>>\nNavegador (Chrome / Firefox)" as BR_UAG {
-     artifact "<<artifact>>\nUser_View\n(JWT + assign_functions)" as ART_UAG
+ node "assign_functions\nos WINDOWS" as CLIENTE_ASIGNACION {
+   node "<<app>>\nNavegador (Chrome / Firefox)" as NAVEGADOR_ASIGNACION {
+     artifact "<<artifact>>\nUser_View\n(JWT + assign_functions)" as ARTEFACTO_VISTA_ASIGNACION
    }
  }
 
- node "<<server>>\nServidor IACT" as NODE_SRV {
+ node "<<server>>\nServidor IACT" as NODO_SERVIDOR_IACT {
 
-   node "MOD_Reports\n(view_reports / view_dashboard)" as MOD_RPT {
-     artifact "<<artifact>>\nsp_rpt_centros_xsegmento" as ART_S1
-     artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ART_S2
+   node "MOD_Reports\n(view_reports / view_dashboard)" as MODULO_REPORTES {
+     artifact "<<artifact>>\nsp_rpt_centros_xsegmento" as ARTEFACTO_SP_RPT_CENTROS_XSEGMENTO
+     artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ARTEFACTO_SP_RPT_LLAMADAS_ABANDONADAS
    }
 
-   node "MOD_Pipeline ETL\n(view_pipeline_status / request_pipeline_retry)" as MOD_ETL {
-     artifact "<<artifact>>\nsp_etl_maestro" as ART_E1
-     artifact "<<artifact>>\netl_runs" as ART_E2
+   node "MOD_Pipeline ETL\n(view_pipeline_status / request_pipeline_retry)" as MODULO_ETL {
+     artifact "<<artifact>>\nsp_etl_maestro" as ARTEFACTO_SP_ETL_MAESTRO
+     artifact "<<artifact>>\netl_runs" as ARTEFACTO_ETL_RUNS
    }
 
-   node "MOD_Logs\n(view_audit_log)" as MOD_LOG {
-     artifact "<<artifact>>\naudit_log" as ART_L1
+   node "MOD_Logs\n(view_audit_log)" as MODULO_LOGS {
+     artifact "<<artifact>>\naudit_log" as ARTEFACTO_AUDIT_LOG
    }
 
-   node "MOD_Admin\n(assign_functions / create_users)" as MOD_ADM {
-     artifact "<<artifact>>\nAccessGroup" as ART_A1
-     artifact "<<artifact>>\nAccessFunction" as ART_A2
+   node "MOD_Admin\n(assign_functions / create_users)" as MODULO_ADMIN {
+     artifact "<<artifact>>\nAccessGroup" as ARTEFACTO_ACCESS_GROUP
+     artifact "<<artifact>>\nAccessFunction" as ARTEFACTO_ACCESS_FUNCTION
    }
 
  }
 
- node "Database" as NODE_DB {
-   artifact "<<artifact>>\nbase_ivr_detalle\nbase_ivr_clientes" as DB_IVR
-   artifact "<<artifact>>\nauth_user\naudit_log" as DB_AUTH
-   artifact "<<artifact>>\ntbl_historico_*" as DB_HIST
+ node "Database" as NODO_BASE_DATOS {
+   artifact "<<artifact>>\nbase_ivr_detalle\nbase_ivr_clientes" as BASE_DATOS_IVR
+   artifact "<<artifact>>\nauth_user\naudit_log" as BASE_DATOS_AUTH
+   artifact "<<artifact>>\ntbl_historico_*" as BASE_DATOS_HISTORICO
  }
 
- CLI_RVG --> NODE_SRV : +receive Fetch\n1..* 1 +send
- CLI_PAG --> NODE_SRV : +receive Fetch\n1..* 1 +send
- CLI_UAG --> NODE_SRV : +receive Fetch\n1..* 1 +send
- NODE_SRV --> NODE_DB : +receive/send\nFetch 1 1 +receive/send
+ CLIENTE_REPORTES --> NODO_SERVIDOR_IACT : +receive Fetch\n1..* 1 +send
+ CLIENTE_PIPELINE --> NODO_SERVIDOR_IACT : +receive Fetch\n1..* 1 +send
+ CLIENTE_ASIGNACION --> NODO_SERVIDOR_IACT : +receive Fetch\n1..* 1 +send
+ NODO_SERVIDOR_IACT --> NODO_BASE_DATOS : +receive/send\nFetch 1 1 +receive/send
 
  @enduml
 

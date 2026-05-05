@@ -24,7 +24,7 @@ Diagrama de componentes — MOD_Pipeline
  actor "APScheduler" as Apscheduler
  actor "request_pipeline_retry" as request_pipeline_retry
 
- component "sp_etl_maestro\n(Almacen de Datos SP)" as ETL_SP
+ component "sp_etl_maestro\n(Almacen de Datos SP)" as ARTEFACTO_SP_ETL
  component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as Supervisionendpoint
  component "ETLScheduler\n(tarea programada)" as PROGRAMADOR_ETL
 
@@ -35,11 +35,11 @@ Diagrama de componentes — MOD_Pipeline
 
  Apscheduler --> PROGRAMADOR_ETL : disparo automatico
  request_pipeline_retry --> Supervisionendpoint : POST reintento (request_pipeline_retry)
- PROGRAMADOR_ETL --> ETL_SP : CALL sp_etl_maestro
- Supervisionendpoint --> ETL_SP : CALL sp_etl_maestro (reintento)
- ETL_SP --> HISTORICO_IVR : consultar (solo lectura)
- ETL_SP --> BASE_ANALITICA : TRUNCATE + registrar
- ETL_SP --> TABLA_ETL_RUNS : registrar/actualizar ejecucion
+ PROGRAMADOR_ETL --> ARTEFACTO_SP_ETL : CALL sp_etl_maestro
+ Supervisionendpoint --> ARTEFACTO_SP_ETL : CALL sp_etl_maestro (reintento)
+ ARTEFACTO_SP_ETL --> HISTORICO_IVR : consultar (solo lectura)
+ ARTEFACTO_SP_ETL --> BASE_ANALITICA : TRUNCATE + registrar
+ ARTEFACTO_SP_ETL --> TABLA_ETL_RUNS : registrar/actualizar ejecucion
  Supervisionendpoint --> TABLA_AUDIT_LOG : registrar auditoria
 
  @enduml

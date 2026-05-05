@@ -29,7 +29,7 @@ paralela por segmento activo del usuario y la llamada al
 
  @startuml
 
- state "Consulta de Reporte IVR" as RPT_EXEC {
+ state "Consulta de Reporte IVR" as ARTEFACTO_RPT_EJECUCION {
 
    state "Solicitar Reporte" as VER_DASHBOARD_IVR
    VER_DASHBOARD_IVR : entry / validar funcion view_reports en JWT
@@ -84,8 +84,8 @@ paralela por segmento activo del usuario y la llamada al
    RENDERIZAR_REPORTE --> [*]
  }
 
- [*] --> RPT_EXEC
- RPT_EXEC --> [*]
+ [*] --> ARTEFACTO_RPT_EJECUCION
+ ARTEFACTO_RPT_EJECUCION --> [*]
 
  @enduml
 

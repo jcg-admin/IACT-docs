@@ -30,7 +30,7 @@ estado en ``etl_runs``.
 
  @startuml
 
- state "Ejecucion ETL" as ETL_EXEC {
+ state "Ejecucion ETL" as ARTEFACTO_ETL_EJECUCION {
 
    state "Recibir Solicitud ETL" as RECIBIR_SOLICITUD_ETL
    RECIBIR_SOLICITUD_ETL : entry / validar funcion view_pipeline_status en JWT
@@ -79,8 +79,8 @@ estado en ``etl_runs``.
    ETLFallido --> [*]
  }
 
- [*] --> ETL_EXEC
- ETL_EXEC --> [*]
+ [*] --> ARTEFACTO_ETL_EJECUCION
+ ARTEFACTO_ETL_EJECUCION --> [*]
 
  @enduml
 

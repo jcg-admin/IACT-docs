@@ -31,52 +31,52 @@ conexion nombrada ``ivr`` en la configuracion de bases de datos.
 
  @startuml
 
- node "<<server>>\nServidor de Aplicacion" as NODE_APP {
+ node "<<server>>\nServidor de Aplicacion" as NODO_SERVIDOR_APLICACION {
    node "<<OS>>\nLinux" as OS_LINUX {
      node "<<WebServer>>\nGunicorn + Nginx" as WEB_SERVER {
        node "<<service>>\nBackend IACT" as IACT_SVC {
-         artifact "<<artifact>>\niact-app.wsgi" as ART_WSGI
+         artifact "<<artifact>>\niact-app.wsgi" as ARTEFACTO_IACT_WSGI
          artifact "<<artifact>>\nsettings.py\n(DATABASES: ivr + default)" as ART_SETTINGS
        }
      }
-     node "<<database system>>\nMariaDB 10.1.48" as NODE_MARIA {
-       node "Website data\nbase_ivr" as SCH_BASE {
-         artifact "base_ivr_detalle" as DB_DETALLE
-         artifact "base_ivr_clientes" as DB_CLIENTES
+     node "<<database system>>\nMariaDB 10.1.48" as NODO_MARIADB {
+       node "Website data\nbase_ivr" as SCHEMA_WEBSITE {
+         artifact "base_ivr_detalle" as BASE_DATOS_DETALLE
+         artifact "base_ivr_clientes" as BASE_DATOS_CLIENTES
        }
-       node "ETL control\netl_control" as SCH_ETL {
-         artifact "etl_runs" as DB_ETLR
+       node "ETL control\netl_control" as SCHEMA_ETL_CONTROL {
+         artifact "etl_runs" as BASE_DATOS_ETL_RUNS
        }
-       node "IVR source\nivr_fuente" as SCH_FUENTE {
-         artifact "tbl_historico_*" as DB_HIST
-       }
-     }
-     node "<<database system>>\nPostgreSQL" as NODE_PG {
-       node "operational\niact_operational" as SCH_PG {
-         artifact "auth_user\nAccessGroup / AccessFunction" as DB_USERS
-         artifact "audit_log" as DB_AUDIT
+       node "IVR source\nivr_fuente" as SCHEMA_IVR_FUENTE {
+         artifact "tbl_historico_*" as BASE_DATOS_HISTORICO
        }
      }
+     node "<<database system>>\nPostgreSQL" as NODO_POSTGRESQL {
+       node "operational\niact_operational" as SCHEMA_IACT_OPERATIONAL {
+         artifact "auth_user\nAccessGroup / AccessFunction" as BASE_DATOS_USUARIOS
+         artifact "audit_log" as BASE_DATOS_AUDIT
+       }
+     }
    }
  }
 
- node "<<client>>\nview_reports\n(PC / Navegador)" as NODE_RVG {
-   node "<<app>>\nNavegador Web" as BROWSER_RVG {
-     artifact "<<artifact>>\nJWT Token (LocalStorage)" as ART_JWT_RVG
-     artifact "<<artifact>>\nCache Reportes (30s)" as ART_CACHE_RVG
+ node "<<client>>\nview_reports\n(PC / Navegador)" as NODO_CLIENTE_REPORTES {
+   node "<<app>>\nNavegador Web" as NAVEGADOR_WEB {
+     artifact "<<artifact>>\nJWT Token (LocalStorage)" as ARTEFACTO_JWT_REPORTES
+     artifact "<<artifact>>\nCache Reportes (30s)" as ARTEFACTO_CACHE_REPORTES
    }
  }
 
- node "<<client>>\nrequest_pipeline_retry\n(PC / Navegador)" as NODE_PAG {
-   node "<<app>>\nNavegador Web" as BROWSER_PAG {
-     artifact "<<artifact>>\nJWT Token (LocalStorage)" as ART_JWT_PAG
+ node "<<client>>\nrequest_pipeline_retry\n(PC / Navegador)" as NODO_CLIENTE_PIPELINE {
+   node "<<app>>\nNavegador Web" as NAVEGADOR_WEB {
+     artifact "<<artifact>>\nJWT Token (LocalStorage)" as ARTEFACTO_JWT_PIPELINE
    }
  }
 
- NODE_RVG -- NODE_APP : +receive\nFetch\n1..* a 1\nHTTPS
- NODE_PAG -- NODE_APP : +receive\nFetch\n1..* a 1\nHTTPS
- IACT_SVC -- NODE_MARIA : SQL/TCP (puerto 3306)
- IACT_SVC -- NODE_PG : SQL/TCP (puerto 5432)
+ NODO_CLIENTE_REPORTES -- NODO_SERVIDOR_APLICACION : +receive\nFetch\n1..* a 1\nHTTPS
+ NODO_CLIENTE_PIPELINE -- NODO_SERVIDOR_APLICACION : +receive\nFetch\n1..* a 1\nHTTPS
+ IACT_SVC -- NODO_MARIADB : SQL/TCP (puerto 3306)
+ IACT_SVC -- NODO_POSTGRESQL : SQL/TCP (puerto 5432)
 
  @enduml
 
