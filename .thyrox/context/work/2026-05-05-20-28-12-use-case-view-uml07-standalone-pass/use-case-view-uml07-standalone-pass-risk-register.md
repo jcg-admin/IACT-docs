@@ -17,7 +17,7 @@ author: NestorMonroy
 | ID | Riesgo | Prob | Impacto | Estado | Mitigación | Owner |
 |----|--------|------|---------|--------|------------|-------|
 | R-01 | uml-06 base "shallow" del predecesor (extends incompletos) | A | M | Identificado | Releer flujos-alternos.rst + excepciones.rst antes de derivar uml-07 | Claude |
-| R-02 | Mapping función RBAC → rol con casos ambiguos (e.g. ¿Operator vs Agent para UC_OPR_10?) | M | B | Identificado | Tabla canónica en wp-state.md sección "Roles canónicos"; nuevas ambigüedades documentadas en decisions-log.md | Claude |
+| R-02 | Sistemas como actores con nombre NO canónico vs domain-model (e.g. `LogStore` vs `application-log`) | M | M | Identificado | Tabla mapping uml-06 actor → archivo domain-model en analyze/; verificación en cada diagrama de que actor `<<sistema>>` corresponde a archivo `domain-model/<entity>.rst` | Claude |
 | R-03 | 83 archivos × revisión humana = ~1-2h por módulo × 13 = mucho effort downstream | A | A | Aceptado | SP-02 valida pattern con 5 sample antes de propagar; commits checkpoint por módulo permiten review por chunks | NestorMonroy |
 | R-04 | Drift de scope (repetir error del predecesor — desviar a casos-uso/) | M | C | Identificado | L-01: re-leer wp-state.md::target en cada Phase; auditoría en cada commit que NO se tocan archivos en casos-uso/ | Claude |
 | R-05 | Conflictos con PR #14 sin merge (este WP requiere los 53 nuevos uml-06 como insumo) | B | M | Identificado | Esperar merge de PR #14 a feature/solve-problem-docs antes de bifurcar nueva rama; alternativa: trabajar pre-merge sobre feature/cnst-033-uml-conformance (decisión SP-01) | NestorMonroy |
@@ -26,6 +26,9 @@ author: NestorMonroy
 | R-08 | sphinxcontrib-plantuml falla en pre-render con sintaxis específica (e.g. extension points multi-línea, notas largas) | B | A | Identificado | Pilot 5 sample UCs en SP-02 cubre los patterns principales; iterar template hasta render limpio | Claude |
 | R-09 | Vocabulario CNST-033 incompleto en diagramas (e.g. mezcla `view_pipeline_*` con `view_etl_*` heredado) | B | M | Identificado | Audit script verifica 0 codename functions como ACTORES (R-12); pasan a notas si necesario | Claude |
 | R-10 | Module index updates rompen toctrees existentes (warnings `toc.not_included` o `toc.not_readable`) | M | A | Identificado | Update incremental de index file por módulo + build local strict por módulo antes de commit | Claude |
+| R-11 | Crear ~18 clases nuevas en domain-model con scope inflado (over-engineering, métodos especulativos) | M | M | Identificado | Solo crear clases REFERENCIADAS por los 83 UCs (no especular); spec mínima por clase: atributos, métodos referenciados, relaciones, BR/CNST relevantes; revisión humana SP por lote | Claude |
+| R-12 | Métodos faltantes a clases existentes pueden romper consistencia con código real (si existe) | M | A | Identificado | Documentar cada método agregado con la firma referenciada en el UC + aclaración "spec — verificar contra implementación cuando exista"; NO modificar firmas existentes ya validadas | Claude |
+| R-13 | Naming variants legacy (e.g. `AssignmentRepository` → `AssignmentRepo`) inconsistentes en UC specs hereados de predecesores | A | M | Identificado | Audit script en Phase 3 que detecta uso de variants no-canónicos en specs de UCs; corregir en seealso de uml-07 (NO en specs textuales — TD para WP de vocabulary cleanup) | Claude |
 
 ## Leyenda
 
@@ -49,3 +52,7 @@ author: NestorMonroy
   ocurrir en cada Phase transition.
 - R-08 motiva el SP-02 PILOT con 5 sample UCs antes de propagar. El predecesor no
   hizo PILOT formal y sufrió race condition + sintaxis no detectada hasta build limpio.
+- R-11 + R-12 + R-13 son específicos del scope de domain-model completion. Mitigación
+  conjunta: dedicar Phase 3 ANALYZE íntegramente a `analyze/domain-model-completion-
+  analysis.md` con tabla canónica de gaps detectados; bloquear avance a Phase 5
+  STRATEGY hasta que el ejecutor apruebe la lista de adiciones propuestas.

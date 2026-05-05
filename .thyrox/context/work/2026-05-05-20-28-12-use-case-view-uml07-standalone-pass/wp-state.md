@@ -8,7 +8,7 @@ author: NestorMonroy
 flow: rm
 methodology_step: rm-elicitation
 predecessor_wp: 2026-05-05-14-49-16-use-case-view-uml07-rebuild
-target: Construir 83 archivos uml-07 standalone en source/arquitectura-tecnica/use-case-view/<module>/uc-XXX-NN-<slug>.rst con nombres auto-explicativos, conforme a uml-07 R-01..R-12 y BR-006 Flat NIST.
+target: Construir 83 archivos uml-07 standalone en source/arquitectura-tecnica/use-case-view/<module>/uc-XXX-NN-<slug>.rst con funciones RBAC como actores (P-15), nombres auto-explicativos, conforme a uml-07 R-01..R-12 y BR-006 Flat NIST. Adicionalmente, completar domain-model/* con clases y métodos faltantes referenciados por los UCs.
 ```
 
 # WP — Use Case View UML-07 Standalone Pass
@@ -100,26 +100,34 @@ Las 7 lecciones (L-01..L-07) del predecesor deben aplicarse:
 - **CNST-033**: identificadores de actor en inglés (`Operator`, `Supervisor`, `Caller`).
 - **STD-008**: identifiers en inglés.
 
-### Roles canónicos para actores (NO funciones RBAC)
+### Funciones RBAC como actores (P-15, NO roles)
 
-Diferencia clave con los uml-06: en uml-07 standalone se usan **roles** (no funciones):
+Coherente con el patrón de uml-06 del predecesor y con P-15 RBAC granular: el actor
+en cada diagrama es la **función RBAC** que invoca el UC, no un rol agregador.
 
-| Función RBAC (uml-06) | Rol canónico (uml-07) |
-|---|---|
-| `assign_functions`, `revoke_functions`, etc. | `AccessAdmin` |
-| `view_audit_log`, `search_audit_log`, `export_audit_log` | `Auditor` |
-| `view_reports`, `manage_own_views`, `share_reports` | `Reporter` |
-| `view_alerts`, `acknowledge_alert`, `configure_team_alerts` | `Supervisor` |
-| `monitor_live_calls`, `barge_in_calls`, `broadcast_team_messages` | `Supervisor` |
-| `answer_inbound_calls`, `initiate_outbound_call`, `set_call_disposition`, etc. | `Operator` |
-| `read_own_mailbox`, `view_own_metrics`, `view_own_call_history` | `Operator` |
-| (Caller externo) | `Caller` |
-| `create_function`, `assign_functions_to_group`, `create_separation_rule` | `SystemAdmin` |
-| `view_pipeline_status`, `view_pipeline_errors`, `request_pipeline_retry` | `DataEngineer` |
-| `grant_exceptional_permission`, `revoke_function_group` | `SecurityOfficer` |
-| `view_application_logs`, `view_infrastructure_logs`, `view_technical_metrics` | `OpsEngineer` |
-| `view_system_health` | `OpsEngineer` |
-| `generate_compliance_report` | `ComplianceOfficer` |
+```
+actor "view_reports" as INVOKER         ✓ correcto
+actor "Reporter" as INVOKER              ✗ incorrecto (rol, no función)
+```
+
+**Razón:** un mismo rol agrupa N funciones, pero el UC se dispara por **una** función
+específica (P-15). El actor del diagrama identifica esa función — más preciso para
+trazabilidad RBAC y consistente con el sistema de assignments granular.
+
+**Caller externo:** sí es un rol (no autenticado, sin función RBAC). Se mantiene como
+`Caller <<externo>>`.
+
+**Sistema:** entidades del propio sistema (servicios, repos, engines) van como actores
+con stereotype `<<sistema>>` y nombre canónico del **domain-model**.
+
+**Stereotypes de actor:**
+
+| Stereotype | Cuándo | Ejemplo |
+|---|---|---|
+| (sin stereotype) | Función RBAC iniciadora del UC | `actor "view_reports" as INVOKER` |
+| `<<beneficiario>>` | Otra función RBAC que recibe del UC (R-01 uml-07) | `actor "view_audit_log" as view_audit_log <<beneficiario>>` |
+| `<<sistema>>` | Componente del domain-model (servicio/repo/engine) | `actor "PermissionCache" as PC <<sistema>>` |
+| `<<externo>>` | Actor fuera del sistema (no autenticado) | `actor "Caller" as CALLER <<externo>>` |
 
 ## Estrategia de generación
 
@@ -137,18 +145,28 @@ Para cada uno de los 83 UCs, leer:
 
 ### Transformación uml-06 → uml-07
 
-1. **Sanitizar actores**:
-   - Reemplazar codename functions por roles canónicos (tabla arriba).
+1. **Actores** (mantener funciones RBAC, no roles):
+   - INVOKER = función RBAC del UC (igual que uml-06 — P-15 granular).
+   - Beneficiarios = funciones RBAC consumidoras con `<<beneficiario>>`.
+   - Sistemas = entidades del **domain-model canónico** con `<<sistema>>` y
+     **nombre exacto del archivo del domain-model** (e.g. `PermissionCache`,
+     `AuditService`, `ExportWorker`).
    - Eliminar `<|--` entre actores (BR-006).
 2. **Sanitizar usecases**:
    - Eliminar nombres de SP/SQL del label (R-12).
    - Verificar/corregir dirección de `<<extend>>` (R-08).
 3. **Enriquecer**:
    - Agregar extends desde `flujos-alternos.rst` no presentes en uml-06.
-   - Agregar extension points en labels (R-09).
+   - Agregar extension points en labels del UC base (R-09).
+   - Notas BR/CNST/P/ADR exhaustivas (incluyendo `criterios-aceptacion.rst`).
 4. **Cross-refs**:
-   - Sección `seealso` con `:doc:` a domain-model entities relevantes.
+   - Sección `seealso` con `:doc:` a entidades relevantes del **domain-model**.
    - `:doc:` a UC backing si es vista alternativa (UC_PERM_NN → UC_ACC_NN).
+   - `:doc:` a spec textual del UC (`/requisitos/casos-uso/<mod>/<uc>/index`).
+5. **Completar domain-model si falta** (NUEVO scope vs predecesor):
+   - Si un sistema referenciado en el UC NO existe en `domain-model/`, crearlo.
+   - Si una clase existe pero le faltan métodos referenciados, completarlos.
+   - Documentar adiciones en `analyze/domain-model-completion-analysis.md`.
 
 ### Ubicación final
 
@@ -164,6 +182,9 @@ use-case-view/<module>/uc-XXX-NN-<slug>.rst
 - **0 errores de pre-render PlantUML**.
 - **Auditoría** con script: 0 violaciones de uml-07 R-01..R-12 + 0 violaciones de BR-006.
 - **Build limpio** strict (`sphinx-build -W`) con 0 warnings nuevos.
+- **Domain-model completado** — nuevas clases y métodos creados según gaps detectados
+  en Phase 3 ANALYZE. Documento de gap analysis: `analyze/domain-model-completion-analysis.md`.
+  Estimación inicial heredada del predecesor (Q3+Q4): ~18 clases nuevas + ~30 métodos.
 
 ## Riesgos identificados (heredados + nuevos)
 
@@ -191,22 +212,22 @@ use-case-view/<module>/uc-XXX-NN-<slug>.rst
 - **SP-04** (gate humano): pre-merge final, build limpio + revisión humana de
   módulos críticos (operator, reports, audit).
 
-## Decisiones pendientes del ejecutor (preguntas para SP-01)
+## Decisiones del ejecutor (resueltas)
 
-1. **¿Aprobar el formato de naming `uc-XXX-NN-<slug-descriptivo>.rst`?**
-2. **¿Aprobar el mapping función RBAC → rol canónico de la tabla arriba?**
-3. **¿Marcar los 83 archivos como `status: Vigente v1.0.0` o como `status: Borrador v0.9`
-   pendiente de revisión humana?**
-4. **¿Ejecutar masivamente o por módulos (validar uno antes del siguiente)?**
-5. **¿Rama de trabajo?** Opciones:
-   - (a) Trabajar sobre `feature/cnst-033-uml-conformance` (rama actual del PR #14, no merged aún).
-   - (b) Esperar merge de PR #14 a `feature/solve-problem-docs` y crear nueva rama
-     `feature/use-case-view-uml07-standalone` desde ahí.
-   - (c) Crear rama `feature/use-case-view-uml07-standalone` desde
-     `feature/cnst-033-uml-conformance` ahora (pre-merge).
+1. **Naming auto-explicativo**: APROBADO formato `uc-XXX-NN-<slug-descriptivo>.rst`.
+2. **Actores = funciones RBAC** (P-15), NO roles. Coherente con uml-06 predecesor.
+3. **Status inicial**: pendiente de confirmar — sugiero `Borrador v0.9` por riesgo R-01.
+4. **Granularidad**: ejecución por módulos con SP-02 sample + SP-03 build por módulo.
+5. **Rama**: `feature/cnst-033-uml-conformance` (la actual del PR #14). El WP continúa
+   sobre la misma rama; el merge de PR #14 incluirá tanto el cierre del predecesor
+   como el avance de este sucesor.
 
-   Per `.claude/rules/git-flow.md` R-02, opción (b) es la canónica (una rama por WP
-   desde el HEAD más actualizado de `feature/solve-problem-docs`).
+## Pendientes para SP-01 (gate humano)
+
+Solo queda confirmar:
+
+- ¿`status: Vigente v1.0.0` o `status: Borrador v0.9`?
+- ¿OK avanzar a Phase 3 ANALYZE con el plan actualizado?
 
 ## Anatomía esperada del WP (cajones que se irán creando)
 

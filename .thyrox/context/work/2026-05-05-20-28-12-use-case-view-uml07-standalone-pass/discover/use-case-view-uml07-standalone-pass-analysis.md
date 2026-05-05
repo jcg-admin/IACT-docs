@@ -43,15 +43,27 @@ Repetido para los 13 módulos: `access` (7), `auth` (5), `users` (4), `permissio
 ### Cada archivo `uc-XXX-NN-<slug>.rst` contiene
 
 1. **Título auto-explicativo** que matchea el nombre del archivo.
-2. **Bloque `@startuml`/`@enduml`** con:
+2. **Bloque `@startuml`/`@enduml`** conforme a uml-07 (refs `source/base-cognitiva/_uml/uml-07-*`):
    - `left to right direction`
-   - **Actores como ROLES canónicos** (Operator, Supervisor, AccessAdmin, etc.) — NO funciones RBAC.
+   - **Actores = funciones RBAC** (P-15 granular, **igual que uml-06** del predecesor —
+     coherencia con sistema RBAC). Stereotypes:
+     - `<<beneficiario>>` para funciones que reciben del UC (R-01 uml-07).
+     - `<<sistema>>` para entidades del **domain-model canónico** (servicios, repos,
+       engines) — usar **nombre exacto del archivo** del domain-model.
+     - `<<externo>>` para Caller (no autenticado).
    - **Rectangle `MOD_<Module>`** con UC principal + sub-usecases necesarios.
-   - **Relaciones**: `-->` directo, `..>` con `<<include>>` o `<<extend>>`.
+   - **Relaciones uml-07**:
+     - `-->` línea asociativa (actor ↔ UC).
+     - `..>` con `<<include>>` (uml-07 inclusion).
+     - `..>` con `<<extend>>` (uml-07 extension, ext → base, con extension point en label del base).
+     - `--|>` generalización entre UCs (R-10, opcional).
    - **Extension points** declarados en label del UC base donde aplique (R-09).
    - **Notas** referenciando BR-NN, CNST-NN, P-NN, ADR-NN.
+   - **NO `<|--` entre actores** (BR-006 Flat NIST).
 3. **Sección `.. seealso::`** con `:doc:` cross-refs a:
-   - Domain-model entities relevantes (`/arquitectura-tecnica/domain-model/...`).
+   - **Domain-model entities** referenciadas como actores `<<sistema>>` —
+     debe existir el archivo en `source/arquitectura-tecnica/domain-model/<entity>.rst`.
+     Si no existe, **se crea como parte de este WP** (ver scope ampliado abajo).
    - UC backing si es vista alternativa (e.g. UC_PERM_01 → UC_ACC_04).
    - Spec textual del UC (`/requisitos/casos-uso/<mod>/<uc>/index`).
 
@@ -103,17 +115,41 @@ El WP `use-case-view-uml07-rebuild` no completó el target de uml-07 standalone,
 Heredadas como guías de proceso para evitar repetir errores. Detalle en `wp-state.md`
 sección "Flow + lecciones heredadas del predecesor".
 
+### 2.5 Convenciones uml-07 leídas en `source/base-cognitiva/_uml/uml-07-*`
+
+El módulo `uml-07-diagramas-casos-uso` del proyecto (referencia adaptada de "Aprendiendo
+UML en 24 horas" — Hora 7) define las convenciones canónicas:
+
+| Lección | Convención clave |
+|---|---|
+| `representacion-de-un-modelo-de-caso-de-uso` | Actor (stick figure) izquierda inicia, derecha recibe. UC = elipse. Sistema = rectángulo. Línea asociativa entre actor y UC. |
+| `inclusion` | `..>` con `<<include>>` apuntando del caso de uso base al UC incluido. UC incluido nunca aparece solo. |
+| `extension` | `..>` con `<<extend>>` apuntando del UC extensor al UC base. Extension points declarados en label del UC base. |
+| `generalizacion` | `--\|>` línea continua con triángulo sin rellenar (como herencia de clases). Aplica a UCs Y a actores. |
+| `comprension-del-dominio` | Análisis del dominio precede a la elaboración de UCs. |
+| `comprension-de-los-usuarios` | Identificar tipos de usuarios (en IACT: funciones RBAC granulares — P-15). |
+| `comprension-de-los-casos-de-uso` | UCs son lo que el sistema hace para el actor; no detalles de implementación. |
+
+**Restricciones IACT que sobrescriben uml-07 puro:**
+
+- BR-006 (NIST RBAC Flat) prohibe la generalización entre actores que uml-07 sí permite
+  (`<\|--`). Los diagramas no usarán esa relación entre actores. Sí entre UCs (R-10).
+- Los actores son **funciones RBAC** (P-15 granular), no roles agregados — coherente con
+  el modelo de assignments del sistema.
+
 ### 2.4 Diferencias claves con el predecesor
 
 | Aspecto | Predecesor (uml-06 embebido) | Este WP (uml-07 standalone) |
 |---|---|---|
 | Ubicación | `casos-uso/<mod>/<uc>/diagramas-uml/diagrama-de-caso-de-uso.rst` | `use-case-view/<mod>/uc-XXX-NN-<slug>.rst` |
-| Reference UML | uml-06 | uml-07 |
+| Reference UML | uml-06 (introducción) | **uml-07 (diagramas)** |
 | Naturaleza | Embebido en spec textual del UC (12 partes) | Standalone, vista arquitectónica |
-| Actores | Funciones RBAC (P-15 granular) | Roles canónicos (Operator, Supervisor, etc.) |
+| Actores | Funciones RBAC (P-15 granular) | **Funciones RBAC (mismo P-15)** — coherencia |
 | Naming | `diagrama-de-caso-de-uso.rst` (mismo en cada UC) | `uc-XXX-NN-<slug>.rst` (auto-explicativo) |
-| Extends | Mínimos (los del flujo principal) | Enriquecidos con flujos-alternos + excepciones |
-| Notas BR/CNST | Las del flujo principal | Exhaustivas (incluyen criterios-aceptacion) |
+| Extends | Mínimos (los del flujo principal) | Enriquecidos con `flujos-alternos` + `excepciones` |
+| Notas BR/CNST | Las del flujo principal | Exhaustivas (incluyen `criterios-aceptacion`) |
+| Sistemas como actores | Mezcla (algunos canónicos, algunos inventados) | **Solo nombres exactos de domain-model** |
+| Domain-model gaps | Detectados pero diferidos | **Completados como parte del WP** |
 
 ## 3. Naturaleza del trabajo
 
@@ -192,18 +228,55 @@ flujos-alternos y excepciones).
 - **PR-based integration** per `.claude/rules/git-flow.md`.
 - **`.claude/rules/build-logs.md`** — logs en WP activo, ISO 8601.
 
-## 8. Out of scope (lo que este WP NO hace)
+## 8. Scope ampliado — Domain-model completion (NUEVO vs predecesor)
+
+A diferencia del predecesor que diferia los gaps de domain-model a WPs futuros, este
+WP **completa** los gaps detectados durante la generación de los 83 archivos uml-07.
+
+### 8.1 Lo que SE INCLUYE en scope
+
+- ✅ **Crear clases faltantes** en `source/arquitectura-tecnica/domain-model/`. Estimación
+  inicial heredada del predecesor (Q3): ~18 clases. Top esperado:
+
+  | Clase | UCs que la referencian | Bounded context |
+  |---|---|---|
+  | `AuthorizationGuard` | 53 UCs | RBAC |
+  | `AuthenticationGuard` | 16 | Auth |
+  | `ThrottlePolicy` | 16 | Cross-cutting |
+  | `TransactionManager` | 16 | Cross-cutting |
+  | `InternalMessage` | 14 | Mailbox |
+  | `UserRepo` | 11 | RBAC |
+  | `MetricsCache` | 11 | Cross-cutting |
+  | `AccessService` | 10 | RBAC |
+  | (otras ~10) | varios | varios |
+
+- ✅ **Agregar métodos faltantes** a clases existentes. Estimación heredada (Q4): ~30
+  métodos. Ejemplos:
+
+  | Clase | Métodos faltantes |
+  |---|---|
+  | `PermissionService` | `check_bulk_with_cache`, `warm_user_cache`, `invalidate_for_function` |
+  | `AssignmentRepo` | `find_by_function_id`, `count_active_globally` |
+  | `AuditService` | `emit_async`, `flush_pending` |
+  | `Session` | `rotate_token`, `mark_compromised` |
+  | `User` | `record_login_attempt`, `increment_failed_attempts` |
+
+- ✅ **Audit de naming canonico**: 7 variants identificados por predecesor
+  (`AssignmentRepository` → `AssignmentRepo`, etc.) — corregir refs en los 83 uml-07.
+
+- ✅ **Análisis Phase 3 dedicado**: `analyze/domain-model-completion-analysis.md` con
+  inventory machine-readable de los gaps detectados al leer los 83 specs.
+
+### 8.2 Lo que SIGUE OUT-of-scope
 
 - ❌ Modificar `source/requisitos/casos-uso/` (uml-06 embebido en specs textuales). Esos
   son insumo, no target.
-- ❌ Crear `domain-model/` faltantes (~18 clases identificadas en predecesor —
-  WP futuro `domain-model-completion-pass`).
-- ❌ Agregar métodos faltantes a clases existentes en domain-model (~30 métodos —
-  WP futuro `domain-model-method-augmentation-pass`).
 - ❌ Sweep de vocabulario `view_etl_*` → `view_pipeline_*` en metadata de UC specs
-  (WP futuro `casos-uso-cnst-033-vocabulary-cleanup-pass`).
+  (TD-N2 del predecesor) — WP futuro `casos-uso-cnst-033-vocabulary-cleanup-pass`.
 - ❌ Otros tipos de diagrama UML por UC (secuencia, actividad, estados) — solo el
   diagrama de caso de uso uml-07.
+- ❌ Refactor estructural de `domain-model/` (renombrar archivos, mover bounded contexts,
+  etc.) — solo creación de clases faltantes y métodos faltantes referenciados por UCs.
 
 ## 9. Próximos pasos (Phase 1 → Phase 5)
 
@@ -249,11 +322,20 @@ flujos-alternos y excepciones).
 
 ### Phase 11 + 12 → cierre.
 
-## 10. Preguntas para SP-01 (gate humano antes de Phase 3)
+## 10. Decisiones tomadas (resueltas) y pendientes
 
-1. ¿Aprobar formato `uc-XXX-NN-<slug>.rst` con slug descriptivo en kebab-case castellano?
-2. ¿Aprobar tabla función RBAC → rol canónico (sección 14 de `wp-state.md`)?
-3. ¿`status: Vigente v1.0.0` o `status: Borrador v0.9` para los 83 archivos iniciales?
-4. ¿Generación masiva o por módulos con validación intermedia?
-5. ¿Rama: (a) misma `feature/cnst-033-uml-conformance`, (b) esperar merge PR #14 y
-   bifurcar nueva, o (c) bifurcar nueva pre-merge desde la actual?
+### Resueltas por el ejecutor
+
+1. **Naming**: ✅ formato `uc-XXX-NN-<slug-descriptivo>.rst` (kebab-case castellano).
+2. **Actores**: ✅ funciones RBAC (P-15), NO roles. Coherente con uml-06 predecesor y
+   con sistema RBAC granular del proyecto.
+3. **Granularidad**: ✅ por módulos con SP-02 sample + SP-03 build incremental.
+4. **Rama**: ✅ `feature/cnst-033-uml-conformance` (la actual del PR #14, pre-merge).
+5. **Domain-model completion**: ✅ INCLUIDO en scope (no diferido a WP futuro).
+6. **uml-07 conventions**: ✅ basadas en `source/base-cognitiva/_uml/uml-07-*` lecciones
+   1.0.0 (representacion-de-un-modelo, inclusion, extension, generalizacion, etc.).
+
+### Pendientes para SP-01
+
+- ¿`status: Vigente v1.0.0` o `status: Borrador v0.9` para los 83 archivos iniciales?
+- ¿Aprobar el plan completo y avanzar a Phase 3 ANALYZE?
