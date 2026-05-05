@@ -16,12 +16,12 @@ líneas que conectan a los cubos.
    node "Servidor de Aplicación" as App {
      component [Backend API]
    }
-   node "Servidor de BD" as DB {
+   node "Servidor de BD" as BASE_DATOS {
      database "PostgreSQL"
    }
    node "Cliente" as Web {
      component [Navegador Web]
    }
    Web --> App : HTTPS
-   App --> DB  : SQL
+   App --> BASE_DATOS  : SQL
    @enduml

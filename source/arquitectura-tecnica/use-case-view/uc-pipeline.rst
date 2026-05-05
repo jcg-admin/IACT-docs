@@ -40,18 +40,18 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
    usecase "UC_PIP_02\nVer Errores ETL\n(etl_runs.estado=fallido)" as VER_ERRORES_ETL
    usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as VER_DISPONIBILIDAD_DATOS
    usecase "UC_PIP_04\nReintentar ETL\n(sp_etl_historico)" as REINTENTAR_ETL
-   usecase "Ejecutar ETL\nAutomatico\n(sp_etl_maestro)" as AUTO
+   usecase "Ejecutar ETL\nAutomatico\n(sp_etl_maestro)" as EJECUCION_ETL_AUTOMATICA
  }
 
  view_pipeline_status --> VER_ESTADO_ETL
  view_pipeline_errors --> VER_ERRORES_ETL
  view_data_availability --> VER_DISPONIBILIDAD_DATOS
  request_pipeline_retry --> REINTENTAR_ETL
- APScheduler --> AUTO
+ APScheduler --> EJECUCION_ETL_AUTOMATICA
 
  VER_ESTADO_ETL ..> VER_ERRORES_ETL : <<extend>>
  REINTENTAR_ETL ..> VER_ESTADO_ETL : <<include>>
- AUTO ..> VER_ESTADO_ETL : <<extend>>
+ EJECUCION_ETL_AUTOMATICA ..> VER_ESTADO_ETL : <<extend>>
 
  @enduml
 

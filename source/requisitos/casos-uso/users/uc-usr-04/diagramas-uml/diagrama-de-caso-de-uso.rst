@@ -9,7 +9,7 @@
  left to right direction
 
  actor "deactivate_users" as INVOKER
- actor "User eliminado" as USER <<receptor>>
+ actor "User eliminado" as USUARIO_AUTENTICADO <<receptor>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
  actor "Sistema" as Sistema <<sistema>>
 
@@ -30,7 +30,7 @@
  UC04 ..> CSE : <<include>>
  UC04 ..> NOT : <<extend (politica notify)>>
  UC04 ..> EMI : <<include>>
- NOT --> USER
+ NOT --> USUARIO_AUTENTICADO
  Sistema --> EMI
  EMI --> view_audit_log
 

@@ -15,11 +15,11 @@
      component "Django 4 (App IACT)"
    }
 
-   node "BD Analytics" <<procesador>> as DB {
+   node "BD Analytics" <<procesador>> as BASE_DATOS {
      database "MySQL\nDatos IVR + RBAC + Auditoría"
    }
 
-   node "IVR Conmutador" <<dispositivo>> as IVR {
+   node "IVR Conmutador" <<dispositivo>> as SISTEMA_IVR {
      component "BD IVR (read-only)"
    }
 
@@ -28,8 +28,8 @@
    }
 
    Browser -- Web   : HTTPS / SSL
-   Web     -- DB    : TCP 3306
-   Web     -- IVR   : TCP 3306\n(read-only,\nventana 6-12h\nCNST_006/008)
+   Web     -- BASE_DATOS    : TCP 3306
+   Web     -- SISTEMA_IVR   : TCP 3306\n(read-only,\nventana 6-12h\nCNST_006/008)
    Sched   -- Web   : disparo ETL\n(UC_PIP_01)
    @enduml
 

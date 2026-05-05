@@ -25,22 +25,22 @@ Diagrama de componentes — MOD_Operator
 
  component "AgentPanel\n(API views)" as Agentpanel
  component "TelephonyBridge\n(SIP/WebRTC)" as Telephonybridge
- component "DispositionService\n(enter_call_disposition)" as DISP
- component "PerformanceDashboard\n(view_own_performance_dashboard)" as DASH
+ component "DispositionService\n(enter_call_disposition)" as DISPOSICION_LLAMADA
+ component "PerformanceDashboard\n(view_own_performance_dashboard)" as DASHBOARD_IVR
  component "InternalMailbox\n(read_own_mailbox)" as Internalmailbox
 
- database "auth_session\n(PostgreSQL)" as SESS
+ database "auth_session\n(PostgreSQL)" as BASE_SESIONES
  database "audit_log\n(PostgreSQL)" as audit_log
- database "agent_state\n(cache)" as STATE
+ database "agent_state\n(cache)" as ESTADO_AGENTE_CACHE
 
  manage_own_agent_state --> Agentpanel : HTTP requests
  Agentpanel --> Telephonybridge : control llamadas
- Agentpanel --> DISP : registro disposicion
- Agentpanel --> DASH : estadisticas propias
+ Agentpanel --> DISPOSICION_LLAMADA : registro disposicion
+ Agentpanel --> DASHBOARD_IVR : estadisticas propias
  Agentpanel --> Internalmailbox : buzon mensajes
- Agentpanel --> SESS : validar sesion JWT
+ Agentpanel --> BASE_SESIONES : validar sesion JWT
  Agentpanel --> audit_log : emitir AuditEvent
- Agentpanel --> STATE : leer/escribir estado agente
+ Agentpanel --> ESTADO_AGENTE_CACHE : leer/escribir estado agente
 
  @enduml
 

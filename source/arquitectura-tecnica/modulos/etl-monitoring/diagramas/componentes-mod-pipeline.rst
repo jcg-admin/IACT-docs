@@ -26,21 +26,21 @@ Diagrama de componentes — MOD_Pipeline
 
  component "sp_etl_maestro\n(Almacen de Datos SP)" as ETL_SP
  component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as Supervisionendpoint
- component "ETLScheduler\n(tarea programada)" as SCHED
+ component "ETLScheduler\n(tarea programada)" as PROGRAMADOR_ETL
 
- database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR)" as HIST
- database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ANAL
- database "etl_runs\n(registro de ejecuciones)" as RUNS
- database "audit_log\n(PostgreSQL)" as AUDIT
+ database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR)" as HISTORICO_IVR
+ database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as BASE_ANALITICA
+ database "etl_runs\n(registro de ejecuciones)" as TABLA_ETL_RUNS
+ database "audit_log\n(PostgreSQL)" as TABLA_AUDIT_LOG
 
- Apscheduler --> SCHED : disparo automatico
+ Apscheduler --> PROGRAMADOR_ETL : disparo automatico
  request_pipeline_retry --> Supervisionendpoint : POST reintento (request_pipeline_retry)
- SCHED --> ETL_SP : CALL sp_etl_maestro
+ PROGRAMADOR_ETL --> ETL_SP : CALL sp_etl_maestro
  Supervisionendpoint --> ETL_SP : CALL sp_etl_maestro (reintento)
- ETL_SP --> HIST : consultar (solo lectura)
- ETL_SP --> ANAL : TRUNCATE + registrar
- ETL_SP --> RUNS : registrar/actualizar ejecucion
- Supervisionendpoint --> AUDIT : registrar auditoria
+ ETL_SP --> HISTORICO_IVR : consultar (solo lectura)
+ ETL_SP --> BASE_ANALITICA : TRUNCATE + registrar
+ ETL_SP --> TABLA_ETL_RUNS : registrar/actualizar ejecucion
+ Supervisionendpoint --> TABLA_AUDIT_LOG : registrar auditoria
 
  @enduml
 

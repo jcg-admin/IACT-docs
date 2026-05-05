@@ -27,13 +27,13 @@ módulo del catálogo modular.
      }
 
      package "UC_ACC (9 UCs)" {
-       usecase "Asignar funciones"   as AC1
-       usecase "Gestionar SoD"       as AC5
+       usecase "Asignar funciones"   as ASIGNAR_FUNCIONES_A_USUARIO
+       usecase "Gestionar SoD"       as GESTIONAR_REGLAS_SOD
      }
 
      package "UC_PERM (10 UCs)" {
-       usecase "Verificar permiso"   as PE7
-       usecase "Generar menú\ndinámico" as PE8
+       usecase "Verificar permiso"   as VERIFICAR_PERMISO
+       usecase "Generar menú\ndinámico" as GENERAR_MENU_DINAMICO
      }
 
      package "UC_RPT (14 UCs)" {
@@ -42,16 +42,16 @@ módulo del catálogo modular.
      }
 
      package "UC_ALR (5 UCs)" {
-       usecase "Reconocer alerta"    as AL3
+       usecase "Reconocer alerta"    as RECONOCER_ALERTA
      }
 
      package "UC_PIP (4 UCs)" {
-       usecase "Supervisar ETL"      as P1
-       usecase "Solicitar reintento" as P4
+       usecase "Supervisar ETL"      as PASO_AUTENTICACION
+       usecase "Solicitar reintento" as GESTION_PIPELINE_ETL
      }
 
      package "UC_AUD (4 UCs)" {
-       usecase "Consultar auditoría" as AU1
+       usecase "Consultar auditoría" as CONSULTAR_AUDITORIA
      }
 
      package "UC_LOG (7 UCs)" {
@@ -62,12 +62,12 @@ módulo del catálogo modular.
    Operador   --> INICIAR_SESION
    Operador   --> VER_DASHBOARD_IVR
    Supervisor --> EJECUTAR_PROCEDIMIENTO_RPT
-   Supervisor --> AL3
-   AdminAcceso         --> AC1
-   AdminAcceso         --> AC5
-   AdminPipeline         --> P1
-   AdminPipeline         --> P4
-   Auditor    --> AU1
+   Supervisor --> RECONOCER_ALERTA
+   AdminAcceso         --> ASIGNAR_FUNCIONES_A_USUARIO
+   AdminAcceso         --> GESTIONAR_REGLAS_SOD
+   AdminPipeline         --> PASO_AUTENTICACION
+   AdminPipeline         --> GESTION_PIPELINE_ETL
+   Auditor    --> CONSULTAR_AUDITORIA
    @enduml
 
 **Notación de ruta:** un UC dentro de un paquete se referencia

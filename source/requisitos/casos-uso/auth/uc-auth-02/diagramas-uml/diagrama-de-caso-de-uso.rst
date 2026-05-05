@@ -8,7 +8,7 @@
 
  left to right direction
 
- actor "User" as USER
+ actor "User" as USUARIO_AUTENTICADO
  actor "view_audit_log" as view_audit_log <<beneficiario>>
  actor "Sistema" as Sistema <<sistema>>
 
@@ -20,7 +20,7 @@
    usecase "Emitir AuditEvent\nLOGOUT" as AuditEmitter
  }
 
- USER --> UC02
+ USUARIO_AUTENTICADO --> UC02
  UC02 ..> VTK : <<include>>
  UC02 ..> CSE : <<include>>
  UC02 ..> BLK : <<include>>

@@ -66,11 +66,11 @@ conexión:
 
    node "Cliente"    as C
    node "Servidor"   as S
-   node "BD Server"  as DB
+   node "BD Server"  as BASE_DATOS
    node "Impresora"  as P
 
    C  -- S  : <<HTTPS>>
-   S  -- DB : <<TCP/IP — JDBC>>
+   S  -- BASE_DATOS : <<TCP/IP — JDBC>>
    C  -- P  : <<USB>>
    S  .. P  : <<inalambrica IR>>
    @enduml

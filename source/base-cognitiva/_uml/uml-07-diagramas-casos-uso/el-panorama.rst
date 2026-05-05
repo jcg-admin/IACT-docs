@@ -33,7 +33,7 @@ El panorama
      package "Extension" as EXT {
        rectangle Estereotipo
      }
-     package "Comportamiento" as COMP {
+     package "Comportamiento" as VALIDAR_COMPLEJIDAD {
        rectangle "Casos de uso\nEstados\nSecuencias\nActividades" as CMP
      }
    }

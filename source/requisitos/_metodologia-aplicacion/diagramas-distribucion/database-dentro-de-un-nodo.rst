@@ -6,7 +6,7 @@
    @startuml
 
    node "vm-iact" {
-     database "bd_analytics" as BDA
+     database "bd_analytics" as BD_ANALYTICS
      database "audit_log" as Audit
      database "Redis" as Redis
    }

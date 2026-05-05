@@ -28,7 +28,7 @@ funcionales** de la LAN.
    actor "Admin\nde red" as AR
 
    rectangle "LAN — Firma de Consultoría" {
-     usecase "Establecer niveles\nde seguridad"      as U1
+     usecase "Establecer niveles\nde seguridad"      as CRUD_USUARIOS
      usecase "Crear una propuesta"                   as U2
      usecase "Almacenar una propuesta"               as U3
      usecase "Utilizar correo electrónico"           as U4
@@ -47,7 +47,7 @@ funcionales** de la LAN.
    Consultor   --> U10
    Oficinista  --> U6
    Oficinista  --> U4
-   AR          --> U1
+   AR          --> CRUD_USUARIOS
    AR          --> U7
    AR          --> U8
    AR          --> U11

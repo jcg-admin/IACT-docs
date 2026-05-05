@@ -22,12 +22,12 @@
    EstadoCasoA --> Final : completar
    EstadoCasoB --> Final : completar
 
-   state "AbortadoFlowFinal" as ABT #FFAAAA
-   EstadoInicial --> ABT : error
-   EstadoCasoA --> ABT : error
-   EstadoCasoB --> ABT : error
-   ABT : entry / registrar abort en audit_log
-   ABT --> [*]
+   state "AbortadoFlowFinal" as ETL_ABORTADO #FFAAAA
+   EstadoInicial --> ETL_ABORTADO : error
+   EstadoCasoA --> ETL_ABORTADO : error
+   EstadoCasoB --> ETL_ABORTADO : error
+   ETL_ABORTADO : entry / registrar abort en audit_log
+   ETL_ABORTADO --> [*]
 
    Final --> [*]
    @enduml

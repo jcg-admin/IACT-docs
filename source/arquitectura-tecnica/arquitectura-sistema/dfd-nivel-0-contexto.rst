@@ -41,14 +41,14 @@ negra con sus entidades externas. Las entidades son los
  rectangle "view_reports\n/ view_dashboard" as AnalistaReportes
  rectangle "APScheduler\n/ Cron" as DisparadorScheduler
 
- rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as IACT
+ rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as SISTEMA_IACT
 
- SistemaIVR --> IACT : datos IVR raw
- SupervisorSistema --> IACT : comandos ETL / alertas
- AnalistaReportes --> IACT : solicitudes de reporte
- DisparadorScheduler --> IACT : disparo ETL automatico
- IACT --> SupervisorSistema : estado pipeline / alertas
- IACT --> AnalistaReportes : reportes IVR / dashboard
+ SistemaIVR --> SISTEMA_IACT : datos IVR raw
+ SupervisorSistema --> SISTEMA_IACT : comandos ETL / alertas
+ AnalistaReportes --> SISTEMA_IACT : solicitudes de reporte
+ DisparadorScheduler --> SISTEMA_IACT : disparo ETL automatico
+ SISTEMA_IACT --> SupervisorSistema : estado pipeline / alertas
+ SISTEMA_IACT --> AnalistaReportes : reportes IVR / dashboard
 
  @enduml
 

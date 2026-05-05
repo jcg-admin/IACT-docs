@@ -9,8 +9,8 @@
  actor Invoker as Invoker
  participant "Frontend" as Frontend
  participant "UserDetailView" as Userdetailview
- participant "UserRepository" as UREP
- participant "AssignmentRepository" as AREP
+ participant "UserRepository" as REPOSITORIO_USUARIO
+ participant "AssignmentRepository" as REPOSITORIO_AUDITORIA
  participant "AuditLog" as Auditlog
  database "Repo" as Repo
 
@@ -23,13 +23,13 @@
    Userdetailview --> Frontend: 403 FORBIDDEN
    Userdetailview -> Auditlog: UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   Userdetailview -> UREP: get(X)
+   Userdetailview -> REPOSITORIO_USUARIO: get(X)
    alt User no existe
      Userdetailview --> Frontend: 404
    else
-     UREP --> Userdetailview: user
-     Userdetailview -> AREP: list_active(user)
-     AREP --> Userdetailview: assignments
+     REPOSITORIO_USUARIO --> Userdetailview: user
+     Userdetailview -> REPOSITORIO_AUDITORIA: list_active(user)
+     REPOSITORIO_AUDITORIA --> Userdetailview: assignments
      Userdetailview -> Auditlog: emit USER_DETAIL_VIEWED\n  {target_user_id: X,\n   target_state: user.state,\n   self_view: invoker == user}
      Userdetailview --> Frontend: 200 OK con detalle completo
      Frontend --> Invoker: Vista detalle

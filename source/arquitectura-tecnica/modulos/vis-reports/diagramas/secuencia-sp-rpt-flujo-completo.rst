@@ -25,7 +25,7 @@ Secuencia sp_rpt_* — Flujo Completo
  participant "DashboardEndpoint\n(/api/reportes/)" as Dashboardendpoint
  participant "SegmentResolver" as Segmentresolver
  participant "ServicioReportes\n(cursor.callproc)" as Servicioreportes
- database "base_ivr_detalle\nbase_ivr_clientes" as IVRDB
+ database "base_ivr_detalle\nbase_ivr_clientes" as BD_IVR
 
  view_reports -> Dashboardendpoint : GET /api/reportes/?trimestre=Q1
  Dashboardendpoint -> Dashboardendpoint : JWT + RBAC (view_reports)
@@ -37,8 +37,8 @@ Secuencia sp_rpt_* — Flujo Completo
    Dashboardendpoint --> view_reports : 400 USER_WITHOUT_SEGMENT
  else segmentos resueltos
    Dashboardendpoint -> Servicioreportes : callproc(sp_rpt_centros_xsegmento, [Q1])
-   Servicioreportes -> IVRDB : CALL sp_rpt_centros_xsegmento(Q1)
-   IVRDB --> Servicioreportes : filas por segmento
+   Servicioreportes -> BD_IVR : CALL sp_rpt_centros_xsegmento(Q1)
+   BD_IVR --> Servicioreportes : filas por segmento
    Servicioreportes --> Dashboardendpoint : list[dict] filtrada
    Dashboardendpoint --> view_reports : 200 + datos del reporte
  end

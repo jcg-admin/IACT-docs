@@ -20,16 +20,16 @@ equipos se lo pasan entre sí.
    node "Hub Activo"  <<dispositivo>> as HA
    node "Hub Pasivo"  <<dispositivo>> as HP
 
-   node "PC 1 (id=1)" <<procesador>> as P1
-   node "PC 2 (id=2)" <<procesador>> as P2
-   node "PC 3 (id=3)" <<procesador>> as P3
-   node "PC 4 (id=4)" <<procesador>> as P4
+   node "PC 1 (id=1)" <<procesador>> as PASO_AUTENTICACION
+   node "PC 2 (id=2)" <<procesador>> as DASHBOARD_IVR
+   node "PC 3 (id=3)" <<procesador>> as CIERRE_SESION
+   node "PC 4 (id=4)" <<procesador>> as GESTION_PIPELINE_ETL
 
    HA -- HP : <<cable>>
-   HA -- P1
-   HA -- P2
-   HP -- P3
-   HP -- P4
+   HA -- PASO_AUTENTICACION
+   HA -- DASHBOARD_IVR
+   HP -- CIERRE_SESION
+   HP -- GESTION_PIPELINE_ETL
 
    note bottom of HA
      El token se pasa entre

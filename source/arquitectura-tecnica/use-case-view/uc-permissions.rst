@@ -47,7 +47,7 @@ en ``effective_set``.
    usecase "UC_PERM_07\nVerificar Permiso\nde Usuario" as VERIFICAR_PERMISO_USUARIO
    usecase "UC_PERM_08\nGenerar Menu\nDinamico\n[view_own_navigation]" as GENERAR_MENU_DINAMICO
    usecase "UC_PERM_09\nAuditar Acceso\n(write side)" as AUDITAR_ACCESO
-   usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as P10
+   usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as AUDITORIA_ACCESO
  }
 
  assign_function_groups --> ASIGNAR_GRUPO
@@ -58,7 +58,7 @@ en ``effective_set``.
  assign_functions_to_group --> ASIGNAR_FUNCIONES_GRUPO
  view_assignments --> VERIFICAR_PERMISO_USUARIO
  user_autenticado --> GENERAR_MENU_DINAMICO
- view_audit_log --> P10
+ view_audit_log --> AUDITORIA_ACCESO
 
  ASIGNAR_GRUPO ..> AUDITAR_ACCESO : <<include>>
  REVOCAR_GRUPO ..> AUDITAR_ACCESO : <<include>>

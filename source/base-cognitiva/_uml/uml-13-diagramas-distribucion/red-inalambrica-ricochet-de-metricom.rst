@@ -27,9 +27,9 @@ otro). La información se lleva del NIF a Internet.
 
    node "Laptop" <<procesador>> as L
    node "Modem inalambrico" <<dispositivo>> as M
-   node "Radio microceldilla 1" <<dispositivo>> as R1
-   node "Radio microceldilla 2" <<dispositivo>> as R2
-   node "Punto de acceso cableado" <<dispositivo>> as PA
+   node "Radio microceldilla 1" <<dispositivo>> as VER_DASHBOARD_IVR
+   node "Radio microceldilla 2" <<dispositivo>> as RESOLVER_SEGMENTO
+   node "Punto de acceso cableado" <<dispositivo>> as MODULO_ACCESO_RBAC
 
    node "NIF" {
      component "Servidor de nombres" as SN
@@ -40,11 +40,11 @@ otro). La información se lleva del NIF a Internet.
    cloud "Internet" as NET
 
    L  -- M  : <<serial>>
-   M  -- R1 : <<RF>>
-   M  -- R2 : <<RF>>
-   R1 -- PA : <<RF>>
-   R2 -- PA : <<RF>>
-   PA -- SN : <<cable>>
+   M  -- VER_DASHBOARD_IVR : <<RF>>
+   M  -- RESOLVER_SEGMENTO : <<RF>>
+   VER_DASHBOARD_IVR -- MODULO_ACCESO_RBAC : <<RF>>
+   RESOLVER_SEGMENTO -- MODULO_ACCESO_RBAC : <<RF>>
+   MODULO_ACCESO_RBAC -- SN : <<cable>>
    SN -- RT
    RT -- GW
    GW -- NET

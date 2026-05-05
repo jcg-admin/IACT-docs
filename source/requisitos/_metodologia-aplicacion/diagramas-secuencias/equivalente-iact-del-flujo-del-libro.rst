@@ -15,7 +15,7 @@ de credenciales:
    actor Supervisor
    participant "Browser" as Browser
    participant "auth_app" as Auth
-   database "ldap-corporativo" as LDAP
+   database "ldap-corporativo" as LDAP_CORPORATIVO
    database "Redis" as Redis
    database "audit_log" as Audit
 
@@ -28,8 +28,8 @@ de credenciales:
      Auth --> Browser : 401 Unauthorized
      Browser --> Supervisor : muestra error
    else [credenciales validas]
-     Auth -> LDAP : authenticate(user, pass)
-     LDAP --> Auth : OK + atributos
+     Auth -> LDAP_CORPORATIVO : authenticate(user, pass)
+     LDAP_CORPORATIVO --> Auth : OK + atributos
      Auth -> Redis : crear sesion (CNST_002)
      Auth -> Audit : registrar acceso exitoso
      Auth --> Browser : 302 Redirect (panel)

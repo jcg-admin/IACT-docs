@@ -65,25 +65,25 @@ Diagrama de contexto — System boundary
  actor "AGR_OPERADOR\n(Supervisor)" as Operador
  actor "AGR_AUDITOR\n(Auditor)" as Auditor
 
- database "BD Operativa IVR\n(MariaDB — solo lectura)" as IVR
+ database "BD Operativa IVR\n(MariaDB — solo lectura)" as SISTEMA_IVR
  rectangle "APScheduler / Cron" as Scheduler
 
- rectangle "  Sistema IACT  " as IACT #EEF4FF {
+ rectangle "  Sistema IACT  " as SISTEMA_IACT #EEF4FF {
    rectangle "Aplicacion\nDjango REST Framework\n(12 modulos)" as App
-   rectangle "Servicio\nETL" as ETL
+   rectangle "Servicio\nETL" as SERVICIO_ETL
    database "BD Propia\n(PostgreSQL)" as BDPropia
  }
 
- Admin -right-> IACT    : gestionar usuarios y RBAC\n(HTTPS + JWT)
- Operador -right-> IACT : supervisar pipeline\ny alertas (HTTPS + JWT)
- Auditor -right-> IACT  : consultar audit log\ny reportes (HTTPS + JWT)
+ Admin -right-> SISTEMA_IACT    : gestionar usuarios y RBAC\n(HTTPS + JWT)
+ Operador -right-> SISTEMA_IACT : supervisar pipeline\ny alertas (HTTPS + JWT)
+ Auditor -right-> SISTEMA_IACT  : consultar audit log\ny reportes (HTTPS + JWT)
 
- IVR -down-> ETL        : datos IVR raw\n(SQL SELECT — P-01, CNST-007)
- Scheduler -down-> ETL  : disparo ETL\n(CNST-008: ventana 6-12h)
- ETL -right-> BDPropia  : datos procesados\n(INSERT propio)
+ SISTEMA_IVR -down-> SERVICIO_ETL        : datos SISTEMA_IVR raw\n(SQL SELECT — P-01, CNST-007)
+ Scheduler -down-> SERVICIO_ETL  : disparo SERVICIO_ETL\n(CNST-008: ventana 6-12h)
+ SERVICIO_ETL -right-> BDPropia  : datos procesados\n(INSERT propio)
 
- note bottom of IVR
-   IACT nunca escribe aqui.
+ note bottom of SISTEMA_IVR
+   SISTEMA_IACT nunca escribe aqui.
    P-01 — restriccion absoluta.
  end note
 

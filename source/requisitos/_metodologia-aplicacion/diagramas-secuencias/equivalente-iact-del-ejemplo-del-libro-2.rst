@@ -13,15 +13,15 @@ Aplicado a UC_AUTH_01 con ``autonumber``:
    actor Supervisor
    participant "Browser" as Browser
    participant "auth_app" as Auth
-   database "ldap-corporativo" as LDAP
+   database "ldap-corporativo" as LDAP_CORPORATIVO
    database "Redis" as Redis
    database "audit_log" as Audit
 
    Supervisor -> Browser : envia credenciales
    Browser -> Auth : POST /login
    Auth -> Auth : validar formato
-   Auth -> LDAP : authenticate(user, pass)
-   LDAP --> Auth : OK + atributos
+   Auth -> LDAP_CORPORATIVO : authenticate(user, pass)
+   LDAP_CORPORATIVO --> Auth : OK + atributos
    Auth -> Redis : crear sesion (CNST_002)
    Auth ->> Audit : registrar acceso (CNST_025)
    Auth --> Browser : 302 Redirect (panel)

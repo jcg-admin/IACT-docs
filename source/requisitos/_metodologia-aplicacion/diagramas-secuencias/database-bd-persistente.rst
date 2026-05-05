@@ -5,7 +5,7 @@
 
    @startuml
    participant "rpt_app" as Rpt
-   database "bd_analytics" as BDA
-   Rpt -> BDA : SELECT agregados
-   BDA --> Rpt : filas
+   database "bd_analytics" as BD_ANALYTICS
+   Rpt -> BD_ANALYTICS : SELECT agregados
+   BD_ANALYTICS --> Rpt : filas
    @enduml

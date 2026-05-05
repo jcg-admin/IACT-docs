@@ -4,13 +4,13 @@
 .. uml::
 
    @startuml
-   participant "etl_runner" as ETL
-   database "bd_operativa" as BDO
+   participant "etl_runner" as SERVICIO_ETL
+   database "bd_operativa" as BD_OPERATIVA
 
    loop hasta fin de ventana
-     ETL -> BDO : leer lote
+     SERVICIO_ETL -> BD_OPERATIVA : leer lote
      break [ventana agotada]
-       ETL -> ETL : marcar carga incompleta
+       SERVICIO_ETL -> SERVICIO_ETL : marcar carga incompleta
      end
    end
    @enduml

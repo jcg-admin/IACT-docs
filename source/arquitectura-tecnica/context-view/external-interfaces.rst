@@ -98,20 +98,20 @@ Flujo de datos entre interfaces
  rectangle "APScheduler\n/ Cron" as Scheduler
  rectangle "Usuarios IACT\n(browser)" as Usuarios
 
- rectangle "Sistema IACT" as IACT {
-   rectangle "ETL Service" as ETL
+ rectangle "Sistema IACT" as SISTEMA_IACT {
+   rectangle "ETL Service" as SERVICIO_ETL
    rectangle "IACT App\n(Django REST Framework)" as App
    database "Almacen de Datos\n(PostgreSQL IACT)" as BDPropia
  }
 
- BDOperativa -right-> ETL : <<IVR-01>>\nSELECT solo lectura\n(CNST-007, P-01)
- Scheduler -down-> ETL  : <<SCH-01>>\ndisparo ETL\n(CNST-008: 6-12h)
- ETL -right-> BDPropia  : INSERT / UPDATE\n(datos propios IACT)
- BDPropia -right-> App  : consultas IACT
+ BDOperativa -right-> SERVICIO_ETL : <<IVR-01>>\nSELECT solo lectura\n(CNST-007, P-01)
+ Scheduler -down-> SERVICIO_ETL  : <<SCH-01>>\ndisparo SERVICIO_ETL\n(CNST-008: 6-12h)
+ SERVICIO_ETL -right-> BDPropia  : INSERT / UPDATE\n(datos propios SISTEMA_IACT)
+ BDPropia -right-> App  : consultas SISTEMA_IACT
  Usuarios <-right-> App : <<USR-01>>\nHTTPS + JWT\n(CNST-002, CNST-003)
 
  note bottom of BDOperativa
-   P-01: IACT no escribe aqui.
+   P-01: SISTEMA_IACT no escribe aqui.
    Credenciales: GRANT SELECT.
  end note
 

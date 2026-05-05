@@ -40,18 +40,18 @@ se generan automaticamente por el motor de alertas y por el ETL.
    usecase "UC_ALR_03\nReconocer Alerta" as AL03
    usecase "UC_ALR_04\nVer Historial\nde Alertas" as AL04
    usecase "UC_ALR_05\nNotificacion\nAutomatica ETL" as AL05
-   usecase "Motor de Alertas\n(automatico)" as MOTOR
+   usecase "Motor de Alertas\n(automatico)" as MOTOR_ALERTAS
  }
 
  configure_team_alerts --> AL01
  view_alerts --> AL02
  acknowledge_alert --> AL03
  view_alert_history --> AL04
- MOTOR --> AL05
+ MOTOR_ALERTAS --> AL05
 
  AL02 ..> AL03 : <<extend>>
  AL05 ..> AL02 : <<extend>>
- AL01 ..> MOTOR : <<include>>
+ AL01 ..> MOTOR_ALERTAS : <<include>>
 
  @enduml
 

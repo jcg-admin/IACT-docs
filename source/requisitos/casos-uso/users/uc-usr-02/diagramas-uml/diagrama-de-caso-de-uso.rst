@@ -16,15 +16,15 @@
    usecase "UC_USR_02\nConsultar Usuarios" as UC02
    usecase "Listar (paginado)" as VistaListado
    usecase "Ver detalle" as VistaDetalle
-   usecase "Audit selectivo\n(P-16)" as AUDS
+   usecase "Audit selectivo\n(P-16)" as AUDITORIA_SELECTIVA
  }
 
  INVOKER --> UC02
  UC02 ..> LST : <<extend>>
  UC02 ..> DET : <<extend>>
- LST ..> AUDS : <<extend (filter user_id)>>
- DET ..> AUDS : <<include>>
- AUDS --> view_audit_log
+ LST ..> AUDITORIA_SELECTIVA : <<extend (filter user_id)>>
+ DET ..> AUDITORIA_SELECTIVA : <<include>>
+ AUDITORIA_SELECTIVA --> view_audit_log
 
  note bottom of LST
    list_users (RBAC)

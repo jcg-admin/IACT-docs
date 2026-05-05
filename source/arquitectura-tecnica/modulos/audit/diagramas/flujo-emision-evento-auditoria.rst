@@ -23,7 +23,7 @@ Flujo de Emision de Evento de Auditoria
 
  participant "Servicio de Origen\n(UC_ACC, UC_USR, etc.)" as ServicioDeOrigen
  participant "Middleware\nAudit Emitter" as Middleware
- database "audit_log\n(PostgreSQL — append-only)" as AREP
+ database "audit_log\n(PostgreSQL — append-only)" as REPOSITORIO_AUDITORIA
 
  ServicioDeOrigen -> ServicioDeOrigen : ejecuta operacion de escritura
  ServicioDeOrigen -> Middleware : notificar evento\n{tipo, usuario, entidad, timestamp}
@@ -32,7 +32,7 @@ Flujo de Emision de Evento de Auditoria
    ya fue confirmada en BD.
    El audit no la bloquea.
  end note
- Middleware -> AREP : registrar AuditEvent\n(transaccion separada)
+ Middleware -> REPOSITORIO_AUDITORIA : registrar AuditEvent\n(transaccion separada)
 
  alt fallo en insercion de audit
    Middleware -> Middleware : registrar alarma interna\n(no abortar operacion original)

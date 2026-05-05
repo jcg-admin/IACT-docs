@@ -10,8 +10,8 @@
      port p_ldap
    }
    node "puesto-supervisor" as PuestoSupervisor
-   node "ldap-corporativo" as LDAP
+   node "ldap-corporativo" as LDAP_CORPORATIVO
 
    PuestoSupervisor -- p_https
-   p_ldap -- LDAP
+   p_ldap -- LDAP_CORPORATIVO
    @enduml

@@ -17,22 +17,22 @@
    usecase "Cargar Assignments\ndirectos" as AsignacionesDirectas
    usecase "Expandir AGRs\nen funciones" as GrupoAcceso
    usecase "Cargar permisos\nexcepcionales" as ExcepcionSistema
-   usecase "Consolidar\n+ metadata origen" as CONS
+   usecase "Consolidar\n+ metadata origen" as CONSOLIDAR_METADATA
    usecase "Detectar SoD\ninformativo" as ValidadorSoD
-   usecase "Audit selectivo\nP-16" as AUDS
+   usecase "Audit selectivo\nP-16" as AUDITORIA_SELECTIVA
  }
 
  INVOKER --> UC03
  UC03 ..> DIR : <<include>>
  UC03 ..> AGR : <<include>>
  UC03 ..> EXC : <<include>>
- UC03 ..> CONS : <<include>>
+ UC03 ..> CONSOLIDAR_METADATA : <<include>>
  UC03 ..> SOD : <<include>>
- UC03 ..> AUDS : <<include>>
- Sistema --> AUDS
- AUDS --> view_audit_log
+ UC03 ..> AUDITORIA_SELECTIVA : <<include>>
+ Sistema --> AUDITORIA_SELECTIVA
+ AUDITORIA_SELECTIVA --> view_audit_log
 
- note bottom of CONS
+ note bottom of CONSOLIDAR_METADATA
    3 fuentes: direct + AGR + excepcional
    deduplicacion + metadata por funcion
  end note

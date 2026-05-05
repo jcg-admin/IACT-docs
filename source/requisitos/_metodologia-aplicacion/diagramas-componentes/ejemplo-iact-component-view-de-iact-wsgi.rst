@@ -24,29 +24,29 @@ de ``iact.wsgi`` en sus apps Django:
    }
 
    database "Redis\n[Container]" as Redis <<c4_container>>
-   database "bd_analytics\n[Container]" as BDA <<c4_container>>
+   database "bd_analytics\n[Container]" as BD_ANALYTICS <<c4_container>>
    database "audit_log\n[Container]" as Audit <<c4_container>>
-   rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
+   rectangle "ldap-corporativo\n[External]" as LDAP_CORPORATIVO <<c4_externo>>
 
    Supervisor --> Browser
    Browser --> Auth : POST /login\n[HTTPS]
    Browser --> Rpt : consultas de reporte\n[HTTPS]
    Browser --> Alr : reconocer alerta\n[HTTPS]
 
-   Auth --> LDAP : autentica\n[LDAPS]
+   Auth --> LDAP_CORPORATIVO : autentica\n[LDAPS]
    Auth --> Redis : sesion (CNST_002)
    Auth ..> Aud : registra acceso
 
    Rpt --> Perm : verifica permiso
-   Rpt --> BDA : lee agregados
+   Rpt --> BD_ANALYTICS : lee agregados
    Rpt ..> Log : notifica buzon
    Rpt ..> Aud : registra evento
 
    Alr --> Perm : verifica permiso
-   Alr --> BDA : evalua umbrales
+   Alr --> BD_ANALYTICS : evalua umbrales
    Alr ..> Aud : registra reconocimiento
 
-   Pip --> BDA : escribe agregados
+   Pip --> BD_ANALYTICS : escribe agregados
    Pip ..> Aud : registra ejecucion ETL
 
    Perm ..> Aud : registra denegado / SoD

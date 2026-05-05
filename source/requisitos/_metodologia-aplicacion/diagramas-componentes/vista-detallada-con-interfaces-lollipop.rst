@@ -8,22 +8,22 @@ Ejemplo: flujo de exportación de reporte UC_RPT_04.
    @startuml
    skinparam componentStyle rectangle
 
-   [rpt_app] as RPT
-   [perm_app] as PERM
-   [aud_app] as AUD
-   [log_app] as LOG
-   database "bd_analytics" as BDA
+   [rpt_app] as SERVICIO_REPORTES
+   [perm_app] as SERVICIO_PERMISOS
+   [aud_app] as SERVICIO_AUDITORIA
+   [log_app] as SERVICIO_LOGS
+   database "bd_analytics" as BD_ANALYTICS
 
-   PERM -( ISecurity
-   AUD  -( IAuditLog
-   LOG  -( INotificacion
-   RPT  -( IReporte
-   BDA  -( IDatosAnalytics
+   SERVICIO_PERMISOS -( ISecurity
+   SERVICIO_AUDITORIA  -( IAuditLog
+   SERVICIO_LOGS  -( INotificacion
+   SERVICIO_REPORTES  -( IReporte
+   BD_ANALYTICS  -( IDatosAnalytics
 
-   RPT ..> ISecurity : usa
-   RPT ..> IDatosAnalytics : usa
-   RPT ..> IAuditLog : usa
-   RPT ..> INotificacion : usa (buzon CNST_001)
+   SERVICIO_REPORTES ..> ISecurity : usa
+   SERVICIO_REPORTES ..> IDatosAnalytics : usa
+   SERVICIO_REPORTES ..> IAuditLog : usa
+   SERVICIO_REPORTES ..> INotificacion : usa (buzon CNST_001)
    @enduml
 
 Lectura: ``rpt_app`` *realiza* ``IReporte`` e *importa*

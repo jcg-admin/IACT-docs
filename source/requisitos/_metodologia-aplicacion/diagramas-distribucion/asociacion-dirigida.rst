@@ -6,7 +6,7 @@
    @startuml
 
    node "vm-iact" as VmIact
-   node "ldap-corporativo" as LDAP
+   node "ldap-corporativo" as LDAP_CORPORATIVO
 
-   VmIact --> LDAP : LDAPS\n(autenticacion)
+   VmIact --> LDAP_CORPORATIVO : LDAPS\n(autenticacion)
    @enduml

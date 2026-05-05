@@ -17,15 +17,15 @@
        artifact "iact.wsgi"
      }
      database "Redis" as Redis
-     database "bd_analytics" as BDA
+     database "bd_analytics" as BD_ANALYTICS
      database "audit_log" as Audit
    }
 
-   node "ldap-corporativo" as LDAP
-   database "bd-operativa\n(read-only)" as BDO
+   node "ldap-corporativo" as LDAP_CORPORATIVO
+   database "bd-operativa\n(read-only)" as BD_OPERATIVA
 
    Supervisor -- PuestoSupervisor
    PuestoSupervisor --> VmIact : HTTPS (intranet)
-   VmIact --> LDAP : LDAPS
-   VmIact ..> BDO : SQL read-only\n(CNST_007)
+   VmIact --> LDAP_CORPORATIVO : LDAPS
+   VmIact ..> BD_OPERATIVA : SQL read-only\n(CNST_007)
    @enduml

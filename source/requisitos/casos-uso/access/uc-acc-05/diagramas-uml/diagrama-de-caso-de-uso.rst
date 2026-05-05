@@ -15,29 +15,29 @@
  rectangle "MOD_Access" {
    usecase "UC_ACC_05\nGestionar SoD" as UC05
    usecase "Listar reglas" as VistaListado
-   usecase "Crear regla" as UCCRE
-   usecase "Modificar regla" as UCMOD
-   usecase "Retirar regla" as UCRET
+   usecase "Crear regla" as CREAR_AGRUPADOR
+   usecase "Modificar regla" as MODIFICAR_AGRUPADOR
+   usecase "Retirar regla" as RETIRAR_AGRUPADOR
    usecase "AuditEvent" as AuditEmitter
-   usecase "Invalidar cache\nde reglas" as CACHE
+   usecase "Invalidar cache\nde reglas" as CACHE_PERMISOS
  }
 
  VIEWER --> UC05
  MANAGER --> UC05
  UC05 ..> LST : <<extend>>
- UC05 ..> UCCRE : <<extend>>
- UC05 ..> UCMOD : <<extend>>
- UC05 ..> UCRET : <<extend>>
- UCCRE ..> EMI : <<include>>
- UCMOD ..> EMI : <<include>>
- UCRET ..> EMI : <<include>>
- UCCRE ..> CACHE : <<include>>
- UCMOD ..> CACHE : <<include>>
- UCRET ..> CACHE : <<include>>
+ UC05 ..> CREAR_AGRUPADOR : <<extend>>
+ UC05 ..> MODIFICAR_AGRUPADOR : <<extend>>
+ UC05 ..> RETIRAR_AGRUPADOR : <<extend>>
+ CREAR_AGRUPADOR ..> EMI : <<include>>
+ MODIFICAR_AGRUPADOR ..> EMI : <<include>>
+ RETIRAR_AGRUPADOR ..> EMI : <<include>>
+ CREAR_AGRUPADOR ..> CACHE_PERMISOS : <<include>>
+ MODIFICAR_AGRUPADOR ..> CACHE_PERMISOS : <<include>>
+ RETIRAR_AGRUPADOR ..> CACHE_PERMISOS : <<include>>
  EMI --> view_audit_log
- SistemaConsumidores ..> CACHE : <<consume>>
+ SistemaConsumidores ..> CACHE_PERMISOS : <<consume>>
 
- note bottom of CACHE
+ note bottom of CACHE_PERMISOS
    UC_ACC_01/04/PERM_03 cargan reglas
    ACTIVE en cache para SoD write-time
  end note

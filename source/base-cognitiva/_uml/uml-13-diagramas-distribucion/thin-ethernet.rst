@@ -10,18 +10,18 @@ señal antes de transmitirla.
 
    @startuml
 
-   node "PC 1" <<procesador>> as P1
-   node "PC 2" <<procesador>> as P2
-   node "PC 3" <<procesador>> as P3
-   node "PC 4" <<procesador>> as P4
+   node "PC 1" <<procesador>> as PASO_AUTENTICACION
+   node "PC 2" <<procesador>> as DASHBOARD_IVR
+   node "PC 3" <<procesador>> as CIERRE_SESION
+   node "PC 4" <<procesador>> as GESTION_PIPELINE_ETL
    node "Repetidor" <<dispositivo>> as R
-   node "PC 5" <<procesador>> as P5
-   node "PC 6" <<procesador>> as P6
+   node "PC 5" <<procesador>> as CONSULTA_LOGS
+   node "PC 6" <<procesador>> as MODULO_REPORTES
 
-   P1 -- P2 : <<conector T>>
-   P2 -- P3 : <<conector T>>
-   P3 -- P4 : <<conector T>>
-   P4 -- R  : <<coaxial>>
-   R  -- P5 : <<coaxial>>
-   P5 -- P6 : <<conector T>>
+   PASO_AUTENTICACION -- DASHBOARD_IVR : <<conector T>>
+   DASHBOARD_IVR -- CIERRE_SESION : <<conector T>>
+   CIERRE_SESION -- GESTION_PIPELINE_ETL : <<conector T>>
+   GESTION_PIPELINE_ETL -- R  : <<coaxial>>
+   R  -- CONSULTA_LOGS : <<coaxial>>
+   CONSULTA_LOGS -- MODULO_REPORTES : <<conector T>>
    @enduml

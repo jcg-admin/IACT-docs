@@ -13,27 +13,27 @@ El equivalente IACT de la vista final del libro
 
    package "IACT" {
      rectangle "Browser\n[Navegador del supervisor]" as Browser <<c4_container>>
-     rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as WSGI <<c4_container>>
+     rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as SERVIDOR_WSGI <<c4_container>>
      database "Redis\n[Sesiones + throttling]" as Redis <<c4_container>>
-     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BD_ANALYTICS <<c4_container>>
      database "audit_log\n[MySQL immutable]" as Audit <<c4_container>>
    }
 
    together {
-     rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
-     database "bd-operativa\n[External, read-only]" as BDO <<c4_externo>>
-     rectangle "ivr-host\n[External]" as IVR <<c4_externo>>
+     rectangle "ldap-corporativo\n[External]" as LDAP_CORPORATIVO <<c4_externo>>
+     database "bd-operativa\n[External, read-only]" as BD_OPERATIVA <<c4_externo>>
+     rectangle "ivr-host\n[External]" as SISTEMA_IVR <<c4_externo>>
    }
 
    Supervisor -down-> Browser : opera el panel
-   Browser -down-> WSGI : consulta dashboards\n[HTTPS intranet]
-   WSGI -down-> Redis : sesiones y throttling\n[Redis Protocol]
-   WSGI -down-> BDA : lee/escribe analytics\n[MySQL TCP]
-   WSGI -down-> Audit : registra eventos\n[MySQL TCP append-only]
+   Browser -down-> SERVIDOR_WSGI : consulta dashboards\n[HTTPS intranet]
+   SERVIDOR_WSGI -down-> Redis : sesiones y throttling\n[Redis Protocol]
+   SERVIDOR_WSGI -down-> BD_ANALYTICS : lee/escribe analytics\n[MySQL TCP]
+   SERVIDOR_WSGI -down-> Audit : registra eventos\n[MySQL TCP append-only]
 
-   WSGI -right-> LDAP : autentica\n[LDAPS]
-   WSGI -right-> BDO : lee llamadas\n[SQL read-only]
-   WSGI -right-> IVR : recibe eventos\n[protocolo IVR]
+   SERVIDOR_WSGI -right-> LDAP_CORPORATIVO : autentica\n[LDAPS]
+   SERVIDOR_WSGI -right-> BD_OPERATIVA : lee llamadas\n[SQL read-only]
+   SERVIDOR_WSGI -right-> SISTEMA_IVR : recibe eventos\n[protocolo SISTEMA_IVR]
    @enduml
 
 Decisiones de layout aplicadas:

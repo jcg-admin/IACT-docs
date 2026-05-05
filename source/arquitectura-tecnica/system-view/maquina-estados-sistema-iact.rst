@@ -31,12 +31,12 @@ final.
 
  @startuml
 
- state "Autenticacion JWT" as AUTH
- AUTH : entry/usuario ingresa username y password
- AUTH : do/validar credenciales + cargar RBAC en PostgreSQL
- AUTH : exit/JWT generado con payload de funciones
+ state "Autenticacion JWT" as SERVICIO_AUTH
+ SERVICIO_AUTH : entry/usuario ingresa username y password
+ SERVICIO_AUTH : do/validar credenciales + cargar RBAC en PostgreSQL
+ SERVICIO_AUTH : exit/JWT generado con payload de funciones
 
- state "Dashboard IACT" as DASH {
+ state "Dashboard IACT" as DASHBOARD_IVR {
    state "Ver Dashboard IVR\n[view_dashboard]" as S_DASH
    state "MOD Reports\n[view_reports]" as S_RPT
    state "Gestion Pipeline ETL\n[view_pipeline_status]" as S_ETL
@@ -74,17 +74,17 @@ final.
    S_RBAC --> S_DASH : volver
  }
 
- state "Cierre de Sesion" as FINAL
- FINAL : entry/usuario cierra sesion o JWT expira
- FINAL : do/invalidar JWT + registrar en audit_log
- FINAL : exit/fin de sesion
+ state "Cierre de Sesion" as CIERRE_SESION
+ CIERRE_SESION : entry/usuario cierra sesion o JWT expira
+ CIERRE_SESION : do/invalidar JWT + registrar en audit_log
+ CIERRE_SESION : exit/fin de sesion
 
- [*] --> AUTH
- AUTH --> DASH : [credenciales validas]
- AUTH --> FINAL : [3 intentos fallidos]
- DASH --> FINAL : [eliminar /api/auth/logout/]
- DASH --> FINAL : [JWT expirado]
- FINAL --> [*]
+ [*] --> SERVICIO_AUTH
+ SERVICIO_AUTH --> DASHBOARD_IVR : [credenciales validas]
+ SERVICIO_AUTH --> CIERRE_SESION : [3 intentos fallidos]
+ DASHBOARD_IVR --> CIERRE_SESION : [eliminar /api/auth/logout/]
+ DASHBOARD_IVR --> CIERRE_SESION : [JWT expirado]
+ CIERRE_SESION --> [*]
 
  @enduml
 

@@ -11,18 +11,18 @@
  actor "view_audit_log" as view_audit_log
 
  rectangle "MOD_Permissions" {
-   usecase "UC_PERM_05\nCreate AGR" as UCCRE
-   usecase "UC_PERM_05\nModify AGR" as UCMOD
-   usecase "UC_PERM_05\nRetire AGR" as UCRET
+   usecase "UC_PERM_05\nCreate AGR" as CREAR_AGRUPADOR
+   usecase "UC_PERM_05\nModify AGR" as MODIFICAR_AGRUPADOR
+   usecase "UC_PERM_05\nRetire AGR" as RETIRAR_AGRUPADOR
    usecase "AuditEvent" as AuditEmitter
  }
 
- create_function_group --> UCCRE
- create_function_group --> UCMOD
- create_function_group --> UCRET
- UCCRE ..> EMI : <<include>>
- UCMOD ..> EMI : <<include>>
- UCRET ..> EMI : <<include>>
+ create_function_group --> CREAR_AGRUPADOR
+ create_function_group --> MODIFICAR_AGRUPADOR
+ create_function_group --> RETIRAR_AGRUPADOR
+ CREAR_AGRUPADOR ..> EMI : <<include>>
+ MODIFICAR_AGRUPADOR ..> EMI : <<include>>
+ RETIRAR_AGRUPADOR ..> EMI : <<include>>
  EMI --> view_audit_log
 
  @enduml

@@ -21,14 +21,14 @@ Diagrama de Contexto (Dependencias)
 
  @startuml
 
- component "ARQ_MOD_001\nAutenticación" as AUTH
+ component "ARQ_MOD_001\nAutenticación" as SERVICIO_AUTH
  component "ARQ_MOD_002\nIdentidad de Usuario" as ArqMod002
- component "ARQ_MOD_003\nControl de Acceso\n(RBAC)" as RBAC
+ component "ARQ_MOD_003\nControl de Acceso\n(RBAC)" as SERVICIO_RBAC
  component "ARQ_MOD_007\nAuditoría" as ArqMod007
 
- AUTH --> ArqMod002 : verifica usuario activo
- AUTH --> RBAC : obtiene roles para claims del token
- AUTH --> ArqMod007 : emite evento login/logout
+ SERVICIO_AUTH --> ArqMod002 : verifica usuario activo
+ SERVICIO_AUTH --> SERVICIO_RBAC : obtiene roles para claims del token
+ SERVICIO_AUTH --> ArqMod007 : emite evento login/logout
 
  @enduml
 

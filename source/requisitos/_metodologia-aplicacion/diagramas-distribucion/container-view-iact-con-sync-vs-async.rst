@@ -10,28 +10,28 @@ Container view IACT con sync vs async
 
    package "IACT" {
      rectangle "Browser" as Browser <<c4_container>>
-     rectangle "iact.wsgi\n[Django + mod_wsgi]" as WSGI <<c4_container>>
+     rectangle "iact.wsgi\n[Django + mod_wsgi]" as SERVIDOR_WSGI <<c4_container>>
      database "Redis" as Redis <<c4_container>>
-     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BD_ANALYTICS <<c4_container>>
      database "audit_log\n[MySQL immutable]" as Audit <<c4_container>>
      rectangle "Worker Export\n[Django mgmt cmd]" as Worker <<c4_container>>
    }
 
-   rectangle "ldap-corporativo" as LDAP <<c4_externo>>
-   database "bd-operativa" as BDO <<c4_externo>>
+   rectangle "ldap-corporativo" as LDAP_CORPORATIVO <<c4_externo>>
+   database "bd-operativa" as BD_OPERATIVA <<c4_externo>>
 
    ' Sync (linea continua)
    Supervisor --> Browser
-   Browser --> WSGI : consulta dashboards\n[HTTPS intranet]
-   WSGI --> Redis : sesion / throttling\n[Redis Protocol]
-   WSGI --> BDA : lee/escribe analytics\n[MySQL TCP]
-   WSGI ---> LDAP : autentica\n[LDAPS]
-   WSGI ---> BDO : lee llamadas\n[SQL read-only]
+   Browser --> SERVIDOR_WSGI : consulta dashboards\n[HTTPS intranet]
+   SERVIDOR_WSGI --> Redis : sesion / throttling\n[Redis Protocol]
+   SERVIDOR_WSGI --> BD_ANALYTICS : lee/escribe analytics\n[MySQL TCP]
+   SERVIDOR_WSGI ---> LDAP_CORPORATIVO : autentica\n[LDAPS]
+   SERVIDOR_WSGI ---> BD_OPERATIVA : lee llamadas\n[SQL read-only]
 
    ' Async (linea punteada)
-   WSGI ..> Audit : registra evento\n[in-process bus]
-   WSGI ..> Worker : encola export\n[CNST_019]
-   Worker ..> BDA : lee agregados
+   SERVIDOR_WSGI ..> Audit : registra evento\n[in-process bus]
+   SERVIDOR_WSGI ..> Worker : encola export\n[CNST_019]
+   Worker ..> BD_ANALYTICS : lee agregados
    @enduml
 
 Lectura del diagrama:

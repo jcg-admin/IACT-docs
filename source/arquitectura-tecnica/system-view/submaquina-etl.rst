@@ -56,10 +56,10 @@ estado en ``etl_runs``.
    VERIFICAR_RESULTADO_ETL : do / actualizar etl_runs SET estado, finalizado_en
    VERIFICAR_RESULTADO_ETL : exit / fin de cadena ETL
 
-   state "ETL Exitoso" as SUCC
-   SUCC : entry / estado = exitoso
-   SUCC : do / notificar request_pipeline_retry
-   SUCC : exit / datos disponibles en base_ivr_*
+   state "ETL Exitoso" as ETL_EXITOSO
+   ETL_EXITOSO : entry / estado = exitoso
+   ETL_EXITOSO : do / notificar request_pipeline_retry
+   ETL_EXITOSO : exit / datos disponibles en base_ivr_*
 
    state "ETL Fallido" as ETLFallido
    ETLFallido : entry / estado = fallido
@@ -73,9 +73,9 @@ estado en ``etl_runs``.
    SP_RPT_CENTROS_XSEGMENTO --> join_etl
    SP_RPT_LLAMADAS_ABANDONADAS --> join_etl
    join_etl --> VERIFICAR_RESULTADO_ETL
-   VERIFICAR_RESULTADO_ETL --> SUCC : [sp_etl exitosos]
+   VERIFICAR_RESULTADO_ETL --> ETL_EXITOSO : [sp_etl exitosos]
    VERIFICAR_RESULTADO_ETL --> ETLFallido : [sp_etl fallido]
-   SUCC --> [*]
+   ETL_EXITOSO --> [*]
    ETLFallido --> [*]
  }
 

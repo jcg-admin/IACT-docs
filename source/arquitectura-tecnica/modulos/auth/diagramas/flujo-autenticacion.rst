@@ -22,21 +22,21 @@ Flujo de Autenticacion
  @startuml
 
  participant "Interfaz\nde Usuario" as Interfaz
- participant "Servicio\nde Autenticación" as AUTH
- participant "Repositorio\nde Usuarios" as USERS
+ participant "Servicio\nde Autenticación" as SERVICIO_AUTH
+ participant "Repositorio\nde Usuarios" as REPOSITORIO_USUARIOS
  participant "Repositorio\nde Sesiones" as SESSIONS
 
- Interfaz -> AUTH ++ : POST /api/v1/auth/login\n{usuario, contraseña}
- AUTH -> USERS ++ : verificar usuario activo
+ Interfaz -> SERVICIO_AUTH ++ : POST /api/v1/auth/login\n{usuario, contraseña}
+ SERVICIO_AUTH -> REPOSITORIO_USUARIOS ++ : verificar usuario activo
  return usuario encontrado y activo
- AUTH -> AUTH : validar contraseña contra hash almacenado
- AUTH -> SESSIONS ++ : invalidar sesión previa (sesión única)
+ SERVICIO_AUTH -> SERVICIO_AUTH : validar contraseña contra hash almacenado
+ SERVICIO_AUTH -> SESSIONS ++ : invalidar sesión previa (sesión única)
  return sesión previa invalidada
- AUTH -> SESSIONS : registrar nueva sesión\n{ip, user-agent, timestamp}
- AUTH -> AUTH : generar token de autenticación\n(expiración 1 hora)
+ SERVICIO_AUTH -> SESSIONS : registrar nueva sesión\n{ip, user-agent, timestamp}
+ SERVICIO_AUTH -> SERVICIO_AUTH : generar token de autenticación\n(expiración 1 hora)
  return 200 + token de autenticación
 
- note right of AUTH
+ note right of SERVICIO_AUTH
    Timeout de 15 minutos por
    inactividad aplicado por
    middleware (Actor: Tiempo).

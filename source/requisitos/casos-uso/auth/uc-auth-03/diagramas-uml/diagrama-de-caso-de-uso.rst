@@ -8,8 +8,8 @@
 
  left to right direction
 
- actor "reset_password" as ADMIN
- actor "User afectado" as USER <<beneficiario>>
+ actor "reset_password" as ADMINISTRADOR_SISTEMA
+ actor "User afectado" as USUARIO_AUTENTICADO <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
  actor "Sistema" as Sistema <<sistema>>
 
@@ -21,12 +21,12 @@
    usecase "Emitir AuditEvent\nPASSWORD_RESET" as AuditEmitter
  }
 
- ADMIN --> UC03
+ ADMINISTRADOR_SISTEMA --> UC03
  UC03 ..> GEN : <<include>>
  UC03 ..> CSE : <<include>>
  UC03 ..> NOT : <<include>>
  UC03 ..> EMI : <<include>>
- NOT --> USER : InternalMessage
+ NOT --> USUARIO_AUTENTICADO : InternalMessage
  Sistema --> EMI
  EMI --> view_audit_log : (consume\nUC_AUD_*)
 

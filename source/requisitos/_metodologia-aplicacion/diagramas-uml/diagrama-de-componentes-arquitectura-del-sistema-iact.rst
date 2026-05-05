@@ -8,48 +8,48 @@
    package "Frontend (React + Webpack)" {
      component "UI Components\nDashboards, Reportes" as UiComponents
      component "Redux Store\nState Management"      as Redux
-     component "HTTP Client\nAxios + JWT"           as HTTP
+     component "HTTP Client\nAxios + JWT"           as CLIENTE_HTTP
    }
 
    package "Backend (Django + DRF)" {
-     component "REST API\nViewSets"                  as REST
+     component "REST API\nViewSets"                  as API_REST_DJANGO
      component "Auth Service\nJWT, Sessions"         as Auth
-     component "RBAC Service\nFunciones, Grupos"     as RBAC
-     component "Reports Service\nMétricas, Export"   as RPT
-     component "Alerts Service\nUmbrales, Notif"     as ALR
-     component "ETL Supervisor\nestado, reintento"   as PIP
-     component "Audit Service\nInmutable"            as AUD
+     component "RBAC Service\nFunciones, Grupos"     as SERVICIO_RBAC
+     component "Reports Service\nMétricas, Export"   as SERVICIO_REPORTES
+     component "Alerts Service\nUmbrales, Notif"     as SERVICIO_ALERTAS
+     component "ETL Supervisor\nestado, reintento"   as SERVICIO_ETL
+     component "Audit Service\nInmutable"            as SERVICIO_AUDITORIA
    }
 
    database "MySQL Analytics\nDatos IVR + RBAC + Audit" as MysqlAnalytics
 
    package "Infraestructura externa" {
-     component "IVR Conmutador\n(read-only)" as IVR
+     component "IVR Conmutador\n(read-only)" as SISTEMA_IVR
      component "Scheduler\nAPScheduler"      as Sched
      component "Buzón Interno\n(no email)"   as Buzon
    }
 
    UiComponents    --> Redux : state
-   UiComponents    --> HTTP  : fetch / post
-   HTTP  --> REST  : REST + JWT
+   UiComponents    --> CLIENTE_HTTP  : fetch / post
+   CLIENTE_HTTP  --> API_REST_DJANGO  : API_REST_DJANGO + JWT
 
-   REST  --> Auth : usa
-   REST  --> RBAC : usa
-   REST  --> RPT  : usa
-   REST  --> ALR  : usa
-   REST  --> PIP  : usa
-   REST  --> AUD  : usa
+   API_REST_DJANGO  --> Auth : usa
+   API_REST_DJANGO  --> SERVICIO_RBAC : usa
+   API_REST_DJANGO  --> SERVICIO_REPORTES  : usa
+   API_REST_DJANGO  --> SERVICIO_ALERTAS  : usa
+   API_REST_DJANGO  --> SERVICIO_ETL  : usa
+   API_REST_DJANGO  --> SERVICIO_AUDITORIA  : usa
 
    Auth --> MysqlAnalytics : queries
-   RBAC --> MysqlAnalytics : queries
-   RPT  --> MysqlAnalytics : queries
-   ALR  --> MysqlAnalytics : queries
-   PIP  --> MysqlAnalytics : queries
-   AUD  --> MysqlAnalytics : append-only
+   SERVICIO_RBAC --> MysqlAnalytics : queries
+   SERVICIO_REPORTES  --> MysqlAnalytics : queries
+   SERVICIO_ALERTAS  --> MysqlAnalytics : queries
+   SERVICIO_ETL  --> MysqlAnalytics : queries
+   SERVICIO_AUDITORIA  --> MysqlAnalytics : append-only
 
-   PIP   ..> IVR   : ETL nocturno (read-only)
-   PIP   ..> Sched : programación
-   ALR   ..> Buzon : notifica (CNST_001)
+   SERVICIO_ETL   ..> SISTEMA_IVR   : ETL nocturno (read-only)
+   SERVICIO_ETL   ..> Sched : programación
+   SERVICIO_ALERTAS   ..> Buzon : notifica (CNST_001)
    @enduml
 
 **Aplicación:** DOC-26 (Componentes + Distribución).

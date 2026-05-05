@@ -16,8 +16,8 @@ y el ``iact.wsgi`` que sirve la SPA.
 
    rectangle "Browser\n[Navegador del supervisor]\n\nCliente de la SPA en intranet" as Browser <<c4_container>>
 
-   rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]\n\nServe la SPA y expone\nla API REST del backend" as WSGI <<c4_container>>
+   rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]\n\nServe la SPA y expone\nla API REST del backend" as SERVIDOR_WSGI <<c4_container>>
 
    Supervisor --> Browser : opera el panel\n[uso directo]
-   Browser --> WSGI : consulta dashboards,\nreconoce alertas\n[HTTPS intranet]
+   Browser --> SERVIDOR_WSGI : consulta dashboards,\nreconoce alertas\n[HTTPS intranet]
    @enduml

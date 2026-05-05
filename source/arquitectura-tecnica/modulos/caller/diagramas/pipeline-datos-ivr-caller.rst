@@ -28,20 +28,20 @@ extraccion nocturna via ETL y evaluacion de alertas sobre los datos cargados.
  actor "Caller\n(externo)" as CALLER
 
  component "PBX / PbxIvr\n(Asterisk/Genesys)" as PbxIvr
- database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio PbxIvr — solo lectura para IACT)" as HIST
+ database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio PbxIvr — solo lectura para IACT)" as HISTORICO_IVR
 
  component "sp_etl_maestro\n(sp_etl_maestro nocturno)" as sp_etl_maestro
- database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ANAL
+ database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as BASE_ANALITICA
 
  component "sp_rpt_llamadas_abandonadas\nsp_rpt_clientes\n(Reportes PbxIvr)" as sp_rpt_llamadas_abandonadas
- component "AlertEvaluator\n(BR-016 tasa abandono)" as ALERT
+ component "AlertEvaluator\n(BR-016 tasa abandono)" as EVALUADOR_ALERTAS
 
  CALLER --> PbxIvr : llamada telefonica
- PbxIvr --> HIST : registrar/actualizar registros PbxIvr
- sp_etl_maestro --> HIST : consultar (ventana nocturna)
- sp_etl_maestro --> ANAL : TRUNCATE + registrar
- sp_rpt_llamadas_abandonadas --> ANAL : consultar (cursor.callproc)
- ALERT --> ANAL : evaluar tasa abandono > 30%%
+ PbxIvr --> HISTORICO_IVR : registrar/actualizar registros PbxIvr
+ sp_etl_maestro --> HISTORICO_IVR : consultar (ventana nocturna)
+ sp_etl_maestro --> BASE_ANALITICA : TRUNCATE + registrar
+ sp_rpt_llamadas_abandonadas --> BASE_ANALITICA : consultar (cursor.callproc)
+ EVALUADOR_ALERTAS --> BASE_ANALITICA : evaluar tasa abandono > 30%%
 
  @enduml
 

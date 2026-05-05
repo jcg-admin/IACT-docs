@@ -8,8 +8,8 @@
 
  left to right direction
 
- actor "update_users" as ADMIN
- actor "User modificado" as USER <<beneficiario>>
+ actor "update_users" as ADMINISTRADOR_SISTEMA
+ actor "User modificado" as USUARIO_AUTENTICADO <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
  actor "Sistema" as Sistema <<sistema>>
 
@@ -23,14 +23,14 @@
    usecase "AuditEvent\nUSER_MODIFIED" as AuditEmitter
  }
 
- ADMIN --> UC03
+ ADMINISTRADOR_SISTEMA --> UC03
  UC03 ..> ValidarTransicion : <<include>>
  UC03 ..> ValidarEmail : <<extend (si email cambia)>>
  UC03 ..> UPD : <<include>>
  UC03 ..> CSE : <<extend (si state→BLOCKED)>>
  UC03 ..> NOT : <<extend (politica)>>
  UC03 ..> EMI : <<include>>
- NOT --> USER
+ NOT --> USUARIO_AUTENTICADO
  Sistema --> EMI
  EMI --> view_audit_log
 

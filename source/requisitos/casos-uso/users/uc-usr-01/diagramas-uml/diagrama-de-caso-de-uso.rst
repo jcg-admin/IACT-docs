@@ -8,8 +8,8 @@
 
  left to right direction
 
- actor "create_users" as ADMIN
- actor "Nuevo User" as USER <<beneficiario>>
+ actor "create_users" as ADMINISTRADOR_SISTEMA
+ actor "Nuevo User" as USUARIO_AUTENTICADO <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
  actor "Sistema" as Sistema <<sistema>>
 
@@ -22,13 +22,13 @@
    usecase "AuditEvent\nUSER_CREATED" as AuditEmitter
  }
 
- ADMIN --> UC01
+ ADMINISTRADOR_SISTEMA --> UC01
  UC01 ..> GEN : <<include>>
  UC01 ..> PWD : <<include>>
  UC01 ..> AGR : <<extend>>
  UC01 ..> NOT : <<include>>
  UC01 ..> EMI : <<include>>
- NOT --> USER : InternalMessage
+ NOT --> USUARIO_AUTENTICADO : InternalMessage
  Sistema --> EMI
  EMI --> view_audit_log
 

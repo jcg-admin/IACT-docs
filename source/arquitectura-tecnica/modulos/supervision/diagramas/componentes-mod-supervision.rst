@@ -25,18 +25,18 @@ Diagrama de componentes — MOD_Supervision
 
  component "SupervisionEndpoint\n(/api/v1/supervision/)" as Supervisionendpoint
  component "TelephonyBridge\n(SIP/WebRTC barge-in)" as Telephonybridge
- component "ComplianceToneEmitter\n(tono obligatorio)" as TONE
+ component "ComplianceToneEmitter\n(tono obligatorio)" as EMISOR_TONO_COMPLIANCE
  component "InternalMailbox\n(broadcast_team_messages)" as Internalmailbox
 
  database "audit_log\n(PostgreSQL)" as audit_log
- database "agent_state\n(cache)" as STATE
+ database "agent_state\n(cache)" as ESTADO_AGENTE_CACHE
 
  monitor_live_calls --> Supervisionendpoint : HTTP requests
  Supervisionendpoint --> Telephonybridge : activar canal supervision/barge
- Supervisionendpoint --> TONE : emitir tono compliance
+ Supervisionendpoint --> EMISOR_TONO_COMPLIANCE : emitir tono compliance
  Supervisionendpoint --> Internalmailbox : registrar broadcast message
  Supervisionendpoint --> audit_log : registrar SupervisionEvent
- Supervisionendpoint --> STATE : leer estado agentes activos
+ Supervisionendpoint --> ESTADO_AGENTE_CACHE : leer estado agentes activos
 
  @enduml
 

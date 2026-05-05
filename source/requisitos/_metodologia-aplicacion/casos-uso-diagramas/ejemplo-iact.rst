@@ -9,7 +9,7 @@ Ejemplo IACT
    left to right direction
 
    actor Supervisor
-   actor "Operador ETL" as OETL
+   actor "Operador ETL" as OPERADOR_ETL
 
    rectangle IACT {
      usecase "UC_PIP_01\nCarga ETL" as PIP01
@@ -18,7 +18,7 @@ Ejemplo IACT
      usecase "UC_AUD_03\nConsultar audit" as AUD03
    }
 
-   OETL --> PIP01
+   OPERADOR_ETL --> PIP01
    Supervisor --> RPT07
    Supervisor --> AUD03
 

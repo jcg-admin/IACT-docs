@@ -21,19 +21,19 @@ información puede ir por la red.
    node "MSAU 2" as M2
    node "MSAU 3" as M3
 
-   node "PC 1" <<procesador>> as P1
-   node "PC 2" <<procesador>> as P2
-   node "PC 3" <<procesador>> as P3
-   node "PC 4" <<procesador>> as P4
-   node "PC 5" <<procesador>> as P5
+   node "PC 1" <<procesador>> as PASO_AUTENTICACION
+   node "PC 2" <<procesador>> as DASHBOARD_IVR
+   node "PC 3" <<procesador>> as CIERRE_SESION
+   node "PC 4" <<procesador>> as GESTION_PIPELINE_ETL
+   node "PC 5" <<procesador>> as CONSULTA_LOGS
 
    M1 -- M2 : <<token>>
    M2 -- M3 : <<token>>
    M3 -- M1 : <<token>>
 
-   M1 -- P1 : <<NIC>>
-   M1 -- P2 : <<NIC>>
-   M2 -- P3 : <<NIC>>
-   M3 -- P4 : <<NIC>>
-   M3 -- P5 : <<NIC>>
+   M1 -- PASO_AUTENTICACION : <<NIC>>
+   M1 -- DASHBOARD_IVR : <<NIC>>
+   M2 -- CIERRE_SESION : <<NIC>>
+   M3 -- GESTION_PIPELINE_ETL : <<NIC>>
+   M3 -- CONSULTA_LOGS : <<NIC>>
    @enduml

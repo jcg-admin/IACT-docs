@@ -14,7 +14,7 @@
  rectangle "MOD_Access" {
    usecase "UC_ACC_08\nPermiso Temporal" as UC08
    usecase "Validar payload\n(justification +\nexpires_at bounds)" as VistaPipeline
-   usecase "Validar SoD\nwrite-time" as VSOD
+   usecase "Validar SoD\nwrite-time" as VALIDAR_SOD
    usecase "registrar\nExceptionalPermissions" as RegistrarDatos
    usecase "Notificar via\nInternalMailbox\n(OBLIGATORIO)" as NotificacionMailbox
    usecase "AuditEvent\nGRANTED reforzado" as AuditEmitter
@@ -22,7 +22,7 @@
 
  INVOKER --> UC08
  UC08 ..> VPL : <<include>>
- UC08 ..> VSOD : <<include>>
+ UC08 ..> VALIDAR_SOD : <<include>>
  UC08 ..> INS : <<include>>
  UC08 ..> NOT : <<include>>
  UC08 ..> EMI : <<include>>

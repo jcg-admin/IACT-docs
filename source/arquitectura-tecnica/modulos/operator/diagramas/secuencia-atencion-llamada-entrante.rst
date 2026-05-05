@@ -24,7 +24,7 @@ Secuencia de Atencion de Llamada Entrante
  actor "answer_inbound_calls" as answer_inbound_calls
  participant "AgentPanel\n(/api/v1/operator/)" as Agentpanel
  participant "TelephonyRouter\n(ACD/IVR)" as Telephonyrouter
- participant "DispositionEndpoint\n(/api/v1/disposition/)" as DISP
+ participant "DispositionEndpoint\n(/api/v1/disposition/)" as DISPOSICION_LLAMADA
  database "audit_log\n(PostgreSQL)" as audit_log
 
  Telephonyrouter -> Agentpanel : llamada entrante asignada al agente
@@ -41,7 +41,7 @@ Secuencia de Atencion de Llamada Entrante
 
  answer_inbound_calls -> Agentpanel : POST /disposition {code, notes}
  Agentpanel -> Agentpanel : JWT + RBAC (enter_call_disposition)
- Agentpanel -> DISP : registrar disposition record
+ Agentpanel -> DISPOSICION_LLAMADA : registrar disposition record
  Agentpanel -> audit_log : registrar AuditEvent CALL_DISPOSED
  Agentpanel -> Telephonyrouter : liberar canal
  Telephonyrouter --> Agentpanel : agente disponible

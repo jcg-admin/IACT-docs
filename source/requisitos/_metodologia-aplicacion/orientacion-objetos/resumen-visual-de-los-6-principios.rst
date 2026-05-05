@@ -6,7 +6,7 @@
    @startuml
 
    skinparam packageStyle rectangle
-   rectangle "Orientación a Objetos en IACT" as OOP {
+   rectangle "Orientación a Objetos en IACT" as ORIENTACION_OBJETOS_IACT {
      rectangle "1. ABSTRACCIÓN\nLlamada / Métrica / Función\nsin ruido físico"             as 1AbstracciN
      rectangle "2. HERENCIA\nUsuario → Operador,\nSupervisor, Auditor..."                  as 2Herencia
      rectangle "3. POLIMORFISMO\ncalcularValor() por métrica\nexportar() por formato"      as 3Polimorfismo

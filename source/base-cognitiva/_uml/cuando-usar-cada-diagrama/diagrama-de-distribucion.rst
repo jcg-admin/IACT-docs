@@ -20,12 +20,12 @@ máquinas, cómo se conectan).
    node "Servidor Web" <<procesador>> as W {
      component "Apache + Django"
    }
-   node "BD" <<procesador>> as DB {
+   node "BD" <<procesador>> as BASE_DATOS {
      database "MySQL"
    }
    cloud "Stripe API" as S
 
    C -- W : <<HTTPS>>
-   W -- DB : <<JDBC>>
+   W -- BASE_DATOS : <<JDBC>>
    W -- S  : <<HTTPS>>
    @enduml

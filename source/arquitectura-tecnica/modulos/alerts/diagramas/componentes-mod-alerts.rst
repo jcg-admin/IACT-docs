@@ -23,19 +23,19 @@ Componentes del modulo de Alertas
 
  component "AlertEvaluator\n(evaluacion periodica)" as Alertevaluator
  component "configure_team_alerts\n(configuracion)" as configure_team_alerts
- component "view_alerts\n(consulta)" as VIEW
+ component "view_alerts\n(consulta)" as CONSULTA_ALERTAS
  component "acknowledge_alert\n(reconocimiento)" as acknowledge_alert
  component "InternalMailbox\n(notificacion)" as Internalmailbox
 
  database "AlertThreshold\n(umbrales configurados)" as Alertthreshold
- database "AlertEvent\n(historico alertas)" as HIST
+ database "AlertEvent\n(historico alertas)" as HISTORICO_IVR
 
  configure_team_alerts --> Alertthreshold : CRUD umbrales
  Alertevaluator --> Alertthreshold : leer umbrales
- Alertevaluator --> HIST : registrar nueva alerta
+ Alertevaluator --> HISTORICO_IVR : registrar nueva alerta
  Alertevaluator --> Internalmailbox : notificar suscriptores
- VIEW --> HIST : consultar alertas activas
- acknowledge_alert --> HIST : actualizar estado reconocida
+ CONSULTA_ALERTAS --> HISTORICO_IVR : consultar alertas activas
+ acknowledge_alert --> HISTORICO_IVR : actualizar estado reconocida
 
  @enduml
 

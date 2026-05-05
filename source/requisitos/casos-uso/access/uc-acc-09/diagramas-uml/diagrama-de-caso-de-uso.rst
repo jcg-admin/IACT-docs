@@ -15,16 +15,16 @@
    usecase "Listar eventos\npaginado" as VistaListado
    usecase "Ver detalle" as VistaDetalle
    usecase "Agregar (count\npor categoria)" as AgregadorConteo
-   usecase "Audit P-16\nselectivo" as AUDS
+   usecase "Audit P-16\nselectivo" as AUDITORIA_SELECTIVA
  }
 
  INVOKER --> UC09
  UC09 ..> LST : <<extend>>
  UC09 ..> DET : <<extend>>
  UC09 ..> AGG : <<extend>>
- LST ..> AUDS : <<extend (filter\ntarget_user_id)>>
- DET ..> AUDS : <<include>>
- Sistema --> AUDS
+ LST ..> AUDITORIA_SELECTIVA : <<extend (filter\ntarget_user_id)>>
+ DET ..> AUDITORIA_SELECTIVA : <<include>>
+ Sistema --> AUDITORIA_SELECTIVA
 
  note bottom of UC09
    Subset de UC_AUD_*

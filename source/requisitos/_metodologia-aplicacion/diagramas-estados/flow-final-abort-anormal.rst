@@ -10,8 +10,8 @@
    Inicializada --> Procesando : start
    Procesando --> Completada : ok
 
-   state "AbortadaPorError" as ABT #FFAAAA
-   Procesando --> ABT : error catastrofico
-   ABT : entry / registrar en audit_log
-   ABT --> [*]
+   state "AbortadaPorError" as ETL_ABORTADO #FFAAAA
+   Procesando --> ETL_ABORTADO : error catastrofico
+   ETL_ABORTADO : entry / registrar en audit_log
+   ETL_ABORTADO --> [*]
    @enduml

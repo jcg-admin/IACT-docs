@@ -6,8 +6,8 @@
    @startuml
    allowmixing
 
-   object ":etl_runner" as ETL
-   object ":bd_operativa" as BDO
+   object ":etl_runner" as SERVICIO_ETL
+   object ":bd_operativa" as BD_OPERATIVA
 
-   ETL -> BDO : "1: *[i:1..n] leer_lote(i)"
+   SERVICIO_ETL -> BD_OPERATIVA : "1: *[i:1..n] leer_lote(i)"
    @enduml

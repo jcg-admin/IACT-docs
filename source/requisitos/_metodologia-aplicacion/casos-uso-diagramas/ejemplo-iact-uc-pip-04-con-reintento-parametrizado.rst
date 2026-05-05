@@ -9,14 +9,14 @@
    actor "Admin\nPipeline" as Admin
 
    rectangle "IACT" {
-     usecase "UC_PIP_04\nSolicitar reintento\n(BASE)"           as P4
+     usecase "UC_PIP_04\nSolicitar reintento\n(BASE)"           as GESTION_PIPELINE_ETL
      usecase "UC_PIP_04b\nReintentar con\nparámetros ajustados" as P4B
    }
 
-   Admin --> P4
+   Admin --> GESTION_PIPELINE_ETL
    Admin --> P4B
 
-   P4B --|> P4
+   P4B --|> GESTION_PIPELINE_ETL
 
    note right of P4B
      UC_PIP_04b HEREDA de UC_PIP_04:

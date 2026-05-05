@@ -43,8 +43,8 @@ secundarios del ``AgenteProveedor``.
    @startuml
 
    actor "AgenteProveedor" as AP
-   actor "Reabastecedor"   as R1
-   actor "Recolector"      as R2
-   AP <|-- R1
-   AP <|-- R2
+   actor "Reabastecedor"   as VER_DASHBOARD_IVR
+   actor "Recolector"      as RESOLVER_SEGMENTO
+   AP <|-- VER_DASHBOARD_IVR
+   AP <|-- RESOLVER_SEGMENTO
    @enduml

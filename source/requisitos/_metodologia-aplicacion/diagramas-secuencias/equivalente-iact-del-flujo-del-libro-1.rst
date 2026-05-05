@@ -15,7 +15,7 @@ con activaciones encajadas:
    actor Supervisor
    participant "Browser" as Browser
    participant "auth_app" as Auth
-   database "ldap-corporativo" as LDAP
+   database "ldap-corporativo" as LDAP_CORPORATIVO
    database "Redis" as Redis
    database "audit_log" as Audit
 
@@ -28,8 +28,8 @@ con activaciones encajadas:
      Auth ->> Audit : registrar intento (CNST_011)
      Auth --> Browser -- : 401 Unauthorized
    else [credenciales validas]
-     Auth -> LDAP ++ : authenticate(user, pass)
-     LDAP --> Auth -- : OK + atributos
+     Auth -> LDAP_CORPORATIVO ++ : authenticate(user, pass)
+     LDAP_CORPORATIVO --> Auth -- : OK + atributos
      Auth -> Redis : crear sesion (CNST_002)
      Auth ->> Audit : registrar acceso
      Auth --> Browser -- : 302 Redirect (panel)

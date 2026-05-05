@@ -17,7 +17,7 @@ internos y externos.
    actor "Admin\nPipeline"   as Admin
    actor Auditor
    actor "Sistema /\nScheduler" as Sched
-   actor "IVR\nConmutador"  as IVR
+   actor "IVR\nConmutador"  as SISTEMA_IVR
 
    rectangle "IACT" {
      usecase "UC_AUTH_01\nIniciar sesión"     as AUTH01
@@ -30,7 +30,7 @@ internos y externos.
      usecase "UC_PIP_04\nSolicitar reintento" as PIP04
      usecase "UC_AUD_01\nConsultar auditoría" as AUD01
      usecase "UC_AUD_03\nExportar auditoría"  as AUD03
-     usecase "Carga ETL\nnocturna"            as ETL
+     usecase "Carga ETL\nnocturna"            as SERVICIO_ETL
    }
 
    Operador   --> AUTH01
@@ -48,8 +48,8 @@ internos y externos.
    Auditor    --> AUD01
    Auditor    --> AUD03
 
-   Sched      --> ETL
-   IVR        <-- ETL
+   Sched      --> SERVICIO_ETL
+   SISTEMA_IVR        <-- SERVICIO_ETL
 
    RPT01      ..> PERM07 : <<include>>
    RPT04      ..> PERM07 : <<include>>
