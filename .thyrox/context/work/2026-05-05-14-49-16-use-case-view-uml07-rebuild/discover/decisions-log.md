@@ -184,6 +184,62 @@ identificadas), `discover/build-logs/sphinx-strict-postfix-*.log`
 **Verificación:** Postfix build ejecutándose. Espera EXIT=0 + 0 warnings
 para validar fix antes de commit.
 
+**ACTUALIZACIÓN POST-COMMIT (16:55):** El build limpio (single, no race
+condition) revela que el fix de D-06 sólo resuelve **4 de ~73 warnings**.
+La medición original de "5 warnings" provino de dos builds corriendo
+concurrentemente y stompando entre sí — observable falso. Ver D-06b.
+
+---
+
+## D-06b — Realización: el CI failure no es 4 warnings, es ~73
+
+**Fecha:** 2026-05-05 16:55
+**Contexto:** Post-commit `405751c1` (rename ETL→Pipeline en uc-log-02),
+ejecuté un build limpio (single process, doctrees cleared) para validar
+0 warnings. Resultado parcial al 69% del build: **73 warnings ya
+contadas**, build aún corriendo.
+
+**Reclasificación de warnings:**
+
+| Categoría | Count aprox | Patrón |
+|-----------|-------------|--------|
+| `toc.not_readable` + `toc.not_included` (uc-log-02) | 4 | Resuelto por D-06 |
+| `Title overline/underline too short` | ~12 | Typography (RST estricto) |
+| `unknown document — domain-model → casos-uso` | ~3 | UC paths que no existen |
+| `unknown document — use-case-view/{module}/index.rst → diagrama-de-caso-de-uso` | ~50+ | **Forward refs del WP conformance-pass a archivos que pertenecen al WP rebuild (este WP, en DISCOVER)** |
+
+**Causa raíz arquitectónica:** El WP `use-case-view-uml07-conformance-pass`
+escribió `:doc:` refs en 11 archivos `use-case-view/{module}/index.rst`
+asumiendo que cada UC de `casos-uso/` tendría un sub-archivo
+`diagramas-uml/diagrama-de-caso-de-uso.rst`. Pero la creación de esos
+sub-archivos pertenece al WP activo `use-case-view-uml07-rebuild`,
+que sigue en Phase 1 DISCOVER.
+
+**Implicación:** El fix de D-06 era necesario pero no suficiente. PR #14
+sigue con CI roto.
+
+**Decisión metodológica:** No comprometerme con un fix más antes de:
+
+1. Esperar el build limpio completo (conteo final exacto).
+2. Presentar al ejecutor las 3 alternativas:
+   - **Path 1:** Remover los `:doc:` forward-refs en los 11 module
+     index.rst (~30 min, pierde cross-references hasta que rebuild WP
+     los re-cree).
+   - **Path 2:** Crear stubs `diagrama-de-caso-de-uso.rst` para
+     ~80 UCs (~1-2h scripted, deja stubs visibles en docs publicados).
+   - **Path 3:** Bloquear PR #14, avanzar WP rebuild hasta EXECUTE
+     (días/semanas, integración limpia).
+
+**Refs:** `discover/build-logs/sphinx-strict-postfix-16-51.log` (en
+progreso, build limpio); commit `405751c1` (fix parcial).
+
+**Lección registrada como invariante:**
+
+- Nunca confiar en un build con 2+ procesos sphinx-build simultáneos.
+  Race condition produce conteos falsamente bajos.
+- Antes de declarar "X warnings", verificar `pgrep -af "sphinx-build" |
+  wc -l` = 1 durante todo el run.
+
 ---
 
 ## Decisiones pendientes

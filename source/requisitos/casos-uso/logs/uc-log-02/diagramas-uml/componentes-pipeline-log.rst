@@ -1,5 +1,5 @@
-8.3 Componentes ETL log
-=======================
+8.3 Componentes Pipeline log
+============================
 
 .. uml::
 

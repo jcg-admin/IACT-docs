@@ -1,5 +1,5 @@
-8.4 Secuencia de consulta ETL log
-==================================
+8.4 Secuencia de consulta Pipeline log
+======================================
 
 .. uml::
 
