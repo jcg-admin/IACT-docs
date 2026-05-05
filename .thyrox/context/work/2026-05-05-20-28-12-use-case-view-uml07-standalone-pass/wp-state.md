@@ -2,7 +2,7 @@
 project: IACT-docs
 work_package: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 created_at: 2026-05-05 20:28:12
-current_phase: Phase 5 — STRATEGY
+current_phase: Phase 8 — PLAN EXECUTION
 status: Activo
 author: NestorMonroy
 flow: rm
