@@ -4,7 +4,7 @@ Please check if your PR fulfills the following requirements:
 
 - [ ] I have tested this change locally (`make html` succeeds)
 - [ ] I have followed RST formatting conventions (overline/underline match title length)
-- [ ] I have used conventional commit messages (type(scope): description)
+- [ ] I have followed commit message conventions (Tim Pope style: imperative subject ≤50 chars, no trailing period)
 - [ ] Documentation is updated if needed
 - [ ] No breaking changes to conf.py or dependencies
 
