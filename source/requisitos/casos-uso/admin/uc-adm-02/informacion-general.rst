@@ -78,5 +78,5 @@ o verificacion (MOD_Permissions).
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/use-case-view/mod-admin`
+ :doc:`/arquitectura-tecnica/use-case-view/uc-admin`
  :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`

@@ -65,7 +65,7 @@ via ETL (CNST-007, P-01).
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/use-case-view/mod-caller`
+ :doc:`/arquitectura-tecnica/use-case-view/uc-caller`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/domain-model/call`
  :doc:`/arquitectura-tecnica/domain-model/campaign`
