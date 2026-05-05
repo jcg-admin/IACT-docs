@@ -73,12 +73,12 @@ falla, con detalle por clausula.
  class SegmentResolver
  class SavedFilter
 
- FilterValidator o-- ColumnCatalog : reads
- FilterValidator o-- SegmentResolver : reads
- FilterValidator ..> SavedFilter : validates
- FilterValidator ..> FilterValidationReport : returns
+ FilterValidator "1" o-- "1" ColumnCatalog : reads
+ FilterValidator "1" o-- "1" SegmentResolver : reads
+ FilterValidator "1" ..> "0..*" SavedFilter : validates
+ FilterValidator "1" ..> "0..*" FilterValidationReport : returns
  FilterValidationReport *-- "*" ValidationError
- ValidationError -- ErrorCode
+ ValidationError "*" -- "1" ErrorCode
 
  note right of FilterValidator
    3 capas separadas (estructura,

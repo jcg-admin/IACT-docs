@@ -75,10 +75,10 @@ vía ``AuditService``).
  class AlertState
  class Severity
 
- AlertRepo ..> Alert : persists/queries
- AlertRepo ..> AlertFilters : queries with
- AlertRepo ..> DateRange : queries with
- AlertRepo ..> QueryResult : returns
+ AlertRepo "1" ..> "0..*" Alert : persists/queries
+ AlertRepo "1" ..> "0..*" AlertFilters : queries with
+ AlertRepo "1" ..> "0..*" DateRange : queries with
+ AlertRepo "1" ..> "0..*" QueryResult : returns
 
  note right of AlertRepo
    Cada transicion de state se persiste

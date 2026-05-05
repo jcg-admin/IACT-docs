@@ -59,8 +59,8 @@ Es DTO inmutable: una vez calculada, no se altera.
  class KPISet
 
  Comparative *-- "2" Period : composes
- Comparative *-- KPISet : composes
- Comparative ..> Trend : returns
+ Comparative "1" *-- "1" KPISet : composes
+ Comparative "1" ..> "0..*" Trend : returns
 
  note right of Comparative
    trend_by_kpi mejora / deterioro

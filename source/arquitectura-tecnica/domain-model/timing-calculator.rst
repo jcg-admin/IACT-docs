@@ -58,10 +58,10 @@ mantiene estado entre invocaciones.
  class BusinessCalendar
  class Duration
 
- TimingCalculator o-- BusinessCalendar : uses
- TimingCalculator ..> Alert : reads
- TimingCalculator ..> ResponseMetrics : returns
- TimingCalculator ..> Duration : returns
+ TimingCalculator "1" o-- "1" BusinessCalendar : uses
+ TimingCalculator "1" ..> "0..*" Alert : reads
+ TimingCalculator "1" ..> "0..*" ResponseMetrics : returns
+ TimingCalculator "1" ..> "0..*" Duration : returns
 
  note right of TimingCalculator
    Stateless. compute_business_*

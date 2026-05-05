@@ -90,11 +90,11 @@ según la política.
  }
 
  PIIScanner *-- "*" DetectionRule : composes
- PIIScanner ..> ScanReport : returns
- PIIScanner -- TokenizationStrategy
- DetectionRule -- PIICategory
+ PIIScanner "1" ..> "0..*" ScanReport : returns
+ PIIScanner "*" -- "1" TokenizationStrategy
+ DetectionRule "*" -- "1" PIICategory
  ScanReport *-- "*" Match
- Match -- PIICategory
+ Match "*" -- "1" PIICategory
 
  note right of PIIScanner
    CNST-026: detecta PII antes de persistir.

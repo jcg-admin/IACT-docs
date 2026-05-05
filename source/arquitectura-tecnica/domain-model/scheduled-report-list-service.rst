@@ -70,11 +70,11 @@ autorización y enriquecimiento de la respuesta.
  class PermissionService
  class PagedList
 
- ScheduledReportListService o-- ScheduledReportRepo : reads
- ScheduledReportListService o-- PermissionService : checks
- ScheduledReportListService ..> ScheduledReportSummary : returns
- ScheduledReportListService ..> ScheduledReportDetail : returns
- ScheduledReportListService ..> RunSummary : returns
+ ScheduledReportListService "1" o-- "1" ScheduledReportRepo : reads
+ ScheduledReportListService "1" o-- "1" PermissionService : checks
+ ScheduledReportListService "1" ..> "0..*" ScheduledReportSummary : returns
+ ScheduledReportListService "1" ..> "0..*" ScheduledReportDetail : returns
+ ScheduledReportListService "1" ..> "0..*" RunSummary : returns
 
  note right of ScheduledReportListService
    assert_can_view enforces

@@ -79,14 +79,14 @@ repositorio (``AlertRuleRepo``).
  class MetricCatalog
  class SegmentResolver
 
- RuleValidator o-- MetricCatalog : reads
- RuleValidator o-- SegmentResolver : reads
- RuleValidator ..> AlertRule : validates
- RuleValidator ..> User : checks scope
- RuleValidator ..> ValidationReport : returns
+ RuleValidator "1" o-- "1" MetricCatalog : reads
+ RuleValidator "1" o-- "1" SegmentResolver : reads
+ RuleValidator "1" ..> "0..*" AlertRule : validates
+ RuleValidator "1" ..> "0..*" User : checks scope
+ RuleValidator "1" ..> "0..*" ValidationReport : returns
  ValidationReport *-- "*" ValidationError
  ValidationReport *-- "*" ValidationWarning
- ValidationError -- ErrorCode
+ ValidationError "*" -- "1" ErrorCode
 
  note right of RuleValidator
    Bloquea persistencia de reglas

@@ -63,11 +63,11 @@ si el período anterior está disponible.
  class Comparative
  class ReportFilters
 
- HistoricalReport *-- Period : composes
+ HistoricalReport "1" *-- "1" Period : composes
  HistoricalReport *-- "*" Bucket : composes
- HistoricalReport o-- Comparative : optionally has
- HistoricalReport *-- ReportFilters : composes
- HistoricalReport -- Dimension
+ HistoricalReport "1" o-- "1" Comparative : optionally has
+ HistoricalReport "1" *-- "1" ReportFilters : composes
+ HistoricalReport "*" -- "1" Dimension
 
  note right of HistoricalReport
    Agregacion por Dimension determina

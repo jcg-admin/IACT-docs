@@ -54,10 +54,10 @@ especializados — no contiene lógica de negocio propia.
  class ClientesReportService
  class TransferenciasReportService
 
- ServicioReportes o-- AbandonoReportService : delegates
- ServicioReportes o-- MenuIvrReportService : delegates
- ServicioReportes o-- ClientesReportService : delegates
- ServicioReportes o-- TransferenciasReportService : delegates
+ ServicioReportes "1" o-- "1" AbandonoReportService : delegates
+ ServicioReportes "1" o-- "1" MenuIvrReportService : delegates
+ ServicioReportes "1" o-- "1" ClientesReportService : delegates
+ ServicioReportes "1" o-- "1" TransferenciasReportService : delegates
 
  note right of ServicioReportes
    Facade legada (deprecated para

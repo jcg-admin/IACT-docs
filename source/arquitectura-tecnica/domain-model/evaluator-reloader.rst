@@ -64,10 +64,10 @@ Soporta tres modos: recarga puntual de una regla
  class AlertEvaluator
  class VersionClock
 
- EvaluatorReloader o-- AlertRuleRepo : reads
- EvaluatorReloader o-- AlertEvaluator : updates
- EvaluatorReloader *-- VersionClock : composes
- EvaluatorReloader ..> ReloadResult : returns
+ EvaluatorReloader "1" o-- "1" AlertRuleRepo : reads
+ EvaluatorReloader "1" o-- "1" AlertEvaluator : updates
+ EvaluatorReloader "1" *-- "1" VersionClock : composes
+ EvaluatorReloader "1" ..> "0..*" ReloadResult : returns
  ReloadResult *-- "*" ReloadError
 
  note right of EvaluatorReloader

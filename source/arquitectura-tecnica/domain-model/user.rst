@@ -50,7 +50,7 @@ v2.0.0).
    BLOCKED
  }
 
- User -- UserState
+ User "*" -- "1" UserState : has
  User "1" -- "0..*" Session         : posee
  User "1" -- "1"    InternalMailbox : posee
  User "1" --> "0..*" AuditEvent     : genera

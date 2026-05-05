@@ -67,11 +67,11 @@ ve agentes de X).
  class SegmentConfigRepo
  class SegmentCache
 
- SegmentResolver o-- RBACRepo : reads
- SegmentResolver o-- SegmentConfigRepo : reads
- SegmentResolver *-- SegmentCache : composes
- SegmentResolver ..> Segment : returns
- Segment -- EntityType
+ SegmentResolver "1" o-- "1" RBACRepo : reads
+ SegmentResolver "1" o-- "1" SegmentConfigRepo : reads
+ SegmentResolver "1" *-- "1" SegmentCache : composes
+ SegmentResolver "1" ..> "0..*" Segment : returns
+ Segment "*" -- "1" EntityType
 
  note right of SegmentResolver
    is_global = true para usuarios con

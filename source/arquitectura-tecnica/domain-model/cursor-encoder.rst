@@ -64,9 +64,9 @@ el cursor mismo, firmado para detectar tampering.
    EXPIRED
  }
 
- CursorEncoder ..> CursorState : encodes/decodes
- CursorEncoder ..> InvalidCursorError : throws
- InvalidCursorError -- InvalidReason
+ CursorEncoder "1" ..> "0..*" CursorState : encodes/decodes
+ CursorEncoder "1" ..> "0..*" InvalidCursorError : throws
+ InvalidCursorError "*" -- "1" InvalidReason
 
  note right of CursorEncoder
    Cursor = base64(payload + signature).

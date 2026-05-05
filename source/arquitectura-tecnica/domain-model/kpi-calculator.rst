@@ -47,10 +47,10 @@ con los valores derivados nombrados.
  class QueueStats
  class CampaignStats
 
- KPICalculator ..> AgentStats : reads
- KPICalculator ..> QueueStats : reads
- KPICalculator ..> CampaignStats : reads
- KPICalculator ..> KPISet : returns
+ KPICalculator "1" ..> "0..*" AgentStats : reads
+ KPICalculator "1" ..> "0..*" QueueStats : reads
+ KPICalculator "1" ..> "0..*" CampaignStats : reads
+ KPICalculator "1" ..> "0..*" KPISet : returns
 
  note right of KPICalculator
    Stateless. safe_divide previene

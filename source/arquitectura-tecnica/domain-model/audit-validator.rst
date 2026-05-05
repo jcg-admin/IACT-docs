@@ -68,9 +68,9 @@ flujo del UC invocante hace ROLLBACK (P-09 audit-or-abort,
    WARNING
  }
 
- AuditValidator ..> ValidationResult : returns
+ AuditValidator "1" ..> "0..*" ValidationResult : returns
  ValidationResult *-- "*" ValidationError
- ValidationError -- Severity
+ ValidationError "*" -- "1" Severity
 
  note right of AuditValidator
    Bloquea persistencia de eventos malformados.

@@ -91,11 +91,11 @@ trazabilidad.
    CANCELLED
  }
 
- ExportWorker ..> ExportJob : creates/processes
- ExportWorker ..> ProcessResult : returns
- ExportJob -- JobStatus
- ExportJob -- ExportFormat
- ProcessResult -- Outcome
+ ExportWorker "1" ..> "0..*" ExportJob : creates/processes
+ ExportWorker "1" ..> "0..*" ProcessResult : returns
+ ExportJob "*" -- "1" JobStatus
+ ExportJob "*" -- "1" ExportFormat
+ ProcessResult "*" -- "1" Outcome
 
  note right of ExportWorker
    Asincrono. No bloquea HTTP request.

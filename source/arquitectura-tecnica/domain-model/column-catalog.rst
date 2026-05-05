@@ -74,9 +74,9 @@ columnas sin redeploy.
    UNIQUE_CLIENTS
  }
 
- ColumnCatalog ..> ColumnSpec : returns
- ColumnSpec -- ColumnDataType
- ColumnCatalog -- ReportType
+ ColumnCatalog "1" ..> "0..*" ColumnSpec : returns
+ ColumnSpec "*" -- "1" ColumnDataType
+ ColumnCatalog "*" -- "1" ReportType
 
  note right of ColumnCatalog
    reload() permite recargar catalogo

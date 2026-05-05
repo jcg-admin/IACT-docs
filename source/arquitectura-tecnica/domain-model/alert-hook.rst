@@ -65,11 +65,11 @@ backoff exponencial vía cola de retry.
  class RetryQueue
  class AuditEvent
 
- AlertHook o-- AlertEngine : notifies
- AlertHook *-- AlertRuleMatcher : composes
- AlertHook o-- RetryQueue : uses
- AlertHook ..> AuditEvent : reads
- AlertHook ..> NotifyResult : returns
+ AlertHook "1" o-- "1" AlertEngine : notifies
+ AlertHook "1" *-- "1" AlertRuleMatcher : composes
+ AlertHook "1" o-- "1" RetryQueue : uses
+ AlertHook "1" ..> "0..*" AuditEvent : reads
+ AlertHook "1" ..> "0..*" NotifyResult : returns
  NotifyResult *-- "*" NotifyFailure
 
  note right of AlertHook

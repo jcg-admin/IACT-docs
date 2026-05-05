@@ -61,10 +61,10 @@ el payload sanitizado.
  class ScanReport
  class Match
 
- Sanitizer ..> JSON : transforms
- Sanitizer ..> ScanReport : reads
- Sanitizer ..> Match : tokenizes
- Sanitizer -- TokenizationStrategy
+ Sanitizer "1" ..> "0..*" JSON : transforms
+ Sanitizer "1" ..> "0..*" ScanReport : reads
+ Sanitizer "1" ..> "0..*" Match : tokenizes
+ Sanitizer "*" -- "1" TokenizationStrategy
 
  note right of Sanitizer
    Componente puro: stateless,

@@ -60,8 +60,8 @@ los 17 UCs del cluster RPT.
 
 
 
- Report -- ReportScope
- Report -- ReportState
+ Report "*" -- "1" ReportScope
+ Report "*" -- "1" ReportState
  Report "1" *-- "1..*" Metric            : compone
  Report "1" -- "0..*" ExportJob
  Report "1" -- "0..*" ScheduledReport

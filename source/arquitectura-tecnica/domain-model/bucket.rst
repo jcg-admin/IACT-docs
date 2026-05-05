@@ -53,7 +53,7 @@ embebido.
    + size() : Integer
  }
 
- Bucket *-- KPISet : composes
+ Bucket "1" *-- "1" KPISet : composes
 
  note right of Bucket
    Inmutable. sample_count > 0 garantiza

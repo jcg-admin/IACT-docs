@@ -49,7 +49,7 @@ labels se editan en almacén de configuración, no en código.
  class Function
 
  Action "*" -- "1" Section : belongs_to
- Action ..> Function : references via function_code
+ Action "1" ..> "0..*" Function : references via function_code
 
  note right of Action
    function_code apunta a Function.code,
