@@ -169,8 +169,51 @@ para cierre del WP. Documentar como follow-up.
 
 ## Acciones bloqueantes para cierre WP
 
-1. **Resolver `uc-inc-rpt-01`** (C-02): renombrar archivo
-   eliminando duplicación de prefijo + decidir excepción a R-07.
+1. ~~**Resolver `uc-inc-rpt-01`** (C-02)~~ — **RESUELTO 2026-05-05 23:00**:
+   - Archivo renombrado: `uc-inc-rpt-01-uc-inc-rpt-01-resolver-segmento.rst`
+     → `uc-inc-rpt-01-resolver-segmento.rst`.
+   - Toctree de `reports/index.rst` actualizado (línea 225).
+   - **Excepción formal a R-07** registrada (ver sección abajo).
+
+## Excepción formal a R-07
+
+### R-07 original
+
+> "UC included nunca solo — uc-inc-rpt-01 NO recibirá archivo
+> standalone."
+
+### Decisión: excepción justificada para `uc-inc-rpt-01`
+
+**Resolver Segmento del Usuario** es un UC de inclusión usado por
+los 16 UCs del módulo Reports para determinar el segmento
+operativo del usuario (`SegmentResolver`, CNST-008 isolation).
+Aunque sintácticamente es `<<include>>`-only y nunca se ejecuta
+solo, su **complejidad sustantiva** justifica un diagrama
+standalone:
+
+1. **5+ pasos** de validación (jerarquía de roles, override
+   manual del Auditor, fallback a segmento global).
+2. **3 actores externos** (User, Auditor, SegmentResolver) con
+   semántica diferenciada.
+3. **CNST-008 critical**: errores en este UC propagan
+   isolation-violation a todos los UC_RPT_*.
+4. **Reutilización transversal**: 16 reports lo incluyen — un
+   diagrama standalone evita duplicar la lógica en cada uno.
+
+### Restricciones de la excepción
+
+- El archivo **no aparece** como UC ejecutable en el module
+  index (sigue siendo `<<include>>`-only en uml-07 R-07).
+- El diagrama uml-07 declara explícitamente "UC de inclusion.
+  NO se ejecuta independientemente — incluido por...".
+- Este es **el único** UC `uc-inc-*` con archivo standalone.
+  Otros UCs de inclusión que pudieran surgir deben evaluarse
+  caso por caso con los mismos 4 criterios arriba.
+
+### Status
+
+R-07 se mantiene como regla por defecto. Esta excepción es
+puntual y queda registrada en el WP changelog + lessons-learned.
 
 ## Acciones no bloqueantes (post-cierre)
 

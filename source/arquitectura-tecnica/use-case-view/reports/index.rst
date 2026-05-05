@@ -222,7 +222,7 @@ Diagramas standalone uml-07 por UC (auto-explicativos):
 .. toctree::
  :maxdepth: 1
 
- uc-inc-rpt-01-uc-inc-rpt-01-resolver-segmento
+ uc-inc-rpt-01-resolver-segmento
  uc-rpt-01-ver-dashboard
  uc-rpt-02-ver-metricas-en-tiempo-real
  uc-rpt-03-ver-reportes-historicos
