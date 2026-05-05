@@ -328,11 +328,96 @@ logs (7) → operator (10).
 
 ---
 
+## D-08 — Pivot a Nivel A puro: 53 UCs con contenido real
+
+**Fecha:** 2026-05-05 17:30
+**Contexto:** Tras la generación de los 53 stubs (D-07 Híbrido B+A
+con CI desbloqueado), el ejecutor pidió "generalos completos y con
+calma". Decisión: subir el alcance de la sesión a Nivel A puro.
+
+**Decisión:** Reemplazar los 53 stubs uno a uno con diagramas reales,
+extraídos del spec del UC (informacion-general, actores-precondiciones,
+flujo-principal, excepciones).
+
+**Patrón canónico aplicado** (basado en uc-acc-01):
+
+- `left to right direction`
+- INVOKER actor con función RBAC del UC (P-15 granular)
+- Beneficiarios con stereotype `<<beneficiario>>` (User destino,
+  view_audit_log, etc.)
+- Sistema con stereotype `<<sistema>>` (services, repos, engines)
+- Caller con `<<externo>>` para módulo caller (no autenticado)
+- `rectangle "MOD_<Module>"` con UC principal + sub-usecases
+- Sub-usecases para validaciones, side-effects, audit emit, reload
+- Relaciones: `-->` directo, `..>` con `<<include>>` / `<<extend>>`
+- Notas explicativas con BR-NN, CNST-NN, P-NN
+
+**Patrones cross-MOD identificados:**
+
+- `UC_PERM_NN` (vista PERM) `<<include>>` su `UC_ACC_NN` backing
+  (ADR-GOB-008). Funciones canónicas distintas — assignment_function_
+  groups vs revoke_function_group vs grant_exceptional_permission.
+- `UC_RPT_NN` `<<include>>` `UC_INC_RPT_01` (resolver segmento) en
+  todos los reportes 12-17 — UC de inclusión, no standalone.
+- `UC_OPR_NN` interactuan con `MOD_Alerts` (alerta cuando hold > N
+  seg) y `MOD_Reports` (insumos para UC_RPT_12, UC_RPT_15).
+- `UC_LOG_06` agrega métricas de `UC_PIP_01`, `UC_ALR_02`.
+
+**Total:** 53 diagramas Level A en 6 commits checkpoint:
+
+| Commit | Módulo(s) | UCs |
+|--------|-----------|-----|
+| 449a3f06 | admin + permissions + audit | 10 |
+| f474e6d1 | pipeline + alerts | 9 |
+| fa085e74 | caller + supervision | 8 |
+| 5d6804be | reports | 9 |
+| 7339fb15 | logs | 7 |
+| ec30cd3c | operator | 10 |
+| **TOTAL** | **10 modules** | **53** |
+
+**Verificación:** `find-uc-stubs.sh` retorna 0 (sin stubs pendientes).
+Build limpio final en `sphinx-strict-leveA-final-2026-05-05T17-58-41.log`
+(en progreso al momento de escribir esto).
+
+**Lección registrada:** Cuando el WP tiene scope grande (53 UCs),
+commits checkpoint por módulo son críticos. Permiten:
+
+- Recovery sin perder progreso si build falla a mitad.
+- Verificación incremental del patrón antes de propagarlo.
+- PR review más manejable (~10 archivos por commit vs 53 archivos
+  en uno).
+
+---
+
+## D-09 — Vocabulario interno: ETL en specs vs Pipeline en domain-model
+
+**Fecha:** 2026-05-05 17:35
+**Hallazgo durante D-08:** El sweep CNST-033 §8.2 ETL→Pipeline
+(WP `domain-model-residual-spanish-pass`) renombró domain-model
+correctamente pero NO actualizó las metadata internas de los UC
+specs:
+
+- UC_PIP_01..04: el campo `Funcion RBAC` en `informacion-general.rst`
+  todavía dice `view_etl_supervision`, `view_etl_logs`, etc.
+- La sección `actores-precondiciones.rst` del mismo UC usa la forma
+  rename-compliant `view_pipeline_status`, `view_pipeline_logs`.
+
+**Decisión D-08:** Los diagramas UML usan la forma rename-compliant
+(`view_pipeline_*`) — alineada con CNST-033.
+
+**TD pendiente:** un WP futuro debe sweep las metadata `Funcion RBAC`
+de los UC specs ETL para alinear con CNST-033. Bajo riesgo
+(metadata en docs, no en código), pero rompe consistencia interna.
+
+---
+
 ## Decisiones pendientes
 
-- **D-08 (post-merge PR #14):** orden de revisión de `feature/
+- **D-10 (post-merge PR #14):** orden de revisión de `feature/
   arquitectura-tecnica-content` y `claude/review-project-config-
   V8Fg5`.
-- **TD-NN (track separado):** vocabulario PlantUML interno
-  (ETLScheduler, sp_etl_maestro, /logs/etl/, ETLLogEndpoint) —
-  decidir si CNST-033 §8.2 lo cubre o requiere addendum.
+- **TD-N1:** vocabulario PlantUML interno en uc-log-02
+  (ETLScheduler, sp_etl_maestro, /logs/etl/, ETLLogEndpoint) — del
+  D-06.
+- **TD-N2:** UC specs metadata "Funcion RBAC" desalineada con
+  CNST-033 §8.2 — del D-09.
