@@ -2,14 +2,25 @@
 project: IACT-docs
 work_package: 2026-05-05-14-49-16-use-case-view-uml07-rebuild
 created_at: 2026-05-05 14:49:16
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-05 20:28:12
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+target_completion: scope-deviated
 author: NestorMonroy
 flow: rm
 methodology_step: rm-validation
 predecessor_wp: 2026-05-05-14-30-00-uml07-conformance-deep-analysis
+successor_wp: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 target: Construir 83 diagramas per-UC en use-case-view conforme a uml-07, con nombres auto-explicativos
+target_status: NOT_MET — 0/83 archivos uml-07 standalone creados; sucesor retoma el target.
+auxiliary_delivered: 53 archivos uml-06 en casos-uso/<mod>/<uc>/diagramas-uml/diagrama-de-caso-de-uso.rst con cross-refs a domain-model + CI verde + 2 reglas .claude/rules/.
 ```
+
+> **WP cerrado.** Ver:
+>
+> - `track/use-case-view-uml07-rebuild-lessons-learned.md` (L-01..L-07)
+> - `track/use-case-view-uml07-rebuild-changelog.md`
+> - Sucesor: `2026-05-05-20-28-12-use-case-view-uml07-standalone-pass/`
 
 # WP — Use Case View UML-07 Rebuild
 
