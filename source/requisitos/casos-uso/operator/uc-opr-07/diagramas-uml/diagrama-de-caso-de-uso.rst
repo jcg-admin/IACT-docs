@@ -8,18 +8,42 @@
 
  left to right direction
 
- ' TODO (use-case-view-uml07-rebuild Nivel A): completar
- ' actores (INVOKER + beneficiarios + Sistema), sub-usecases
- ' (validaciones, side-effects, audit emit), relaciones
- ' (`<<include>>`, `<<extend>>`) y notas referenciando BRs/CNSTs.
- ' Ver patron canonico en uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst.
-
- actor "INVOKER" as INVOKER
+ actor "request_break" as INVOKER
+ actor "BreakPolicyRepo" as POLICY <<sistema>>
+ actor "AgentStateRepo" as STATE <<sistema>>
+ actor "AdherenceTracker" as ADHERENCE <<sistema>>
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_07\nSolicitar Break / Pausa" as UC_OPR_07
+   usecase "Validar break_type\n(coffee | lunch | bathroom |\ntraining | meeting)" as VALIDAR_TYPE
+   usecase "Validar quota\n(policy)" as VALIDAR_QUOTA
+   usecase "Transicion estado\na break" as TRANSICIONAR
+   usecase "Iniciar tracker\nde duracion" as TRACK
  }
 
  INVOKER --> UC_OPR_07
+ UC_OPR_07 ..> VALIDAR_TYPE : <<include>>
+ UC_OPR_07 ..> VALIDAR_QUOTA : <<include>>
+ UC_OPR_07 ..> TRANSICIONAR : <<include>>
+ UC_OPR_07 ..> TRACK : <<include>>
+
+ VALIDAR_TYPE --> POLICY
+ VALIDAR_QUOTA --> POLICY
+ TRANSICIONAR --> STATE
+ TRACK --> ADHERENCE
+
+ note bottom of VALIDAR_QUOTA
+   Cada tipo tiene quota diaria
+   (coffee 15min × N, lunch 60min × 1,
+   bathroom 5min × M). Exceeder dispara
+   alerta operativa al supervisor.
+ end note
+
+ note right of POLICY
+   BreakPolicyRepo: configurable
+   por team / segmento. Definido
+   en MOD_Admin (out of scope
+   para operator).
+ end note
 
  @enduml
