@@ -298,6 +298,33 @@ está poblado con 68+ clases. No hay error.
 
 ----
 
+## E-16 (BLOCKER) — Jerarquía de actores viola BR-006 Flat NIST
+
+**Regla violada:** BR-006 RBAC Flat NIST + CNST-005:
+
+> NIST RBAC. NO existe jerarquia de roles.
+> Flat: Sin jerarquia de herencia entre roles.
+
+**Conflicto con uml-07 R-05:** uml-07/comprension-de-los-usuarios.rst recomienda mostrar usuarios en jerarquía de generalización. **Para IACT esta regla NO aplica** — la restricción de dominio (BR-006 + CNST-005) prevalece sobre la recomendación didáctica del libro.
+
+**Instancias detectadas:** 19 usos de `<|--` entre actores en module-level diagrams + panorama + jerarquía. Específicamente:
+
+- `auth/index.rst`: UnauthUser <|-- AuthUser <|-- SystemAdmin
+- `users/index.rst`: User <|-- UserAdmin
+- `access/index.rst`: User <|-- AccessAdmin, Auditor
+- `permissions/index.rst`: idem
+- `pipeline/index.rst`: User <|-- PipelineAdmin, Auditor
+- `reports/index.rst`: Operator <|-- Supervisor
+- `alerts/index.rst`: Operator <|-- Supervisor
+- `panorama-iact.rst`: Operator <|-- Supervisor
+- `jerarquia-actores.rst`: árbol completo (era el caso peor)
+
+**Causa raíz adicional:** "Operator", "Supervisor" son **títulos de RH**, no entidades RBAC. Para IACT importan las **funciones** (codenames atómicos), no los títulos. Un usuario marcado como "Supervisor" simplemente tiene asignados más AGRs (002+003+004+005) que un "Operator" (001) — sin herencia.
+
+**Fix aplicado:** todas las 19 líneas `<|--` removidas de @startuml blocks. `jerarquia-actores.rst` renombrado a `mapa-funciones-rbac.rst` con diagrama función-céntrico (User → AGR → Function, plano).
+
+----
+
 ## Resumen severidad
 
 | ID | Sev | Categoría | Cantidad |

@@ -31,8 +31,6 @@ reportes filtran datos por segmento IVR del usuario vía
  actor Operator
  actor Supervisor
 
- Operator <|-- Supervisor
-
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_01\nVer Dashboard IVR" as VER_DASHBOARD_IVR

@@ -33,8 +33,6 @@ arquitectónica aprobada).
  actor Auditor
 
  actor TargetUser
- User <|-- AccessAdmin
- User <|-- Auditor
 
  rectangle "MOD_Access" {   usecase "UC_ACC_01\nAsignar Funciones\na Usuario\n.. extension points ..\nPermiso temporal excepcional" as UC_ACC_01
    usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as UC_ACC_02
@@ -58,7 +56,6 @@ arquitectónica aprobada).
  UC_ACC_02 --> TargetUser
  UC_ACC_04 --> TargetUser
  UC_ACC_08 --> TargetUser
-
 
  note right of MOD_Access
    Codenames RBAC:

@@ -42,8 +42,6 @@ detallado de su módulo.
  actor "IvrSwitch\n<<system>>" as IvrSwitch
  actor "Caller\n<<external>>" as Caller
 
- Operator <|-- Supervisor
-
  rectangle "IACT" {
    usecase "UC_AUTH_01\nIniciar Sesion" as AUTH01
    usecase "UC_OPR_02\nAtender Llamada" as OPR02
@@ -134,5 +132,5 @@ Lectura del panorama
 
  :doc:`/base-cognitiva/_uml/uml-07-diagramas-casos-uso/profundizacion`
  :doc:`/requisitos/_metodologia-aplicacion/casos-uso-diagramas/ejemplo-iact-diagrama-de-alto-nivel`
- :doc:`jerarquia-actores`
+ :doc:`mapa-funciones-rbac`
  :doc:`index`

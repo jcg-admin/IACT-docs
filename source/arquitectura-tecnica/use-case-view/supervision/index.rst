@@ -47,7 +47,6 @@ Requiere rol ``Supervisor`` (AGR-003 quality_supervisor).
  MONITOREAR --> Operator
  INTERVENIR --> Caller
 
-
  note right of MOD_Supervision
    Codenames RBAC:
      Supervisor (AGR-003) →

@@ -33,9 +33,6 @@ de ejecuciones vive en ``pipeline_runs``.
  actor Auditor
  actor "Scheduler\n<<system>>" as Scheduler
 
- User <|-- PipelineAdmin
- User <|-- Auditor
-
  rectangle "MOD_Pipeline" {   usecase "UC_PIP_01\nVer Estado\nPipeline\n.. extension points ..\nVer errores / Ejecucion automatica" as VER_ESTADO
    usecase "UC_PIP_02\nVer Errores\nPipeline" as VER_ERRORES
    usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as VER_DISPONIBILIDAD

@@ -31,9 +31,6 @@ sesiones activas.
  actor "User\n<<authenticated>>"   as AuthUser
  actor SystemAdmin
 
- UnauthUser <|-- AuthUser
- AuthUser   <|-- SystemAdmin
-
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_01\nIniciar Sesion" as INICIAR_SESION
    usecase "UC_AUTH_02\nCerrar Sesion" as CERRAR_SESION

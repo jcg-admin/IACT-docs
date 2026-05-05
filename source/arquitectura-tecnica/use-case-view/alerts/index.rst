@@ -32,8 +32,6 @@ alertas y por el pipeline.
  actor Supervisor
  actor "AlertEngine\n<<system>>" as AlertEngine
 
- Operator <|-- Supervisor
-
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01   usecase "UC_ALR_02\nVer Alertas Activas\n.. extension points ..\nReconocer / Notificacion automatica" as AL02
    usecase "UC_ALR_03\nReconocer Alerta" as AL03

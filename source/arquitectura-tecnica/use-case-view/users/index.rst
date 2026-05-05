@@ -31,7 +31,6 @@ de usuarios.
  actor UserAdmin
 
  actor TargetUser
- User <|-- UserAdmin
 
  rectangle "MOD_Users" {
    usecase "UC_USR_01\nCrear Usuario" as CREAR_USUARIO
@@ -47,7 +46,6 @@ de usuarios.
  CREAR_USUARIO --> TargetUser
  MODIFICAR_USUARIO --> TargetUser
  ELIMINAR_USUARIO --> TargetUser
-
 
  note right of MOD_Users
    Codenames RBAC:

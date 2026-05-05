@@ -30,7 +30,7 @@ cubiertos en total.
  :caption: Vistas transversales
 
  panorama-iact
- jerarquia-actores
+ mapa-funciones-rbac
 
 .. toctree::
  :maxdepth: 1

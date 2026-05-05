@@ -32,8 +32,6 @@ menú dinámico basado en ``effective_set``.
  actor Auditor
 
  actor TargetUser
- User <|-- AccessAdmin
- User <|-- Auditor
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as ASIGNAR_GRUPO
@@ -70,7 +68,6 @@ menú dinámico basado en ``effective_set``.
  REVOCAR_GRUPO --> TargetUser
  CONCEDER_PERMISO_EXCEPCIONAL --> TargetUser
  REVOCAR_PERMISO_EXCEPCIONAL --> TargetUser
-
 
  note right of MOD_Permissions
    Codenames RBAC:
