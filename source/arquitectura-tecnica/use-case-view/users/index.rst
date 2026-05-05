@@ -30,6 +30,7 @@ de usuarios.
  actor User
  actor UserAdmin
 
+ actor TargetUser
  User <|-- UserAdmin
 
  rectangle "MOD_Users" {
@@ -43,6 +44,10 @@ de usuarios.
  UserAdmin --> CREAR_USUARIO
  UserAdmin --> MODIFICAR_USUARIO
  UserAdmin --> ELIMINAR_USUARIO
+ CREAR_USUARIO --> TargetUser
+ MODIFICAR_USUARIO --> TargetUser
+ ELIMINAR_USUARIO --> TargetUser
+
 
  note right of MOD_Users
    Codenames RBAC:

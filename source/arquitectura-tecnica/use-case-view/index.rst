@@ -27,6 +27,13 @@ cubiertos en total.
 
 .. toctree::
  :maxdepth: 1
+ :caption: Vistas transversales
+
+ panorama-iact
+ jerarquia-actores
+
+.. toctree::
+ :maxdepth: 1
  :caption: Módulos
 
  access/index

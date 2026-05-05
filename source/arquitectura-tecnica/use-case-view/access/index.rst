@@ -32,6 +32,7 @@ arquitectónica aprobada).
  actor AccessAdmin
  actor Auditor
 
+ actor TargetUser
  User <|-- AccessAdmin
  User <|-- Auditor
 
@@ -53,6 +54,11 @@ arquitectónica aprobada).
  Auditor     --> UC_ACC_09
 
  UC_ACC_08 ..> UC_ACC_01 : <<extend>>
+ UC_ACC_01 --> TargetUser
+ UC_ACC_02 --> TargetUser
+ UC_ACC_04 --> TargetUser
+ UC_ACC_08 --> TargetUser
+
 
  note right of MOD_Access
    Codenames RBAC:

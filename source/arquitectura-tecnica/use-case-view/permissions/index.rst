@@ -31,6 +31,7 @@ menú dinámico basado en ``effective_set``.
  actor AccessAdmin
  actor Auditor
 
+ actor TargetUser
  User <|-- AccessAdmin
  User <|-- Auditor
 
@@ -65,6 +66,11 @@ menú dinámico basado en ``effective_set``.
  REVOCAR_PERMISO_EXCEPCIONAL ..> AUDITAR_ACCESO : <<include>>
  ASIGNAR_FUNCIONES_GRUPO ..> AUDITAR_ACCESO : <<include>>
  GENERAR_MENU_DINAMICO ..> VERIFICAR_PERMISO_USUARIO : <<include>>
+ ASIGNAR_GRUPO --> TargetUser
+ REVOCAR_GRUPO --> TargetUser
+ CONCEDER_PERMISO_EXCEPCIONAL --> TargetUser
+ REVOCAR_PERMISO_EXCEPCIONAL --> TargetUser
+
 
  note right of MOD_Permissions
    Codenames RBAC:

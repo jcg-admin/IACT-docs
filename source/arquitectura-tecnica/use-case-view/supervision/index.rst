@@ -30,6 +30,7 @@ Requiere rol ``Supervisor`` (AGR-003 quality_supervisor).
  actor Supervisor
  actor Operator
 
+ actor Caller
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as MONITOREAR
    usecase "UC_SUP_02\nIntervenir en\nLlamada (barge in)" as INTERVENIR
@@ -43,6 +44,9 @@ Requiere rol ``Supervisor`` (AGR-003 quality_supervisor).
  ENVIAR_MENSAJE --> Operator
 
  INTERVENIR ..> MONITOREAR : <<include>>
+ MONITOREAR --> Operator
+ INTERVENIR --> Caller
+
 
  note right of MOD_Supervision
    Codenames RBAC:
