@@ -104,21 +104,50 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/campaign` — Campaign (UC_OPR_03 outbound).
 - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` — InternalMailbox (UC_OPR_10).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-opr-01/index
- uc-opr-02/index
- uc-opr-03/index
- uc-opr-04/index
- uc-opr-05/index
- uc-opr-06/index
- uc-opr-07/index
- uc-opr-08/index
- uc-opr-09/index
- uc-opr-10/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_OPR_01 </requisitos/casos-uso/operator/uc-opr-01/index>`
+   - Cambiar Estado del Agente
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_02 </requisitos/casos-uso/operator/uc-opr-02/index>`
+   - Atender Llamada Entrante
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_03 </requisitos/casos-uso/operator/uc-opr-03/index>`
+   - Realizar Llamada Saliente
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_04 </requisitos/casos-uso/operator/uc-opr-04/index>`
+   - Hold / Unhold Llamada
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_05 </requisitos/casos-uso/operator/uc-opr-05/index>`
+   - Transferir Llamada
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-05/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_06 </requisitos/casos-uso/operator/uc-opr-06/index>`
+   - Ingresar Disposition
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-06/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_07 </requisitos/casos-uso/operator/uc-opr-07/index>`
+   - Solicitar Break / Pausa
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-07/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_08 </requisitos/casos-uso/operator/uc-opr-08/index>`
+   - Ver Propio Dashboard
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-08/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_09 </requisitos/casos-uso/operator/uc-opr-09/index>`
+   - Ver Propio Historial de Llamadas
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-09/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_OPR_10 </requisitos/casos-uso/operator/uc-opr-10/index>`
+   - Recibir Notificacion Supervisor
+   - :doc:`Diagrama </requisitos/casos-uso/operator/uc-opr-10/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

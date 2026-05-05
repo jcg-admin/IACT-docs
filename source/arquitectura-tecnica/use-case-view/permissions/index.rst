@@ -113,21 +113,50 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/menu` — Menu (UC_PERM_08).
 - :doc:`/arquitectura-tecnica/domain-model/nav-domain` — NavDomain.
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-perm-01/index
- uc-perm-02/index
- uc-perm-03/index
- uc-perm-04/index
- uc-perm-05/index
- uc-perm-06/index
- uc-perm-07/index
- uc-perm-08/index
- uc-perm-09/index
- uc-perm-10/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_PERM_01 </requisitos/casos-uso/permissions/uc-perm-01/index>`
+   - Asignar Grupo a Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_02 </requisitos/casos-uso/permissions/uc-perm-02/index>`
+   - Revocar Grupo a Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_03 </requisitos/casos-uso/permissions/uc-perm-03/index>`
+   - Conceder Permiso Excepcional
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_04 </requisitos/casos-uso/permissions/uc-perm-04/index>`
+   - Revocar Permiso Excepcional
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_05 </requisitos/casos-uso/permissions/uc-perm-05/index>`
+   - Crear Grupo de Permisos
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-05/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_06 </requisitos/casos-uso/permissions/uc-perm-06/index>`
+   - Asignar Funciones a Grupo
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-06/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_07 </requisitos/casos-uso/permissions/uc-perm-07/index>`
+   - Verificar Permiso de Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_08 </requisitos/casos-uso/permissions/uc-perm-08/index>`
+   - Generar Menu Dinamico
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-08/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_09 </requisitos/casos-uso/permissions/uc-perm-09/index>`
+   - Auditar Acceso (write side)
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-09/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PERM_10 </requisitos/casos-uso/permissions/uc-perm-10/index>`
+   - Consultar Auditoria de Permisos
+   - :doc:`Diagrama </requisitos/casos-uso/permissions/uc-perm-10/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

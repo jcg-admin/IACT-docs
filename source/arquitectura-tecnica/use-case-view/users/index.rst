@@ -76,15 +76,32 @@ Las clases canónicas que materializan estos UCs viven en
 
 - :doc:`/arquitectura-tecnica/domain-model/user` — User entity (CRUD CNST + BR-009 baja lógica).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-usr-01/index
- uc-usr-02/index
- uc-usr-03/index
- uc-usr-04/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_USR_01 </requisitos/casos-uso/users/uc-usr-01/index>`
+   - Crear Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/users/uc-usr-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_USR_02 </requisitos/casos-uso/users/uc-usr-02/index>`
+   - Consultar Usuarios
+   - :doc:`Diagrama </requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_USR_03 </requisitos/casos-uso/users/uc-usr-03/index>`
+   - Modificar Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_USR_04 </requisitos/casos-uso/users/uc-usr-04/index>`
+   - Eliminar Usuario
+   - :doc:`Diagrama </requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

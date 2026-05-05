@@ -30,9 +30,7 @@ escritura. Append-only por CNST-025.
 
  actor Auditor
 
- rectangle "MOD_Audit" {
-   usecase "UC_AUD_01\nVer Auditoria\nGeneral" as VER_AUDITORIA
-   usecase "UC_AUD_02\nBuscar en\nAuditoria" as BUSCAR_AUDITORIA
+ rectangle "MOD_Audit" {   usecase "UC_AUD_01\nVer Auditoria\nGeneral\n.. extension points ..\nBuscar" as VER_AUDITORIA   usecase "UC_AUD_02\nBuscar en\nAuditoria\n.. extension points ..\nExportar" as BUSCAR_AUDITORIA
    usecase "UC_AUD_03\nExportar\nAuditoria" as EXPORTAR_AUDITORIA
    usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as REPORTE_COMPLIANCE
  }
@@ -42,8 +40,8 @@ escritura. Append-only por CNST-025.
  Auditor --> EXPORTAR_AUDITORIA
  Auditor --> REPORTE_COMPLIANCE
 
- VER_AUDITORIA ..> BUSCAR_AUDITORIA : <<extend>>
- BUSCAR_AUDITORIA ..> EXPORTAR_AUDITORIA : <<extend>>
+ BUSCAR_AUDITORIA ..> VER_AUDITORIA : <<extend>>
+ EXPORTAR_AUDITORIA ..> BUSCAR_AUDITORIA : <<extend>>
  REPORTE_COMPLIANCE ..> BUSCAR_AUDITORIA : <<include>>
 
  note right of MOD_Audit
@@ -89,15 +87,32 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` — CursorEncoder (paginación).
 - :doc:`/arquitectura-tecnica/domain-model/export-worker` — ExportWorker (UC_AUD_03).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-aud-01/index
- uc-aud-02/index
- uc-aud-03/index
- uc-aud-04/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_AUD_01 </requisitos/casos-uso/audit/uc-aud-01/index>`
+   - Consultar Auditoria General
+   - :doc:`Diagrama </requisitos/casos-uso/audit/uc-aud-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUD_02 </requisitos/casos-uso/audit/uc-aud-02/index>`
+   - Buscar Auditoria
+   - :doc:`Diagrama </requisitos/casos-uso/audit/uc-aud-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUD_03 </requisitos/casos-uso/audit/uc-aud-03/index>`
+   - Exportar Auditoria
+   - :doc:`Diagrama </requisitos/casos-uso/audit/uc-aud-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUD_04 </requisitos/casos-uso/audit/uc-aud-04/index>`
+   - Generar Reporte de Compliance
+   - :doc:`Diagrama </requisitos/casos-uso/audit/uc-aud-04/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

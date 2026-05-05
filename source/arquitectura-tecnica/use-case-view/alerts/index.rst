@@ -35,8 +35,7 @@ alertas y por el pipeline.
  Operator <|-- Supervisor
 
  rectangle "MOD_Alerts" {
-   usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01
-   usecase "UC_ALR_02\nVer Alertas Activas" as AL02
+   usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01   usecase "UC_ALR_02\nVer Alertas Activas\n.. extension points ..\nReconocer / Notificacion automatica" as AL02
    usecase "UC_ALR_03\nReconocer Alerta" as AL03
    usecase "UC_ALR_04\nVer Historial\nde Alertas" as AL04
    usecase "UC_ALR_05\nNotificacion\nAutomatica" as AL05
@@ -50,8 +49,8 @@ alertas y por el pipeline.
  AlertEngine --> AL05
  AlertEngine --> GEN_ALERTA
 
- AL02 ..> AL03 : <<extend>>
- AL05 ..> AL02 : <<extend>>
+ AL03 ..> AL02 : <<extend>>
+ AL02 ..> AL05 : <<extend>>
  AL01 ..> GEN_ALERTA : <<include>>
 
  note right of MOD_Alerts
@@ -96,16 +95,35 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/threshold` — Threshold.
 - :doc:`/arquitectura-tecnica/domain-model/subscription` — Subscription.
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-alr-01/index
- uc-alr-02/index
- uc-alr-03/index
- uc-alr-04/index
- uc-alr-05/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_ALR_01 </requisitos/casos-uso/alerts/uc-alr-01/index>`
+   - Configurar Umbrales de Alertas
+   - :doc:`Diagrama </requisitos/casos-uso/alerts/uc-alr-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ALR_02 </requisitos/casos-uso/alerts/uc-alr-02/index>`
+   - Ver Alertas Activas
+   - :doc:`Diagrama </requisitos/casos-uso/alerts/uc-alr-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ALR_03 </requisitos/casos-uso/alerts/uc-alr-03/index>`
+   - Reconocer Alerta
+   - :doc:`Diagrama </requisitos/casos-uso/alerts/uc-alr-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ALR_04 </requisitos/casos-uso/alerts/uc-alr-04/index>`
+   - Ver Historial de Alertas
+   - :doc:`Diagrama </requisitos/casos-uso/alerts/uc-alr-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ALR_05 </requisitos/casos-uso/alerts/uc-alr-05/index>`
+   - Gestionar Suscripciones
+   - :doc:`Diagrama </requisitos/casos-uso/alerts/uc-alr-05/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

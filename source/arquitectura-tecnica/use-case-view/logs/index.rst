@@ -33,10 +33,7 @@ de log puede ver cada usuario.
  actor Auditor
  actor PipelineAdmin
 
- rectangle "MOD_Logs" {
-   usecase "UC_LOG_01\nVer Logs\ndel Sistema" as VER_LOGS_SISTEMA
-   usecase "UC_LOG_02\nVer Logs Pipeline" as VER_LOGS_PIPELINE
-   usecase "UC_LOG_03\nBuscar Logs" as BUSCAR_LOGS
+ rectangle "MOD_Logs" {   usecase "UC_LOG_01\nVer Logs\ndel Sistema\n.. extension points ..\nBuscar" as VER_LOGS_SISTEMA   usecase "UC_LOG_02\nVer Logs Pipeline\n.. extension points ..\nBuscar" as VER_LOGS_PIPELINE   usecase "UC_LOG_03\nBuscar Logs\n.. extension points ..\nExportar" as BUSCAR_LOGS
    usecase "UC_LOG_04\nExportar Logs" as EXPORTAR_LOGS
    usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as VER_LOGS_INFRAESTRUCTURA
    usecase "UC_LOG_06\nVer Estado\ndel Sistema" as VER_ESTADO_SISTEMA
@@ -54,9 +51,9 @@ de log puede ver cada usuario.
 
  PipelineAdmin --> VER_LOGS_PIPELINE
 
- VER_LOGS_SISTEMA ..> BUSCAR_LOGS : <<extend>>
- VER_LOGS_PIPELINE ..> BUSCAR_LOGS : <<extend>>
- BUSCAR_LOGS ..> EXPORTAR_LOGS : <<extend>>
+ BUSCAR_LOGS ..> VER_LOGS_SISTEMA : <<extend>>
+ BUSCAR_LOGS ..> VER_LOGS_PIPELINE : <<extend>>
+ EXPORTAR_LOGS ..> BUSCAR_LOGS : <<extend>>
 
  note right of MOD_Logs
    Codenames RBAC:
@@ -102,18 +99,41 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/system-health` — SystemHealth (UC_LOG_06).
 - :doc:`/arquitectura-tecnica/domain-model/technical-metric` — TechnicalMetric (UC_LOG_07).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-log-01/index
- uc-log-02/index
- uc-log-03/index
- uc-log-04/index
- uc-log-05/index
- uc-log-06/index
- uc-log-07/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_LOG_01 </requisitos/casos-uso/logs/uc-log-01/index>`
+   - Consultar Logs del Sistema
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_02 </requisitos/casos-uso/logs/uc-log-02/index>`
+   - Consultar Logs del ETL
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_03 </requisitos/casos-uso/logs/uc-log-03/index>`
+   - Buscar Logs
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_04 </requisitos/casos-uso/logs/uc-log-04/index>`
+   - Exportar Logs
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_05 </requisitos/casos-uso/logs/uc-log-05/index>`
+   - Ver Logs de Infraestructura
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-05/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_06 </requisitos/casos-uso/logs/uc-log-06/index>`
+   - Ver Estado del Sistema
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-06/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_LOG_07 </requisitos/casos-uso/logs/uc-log-07/index>`
+   - Ver Metricas Tecnicas
+   - :doc:`Diagrama </requisitos/casos-uso/logs/uc-log-07/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

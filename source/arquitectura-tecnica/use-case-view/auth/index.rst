@@ -92,16 +92,35 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/permission-service` — PermissionService (UC_PERM_07 include).
 - :doc:`/arquitectura-tecnica/domain-model/permission-cache` — PermissionCache.
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-auth-01/index
- uc-auth-02/index
- uc-auth-03/index
- uc-auth-04/index
- uc-auth-05/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_AUTH_01 </requisitos/casos-uso/auth/uc-auth-01/index>`
+   - Iniciar Sesion
+   - :doc:`Diagrama </requisitos/casos-uso/auth/uc-auth-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUTH_02 </requisitos/casos-uso/auth/uc-auth-02/index>`
+   - Cerrar Sesion
+   - :doc:`Diagrama </requisitos/casos-uso/auth/uc-auth-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUTH_03 </requisitos/casos-uso/auth/uc-auth-03/index>`
+   - Recuperar Contrasena
+   - :doc:`Diagrama </requisitos/casos-uso/auth/uc-auth-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUTH_04 </requisitos/casos-uso/auth/uc-auth-04/index>`
+   - Cambiar Contrasena
+   - :doc:`Diagrama </requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_AUTH_05 </requisitos/casos-uso/auth/uc-auth-05/index>`
+   - Gestionar Sesiones
+   - :doc:`Diagrama </requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

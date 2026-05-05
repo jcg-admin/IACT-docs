@@ -170,14 +170,29 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ADM_01).
 - :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (toda escritura emite evento).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-adm-01/index
- uc-adm-02/index
- uc-adm-03/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_ADM_01 </requisitos/casos-uso/admin/uc-adm-01/index>`
+   - uc-adm-01
+   - :doc:`Diagrama </requisitos/casos-uso/admin/uc-adm-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ADM_02 </requisitos/casos-uso/admin/uc-adm-02/index>`
+   - uc-adm-02
+   - :doc:`Diagrama </requisitos/casos-uso/admin/uc-adm-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ADM_03 </requisitos/casos-uso/admin/uc-adm-03/index>`
+   - uc-adm-03
+   - :doc:`Diagrama </requisitos/casos-uso/admin/uc-adm-03/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

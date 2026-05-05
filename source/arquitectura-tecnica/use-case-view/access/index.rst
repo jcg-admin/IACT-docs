@@ -35,8 +35,7 @@ arquitectónica aprobada).
  User <|-- AccessAdmin
  User <|-- Auditor
 
- rectangle "MOD_Access" {
-   usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as UC_ACC_01
+ rectangle "MOD_Access" {   usecase "UC_ACC_01\nAsignar Funciones\na Usuario\n.. extension points ..\nPermiso temporal excepcional" as UC_ACC_01
    usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as UC_ACC_02
    usecase "UC_ACC_03\nConsultar Permisos\nEfectivos" as UC_ACC_03
    usecase "UC_ACC_04\nAsignar Agrupador\na Usuario" as UC_ACC_04
@@ -96,18 +95,41 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ACC_05).
 - :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (UC_ACC_09).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-acc-01/index
- uc-acc-02/index
- uc-acc-03/index
- uc-acc-04/index
- uc-acc-05/index
- uc-acc-08/index
- uc-acc-09/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_ACC_01 </requisitos/casos-uso/access/uc-acc-01/index>`
+   - Asignar Funciones
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_02 </requisitos/casos-uso/access/uc-acc-02/index>`
+   - Revocar Funciones
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_03 </requisitos/casos-uso/access/uc-acc-03/index>`
+   - Consultar Permisos Efectivos
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_04 </requisitos/casos-uso/access/uc-acc-04/index>`
+   - Asignar Agrupador
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_05 </requisitos/casos-uso/access/uc-acc-05/index>`
+   - Gestionar Reglas SoD
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_08 </requisitos/casos-uso/access/uc-acc-08/index>`
+   - Permiso Temporal
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-08/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_ACC_09 </requisitos/casos-uso/access/uc-acc-09/index>`
+   - Auditar Cambios Acceso
+   - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-09/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

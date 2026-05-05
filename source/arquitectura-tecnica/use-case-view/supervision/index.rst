@@ -78,14 +78,29 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/call` — Call (UC_SUP_01 monitoreo).
 - :doc:`/arquitectura-tecnica/domain-model/user` — User (operador receptor de UC_SUP_03).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-sup-01/index
- uc-sup-02/index
- uc-sup-03/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_SUP_01 </requisitos/casos-uso/supervision/uc-sup-01/index>`
+   - Monitorear Llamada (Whisper)
+   - :doc:`Diagrama </requisitos/casos-uso/supervision/uc-sup-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_SUP_02 </requisitos/casos-uso/supervision/uc-sup-02/index>`
+   - Barge-in en Llamada
+   - :doc:`Diagrama </requisitos/casos-uso/supervision/uc-sup-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_SUP_03 </requisitos/casos-uso/supervision/uc-sup-03/index>`
+   - Mensaje Broadcast al Equipo
+   - :doc:`Diagrama </requisitos/casos-uso/supervision/uc-sup-03/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

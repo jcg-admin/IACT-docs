@@ -31,9 +31,7 @@ callback y responder encuesta CSAT post-llamada.
  actor "IvrSwitch\n<<system>>"    as IvrSwitch
 
  rectangle "MOD_Caller" {
-   usecase "UC_CLI_01\nLlamar al\nSistema IVR" as LLAMAR_SISTEMA_IVR
-   usecase "UC_CLI_02\nNavegar Menu\nIVR" as NAVEGAR_MENU_IVR
-   usecase "UC_CLI_03\nEsperar en Cola\nde Atencion" as ESPERAR_COLA
+   usecase "UC_CLI_01\nLlamar al\nSistema IVR" as LLAMAR_SISTEMA_IVR   usecase "UC_CLI_02\nNavegar Menu\nIVR\n.. extension points ..\nEsperar en cola" as NAVEGAR_MENU_IVR   usecase "UC_CLI_03\nEsperar en Cola\nde Atencion\n.. extension points ..\nRecibir callback" as ESPERAR_COLA
    usecase "UC_CLI_04\nRecibir\nCallback" as RECIBIR_CALLBACK
    usecase "UC_CLI_05\nResponder Encuesta\nCSAT post-llamada" as RESPONDER_ENCUESTA_CSAT
  }
@@ -48,8 +46,8 @@ callback y responder encuesta CSAT post-llamada.
  RECIBIR_CALLBACK   <-- IvrSwitch
 
  LLAMAR_SISTEMA_IVR ..> NAVEGAR_MENU_IVR : <<include>>
- NAVEGAR_MENU_IVR ..> ESPERAR_COLA : <<extend>>
- ESPERAR_COLA ..> RECIBIR_CALLBACK : <<extend>>
+ ESPERAR_COLA ..> NAVEGAR_MENU_IVR : <<extend>>
+ RECIBIR_CALLBACK ..> ESPERAR_COLA : <<extend>>
  RESPONDER_ENCUESTA_CSAT ..> LLAMAR_SISTEMA_IVR : <<include>>
 
  note right of MOD_Caller
@@ -88,16 +86,35 @@ Las clases canónicas que materializan estos UCs viven en
 
 - :doc:`/arquitectura-tecnica/domain-model/call` — Call (entidad creada al atender).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-cli-01/index
- uc-cli-02/index
- uc-cli-03/index
- uc-cli-04/index
- uc-cli-05/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_CLI_01 </requisitos/casos-uso/caller/uc-cli-01/index>`
+   - Iniciar Llamada al Call Center
+   - :doc:`Diagrama </requisitos/casos-uso/caller/uc-cli-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_CLI_02 </requisitos/casos-uso/caller/uc-cli-02/index>`
+   - Navegar IVR
+   - :doc:`Diagrama </requisitos/casos-uso/caller/uc-cli-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_CLI_03 </requisitos/casos-uso/caller/uc-cli-03/index>`
+   - Esperar en Cola
+   - :doc:`Diagrama </requisitos/casos-uso/caller/uc-cli-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_CLI_04 </requisitos/casos-uso/caller/uc-cli-04/index>`
+   - Solicitar Callback
+   - :doc:`Diagrama </requisitos/casos-uso/caller/uc-cli-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_CLI_05 </requisitos/casos-uso/caller/uc-cli-05/index>`
+   - Calificar Atencion (Post-Call)
+   - :doc:`Diagrama </requisitos/casos-uso/caller/uc-cli-05/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

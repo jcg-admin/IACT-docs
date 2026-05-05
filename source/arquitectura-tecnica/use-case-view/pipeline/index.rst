@@ -36,8 +36,7 @@ de ejecuciones vive en ``pipeline_runs``.
  User <|-- PipelineAdmin
  User <|-- Auditor
 
- rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_01\nVer Estado\nPipeline" as VER_ESTADO
+ rectangle "MOD_Pipeline" {   usecase "UC_PIP_01\nVer Estado\nPipeline\n.. extension points ..\nVer errores / Ejecucion automatica" as VER_ESTADO
    usecase "UC_PIP_02\nVer Errores\nPipeline" as VER_ERRORES
    usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as VER_DISPONIBILIDAD
    usecase "UC_PIP_04\nReintentar Pipeline" as REINTENTAR
@@ -51,9 +50,9 @@ de ejecuciones vive en ``pipeline_runs``.
  Auditor       --> VER_ESTADO
  Scheduler     --> EJECUCION_AUTO
 
- VER_ESTADO ..> VER_ERRORES : <<extend>>
+ VER_ERRORES ..> VER_ESTADO : <<extend>>
  REINTENTAR ..> VER_ESTADO : <<include>>
- EJECUCION_AUTO ..> VER_ESTADO : <<extend>>
+ VER_ESTADO ..> EJECUCION_AUTO : <<extend>>
 
  note right of MOD_Pipeline
    Codenames RBAC:
@@ -93,15 +92,32 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` — PipelineExecution (UC_PIP_01/04).
 - :doc:`/arquitectura-tecnica/domain-model/pipeline-log` — PipelineLog (registro de ejecución).
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-pip-01/index
- uc-pip-02/index
- uc-pip-03/index
- uc-pip-04/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_PIP_01 </requisitos/casos-uso/pipeline/uc-pip-01/index>`
+   - Supervisar ETL
+   - :doc:`Diagrama </requisitos/casos-uso/pipeline/uc-pip-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PIP_02 </requisitos/casos-uso/pipeline/uc-pip-02/index>`
+   - Consultar Errores ETL
+   - :doc:`Diagrama </requisitos/casos-uso/pipeline/uc-pip-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PIP_03 </requisitos/casos-uso/pipeline/uc-pip-03/index>`
+   - Consultar Disponibilidad de Datos
+   - :doc:`Diagrama </requisitos/casos-uso/pipeline/uc-pip-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PIP_04 </requisitos/casos-uso/pipeline/uc-pip-04/index>`
+   - Solicitar Reintento de Pipeline
+   - :doc:`Diagrama </requisitos/casos-uso/pipeline/uc-pip-04/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 

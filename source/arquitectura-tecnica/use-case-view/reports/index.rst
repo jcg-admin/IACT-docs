@@ -36,8 +36,7 @@ reportes filtran datos por segmento IVR del usuario vía
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_01\nVer Dashboard IVR" as VER_DASHBOARD_IVR
-   usecase "UC_RPT_02\nVer Metricas\nTiempo Real" as VER_METRICAS_TIEMPO_REAL
-   usecase "UC_RPT_03\nVer Reportes\nHistoricos" as VER_REPORTES_HISTORICOS
+   usecase "UC_RPT_02\nVer Metricas\nTiempo Real" as VER_METRICAS_TIEMPO_REAL   usecase "UC_RPT_03\nVer Reportes\nHistoricos\n.. extension points ..\nExportar / Programar / Filtrar" as VER_REPORTES_HISTORICOS
    usecase "UC_RPT_04\nExportar Reporte" as EXPORTAR_REPORTE
    usecase "UC_RPT_07\nProgramar Reporte" as PROGRAMAR_REPORTE
    usecase "UC_RPT_08\nVer Reportes\nProgramados" as VER_REPORTES_PROGRAMADOS
@@ -79,9 +78,9 @@ reportes filtran datos por segmento IVR del usuario vía
  REPORTE_MENUS_IVR ..> INC : <<include>>
  REPORTE_CLIENTES_UNICOS ..> INC : <<include>>
 
- VER_REPORTES_HISTORICOS ..> EXPORTAR_REPORTE : <<extend>>
- VER_REPORTES_HISTORICOS ..> PROGRAMAR_REPORTE : <<extend>>
- VER_REPORTES_HISTORICOS ..> CONFIGURAR_FILTROS : <<extend>>
+ EXPORTAR_REPORTE ..> VER_REPORTES_HISTORICOS : <<extend>>
+ PROGRAMAR_REPORTE ..> VER_REPORTES_HISTORICOS : <<extend>>
+ CONFIGURAR_FILTROS ..> VER_REPORTES_HISTORICOS : <<extend>>
 
  note right of MOD_Reports
    Codenames RBAC requeridos:
@@ -148,27 +147,68 @@ Las clases canónicas que materializan estos UCs viven en
   / :doc:`/arquitectura-tecnica/domain-model/column-catalog`.
 - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo`.
 
+Casos de uso del módulo
+=========================
 
-.. toctree::
- :maxdepth: 1
- :caption: Casos de uso del módulo
+Cada UC tiene su especificación textual completa y su diagrama
+individual (con `<<include>>` y `<<extend>>` per uml-07) en
+``source/requisitos/casos-uso/``:
 
- uc-inc-rpt-01/index
- uc-rpt-01/index
- uc-rpt-02/index
- uc-rpt-03/index
- uc-rpt-04/index
- uc-rpt-07/index
- uc-rpt-08/index
- uc-rpt-09/index
- uc-rpt-10/index
- uc-rpt-11/index
- uc-rpt-12/index
- uc-rpt-13/index
- uc-rpt-14/index
- uc-rpt-15/index
- uc-rpt-16/index
- uc-rpt-17/index
+.. list-table::
+ :header-rows: 1
+ :widths: 20 50 30
+
+ * - UC
+   - Nombre
+   - Diagrama
+ * - :doc:`UC_INC_RPT_01 </requisitos/casos-uso/reports/uc-inc-rpt-01/index>`
+   - UC_INC_RPT_01 — Resolver Segmento
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-inc-rpt-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_01 </requisitos/casos-uso/reports/uc-rpt-01/index>`
+   - Ver Dashboard
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-01/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_02 </requisitos/casos-uso/reports/uc-rpt-02/index>`
+   - Ver Metricas en Tiempo Real
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-02/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_03 </requisitos/casos-uso/reports/uc-rpt-03/index>`
+   - Ver Reportes Historicos
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-03/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_04 </requisitos/casos-uso/reports/uc-rpt-04/index>`
+   - Exportar Reporte
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_07 </requisitos/casos-uso/reports/uc-rpt-07/index>`
+   - Programar Reporte
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-07/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_08 </requisitos/casos-uso/reports/uc-rpt-08/index>`
+   - Ver Reportes Programados
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-08/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_09 </requisitos/casos-uso/reports/uc-rpt-09/index>`
+   - Configurar Filtros
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-09/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_10 </requisitos/casos-uso/reports/uc-rpt-10/index>`
+   - Guardar Vista
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-10/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_11 </requisitos/casos-uso/reports/uc-rpt-11/index>`
+   - Compartir Reporte
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-11/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_12 </requisitos/casos-uso/reports/uc-rpt-12/index>`
+   - Reporte de Agentes
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-12/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_13 </requisitos/casos-uso/reports/uc-rpt-13/index>`
+   - Reporte de Colas
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-13/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_14 </requisitos/casos-uso/reports/uc-rpt-14/index>`
+   - Reporte de Campanas
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-14/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_15 </requisitos/casos-uso/reports/uc-rpt-15/index>`
+   - Reporte de Transferencias
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-15/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_16 </requisitos/casos-uso/reports/uc-rpt-16/index>`
+   - Reporte de Menus IVR
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-16/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_RPT_17 </requisitos/casos-uso/reports/uc-rpt-17/index>`
+   - Reporte de Clientes Unicos
+   - :doc:`Diagrama </requisitos/casos-uso/reports/uc-rpt-17/diagramas-uml/diagrama-de-caso-de-uso>`
 
 .. seealso::
 
