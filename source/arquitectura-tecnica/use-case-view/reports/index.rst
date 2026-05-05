@@ -148,6 +148,28 @@ Las clases canónicas que materializan estos UCs viven en
   / :doc:`/arquitectura-tecnica/domain-model/column-catalog`.
 - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo`.
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-inc-rpt-01/index
+ uc-rpt-01/index
+ uc-rpt-02/index
+ uc-rpt-03/index
+ uc-rpt-04/index
+ uc-rpt-07/index
+ uc-rpt-08/index
+ uc-rpt-09/index
+ uc-rpt-10/index
+ uc-rpt-11/index
+ uc-rpt-12/index
+ uc-rpt-13/index
+ uc-rpt-14/index
+ uc-rpt-15/index
+ uc-rpt-16/index
+ uc-rpt-17/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -96,6 +96,19 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ACC_05).
 - :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (UC_ACC_09).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-acc-01/index
+ uc-acc-02/index
+ uc-acc-03/index
+ uc-acc-04/index
+ uc-acc-05/index
+ uc-acc-08/index
+ uc-acc-09/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

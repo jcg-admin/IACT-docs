@@ -78,6 +78,15 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/call` — Call (UC_SUP_01 monitoreo).
 - :doc:`/arquitectura-tecnica/domain-model/user` — User (operador receptor de UC_SUP_03).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-sup-01/index
+ uc-sup-02/index
+ uc-sup-03/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -92,6 +92,17 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/permission-service` — PermissionService (UC_PERM_07 include).
 - :doc:`/arquitectura-tecnica/domain-model/permission-cache` — PermissionCache.
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-auth-01/index
+ uc-auth-02/index
+ uc-auth-03/index
+ uc-auth-04/index
+ uc-auth-05/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -113,6 +113,22 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/menu` — Menu (UC_PERM_08).
 - :doc:`/arquitectura-tecnica/domain-model/nav-domain` — NavDomain.
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-perm-01/index
+ uc-perm-02/index
+ uc-perm-03/index
+ uc-perm-04/index
+ uc-perm-05/index
+ uc-perm-06/index
+ uc-perm-07/index
+ uc-perm-08/index
+ uc-perm-09/index
+ uc-perm-10/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

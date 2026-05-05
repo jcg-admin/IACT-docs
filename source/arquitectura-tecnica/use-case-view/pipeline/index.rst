@@ -93,6 +93,16 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution` — PipelineExecution (UC_PIP_01/04).
 - :doc:`/arquitectura-tecnica/domain-model/pipeline-log` — PipelineLog (registro de ejecución).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-pip-01/index
+ uc-pip-02/index
+ uc-pip-03/index
+ uc-pip-04/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

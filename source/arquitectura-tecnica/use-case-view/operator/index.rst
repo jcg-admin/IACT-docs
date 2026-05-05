@@ -104,6 +104,22 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/campaign` — Campaign (UC_OPR_03 outbound).
 - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` — InternalMailbox (UC_OPR_10).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-opr-01/index
+ uc-opr-02/index
+ uc-opr-03/index
+ uc-opr-04/index
+ uc-opr-05/index
+ uc-opr-06/index
+ uc-opr-07/index
+ uc-opr-08/index
+ uc-opr-09/index
+ uc-opr-10/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

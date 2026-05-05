@@ -88,6 +88,17 @@ Las clases canónicas que materializan estos UCs viven en
 
 - :doc:`/arquitectura-tecnica/domain-model/call` — Call (entidad creada al atender).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-cli-01/index
+ uc-cli-02/index
+ uc-cli-03/index
+ uc-cli-04/index
+ uc-cli-05/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

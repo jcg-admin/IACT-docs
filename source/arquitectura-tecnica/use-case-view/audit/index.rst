@@ -89,6 +89,16 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder` — CursorEncoder (paginación).
 - :doc:`/arquitectura-tecnica/domain-model/export-worker` — ExportWorker (UC_AUD_03).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-aud-01/index
+ uc-aud-02/index
+ uc-aud-03/index
+ uc-aud-04/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

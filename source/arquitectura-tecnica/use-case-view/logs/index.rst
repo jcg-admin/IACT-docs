@@ -102,6 +102,19 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/system-health` — SystemHealth (UC_LOG_06).
 - :doc:`/arquitectura-tecnica/domain-model/technical-metric` — TechnicalMetric (UC_LOG_07).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-log-01/index
+ uc-log-02/index
+ uc-log-03/index
+ uc-log-04/index
+ uc-log-05/index
+ uc-log-06/index
+ uc-log-07/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

@@ -76,6 +76,16 @@ Las clases canónicas que materializan estos UCs viven en
 
 - :doc:`/arquitectura-tecnica/domain-model/user` — User entity (CRUD CNST + BR-009 baja lógica).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-usr-01/index
+ uc-usr-02/index
+ uc-usr-03/index
+ uc-usr-04/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

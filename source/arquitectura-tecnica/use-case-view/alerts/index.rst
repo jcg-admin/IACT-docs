@@ -96,6 +96,17 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/threshold` — Threshold.
 - :doc:`/arquitectura-tecnica/domain-model/subscription` — Subscription.
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-alr-01/index
+ uc-alr-02/index
+ uc-alr-03/index
+ uc-alr-04/index
+ uc-alr-05/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`

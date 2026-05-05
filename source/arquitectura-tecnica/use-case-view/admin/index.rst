@@ -170,6 +170,15 @@ Las clases canónicas que materializan estos UCs viven en
 - :doc:`/arquitectura-tecnica/domain-model/separation-rule` — SeparationRule (UC_ADM_01).
 - :doc:`/arquitectura-tecnica/domain-model/audit-event` — AuditEvent (toda escritura emite evento).
 
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Casos de uso del módulo
+
+ uc-adm-01/index
+ uc-adm-02/index
+ uc-adm-03/index
+
 .. seealso::
 
  :doc:`/requisitos/casos-uso/index`
