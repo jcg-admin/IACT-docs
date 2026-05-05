@@ -61,6 +61,7 @@ arquitectónica aprobada).
      AccessAdmin (AGR-007) →
        assign_functions, revoke_functions,
        assign_function_groups,
+       view_separation_rules,
        manage_separation_rules
      Auditor (AGR-008) → view_audit_log
    CNST-031: UC_ACC_08 con rango temporal.

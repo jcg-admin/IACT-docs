@@ -56,6 +56,7 @@ sesiones activas.
      UnauthUser (sin autenticación) →
        UC_AUTH_01, UC_AUTH_03
      AuthUser → UC_AUTH_02, UC_AUTH_04
+       view_own_navigation (UC_PERM_08)
      SystemAdmin (AGR-010) →
        view_all_active_sessions
        close_user_session
