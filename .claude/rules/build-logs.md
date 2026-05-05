@@ -43,9 +43,9 @@ Si el log se pierde en stdout o `/tmp`, el claim "el build pasó" o
 .thyrox/context/work/{wp}/
 ├── discover/
 │   └── build-logs/
-│       ├── sphinx-strict-{branch}-{HH-MM}.log
-│       ├── make-clean-{HH-MM}.log
-│       └── validate-plantuml-{HH-MM}.log
+│       ├── sphinx-strict-{contexto}-{ISO}.log
+│       ├── make-clean-{ISO}.log
+│       └── validate-plantuml-{ISO}.log
 ├── analyze/
 │   └── build-logs/    ← logs de fase ANALYZE
 └── track/
@@ -56,34 +56,55 @@ Si el log se pierde en stdout o `/tmp`, el claim "el build pasó" o
 algo cross-stage (ej: investigar fallo de CI antes de mergear), va al
 stage activo (donde se está trabajando).
 
-**Naming:**
-`{comando}-{contexto}-{HH-MM}.log` donde:
+**Naming — formato ISO 8601 obligatorio:**
+`{comando}-{contexto}-{ISO}.log` donde:
 
 - `{comando}`: `sphinx-strict`, `make-clean`, `validate-plantuml`,
   `prerender-plantuml`, etc.
 - `{contexto}`: branch, PR, o tema (`pr14`, `cnst-033`, `pre-merge`).
-- `{HH-MM}`: hora local de ejecución (`16-10`).
+  Opcional cuando no aplica.
+- `{ISO}`: timestamp ISO 8601 con `:` reemplazado por `-` para
+  compatibilidad de filesystem: `YYYY-MM-DDTHH-MM-SS`.
+
+Generación canónica del timestamp:
+
+```bash
+ISO=$(date -u +%Y-%m-%dT%H-%M-%S)   # UTC, recomendado
+ISO=$(date    +%Y-%m-%dT%H-%M-%S)   # local, aceptable si consistente
+```
+
+**NUNCA** usar formatos no-ISO como `HH-MM`, `YYYYMMDD-HHMMSS`,
+`MM-DD-HH-MM` u otros — pierden información de fecha completa
+y rompen ordenamiento alfabético cronológico.
 
 Ejemplos:
 
 ```
-sphinx-strict-pr14-16-10.log
-make-clean-cnst-033-15-45.log
-validate-plantuml-post-rename-09-30.log
+sphinx-strict-pr14-2026-05-05T16-15-23.log
+make-clean-cnst-033-2026-05-05T15-45-08.log
+validate-plantuml-post-rename-2026-05-05T09-30-12.log
+sphinx-strict-2026-05-05T17-30-45.log         (sin contexto)
 ```
 
 ## Patrón de invocación
 
 ```bash
-# CORRECTO
-LOG=.thyrox/context/work/{wp}/discover/build-logs/sphinx-strict-pr14-$(date +%H-%M).log
-mkdir -p $(dirname "$LOG")
-sphinx-build -W -j auto -b html -d build/doctrees source build/html >"$LOG" 2>&1
+# CORRECTO — ISO 8601 + WP path + redirección 2>&1
+WP=.thyrox/context/work/{wp-activo}
+ISO=$(date -u +%Y-%m-%dT%H-%M-%S)
+LOG="$WP/{stage-dir}/build-logs/sphinx-strict-{contexto}-${ISO}.log"
+mkdir -p "$(dirname "$LOG")"
+sphinx-build -W -j auto -b html -d build/doctrees source build/html \
+    >"$LOG" 2>&1
 echo "EXIT=$?" >> "$LOG"
 
 # INCORRECTO — log efímero
 sphinx-build -W ... 2>&1 | tail -50            # ❌ se pierde
 sphinx-build -W ... > /tmp/sphinx.log 2>&1     # ❌ no traza al WP
+
+# INCORRECTO — formato de tiempo no-ISO
+LOG=...sphinx-strict-16-15.log                  # ❌ sin fecha
+LOG=...sphinx-strict-20260505-161523.log        # ❌ no separa fecha/hora
 ```
 
 ## Excepción
