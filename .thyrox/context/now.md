@@ -1,20 +1,20 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-05 01:43:41
+updated_at: 2026-05-05 04:14:30
 cold_boot: false
-current_epic: 27
-epic_name: plantuml-syntax-fix
-current_work: .thyrox/context/work/2026-05-05-01-43-07-uc-view-rename
-stage: track
-stage_number: 11
-current_phase: Phase 11 — TRACK
+current_epic: 28
+epic_name: alias-fix-uc-numericos
+current_work: .thyrox/context/work/2026-05-05-04-12-45-alias-fix-uc-numericos
+stage: discover
+stage_number: 1
+current_phase: Phase 1 — DISCOVER
 flow: thyrox
-methodology_step: thyrox:track
+methodology_step: thyrox:discover
 blockers: []
-last_completed_phase: "plantuml-syntax-fix — R-10 corregido. 3 archivos PlantUML sin errores. Build: 1 warning pre-existente."
-next_decision_required: "Clean build definitivo pendiente. Solicitud nueva: separar clases de clases-modulo-identidad.rst en domain-model/ (1 archivo por clase)."
-stage_sync_required: true
+last_completed_phase: "alias-fix-abrev-corta — ABREV_CORTA (97 files), F_FUNCIONES+PREFIX_ABBREV+UC_PREFIX (9 files). Build: EXIT:0, 0 warnings."
+next_decision_required: "Ejecutar implementación WP alias-fix-uc-numericos: AC01-AC09 (5 files) + UC01-UC09 por módulo (49 files). Scope analysis aprobado."
+stage_sync_required: false
 ```
 
 # IACT-docs — Estado de Sesión
