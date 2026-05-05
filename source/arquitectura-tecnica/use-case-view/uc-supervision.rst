@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,36 +16,58 @@
 MOD_Supervision — Supervision en Vivo: UC por Modulo
 ====================================================
 
-MOD_Supervision — Supervision en Vivo
-========================================
-
-Monitoreo en tiempo real de llamadas activas, intervencion de
-supervisor y comunicacion con el equipo de agentes. Requiere
-funciones de supervision especificas.
+Monitoreo en tiempo real de llamadas activas, intervención
+de supervisor y comunicación con el equipo de agentes.
+Requiere rol ``Supervisor`` (AGR-003 quality_supervisor).
 
 .. uml::
- :caption: Figura 26 — MOD_Supervision: casos de uso
+ :caption: MOD_Supervision — Supervisor monitorea, interviene
+           y comunica al equipo de Operators.
 
  @startuml
  left to right direction
 
- actor "monitor_live_calls" as monitor_live_calls
- actor "barge_in_calls" as barge_in_calls
- actor "broadcast_team_messages" as broadcast_team_messages
+ actor Supervisor
+ actor Operator
 
  rectangle "MOD_Supervision" {
-   usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as MONITOREAR_LLAMADAS_EN_VIVO
-   usecase "UC_SUP_02\nIntervenir en\nLlamada\n(barge in)" as INTERVENIR_LLAMADA
-   usecase "UC_SUP_03\nEnviar Mensaje\nal Equipo" as ENVIAR_MENSAJE_EQUIPO
+   usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as MONITOREAR
+   usecase "UC_SUP_02\nIntervenir en\nLlamada (barge in)" as INTERVENIR
+   usecase "UC_SUP_03\nEnviar Mensaje\nal Equipo" as ENVIAR_MENSAJE
  }
 
- monitor_live_calls --> MONITOREAR_LLAMADAS_EN_VIVO
- barge_in_calls --> INTERVENIR_LLAMADA
- broadcast_team_messages --> ENVIAR_MENSAJE_EQUIPO
+ Supervisor --> MONITOREAR
+ Supervisor --> INTERVENIR
+ Supervisor --> ENVIAR_MENSAJE
 
- INTERVENIR_LLAMADA ..> MONITOREAR_LLAMADAS_EN_VIVO : <<include>>
+ ENVIAR_MENSAJE --> Operator
+
+ INTERVENIR ..> MONITOREAR : <<include>>
+
+ note right of MOD_Supervision
+   Codenames RBAC:
+     Supervisor (AGR-003) →
+       monitor_live_calls,
+       barge_in_calls,
+       broadcast_team_messages
+     Operator (AGR-001): rol receptor de
+       UC_SUP_03 (no inicia, recibe).
+ end note
 
  @enduml
+
+Lectura del diagrama
+====================
+
+- ``Supervisor`` (AGR-003) inicia los 3 UCs.
+- ``Operator`` aparece como **actor receptor** (a la
+  derecha de ``UC_SUP_03``) — el supervisor envía el
+  mensaje, el operador lo recibe. Patrón canónico
+  *actor que se beneficia* per
+  ``uml-07/representacion-de-un-modelo-de-caso-de-uso``.
+- ``UC_SUP_02 Intervenir`` ``<<include>>``
+  ``UC_SUP_01 Monitorear``: la intervención requiere
+  estar monitoreando previamente.
 
 .. seealso::
 

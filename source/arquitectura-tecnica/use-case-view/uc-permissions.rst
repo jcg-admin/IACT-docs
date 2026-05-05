@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,26 +16,23 @@
 MOD_Permissions — Gestion Granular de Permisos: UC por Modulo
 =============================================================
 
-MOD_Permissions — Gestion Granular de Permisos
-================================================
-
-Vista tecnica del RBAC: gestion de grupos de permisos, funciones a
-grupos, verificacion efectiva y generacion del menu dinamico basado
-en ``effective_set``.
+Vista técnica del RBAC: gestión de grupos de permisos,
+funciones a grupos, verificación efectiva y generación del
+menú dinámico basado en ``effective_set``.
 
 .. uml::
- :caption: Figura 19 — MOD_Permissions: casos de uso
+ :caption: MOD_Permissions — AccessAdmin gestiona;
+           User autenticado consume verificación y menú.
 
  @startuml
  left to right direction
 
- actor "assign_function_groups" as assign_function_groups
- actor "revoke_function_group" as revoke_function_group
- actor "create_function_group" as create_function_group
- actor "assign_functions_to_group" as assign_functions_to_group
- actor "view_assignments" as view_assignments
- actor "view_audit_log" as view_audit_log
- actor "User\n(autenticado)" as user_autenticado
+ actor User
+ actor AccessAdmin
+ actor Auditor
+
+ User <|-- AccessAdmin
+ User <|-- Auditor
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_01\nAsignar Grupo\na Usuario" as ASIGNAR_GRUPO
@@ -45,20 +42,22 @@ en ``effective_set``.
    usecase "UC_PERM_05\nCrear / Modificar /\nRetirar Grupo" as GESTIONAR_GRUPO_ACCESO
    usecase "UC_PERM_06\nAsignar Funciones\na Grupo" as ASIGNAR_FUNCIONES_GRUPO
    usecase "UC_PERM_07\nVerificar Permiso\nde Usuario" as VERIFICAR_PERMISO_USUARIO
-   usecase "UC_PERM_08\nGenerar Menu\nDinamico\n[view_own_navigation]" as GENERAR_MENU_DINAMICO
+   usecase "UC_PERM_08\nGenerar Menu\nDinamico" as GENERAR_MENU_DINAMICO
    usecase "UC_PERM_09\nAuditar Acceso\n(write side)" as AUDITAR_ACCESO
    usecase "UC_PERM_10\nConsultar Auditoria\nde Permisos" as AUDITORIA_ACCESO
  }
 
- assign_function_groups --> ASIGNAR_GRUPO
- revoke_function_group --> REVOCAR_GRUPO
- assign_function_groups --> CONCEDER_PERMISO_EXCEPCIONAL
- assign_function_groups --> REVOCAR_PERMISO_EXCEPCIONAL
- create_function_group --> GESTIONAR_GRUPO_ACCESO
- assign_functions_to_group --> ASIGNAR_FUNCIONES_GRUPO
- view_assignments --> VERIFICAR_PERMISO_USUARIO
- user_autenticado --> GENERAR_MENU_DINAMICO
- view_audit_log --> AUDITORIA_ACCESO
+ User --> GENERAR_MENU_DINAMICO
+ User --> VERIFICAR_PERMISO_USUARIO
+
+ AccessAdmin --> ASIGNAR_GRUPO
+ AccessAdmin --> REVOCAR_GRUPO
+ AccessAdmin --> CONCEDER_PERMISO_EXCEPCIONAL
+ AccessAdmin --> REVOCAR_PERMISO_EXCEPCIONAL
+ AccessAdmin --> GESTIONAR_GRUPO_ACCESO
+ AccessAdmin --> ASIGNAR_FUNCIONES_GRUPO
+
+ Auditor --> AUDITORIA_ACCESO
 
  ASIGNAR_GRUPO ..> AUDITAR_ACCESO : <<include>>
  REVOCAR_GRUPO ..> AUDITAR_ACCESO : <<include>>
@@ -67,7 +66,34 @@ en ``effective_set``.
  ASIGNAR_FUNCIONES_GRUPO ..> AUDITAR_ACCESO : <<include>>
  GENERAR_MENU_DINAMICO ..> VERIFICAR_PERMISO_USUARIO : <<include>>
 
+ note right of MOD_Permissions
+   Codenames RBAC:
+     User → view_own_navigation, view_assignments
+     AccessAdmin (AGR-007) →
+       assign_function_groups, revoke_function_group,
+       create_function_group, assign_functions_to_group,
+       grant_exceptional_permission,
+       revoke_exceptional_permission
+     Auditor (AGR-008) → view_audit_log
+   UC_PERM_07 es el include canónico de toda
+   verificación de permiso (P-15).
+ end note
+
  @enduml
+
+Lectura del diagrama
+====================
+
+- ``User`` autenticado obtiene su menú dinámico
+  (``UC_PERM_08``) y verifica permisos
+  (``UC_PERM_07``).
+- ``UC_PERM_08`` ``<<include>>`` ``UC_PERM_07`` —
+  generar el menú implica verificar las funciones
+  efectivas.
+- ``AccessAdmin`` gestiona el catálogo de grupos y
+  funciones; toda escritura ``<<include>>``
+  ``UC_PERM_09 Auditar Acceso`` (P-09: audit-or-abort).
+- ``Auditor`` consulta ``UC_PERM_10`` (read-only).
 
 .. seealso::
 

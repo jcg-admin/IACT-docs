@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,44 +16,69 @@
 MOD_Alerts — Alertas y Notificaciones: UC por Modulo
 ====================================================
 
-MOD_Alerts — Alertas y Notificaciones
-========================================
-
-Configuracion de umbrales criticos, recepcion y reconocimiento de
-alertas del sistema IVR (BR-016: tasa de abandono >30%). Las alertas
-se generan automaticamente por el motor de alertas y por el ETL.
+Configuración de umbrales críticos, recepción y reconocimiento
+de alertas del sistema IVR (BR-016: tasa de abandono > 30%).
+Las alertas se generan automáticamente por el motor de
+alertas y por el pipeline.
 
 .. uml::
- :caption: Figura 21 — MOD_Alerts: casos de uso
+ :caption: MOD_Alerts — Operator consume; Supervisor configura
+           y reconoce; AlertEngine es actor sistema.
 
  @startuml
  left to right direction
 
- actor "configure_team_alerts" as configure_team_alerts
- actor "view_alerts" as view_alerts
- actor "acknowledge_alert" as acknowledge_alert
- actor "view_alert_history" as view_alert_history
+ actor Operator
+ actor Supervisor
+ actor "AlertEngine\n<<system>>" as AlertEngine
+
+ Operator <|-- Supervisor
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01
    usecase "UC_ALR_02\nVer Alertas Activas" as AL02
    usecase "UC_ALR_03\nReconocer Alerta" as AL03
    usecase "UC_ALR_04\nVer Historial\nde Alertas" as AL04
-   usecase "UC_ALR_05\nNotificacion\nAutomatica ETL" as AL05
-   usecase "Motor de Alertas\n(automatico)" as MOTOR_ALERTAS
+   usecase "UC_ALR_05\nNotificacion\nAutomatica" as AL05
+   usecase "Generar Alerta\n(automatico)" as GEN_ALERTA
  }
 
- configure_team_alerts --> AL01
- view_alerts --> AL02
- acknowledge_alert --> AL03
- view_alert_history --> AL04
- MOTOR_ALERTAS --> AL05
+ Operator   --> AL02
+ Operator   --> AL04
+ Supervisor --> AL01
+ Supervisor --> AL03
+ AlertEngine --> AL05
+ AlertEngine --> GEN_ALERTA
 
  AL02 ..> AL03 : <<extend>>
  AL05 ..> AL02 : <<extend>>
- AL01 ..> MOTOR_ALERTAS : <<include>>
+ AL01 ..> GEN_ALERTA : <<include>>
+
+ note right of MOD_Alerts
+   Codenames RBAC:
+     Operator (AGR-001) → view_alerts,
+       view_alert_history
+     Supervisor (AGR-005 alert_manager) →
+       configure_team_alerts, acknowledge_alert,
+       pause_alerts, delete_alerts
+     AlertEngine: actor sistema (interno) que
+       evalúa reglas y emite UC_ALR_05.
+ end note
 
  @enduml
+
+Lectura del diagrama
+====================
+
+- ``Operator`` consume alertas activas e historial.
+- ``Supervisor`` (rol especializado) hereda esas
+  capacidades y agrega configuración y reconocimiento.
+- ``AlertEngine`` es un **actor sistema** (no humano)
+  que ejecuta ``UC_ALR_05`` en ciclo continuo
+  evaluando reglas configuradas por
+  ``UC_ALR_01``.
+- ``UC_ALR_02`` ``<<extend>>`` ``UC_ALR_03``: tras ver
+  una alerta el supervisor puede reconocerla.
 
 .. seealso::
 

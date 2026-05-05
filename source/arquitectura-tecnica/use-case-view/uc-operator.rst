@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,29 +16,19 @@
 MOD_Operator — Panel del Operador: UC por Modulo
 ================================================
 
-MOD_Operator — Panel del Operador
-====================================
-
 Funcionalidades del agente de call center: cambio de estado,
-atencion y transferencia de llamadas, disposicion, breaks y
-consulta de estadisticas personales.
+atención y transferencia de llamadas, disposición, breaks y
+consulta de estadísticas personales.
 
 .. uml::
- :caption: Figura 25 — MOD_Operator: casos de uso
+ :caption: MOD_Operator — Operator es actor único; Caller
+           es origen externo de llamadas.
 
  @startuml
  left to right direction
 
- actor "manage_own_agent_state" as manage_own_agent_state
- actor "answer_inbound_calls" as answer_inbound_calls
- actor "make_outbound_calls" as make_outbound_calls
- actor "hold_calls" as hold_calls
- actor "transfer_calls" as transfer_calls
- actor "enter_call_disposition" as enter_call_disposition
- actor "request_break" as request_break
- actor "view_own_performance_dashboard" as view_own_performance_dashboard
- actor "view_own_call_history" as view_own_call_history
- actor "read_own_mailbox" as read_own_mailbox
+ actor Operator
+ actor "Caller\n<<external>>" as Caller
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado\ndel Agente" as CAMBIAR_ESTADO_AGENTE
@@ -53,23 +43,55 @@ consulta de estadisticas personales.
    usecase "UC_OPR_10\nVer Buzon\nde Mensajes" as VER_BUZON_MENSAJES
  }
 
- manage_own_agent_state --> CAMBIAR_ESTADO_AGENTE
- answer_inbound_calls --> ATENDER_LLAMADA
- make_outbound_calls --> INICIAR_LLAMADA_OUTBOUND
- hold_calls --> HOLD_UNHOLD_LLAMADA
- transfer_calls --> TRANSFERIR_LLAMADA
- enter_call_disposition --> DISPOSICION_POST_LLAMADA
- request_break --> TOMAR_BREAK
- view_own_performance_dashboard --> VER_DASHBOARD_DESEMPENO
- view_own_call_history --> VER_HISTORIAL_LLAMADAS
- read_own_mailbox --> VER_BUZON_MENSAJES
+ Operator --> CAMBIAR_ESTADO_AGENTE
+ Operator --> ATENDER_LLAMADA
+ Operator --> INICIAR_LLAMADA_OUTBOUND
+ Operator --> HOLD_UNHOLD_LLAMADA
+ Operator --> TRANSFERIR_LLAMADA
+ Operator --> DISPOSICION_POST_LLAMADA
+ Operator --> TOMAR_BREAK
+ Operator --> VER_DASHBOARD_DESEMPENO
+ Operator --> VER_HISTORIAL_LLAMADAS
+ Operator --> VER_BUZON_MENSAJES
+
+ Caller --> ATENDER_LLAMADA
 
  ATENDER_LLAMADA ..> CAMBIAR_ESTADO_AGENTE : <<include>>
  DISPOSICION_POST_LLAMADA ..> ATENDER_LLAMADA : <<include>>
  HOLD_UNHOLD_LLAMADA ..> ATENDER_LLAMADA : <<include>>
  TRANSFERIR_LLAMADA ..> ATENDER_LLAMADA : <<include>>
 
+ note right of MOD_Operator
+   Codenames RBAC:
+     Operator (AGR-001) →
+       manage_own_agent_state,
+       answer_inbound_calls,
+       make_outbound_calls,
+       hold_calls, transfer_calls,
+       enter_call_disposition,
+       request_break,
+       view_own_performance_dashboard,
+       view_own_call_history,
+       read_own_mailbox
+     Caller: actor externo (no autenticado)
+       que origina ATENDER_LLAMADA.
+ end note
+
  @enduml
+
+Lectura del diagrama
+====================
+
+- ``Operator`` (AGR-001) ejecuta todas las operaciones
+  del panel del agente.
+- ``Caller`` es el actor **externo** que dispara
+  ``UC_OPR_02``: el caller llama, el operador atiende.
+  El caller no se autentica en IACT — solo origina la
+  llamada vía el conmutador IVR.
+- ``UC_OPR_02 Atender Llamada`` es ``<<include>>`` por
+  los UCs de gestión de llamadas activas
+  (``UC_OPR_04/05/06``): no se puede transferir, hold
+  ni disponer si no hay una llamada atendida primero.
 
 .. seealso::
 

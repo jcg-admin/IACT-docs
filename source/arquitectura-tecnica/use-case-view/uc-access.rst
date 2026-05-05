@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -16,25 +16,24 @@
 MOD_Access — Asignacion de Accesos: UC por Modulo
 =================================================
 
-MOD_Access — Asignacion de Accesos
-=====================================
-
-Vista funcional del RBAC: asignar y revocar funciones individuales,
-gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
-(Hipotesis 1 — decision arquitectonica aprobada).
+Vista funcional del RBAC: asignar y revocar funciones
+individuales, gestionar agrupadores y reglas SoD. Coexiste
+con ``MOD_Permissions`` (Hipótesis 1 — decisión
+arquitectónica aprobada).
 
 .. uml::
- :caption: Figura 18 — MOD_Access: casos de uso
+ :caption: MOD_Access — AccessAdmin gestiona asignaciones;
+           Auditor lee.
 
  @startuml
  left to right direction
 
- actor "assign_functions" as assign_functions
- actor "revoke_functions" as revoke_functions
- actor "view_assignments" as view_assignments
- actor "assign_function_groups" as assign_function_groups
- actor "view_separation_rules" as view_separation_rules
- actor "view_audit_log" as view_audit_log
+ actor User
+ actor AccessAdmin
+ actor Auditor
+
+ User <|-- AccessAdmin
+ User <|-- Auditor
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as UC_ACC_01
@@ -46,18 +45,41 @@ gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
    usecase "UC_ACC_09\nAuditar Cambios\nde Acceso" as UC_ACC_09
  }
 
- assign_functions --> UC_ACC_01
- assign_functions --> UC_ACC_08
- revoke_functions --> UC_ACC_02
- view_assignments --> UC_ACC_03
- assign_function_groups --> UC_ACC_04
- view_separation_rules --> UC_ACC_05
- view_audit_log --> UC_ACC_09
- view_assignments --> UC_ACC_09
+ User        --> UC_ACC_03
+ AccessAdmin --> UC_ACC_01
+ AccessAdmin --> UC_ACC_02
+ AccessAdmin --> UC_ACC_04
+ AccessAdmin --> UC_ACC_05
+ AccessAdmin --> UC_ACC_08
+ Auditor     --> UC_ACC_09
 
  UC_ACC_08 ..> UC_ACC_01 : <<extend>>
 
+ note right of MOD_Access
+   Codenames RBAC:
+     User → view_assignments
+     AccessAdmin (AGR-007) →
+       assign_functions, revoke_functions,
+       assign_function_groups,
+       manage_separation_rules
+     Auditor (AGR-008) → view_audit_log
+   CNST-031: UC_ACC_08 con rango temporal.
+ end note
+
  @enduml
+
+Lectura del diagrama
+====================
+
+- Cualquier ``User`` autenticado consulta sus permisos
+  efectivos (``UC_ACC_03``).
+- ``AccessAdmin`` (AGR-007) gestiona asignaciones,
+  revocaciones, agrupadores y reglas SoD.
+- ``UC_ACC_08 Otorgar Permiso Temporal`` ``<<extend>>``
+  ``UC_ACC_01`` cuando se requiere asignación con
+  ventana temporal acotada (CNST-031).
+- ``Auditor`` (AGR-008) consume ``UC_ACC_09`` para
+  trazar cambios de acceso (read-only).
 
 .. seealso::
 

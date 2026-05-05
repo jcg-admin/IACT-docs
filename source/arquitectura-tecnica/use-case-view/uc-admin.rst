@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-05
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -24,7 +24,7 @@ grupos del sistema y reglas SoD EXISTEN — anterior e independiente de
 a quien se asignan (:doc:`uc-access`) o de como se verifican en runtime
 (:doc:`uc-permissions`).
 
-**Actor principal:** ``admin_sistema`` (AGR-009).
+**Actor principal:** ``SystemAdmin`` (AGR-010).
 
 **Diferencia clave con MOD_Access y MOD_Permissions:**
 
@@ -33,18 +33,14 @@ a quien se asignan (:doc:`uc-access`) o de como se verifican en runtime
 - MOD_Permissions opera sobre **verificacion** (tiene permiso ahora?).
 
 .. uml::
- :caption: Figura 20 — MOD_Admin: casos de uso
+ :caption: MOD_Admin — SystemAdmin gestiona los 3 catálogos
+           del modelo RBAC.
 
  @startuml
  left to right direction
 
- actor "admin_sistema\n(AGR-009)" as admin_sys
- actor "manage_function_catalog" as mfc
- actor "create_separation_rule" as csr
- actor "update_separation_rule" as usr
- actor "disable_separation_rule" as dsr
- actor "view_separation_rules" as vsr
- actor "assign_functions_to_group" as aftg
+ actor SystemAdmin
+ actor Auditor
 
  rectangle "MOD_Admin" {
    usecase "UC_ADM_01\nGestionar Ciclo\nde Vida de Reglas SoD" as ADM01
@@ -52,18 +48,27 @@ a quien se asignan (:doc:`uc-access`) o de como se verifican en runtime
    usecase "UC_ADM_03\nGestionar Catalogo\nde Agrupadores del Sistema" as ADM03
  }
 
- admin_sys --> ADM01
- admin_sys --> ADM02
- admin_sys --> ADM03
+ SystemAdmin --> ADM01
+ SystemAdmin --> ADM02
+ SystemAdmin --> ADM03
 
- vsr --> ADM01
- csr --> ADM01
- usr --> ADM01
- dsr --> ADM01
+ Auditor --> ADM01
+ Auditor --> ADM02
+ Auditor --> ADM03
 
- mfc --> ADM02
-
- aftg --> ADM03
+ note right of MOD_Admin
+   Codenames RBAC:
+     SystemAdmin (AGR-010) →
+       view_separation_rules,
+       create_separation_rule,
+       update_separation_rule,
+       disable_separation_rule,
+       manage_function_catalog,
+       assign_functions_to_group
+     Auditor (AGR-008) → view_* (read-only)
+   Toda escritura de MOD_Admin emite
+   AuditEvent de criticidad alta.
+ end note
 
  @enduml
 
@@ -103,7 +108,7 @@ Casos de Uso
    - Gestiona la composicion de los 12 grupos predefinidos
      del sistema. A diferencia de UC_PERM_05 que crea
      grupos custom, este UC modifica los AGR de sistema
-     (inmutables para operadores, mutables solo por admin_sistema).
+     (inmutables para operadores, mutables solo por SystemAdmin).
 
 ----
 
