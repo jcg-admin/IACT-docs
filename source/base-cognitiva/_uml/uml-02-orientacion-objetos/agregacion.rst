@@ -102,5 +102,3 @@ hojas morirán.
      mueren las hojas.
    end note
    @enduml
-
-----

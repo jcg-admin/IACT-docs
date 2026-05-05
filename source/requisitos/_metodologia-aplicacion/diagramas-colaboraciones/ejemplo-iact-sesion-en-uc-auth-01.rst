@@ -20,5 +20,3 @@
    AuthService -> SesionActiva      : "5: crear_activa(token)"
    SesionAnonima ..> SesionActiva   : "<<se_transforma_en>>"
    @enduml
-
-----

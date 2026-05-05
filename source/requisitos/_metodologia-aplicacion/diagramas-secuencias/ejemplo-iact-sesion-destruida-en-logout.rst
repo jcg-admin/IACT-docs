@@ -35,5 +35,3 @@
    deactivate AuthService
    Frontend --> Usuario : redirigir a /login
    @enduml
-
-----

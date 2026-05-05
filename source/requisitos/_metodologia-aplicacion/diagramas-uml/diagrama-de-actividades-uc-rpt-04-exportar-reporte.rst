@@ -38,5 +38,3 @@
    @enduml
 
 **Aplicación:** DOC-20 (UC_RPT) y otros UCs con exportación.
-
-----

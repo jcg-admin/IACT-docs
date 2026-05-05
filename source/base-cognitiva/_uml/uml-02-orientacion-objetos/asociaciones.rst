@@ -47,5 +47,3 @@ autobús.
    Persona -- Automovil : viaja en
    Persona -- Autobus   : viaja en
    @enduml
-
-----

@@ -20,5 +20,3 @@ Algunas funciones del catálogo RBAC se componen de otras
        deactivate_users.
    end note
    @enduml
-
-----

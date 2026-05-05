@@ -19,5 +19,3 @@ función:
    Grupo .. NotaXor
    PermisoExcepcional .. NotaXor
    @enduml
-
-----

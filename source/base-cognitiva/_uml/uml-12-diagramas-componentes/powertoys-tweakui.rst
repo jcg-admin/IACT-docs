@@ -30,5 +30,3 @@ archivo de ayuda generará un ``.GID``. Utilizar la característica
    HLP ..> GID : <<genera>>
    HLP ..> FTS : <<genera>>
    @enduml
-
-----

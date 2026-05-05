@@ -11,8 +11,7 @@ EX-04: Funcion inexistente en catalogo — 400.
 EX-05: Nombre duplicado — 409.
 EX-06: Regla no existe — 404.
 EX-07: BD timeout — 503.
-EX-08: EnforcementEngine no responde —
- regla guardada, reload se reintenta async.
+EX-08: EnforcementEngine no responde — regla guardada, reload se reintenta async.
 
 Resumen
 =======

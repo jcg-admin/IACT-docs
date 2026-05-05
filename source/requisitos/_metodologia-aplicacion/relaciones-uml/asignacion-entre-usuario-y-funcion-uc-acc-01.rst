@@ -28,5 +28,3 @@
      ≥ 20 caracteres.
    end note
    @enduml
-
-----

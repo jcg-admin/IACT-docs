@@ -49,5 +49,3 @@ vista global de su dominio.
 
 **Perspectiva:** DINÁMICA (POV usuario). **Audiencia:** Product
 Owners / Analistas.
-
-----

@@ -28,5 +28,3 @@ elemento, podrá utilizar el símbolo de una clase con
    class Lavadora
    Lavadora ..|> Lavable
    @enduml
-
-----

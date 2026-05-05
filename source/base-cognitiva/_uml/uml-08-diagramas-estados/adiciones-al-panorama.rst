@@ -41,5 +41,3 @@ panorama del UML.
      }
    }
    @enduml
-
-----

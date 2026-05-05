@@ -58,6 +58,3 @@ El Scheduler es infraestructura, no dominio.
  end note
 
  @enduml
-
-.. seealso::
-

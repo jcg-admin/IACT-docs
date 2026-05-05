@@ -31,5 +31,3 @@ expandir cada función hasta llegar a las atómicas.
    SecRules -->] : true (todas las atómicas\nestán autorizadas)
    deactivate SecRules
    @enduml
-
-----

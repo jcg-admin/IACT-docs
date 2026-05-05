@@ -26,5 +26,3 @@ detergente*, *activarse* y *sacar ropa*.
      + sacarRopa()
    }
    @enduml
-
-----

@@ -15,5 +15,3 @@
      rectangle "5. ÁMBITO\nInstancia vs archivador\n(ConfiguracionSLA = static)"    as 5Mbito
    }
    @enduml
-
-----

@@ -12,8 +12,7 @@ EX-05: Funcion no existe en catalogo — 400.
 EX-06: Funcion ya asignada — 409.
 EX-07: Conflicto SoD — 400.
 EX-08: BD timeout — 503.
-EX-09: PermissionsEngine no responde —
- cambio guardado, recalculo async retry.
+EX-09: PermissionsEngine no responde — cambio guardado, recalculo async retry.
 
 Resumen
 =======

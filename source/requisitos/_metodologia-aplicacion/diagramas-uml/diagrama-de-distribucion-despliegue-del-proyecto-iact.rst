@@ -36,5 +36,3 @@
 **Aplicación:** DOC-26. Stack per
 :doc:`/devops/adr-devops-001-vagrant-mod-wsgi-importante-produc`
 — **sin** Docker / K8s / Nginx / Gunicorn.
-
-----

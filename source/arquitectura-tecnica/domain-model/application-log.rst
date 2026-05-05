@@ -56,6 +56,3 @@ Politica de retencion CNST-024.
  end note
 
  @enduml
-
-.. seealso::
-

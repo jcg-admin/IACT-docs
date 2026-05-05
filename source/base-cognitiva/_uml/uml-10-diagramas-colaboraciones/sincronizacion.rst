@@ -64,5 +64,3 @@ antes (sintaxis: ``2,3 / mensaje()``).
      los mensajes 2 y 3.
    end note
    @enduml
-
-----

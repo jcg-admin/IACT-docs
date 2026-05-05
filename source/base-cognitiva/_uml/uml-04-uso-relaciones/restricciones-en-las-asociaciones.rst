@@ -41,5 +41,3 @@ uno comercial.
    Estudiante --> CursoComercial : se inscribe en
    CursoAcademico ..> CursoComercial : <<{Or}>>
    @enduml
-
-----

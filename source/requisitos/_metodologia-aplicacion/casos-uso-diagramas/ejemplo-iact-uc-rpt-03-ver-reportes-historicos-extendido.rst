@@ -34,5 +34,3 @@
      no obligatorias.
    end note
    @enduml
-
-----

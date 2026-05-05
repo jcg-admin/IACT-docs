@@ -41,5 +41,3 @@ relación padre-hijo.
  Evitamos los acentos en los diagramas, e igualmente la letra
  ``ñ``, que sustituimos por ``ni`` (como en ``Anio`` en lugar de
  ``Año``).
-
-----

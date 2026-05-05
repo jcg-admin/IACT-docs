@@ -53,5 +53,3 @@ sincronización, objetos activos / pasivos.
      Y 2 (filtros aplicados).
    end note
    @enduml
-
-----

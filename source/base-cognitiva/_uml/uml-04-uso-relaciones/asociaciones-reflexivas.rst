@@ -44,5 +44,3 @@ la relación.
    class Empleado
    Empleado "1\n<<boss>>" -- "0..*\n<<subordinate>>" Empleado : supervisa
    @enduml
-
-----

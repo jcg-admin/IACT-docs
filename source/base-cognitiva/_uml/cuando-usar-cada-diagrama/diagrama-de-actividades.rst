@@ -28,5 +28,3 @@ complejos con decisiones** (similar a un diagrama de flujo).
    endif
    stop
    @enduml
-
-----

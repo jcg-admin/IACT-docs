@@ -51,5 +51,3 @@
    end
    deactivate AuthService
    @enduml
-
-----

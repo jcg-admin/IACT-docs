@@ -11,8 +11,7 @@ EX-04: Codename formato invalido — 400.
 EX-05: Module invalido — 400.
 EX-06: Function no existe — 404.
 EX-07: BD timeout — 503.
-EX-08: PermissionsEngine no responde —
- function guardada, reload async retry.
+EX-08: PermissionsEngine no responde — function guardada, reload async retry.
 
 Resumen
 =======

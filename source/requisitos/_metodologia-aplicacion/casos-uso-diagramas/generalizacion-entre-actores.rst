@@ -30,5 +30,3 @@ para mostrar la jerarquía de roles del proyecto.
      funciones específicas.
    end note
    @enduml
-
-----

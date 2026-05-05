@@ -30,5 +30,3 @@ tiempo**, gestionando suscriptores.
    EnEvaluacion --> Reconocida : supervisor_reconoce(UC_ALR_03)\n/ auditar()
    Reconocida --> [*]
    @enduml
-
-----

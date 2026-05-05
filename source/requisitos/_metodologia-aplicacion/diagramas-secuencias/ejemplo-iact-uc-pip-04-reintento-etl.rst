@@ -45,5 +45,3 @@
    end
    deactivate Sup
    @enduml
-
-----

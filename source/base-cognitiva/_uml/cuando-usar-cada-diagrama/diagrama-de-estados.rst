@@ -22,5 +22,3 @@ estado a lo largo del tiempo (ej.: orden pasando de *pendiente*
    Centrifugado --> Apagada
    Apagada --> [*]
    @enduml
-
-----

@@ -108,5 +108,3 @@ Escenarios "Monto incorrecto" + "Sin marca":
 
 Si empieza a pensar que un diagrama de secuencias está implícito
 en cada caso de uso, ya tiene la idea.
-
-----

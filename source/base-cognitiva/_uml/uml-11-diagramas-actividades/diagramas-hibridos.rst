@@ -42,5 +42,3 @@ recibe una petición para ejecutar la operación:
      mostrar(Respuesta, Contador) \n stop
    end note
    @enduml
-
-----

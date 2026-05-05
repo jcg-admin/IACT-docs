@@ -37,5 +37,3 @@ distribución.
      package "Extension"    { rectangle Estereotipo }
    }
    @enduml
-
-----

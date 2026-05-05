@@ -27,5 +27,3 @@ realizarse, se continúa con la siguiente.
    :Actividad 2;
    stop
    @enduml
-
-----

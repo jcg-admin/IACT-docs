@@ -74,5 +74,3 @@ tres estados: **Inicialización**, **Operación**, **Apagado**.
    Operacion --> Apagado : apagar / cerrar_sesion
    Apagado --> [*]
    @enduml
-
-----

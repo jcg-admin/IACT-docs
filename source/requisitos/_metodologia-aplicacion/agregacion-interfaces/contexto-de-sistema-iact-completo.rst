@@ -35,5 +35,3 @@
      sin email externo.
    end note
    @enduml
-
-----

@@ -34,5 +34,3 @@ comportamiento**.
      }
    }
    @enduml
-
-----

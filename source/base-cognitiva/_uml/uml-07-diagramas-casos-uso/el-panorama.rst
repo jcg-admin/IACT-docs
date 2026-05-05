@@ -38,5 +38,3 @@ El panorama
      }
    }
    @enduml
-
-----

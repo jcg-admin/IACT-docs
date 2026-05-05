@@ -41,5 +41,3 @@ una *composición*. Las partes concurrentes del estado *Operación*
 tienen el mismo tipo de relación con él. Por ello, *Operación*
 es un **estado compuesto**. Un estado que consta sólo de
 subestados secuenciales también es un estado compuesto.
-
-----

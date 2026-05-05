@@ -26,5 +26,3 @@ usuario. Actor + caso de uso + relaciones.
    }
    Usuario --> UC
    @enduml
-
-----

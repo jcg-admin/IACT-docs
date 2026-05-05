@@ -100,5 +100,3 @@ El diagrama de secuencias tiene dos dimensiones:
    deactivate B
    deactivate A
    @enduml
-
-----

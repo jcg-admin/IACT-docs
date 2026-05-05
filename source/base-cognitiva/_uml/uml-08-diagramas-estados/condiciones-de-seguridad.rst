@@ -26,5 +26,3 @@ entre corchetes ``[ ]``.
    Operacion --> Apagado : apagar / cerrar_sesion
    Apagado --> [*]
    @enduml
-
-----

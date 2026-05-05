@@ -58,5 +58,3 @@ televisión y de la lavadora se conocen como **interfaces**.
  Cuando mencionamos *rostro*, nos referimos a lo que podemos
  "tocar" o acceder para interactuar con la funcionalidad de los
  objetos. Esto es una **interfaz**.
-
-----

@@ -33,5 +33,3 @@
      (objetos pasivos).
    end note
    @enduml
-
-----

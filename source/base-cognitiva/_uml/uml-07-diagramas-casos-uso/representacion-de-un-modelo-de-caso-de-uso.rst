@@ -38,5 +38,3 @@ interconexión componen un **modelo de caso de uso**.
    A --> UC
    UC --> B
    @enduml
-
-----

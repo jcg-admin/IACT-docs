@@ -30,5 +30,3 @@
      {ttl_cache ≤ CNST_017 SLA}
    end note
    @enduml
-
-----

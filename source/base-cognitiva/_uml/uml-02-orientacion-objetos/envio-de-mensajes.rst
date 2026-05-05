@@ -31,5 +31,3 @@ remoto (un receptor de rayos infrarrojos).
    ControlRemoto  -> Television    : señal IR (encender)
    Persona        -> Television    : presionar perilla\n(interfaz física)
    @enduml
-
-----

@@ -42,5 +42,3 @@ y *mientras* (``*[…]``) según corresponda.
    APP       -> DEP : "13: guardar()"
    APP       -> GUI : "14: completado()"
    @enduml
-
-----

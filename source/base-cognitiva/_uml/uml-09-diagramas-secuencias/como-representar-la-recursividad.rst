@@ -32,5 +32,3 @@ que inició la recursividad.
    deactivate C
    deactivate C
    @enduml
-
-----

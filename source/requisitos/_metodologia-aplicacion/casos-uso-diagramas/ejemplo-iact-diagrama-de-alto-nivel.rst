@@ -68,5 +68,3 @@ internos y externos.
 - ``UC_PERM_07`` (verificar permiso) es **incluido por
   todos** los UCs operativos — es el equivalente IACT a
   *"abrir la máquina"* del ejemplo del libro.
-
-----

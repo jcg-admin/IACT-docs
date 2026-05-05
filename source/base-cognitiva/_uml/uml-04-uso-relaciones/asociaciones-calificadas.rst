@@ -34,5 +34,3 @@ muchos a una multiplicidad de uno a uno**.
      numeroConfirmacion.
    end note
    @enduml
-
-----

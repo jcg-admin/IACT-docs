@@ -49,5 +49,3 @@ otro). La información se lleva del NIF a Internet.
    RT -- GW
    GW -- NET
    @enduml
-
-----

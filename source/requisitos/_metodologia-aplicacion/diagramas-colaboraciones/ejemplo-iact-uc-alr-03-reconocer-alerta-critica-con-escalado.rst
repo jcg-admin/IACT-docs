@@ -38,5 +38,3 @@ Sólo después se publica el cierre en el panel general.
      ejecutar.
    end note
    @enduml
-
-----

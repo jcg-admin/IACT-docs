@@ -136,5 +136,3 @@ un subconjunto de atributos.
 
 También podrá utilizar el estereotipo sobre el nombre de una
 clase para indicar algo respecto al **papel** de la clase.
-
-----

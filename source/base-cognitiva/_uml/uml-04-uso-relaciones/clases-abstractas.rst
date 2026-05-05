@@ -44,5 +44,3 @@ no serviría a ningún propósito, así como tampoco uno de la clase
    Reloj <|-- CronometroDeJuego
    Reloj <|-- LapsoDeTiro
    @enduml
-
-----

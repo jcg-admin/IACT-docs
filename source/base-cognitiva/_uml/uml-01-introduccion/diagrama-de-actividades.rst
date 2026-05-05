@@ -17,5 +17,3 @@ secuencia anterior con el diagrama de actividades UML.
    :Abrir abastecimiento de agua;
    stop
    @enduml
-
-----

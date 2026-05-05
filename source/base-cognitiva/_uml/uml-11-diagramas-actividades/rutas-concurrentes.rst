@@ -24,5 +24,3 @@ línea gruesa.
    :Reunión;
    stop
    @enduml
-
-----

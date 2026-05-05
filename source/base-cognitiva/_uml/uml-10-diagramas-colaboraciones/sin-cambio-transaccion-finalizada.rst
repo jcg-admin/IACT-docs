@@ -25,5 +25,3 @@ flujo y un estereotipo ``«transacción finalizada»``.
    R -> Cliente : "<<transacción finalizada>>\n[no hay cambio]\n3.3: devolver(alim)"
    R -> F       : "[no hay cambio]\n3.4: mostrar('Inserte importe exacto')"
    @enduml
-
-----

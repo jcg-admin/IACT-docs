@@ -28,5 +28,3 @@ todo.
 
    Sopa ..> Ensalada : <<{O}>>
    @enduml
-
-----

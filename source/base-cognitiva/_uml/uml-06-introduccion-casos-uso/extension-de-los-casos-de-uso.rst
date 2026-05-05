@@ -33,5 +33,3 @@ caso de uso**.
    Proveedor --> UC2X
    UC2X ..> UC2 : <<extend>>
    @enduml
-
-----

@@ -578,24 +578,34 @@ Catalogo completo de valores ``name`` del modelo
    - Descripcion
  * - ``basic_operator_group``
    - Visualizacion basica del sistema
+   -
  * - ``report_viewer_group``
    - Visualizacion completa de reportes
+   -
  * - ``quality_supervisor_group``
    - Supervision de calidad de datos
+   -
  * - ``data_exporter_group``
    - Exportacion de datos del sistema
+   -
  * - ``alert_manager_group``
    - Gestion de alertas del sistema
+   -
  * - ``user_admin_group``
    - Administracion de usuarios
+   -
  * - ``permission_admin_group``
    - Administracion de permisos y asignaciones
+   -
  * - ``auditor_group``
    - Acceso completo de auditoria
+   -
  * - ``pipeline_admin_group``
    - Administracion del pipeline de datos
+   -
  * - ``system_admin_group``
    - Administracion completa del sistema
+   -
 
 ----
 
@@ -614,10 +624,13 @@ Catalogo completo de valores ``name`` del modelo
    - Descripcion
  * - ``pipeline_audit_separation``
    - Separa administracion de pipeline de funciones de auditoria
+   -
  * - ``user_audit_separation``
    - Separa administracion de usuarios de funciones de auditoria
+   -
  * - ``access_audit_separation``
    - Separa administracion de accesos de funciones de auditoria
+   -
 
 ----
 

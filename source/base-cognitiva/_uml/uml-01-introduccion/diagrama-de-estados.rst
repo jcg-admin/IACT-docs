@@ -29,5 +29,3 @@ final**.
  información **estática**. Los diagramas de estados, secuencias,
  actividades y colaboraciones representan información **dinámica**
  (cambio progresivo en el tiempo).
-
-----

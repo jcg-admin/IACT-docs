@@ -21,5 +21,3 @@ interacción** entre componentes (quién trabaja con quién).
    Cronometro -> Tambor   : "3: activar giro"
    Manguera   -> Tambor   : "1: abrir / llenar"
    @enduml
-
-----

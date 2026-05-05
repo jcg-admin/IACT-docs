@@ -73,5 +73,3 @@ es una subclase de ``ArticulosHogar``.
    Electrodomestico <|-- Lavadora
    Electrodomestico <|-- Refrigerador
    @enduml
-
-----

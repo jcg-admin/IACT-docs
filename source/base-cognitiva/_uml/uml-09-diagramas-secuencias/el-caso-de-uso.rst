@@ -22,5 +22,3 @@ uso dentro del sistema.
    }
    Usuario --> UC
    @enduml
-
-----

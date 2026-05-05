@@ -31,5 +31,3 @@ mediante dos puntos (``:``).
    A -> B   : "1: operacion(parametro)"
    B -> A   : "2: respuesta()"
    @enduml
-
-----

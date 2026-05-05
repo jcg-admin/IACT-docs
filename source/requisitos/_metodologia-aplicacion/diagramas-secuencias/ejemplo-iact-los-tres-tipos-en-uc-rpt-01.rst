@@ -28,5 +28,3 @@
    deactivate Backend
    Frontend --> Operador  : 9. dashboard renderizado
    @enduml
-
-----

@@ -73,5 +73,3 @@ nombre del atributo de su tipo. También podrá indicar un
      activa : Boolean = false
    }
    @enduml
-
-----

@@ -78,5 +78,3 @@ conexión:
 La conexión es el tipo común de asociación entre dos nodos, pero
 es posible utilizar otros (como **agregación** o **dependencia**)
 y representarlos de las formas ya conocidas.
-
-----

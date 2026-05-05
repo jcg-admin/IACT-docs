@@ -59,5 +59,3 @@ un caso de uso**. El término *incluir* tiene dos ventajas:
 
 Promover el uso, mediante la **inclusión** reiterativa de un
 caso de uso.
-
-----

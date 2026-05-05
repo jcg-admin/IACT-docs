@@ -21,5 +21,3 @@ unos de otros).
    UI ..> Ctrl : <<usa>>
    Ctrl ..> Motor : <<usa>>
    @enduml
-
-----

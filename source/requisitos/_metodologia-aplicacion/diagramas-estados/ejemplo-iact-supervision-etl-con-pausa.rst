@@ -25,5 +25,3 @@ sistema vuelve al subestado donde estaba (no reinicia desde
    Procesando --> Exitosa : commit_exitoso()
    Exitosa --> [*]
    @enduml
-
-----

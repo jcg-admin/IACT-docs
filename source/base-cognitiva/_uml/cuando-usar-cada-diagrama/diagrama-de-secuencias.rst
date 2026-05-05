@@ -25,5 +25,3 @@ orden, qué se intercambian).
    T -> T : girar 15 min
    T -> D : drenar()
    @enduml
-
-----

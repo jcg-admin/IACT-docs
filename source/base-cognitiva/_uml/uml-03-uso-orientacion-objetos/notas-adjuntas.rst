@@ -26,5 +26,3 @@ ciertas reglas ya establecidas para la creación de un atributo.
      y el procedimiento de asignación.
    end note
    @enduml
-
-----

@@ -27,5 +27,3 @@ rombo está relleno**.
    MesaCafe *-- "1" Superficie
    MesaCafe *-- "4" Pata
    @enduml
-
-----

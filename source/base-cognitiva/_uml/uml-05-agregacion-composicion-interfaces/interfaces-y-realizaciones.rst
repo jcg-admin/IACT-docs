@@ -87,5 +87,3 @@ representar una clase y su interfaz es con un **pequeño círculo**
    () "ITecladoMaquinaEscribir" as ITME
    TecladoComputadora -- ITME
    @enduml
-
-----

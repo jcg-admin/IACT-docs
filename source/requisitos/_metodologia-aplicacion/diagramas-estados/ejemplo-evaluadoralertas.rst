@@ -24,5 +24,3 @@
      AlertandoUmbral.
    end note
    @enduml
-
-----

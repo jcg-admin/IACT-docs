@@ -82,5 +82,3 @@ la clase ``Camisa`` se conecta con las clases ``Guardarropa`` y
    Atuendo "1" o-- "1" Pantalon
    Atuendo "1" o-- "1" Zapatos
    @enduml
-
-----

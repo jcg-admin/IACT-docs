@@ -82,5 +82,3 @@ antes del primer corchete.
    deactivate P
    deactivate App
    @enduml
-
-----

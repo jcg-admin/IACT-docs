@@ -83,5 +83,3 @@ La orientación a objetos se refiere a algo más que tan sólo
 atributos y acciones. Dichos aspectos se conocen como
 **abstracción**, **herencia**, **polimorfismo**, **encapsulamiento**,
 el **envío de mensajes**, las **asociaciones** y la **agregación**.
-
-----

@@ -72,5 +72,3 @@ módulo del catálogo modular.
 
 **Notación de ruta:** un UC dentro de un paquete se referencia
 con ``Paquete::UC`` (ej: ``UC_RPT::Ver dashboard``).
-
-----

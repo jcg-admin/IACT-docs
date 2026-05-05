@@ -44,5 +44,3 @@ que pueden tener más de un significado.
 El polimorfismo permite al modelador mantener tal terminología
 sin tener que crear palabras artificiales para sustentar una
 unicidad innecesaria de los términos.
-
-----

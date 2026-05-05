@@ -35,5 +35,3 @@ comportamiento**.
      package "Extension"    { rectangle Estereotipo }
    }
    @enduml
-
-----

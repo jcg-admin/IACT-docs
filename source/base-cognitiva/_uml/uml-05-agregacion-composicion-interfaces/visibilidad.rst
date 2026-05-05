@@ -51,5 +51,3 @@ protegida.
      # actualizarKilometraje()
    }
    @enduml
-
-----

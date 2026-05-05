@@ -26,5 +26,3 @@ u otro sistema.
    Usuario --> UC2
    Usuario --> UC3
    @enduml
-
-----

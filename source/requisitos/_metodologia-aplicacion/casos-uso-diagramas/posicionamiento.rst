@@ -20,5 +20,3 @@ beneficia** a la derecha (puede ser el mismo).
    Actor --> CasoDeUso : inicia
    CasoDeUso --> Actor : se beneficia
    @enduml
-
-----

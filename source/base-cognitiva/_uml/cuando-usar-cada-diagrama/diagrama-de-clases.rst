@@ -25,5 +25,3 @@ y cómo se estructuran.
      + sacarRopa()
    }
    @enduml
-
-----

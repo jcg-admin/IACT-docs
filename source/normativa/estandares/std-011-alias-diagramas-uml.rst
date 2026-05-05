@@ -167,7 +167,7 @@ muchas veces, pero deben ser multi-palabra reconocibles:
 ==========================
 
 4.1 Aliases de 2-3 letras universalmente reconocibles
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------------------
 
 Los siguientes aliases cortos son permitidos porque su significado
 es universalmente conocido en el dominio del proyecto:
@@ -179,7 +179,7 @@ es universalmente conocido en el dominio del proyecto:
 - ``CPU`` — Central Processing Unit
 
 4.2 Diagramas de ejemplo en documentación de referencia
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------------
 
 Los archivos en ``source/base-cognitiva/_uml/`` son material de
 referencia con ejemplos genéricos. Pueden usar aliases como

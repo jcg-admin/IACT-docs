@@ -24,5 +24,3 @@
 
 **Aplicación:** DOC-20 (UC_NOT + UC_ALR). Sin email per
 CNST_001.
-
-----

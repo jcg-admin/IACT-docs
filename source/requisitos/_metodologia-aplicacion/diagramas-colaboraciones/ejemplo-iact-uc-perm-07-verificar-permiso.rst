@@ -21,5 +21,3 @@
    SecRules -> AuditoriaPermiso      : "1.5: [no_resuelto]\n   registrar(\n   PERMISO_DENEGADO)"
    SecRules -> Backend : "2: bool resultado"
    @enduml
-
-----

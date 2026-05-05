@@ -49,5 +49,3 @@
      class AuditoriaAcceso
    }
    @enduml
-
-----

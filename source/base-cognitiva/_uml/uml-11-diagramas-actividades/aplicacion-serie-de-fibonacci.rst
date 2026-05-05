@@ -45,5 +45,3 @@ Variables: ``Contador`` (control), ``Respuesta`` (resultado),
      endif
    endif
    @enduml
-
-----

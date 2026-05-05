@@ -36,5 +36,3 @@
          AuditLog inmutable (CNST_025)
    end note
    @enduml
-
-----

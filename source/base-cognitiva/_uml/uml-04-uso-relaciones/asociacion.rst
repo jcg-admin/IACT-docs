@@ -150,5 +150,3 @@ como sus asociaciones con la clase ``Equipo``:
    Equipo "1" -- "2" Delantero : tiene
    Equipo "1" -- "1" Central   : tiene
    @enduml
-
-----

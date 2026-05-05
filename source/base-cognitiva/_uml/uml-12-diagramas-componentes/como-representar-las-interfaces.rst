@@ -58,5 +58,3 @@ Puede mostrar **realización y dependencia en el mismo diagrama**:
    Ed ..> II             : <<usa>> (depende)
    Imp -- II             : (realiza)
    @enduml
-
-----

@@ -43,5 +43,3 @@ que pasa por varios estados a lo largo de su vida.
        por formato (CSV/Excel/PDF).
    end note
    @enduml
-
-----

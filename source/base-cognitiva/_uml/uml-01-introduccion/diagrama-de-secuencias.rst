@@ -63,5 +63,3 @@ caracterizar:
 - Los pasos 3 y 4 como el estado de **lavado**.
 - Los pasos 5 a 7 como el estado de **enjuague**.
 - Los pasos 8 al 10 como el estado de **centrifugado**.
-
-----

@@ -47,5 +47,3 @@ y a las *personas que la construirán*.
 Nuestros casos de uso reflejan lo que los clientes, recolectores
 y proveedores desean, por lo que el resultado será una máquina
 que **todos esos grupos** puedan utilizar con facilidad.
-
-----

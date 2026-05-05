@@ -20,5 +20,3 @@
 
 **Aplicación:** los casos de prueba de UC_RPT y UC_ALR deben
 usar instancias concretas como ésta.
-
-----

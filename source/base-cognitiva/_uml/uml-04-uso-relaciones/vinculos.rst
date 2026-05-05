@@ -21,5 +21,3 @@ deberá subrayar el nombre de un vínculo.
    object "bulls : Equipo" as B
    M -- B : participa en
    @enduml
-
-----

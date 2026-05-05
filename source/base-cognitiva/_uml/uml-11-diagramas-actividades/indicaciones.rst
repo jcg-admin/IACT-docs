@@ -20,5 +20,3 @@ actividad.
    :Procesar respuesta;
    stop
    @enduml
-
-----

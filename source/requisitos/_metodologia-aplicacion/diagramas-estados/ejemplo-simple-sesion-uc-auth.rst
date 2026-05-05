@@ -10,5 +10,3 @@
    Activa --> Inactiva : logout()
    Activa --> [*]
    @enduml
-
-----

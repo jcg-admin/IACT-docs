@@ -110,5 +110,3 @@ En el ejemplo del baloncesto de la hora 3
   35 segundos (colegial) y el ``CronometroDeJuego`` controla 12
   minutos (profesional) o 20 minutos (colegial),
   ``controlarTiempo()`` será **polimórfico**.
-
-----

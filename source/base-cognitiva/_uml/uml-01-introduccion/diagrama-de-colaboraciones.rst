@@ -22,5 +22,3 @@ girar de un lado a otro.
    Cronometro "1" -- "1" Tambor   : activa
    Manguera   "1" -- "1" Tambor   : llena
    @enduml
-
-----

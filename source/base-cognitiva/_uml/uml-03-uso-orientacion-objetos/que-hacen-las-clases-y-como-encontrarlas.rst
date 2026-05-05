@@ -167,5 +167,3 @@ conversaciones con el entrenador para obtener mayor información.
    Equipo "2" -- "1" Cancha
    Jugador "1" -- "0..*" Tiro
    @enduml
-
-----

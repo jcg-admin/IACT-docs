@@ -51,5 +51,3 @@ la parte superior y presenta sus actividades.
    endif
    stop
    @enduml
-
-----

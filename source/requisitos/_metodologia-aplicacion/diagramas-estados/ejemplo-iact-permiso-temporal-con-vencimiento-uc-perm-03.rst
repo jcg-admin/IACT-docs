@@ -29,5 +29,3 @@
      solicitud.
    end note
    @enduml
-
-----

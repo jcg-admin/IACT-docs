@@ -24,5 +24,3 @@ el ``Recolector``.
    Proveedor  --> UC2
    Recolector --> UC3
    @enduml
-
-----

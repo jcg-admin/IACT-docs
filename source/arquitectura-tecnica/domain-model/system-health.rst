@@ -45,6 +45,3 @@ retencion CNST-024 compartida.
  end note
 
  @enduml
-
-.. seealso::
-

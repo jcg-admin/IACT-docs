@@ -23,5 +23,3 @@
      (CNST_008, BR_012).
    end note
    @enduml
-
-----

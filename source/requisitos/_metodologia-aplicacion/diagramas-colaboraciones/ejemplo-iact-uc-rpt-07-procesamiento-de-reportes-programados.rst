@@ -18,5 +18,3 @@
    ReporteProg -> BDAnalytics  : "1.3: ejecutar_query()"
    ReporteProg -> BuzonInterno  : "1.4: notificar(\n   owner, archivo_listo)"
    @enduml
-
-----

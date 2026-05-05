@@ -28,5 +28,3 @@ software del sistema**.
      }
    }
    @enduml
-
-----

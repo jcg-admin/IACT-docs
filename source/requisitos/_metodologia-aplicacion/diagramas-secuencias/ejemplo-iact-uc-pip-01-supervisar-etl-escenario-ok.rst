@@ -39,5 +39,3 @@
      respetada.
    end note
    @enduml
-
-----

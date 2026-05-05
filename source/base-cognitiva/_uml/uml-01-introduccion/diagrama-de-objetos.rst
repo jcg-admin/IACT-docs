@@ -22,5 +22,3 @@ de los dos puntos (``:``), y el nombre de la clase a la derecha.
      capacidad = 7.0
    }
    @enduml
-
-----

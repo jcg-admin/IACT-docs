@@ -484,7 +484,7 @@ Tablas de detalle — pasos del proceso iterativo
      vista Context; concerns de los stakeholders.
 
      *En IACT:* hallazgos H-01..H-15 del WP de auditoría
-     (`2026-05-04-08-32-37`); restricciones CNST-*.
+     (`2026-05-04-08-32-37`); restricciones CNST-\*.
  * - **Actividades**
    - Tomar los inputs brutos, resolver inconsistencias entre ellos,
      responder preguntas abiertas y profundizar donde sea necesario

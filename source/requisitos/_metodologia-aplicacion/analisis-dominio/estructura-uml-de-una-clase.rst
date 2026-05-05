@@ -35,5 +35,3 @@ Una clase tiene 4 áreas: **nombre**, **atributos**,
   ``+`` público / ``#`` protegido.
 - **Operaciones:** ``camelCase`` con paréntesis y firma.
 - **Restricciones:** entre llaves ``{…}`` en notas.
-
-----

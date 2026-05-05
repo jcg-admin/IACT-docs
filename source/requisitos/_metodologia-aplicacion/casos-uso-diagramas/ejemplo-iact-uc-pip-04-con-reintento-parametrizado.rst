@@ -26,5 +26,3 @@
          timeout o conexión IVR.
    end note
    @enduml
-
-----

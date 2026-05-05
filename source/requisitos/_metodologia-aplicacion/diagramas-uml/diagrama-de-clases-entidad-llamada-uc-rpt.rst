@@ -27,5 +27,3 @@
 integra ésta con todas las demás clases.
 
 **Perspectiva:** ESTÁTICA. **Audiencia:** Devs / Arquitectos.
-
-----

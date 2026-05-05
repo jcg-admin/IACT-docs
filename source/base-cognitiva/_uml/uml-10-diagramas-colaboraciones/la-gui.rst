@@ -30,5 +30,3 @@ Un actor inicia la secuencia al oprimir una tecla. Tal secuencia
    CPU -> TV   : "4: enviarCaracter()"
    TV -> MON   : "5: presentarCaracter()"
    @enduml
-
-----

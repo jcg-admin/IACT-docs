@@ -293,13 +293,13 @@ Las siguientes situaciones permiten el uso de nombres tecnológicos
 en documentos de requisitos:
 
 5.1 ``implementacion-tecnica.rst``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
 Este archivo es explícitamente técnico. Puede y debe referenciar
 tecnologías concretas: Apache, bcrypt, Django versión, mod_wsgi, etc.
 
 5.2 Identificadores de datos concretos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 Los identificadores de tablas/campos específicos que son parte del
 contrato de datos son permitidos cuando el documento los necesita para
@@ -310,7 +310,7 @@ precisión:
 - ``tbl_historico_tN_YYYY`` — nombre de tabla fuente (vocabulario de dominio)
 
 5.3 Criterios de rendimiento con algoritmo específico
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------------------
 
 Cuando el criterio de rendimiento es específico al algoritmo (e.g.,
 "P50 ≤ 250 ms incluyendo verificación de hash"), se puede mencionar

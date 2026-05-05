@@ -48,5 +48,3 @@ salas.
    }
    Artwork "0..*" -- "1" Room : se exhibe en
    @enduml
-
-----

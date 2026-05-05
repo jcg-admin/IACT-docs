@@ -38,5 +38,3 @@ Ejemplos IACT:
  [* funcion_implicada en macro_funcion]
    3: verificar_permiso(usuario, sub_funcion)
  resultado := evaluar_umbral(metrica, umbral)
-
-----

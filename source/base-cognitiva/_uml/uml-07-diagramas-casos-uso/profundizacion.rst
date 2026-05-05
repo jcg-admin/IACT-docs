@@ -77,5 +77,3 @@ a ``"Crear una propuesta"``.
 
 Recuerde que **el análisis del caso de uso describe el
 comportamiento de un sistema, nunca toca a la implementación**.
-
-----

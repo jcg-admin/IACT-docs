@@ -24,5 +24,3 @@ o un ejemplo de cómo funciona una clase en la práctica.
      capacidad = 7.0
    }
    @enduml
-
-----

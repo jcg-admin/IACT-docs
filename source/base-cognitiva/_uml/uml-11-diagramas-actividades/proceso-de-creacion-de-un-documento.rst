@@ -40,5 +40,3 @@ documento:
    :Salir de la aplicación;
    stop
    @enduml
-
-----

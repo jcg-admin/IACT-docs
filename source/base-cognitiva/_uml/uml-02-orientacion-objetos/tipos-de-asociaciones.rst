@@ -268,5 +268,3 @@ Ejemplos:
 - **Pedido, Producto y Cantidad:** un pedido puede incluir varios
   productos, y cada producto puede tener una cantidad específica
   en ese pedido.
-
-----

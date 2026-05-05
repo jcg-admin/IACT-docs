@@ -17,5 +17,3 @@ software.
      [Sensor de Carga]
    }
    @enduml
-
-----

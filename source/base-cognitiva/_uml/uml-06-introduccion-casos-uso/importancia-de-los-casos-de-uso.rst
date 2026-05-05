@@ -123,5 +123,3 @@ Tan pronto como se agote la moneda fraccionaria, **aparezca un
 mensaje** que informe a los clientes que se requiere el importe
 exacto. El mensaje permanecería a la vista hasta que la máquina
 sea reabastecida con moneda fraccionaria.
-
-----

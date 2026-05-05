@@ -65,6 +65,3 @@ representan como valores del enum ``EventType``, no como subclases.
  end note
 
  @enduml
-
-.. seealso::
-

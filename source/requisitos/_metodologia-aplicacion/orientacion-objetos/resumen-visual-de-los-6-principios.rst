@@ -15,5 +15,3 @@
      rectangle "6. ASOCIACIONES\nUsuario 1:1 Sesion;\nGrupo *:* Funcion (agregación);\nEjecucionETL 1:* ErrorETL (composición)" as 6Asociaciones
    }
    @enduml
-
-----

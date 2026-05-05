@@ -12,5 +12,3 @@ Notación: nombre entre ``«…»`` (paréntesis angulares dobles).
      + logout()
    }
    @enduml
-
-----

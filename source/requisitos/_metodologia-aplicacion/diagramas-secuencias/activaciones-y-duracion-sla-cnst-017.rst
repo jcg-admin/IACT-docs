@@ -40,5 +40,3 @@ La **altura** de la activación representa la **duración**.
      ≤ CNST_017 (10 s) ✓
    end note
    @enduml
-
-----

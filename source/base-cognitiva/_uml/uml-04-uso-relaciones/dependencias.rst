@@ -28,5 +28,3 @@ clase de la que depende.
    class Formulario
    Sistema ..|> Formulario : <<usa>>
    @enduml
-
-----

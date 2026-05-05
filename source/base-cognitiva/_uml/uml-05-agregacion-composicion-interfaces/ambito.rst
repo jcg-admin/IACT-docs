@@ -62,5 +62,3 @@ Existen dos tipos de ámbito: el de **instancia** y el de
      subrayado en el diagrama).
    end note
    @enduml
-
-----

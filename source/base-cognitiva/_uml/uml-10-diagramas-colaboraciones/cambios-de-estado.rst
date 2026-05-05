@@ -19,5 +19,3 @@ discontinua* y etiquétela con un estereotipo ``«se toma»`` (o
    object "GUI [Operación]"      as GUI2
    GUI1 ..> GUI2 : <<se toma>>
    @enduml
-
-----

@@ -35,5 +35,3 @@
      timeout 15 min (CNST_002).
    end note
    @enduml
-
-----

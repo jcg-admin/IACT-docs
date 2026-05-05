@@ -35,5 +35,3 @@ clase ``DirectorGeneral``, que a su vez se asocia con
    (Jugador, Equipo) .. Contrato
    Contrato -- DirectorGeneral : generado por
    @enduml
-
-----

@@ -53,5 +53,3 @@
    @enduml
 
 **Aplicación:** DOC-26 (Componentes + Distribución).
-
-----

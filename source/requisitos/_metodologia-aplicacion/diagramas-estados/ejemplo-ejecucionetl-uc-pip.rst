@@ -29,5 +29,3 @@
    Validando --> [*] : sin_errores()
    Validando --> [*] : con_errores()
    @enduml
-
-----

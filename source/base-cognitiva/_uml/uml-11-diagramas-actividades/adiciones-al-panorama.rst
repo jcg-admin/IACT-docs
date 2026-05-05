@@ -16,5 +16,3 @@ Adiciones al panorama
      }
    }
    @enduml
-
-----

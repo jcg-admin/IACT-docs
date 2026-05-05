@@ -54,5 +54,3 @@
                       INotificable)
    end note
    @enduml
-
-----

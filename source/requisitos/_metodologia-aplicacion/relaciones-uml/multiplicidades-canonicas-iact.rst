@@ -35,5 +35,3 @@
      - Alerta:Suscriptor = 1:0..*
    end note
    @enduml
-
-----

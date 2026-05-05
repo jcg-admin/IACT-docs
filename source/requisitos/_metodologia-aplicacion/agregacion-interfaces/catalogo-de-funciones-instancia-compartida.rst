@@ -24,5 +24,3 @@
        → archivador (operaciones de catálogo)
    end note
    @enduml
-
-----

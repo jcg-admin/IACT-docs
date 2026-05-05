@@ -25,5 +25,3 @@ Diagrama clásico de Schmuller que sirve de base conceptual:
    Tiempo     --> UC2
    Tiempo     --> UC3
    @enduml
-
-----

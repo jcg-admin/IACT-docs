@@ -33,5 +33,3 @@
    @enduml
 
 **Aplicación:** UC_PIP — supervisión del ETL nocturno.
-
-----

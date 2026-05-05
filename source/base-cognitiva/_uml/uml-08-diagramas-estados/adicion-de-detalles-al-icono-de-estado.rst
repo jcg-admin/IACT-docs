@@ -57,5 +57,3 @@ muestra la fecha y la hora en una pantalla.
    INA  --> ENV : iniciarEnvio
    ENV  --> INA : finTransmision
    @enduml
-
-----

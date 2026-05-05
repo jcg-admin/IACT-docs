@@ -33,5 +33,3 @@
    @enduml
 
 **Aplicación:** DOC-25 (Secuencias críticas).
-
-----

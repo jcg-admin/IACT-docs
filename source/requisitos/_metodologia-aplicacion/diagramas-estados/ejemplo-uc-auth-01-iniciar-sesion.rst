@@ -20,5 +20,3 @@
 
    Anonima --> [*]
    @enduml
-
-----

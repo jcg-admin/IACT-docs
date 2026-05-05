@@ -61,5 +61,3 @@ restricciones, con todo un lenguaje conocido como **OCL** (Object
 Constraint Language). OCL cuenta con su propio conjunto de
 reglas, términos y operadores, lo que lo convierte en una
 herramienta avanzada y, en ocasiones, útil.
-
-----

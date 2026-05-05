@@ -55,5 +55,3 @@ paquetes):
      interno, NO email.
    end note
    @enduml
-
-----

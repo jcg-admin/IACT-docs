@@ -16,5 +16,3 @@ palabras, únalas e inicie cada una con mayúscula (como en
    class Lavadora
    class LavadoraIndustrial
    @enduml
-
-----

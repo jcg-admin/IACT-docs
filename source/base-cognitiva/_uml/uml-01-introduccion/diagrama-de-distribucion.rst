@@ -25,5 +25,3 @@ líneas que conectan a los cubos.
    Web --> App : HTTPS
    App --> DB  : SQL
    @enduml
-
-----

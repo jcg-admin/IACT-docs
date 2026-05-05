@@ -29,5 +29,3 @@ máquinas, cómo se conectan).
    W -- DB : <<JDBC>>
    W -- S  : <<HTTPS>>
    @enduml
-
-----

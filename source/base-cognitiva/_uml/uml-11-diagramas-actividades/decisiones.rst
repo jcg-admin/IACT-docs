@@ -28,5 +28,3 @@ a la ruta correspondiente.
    endif
    stop
    @enduml
-
-----

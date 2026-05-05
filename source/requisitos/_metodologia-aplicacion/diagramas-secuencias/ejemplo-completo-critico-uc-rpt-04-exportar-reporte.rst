@@ -76,5 +76,3 @@ loop + asincrónico + auditoría inmutable.
    end
    deactivate Backend
    @enduml
-
-----

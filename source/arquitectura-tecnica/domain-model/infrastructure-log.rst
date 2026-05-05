@@ -49,6 +49,3 @@ de retencion CNST-024.
  InfrastructureLog -- LogLevel
 
  @enduml
-
-.. seealso::
-
