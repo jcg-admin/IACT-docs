@@ -32,12 +32,29 @@ RBAC del sistema. Stereotypes:
 | `<<sistema_externo>>` | Frontera externa (Trunk SIP, Cron) — **decisión nueva** |
 | `<<externo>>` | Caller no autenticado |
 
-### KI-3 — Reuso de los 53 uml-06 como base de modelo
+### KI-3 — Lectura completa de specs por UC (sin scripts ni atajos)
 
-Los 53 archivos `casos-uso/<mod>/<uc>/diagramas-uml/diagrama-de-caso-de-uso.rst`
-producidos por el predecesor sirven como punto de partida del PlantUML — se sanitizan
-y enriquecen, pero no se reescriben desde cero. Reduce 50% el effort vs generación
-greenfield.
+**Decisión explícita del ejecutor (post Phase 8):** NO se usan scripts de generación
+masiva. Cada uno de los 83 archivos uml-07 standalone se construye **manualmente**,
+con lectura completa de todos los specs textuales del UC:
+
+1. `casos-uso/<mod>/<uc>/index.rst` (toctree de las 12 partes).
+2. `casos-uso/<mod>/<uc>/informacion-general.rst` (Parte 1).
+3. `casos-uso/<mod>/<uc>/actores-precondiciones.rst` (Parte 2).
+4. `casos-uso/<mod>/<uc>/flujo-principal.rst` (Parte 3).
+5. `casos-uso/<mod>/<uc>/flujos-alternos.rst` (Parte 4).
+6. `casos-uso/<mod>/<uc>/excepciones.rst` (Parte 5).
+7. `casos-uso/<mod>/<uc>/criterios-aceptacion.rst` (Parte 9).
+8. (Opcional) `casos-uso/<mod>/<uc>/patrones-diseno.rst` y
+   `casos-uso/<mod>/<uc>/implementacion-tecnica.rst`.
+
+El uml-06 existente (`diagramas-uml/diagrama-de-caso-de-uso.rst`) se consulta como
+referencia inicial pero NO se confía ciegamente — se valida cada decisión contra los
+specs textuales.
+
+**Razón:** la lección del predecesor (L-03) demostró que la compresión de tiempo en
+generación masiva produce diagramas "shallow" con extends incompletos y notas BR/CNST
+parciales. La velocidad introduce más errores que soluciones.
 
 ### KI-4 — Specification y Strategy patterns documentados en archivos dedicados
 
@@ -272,13 +289,30 @@ Selección representativa por familia semántica:
 
 **SP-02 PILOT gate**: ejecutor valida los 5 antes de propagar.
 
-### 4.4 Etapa 4 — generación masiva por módulo (T-022..T-100+)
+### 4.4 Etapa 4 — generación manual UC por UC (T-022..T-100+)
 
-Por módulo:
+**Sin scripts. Sin atajos. Sin prisa.** Cada UC se construye así:
 
-1. Generar todos los archivos `uc-XXX-NN-<slug>.rst` del módulo.
-2. Build local strict por módulo (SP-03).
-3. Commit checkpoint.
+1. **Leer specs completos** (KI-3): 7 archivos del UC.
+2. **Identificar actores RBAC** invocadores y beneficiarios desde
+   `actores-precondiciones.rst` y referencias cruzadas en otros UCs.
+3. **Identificar sub-usecases** del flujo principal + flujos alternos.
+4. **Identificar extends candidatos** desde `flujos-alternos.rst` y `excepciones.rst`.
+5. **Identificar entidades del domain-model** referenciadas y verificar nombre canónico.
+6. **Construir el `@startuml`** siguiendo template canónico de Phase 5.
+7. **Escribir notas BR/CNST/P/ADR** completas (incluyendo `criterios-aceptacion.rst`).
+8. **Construir `seealso`** con `:doc:` a domain-model + UC backing + spec textual.
+9. **Build local strict** del archivo individual (verificar 0 warnings).
+10. **Audit script** sobre el archivo individual (R-01..R-12 + BR-006).
+
+Solo cuando los 10 pasos pasan, se procede al siguiente UC.
+
+**Cadencia:** un UC tarda 20-40 min (vs 2-3 min "shallow" del predecesor). Estimación
+total Phase 10: 30-50h sostenidas. Distribuible en sesiones por módulo o por chunks
+de 3-5 UCs.
+
+**Commits:** un commit por cada 3-5 UCs (no por UC individual — demasiada granularidad,
+ni por módulo entero — demasiado coarse). Tim Pope style con scope `(use-case-view)`.
 
 Orden propuesto (de menor a mayor riesgo):
 

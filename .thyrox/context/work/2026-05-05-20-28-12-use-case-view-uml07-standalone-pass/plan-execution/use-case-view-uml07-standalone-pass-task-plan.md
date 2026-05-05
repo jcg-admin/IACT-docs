@@ -12,6 +12,17 @@ version: 1.0.0
 
 > 115 tareas atómicas T-001..T-115 distribuidas en 6 etapas.
 > Marcar `[x]` al completar.
+>
+> **Cadencia (decisión del ejecutor):** sin scripts, sin atajos, sin prisa.
+> Cada UC se construye manualmente leyendo sus 7 specs completos
+> (informacion-general, actores-precondiciones, flujo-principal,
+> flujos-alternos, excepciones, criterios-aceptacion, patrones-diseno).
+> Cada archivo de domain-model se construye manualmente con la spec
+> mínima del template canónico. Build strict + audit por cada archivo
+> individual antes de proceder al siguiente.
+>
+> Estimación: 20-40 min por UC, 30-60 min por archivo domain-model.
+> Total Phase 10: 30-50h sostenidas distribuidas en múltiples sesiones.
 
 ## Etapa 1 — Domain-model nuevas clases (14 archivos)
 
@@ -53,7 +64,11 @@ version: 1.0.0
 - [ ] **T-COM-3** Commit Etapa 3 + push
 - [ ] **🛑 SP-02** Ejecutor revisa los 5 sample y aprueba pattern antes de propagar
 
-## Etapa 4 — Generación masiva por módulo (78 uml-07 restantes)
+## Etapa 4 — Generación manual UC por UC (78 uml-07 restantes)
+
+> **Cadencia esperada:** 20-40 min por UC (lectura de 7 specs + diseño +
+> validación). Build strict + audit por cada archivo. Commit cada 3-5 UCs.
+> Sin scripts. Sin atajos.
 
 ### Etapa 4.1 — admin (2 restantes)
 

@@ -129,21 +129,34 @@ Crear `scripts/validate-uml07-standalone.sh` que verifica:
 | 0 violaciones audit | `validate-uml07-standalone.sh` exit 0 |
 | Cobertura `:doc:` cross-refs ≥ 90% | reportar % en track/lessons-learned |
 
-## 6. Schedule
+## 6. Schedule (sin scripts, sin atajos, sin prisa)
 
-Estimación de effort por etapa (estilo "ideal hours"):
+**Decisión explícita del ejecutor (post Phase 8):** la velocidad introduce más errores
+que soluciones. Cadencia revisada hacia trabajo manual UC por UC:
 
-| Etapa | Tasks | Effort |
-|---|---|---|
-| 1. domain-model (14 archivos) | T-001..T-014 | 4-6h |
-| 2. patterns (2 archivos) | T-015, T-016 | 1h |
-| 3. SP-02 PILOT (5 sample) | T-017..T-021 | 1-2h |
-| 4. uml-07 masivo (78 archivos) | T-022..T-100 | 12-18h |
-| 5. module index (13 archivos) | T-101..T-113 | 1-2h |
-| 6. audit + final build | T-114, T-115 | 1h |
-| **TOTAL** | **115 tasks** | **20-30h** |
+| Etapa | Tasks | Cadencia esperada por archivo | Effort total |
+|---|---|---|---|
+| 1. domain-model (14 archivos) | T-001..T-014 | 30-60 min por archivo (lectura UCs que lo refieren + diseño UML class) | **8-14h** |
+| 2. patterns (2 archivos) | T-015, T-016 | 30-45 min cada uno | 1-1.5h |
+| 3. SP-02 PILOT (5 sample) | T-017..T-021 | 30-45 min por UC (spec read completo) | 2.5-4h |
+| 4. uml-07 manual (78 archivos) | T-022..T-100 | **20-40 min por UC** (7 specs leídos) | **26-52h** |
+| 5. module index (13 archivos) | T-101..T-113 | 10-20 min por archivo | 2-4h |
+| 6. audit + final build | T-114, T-115 | 1-2h script + validación | 1-2h |
+| **TOTAL** | **115 tasks** | | **40-77h sostenidas** |
 
-Distribuible en sesiones por módulo. Commits checkpoint per módulo (Tim Pope style).
+**Distribución sugerida:** 2-4h por sesión, distribuidas en múltiples días/semanas.
+Commits cada 3-5 UCs (Tim Pope style scope `(use-case-view)`). NO commits por UC
+individual (demasiada granularidad), NO por módulo entero (demasiado coarse).
+
+**Sin atajos:**
+
+- ❌ NO scripts de generación masiva.
+- ❌ NO templates copy-paste sin adaptar al UC específico.
+- ❌ NO compresión de tiempo (lección L-03 del predecesor: "shallow Level A produce
+  errores que solo se detectan en build limpio post-hoc").
+- ✅ Lectura completa de 7 specs textuales por UC.
+- ✅ Verificación de nombres canónicos contra domain-model real.
+- ✅ Build strict + audit script por **cada archivo** antes de pasar al siguiente.
 
 ## 7. Stakeholders y gates
 
