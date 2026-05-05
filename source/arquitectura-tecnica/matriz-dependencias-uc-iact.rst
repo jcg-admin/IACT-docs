@@ -45,7 +45,7 @@ El catalogo IACT esta formado por **80 casos de uso** agrupados en
 **12 clusters funcionales** (AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD,
 LOG, OPR, SUP, CLI) que operan sobre **25 clases de dominio** distribuidas en
 **7 bounded contexts** (Auth, RBAC, Calls, Reports & Metrics,
-Pipeline ETL, Alerts, Audit, Logs).
+Pipeline, Alerts, Audit, Logs).
 
 Esta matriz analiza las dependencias estructurales entre los 80 UCs
 para identificar:
@@ -593,22 +593,22 @@ Responsabilidad: supervision del pipeline ETL. **1 CRITICO + 3 ALTOS**.
    - CRITICO
    - 4
    - PIP-001 ``view_pipeline_status``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_02 Consultar Errores ETL
    - ALTO
    - 2
    - PIP-002 ``view_pipeline_errors``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_03 Consultar Disponibilidad
    - ALTO
    - 2
    - PIP-003 ``view_data_availability``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_04 Solicitar Reintento
    - ALTO
    - 3
    - PIP-004 ``request_pipeline_retry``
-   - ``ETLEjecucion``, ``AuditEvent``
+   - ``PipelineExecution``, ``AuditEvent``
 
 2.8 Cluster AUD (4 UCs)
 -----------------------
@@ -670,8 +670,8 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
  * - UC_LOG_02 Consultar Logs ETL
    - ALTO
    - 2
-   - LOG-004 ``view_etl_logs`` (NUEVA)
-   - ``ETLLog``, ``ETLEjecucion``
+   - LOG-004 ``view_pipeline_logs`` (NUEVA)
+   - ``PipelineLog``, ``PipelineExecution``
  * - UC_LOG_03 Buscar Logs
    - BAJO
    - 3

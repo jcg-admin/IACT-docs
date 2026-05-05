@@ -5,7 +5,7 @@
 
  @startuml
  component "DisponibilidadDatosService" as Disponibilidaddatosservice
- component "ETLEjecucionRepo" as Etlejecucionrepo
+ component "PipelineExecutionRepo" as Etlejecucionrepo
  component "DisponibilidadBuilder" as Disponibilidadbuilder
  Disponibilidaddatosservice --> Etlejecucionrepo
  Disponibilidaddatosservice --> Disponibilidadbuilder

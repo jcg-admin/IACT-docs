@@ -10,13 +10,13 @@
      class Scheduler
      class FilaCargada
      class ErrorETL
-     class EstadoEjecucion
+     class ExecutionStatus
 
-     Scheduler --> EstadoEjecucion : dispara
-     EstadoEjecucion --> FilaCargada : produce
-     EstadoEjecucion --> ErrorETL    : registra
+     Scheduler --> ExecutionStatus : dispara
+     ExecutionStatus --> FilaCargada : produce
+     ExecutionStatus --> ErrorETL    : registra
    }
-   note right of EstadoEjecucion
+   note right of ExecutionStatus
      Diagrama de contexto:
      muestra cómo se relacionan
      los componentes DENTRO de

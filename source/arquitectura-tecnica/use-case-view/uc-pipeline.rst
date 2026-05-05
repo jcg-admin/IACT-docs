@@ -21,7 +21,7 @@ MOD_Pipeline — Gestion del ETL
 
 Supervision, monitoreo y reintento del pipeline ETL IVR. El ETL
 transforma los datos del Repositorio IVR a la Base Analitica IVR
-via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
+via ``sp_etl_maestro``. El registro de ejecuciones vive en ``pipeline_runs``.
 
 .. uml::
  :caption: Figura 22 — MOD_Pipeline: casos de uso
@@ -36,8 +36,8 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
  actor "APScheduler\n/ Cron" as APScheduler
 
  rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_01\nVer Estado ETL\n(etl_runs)" as VER_ESTADO_ETL
-   usecase "UC_PIP_02\nVer Errores ETL\n(etl_runs.estado=fallido)" as VER_ERRORES_ETL
+   usecase "UC_PIP_01\nVer Estado ETL\n(pipeline_runs)" as VER_ESTADO_ETL
+   usecase "UC_PIP_02\nVer Errores ETL\n(pipeline_runs.estado=fallido)" as VER_ERRORES_ETL
    usecase "UC_PIP_03\nVer Disponibilidad\nde Datos" as VER_DISPONIBILIDAD_DATOS
    usecase "UC_PIP_04\nReintentar ETL\n(sp_etl_historico)" as REINTENTAR_ETL
    usecase "Ejecutar ETL\nAutomatico\n(sp_etl_maestro)" as EJECUCION_ETL_AUTOMATICA

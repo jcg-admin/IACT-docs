@@ -53,7 +53,7 @@ MODELO DOMINIO IACT
 
 Este documento materializa las **26 clases canonicas** del dominio
 IACT distribuidas en **ocho bounded contexts** (Auth, RBAC, Calls,
-Reports & Metrics, Pipeline ETL, Alerts, Audit, Logs). Cada clase
+Reports & Metrics, Pipeline, Alerts, Audit, Logs). Cada clase
 incluye atributos relevantes, operaciones de negocio, restricciones
 canonicas (BR/CNST en versiones vigentes) y trazabilidad a los UCs
 del catalogo.
@@ -73,7 +73,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
 2.1 Identificadores en ingles
 -----------------------------
 
-- **Clases** en PascalCase (``User``, ``Session``, ``ETLEjecucion``).
+- **Clases** en PascalCase (``User``, ``Session``, ``PipelineExecution``).
 - **Atributos** en snake_case (``user_id``, ``started_at``,
   ``last_login_at``).
 - **Operaciones** en snake_case (``deactivate``, ``acknowledge``,
@@ -185,8 +185,8 @@ el detalle de cada contexto ver § 4.
    class SavedView
  }
 
- package "Pipeline ETL" as BC_ETL {
-   class ETLEjecucion
+ package "Pipeline" as BC_ETL {
+   class PipelineExecution
  }
 
  package "Alerts" as BC_ALERTS {
@@ -201,7 +201,7 @@ el detalle de cada contexto ver § 4.
 
  package "Logs" as BC_LOGS {
    class ApplicationLog
-   class ETLLog
+   class PipelineLog
    class InfrastructureLog
    class SystemHealth
    class TechnicalMetric
@@ -217,7 +217,7 @@ el detalle de cada contexto ver § 4.
  Report    "1" -- "*"   ScheduledReport
  Report    "1" -- "*"   SavedView
  Report    "*" .. "*"   Call                  : agrega
- ETLEjecucion "1" .. "*" Call                 : carga
+ PipelineExecution "1" .. "*" Call                 : carga
  Alert     "*" -- "1"   Threshold
  Alert     "1" -- "*"   Subscription
  Subscription "*" -- "1" User

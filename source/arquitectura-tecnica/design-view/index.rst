@@ -20,7 +20,7 @@ Patrones de interaccion del sistema IACT a nivel modulo. Cada archivo
 muestra el diagrama de secuencia canonico del modulo: participantes
 con nombres de servicio reales (CamelCase), clases de dominio
 canonicas (``User``, ``Session``, ``AuditEvent``, ``Assignment``,
-``ExceptionalPermission``, ``ETLEjecucion``, ``Alert``, ``Report``,
+``ExceptionalPermission``, ``PipelineExecution``, ``Alert``, ``Report``,
 ``ExportJob``, ``ApplicationLog``, ``Call``), y flujo principal con
 casos de error relevantes.
 

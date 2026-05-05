@@ -52,7 +52,7 @@ ETL (``sp_etl_*``). ``PostgreSQL`` gestiona usuarios y auditoria.
  database "<<subsystem>>\nMariaDB 10.1.48" as BASE_DATOS_MARIADB {
    artifact "tbl_historico_*\n(Repositorio IVR)" as ARTEFACTO_HISTORICO_IVR
    artifact "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as ARTEFACTO_BASE_ANALITICA
-   artifact "etl_runs\n(Registro ETL)" as ARTEFACTO_ETL_RUNS
+   artifact "pipeline_runs\n(Registro ETL)" as ARTEFACTO_ETL_RUNS
  }
 
  database "<<subsystem>>\nPostgreSQL" as BASE_DATOS_POSTGRESQL {

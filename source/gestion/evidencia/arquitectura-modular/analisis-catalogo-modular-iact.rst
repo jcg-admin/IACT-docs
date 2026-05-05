@@ -192,7 +192,7 @@ Produce a MOD_Audit. TODOS los módulos consumen vía SEC_RULES.
 **Propósito:** Supervisar, monitorear y validar estado del ETL y
 disponibilidad de datos.
 
-**PUEDE:** Consultar historico de ETLEjecucion (exitosas y fallidas),
+**PUEDE:** Consultar historico de PipelineExecution (exitosas y fallidas),
 ver ultima ejecucion y estado de salud del Servicio ETL, consultar
 disponibilidad por trimestre, identificar desfasajes (>12h-24h),
 indicadores de calidad, solicitar reintento controlado.

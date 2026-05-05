@@ -37,7 +37,7 @@ MODELO DOMINIO IACT
 
 Este documento materializa las **26 clases canonicas** del dominio
 IACT distribuidas en **ocho bounded contexts** (Auth, RBAC, Calls,
-Reports & Metrics, Pipeline ETL, Alerts, Audit, Logs). Cada clase
+Reports & Metrics, Pipeline, Alerts, Audit, Logs). Cada clase
 incluye atributos relevantes, operaciones de negocio, restricciones
 canonicas (BR/CNST en versiones vigentes) y trazabilidad a los UCs
 del catalogo.
@@ -57,7 +57,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
 2.1 Identificadores en ingles
 -----------------------------
 
-- **Clases** en PascalCase (``User``, ``Session``, ``ETLEjecucion``).
+- **Clases** en PascalCase (``User``, ``Session``, ``PipelineExecution``).
 - **Atributos** en snake_case (``user_id``, ``started_at``,
   ``last_login_at``).
 - **Operaciones** en snake_case (``deactivate``, ``acknowledge``,
@@ -187,7 +187,7 @@ Resumen de actividad por clase:
  * - Session
    - 5
    - Operada por AUTH y USR
- * - ETLEjecucion
+ * - PipelineExecution
    - 5
    - Cluster PIP completo + LOG-02 cross-context
  * - ExceptionalPermission, FunctionGroup, Alert

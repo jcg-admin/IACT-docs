@@ -19,7 +19,7 @@ PASO 3 — El sistema consulta el Registro de Ejecuciones:
 PASO 4 — El sistema calcula DisponibilidadDatos:
 
   - ``minutos_desde_etl``: diferencia entre ``now()`` y
-    ``finalizado_en`` de la ultima ejecucion exitosa.
+    ``finished_at`` de la ultima ejecucion exitosa.
   - ``estado_frescura``: fresco (<720 min) / degradado
     (720-1440 min) / vencido (>=1440 min).
 

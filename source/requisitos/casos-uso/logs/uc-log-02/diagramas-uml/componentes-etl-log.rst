@@ -5,14 +5,14 @@
 
  @startuml
  component "ETLScheduler\n(sp_etl_maestro)" as Etlscheduler
- database "etl_runs" as etl_runs
+ database "pipeline_runs" as pipeline_runs
  component "LogEndpoint\n(/logs/etl/)" as Logendpoint
- actor "view_etl_logs" as view_etl_logs
+ actor "view_pipeline_logs" as view_pipeline_logs
 
- Etlscheduler --> etl_runs : registrar ejecucion
- view_etl_logs --> Logendpoint : GET filtros
- Logendpoint --> etl_runs : consultar etl_runs
- etl_runs --> Logendpoint : filas
- Logendpoint --> view_etl_logs : 200 JSON
+ Etlscheduler --> pipeline_runs : registrar ejecucion
+ view_pipeline_logs --> Logendpoint : GET filtros
+ Logendpoint --> pipeline_runs : consultar pipeline_runs
+ pipeline_runs --> Logendpoint : filas
+ Logendpoint --> view_pipeline_logs : 200 JSON
  @enduml
 

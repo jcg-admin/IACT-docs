@@ -43,7 +43,7 @@ para el trimestre y segmento activos del usuario.
    ttl: 30s
 
 El cache se invalida al completar una ejecucion ETL exitosa
-(``etl_runs.estado = 'exitoso'``).
+(``pipeline_runs.estado = 'exitoso'``).
 
 7.4 Datos NO involucrados
 ==========================

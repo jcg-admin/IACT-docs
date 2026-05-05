@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``view_etl_logs``
+- **User con funcion** ``view_pipeline_logs``
 - **LogStore**
 
 ::

@@ -168,7 +168,7 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - search_logs
    - uc-log-03
    - Logs
- * - view_etl_logs
+ * - view_pipeline_logs
    - uc-log-02
    - Logs
  * - view_infrastructure_logs

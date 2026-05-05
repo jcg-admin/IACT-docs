@@ -305,7 +305,7 @@ Los identificadores de tablas/campos específicos que son parte del
 contrato de datos son permitidos cuando el documento los necesita para
 precisión:
 
-- ``etl_runs.estado`` — nombre de campo de tabla real
+- ``pipeline_runs.estado`` — nombre de campo de tabla real
 - ``sp_etl_maestro`` — nombre de stored procedure (vocabulario de dominio)
 - ``tbl_historico_tN_YYYY`` — nombre de tabla fuente (vocabulario de dominio)
 

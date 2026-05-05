@@ -37,7 +37,7 @@ del Almacen de Datos. Ventana de ejecucion CNST-008 (6-12 horas).
  }
 
  database "AlmacenDatos\n(PostgreSQL)" as AlmacenDatos {
-   artifact "etl_runs" as EtlRuns
+   artifact "pipeline_runs" as EtlRuns
  }
 
  database "BDOperativa\n(MariaDB)" as BDOperativa {
@@ -45,7 +45,7 @@ del Almacen de Datos. Ventana de ejecucion CNST-008 (6-12 horas).
  }
 
  ClienteWeb   --> ServidorApp   : HTTPS / REST
- ServidorApp  --> AlmacenDatos  : TCP / SQL\n(escribe etl_runs)
+ ServidorApp  --> AlmacenDatos  : TCP / SQL\n(escribe pipeline_runs)
  ServidorApp  --> BDOperativa   : TCP / SP call\n(solo lectura)
 
  note right of BDOperativa
@@ -55,7 +55,7 @@ del Almacen de Datos. Ventana de ejecucion CNST-008 (6-12 horas).
  end note
 
  note bottom of AlmacenDatos
-   ETLEjecucion persiste en etl_runs.
+   PipelineExecution persiste en pipeline_runs.
    CNST-008: ventana 6-12 horas.
  end note
 
@@ -69,4 +69,4 @@ UC_PIP_04 (solicitar reintento pipeline).
 
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/deploy-view/deploy-estandar`
- :doc:`/arquitectura-tecnica/domain-model/etl-ejecucion`
+ :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`

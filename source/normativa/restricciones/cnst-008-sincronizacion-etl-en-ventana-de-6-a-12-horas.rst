@@ -86,7 +86,7 @@ analisis historico, no para operacion en tiempo real.
 
 - django-crontab
 - Scheduler (cron / systemd timers)
-- Tabla ``etl_runs`` en MariaDB para tracking de ejecuciones
+- Tabla ``pipeline_runs`` en MariaDB para tracking de ejecuciones
 - APScheduler o cron como mecanismo de disparo
 
 3. Impacto en Sistema
@@ -144,13 +144,13 @@ el WP de requisitos (deuda diferida).
 
 .. code-block:: python
 
- # Consulta directa sobre etl_runs en MariaDB
+ # Consulta directa sobre pipeline_runs en MariaDB
  from django.db import connections
  with connections['ivr'].cursor() as cursor:
      cursor.execute(
-         "SELECT finalizado_en FROM etl_runs "
+         "SELECT finished_at FROM pipeline_runs "
          "WHERE estado = 'exitoso' "
-         "ORDER BY finalizado_en DESC LIMIT 1"
+         "ORDER BY finished_at DESC LIMIT 1"
      )
      row = cursor.fetchone()
  last_finished_at = row[0] if row else None
@@ -194,7 +194,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 - **Tipo:** Automatico
 - **Frecuencia:** Continuo (monitoreo de jobs)
 - **Herramienta:** Alerta si la ultima fila ``estado = 'exitoso'``
-  en ``etl_runs`` tiene ``finalizado_en`` con mas de 12 horas
+  en ``pipeline_runs`` tiene ``finished_at`` con mas de 12 horas
 
 8. Trazabilidad
 ---------------

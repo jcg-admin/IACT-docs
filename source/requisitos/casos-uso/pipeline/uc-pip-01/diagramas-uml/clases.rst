@@ -5,8 +5,8 @@
 
  @startuml
  class SupervisionETLService
- class ETLEjecucionRepo
+ class PipelineExecutionRepo
  class ResumenSaludBuilder
- SupervisionETLService --> ETLEjecucionRepo
+ SupervisionETLService --> PipelineExecutionRepo
  SupervisionETLService --> ResumenSaludBuilder
  @enduml

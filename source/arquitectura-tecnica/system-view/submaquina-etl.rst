@@ -23,7 +23,7 @@ Sub-estado interno de ``Gestion Pipeline ETL``. Muestra la
 ejecucion paralela de ``sp_etl_base_detalle`` y
 ``sp_etl_base_clientes`` (disparados internamente por
 ``sp_etl_maestro``) con fork/join antes de actualizar el
-estado en ``etl_runs``.
+estado en ``pipeline_runs``.
 
 .. uml::
  :caption: Figura 13 — Sub-maquina de estados: Ejecucion ETL
@@ -34,7 +34,7 @@ estado en ``etl_runs``.
 
    state "Recibir Solicitud ETL" as RECIBIR_SOLICITUD_ETL
    RECIBIR_SOLICITUD_ETL : entry / validar funcion view_pipeline_status en JWT
-   RECIBIR_SOLICITUD_ETL : do / registrar etl_runs (estado=en_ejecucion)
+   RECIBIR_SOLICITUD_ETL : do / registrar pipeline_runs (estado=en_ejecucion)
    RECIBIR_SOLICITUD_ETL : exit / ID de ejecucion asignado
 
    state fork_etl <<fork>>
@@ -42,18 +42,18 @@ estado en ``etl_runs``.
    state "sp_etl_base_detalle" as SP_RPT_CENTROS_XSEGMENTO
    SP_RPT_CENTROS_XSEGMENTO : entry / leer tbl_historico_detalle (fuente IVR)
    SP_RPT_CENTROS_XSEGMENTO : do / TRUNCATE + registrar base_ivr_detalle
-   SP_RPT_CENTROS_XSEGMENTO : exit / rows_detalle registrados en etl_runs
+   SP_RPT_CENTROS_XSEGMENTO : exit / rows_detalle registrados en pipeline_runs
 
    state "sp_etl_base_clientes" as SP_RPT_LLAMADAS_ABANDONADAS
    SP_RPT_LLAMADAS_ABANDONADAS : entry / leer tbl_historico_clientes (fuente IVR)
    SP_RPT_LLAMADAS_ABANDONADAS : do / TRUNCATE + registrar base_ivr_clientes
-   SP_RPT_LLAMADAS_ABANDONADAS : exit / rows_clientes registrados en etl_runs
+   SP_RPT_LLAMADAS_ABANDONADAS : exit / rows_clientes registrados en pipeline_runs
 
    state join_etl <<join>>
 
    state "Verificar Resultado" as VERIFICAR_RESULTADO_ETL
    VERIFICAR_RESULTADO_ETL : entry / consolidar resultado de ambos sp_etl_*
-   VERIFICAR_RESULTADO_ETL : do / actualizar etl_runs SET estado, finalizado_en
+   VERIFICAR_RESULTADO_ETL : do / actualizar pipeline_runs SET estado, finished_at
    VERIFICAR_RESULTADO_ETL : exit / fin de cadena ETL
 
    state "ETL Exitoso" as ETL_EXITOSO

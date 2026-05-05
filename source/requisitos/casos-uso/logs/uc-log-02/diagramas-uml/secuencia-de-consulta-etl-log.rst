@@ -4,17 +4,17 @@
 .. uml::
 
  @startuml
- actor "view_etl_logs" as view_etl_logs
+ actor "view_pipeline_logs" as view_pipeline_logs
  participant "ETLLogEndpoint" as Etllogendpoint
- database "etl_runs" as etl_runs
+ database "pipeline_runs" as pipeline_runs
 
- view_etl_logs -> Etllogendpoint : GET /logs/etl/?trimestre=Q1
- Etllogendpoint -> Etllogendpoint : JWT + RBAC (view_etl_logs)
+ view_pipeline_logs -> Etllogendpoint : GET /logs/etl/?trimestre=Q1
+ Etllogendpoint -> Etllogendpoint : JWT + RBAC (view_pipeline_logs)
  alt sin permiso
-   Etllogendpoint --> view_etl_logs : 403 Forbidden
+   Etllogendpoint --> view_pipeline_logs : 403 Forbidden
  else con permiso
-   Etllogendpoint -> etl_runs : consultar ejecuciones por trimestre
-   etl_runs --> Etllogendpoint : filas
-   Etllogendpoint --> view_etl_logs : 200 + lista ejecuciones ETL
+   Etllogendpoint -> pipeline_runs : consultar ejecuciones por trimestre
+   pipeline_runs --> Etllogendpoint : filas
+   Etllogendpoint --> view_pipeline_logs : 200 + lista ejecuciones ETL
  end
  @enduml

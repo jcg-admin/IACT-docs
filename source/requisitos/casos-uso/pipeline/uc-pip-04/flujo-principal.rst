@@ -19,12 +19,12 @@ PASO 3 — El sistema valida los parametros:
 PASO 4 — El sistema verifica que no hay ejecucion en curso:
 
   - Consulta el Registro de Ejecuciones buscando registros
-    con ``estado = 'en_ejecucion'``.
+    con ``estado = 'IN_PROGRESS'``.
   - Si existe una ejecucion activa: retorna 409 Conflict.
 
 PASO 5 — El sistema registra el reintento en el Registro de
-          Ejecuciones con ``estado = 'en_ejecucion'`` y
-          ``ejecutado_por = 'manual'``.
+          Ejecuciones con ``estado = 'IN_PROGRESS'`` y
+          ``executed_by = 'manual'``.
 
 PASO 6 — El sistema invoca el Disparador ETL para el trimestre
           indicado. El Disparador ETL llama al Servicio ETL
@@ -54,11 +54,11 @@ PASO 8 — El sistema retorna 202 Accepted con el identificador
    - 009
  * - 4
    - Verificar no hay ejecucion activa
-   - ETLEjecucionRepo
+   - PipelineExecutionRepo
    - —
  * - 5
    - Registrar nuevo reintento
-   - ETLEjecucionRepo
+   - PipelineExecutionRepo
    - —
  * - 6
    - Invocar Disparador ETL (reproceso completo)

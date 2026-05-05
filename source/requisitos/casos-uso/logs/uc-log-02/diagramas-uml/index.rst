@@ -9,5 +9,5 @@ Parte 8 — Diagramas
 
    caso-de-uso
    actividad
-   componentes-etl-log
-   secuencia-de-consulta-etl-log
+   componentes-pipeline-log
+   secuencia-de-consulta-pipeline-log

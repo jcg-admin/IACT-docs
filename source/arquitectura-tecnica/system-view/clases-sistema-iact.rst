@@ -58,20 +58,20 @@ que toda accion quede registrada en ``audit_log``.
    +cMENU_ERROR(trimestre): list
  }
 
- class ETLEjecucion {
-   +tabla_origen: str
+ class PipelineExecution {
+   +source_table: str
    +trimestre: str
    +estado: EstadoEnum
-   +iniciado_en: datetime
-   +finalizado_en: datetime
-   +registros_base: int
+   +started_at: datetime
+   +finished_at: datetime
+   +base_records: int
    +disparar(): void
    +reintentar(): void
  }
 
  class DisparadorETL {
    +trimestre: str
-   +ejecutado_por: str
+   +executed_by: str
    +receiveData(): void
    +sendToETL(): void
  }
@@ -111,21 +111,21 @@ que toda accion quede registrada en ``audit_log``.
  }
 
  enum EstadoEnum {
-   en_ejecucion
+   IN_PROGRESS
    exitoso
    fallido
  }
 
  SistemaIACT --> SegmentResolver : usa
  SistemaIACT --> ReportingService : invoca
- SistemaIACT --> ETLEjecucion : gestiona
- DisparadorETL --> ETLEjecucion : crea
+ SistemaIACT --> PipelineExecution : gestiona
+ DisparadorETL --> PipelineExecution : crea
  ReporteLlamadasAbandonadas --> ReportingService
  ReporteTransferencias --> ReportingService
  AuditoriaAcceso *-- SistemaIACT
- ReintentoETL --> ETLEjecucion
- CancelEjecucionETL --> ETLEjecucion
- ETLEjecucion --> EstadoEnum
+ ReintentoETL --> PipelineExecution
+ CancelEjecucionETL --> PipelineExecution
+ PipelineExecution --> EstadoEnum
 
  @enduml
 

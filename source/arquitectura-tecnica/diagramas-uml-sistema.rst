@@ -140,10 +140,10 @@ conforme al catalogo de funciones del sistema.
 **Gestionar Pipeline ETL** (UC_PIP_01..04)
 
   *Descripcion:* Disparar, monitorear y reintentar el ETL via
-  ``sp_etl_maestro``. Registro en ``etl_runs``.
+  ``sp_etl_maestro``. Registro en ``pipeline_runs``.
 
   *Flujo basico:* Usuario dispara ETL → se crea registro
-  ``en_ejecucion`` en ``etl_runs`` → ``sp_etl_maestro`` ejecuta
+  ``en_ejecucion`` en ``pipeline_runs`` → ``sp_etl_maestro`` ejecuta
   → estado actualizado a ``exitoso`` o ``fallido``.
 
   *Flujo alternativo:* Si falla: ``request_pipeline_retry`` (UC_PIP_04)
@@ -151,7 +151,7 @@ conforme al catalogo de funciones del sistema.
 
   *Precondicion:* Funcion ``view_pipeline_status`` o ``request_pipeline_retry``.
 
-  *Postcondicion:* Estado de ejecucion en ``etl_runs``.
+  *Postcondicion:* Estado de ejecucion en ``pipeline_runs``.
 
 **Consultar Logs** (UC_LOG_*)
 

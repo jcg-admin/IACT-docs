@@ -5,7 +5,7 @@
 
  @startuml
  class ErroresETLService
- class ETLEjecucionRepo
- ErroresETLService --> ETLEjecucionRepo
+ class PipelineExecutionRepo
+ ErroresETLService --> PipelineExecutionRepo
  @enduml
 

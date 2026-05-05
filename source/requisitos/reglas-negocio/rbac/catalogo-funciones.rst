@@ -495,7 +495,7 @@ Modelo RBAC IACT — Catalogo de Funciones
    - logs:search
    - uc-log-03
    - Busca logs por criterios (timestamp, severity, source) (NUEVA v5.3.0)
- * - `view_etl_logs`
+ * - `view_pipeline_logs`
    - logs:view_etl
    - uc-log-02
    - Ve logs específicos del proceso ETL (sync IVR→Analytics, métricas carga) (NUEVA v5.4.0 — SRP)
@@ -517,7 +517,7 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 - LOG-001 RENAME ``view_technical_logs`` → ``view_application_logs``
   (SRP: ya no cubre ETL ni infra)
-- LOG-004 NUEVA ``view_etl_logs`` (uc-log-02 deja de ser instancia)
+- LOG-004 NUEVA ``view_pipeline_logs`` (uc-log-02 deja de ser instancia)
 - LOG-005 NUEVA ``view_infrastructure_logs`` (uc-log-05 nuevo)
 - LOG-006 NUEVA ``view_system_health`` (gap UC_081 ARQ-MOD-008)
 - LOG-007 NUEVA ``view_technical_metrics`` (gap UC_083 ARQ-MOD-008)

@@ -17,8 +17,8 @@ Design View — MOD_Pipeline: Supervision ETL
 =====================================================
 
 Patron de interaccion del modulo de supervision ETL. Muestra la
-consulta de ``ETLEjecucion`` con evaluacion de estado mediante
-``es_exitosa()`` / ``es_fallida()``, y el reintento de una ejecucion
+consulta de ``PipelineExecution`` con evaluacion de estado mediante
+``is_successful()`` / ``is_failed()``, y el reintento de una ejecucion
 fallida con registro de ``AuditEvent(ETL_RETRY)``.
 
 .. uml::
@@ -30,7 +30,7 @@ fallida con registro de ``AuditEvent(ETL_RETRY)``.
 
  participant InterfazPipeline        <<frontend>>
  participant ServicioETL             <<api>>
- participant RepositorioETLEjecucion <<repository>>
+ participant RepositorioPipelineExecution <<repository>>
  database    AlmacenDatos            <<postgresql>>
 
  AGR_ADMIN -> InterfazPipeline : GET /pipeline/executions
@@ -39,15 +39,15 @@ fallida con registro de ``AuditEvent(ETL_RETRY)``.
  InterfazPipeline -> ServicioETL : listarEjecuciones()
  activate ServicioETL
 
- ServicioETL -> RepositorioETLEjecucion : findAll()
- activate RepositorioETLEjecucion
- RepositorioETLEjecucion -> AlmacenDatos : SELECT * FROM etl_runs\nORDER BY iniciado_en DESC
- AlmacenDatos --> RepositorioETLEjecucion : List<ETLEjecucion>
- RepositorioETLEjecucion --> ServicioETL : ejecuciones
- deactivate RepositorioETLEjecucion
+ ServicioETL -> RepositorioPipelineExecution : findAll()
+ activate RepositorioPipelineExecution
+ RepositorioPipelineExecution -> AlmacenDatos : SELECT * FROM pipeline_runs\nORDER BY started_at DESC
+ AlmacenDatos --> RepositorioPipelineExecution : List<PipelineExecution>
+ RepositorioPipelineExecution --> ServicioETL : ejecuciones
+ deactivate RepositorioPipelineExecution
 
- loop por cada ETLEjecucion
-   ServicioETL -> ServicioETL : ejecucion.es_exitosa()\n| ejecucion.es_fallida()
+ loop por cada PipelineExecution
+   ServicioETL -> ServicioETL : ejecucion.is_successful()\n| ejecucion.is_failed()
  end
 
  ServicioETL --> InterfazPipeline : ejecuciones con estado evaluado
@@ -61,15 +61,15 @@ fallida con registro de ``AuditEvent(ETL_RETRY)``.
  InterfazPipeline -> ServicioETL : reintentarEjecucion(id)
  activate ServicioETL
 
- ServicioETL -> RepositorioETLEjecucion : buscar(id)
- activate RepositorioETLEjecucion
- RepositorioETLEjecucion -> AlmacenDatos : SELECT etl_runs WHERE id=?
- AlmacenDatos --> RepositorioETLEjecucion : ETLEjecucion{estado:fallido}
- RepositorioETLEjecucion --> ServicioETL : ETLEjecucion
- deactivate RepositorioETLEjecucion
+ ServicioETL -> RepositorioPipelineExecution : buscar(id)
+ activate RepositorioPipelineExecution
+ RepositorioPipelineExecution -> AlmacenDatos : SELECT pipeline_runs WHERE id=?
+ AlmacenDatos --> RepositorioPipelineExecution : PipelineExecution{estado:fallido}
+ RepositorioPipelineExecution --> ServicioETL : PipelineExecution
+ deactivate RepositorioPipelineExecution
 
- ServicioETL -> AlmacenDatos : INSERT etl_runs{\n  tabla_origen,\n  estado:en_ejecucion,\n  ejecutado_por\n}
- AlmacenDatos --> ServicioETL : nueva ETLEjecucion
+ ServicioETL -> AlmacenDatos : INSERT pipeline_runs{\n  source_table,\n  estado:IN_PROGRESS,\n  executed_by\n}
+ AlmacenDatos --> ServicioETL : nueva PipelineExecution
 
  ServicioETL -> AlmacenDatos : INSERT audit_events\n{event_type:ETL_RETRY,\n details:{original_id}}
  AlmacenDatos --> ServicioETL : AuditEvent registrado
@@ -89,5 +89,5 @@ fallida con registro de ``AuditEvent(ETL_RETRY)``.
 .. seealso::
 
  :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/etl-ejecucion`
+ :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`
  :doc:`/arquitectura-tecnica/domain-model/audit-event`

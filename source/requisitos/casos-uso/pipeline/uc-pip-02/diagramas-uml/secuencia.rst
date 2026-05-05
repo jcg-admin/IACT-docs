@@ -10,6 +10,6 @@
  view_pipeline_errors -> Endpoint: GET /api/v1/etl/errores/
  Endpoint -> Endpoint: JWT + RBAC
  Endpoint -> RegistroDe: query estado=fallido
- RegistroDe --> Endpoint: filas con mensaje_error
+ RegistroDe --> Endpoint: filas con error_message
  Endpoint --> view_pipeline_errors: 200 lista ejecuciones fallidas
  @enduml

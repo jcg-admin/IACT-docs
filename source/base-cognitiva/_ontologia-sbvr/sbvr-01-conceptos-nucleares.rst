@@ -622,7 +622,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 
  REPRESENTACION BD:
  Tabla: etl_jobs (configuracion)
- Tabla: etl_logs (ejecuciones)
+ Tabla: pipeline_logs (ejecuciones)
 
 ----
 

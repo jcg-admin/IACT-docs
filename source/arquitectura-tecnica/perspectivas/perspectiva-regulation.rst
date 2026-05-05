@@ -77,7 +77,7 @@ Los modelos de datos garantizan la trazabilidad regulatoria por diseno.
  * - **ExceptionalPermission**
    - Trazabilidad completa: quien otorgo, cuando, por cuanto tiempo y
      con que justificacion. Expiracion automatica (CNST-031).
- * - **ETLEjecucion**
+ * - **PipelineExecution**
    - Registro de cada run del pipeline: timestamp de inicio y fin,
      estado (exitoso/fallido), volumen procesado, errores. Permite
      auditar la cadena de custodia de los datos del IVR.

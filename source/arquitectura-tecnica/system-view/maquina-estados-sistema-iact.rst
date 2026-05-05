@@ -53,7 +53,7 @@ final.
 
    S_ETL : entry/usuario selecciona pipeline
    S_ETL : do/CALL sp_etl_maestro via DisparadorETL
-   S_ETL : exit/estado registrado en etl_runs
+   S_ETL : exit/estado registrado en pipeline_runs
 
    S_LOG : entry/usuario selecciona logs
    S_LOG : do/consultar audit_log en PostgreSQL

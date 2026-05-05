@@ -85,7 +85,7 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
    artifact "export_audit_log" as FUNCION_EXPORTAR_AUDITORIA
    artifact "generate_compliance_report" as FUNCION_GENERAR_REPORTE_COMPLIANCE
    artifact "view_application_logs" as FUNCION_VER_LOGS_APLICACION
-   artifact "view_etl_logs" as FUNCION_VER_LOGS_ETL
+   artifact "view_pipeline_logs" as FUNCION_VER_LOGS_ETL
    artifact "search_logs" as FUNCION_BUSCAR_LOGS
    artifact "export_logs" as FUNCION_EXPORTAR_LOGS
    artifact "view_infrastructure_logs" as FUNCION_VER_LOGS_INFRAESTRUCTURA

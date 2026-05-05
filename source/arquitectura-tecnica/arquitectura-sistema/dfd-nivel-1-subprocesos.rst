@@ -21,7 +21,7 @@ DFD Nivel 1 — Sub-procesos del Sistema
 
 El DFD Nivel 1 descompone el sistema IACT en sus sub-procesos
 numerados con los flujos de datos entre ellos y los almacenes de
-datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
+datos (``pipeline_runs``, ``base_ivr_*``, ``audit_log``,
 ``auth_session``).
 
 .. uml::
@@ -56,7 +56,7 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
  rectangle "9\nResolver Segmento\nUC_INC_RPT_01" as RESOLVER_SEGMENTO
  rectangle "10\nAuditoria" as AUDITORIA_ACCESO
 
- database "etl_runs" as TABLA_ETL_RUNS
+ database "pipeline_runs" as TABLA_ETL_RUNS
  database "base_ivr_*" as BASE_IVR_ANALITICA
  database "audit_log" as TABLA_AUDIT_LOG
  database "auth_session" as TABLA_AUTH_SESSION
@@ -96,7 +96,7 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
 
 .. note::
 
- Los almacenes de datos ``etl_runs`` y ``base_ivr_*`` residen en
+ Los almacenes de datos ``pipeline_runs`` y ``base_ivr_*`` residen en
  **Almacen de Datos**. Los almacenes ``audit_log`` y ``auth_session``
  residen en **PostgreSQL** (tablas operacionales del sistema). Los
  stored procedures ``sp_rpt_*`` y ``sp_etl_*`` son parte del

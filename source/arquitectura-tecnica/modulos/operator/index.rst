@@ -26,7 +26,7 @@ Responsabilidades
 
 - Gestionar el ciclo de estado del agente (available/busy/break/offline)
 - Controlar el flujo de llamadas activas (answer, hold, transfer)
-- Registrar disposicion post-llamada en ``etl_runs`` / CRM
+- Registrar disposicion post-llamada en ``pipeline_runs`` / CRM
 - Exponer dashboard de desempeno propio al operador
 - Proveer acceso al buzon de mensajes internos (InternalMailbox)
 

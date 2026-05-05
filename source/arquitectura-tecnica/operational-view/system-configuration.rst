@@ -84,7 +84,7 @@ Categorias de configuracion
  * - **Retencion de logs**
    - Ops
    - Politica de retencion unificada (CNST-024) para
-     ApplicationLog, ETLLog, InfrastructureLog,
+     ApplicationLog, PipelineLog, InfrastructureLog,
      SystemHealth y TechnicalMetric.
 
 Diagrama de estados — configuracion ETL
@@ -107,8 +107,8 @@ Diagrama de estados — configuracion ETL
  Deshabilitado --> Configurado : AGR_ADMIN define\nschedule y parametros
  Configurado --> Activo : APScheduler inicia\nsegun schedule
  Activo --> EnEjecucion : ETL lanza run\n(CNST-008: ventana 6-12h)
- EnEjecucion --> Activo : ejecucion exitosa\n(ETLEjecucion.estado = exitoso)
- EnEjecucion --> Fallido : error en ETL\n(ETLEjecucion.estado = fallido)
+ EnEjecucion --> Activo : ejecucion exitosa\n(PipelineExecution.estado = exitoso)
+ EnEjecucion --> Fallido : error en ETL\n(PipelineExecution.estado = fallido)
  Fallido --> Activo : siguiente disparo automatico\n(P-04: fallo no bloquea)
  Activo --> Deshabilitado : AGR_ADMIN deshabilita\nschedule
 

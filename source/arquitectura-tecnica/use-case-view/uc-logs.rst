@@ -30,7 +30,7 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
  left to right direction
 
  actor "view_application_logs" as view_application_logs
- actor "view_etl_logs" as view_etl_logs
+ actor "view_pipeline_logs" as view_pipeline_logs
  actor "search_logs" as search_logs
  actor "export_logs" as export_logs
  actor "view_infrastructure_logs" as view_infrastructure_logs
@@ -39,7 +39,7 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nVer Logs\ndel Sistema" as VER_LOGS_SISTEMA
-   usecase "UC_LOG_02\nVer Logs ETL\n(etl_runs)" as VER_LOGS_ETL
+   usecase "UC_LOG_02\nVer Logs ETL\n(pipeline_runs)" as VER_LOGS_ETL
    usecase "UC_LOG_03\nBuscar Logs" as BUSCAR_LOGS
    usecase "UC_LOG_04\nExportar Logs" as EXPORTAR_LOGS
    usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as VER_LOGS_INFRAESTRUCTURA
@@ -48,7 +48,7 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
  }
 
  view_application_logs --> VER_LOGS_SISTEMA
- view_etl_logs --> VER_LOGS_ETL
+ view_pipeline_logs --> VER_LOGS_ETL
  search_logs --> BUSCAR_LOGS
  export_logs --> EXPORTAR_LOGS
  view_infrastructure_logs --> VER_LOGS_INFRAESTRUCTURA

@@ -278,14 +278,14 @@ Contras:
    from django.http import JsonResponse
    from callcentersite.apps.permissions.services import PermisoService
 
-   def verificar_permiso(capacidad_requerida, auditar=False, mensaje_error=None):
+   def verificar_permiso(capacidad_requerida, auditar=False, error_message=None):
        """
        Decorator para verificar permisos granulares.
 
        Args:
            capacidad_requerida: str o list[str] - Capacidad(es) requerida(s)
            auditar: bool - Si registrar el acceso en auditoria
-           mensaje_error: str - Mensaje custom de error
+           error_message: str - Mensaje custom de error
        """
        def decorator(view_func):
            @wraps(view_func)
@@ -324,7 +324,7 @@ Contras:
                            user_agent=request.META.get('HTTP_USER_AGENT')
                        )
 
-                   error_msg = mensaje_error or f'Permission denied: {capacidad_requerida}'
+                   error_msg = error_message or f'Permission denied: {capacidad_requerida}'
                    return JsonResponse(
                        {'error': error_msg},
                        status=403

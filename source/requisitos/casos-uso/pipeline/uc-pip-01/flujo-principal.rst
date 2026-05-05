@@ -11,7 +11,7 @@ PASO 2 — El sistema valida el JWT y verifica que el usuario
           tiene el permiso ``view_pipeline_status`` (RBAC).
 
 PASO 3 — El sistema consulta el Registro de Ejecuciones:
-          ultimas 20 ejecuciones ordenadas por ``iniciado_en``
+          ultimas 20 ejecuciones ordenadas por ``started_at``
           descendente.
 
 PASO 4 — El sistema construye el ResumenSalud:

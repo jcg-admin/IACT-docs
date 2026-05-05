@@ -87,26 +87,26 @@ resultado que ejecutarlo una vez.
      dHoraFin
  FROM tbl_historico_t3_2025;
 
-2.3 Tabla de tracking etl_runs
+2.3 Tabla de tracking pipeline_runs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cada ejecucion del ETL queda registrada en ``etl_runs`` (tabla
+Cada ejecucion del ETL queda registrada en ``pipeline_runs`` (tabla
 propia de IACT en MariaDB):
 
 .. code-block:: sql
 
- CREATE TABLE etl_runs (
+ CREATE TABLE pipeline_runs (
      id              INT AUTO_INCREMENT PRIMARY KEY,
-     tabla_origen    VARCHAR(100) NOT NULL,
+     source_table    VARCHAR(100) NOT NULL,
      trimestre       VARCHAR(20)  NOT NULL,
-     iniciado_en     DATETIME     NOT NULL,
-     finalizado_en   DATETIME,
+     started_at     DATETIME     NOT NULL,
+     finished_at   DATETIME,
      estado          ENUM('en_ejecucion','exitoso','fallido')
                      DEFAULT 'en_ejecucion',
-     registros_base  INT     DEFAULT 0,
-     mensaje_error   TEXT,
-     ejecutado_por   VARCHAR(100) DEFAULT 'scheduler',
-     INDEX idx_estado_inicio (estado, iniciado_en DESC),
+     base_records  INT     DEFAULT 0,
+     error_message   TEXT,
+     executed_by   VARCHAR(100) DEFAULT 'scheduler',
+     INDEX idx_estado_inicio (estado, started_at DESC),
      INDEX idx_trimestre     (trimestre)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -117,10 +117,10 @@ Django no ejecuta el ETL directamente. El flujo es:
 
 1. APScheduler o cron invoca ``python manage.py run_etl`` en la
    ventana 02:00-04:00.
-2. El management command ``run_etl`` inserta en ``etl_runs`` con
+2. El management command ``run_etl`` inserta en ``pipeline_runs`` con
    estado ``en_ejecucion``.
 3. Llama ``CALL sp_etl_maestro(p_fecha)`` via ``cursor.execute()``.
-4. Actualiza ``etl_runs`` con el resultado (``exitoso`` o
+4. Actualiza ``pipeline_runs`` con el resultado (``exitoso`` o
    ``fallido``) y los registros procesados.
 
 Para reintento manual (UC_PIP_04), el AdminPipeline dispara
@@ -176,6 +176,6 @@ Django los invoca via ``cursor.callproc()`` sobre la conexion
 ==================
 
 Las vistas que muestran datos IVR DEBEN mostrar el ``timestamp``
-de la ultima ejecucion ETL exitosa (campo ``finalizado_en`` de la
-ultima fila ``estado = 'exitoso'`` en ``etl_runs``) para que la
+de la ultima ejecucion ETL exitosa (campo ``finished_at`` de la
+ultima fila ``estado = 'exitoso'`` en ``pipeline_runs``) para que la
 edad de los datos sea explicita (CNST_008 §UI obligatoria).

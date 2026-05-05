@@ -97,9 +97,9 @@ directas con otras clases del mismo bounded context.
 
 .. toctree::
  :maxdepth: 1
- :caption: BC Pipeline ETL
+ :caption: BC Pipeline
 
- etl-ejecucion
+ pipeline-execution
 
 .. toctree::
  :maxdepth: 1
@@ -134,7 +134,7 @@ directas con otras clases del mismo bounded context.
  :caption: BC Logs — Bitacoras
 
  application-log
- etl-log
+ pipeline-log
  infrastructure-log
  system-health
  technical-metric
