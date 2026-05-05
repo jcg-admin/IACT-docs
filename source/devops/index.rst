@@ -26,6 +26,7 @@ procedimientos operativos (deployment, setup) viven en
  :caption: ADRs DevOps
 
  adr-devops-001-vagrant-mod-wsgi-importante-produc
+ adr-devops-002-sphinx-build-config
  adr-devops-003-wasi-style-virtualization-importante-db
 
 .. toctree::
