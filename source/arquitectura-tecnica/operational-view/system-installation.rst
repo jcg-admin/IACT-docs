@@ -45,13 +45,13 @@ Flujo de instalacion
  partition "Aplicacion" {
    :Desplegar codigo Django REST Framework;
    :Instalar dependencias (pip install -r requirements.txt);
-   :Ejecutar migraciones Django\n(python manage.py migrate);
+   :Ejecutar migraciones Django\n(python manage.py migrate)\nincluye bootstrap RBAC via\nRunPython data migration\n(ver ADR-BACK-007);
  }
 
- partition "Bootstrap RBAC" {
-   :Cargar catalogo de 64 funciones atomicas activas\n(python manage.py loaddata functions);
-   :Crear AccessGroups predefinidos\n(AGR-001..012);
-   :Configurar reglas SoD iniciales\n(CNST-030);
+ partition "Bootstrap RBAC (automatico via migrate)" {
+   :64 funciones atomicas activas\n(in-scope v5.6.0);
+   :12 AccessGroups predefinidos\nAGR-001..012 con is_system=True;
+   :3 reglas SoD\n(CNST-030);
    :Crear usuario administrador inicial\n(python manage.py createsuperuser);
  }
 

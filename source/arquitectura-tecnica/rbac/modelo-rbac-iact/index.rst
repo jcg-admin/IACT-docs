@@ -39,6 +39,11 @@ Las reglas operativas formales viven en:
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod` — CNST_030
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses` — CNST_031
 
+Decisiones arquitectonicas relacionadas:
+
+- :doc:`/backend/adr-back-001-grupos-funcionales-sin-jerarquia` — modelo flat sin herencia
+- :doc:`/backend/adr-back-007-rbac-custom-vs-auth-group` — por que AccessGroup custom vs ``django.contrib.auth.Group`` + bootstrap canonico via ``RunPython`` data migration
+
 Especificacion de negocio RBAC (movida a requisitos):
 
 - :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` — catalogo de funciones
