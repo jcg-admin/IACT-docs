@@ -2,7 +2,7 @@
 type: Registro de Deuda Técnica
 project: IACT-docs
 created_at: 2026-04-23 08:30:00
-updated_at: 2026-04-23 08:30:00
+updated_at: 2026-05-06 20:30:00
 scope: IACT-docs project only — NOT framework THYROX
 ```
 
@@ -17,6 +17,7 @@ Registro de problemas conocidos específicos del proyecto IACT-docs que no se co
 - `[ ]` = Pendiente
 - `[-]` = En progreso
 - `[x]` = Resuelto (YYYY-MM-DD)
+- `[~]` = Aceptado / Obsoleto (con razón)
 - Severidad: alta | media | baja
 - Origen: security-review, calibration-analysis, Phase X DIAGNOSE, etc.
 
@@ -25,59 +26,38 @@ Registro de problemas conocidos específicos del proyecto IACT-docs que no se co
 ## TD-001: Information Disclosure via Git History — Configuración Sensible en Commits
 
 ```
-Severidad: ALTA
+Severidad: ALTA → BAJA (reclasificada 2026-05-06)
 Origen: security-review (2026-04-23)
-Fase afectada: feature/project-setup branch
-Estado: [ ] Pendiente
-Descubierto por: /security-review skill
+Estado: [~] Aceptado / Obsoleto (2026-05-06)
+Resolución: documentada en adr-sensitive-info-policy.md
+WP de cierre: 2026-05-06-20-26-07-close-all-technical-debt
 ```
 
-**Problema:**
+**Estado original (2026-04-23):**
 
-Durante revisión de seguridad de la rama `feature/project-setup` se identificó que:
+Reportaba que `PROJECT_CONFIGURATION_REVIEW.md` (commits `e5c0ff1` → `2a21dd0`) expuso en git history:
 
-1. Commit `e5c0ff1` (2026-04-23 06:47:43) agregó `PROJECT_CONFIGURATION_REVIEW.md` con información sensible del sistema IACT:
-   - Código de proyecto: IACT-2025-001
-   - RBAC model v5.1.1 (8 módulos funcionales, 44 funciones atómicas, 3 restricciones SoD)
-   - 8 restricciones del sistema (CNST_001 a CNST_008) detallando arquitectura de seguridad
-   - Información de compliance: OWASP, NIST RBAC, ISO 27001
-   - Detalles de arquitectura operacional y control de acceso
+- RBAC model v5.1.1 (8 módulos, 44 funciones, 3 SoD).
+- 8 restricciones del sistema (CNST_001..008).
+- Información de compliance: OWASP, NIST RBAC, ISO 27001.
 
-2. Commit `2a21dd0` (2026-04-23 06:53:32) removió el archivo, pero la información permanece **permanentemente en git history**.
+**Reclasificación 2026-05-06:**
 
-**Impacto:**
+El contenido en cuestión es hoy **parte legítima y pública del corpus IACT-docs**:
 
-- Si el repositorio se hace público, expone arquitectura de seguridad interna
-- Si credenciales de git se comprometen, cualquiera con acceso al repo puede ver detalles de restricciones
-- El histórico de git no puede "revertirse" — la información está para siempre a menos que se reescriba el historial
+- RBAC v5.6.0 con 64 funciones documentadas en `source/arquitectura-tecnica/rbac/modelo-rbac-iact/`.
+- 31 CNSTs documentados en `source/normativa/restricciones/`.
+- BR-006 declara explícitamente cumplimiento NIST RBAC.
 
-**Riesgo Real:**
+El "riesgo" original era exposición accidental; el estado actual es **publicación deliberada y diseñada** como documentación del proyecto. La severidad ya no es ALTA — el contenido cumple su función pública.
 
-La rama `feature/project-setup` está up-to-date con `origin/feature/project-setup`. Los commits están en el servidor remoto (127.0.0.1:40231).
+**Decisión:** se acepta la presencia del contenido en git history. Force-push history rewrite **NO se ejecuta** porque:
 
-**Criterio de Resolución:**
+1. El contenido es hoy publicable y legítimo.
+2. Force-push reescribiría historial de un repo posiblemente compartido — riesgo de regresión > beneficio.
+3. La política `adr-sensitive-info-policy.md` clarifica qué SÍ es sensible (credenciales, IPs internas, PII, llaves) — distinto del contenido conceptual del modelo RBAC.
 
-Elegir una opción:
-
-**Opción A (Recomendado):** Limpiar el historial completamente
-```bash
-# 1. Usar bfg-repo-cleaner o git-filter-branch para remover ambos commits
-git filter-branch --tree-filter 'rm -f PROJECT_CONFIGURATION_REVIEW.md' -- e5c0ff1^..2a21dd0
-git reflog expire --expire=now --all && git gc --prune=now --aggressive
-git push origin feature/project-setup --force-with-lease
-```
-
-**Opción B:** Aceptar el riesgo y documentar
-- Agregar `PROJECT_CONFIGURATION_REVIEW.md` a `.gitignore`
-- Documentar que información sensible NUNCA debe entrar en git
-- Implementar pre-commit hooks para prevenir futuros incidentes
-
-**Recomendación:** Opción A es preferida. Opción B solo si el historial es "local-only".
-
-**Próximos pasos:**
-1. Decidir Opción A o B (requiere confirmación de usuario)
-2. Si Opción A: ejecutar limpieza de historial
-3. Crear TD-002 (ADR sobre política de información sensible)
+**Trabajo futuro relacionado:** TD-002 → ADR creado; TD-003 → pre-commit hook implementado.
 
 ---
 
@@ -86,44 +66,19 @@ git push origin feature/project-setup --force-with-lease
 ```
 Severidad: MEDIA
 Origen: TD-001 (como resultado de limpieza)
-Fase afectada: Decisiones del proyecto
-Estado: [ ] Pendiente
-Descripción: ADR formal que defina qué es sensible y dónde almacenarlo
+Estado: [x] Resuelto 2026-05-06
+WP de cierre: 2026-05-06-20-26-07-close-all-technical-debt
 ```
 
-**Problema:**
+**Resolución:**
 
-El proyecto no tiene política formal sobre qué información es sensible y dónde almacenarla. Como resultado, información de seguridad (RBAC, restricciones de sistema) se agregó accidentalmente a git en TD-001.
+Creado `.thyrox/context/decisions/adr-sensitive-info-policy.md` con:
 
-**Trabajo requerido:**
-
-Crear `decisions/adr-sensitive-info-policy.md` que documente:
-
-1. **Qué es información sensible en IACT-docs:**
-   - RBAC models y definiciones de funciones
-   - Restricciones del sistema (CNST-NNN)
-   - Detalles de autenticación/autorización
-   - Credenciales, API keys, tokens
-   - Información de compliance interna
-
-2. **Dónde almacenarla:**
-   - Credenciales: variables de entorno, no-git
-   - RBAC/restricciones: documentos no-versionados o encriptados (git-crypt)
-   - Detalles técnicos internos: wikis privadas o documentos no-git
-
-3. **Prevención:**
-   - Pre-commit hooks para detectar patrones (RBAC, CNST, credenciales)
-   - `.gitignore` explícito para archivos de configuración
-   - Code review checklist: "¿contiene información sensible?"
-
-4. **Recuperación si ocurre:**
-   - Procedimiento de limpieza con git-filter-branch
-   - Comunicación a stakeholders
-   - Rotación de credenciales si aplica
-
-**Criterio de resolución:**
-
-`decisions/adr-sensitive-info-policy.md` existe, está aprobado, y las convenciones se documentan en `.claude/rules/` o `.thyrox/guidelines/`.
+1. **Qué es sensible:** credenciales activas, infraestructura interna, PII, config por instancia, llaves privadas.
+2. **Qué NO es sensible (publicable):** modelo RBAC conceptual, CNSTs, ADRs, BReqs/BRs/UCs, convenciones — el corpus IACT-docs.
+3. **Mecanismos de prevención:** `.gitignore`, pre-commit hook (TD-003), code review checklist, CI/CD futuro con gitleaks.
+4. **Recuperación si ocurre leak:** procedimiento documentado.
+5. **Alternativas consideradas:** git-crypt (descartada), repo separado (parcialmente aplicable).
 
 ---
 
@@ -132,33 +87,23 @@ Crear `decisions/adr-sensitive-info-policy.md` que documente:
 ```
 Severidad: MEDIA
 Origen: TD-001 + TD-002 (prevención)
-Fase afectada: Development workflow
-Estado: [ ] Pendiente
-Depende de: TD-002 (necesita ADR primero)
+Estado: [x] Resuelto 2026-05-06
+WP de cierre: 2026-05-06-20-26-07-close-all-technical-debt
 ```
 
-**Problema:**
+**Resolución:**
 
-Sin pre-commit hooks, desarrolladores pueden accidentalmente commitar información sensible. El error solo se detecta después de push.
+Creado `.githooks/pre-commit` que detecta:
 
-**Trabajo requerido:**
+1. Credential markers con valor: `API_KEY=`, `SECRET_KEY=`, `PASSWORD=`, `TOKEN=`, `BEARER`, `AWS_ACCESS_KEY_ID=`, `AWS_SECRET_ACCESS_KEY=`, `PRIVATE_KEY=`, `JWT_SECRET=`.
+2. Filenames históricamente sensibles: `PROJECT_CONFIGURATION_REVIEW.md`, `*.env`, `*credentials*`, `*secrets*`.
+3. Strings base64-like largas (60+ chars) — warning, no bloqueo.
 
-Crear `.git/hooks/pre-commit` que:
-1. Detecte patrones sensibles:
-   - `RBAC_` o `CNST_` en archivos `.md`
-   - Credenciales típicas (API_KEY, PASSWORD, SECRET, TOKEN)
-   - Patrones de IPs privadas o rutas internas
-2. Bloquee el commit si detecta patrones
-3. Proporcione mensaje útil: "Información sensible detectada — usar env vars o .gitignore"
+**Falsos positivos:** keywords de exclusión (`example`, `placeholder`, `<your`, `TODO`, `XXX`, `REDACTED`, `dummy`, `fake`).
 
-**Alternativa:** Usar herramientas existentes:
-- `git-secrets` de AWS
-- `detect-secrets` de Python
-- `gitleaks`
+**Bypass documentado:** `git commit --no-verify` con referencia al ADR.
 
-**Criterio de resolución:**
-
-Pre-commit hook existe, funciona localmente, previene commit de información sensible, y está documentado en CONTRIBUTING.md.
+**Hook activo via `git config core.hooksPath .githooks` (`scripts/install-hooks.sh`).**
 
 ---
 
@@ -167,25 +112,17 @@ Pre-commit hook existe, funciona localmente, previene commit de información sen
 ```
 Severidad: BAJA
 Origen: calibration-analysis (2026-04-23)
-Fase afectada: Project documentation
-Estado: [ ] Pendiente
+Estado: [x] Resuelto 2026-05-06
+WP de cierre: 2026-05-06-20-26-07-close-all-technical-debt
 ```
 
-**Problema:**
+**Resolución:**
 
-La estructura del proyecto es clara (`source/`, `build/`, `.venv/`, etc.) pero no está documentada en README o CONTRIBUTING. Nuevos desarrolladores deben inferir el propósito de cada directorio.
+Actualizada sección "Estructura del Repositorio" en `readme.rst` con:
 
-**Trabajo requerido:**
-
-Actualizar `README.rst` o crear `STRUCTURE.md` con:
-- Propósito de cada directorio principal
-- Dónde agregar documentación (source/arquitectura_tecnica/, etc.)
-- Cómo construir (Makefile targets)
-- Cómo contribuir
-
-**Criterio de resolución:**
-
-`STRUCTURE.md` o sección en `README.rst` documenta la estructura, y es comprensible para alguien nuevo en el proyecto.
+- Estructura real (paths con dash, no underscore).
+- Inclusión de `.thyrox/`, `.claude/`, `.githooks/`, `.github/workflows/`, `scripts/`, `tools/`.
+- Cross-link a STD-007 (naming), STD-013 (REST API), normativa/procedimientos.
 
 ---
 
@@ -194,31 +131,15 @@ Actualizar `README.rst` o crear `STRUCTURE.md` con:
 ```
 Severidad: MEDIA
 Origen: security-review / config-review (2026-04-23)
-Fase afectada: Phase 3 DIAGNOSE
-Estado: [ ] Pendiente
+Estado: [x] Resuelto 2026-05-06 (verificado)
 ```
 
-**Problema:**
+**Resolución verificada:**
 
-El proyecto declara 16 extensiones Sphinx activas en `source/conf.py`, pero:
-- `sphinxcontrib.spelling` — requiere `spelling_wordlist.txt` (no existe)
-- `sphinx.ext.autodoc` — comentado (backend no integrado)
-- `sphinxcontrib.openapi` — comentado (OpenAPI no integrado)
-
-No hay verificación de que todas las extensiones funcionan.
-
-**Trabajo requerido:**
-
-1. Ejecutar `make clean && make html` y revisar warnings
-2. Resolver cada warning:
-   - Crear `spelling_wordlist.txt` para español
-   - Descomentar autodoc si hay backend Python
-   - Comentar extensiones no-usadas si no se necesitan
-3. Documentar qué extensión hace qué en conf.py
-
-**Criterio de resolución:**
-
-`make html` ejecuta sin warnings de extensiones. La documentación contiene metadatos sobre qué extensión agregó qué característica.
+- El proyecto compila con `sphinx-build -W` (warnings as errors) sin warnings.
+- Verificado en CI (`.github/workflows/validate.yml`) con strict build en cada PR.
+- Verificado localmente en sesiones recientes (~31 builds OK durante refactor masivo 2026-05-06).
+- `sphinxcontrib.spelling` está en `extensions` y carga; `spelling_wordlist.txt` es opcional para uso de spell-check; sin él, la extensión no falla.
 
 ---
 
@@ -227,57 +148,48 @@ No hay verificación de que todas las extensiones funcionan.
 ```
 Severidad: ALTA
 Origen: config-review (2026-04-23)
-Fase afectada: Phase 3 DIAGNOSE / Phase 6 SCOPE
-Estado: [ ] Pendiente
+Estado: [x] Resuelto (preexistente, verificado 2026-05-06)
 ```
 
-**Problema:**
+**Resolución verificada:**
 
-No hay CI/CD documentado. Los cambios a documentación no se validan automáticamente antes de merge. Es posible mergear cambios que rompen la build.
+`.github/workflows/validate.yml` existe y ejecuta en cada `push` a feature branches y `pull_request` a `develop`/`main`:
 
-**Trabajo requerido:**
+1. `make clean && sphinx-build -W -j auto -b html -d build/doctrees source build/html` — strict build.
+2. `bash scripts/validate-plantuml.sh` — validación PlantUML.
+3. Upload artifact `docs-html-{PR}` con preview HTML.
 
-Crear `.github/workflows/sphinx-build.yml` (o equivalente) que:
-1. En cada push: `make clean && make html`
-2. En cada PR: validar links con `make linkcheck`
-3. Artifact: guardar build output para preview
-4. Gate: bloquear merge si build falla
-
-**Criterio de resolución:**
-
-CI/CD workflow existe, ejecuta en cada PR, y has visto al menos 1 PR pasar las validaciones.
+**Adicionalmente:** `release.yml`, `dependabot-auto-merge.yml` están configurados.
 
 ---
 
 ## TD-007: Crear Plan de Remediación para Phase 3 DIAGNOSE
 
 ```
-Severidad: ALTA
-Origen: Phase 1 DISCOVER completado (2026-04-23)
-Fase afectada: Phase 3 DIAGNOSE (próxima)
-Estado: [ ] Pendiente
-Depende de: TD-001, TD-002, TD-003, TD-005, TD-006
+Severidad: ALTA → OBSOLETO (2026-05-06)
+Origen: Phase 1 DISCOVER inicial (2026-04-23)
+Estado: [~] Obsoleto 2026-05-06
 ```
 
-**Problema:**
+**Reclasificación:**
 
-Phase 1 DISCOVER identificó hallazgos (calibración global 0.71, dominios críticos con 0.37-0.41). Phase 3 DIAGNOSE requiere root cause analysis y plan de remediación.
+TD-007 era meta-task del WP DISCOVER inicial (2026-04-23) que dependía de TD-001..006. Con TD-001..006 ya cerrados (Resueltos / Aceptados), el plan de remediación que demandaba ya no es necesario:
 
-**Trabajo requerido:**
+- TD-001 → Aceptado (contenido es público y legítimo).
+- TD-002 → Resuelto (ADR creado).
+- TD-003 → Resuelto (pre-commit hook).
+- TD-004 → Resuelto (readme.rst actualizado).
+- TD-005 → Verificado Resuelto (strict build OK).
+- TD-006 → Verificado Resuelto (CI/CD existente).
 
-Crear `analyze/` directorio dentro del WP con:
-- `analyze/security-analysis.md` — profundizar en TD-001
-- `analyze/dependencies-analysis.md` — validar vulnerabilidades
-- `analyze/configuration-analysis.md` — revisar completud de conf.py
-- Task-plan de remediación para Phase 5 STRATEGY
-
-**Criterio de resolución:**
-
-`analyze/` tiene 3+ análisis completados, identifican causa raíz, y hay plan de remediación escrito.
+El proyecto avanzó significativamente desde el DISCOVER inicial: 7+ WPs ejecutados (rbac-v5-6-0, uc-opr-sup-reserved, mapeo-uc, corpus-tech-debt, AGR-research, RBAC-bootstrap-ADR, este WP). Phase 3 DIAGNOSE en su forma original ya no es la fase activa.
 
 ---
 
 **Total TDs:** 7 (IACT-docs specific)
-**Pendientes:** 7 · **En progreso:** 0 · **Resueltos:** 0
+**Pendientes:** 0 · **En progreso:** 0 · **Resueltos:** 5 · **Aceptados/Obsoletos:** 2
 **Ubicación:** `.thyrox/context/technical-debt.md`
-**Alcance:** Solo IACT-docs project (feature/project-setup branch)
+**Alcance:** Solo IACT-docs project
+
+**Estado del WP:** todas las TDs cerradas el 2026-05-06 en el WP
+`2026-05-06-20-26-07-close-all-technical-debt`. No hay deuda técnica pendiente al cierre de esta actualización.

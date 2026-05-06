@@ -164,24 +164,45 @@ La documentación está organizada de la siguiente manera:
 
 ::
 
-    documentación/
-    ├── source/                 # Archivos fuente de la documentación
-    │   ├── arquitectura_tecnica/
-    │   ├── base_cognitiva/
-    │   ├── gestion/
-    │   ├── normativa/
-    │   ├── requisitos/
-    │   ├── _static/           # Recursos estáticos (CSS, JS, imágenes)
-    │   ├── _templates/        # Plantillas personalizadas
-    │   ├── conf.py            # Configuración de Sphinx
-    │   └── index.rst          # Índice principal
-    ├── build/                  # Salida generada
-    │   └── html/              # Documentación HTML
-    ├── requirements.txt        # Dependencias Python
-    ├── Makefile               # Comandos de construcción
-    ├── authors.rst            # Equipo del proyecto
-    ├── licence.rst            # Información legal
-    └── readme.rst             # Este archivo
+    IACT-docs/
+    ├── source/                          # Archivos fuente de la documentación (RST)
+    │   ├── arquitectura-tecnica/        # Vistas arquitectónicas (UC view, RBAC, modulos)
+    │   ├── backend/                     # Convenciones backend + ADRs
+    │   ├── base-cognitiva/              # Fundamentos conceptuales, taxonomías, SBVR
+    │   ├── gestion/                     # Gestión de proyecto, evidencias
+    │   ├── normativa/                   # Estándares, restricciones (CNST), gobernanza
+    │   ├── requisitos/                  # BReqs, BRs, casos de uso, requisitos funcionales
+    │   ├── _static/                     # Recursos estáticos (CSS, JS, imágenes)
+    │   ├── _templates/                  # Plantillas personalizadas Sphinx
+    │   ├── _generated_diagrams/         # PlantUML artifacts (build cache)
+    │   ├── conf.py                      # Configuración de Sphinx
+    │   └── index.rst                    # Índice principal
+    ├── build/                           # Salida generada (HTML, doctrees)
+    │   └── html/                        # Documentación HTML compilada
+    ├── scripts/                         # Scripts de bootstrap, validación, prerender
+    ├── tools/                           # Tooling auxiliar
+    ├── .thyrox/                         # Sistema de gestión de trabajo (WPs, ADRs)
+    │   ├── context/work/                # Work packages (YYYY-MM-DD-HH-MM-SS-nombre/)
+    │   ├── context/decisions/           # ADRs del proyecto
+    │   ├── context/technical-debt.md    # Registro de deuda técnica
+    │   ├── guidelines/                  # Directivas tech-stack
+    │   └── registry/                    # Templates de metodología
+    ├── .claude/                         # Configuración Claude Code (skills, rules, hooks)
+    │   ├── rules/                       # Invariantes globales (build-logs, commits, ...)
+    │   ├── skills/thyrox/               # Skill principal del framework
+    │   └── agents/                      # Agentes especializados
+    ├── .githooks/                       # Hooks Git versionados (commit-msg, pre-push, ...)
+    ├── .github/workflows/               # CI/CD (validate.yml, release.yml, ...)
+    ├── pyproject.toml                   # Dependencias Python + metadata del proyecto
+    ├── Makefile                         # Comandos de construcción (make html, livehtml, ...)
+    ├── authors.rst                      # Equipo del proyecto
+    ├── licence.rst                      # Información legal
+    └── readme.rst                       # Este archivo
+
+**Para desarrolladores nuevos:** ver
+:doc:`/normativa/estandares/std-007-convencion-naming` (naming),
+:doc:`/normativa/estandares/std-013-rest-api-conventions` (REST API),
+:doc:`/normativa/procedimientos/index` (procedimientos de desarrollo).
 
 
 Convenciones de Documentación
