@@ -2,8 +2,15 @@
 project: IACT-docs
 work_package: 2026-05-06-06-32-20-spanish-class-names-corpus-audit
 created_at: 2026-05-06 06:32:20
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-06 07:30:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+final_audit_classes: 0 violations
+final_audit_methods: 0 violations
+final_audit_attrs: 12 false-positives (SBVR vocab + ADR legacy descriptive)
+files_modified: 76+
+std_008_version: 1.1.0 -> 1.3.0
+batches_completed: B-A, B-B, B-C, B-D, B-E, B-F, B-G+ extended
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
