@@ -153,15 +153,29 @@ Mapa de URLs canónicas — módulo Access
    - ``POST /access/function-groups/assign``
    - ``POST /users/{userId}/access-groups/``
    - Corregido (TD-ACC-04)
- * - Asignar segmento
+ * - Asignar segmento a usuario
    - ``POST /access/segments/assign``
-   - Pendiente — sin spec UC verificada
-   - TD-ACC-05
+   - ``PATCH /users/{userId}/`` con body ``{segment_id}``
+     (canónico — el segmento es atributo del User per
+     :doc:`/requisitos/casos-uso/users/uc-usr-03/index`)
+   - Corregido (TD-ACC-05)
 
-Las URLs canónicas de TD-ACC-01..04 están verificadas con los
-diagramas de secuencia UML de UC_ACC_01, UC_ACC_02, UC_ACC_04 y
-UC_AUD_03 en IACT-docs. **TD-ACC-05** (segmentos) permanece
-pendiente hasta especificación formal.
+Las URLs canónicas de TD-ACC-01..05 están verificadas con los
+diagramas de secuencia UML de UC_ACC_01, UC_ACC_02, UC_ACC_04,
+UC_AUD_03 y UC_USR_03 en IACT-docs.
+
+.. note:: TD-ACC-05 — Asignación de segmento
+
+ La asignación de segmento NO es un endpoint separado en
+ ``/access/``: el segmento es **atributo del User** (BR-012:
+ cada usuario tiene segmento único, ver
+ :doc:`/requisitos/reglas-negocio/br-012-usuario-segmento-unico`).
+ Por lo tanto la operación canónica es ``PATCH /users/{userId}/``
+ con ``{segment_id}`` en el body (mismo endpoint de
+ modificación general del User, UC_USR_03). NO crear un
+ endpoint ``/access/segments/assign`` — sería duplicación de
+ estado y violación de la regla "URLs son recursos, no
+ acciones".
 
 Query parameters
 ================
