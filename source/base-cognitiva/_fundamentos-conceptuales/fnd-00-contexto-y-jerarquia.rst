@@ -375,7 +375,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_04_Exportar_CSV.rst`` (489 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_csv
 :Precondición: Verificar ``COUNT(registros) <= 100,000`` (BR_011)
 
@@ -427,7 +427,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_05_Exportar_Excel.rst`` (450 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_excel
 :Precondición: Verificar ``COUNT(registros) <= 50,000`` (BR_011)
 
@@ -443,7 +443,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_06_Exportar_PDF.rst`` (427 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_pdf
 :Precondición: Verificar ``COUNT(registros) <= 10,000`` (BR_011)
 
@@ -473,7 +473,7 @@ de exportación para mantener consistencia en el sistema.
 
 **Ubicación:** ``casos_uso_v4/logs/UC_LOG_04_Exportar_Logs.rst`` (475 líneas)
 
-:Actor Principal: AGR_010 (agr_soporte)
+:Actor Principal: AGR-010 (``system_admin_group``)
 :Función RBAC: ``export_logs``
 :Aplicación BR_011: Mismos límites, principalmente CSV
 
@@ -684,7 +684,7 @@ del usuario que exporta (BR_012).
 
 **Escenario combinado:**
 
-Un usuario AGR_008 del segmento "Centro Lima" intenta exportar 
+Un usuario AGR-004 (``data_exporter_group``) del segmento "Centro Lima" intenta exportar 
 llamadas del año 2024 en formato CSV:
 
 1. Sistema aplica BR_012: Filtra solo registros de "Centro Lima"
