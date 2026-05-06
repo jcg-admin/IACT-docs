@@ -664,8 +664,9 @@ Módulo nuevo derivado del análisis de UC_SUP_01..03.
 
 Plano de configuracion del modelo RBAC: gestiona QUE funciones, grupos del
 sistema y reglas SoD EXISTEN. Diferenciado de MOD_Access (asignaciones) y
-MOD_Permissions (verificacion runtime). Actor principal: ``admin_sistema``
-(AGR-009).
+MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
+(AGR-010 — ``system_admin_group``; ver
+:doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`).
 
 .. list-table::
  :widths: 30 25 15 30
@@ -692,7 +693,7 @@ MOD_Permissions (verificacion runtime). Actor principal: ``admin_sistema``
    - access:assign_to_group
    - UC_ADM_03, UC_PERM_06
    - Asigna funciones a un grupo predefinido del sistema (scope AGR-001..012,
-     solo ``admin_sistema``) o custom (scope AGR custom,
+     solo ``system_admin`` AGR-010) o custom (scope AGR custom,
      ``admin_seguridad``). Reutilizada de MOD_Permissions.
 
 

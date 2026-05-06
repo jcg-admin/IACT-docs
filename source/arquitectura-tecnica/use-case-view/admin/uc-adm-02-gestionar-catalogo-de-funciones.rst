@@ -44,7 +44,7 @@ creacion. PermissionsEngine recarga catalogo activo al cambio.
 
  rectangle "MOD_Admin" {
    usecase "UC_ADM_02\nGestionar Catalogo\nde Funciones" as UC_ADM_02
-   usecase "Verificar AGR-009" as VERIFICAR_AGR
+   usecase "Verificar AGR-010" as VERIFICAR_AGR
    usecase "Validar codename\nunico (snake_case)" as VALIDAR_CODENAME
    usecase "Validar module valido\n(MOD_Auth, MOD_RBAC, ...)" as VALIDAR_MODULE
    usecase "Validar scope" as VALIDAR_SCOPE
@@ -105,7 +105,7 @@ creacion. PermissionsEngine recarga catalogo activo al cambio.
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
    notificado para refrescar catalogo.
  - :doc:`/arquitectura-tecnica/domain-model/authorization-guard` —
-   verifica AGR-009.
+   verifica AGR-010.
  - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
    emisor de FUNCTION_*.
  - :doc:`/requisitos/casos-uso/admin/uc-adm-02/index` — Parte 1-12.

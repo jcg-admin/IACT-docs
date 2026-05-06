@@ -8,7 +8,7 @@ Parte 3 — Flujo principal
 ===================
 
 PASO 1 — POST /api/admin/sod-rules/.
-PASO 2 — JWT + verificar AGR-009.
+PASO 2 — JWT + verificar AGR-010.
 PASO 3 — Validar:
 
 - group_a y group_b no vacios.

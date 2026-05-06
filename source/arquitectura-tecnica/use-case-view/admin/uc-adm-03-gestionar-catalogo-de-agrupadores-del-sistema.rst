@@ -19,7 +19,7 @@ UC_ADM_03 — Gestionar Catalogo Agrupadores Sistema
 
 Modifica la composicion de los **12 agrupadores predefinidos del
 sistema** (AGR-001..012, ``is_system=True``) — inmutables para
-operadores, mutables solo por ``admin_sistema``. Diferente de
+operadores, mutables solo por ``system_admin``. Diferente de
 UC_PERM_05 que gestiona AGRs custom. Cambio en composicion dispara
 recompute en cascada del effective_set de TODOS los Users con AGR
 asignado.
@@ -45,7 +45,7 @@ asignado.
 
  rectangle "MOD_Admin" {
    usecase "UC_ADM_03\nGestionar Catalogo\nAgrupadores Sistema\n.. extension points ..\nVistaImpacto" as UC_ADM_03
-   usecase "Verificar AGR-009" as VERIFICAR_AGR
+   usecase "Verificar AGR-010" as VERIFICAR_AGR
    usecase "Verificar\nis_system=True" as VERIFICAR_SYS
    usecase "Validar funcion en\ncatalogo (UC_ADM_02)" as VALIDAR_FUNCION
    usecase "Validar SoD sobre\nUsers con AGR (CNST-005)" as VALIDAR_SOD
@@ -125,7 +125,7 @@ asignado.
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
    coordinador del recompute.
  - :doc:`/arquitectura-tecnica/domain-model/authorization-guard` —
-   verifica AGR-009.
+   verifica AGR-010.
  - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
    emisor AGR_FUNCTION_*.
  - :doc:`/requisitos/casos-uso/admin/uc-adm-03/index` — Parte 1-12.

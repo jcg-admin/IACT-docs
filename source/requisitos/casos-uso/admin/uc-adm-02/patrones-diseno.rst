@@ -15,7 +15,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - solo AGR-009 accede
+   - solo AGR-010 accede
  * - **P-39**
    - Audit reforzado
    - toda escritura auditada

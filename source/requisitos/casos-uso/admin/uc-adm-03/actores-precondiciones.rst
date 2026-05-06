@@ -7,14 +7,14 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **AGR-009** ``admin_sistema`` — unico actor autorizado
+- **AGR-010** ``system_admin`` — unico actor autorizado
 - **FunctionGroupRepo** (AGR de sistema)
 - **PermissionsEngine** (recalcula effective_set)
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC verificado. Actor tiene AGR-009 asignado.
+Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 FunctionGroup objetivo existe y tiene is_system=True.
 
 2.3 Postcondiciones

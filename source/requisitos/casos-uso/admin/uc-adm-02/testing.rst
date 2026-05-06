@@ -19,7 +19,7 @@ E2E-01: Admin crea funcion, la asigna a grupo,
 desactiva; verifica que nueva asignacion
 de la funcion queda bloqueada.
 
-SEC-01: Sin AGR-009 → 403.
+SEC-01: Sin AGR-010 → 403.
 SEC-02: Audit inmutable verificado post-cambio.
 
 Mapeo CA → Tests:

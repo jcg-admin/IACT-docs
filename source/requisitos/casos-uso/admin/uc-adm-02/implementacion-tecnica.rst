@@ -8,7 +8,7 @@ Parte 11 — Implementacion tecnica
 ================
 
 - FunctionEndpoint (CRUD + deactivate + list)
-- AuthorizationGuard (requiere AGR-009)
+- AuthorizationGuard (requiere AGR-010)
 - FunctionValidator (codename format, uniqueness)
 - FunctionRepo
 - PermissionsEngine.reload_catalog()
@@ -34,7 +34,7 @@ Parte 11 — Implementacion tecnica
 
    procedure create(payload, invoker):
        require AuthorizationGuard.has_agr(
-                 invoker, 'AGR-009')
+                 invoker, 'AGR-010')
        FunctionValidator.validate_codename(
          payload.codename)
        FunctionValidator.unique(

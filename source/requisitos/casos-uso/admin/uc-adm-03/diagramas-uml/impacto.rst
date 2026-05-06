@@ -4,7 +4,7 @@
 .. uml::
 
  @startuml
- actor "admin_sistema" as admin
+ actor "system_admin" as admin
  participant "SystemGroupEndpoint" as ENDPOINT_GRUPOS_SISTEMA
  participant "PermissionsEngine" as MODULO_ETL
  participant "UserRepo" as REPOSITORIO_USUARIO

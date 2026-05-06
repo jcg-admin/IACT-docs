@@ -7,14 +7,14 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **AGR-009** ``admin_sistema`` — unico actor autorizado
+- **AGR-010** ``system_admin`` — unico actor autorizado
 - **FunctionRepo** (catalogo de funciones)
 - **PermissionsEngine** (consume catalogo activo)
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC verificado. Actor tiene AGR-009 asignado.
+Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 
 2.3 Postcondiciones
 ===================

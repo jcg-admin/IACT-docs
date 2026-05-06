@@ -8,7 +8,7 @@ Parte 11 — Implementacion tecnica
 ================
 
 - SoDRuleEndpoint (CRUD + disable + reactivate)
-- AuthorizationGuard (requiere AGR-009)
+- AuthorizationGuard (requiere AGR-010)
 - DisjointSetValidator
 - SoDRuleRepo
 - EnforcementEngine.reload()
@@ -35,7 +35,7 @@ Parte 11 — Implementacion tecnica
 
    procedure create(payload, invoker):
        require AuthorizationGuard.has_agr(
-                 invoker, 'AGR-009')
+                 invoker, 'AGR-010')
        DisjointSetValidator.validate(
          payload.group_a, payload.group_b)
        FunctionValidator.all_exist(

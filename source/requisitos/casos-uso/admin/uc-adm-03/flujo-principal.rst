@@ -8,7 +8,7 @@ Parte 3 — Flujo principal
 =====================================
 
 PASO 1 — POST /api/admin/system-groups/{id}/functions/.
-PASO 2 — JWT + verificar AGR-009.
+PASO 2 — JWT + verificar AGR-010.
 PASO 3 — Verificar que FunctionGroup.is_system=True.
 PASO 4 — Validar:
 

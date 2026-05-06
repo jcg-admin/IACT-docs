@@ -5,7 +5,7 @@ Parte 5 — Excepciones
 ==========================
 
 EX-01: JWT invalido — 401.
-EX-02: No tiene AGR-009 — 403.
+EX-02: No tiene AGR-010 — 403.
 EX-03: Validacion conjuntos — 400.
 EX-04: Funcion inexistente en catalogo — 400.
 EX-05: Nombre duplicado — 409.

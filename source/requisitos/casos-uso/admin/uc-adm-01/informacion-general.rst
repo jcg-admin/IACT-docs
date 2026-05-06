@@ -60,7 +60,7 @@ agregar una 4a regla o modificar las existentes desde la aplicacion.
 --------------------------
 
 UC_ADM_01 es operacion de configuracion critica — modifica el modelo
-RBAC, no asignaciones. Requiere AGR-009 (admin_sistema). Toda
+RBAC, no asignaciones. Requiere AGR-010 (system_admin). Toda
 modificacion genera notificacion a stakeholders de seguridad.
 
 1.4 Trazabilidad inicial
@@ -80,7 +80,7 @@ modificacion genera notificacion a stakeholders de seguridad.
      ``update_separation_rule``,
      ``disable_separation_rule``
  * - **AGR actor**
-   - AGR-009 (admin_sistema — unico actor autorizado)
+   - AGR-010 (system_admin — unico actor autorizado)
  * - **UCs relacionados**
    - UC_ACC_05 (vista operativa),
      UC_ACC_01/04/PERM_03 (consumidores de enforcement)

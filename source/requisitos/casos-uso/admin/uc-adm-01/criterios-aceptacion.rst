@@ -13,7 +13,7 @@ CA-06: Disable → INACTIVE; enforcement deja
 de aplicarla en nuevas asignaciones.
 CA-07: Reactivar → ACTIVE; enforcement recarga.
 CA-08: Audit completo (CREATED/UPDATED/DISABLED).
-CA-09: Sin AGR-009 → 403.
+CA-09: Sin AGR-010 → 403.
 CA-10: EnforcementEngine recarga tras cada cambio.
 
 Resumen

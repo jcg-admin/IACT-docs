@@ -26,7 +26,7 @@ Parte 1 — Informacion general de UC_ADM_03
 UC_ADM_03 gestiona la composicion de los **12 agrupadores predefinidos
 del sistema** (AGR-001..012). A diferencia de UC_PERM_05 (crear grupos
 custom), este UC modifica los AGR de sistema — inmutables para
-operadores, mutables solo por ``admin_sistema``.
+operadores, mutables solo por ``system_admin``.
 
 Los AGR de sistema son la configuracion base que determina que
 funciones tiene cada rol predefinido. Su modificacion es una operacion
@@ -72,9 +72,9 @@ incluye cada AGR predefinido, no quien tiene asignado el AGR
    - CNST-029 (modelo RBAC — 12 grupos predefinidos)
  * - **Funciones RBAC**
    - ``assign_functions_to_group``
-     (scope: AGR-001..012, solo ``admin_sistema``)
+     (scope: AGR-001..012, solo ``system_admin``)
  * - **AGR actor**
-   - AGR-009 (admin_sistema — unico actor autorizado para AGR sistema)
+   - AGR-010 (system_admin — unico actor autorizado para AGR sistema)
  * - **UCs relacionados**
    - UC_PERM_05 (crea grupos custom — diferente scope),
      UC_PERM_06 (modifica grupos custom),

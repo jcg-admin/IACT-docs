@@ -6,8 +6,8 @@
  @startuml
  start
  :POST /api/admin/system-groups/{id}/functions/;
- :JWT + verificar AGR-009;
- if (Sin AGR-009?) then (si)
+ :JWT + verificar AGR-010;
+ if (Sin AGR-010?) then (si)
    :403; stop
  endif
  :Verificar is_system=True;

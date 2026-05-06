@@ -16,6 +16,15 @@
 MOD_Admin — Administracion del Modelo RBAC: UC por Modulo
 =========================================================
 
+.. note:: Modulo NUEVO en RBAC v5.6.0
+
+ MOD_Admin es uno de los **9 modulos in-scope** del modelo RBAC
+ v5.6.0. Formaliza el plano de configuracion del modelo RBAC que
+ en versiones anteriores estaba implicito en MOD_Access y
+ MOD_Permissions. Ver
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` y
+ :doc:`/requisitos/casos-uso/admin/index`.
+
 MOD_Admin — Administracion del Modelo RBAC
 ===========================================
 

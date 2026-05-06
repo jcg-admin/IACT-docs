@@ -36,7 +36,7 @@ Parte 7 — Datos involucrados
    - incrementado por update
  * - created_by
    - int
-   - AGR-009 user_id
+   - AGR-010 user_id
  * - created_at, updated_at
    - timestamp
    -

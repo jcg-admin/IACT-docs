@@ -43,7 +43,7 @@ migraciones por CNST-030).
 
  rectangle "MOD_Admin" {
    usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas SoD\n.. extension points ..\nValidacionFunciones\nValidacionConjuntos" as UC_ADM_01
-   usecase "Verificar AGR-009\n(autorizacion)" as VERIFICAR_AGR
+   usecase "Verificar AGR-010\n(autorizacion)" as VERIFICAR_AGR
    usecase "Validar conjuntos\ndisjuntos (CNST-030)" as VALIDAR_CONJUNTOS
    usecase "Validar funciones\nen catalogo activo" as VALIDAR_FUNCIONES
    usecase "Validar nombre\nunico" as VALIDAR_NOMBRE
@@ -88,7 +88,7 @@ migraciones por CNST-030).
  end note
 
  note right of view_separation_rules
-   AGR-009 admin_sistema agrupa
+   AGR-010 system_admin agrupa
    las 4 funciones. view_separation_rules
    read-only reutilizada desde UC_ACC_05.
  end note
@@ -110,7 +110,7 @@ migraciones por CNST-030).
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
    componente que ejecuta VALIDAR_CONJUNTOS / VALIDAR_FUNCIONES.
  - :doc:`/arquitectura-tecnica/domain-model/authorization-guard` —
-   verifica AGR-009 antes de acceder a este UC.
+   verifica AGR-010 antes de acceder a este UC.
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
    notificado en RECARGAR para refrescar reglas activas.
  - :doc:`/arquitectura-tecnica/domain-model/audit-service` —

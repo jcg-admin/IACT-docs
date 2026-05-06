@@ -18,7 +18,7 @@ IT-05: Lista con filtro state=ACTIVE.
 E2E-01: Admin crea, actualiza y desactiva regla;
 verifica que nueva asignacion es bloqueada/liberada.
 
-SEC-01: Sin AGR-009 → 403.
+SEC-01: Sin AGR-010 → 403.
 SEC-02: Audit inmutable verificado post-cambio.
 
 Mapeo CA → Tests:

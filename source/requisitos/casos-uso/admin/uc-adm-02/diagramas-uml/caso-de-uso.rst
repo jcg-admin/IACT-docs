@@ -5,7 +5,7 @@
 
  @startuml
  left to right direction
- actor "admin_sistema\n(AGR-009)" as admin
+ actor "system_admin\n(AGR-010)" as admin
  rectangle "MOD_Admin — UC_ADM_02" {
    usecase "Crear funcion\nmanage_function_catalog" as Create
    usecase "Actualizar funcion\nmanage_function_catalog" as Update

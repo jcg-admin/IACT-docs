@@ -14,7 +14,7 @@ recalculado para todos los usuarios del AGR.
 CA-07: Vista /impact/ retorna numero de
 usuarios afectados sin modificar.
 CA-08: Audit completo (ADDED/REMOVED).
-CA-09: Sin AGR-009 → 403.
+CA-09: Sin AGR-010 → 403.
 CA-10: PermissionsEngine recalcula tras cambio.
 
 Resumen

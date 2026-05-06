@@ -69,7 +69,7 @@ o verificacion (MOD_Permissions).
  * - **Funciones RBAC**
    - ``manage_function_catalog`` (NUEVA v5.6.0)
  * - **AGR actor**
-   - AGR-009 (admin_sistema — unico actor autorizado)
+   - AGR-010 (system_admin — unico actor autorizado)
  * - **UCs relacionados**
    - UC_PERM_01 (effective_set — consume catalogo),
      UC_ADM_01 (SoD referencia funciones del catalogo)

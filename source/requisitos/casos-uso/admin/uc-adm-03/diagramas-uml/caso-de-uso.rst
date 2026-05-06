@@ -5,7 +5,7 @@
 
  @startuml
  left to right direction
- actor "admin_sistema\n(AGR-009)" as admin
+ actor "system_admin\n(AGR-010)" as admin
  rectangle "MOD_Admin — UC_ADM_03" {
    usecase "Agregar funcion\na AGR sistema\nassign_functions_to_group" as Add
    usecase "Remover funcion\nde AGR sistema\nassign_functions_to_group" as Remove

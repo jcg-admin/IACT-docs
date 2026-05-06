@@ -2,7 +2,7 @@
 created_at: 2026-05-06 09:21:00
 project: IACT-docs
 work_package: 2026-05-06-09-17-55-uc-opr-sup-reserved-open-closed
-phase: Phase 10 — EXECUTE (B-1..B-5 done)
+phase: Phase 10 — EXECUTE (B-1..B-7 done)
 author: NestorMonroy
 status: En progreso
 version: 1.0.0
@@ -99,6 +99,40 @@ status reservado.
   declarando que UC_OPR_02 aparece en el panorama por valor
   narrativo del flujo end-to-end pero NO implica implementación
   in-scope.
+
+## B-6 — MOD_Admin highlighted como NUEVO v5.6.0
+
+- `requisitos/casos-uso/admin/index.rst`: nota `.. note::`
+  declarando MOD_Admin como modulo NUEVO v5.6.0 (3 funciones,
+  formaliza el plano de configuración RBAC).
+- `arquitectura-tecnica/use-case-view/admin/index.rst`: misma
+  nota.
+
+## B-7 — Fix de inconsistencia AGR-009 → AGR-010 (CRITICO)
+
+**Bug detectado durante DISCOVER de B-6:** los UC_ADM_01..03
+en ambos árboles citaban consistentemente `AGR-009` /
+`admin_sistema` como actor principal, pero en
+`grupos-funciones.rst`:
+
+- AGR-009 = `pipeline_admin_group` (Admin Pipeline)
+- AGR-010 = `system_admin_group` (Sysadmin)
+
+El actor correcto de MOD_Admin es **AGR-010 / `system_admin`**.
+
+Fix masivo aplicado a 39 archivos × 72 ocurrencias en ambos
+árboles `casos-uso/admin/` y `use-case-view/admin/`:
+
+- `AGR-009` → `AGR-010` (72 reemplazos)
+- `admin_sistema` → `system_admin` (varios)
+
+Adicionalmente en `catalogo-funciones.rst` §3.11:
+- "Actor principal: ``admin_sistema`` (AGR-009)" → "``system_admin``
+  (AGR-010 — system_admin_group)".
+- "solo ``admin_sistema``" → "solo ``system_admin`` AGR-010".
+
+NO se tocaron refs a AGR-009 en otros docs (donde sí se refiere
+correctamente a `pipeline_admin_group`).
 
 ## Pendientes detectados (candidatos a próximos WPs)
 

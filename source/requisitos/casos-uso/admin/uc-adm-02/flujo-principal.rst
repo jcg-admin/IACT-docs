@@ -8,7 +8,7 @@ Parte 3 — Flujo principal
 =========================
 
 PASO 1 — POST /api/admin/functions/.
-PASO 2 — JWT + verificar AGR-009.
+PASO 2 — JWT + verificar AGR-010.
 PASO 3 — Validar:
 
 - codename unico (snake_case, sin espacios).

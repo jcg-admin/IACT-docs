@@ -59,7 +59,7 @@
  end note
 
  note right of F_VIEW
-   AGR-009 admin_sistema agrupa
+   AGR-010 system_admin agrupa
    las 4 funciones. view_separation_rules
    es read-only y se reutiliza desde
    UC_ACC_05.

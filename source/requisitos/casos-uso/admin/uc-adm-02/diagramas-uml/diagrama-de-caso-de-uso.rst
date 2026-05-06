@@ -63,7 +63,7 @@
  end note
 
  note right of F_VIEW
-   AGR-009 admin_sistema agrupa
+   AGR-010 system_admin agrupa
    las 4 funciones. Catalogo activo
    alimenta PermissionService y
    construccion del effective_set.

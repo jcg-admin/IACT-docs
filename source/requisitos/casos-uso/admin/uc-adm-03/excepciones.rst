@@ -5,7 +5,7 @@ Parte 5 — Excepciones
 ==========================
 
 EX-01: JWT invalido — 401.
-EX-02: No tiene AGR-009 — 403.
+EX-02: No tiene AGR-010 — 403.
 EX-03: FunctionGroup no existe — 404.
 EX-04: FunctionGroup no es de sistema — 403.
 EX-05: Funcion no existe en catalogo — 400.
