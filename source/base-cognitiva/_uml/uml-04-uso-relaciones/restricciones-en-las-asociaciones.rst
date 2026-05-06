@@ -15,11 +15,11 @@ palabra ``ordenado`` entre llaves ``{}`` junto a la clase
 
    @startuml
 
-   class Cajero
-   class Cliente
-   Cajero "1" -- "0..*" Cliente : atiende
-   note bottom of Cliente
-     {ordenado}
+   class Cashier
+   class Customer
+   Cashier "1" -- "0..*" Customer : serves
+   note bottom of Customer
+     {ordered}
    end note
    @enduml
 
@@ -33,11 +33,11 @@ uno comercial.
 
    @startuml
 
-   class Estudiante
-   class CursoAcademico
-   class CursoComercial
+   class Student
+   class AcademicCourse
+   class BusinessCourse
 
-   Estudiante --> CursoAcademico : se inscribe en
-   Estudiante --> CursoComercial : se inscribe en
-   CursoAcademico ..> CursoComercial : <<{Or}>>
+   Student --> AcademicCourse : enrolls in
+   Student --> BusinessCourse : enrolls in
+   AcademicCourse ..> BusinessCourse : <<{Or}>>
    @enduml

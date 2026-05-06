@@ -41,6 +41,6 @@ la relación.
 
    @startuml
 
-   class Empleado
-   Empleado "1\n<<boss>>" -- "0..*\n<<subordinate>>" Empleado : supervisa
+   class Employee
+   Employee "1\n<<boss>>" -- "0..*\n<<subordinate>>" Employee : supervises
    @enduml

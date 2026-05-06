@@ -8,8 +8,8 @@ discontinua.
 
    @startuml
 
-   class Cliente
-   note right of Cliente
+   class Customer
+   note right of Customer
      Esta clase hereda de User.
    end note
    @enduml
