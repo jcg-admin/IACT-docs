@@ -113,7 +113,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: Arquitecto de Seguridad, admin_seguridad (AGR-008)
+- **Responsable**: Arquitecto de Seguridad, permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Revision arquitectonica formal
 - **Frecuencia de Revision**: Solo ante cambio de arquitectura
 
@@ -218,7 +218,7 @@ Sin excepciones. El modelo Flat es absoluto.
 
 - **Tipo**: Automatizado + Manual
 - **Frecuencia**: Por release (estructura), continua (permisos)
-- **Responsable**: QA, admin_seguridad
+- **Responsable**: QA, permission_admin
 
 6.3 Consecuencias de Incumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

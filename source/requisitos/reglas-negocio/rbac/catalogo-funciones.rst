@@ -694,7 +694,7 @@ MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
    - UC_ADM_03, UC_PERM_06
    - Asigna funciones a un grupo predefinido del sistema (scope AGR-001..012,
      solo ``system_admin`` AGR-010) o custom (scope AGR custom,
-     ``admin_seguridad``). Reutilizada de MOD_Permissions.
+     ``permission_admin``). Reutilizada de MOD_Permissions.
 
 
 **CAMBIO v5.6.0:**

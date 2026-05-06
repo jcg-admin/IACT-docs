@@ -119,7 +119,7 @@ FR-005.02: Mostrar detalle de sesión
 
 - El token JWT nunca se muestra completo
 - Solo se muestran últimos 8 caracteres del jti
-- La IP se puede mostrar completa solo a admin_seguridad
+- La IP se puede mostrar completa solo a ``permission_admin`` (AGR-007)
 
 ----
 

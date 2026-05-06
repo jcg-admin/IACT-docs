@@ -177,13 +177,13 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  IDENTIFICACION:
  ID: UC_ADM_01
  Nombre: Gestionar Ciclo de Vida de Reglas SoD
- Actor Primario: AGR-010 (system_admin)
- Actores Secundarios: AGR-007 (auditor)
+ Actor Primario: AGR-010 (system_admin_group)
+ Actores Secundarios: AGR-008 (auditor_group)
 
  CONTEXTO:
  Objetivo: Crear restricciones SoD para prevenir conflictos
  Precondiciones:
- - Usuario autenticado con agrupador AGR-008
+ - Usuario autenticado con agrupador AGR-010 (system_admin_group)
  - Existen funciones definidas en catalogo RBAC
    Postcondiciones:
  - Restriccion SoD creada en sistema
@@ -192,7 +192,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    Trigger: Admin selecciona Gestionar SoD
 
  FLUJO NORMAL:
- 1. Admin Seguridad selecciona Gestionar SoD
+ 1. system_admin (AGR-010) selecciona Gestionar SoD
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
@@ -212,7 +212,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  8a.4. Retorna a paso 6
 
  EXCEPCION 1: Sin permisos
- 1a.1. Sistema detecta falta de AGR-008
+ 1a.1. Sistema detecta falta de AGR-010 (system_admin_group)
  1a.2. Sistema muestra mensaje de acceso denegado
  1a.3. Caso de uso termina
 
@@ -260,12 +260,12 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  ACTOR PRIMARIO:
  - Inicia el caso de uso
  - Tiene el objetivo principal
- - Ejemplo: AGR-008 que configura SoD
+ - Ejemplo: AGR-010 (system_admin_group) que configura SoD
 
  ACTOR SECUNDARIO:
  - Participa pero no inicia
  - Proporciona informacion o recibe notificacion
- - Ejemplo: AGR-007 que recibe notificacion de cambio
+ - Ejemplo: AGR-008 (auditor_group) que recibe notificacion de cambio
 
 3.4 Actores en IACT (Agrupadores RBAC v5.6.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -346,7 +346,7 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018.
    - AGR-007: auditor
    - Renombrado
  * - R018: SECURITY_ADMIN
-   - AGR-008: admin_seguridad
+   - AGR-007: permission_admin_group
    - Renombrado
  * - (nuevo)
    - AGR-009: pipeline_admin
@@ -675,7 +675,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC_ADM_02: Gestionar Catalogo de Funciones
  UC_ACC_09: Auditar Cambios de Permisos
 
- Actor Primario: AGR-008 (admin_seguridad) para ACC; AGR-010 (system_admin) para ADM
+ Actor Primario: AGR-007 (permission_admin_group) para ACC; AGR-010 (system_admin_group) para ADM
  BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
 
 8.4 Pipeline ETL - MOD_Pipeline (4 UC)

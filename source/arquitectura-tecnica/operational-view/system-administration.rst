@@ -36,7 +36,7 @@ Casos de uso operacionales — AGR_ADMIN
  skinparam actorBorderColor #555555
  skinparam shadowing false
 
- actor "agr_admin" as AGR_ADMIN
+ actor "system_admin\nAGR-010" as AGR_ADMIN
 
  rectangle "Administracion IACT" {
    usecase "Crear usuario" as CREAR_USUARIO
@@ -79,7 +79,7 @@ Flujo de actividad — Alta de usuario
 
  start
 
- :agr_admin: autenticar en sistema;
+ :system_admin (AGR-010): autenticar en sistema;
  :Crear cuenta de usuario\n(username, email, full_name);
  :Asignar AccessGroup primario\n(AGR-001..012);
 

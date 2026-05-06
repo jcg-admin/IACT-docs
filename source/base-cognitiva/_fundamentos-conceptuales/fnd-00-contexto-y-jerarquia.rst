@@ -459,7 +459,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/audit/UC_AUD_03_Exportar_Auditoria.rst`` (453 líneas)
 
-:Actor Principal: AGR_006 (agr_auditor)
+:Actor Principal: AGR-008 (``auditor_group``)
 :Función RBAC: ``export_audit_log``
 :Aplicación BR_011: Mismos límites que reportes
 

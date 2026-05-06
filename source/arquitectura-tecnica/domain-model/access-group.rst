@@ -29,7 +29,7 @@ tener un ``AccessGroup`` primario y asignaciones adicionales via
 
  class AccessGroup {
    + agr_id : String          <<AGR-001..012>>
-   + name : String            <<p.ej. agr_supervisor>>
+   + name : String            <<p.ej. quality_supervisor_group>>
    + profile_description : String
    --
    + assign_to_user()        <<assign_function_groups>>

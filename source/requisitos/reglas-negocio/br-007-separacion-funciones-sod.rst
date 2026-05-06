@@ -111,7 +111,7 @@ Cumple con principios de auditoria y control interno.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: admin_seguridad (AGR-008)
+- **Responsable**: permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Configuracion via UC_ADM_01 (ciclo de vida de
   reglas SoD) y vista operativa via UC_ACC_05
 - **Frecuencia de Revision**: Semestral
@@ -220,7 +220,7 @@ documentada del sponsor y registro en auditoria.
 
 - Asignacion bloqueada con mensaje de error
 - Registro en log de auditoria
-- Notificacion a admin_seguridad
+- Notificacion a ``permission_admin_group`` (AGR-007)
 
 ----
 
