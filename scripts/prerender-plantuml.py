@@ -16,7 +16,7 @@ Decisions implemented (WP plantuml-svg-prerender):
     D-01 hash = sha256(styles + uml_block)[:16]
     D-02 SVG output format
     D-03 path source/_generated_diagrams/ (persists make clean)
-    D-08 plantuml CLI invocation with -cfgfile
+    D-08 plantuml CLI invocation (no -cfgfile — see WP plantuml-cache-prerender-update)
 """
 
 import argparse
@@ -97,23 +97,36 @@ def render_to_svg(uml_block: str, svg_path: Path) -> Tuple[bool, str]:
     puml_path = svg_path.with_suffix(".puml")
     puml_path.write_text(normalize_block(uml_block), encoding="utf-8")
     try:
+        # Note: do NOT use -cfgfile with plantuml-styles.puml. That file is
+        # designed to be `!include`d from inside @startuml blocks, not used
+        # as a CLI cfgfile. Passing it as -cfgfile causes PlantUML to write
+        # a "Syntax Error" SVG (line 1 of input file). The styles content
+        # still affects the cache hash (so changes invalidate the cache),
+        # but PlantUML rendering uses only what is inside the diagram block.
         cmd = [
             str(PLANTUML_BIN),
             "-tsvg",
+            "-o", str(svg_path.parent),
+            str(puml_path),
         ]
-        if STYLES_FILE.exists():
-            cmd += ["-cfgfile", str(STYLES_FILE)]
-        cmd += ["-o", str(svg_path.parent), str(puml_path)]
         result = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
             timeout=60,
         )
-        # Treat success by file existence, not exit code: plantuml may
-        # return nonzero on warnings (e.g., cfgfile contains no @startuml)
-        # while still producing a valid SVG.
+        # Validate: SVG exists, non-empty, and does not contain the
+        # PlantUML "Syntax Error" placeholder text (defensive check
+        # against future regressions of the kind cfgfile produced).
         if svg_path.exists() and svg_path.stat().st_size > 0:
+            try:
+                svg_text = svg_path.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                svg_text = ""
+            if "Syntax Error" in svg_text:
+                svg_path.unlink(missing_ok=True)
+                msg = (result.stderr or result.stdout).strip()
+                return False, msg or "plantuml produced Syntax Error SVG"
             return True, ""
         msg = (result.stderr or result.stdout).strip()
         return False, msg or f"plantuml exit {result.returncode}, no output"
