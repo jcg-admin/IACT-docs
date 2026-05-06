@@ -56,18 +56,63 @@ markers), usar `Monitor` con `tail -f LOG | grep --line-buffered
 "PATTERN"`. Cada línea emitida es un evento que mantiene el
 stream SSE vivo.
 
-```python
-Monitor(
-  command='tail -f $LOG | grep -E --line-buffered "^EXIT=|build succeeded|FAIL|Error"',
-  description="strict build outcome",
-  timeout_ms=1800000  # 30 min, sobrevive el comando
-)
-```
-
 **Cobertura del filtro**: incluir TODOS los estados terminales
 (success, failure, error). Un filtro que sólo matchea success
 deja al monitor silencioso ante un crash → indistinguible de
 "sigue corriendo".
+
+#### R-2.1 — El monitor DEBE auto-cerrarse al completar el work
+
+`tail -f` solo nunca termina, así que el monitor queda activo hasta
+el timeout aunque el comando observado ya haya terminado. Eso
+genera notificaciones "Monitor timed out — re-arm if needed" que
+son ruido y obligan a cancelar manualmente. Usar uno de estos
+patrones para que el monitor se cierre cuando el work termina.
+
+##### Patrón canónico — `tail -f --pid=$PID` (GNU tail)
+
+```bash
+# Lanzar el comando capturando PID
+nohup bash -c "long_command; echo EXIT=\$?" > "$LOG" 2>&1 &
+PID=$!
+disown $PID
+
+# Monitor: tail termina automáticamente cuando $PID muere
+Monitor(
+  command='tail -f --pid='"$PID"' "$LOG" | grep -E --line-buffered "^EXIT=|build succeeded|FAIL|Error"',
+  description="...",
+  timeout_ms=1800000
+)
+```
+
+`tail -f --pid=PID` (extensión GNU) hace exit cuando el proceso
+PID termina. El monitor recibe EOF, emite los eventos finales y
+se cierra limpiamente.
+
+##### Patrón alternativo — `awk` con exit en marker terminal
+
+Útil si no se tiene acceso al PID (e.g. observando un log que
+escribe otro agente):
+
+```bash
+tail -f "$LOG" | awk '
+  /^EXIT=|build succeeded|build finished with problems|FAILED|Traceback/ {
+    print; fflush(); exit
+  }
+  /pattern/ { print; fflush() }
+'
+```
+
+Riesgo: si el comando crashea sin escribir un marker terminal en
+el log, el `awk` nunca hace exit. Por eso preferir `--pid` cuando
+sea posible.
+
+##### Anti-patrón
+
+```bash
+# ❌ Monitor queda activo hasta el timeout aunque el comando termine
+tail -f "$LOG" | grep --line-buffered "PATTERN"
+```
 
 ### R-3 — Probes periódicos cuando no hay output natural
 
