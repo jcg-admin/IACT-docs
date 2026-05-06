@@ -65,7 +65,7 @@ scope) y entrega via ``InternalMailbox`` por User.
  AuditService --> broadcast_team_messages : OK
  deactivate AuditService
 
- note bottom of SegmentResolver
+ note over SegmentResolver
    CNST-008: target_team o segment_codes
    deben estar en el segmento del Supervisor.
  end note
