@@ -92,7 +92,6 @@ transferencias, IVR, clientes unicos, programados, etc. Ver
  - :doc:`/arquitectura-tecnica/domain-model/report`
  - :doc:`/arquitectura-tecnica/domain-model/historical-report`
  - :doc:`/arquitectura-tecnica/domain-model/bucket`
- - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat`
  - :doc:`/arquitectura-tecnica/domain-model/comparative`
  - :doc:`/arquitectura-tecnica/domain-model/export-job`
  - :doc:`/arquitectura-tecnica/domain-model/metric`
