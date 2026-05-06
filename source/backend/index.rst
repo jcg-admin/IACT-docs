@@ -3,9 +3,9 @@
  :tipo: Indice
  :dominio: backend
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -37,3 +37,4 @@ de codigo, no en esta documentacion.
  adr-back-004-sistema-permisos-sin-roles-jerarquicos
  adr-back-005-middleware-decoradores-permisos
  adr-back-006-rbac-estrategia-implementacion
+ adr-back-007-rbac-custom-vs-auth-group

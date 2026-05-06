@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-06 19:39:36
+updated_at: 2026-05-06 20:12:07
 cold_boot: false
 current_epic: 28
 epic_name: alias-fix-uc-numericos
-current_work: .thyrox/context/work/2026-05-06-19-27-21-agr-django-permission-groups-research
+current_work: .thyrox/context/work/2026-05-06-20-11-32-rbac-bootstrap-data-migration-adr
 stage: discover
 stage_number: 1
 current_phase: Phase 1 — DISCOVER
