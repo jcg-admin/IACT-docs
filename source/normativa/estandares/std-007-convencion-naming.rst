@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 2.0.2
+ :version: 2.1.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-06
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -489,8 +489,18 @@ migrar.
    - Sub-categoría (kebab, suele coincidir con sub-dir)
    - ``estandares``, ``casos-uso``, ``procedimientos``
  * - ``:estado:``
-   - Lifecycle status
-   - ``Borrador``, ``En Revisión``, ``Aprobado``, ``Deprecado``
+   - Lifecycle status — valores oficiales:
+     ``Borrador`` (en redacción),
+     ``En Revisión`` (en gate de revisión),
+     ``Aprobado`` (aprobado tras gate, sinónimo histórico de
+     ``Vigente``),
+     ``Vigente`` (artefacto activo en uso operativo —
+     valor mayoritario en el corpus),
+     ``Reservado`` (artefacto declarado pero out-of-scope para
+     la release vigente; ej.: extension points open-closed
+     como MOD_Operator y MOD_Supervision en RBAC v5.6.0),
+     ``Deprecado`` (obsoleto, mantenido por trazabilidad).
+   - ``Vigente``, ``Reservado``, ``Aprobado``, ``Borrador``
  * - ``:version:``
    - SemVer 2.0.0 (ver STD_006)
    - ``1.0.0``, ``2.0.1``

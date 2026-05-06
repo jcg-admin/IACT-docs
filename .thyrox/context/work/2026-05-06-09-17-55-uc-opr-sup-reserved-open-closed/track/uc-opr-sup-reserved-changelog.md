@@ -2,7 +2,7 @@
 created_at: 2026-05-06 09:21:00
 project: IACT-docs
 work_package: 2026-05-06-09-17-55-uc-opr-sup-reserved-open-closed
-phase: Phase 10 — EXECUTE (B-1..B-7 done)
+phase: Phase 10 — EXECUTE (B-1..B-8 done)
 author: NestorMonroy
 status: En progreso
 version: 1.0.0
@@ -133,6 +133,34 @@ Adicionalmente en `catalogo-funciones.rst` §3.11:
 
 NO se tocaron refs a AGR-009 en otros docs (donde sí se refiere
 correctamente a `pipeline_admin_group`).
+
+## B-8 — Formalizar `:estado: Reservado` en STD-007
+
+STD-007 §6 declaraba como valores oficiales del frontmatter
+`:estado:`: ``Borrador``, ``En Revisión``, ``Aprobado``,
+``Deprecado``. Sin embargo, el corpus usa ``Vigente``
+(513 ocurrencias) que no estaba documentado, y este WP
+introdujo ``Reservado`` (28 ocurrencias en OPR/SUP UCs).
+
+Fix:
+
+- `normativa/estandares/std-007-convencion-naming.rst` §6.1
+  fila ``:estado:``: descripción expandida con definición
+  semántica de los 6 valores oficiales:
+
+  - ``Borrador`` (en redacción)
+  - ``En Revisión`` (en gate de revisión)
+  - ``Aprobado`` (aprobado tras gate, sinónimo histórico de
+    ``Vigente``)
+  - ``Vigente`` (artefacto activo en uso operativo — valor
+    mayoritario en el corpus)
+  - ``Reservado`` (artefacto declarado pero out-of-scope
+    para la release vigente; ej.: extension points
+    open-closed como MOD_Operator y MOD_Supervision en
+    RBAC v5.6.0)
+  - ``Deprecado`` (obsoleto, mantenido por trazabilidad)
+
+- `:version:` 2.0.2 → 2.1.0; `:ultimo_cambio:` → 2026-05-06.
 
 ## Pendientes detectados (candidatos a próximos WPs)
 
