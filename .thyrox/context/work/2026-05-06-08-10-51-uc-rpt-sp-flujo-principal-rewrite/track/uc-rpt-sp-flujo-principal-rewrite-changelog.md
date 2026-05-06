@@ -2,10 +2,10 @@
 created_at: 2026-05-06 08:25:00
 project: IACT-docs
 work_package: 2026-05-06-08-10-51-uc-rpt-sp-flujo-principal-rewrite
-phase: Phase 10 — EXECUTE (B-1..B-4 done)
+phase: Phase 10 — EXECUTE (B-1..B-5 done)
 author: NestorMonroy
 status: En progreso
-version: 0.1.0
+version: 0.5.0
 ```
 
 # WP Changelog — UC_RPT SP Flujo Principal Rewrite
@@ -151,9 +151,62 @@ version: 0.1.0
   separado: aliases SP/BDIVR/INVOKER → ReportingService/
   BdIvrLegacy/view_reports).
 
-## Pendiente
+## B-5 — UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion)
 
-- B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion) (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
+### Changed
+
+- `flujo-principal.rst`: PASOs 7-10 reescritos como un solo
+  callproc a `sp_rpt_clientes`; el SP entrega distinct count
+  (exact o HLL), recurrence distribution, new vs returning
+  y Top N por hash anonimizado. Nota explicita del orden
+  canonico: ETL anonymize → SP (lee hash) → backend.
+  Renumerados a 10 PASOs. CNST-007 + CNST-026.
+- `actores-precondiciones.rst`: AnalyticsRepo →
+  ReportingService (callproc) + actor ETL upstream
+  (sp_etl_base_clientes) como precondicion de los datos.
+  Postcondicion: backend NUNCA ve telefono raw.
+- `implementacion-tecnica.rst`: ReportingService como
+  componente principal; pseudocodigo callproc + parser
+  ClientReportOutput.from_rows; restricciones cross-cutting
+  (CNST-007, CNST-026, Top N solo prefix).
+- `datos-involucrados.rst`: Base Analitica IVR → BD_IVR
+  con base_ivr_clientes ya anonimizada por el ETL upstream.
+- `excepciones.rst`, `criterios-aceptacion.rst`,
+  `testing.rst`: BD timeout → callproc BD_IVR timeout;
+  UT-01..05 testean parsers de filas del SP en lugar de
+  DistinctCounter / RecurrenceCalculator / Comparative
+  Calculator / TopN locales.
+- `diagramas-uml/diagrama-de-caso-de-uso.rst`: actores
+  CallerReportService/Sanitizer/Call/KpiCalculator
+  removidos; reemplazados por ReportingService (1 SP) +
+  EtlAnonimizador (upstream) → BdIvrLegacy. Aliases
+  STD-011 compliant. La nota CNST-026 anclada al ETL
+  (donde realmente ocurre el hash), no al backend.
+
+### Verification
+
+- Strict build OK: `execute/build-logs/sphinx-strict-b5-uc-rpt-17-
+  2026-05-06T08-42-04.log` (EXIT=0).
+
+## Resumen del WP
+
+| Batch | UC | SPs | Status |
+|---|---|---|---|
+| B-1 | UC_RPT_01 | sp_rpt_centros_xsegmento | ✅ |
+| B-2 | UC_RPT_13 | sp_rpt_llamadas_abandonadas | ✅ |
+| B-3 | UC_RPT_15 | sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento | ✅ DOBLE |
+| B-4 | UC_RPT_16 | sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR | ✅ TRIPLE |
+| B-5 | UC_RPT_17 | sp_rpt_clientes + ETL anonimizacion | ✅ |
+
+5 UCs × 12 partes (incluyendo diagramas-uml) auditadas y
+alineadas con el patron canonico cursor.callproc('sp_rpt_*')
+sobre BD_IVR. STD-011 compliance en aliases UML.
+
+Strict build (`-W`) OK tras cada batch — 6 logs en
+`execute/build-logs/`.
+
+Pendiente: cierre Phase 11 cuando el ejecutor lo ordene
+(I-011: solo el ejecutor cierra el WP). (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
 - B-4 UC_RPT_16 (sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR)
 - B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion)
 - Cierre WP en Phase 11.

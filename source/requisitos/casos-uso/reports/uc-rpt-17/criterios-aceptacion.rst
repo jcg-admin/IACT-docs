@@ -13,7 +13,7 @@ CA-06: Sin client_id raw en response.
 CA-07: Cross-segmento → 403.
 CA-08: Sin clientes → 0.
 CA-09: Periodo invalido → 400.
-CA-10: BD timeout → 503.
+CA-10: callproc BD_IVR timeout → 503.
 CA-11: Sin permiso → 403.
 
 Resumen
