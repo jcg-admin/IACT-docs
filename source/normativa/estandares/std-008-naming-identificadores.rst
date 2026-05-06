@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-06
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -180,6 +180,52 @@ Los identificadores técnicos del proyecto IACT se escriben en
 
 La narrativa de la documentación puede ser en español; los
 identificadores que aparecen citados en ella mantienen el inglés.
+
+3.5.1 Excepciones — Zonas Pedagógicas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los identificadores en español **están permitidos** en
+artefactos cuyo propósito es enseñar conceptos OOP/UML/ERD
+usando vocabulario natural del lector hispanohablante. Estos
+artefactos no describen el sistema productivo; son material
+didáctico.
+
+Paths con la excepción aplicada:
+
+- ``source/requisitos/_metodologia-aplicacion/**`` —
+  lecciones de aplicación de la metodología (siguiendo
+  Schmuller, Object-Oriented Software Engineering, etc.).
+- ``source/base-cognitiva/_uml/**`` — lecciones UML del
+  proyecto.
+- ``source/normativa/estandares/metodologia-*-ucs.rst`` —
+  estándares metodológicos que usan ejemplos en español
+  para enseñar el método.
+- ADRs (``source/{tier}/adr-*.rst``) cuando el código
+  citado es **descriptivo** del legacy codebase
+  (no prescriptivo de nuevo código).
+
+Convención sintáctica para reconocer zonas pedagógicas: el
+prefijo ``_`` en algún segmento del path (``_metodologia-
+aplicacion``, ``_uml``) marca contenido didáctico. Para
+artefactos sin prefijo (ADRs, normativa) la naturaleza
+descriptiva debe ser explícita en el contenido (e.g. "código
+del legacy", "ejemplo de tutorial").
+
+3.5.2 Zona Productiva — Inglés Obligatorio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las siguientes zonas **deben** usar identificadores en inglés
+sin excepción:
+
+- ``source/arquitectura-tecnica/**`` — domain-model, design-view,
+  use-case-view, system-view, etc.
+- ``source/databases/**`` — esquemas SQL.
+- Código real (Python, TypeScript, SQL) bajo cualquier path
+  que represente la implementación productiva.
+
+Validación automática: ``scripts/validate-naming-arquitectura
+-tecnica.sh`` (check C-07) detecta identificadores en español
+en estas zonas.
 
 ----
 

@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: UMLSystemView
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -19,117 +19,106 @@ Sistema IACT — Diagrama de Clases
 4. Diagrama de Clases
 ======================
 
-Los actores (grupos RBAC) acceden a los recursos del sistema
-a traves de sus clases de servicio. ``SistemaIACT`` centraliza
-la autenticacion y carga de funciones RBAC. ``ReportingService``
-encapsula las llamadas ``cursor.callproc(sp_rpt_*)``. La
-composicion entre ``SistemaIACT`` y ``AuditoriaAcceso`` garantiza
-que toda accion quede registrada en ``audit_log``.
+Las funciones RBAC (per P-15) acceden a los recursos del sistema
+a traves de sus clases de servicio canonicas del domain-model.
+``AuthorizationGuard`` centraliza la autenticacion y verificacion
+de permisos. Los report services especializados (``Abandonment
+ReportService``, ``TransferReportService``, etc.) encapsulan las
+consultas pre-agregadas. ``AuditService`` garantiza que toda
+escritura quede registrada como ``AuditEvent``.
+
+.. note::
+
+ v2.0.0 (2026-05-06): vocabulario alineado al domain-model
+ canonico per STD-008 (identifiers en ingles) y al audit Brown
+ 1998. Reemplaza nombres en espanol (DisparadorETL,
+ ReporteLlamadasAbandonadas, etc.) por sus equivalentes
+ canonicos del domain-model.
 
 .. uml::
- :caption: Figura 5 — Diagrama de clases del Sistema IACT
+ :caption: Figura 5 — Diagrama de clases del Sistema IACT.
 
  @startuml
 
- class SistemaIACT {
-   +username: str
-   +password: str
-   +rbac_functions: list
-   +receiveCredentials(): void
-   +checkCredentials(): bool
-   +loadRBACFunctions(): list
+ class AuthorizationGuard <<sistema>> {
+   +verify(user_id, function): bool
+   +loadEffectiveSet(user_id): list
  }
 
- class SegmentResolver {
+ class SegmentResolver <<sistema>> {
    +DID_MAP: dict
-   +segments_for(user_id: int): list
+   +segments_for(user_id): list
  }
 
- class ReportingService {
-   +trimestre: str
-   +segmentos: list
-   +callproc(sp_name, params): list
-   +centros_transferencia(trimestre): list
-   +llamadas_abandonadas(trimestre): list
-   +menu_redirigidos(trimestre): list
-   +clientes(trimestre): list
-   +centros_xsegmento(trimestre): list
-   +menu_centro(trimestre): list
-   +cMENU_ERROR(trimestre): list
+ class BaseReportService <<sistema>> {
+   +period: str
+   +segments: list
+   +generate(): Report
  }
 
  class PipelineExecution {
    +source_table: str
-   +trimestre: str
-   +estado: EstadoEnum
+   +period: str
+   +state: PipelineState
    +started_at: datetime
    +finished_at: datetime
    +base_records: int
-   +disparar(): void
-   +reintentar(): void
+   +start(): void
+   +retry(): void
+   +cancel(): void
  }
 
- class DisparadorETL {
-   +trimestre: str
-   +executed_by: str
-   +receiveData(): void
-   +sendToETL(): void
+ class AbandonmentReportService <<sistema>> {
+   +by_segment(period): AbandonmentReport
  }
 
- class ReporteLlamadasAbandonadas {
-   +trimestre: str
-   +segmento: str
-   +total_abandonadas: int
-   +tasa_abandono: float
-   +receiveInput(): void
-   +getReport(): void
+ class TransferReportService <<sistema>> {
+   +by_segment(period): TransferReport
  }
 
- class ReporteTransferencias {
-   +trimestre: str
-   +segmento: str
-   +total_transferencias: int
-   +receiveInput(): void
-   +getReport(): void
+ class AuditService <<sistema>> {
+   +emit(event: AuditEvent): void
  }
 
- class AuditoriaAcceso {
+ class AuditEvent {
+   +event_id: UUID
    +user_id: int
-   +accion: str
+   +action: str
    +timestamp: datetime
-   +ip_origen: str
-   +receiveData(): void
-   +addToAuditLog(): void
+   +ip_origin: str
  }
 
- class CancelEjecucionETL {
-   +removeFromETLQueue(): void
+ enum PipelineState {
+   SCHEDULED
+   RUNNING
+   COMPLETED
+   FAILED
+   CANCELLED
  }
 
- class ReintentoETL {
-   +editEjecucion(): void
- }
+ BaseReportService <|-- AbandonmentReportService
+ BaseReportService <|-- TransferReportService
 
- enum EstadoEnum {
-   IN_PROGRESS
-   exitoso
-   fallido
- }
-
- SistemaIACT --> SegmentResolver : usa
- SistemaIACT --> ReportingService : invoca
- SistemaIACT --> PipelineExecution : gestiona
- DisparadorETL --> PipelineExecution : crea
- ReporteLlamadasAbandonadas --> ReportingService
- ReporteTransferencias --> ReportingService
- AuditoriaAcceso *-- SistemaIACT
- ReintentoETL --> PipelineExecution
- CancelEjecucionETL --> PipelineExecution
- PipelineExecution --> EstadoEnum
+ AuthorizationGuard ..> SegmentResolver : usa
+ AuthorizationGuard ..> BaseReportService : verify pre-call
+ AbandonmentReportService ..> PipelineExecution : lee metricas
+ TransferReportService ..> PipelineExecution : lee metricas
+ AuditService ..> AuditEvent : crea
+ PipelineExecution ..> AuditService : on transition
+ PipelineExecution --> PipelineState
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/requisitos/casos-uso/index`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`
+ - :doc:`/arquitectura-tecnica/domain-model/base-report-service`
+ - :doc:`/arquitectura-tecnica/domain-model/abandonment-report-service`
+ - :doc:`/arquitectura-tecnica/domain-model/transfer-report-service`
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/state-pipeline-execution`

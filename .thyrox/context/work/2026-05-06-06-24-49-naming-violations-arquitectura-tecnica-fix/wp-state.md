@@ -2,8 +2,12 @@
 project: IACT-docs
 work_package: 2026-05-06-06-24-49-naming-violations-arquitectura-tecnica-fix
 created_at: 2026-05-06 06:24:49
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-06 06:30:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+fixes_applied: 2 archivos (system-view/clases-sistema-iact, domain-model/caller-report-service)
+audit_c07_status: PASSED 0 violations
+std_008_version: 1.1.0 -> 1.2.0
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management

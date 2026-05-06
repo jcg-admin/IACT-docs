@@ -36,14 +36,14 @@ de agregar.
  class CallerReportService {
    --
    + get(invoker : User, period : Period, \
-         filters : ClientFilters) : ClientesReport
+         filters : ClientFilters) : ClientsReport
    + by_segment(invoker : User, period : Period) : List<SegmentClientStats>
    + retention_curve(invoker : User, period : Period) : RetentionCurve
  }
 
  BaseReportService <|-- CallerReportService
 
- class ClientesReport {
+ class ClientsReport {
    + period : Period
    + total_unique_callers : Integer
    + repeat_caller_rate : Double
@@ -65,11 +65,11 @@ de agregar.
  class CallerDailyStatRepo
 
  CallerReportService "1" o-- "1" CallerDailyStatRepo : reads
- CallerReportService "1" ..> "1" ClientesReport : <<returns>>
+ CallerReportService "1" ..> "1" ClientsReport : <<returns>>
  CallerReportService "1" ..> "0..*" SegmentClientStats : <<returns>>
  CallerReportService "1" ..> "0..1" RetentionCurve : <<returns>>
 
- note bottom of ClientesReport
+ note bottom of ClientsReport
    retention_by_month : {ordered}
  end note
 
