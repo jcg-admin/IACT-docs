@@ -83,9 +83,9 @@ Mapeo canónico AGR → grupo (estado v5.6.0)
    - In-scope (activo)
  * - AGR-010
    - ``system_admin_group``
-   - 6
+   - 9
    - ``True``
-   - In-scope (activo) — ``MOD_Admin``
+   - In-scope (activo) — actor canónico de ``MOD_Admin`` (6 operacionales + 3 ADM)
  * - AGR-011
    - ``call_center_operator_group``
    - 10

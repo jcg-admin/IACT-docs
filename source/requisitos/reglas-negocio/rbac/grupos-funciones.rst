@@ -70,9 +70,9 @@ Modelo RBAC IACT — Grupos de Funciones
    - Supervisión ETL
  * - **AGR-010**
    - `system_admin_group`
-   - 6
+   - 9
    - Sysadmin
-   - Administración completa
+   - Administración técnica + plano de configuración RBAC (MOD_Admin v5.6.0)
  * - **AGR-011** (RESERVADO v5.6.0 — open-closed)
    - `call_center_operator_group`
    - 10
@@ -290,10 +290,11 @@ AGR-010 system_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-**Funciones incluidas (6):**
+**Funciones incluidas (9):**
 
 .. code-block:: text
 
+ # Operacional (6)
  view_own_sessions
  close_user_session
  reset_password
@@ -301,8 +302,17 @@ AGR-010 system_admin_group
  view_application_logs
  export_logs
 
+ # MOD_Admin v5.6.0 (3) — plano de configuracion RBAC
+ create_separation_rule         (adm:create_sod)
+ manage_function_catalog        (adm:manage_catalog)
+ assign_functions_to_group      (access:assign_to_group)
 
-**Propósito:** Administración técnica del sistema.
+
+**Propósito:** Administración técnica del sistema + plano de
+configuración RBAC. AGR-010 es el actor canónico de **MOD_Admin**
+(NUEVO v5.6.0, ver
+:doc:`/requisitos/casos-uso/admin/index`) — gestiona QUE
+funciones, grupos del sistema y reglas SoD EXISTEN.
 
 ----
 
