@@ -7,9 +7,9 @@ casi tan simple como en Mermaid:
 .. uml::
 
    @startuml
-   class Llamada
-   class Segmento
-   Llamada -- Segmento
+   class Call
+   class Segment
+   Call -- Segment
    @enduml
 
 Análisis del fragmento:

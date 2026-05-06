@@ -8,16 +8,16 @@ una línea por relación:
 .. uml::
 
    @startuml
-   class Llamada
-   class Segmento
-   class EjecucionETL
-   class Reporte
-   class Usuario
+   class Call
+   class Segment
+   class ETLExecution
+   class Report
+   class User
 
-   Llamada "1..*" -- "1" Segmento : pertenece a
-   EjecucionETL "1" -- "*" Llamada : carga
-   Reporte "*" -- "*" Llamada : agrega
-   Usuario "*" -- "*" Reporte : consulta
+   Call "1..*" -- "1" Segment : belongs to
+   ETLExecution "1" -- "*" Call : loads
+   Report "*" -- "*" Call : aggregates
+   User "*" -- "*" Report : queries
    @enduml
 
 En cinco líneas, el modelo embrionario ya captura el

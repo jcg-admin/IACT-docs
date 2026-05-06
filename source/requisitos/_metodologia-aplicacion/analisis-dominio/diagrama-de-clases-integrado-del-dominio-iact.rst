@@ -8,49 +8,49 @@ paquetes):
 
    @startuml
 
-   class Usuario
-   class Sesion
-   class SegmentoDatos
-   class Funcion
-   class Grupo
-   class Llamada
-   class Reporte
-   class Metrica
-   class EjecucionETL
-   class ErrorETL
-   class Alerta
-   class Umbral
-   class BuzonInterno
-   class EventoAuditoria
+   class User
+   class Session
+   class DataSegment
+   class Function
+   class Group
+   class Call
+   class Report
+   class Metric
+   class ETLExecution
+   class ETLError
+   class Alert
+   class Threshold
+   class InternalMailbox
+   class AuditEvent
 
    ' RBAC
-   Usuario "1" -- "0..1" Sesion           : posee
-   Usuario "1" -- "1"   SegmentoDatos     : restringido_por
-   Usuario "*" -- "*"   Grupo             : asignado_a
-   Grupo   "*" -- "*"   Funcion           : contiene
+   User "1" -- "0..1" Session             : owns
+   User "1" -- "1"   DataSegment          : restricted_by
+   User "*" -- "*"   Group                : assigned_to
+   Group   "*" -- "*"   Function          : contains
 
    ' Llamadas → reportes
-   Llamada "0..*" -- "1" SegmentoDatos    : pertenece_a
-   Reporte "1"    -- "1..*" Metrica       : contiene
-   Reporte "*"    -- "0..*" Llamada       : agrega
+   Call "0..*" -- "1" DataSegment         : belongs_to
+   Report "1"    -- "1..*" Metric         : contains
+   Report "*"    -- "0..*" Call           : aggregates
 
    ' Pipeline
-   EjecucionETL "1" *-- "0..*" ErrorETL   : compone
-   EjecucionETL "0..*" -- "1..*" Llamada  : carga
+   ETLExecution "1" *-- "0..*" ETLError   : composes
+   ETLExecution "0..*" -- "1..*" Call     : loads
 
    ' Alertas
-   Alerta "1" -- "1" Umbral               : usa
-   Alerta "1" -- "0..*" Usuario           : suscriptos
-   Alerta -- BuzonInterno                 : notifica_via
+   Alert "1" -- "1" Threshold             : uses
+   Alert "1" -- "0..*" User               : subscribers
+   Alert -- InternalMailbox               : notifies_via
 
    ' Auditoría
-   Usuario "1" -- "0..*" EventoAuditoria  : genera
+   User "1" -- "0..*" AuditEvent          : generates
 
-   note bottom of EventoAuditoria
+   note bottom of AuditEvent
      CNST_025 — append-only,
      inmutable, sin delete().
    end note
-   note right of BuzonInterno
+   note right of InternalMailbox
      CNST_001 — sólo buzón
      interno, NO email.
    end note

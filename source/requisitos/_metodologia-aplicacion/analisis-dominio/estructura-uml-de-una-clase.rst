@@ -8,22 +8,22 @@ Una clase tiene 4 áreas: **nombre**, **atributos**,
 
    @startuml
 
-   class Llamada {
+   class Call {
      - id : Integer
-     - centro_id : Integer
-     - duracion_seg : Integer
-     - resultado : Enum
-     + getDuracion() : Integer
-     + esAbandonada() : Boolean
+     - center_id : Integer
+     - duration_sec : Integer
+     - outcome : Enum
+     + getDuration() : Integer
+     + isAbandoned() : Boolean
      -- responsabilidades --
      Representar una llamada del IVR
      consumida por reportes y alertas.
    }
-   note right of Llamada
-     {duracion_seg ≥ 0}
-     {resultado ∈ ATENDIDA |
-                  ABANDONADA |
-                  TRANSFERIDA}
+   note right of Call
+     {duration_sec ≥ 0}
+     {outcome ∈ ANSWERED |
+                ABANDONED |
+                TRANSFERRED}
    end note
    @enduml
 

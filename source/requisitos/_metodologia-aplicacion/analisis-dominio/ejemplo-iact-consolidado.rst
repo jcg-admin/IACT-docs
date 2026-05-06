@@ -9,53 +9,53 @@ estereotipos completos:
    @startuml
    title IACT — ERD snapshot: cluster RBAC
 
-   entity Usuario {
-     * usuario_id : int <<PK>>
+   entity User {
+     * user_id : int <<PK>>
      --
      * username : varchar(100) <<UQ>>
      * email : varchar(150) <<UQ>>
-     activo : boolean
-     creado_en : datetime
+     active : boolean
+     created_at : datetime
    }
 
-   entity Grupo {
-     * grupo_id : int <<PK>>
+   entity Group {
+     * group_id : int <<PK>>
      --
-     * nombre : varchar(50) <<UQ>>
-     descripcion : varchar(200)
-     creado_en : datetime
+     * name : varchar(50) <<UQ>>
+     description : varchar(200)
+     created_at : datetime
    }
 
-   entity Funcion {
-     * funcion_id : varchar(100) <<PK>>
+   entity Function {
+     * function_id : varchar(100) <<PK>>
      --
-     * nombre : varchar(150)
-     descripcion : varchar(300)
-     categoria : varchar(50) <<IDX>>
+     * name : varchar(150)
+     description : varchar(300)
+     category : varchar(50) <<IDX>>
    }
 
-   entity Asignacion {
-     * asignacion_id : int <<PK>>
+   entity Assignment {
+     * assignment_id : int <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * grupo_id : int <<FK>>
-     * fecha_alta : datetime <<IDX>>
-     fecha_baja : datetime
-     asignado_por : int <<FK>>
+     * user_id : int <<FK>>
+     * group_id : int <<FK>>
+     * start_date : datetime <<IDX>>
+     end_date : datetime
+     assigned_by : int <<FK>>
    }
 
-   entity GrupoFuncion {
-     * grupo_id : int <<PK>> <<FK>>
-     * funcion_id : varchar(100) <<PK>> <<FK>>
+   entity GroupFunction {
+     * group_id : int <<PK>> <<FK>>
+     * function_id : varchar(100) <<PK>> <<FK>>
      --
-     fecha_asignacion : datetime
-     adr_aprobacion : varchar(100)
+     assignment_date : datetime
+     adr_approval : varchar(100)
    }
 
-   Usuario ||--o{ Asignacion : es asignado en
-   Grupo ||--o{ Asignacion : contiene
-   Grupo ||--o{ GrupoFuncion : agrupa
-   Funcion ||--o{ GrupoFuncion : esta en
+   User ||--o{ Assignment : is assigned in
+   Group ||--o{ Assignment : contains
+   Group ||--o{ GroupFunction : groups
+   Function ||--o{ GroupFunction : is in
    @enduml
 
 Lectura del schema:

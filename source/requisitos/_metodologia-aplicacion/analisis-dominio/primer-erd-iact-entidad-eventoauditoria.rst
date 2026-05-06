@@ -8,17 +8,17 @@ canónica de IACT que merece un ERD es
 .. uml::
 
    @startuml
-   title IACT — ERD snapshot: EventoAuditoria
+   title IACT — ERD snapshot: AuditEvent
 
-   entity EventoAuditoria {
-     * evento_id : bigint <<PK>>
+   entity AuditEvent {
+     * event_id : bigint <<PK>>
      --
-     * usuario_id : int <<FK>>
+     * user_id : int <<FK>>
      * timestamp : datetime
-     * tipo_evento : varchar(50)
-     * funcion_id : varchar(100)
+     * event_type : varchar(50)
+     * function_id : varchar(100)
      payload_json : text
-     ip_origen : varchar(45)
+     source_ip : varchar(45)
    }
    @enduml
 

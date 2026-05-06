@@ -10,19 +10,19 @@ Aplicando ``hide empty members``:
 
    hide empty members
 
-   class Llamada
-   class Segmento
-   class EjecucionETL
-   class Reporte
-   class Usuario
-   class Sesion
-   class EventoAuditoria
+   class Call
+   class Segment
+   class ETLExecution
+   class Report
+   class User
+   class Session
+   class AuditEvent
 
-   Llamada "1..*" -- "1" Segmento : pertenece a
-   EjecucionETL "1..*" -- "0..*" Llamada : carga
-   Reporte "1..*" -- "0..*" Llamada : agrega
-   Sesion "1" *-- "1" Usuario : pertenece a
-   Usuario "1" --> "0..*" EventoAuditoria : genera
+   Call "1..*" -- "1" Segment : belongs to
+   ETLExecution "1..*" -- "0..*" Call : loads
+   Report "1..*" -- "0..*" Call : aggregates
+   Session "1" *-- "1" User : belongs to
+   User "1" --> "0..*" AuditEvent : generates
    @enduml
 
 Las cajas son más compactas: solo aparece el nombre de

@@ -10,27 +10,27 @@ RBAC, ejecución ETL, denegado SoD, etc.); un mismo
 .. uml::
 
    @startuml
-   title IACT — ERD snapshot: EventoAuditoria + TipoEvento
+   title IACT — ERD snapshot: AuditEvent + EventType
 
-   entity TipoEvento {
-     * tipo_id : int <<PK>>
+   entity EventType {
+     * type_id : int <<PK>>
      --
-     * nombre : varchar(50)
-     descripcion : varchar(200)
+     * name : varchar(50)
+     description : varchar(200)
    }
 
-   entity EventoAuditoria {
-     * evento_id : bigint <<PK>>
+   entity AuditEvent {
+     * event_id : bigint <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * tipo_id : int <<FK>>
+     * user_id : int <<FK>>
+     * type_id : int <<FK>>
      * timestamp : datetime
-     * funcion_id : varchar(100)
+     * function_id : varchar(100)
      payload_json : text
-     ip_origen : varchar(45)
+     source_ip : varchar(45)
    }
 
-   TipoEvento ||--o{ EventoAuditoria : clasifica
+   EventType ||--o{ AuditEvent : classifies
    @enduml
 
 Lectura: cada evento tiene **exactamente un**

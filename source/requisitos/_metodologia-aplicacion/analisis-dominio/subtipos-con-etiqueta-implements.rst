@@ -8,14 +8,14 @@ Aplicado al cluster de reportes IACT
 
    @startuml
 
-   abstract class Reporte
-   class ReporteVolumen
-   class ReporteAbandono
-   class ReporteSoDCompliance
+   abstract class Report
+   class VolumeReport
+   class AbandonmentReport
+   class SoDComplianceReport
 
-   ReporteVolumen --|> Reporte : implements
-   ReporteAbandono --|> Reporte : implements
-   ReporteSoDCompliance --|> Reporte : implements
+   VolumeReport --|> Report : implements
+   AbandonmentReport --|> Report : implements
+   SoDComplianceReport --|> Report : implements
    @enduml
 
 La etiqueta ``implements`` (o ``extends``) hace

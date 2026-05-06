@@ -21,35 +21,35 @@ Schema correspondiente:
 .. uml::
 
    @startuml
-   title IACT — ERD snapshot: Usuario, Grupo y Asignacion
+   title IACT — ERD snapshot: User, Group y Assignment
 
-   entity Usuario {
-     * usuario_id : int <<PK>>
+   entity User {
+     * user_id : int <<PK>>
      --
      * username : varchar(100)
      * email : varchar(150)
-     activo : boolean
+     active : boolean
    }
 
-   entity Grupo {
-     * grupo_id : int <<PK>>
+   entity Group {
+     * group_id : int <<PK>>
      --
-     * nombre : varchar(50)
-     descripcion : varchar(200)
+     * name : varchar(50)
+     description : varchar(200)
    }
 
-   entity Asignacion {
-     * asignacion_id : int <<PK>>
+   entity Assignment {
+     * assignment_id : int <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * grupo_id : int <<FK>>
-     * fecha_alta : datetime
-     fecha_baja : datetime
-     asignado_por : int <<FK>>
+     * user_id : int <<FK>>
+     * group_id : int <<FK>>
+     * start_date : datetime
+     end_date : datetime
+     assigned_by : int <<FK>>
    }
 
-   Usuario ||--o{ Asignacion : "es asignado en"
-   Grupo ||--o{ Asignacion : "contiene"
+   User ||--o{ Assignment : "is assigned in"
+   Group ||--o{ Assignment : "contains"
    @enduml
 
 Lectura del ERD:

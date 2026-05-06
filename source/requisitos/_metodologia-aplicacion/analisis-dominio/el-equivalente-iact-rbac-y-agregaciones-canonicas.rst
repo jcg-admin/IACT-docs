@@ -8,16 +8,16 @@ agregaciones, no composiciones:
 .. uml::
 
    @startuml
-   class Grupo
-   class Funcion
-   class Usuario
-   class Permiso
-   class ReglaSoD
+   class Group
+   class Function
+   class User
+   class Permission
+   class SoDRule
 
-   Grupo "1" o-- "*" Funcion : agrupa
-   Grupo "1" o-- "*" Usuario : asigna
-   ReglaSoD "1" -- "2..*" Funcion : restringe
-   Permiso ..> Grupo : pertenece
+   Group "1" o-- "*" Function : groups
+   Group "1" o-- "*" User : assigns
+   SoDRule "1" -- "2..*" Function : restricts
+   Permission ..> Group : belongs
    @enduml
 
 Lectura:

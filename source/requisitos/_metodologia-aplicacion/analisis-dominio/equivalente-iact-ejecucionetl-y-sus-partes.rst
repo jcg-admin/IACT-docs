@@ -8,18 +8,18 @@ tipo con sus vecinas.
 .. uml::
 
    @startuml
-   class EjecucionETL
-   class VentanaETL
-   class Llamada
-   class ErrorETL
-   class RegistroIngesta
-   class DetalleError
+   class ETLExecution
+   class ETLWindow
+   class Call
+   class ETLError
+   class IngestRecord
+   class ErrorDetail
 
-   VentanaETL "1" -- "*" EjecucionETL : contiene
-   EjecucionETL "1" *-- "*" ErrorETL : produce
-   EjecucionETL "1" *-- "*" RegistroIngesta : produce
-   EjecucionETL "*" -- "*" Llamada : carga
-   ErrorETL "1" *-- "*" DetalleError : detalla
+   ETLWindow "1" -- "*" ETLExecution : contains
+   ETLExecution "1" *-- "*" ETLError : produces
+   ETLExecution "1" *-- "*" IngestRecord : produces
+   ETLExecution "*" -- "*" Call : loads
+   ETLError "1" *-- "*" ErrorDetail : details
    @enduml
 
 Lectura del diagrama:
