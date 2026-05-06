@@ -2,7 +2,7 @@
 created_at: 2026-05-06 10:08:00
 project: IACT-docs
 work_package: 2026-05-06-10-03-46-mapeo-uc-completion
-phase: Phase 10 — EXECUTE (B-1..B-4 done)
+phase: Phase 10 — EXECUTE (B-1..B-5 done)
 author: NestorMonroy
 status: En progreso
 version: 1.0.0
@@ -92,6 +92,40 @@ Distinción documentada:
 - **Módulos RBAC activos in-scope v5.6.0:** 9 (sin OPR/SUP).
 
 Strict builds (sphinx -W) tras B-2, B-3 y B-4: EXIT=0 cada uno.
+
+## B-5 — Fix sistemático AGR-009/admin_sistema en `fnd-03-casos-de-uso.rst`
+
+`fnd-03-casos-de-uso.rst` mezclaba "AGR-009 admin_sistema" tanto
+para UCs del modelo RBAC (UC_ADM) como para UCs de Pipeline
+(UC-050..053, UC-070..072) — eso es semánticamente
+inconsistente: AGR-009 es `pipeline_admin_group` (sysadmin del
+ETL), AGR-010 es `system_admin_group` (admin del modelo RBAC).
+
+Fixes:
+
+- §3.4 tabla "AGRUPADOR FUNCIONES UC TIPICOS":
+  - "AGR-009: admin_sistema (...) UC_ADM_01..03" →
+    "AGR-010: system_admin (NUEVO v5.6.0 — admin del modelo
+    RBAC) UC_ADM_01..03"
+  - "AGR-009: admin_sistema (view_pipeline_status, ...)
+    UC-050-053, UC-070-072" → "AGR-009: pipeline_admin
+    (view_pipeline_status, ...) UC-050-053, UC-070-072"
+- §UC_ADM_01: "Actor Primario: AGR-009 (admin_sistema)" →
+  "AGR-010 (system_admin)".
+- §UC_ACC_09: clarificación dual "AGR-008 para ACC; **AGR-010
+  (system_admin)** para ADM".
+- Tabla §3.6 R015/R016 MODULES_ADMIN/SYSTEM_ADMIN: AGR-009 →
+  AGR-010.
+
+NO tocados (fuera de scope WP):
+
+- `br-001`, `br-002` (operacional ETL — uso de
+  `admin_sistema` puede ser legacy, contexto operacional).
+- `requisitos-funcionales/users/uc-008-baja, uc-009-listar`
+  (refs a "rol admin_sistema" en abstracto — review caso por
+  caso requiere WP separado).
+- `fnd-04-trazabilidad`, `fnd-03:680, 750` (UCs ETL/logs
+  donde el contexto es ambiguo).
 
 ## UC_PERM_08 verificado
 

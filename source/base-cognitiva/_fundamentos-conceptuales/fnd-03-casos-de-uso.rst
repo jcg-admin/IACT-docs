@@ -177,7 +177,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  IDENTIFICACION:
  ID: UC_ADM_01
  Nombre: Gestionar Ciclo de Vida de Reglas SoD
- Actor Primario: AGR-009 (admin_sistema)
+ Actor Primario: AGR-010 (system_admin)
  Actores Secundarios: AGR-007 (auditor)
 
  CONTEXTO:
@@ -285,8 +285,8 @@ siguiendo la filosofia Sin Pretensiones:
  AGR-006: supervisor_equipo (search_users, block_users, view_reports) UC-009, UC-017
  AGR-007: auditor (view_audit_log, ...) UC-060 a UC-063
  AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC_ACC_03, UC_ACC_05, UC_ACC_09
- AGR-009: admin_sistema (...) UC_ADM_01, UC_ADM_02, UC_ADM_03
- AGR-009: admin_sistema (view_pipeline_status, ...) UC-050-053, UC-070-072
+ AGR-010: system_admin (NUEVO v5.6.0 — admin del modelo RBAC) UC_ADM_01, UC_ADM_02, UC_ADM_03
+ AGR-009: pipeline_admin (view_pipeline_status, ...) UC-050-053, UC-070-072
  AGR-010: operador_etl (view_pipeline_status, ...) UC-050 a UC-053
 
  ACTOR ESPECIAL:
@@ -326,11 +326,11 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018:
    - AGR-005: gestor_alertas
    - Consolidado
  * - R015: MODULES_ADMIN
-   - AGR-009: admin_sistema
-   - Consolidado
+   - AGR-010: system_admin
+   - Consolidado (v5.6.0)
  * - R016: SYSTEM_ADMIN
-   - AGR-009: admin_sistema
-   - Renombrado
+   - AGR-010: system_admin
+   - Renombrado (v5.6.0)
  * - R017: AUDIT_VIEWER
    - AGR-007: auditor
    - Renombrado
@@ -664,7 +664,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC_ADM_02: Gestionar Catalogo de Funciones
  UC_ACC_09: Auditar Cambios de Permisos
 
- Actor Primario: AGR-008 (admin_seguridad) para ACC; AGR-009 (admin_sistema) para ADM
+ Actor Primario: AGR-008 (admin_seguridad) para ACC; AGR-010 (system_admin) para ADM
  BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
 
 8.4 Pipeline ETL - MOD_Pipeline (4 UC)
