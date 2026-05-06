@@ -81,6 +81,46 @@ No aplica — WP de investigación sin cambios productivos.
 2. `long-running-commands-guideline` — propagar reglas R-1..R-5
    a `.claude/rules/` como guideline global del harness.
 
+## Followup 2026-05-06 19:35 — R-2.0 (NUEVA) + AP-6 (NUEVO)
+
+### Trigger del followup
+
+Tras 4 WPs encadenados en sesión 2026-05-06 con ~31 task entries
+de Monitor acumuladas (todos exitando limpiamente vía R-2.1 pero
+quedando visibles en la UI), el ejecutor reportó que sigue
+cancelando manualmente las entries.
+
+### Diagnóstico (resumen)
+
+R-2.1 funciona para el ciclo del proceso. El problema es que
+**los task entries en la UI no se auto-cierran**, y `TaskStop`
+no está expuesto en el runtime actual del agent (verificado vía
+`ToolSearch`). Detalle completo en
+`analyze/r-2-0-monitor-task-entries-persistence-followup.md`.
+
+### Cambios aplicados
+
+- **`.claude/rules/long-running-commands.md` v1.0.0 → v1.1.0**:
+  - **R-2.0 (NUEVO)** — para builds <5 min usar `Bash
+    run_in_background=true` con `until` loop. NO Monitor.
+    Patrón canónico documentado.
+  - **R-2.1 → R-2.1.1** (renumerada subsección de auto-cierre).
+  - Tabla de decisión actualizada con columna "Genera task
+    entry?" para hacer visible el costo.
+  - **AP-6 (NUEVO)** — Monitor para builds locales <5 min es
+    anti-patrón explícito.
+
+- **`analyze/r-2-0-monitor-task-entries-persistence-followup.md`
+  (NUEVO)** — análisis completo del problema, conteo de daño en
+  sesión 2026-05-06 (~31 entries acumuladas), y razonamiento del
+  fix.
+
+### Verificación
+
+- Regla actualizada con `:version: 1.1.0` y `:updated_at:` al
+  timestamp del fix.
+- AP-6 referenciado a la evidencia.
+
 ## Refs
 
 - WP donde ocurrió el error: `2026-05-05-20-28-12-use-case-view-uml07-standalone-pass`.

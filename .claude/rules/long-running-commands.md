@@ -1,9 +1,9 @@
 ```yml
 type: Convención de Proyecto
 category: Operación del agente — comandos de larga duración
-version: 1.0.0
+version: 1.1.0
 created_at: 2026-05-06 00:42:00
-updated_at: 2026-05-06 00:42:00
+updated_at: 2026-05-06 19:35:00
 applies_to: IACT-docs v1.0.0+
 origin_wp: 2026-05-06-00-31-12-api-socket-error-investigation
 ```
@@ -75,19 +75,77 @@ En cualquier otro caso, preferir el patrón `nohup … & disown`.
 sphinx-build -W -j auto -b html source build/html
 ```
 
-### R-2 — Monitor con grep line-buffered para outcome
+### R-2 — Patrón según duración esperada
 
-Para comandos en background con outcome conocido (success/failure
-markers), usar `Monitor` con `tail -f LOG | grep --line-buffered
-"PATTERN"`. Cada línea emitida es un evento que mantiene el
-stream SSE vivo.
+**Árbol de decisión (aplicar SIEMPRE en este orden):**
+
+| Duración esperada | Patrón | Razón |
+|---|---|---|
+| <5 min | **R-2.0** (Bash + `until`) | Sin task entry persistente |
+| 5–30 min | **R-2.1** (Monitor + `tail -f --pid`) | Necesita progress mid-stream |
+| Sin fin | **R-2.2** (Monitor `persistent: true`) | Stream eterno; cleanup vía TaskStop |
+| Silencioso, no observable | `Bash run_in_background=true` directo | Fire-and-forget |
+
+#### R-2.0 — Builds <5 min: Bash + `until`, NO Monitor
+
+Para builds locales con duración esperada <5 min (Sphinx
+strict, npm build, pytest suite corto, etc.), usar
+`Bash run_in_background=true` con un `until` loop que espere
+la condición de salida. Esto **NO crea task entry persistente**
+en la UI del agent harness, a diferencia de `Monitor`.
+
+**Patrón canónico R-2.0:**
+
+```bash
+# Lanzar el build en background detached
+nohup bash -c "make html SPHINXOPTS='-W -j auto' 2>&1; echo EXIT=\$?" \
+    > "$LOG" 2>&1 &
+PID=$!
+disown $PID
+
+# Esperar la condición de salida — emite UNA notificación final
+Bash(
+  command='until grep -qE "^EXIT=" "'$LOG'"; do sleep 2; done && tail -5 "'$LOG'"',
+  run_in_background=true,
+  description="esperar build"
+)
+```
+
+**Por qué R-2.0 es la opción default:**
+
+- `Bash run_in_background=true` con un comando que termina
+  por condición no genera un task entry visual persistente.
+- El ejecutor recibe 1 sola notificación al completarse.
+- Si hay 11 builds en el WP, hay 0 entries acumuladas (vs 11
+  con Monitor).
+- `TaskStop` no está disponible en el runtime del agent —
+  Monitor entries solo se cierran al finalizar la sesión o
+  por cancelación manual del ejecutor.
+
+**Cuándo NO usar R-2.0 (escalar a R-2.1):**
+
+- Si necesitas observar progreso intermedio (logs streaming).
+- Si el comando puede colgarse y necesitás detección temprana.
+- Si el comando no tiene marcador `EXIT=` o equivalente.
+
+**Origen:** WP `2026-05-06-00-31-12-api-socket-error-investigation`
+(followup analysis Phase 3, 2026-05-06). Detectado tras 4 WPs
+encadenados con ~31 task entries acumuladas que el ejecutor
+canceló manualmente.
+
+#### R-2.1 — Builds 5–30 min: Monitor con grep line-buffered
+
+Para comandos en background con duración 5–30 min y outcome
+conocido (success/failure markers), usar `Monitor` con
+`tail -f LOG | grep --line-buffered "PATTERN"`. Cada línea
+emitida es un evento que mantiene el stream SSE vivo.
 
 **Cobertura del filtro**: incluir TODOS los estados terminales
 (success, failure, error). Un filtro que sólo matchea success
 deja al monitor silencioso ante un crash → indistinguible de
 "sigue corriendo".
 
-#### R-2.1 — El monitor DEBE auto-cerrarse al completar el work
+##### R-2.1.1 — El monitor DEBE auto-cerrarse al completar el work
 
 `tail -f` solo nunca termina, así que el monitor queda activo hasta
 el timeout aunque el comando observado ya haya terminado. Eso
@@ -202,12 +260,17 @@ condición que dispara el timeout.
 
 ## Tabla de decisión
 
-| Duración estimada | Patrón |
-|---|---|
-| ≤30 s | `Bash` foreground normal |
-| 30 s – 5 min | `Bash` foreground con `timeout_ms` |
-| 5 min – 30 min | `Bash run_in_background=true` + `Monitor` (R-2) |
-| >30 min | Background detached + `Monitor` con timeout extendido + checks periódicos (R-3) |
+| Duración estimada | Patrón | Genera task entry? |
+|---|---|---|
+| ≤30 s | `Bash` foreground normal | No |
+| 30 s – 5 min | `Bash` foreground con `timeout_ms` | No |
+| 5 min – 30 min, **silencioso** (no necesitás progreso) | `Bash run_in_background=true` + `until` loop (**R-2.0**) | **No** ← preferido |
+| 5 min – 30 min, **con progreso visible** | `Bash run_in_background=true` + `Monitor` (R-2.1) | Sí (1 entry) |
+| >30 min | Background detached + `Monitor` con timeout extendido + checks periódicos (R-3) | Sí (1 entry) |
+| Stream sin fin (tail eterno) | `Monitor persistent: true` + `TaskStop` final | Sí (manual cleanup) |
+
+**Default para builds locales del proyecto IACT-docs (Sphinx
+strict 1-3 min):** R-2.0 — sin Monitor, sin task entry persistente.
 
 ## Anti-patrones prohibidos
 
@@ -264,6 +327,27 @@ inmediato:
 ```bash
 tail -f log | grep --line-buffered "ERROR"
 ```
+
+### AP-6 — Monitor para builds locales <5 min
+
+```python
+Monitor(command="tail -f --pid=$PID build.log | grep ...",
+        timeout_ms=300000)  # ❌ build de 2 min
+```
+
+`Monitor` crea un task entry persistente en la UI del agent
+harness que **no se cierra automáticamente al completar** —
+solo via `TaskStop` (no siempre disponible) o cierre de sesión.
+Para builds <5 min esto satura la UI con entries innecesarias
+que el ejecutor debe cancelar manualmente.
+
+**Solución:** R-2.0 (Bash + `until`). El task entry
+persistente solo está justificado cuando la duración hace
+inviable otro patrón (5+ min, progreso mid-stream, stream
+eterno).
+
+**Evidencia:** sesión 2026-05-06 acumuló ~31 task entries en
+4 WPs encadenados aplicando Monitor a builds Sphinx de 1-3 min.
 
 ## Relación con otras reglas
 
