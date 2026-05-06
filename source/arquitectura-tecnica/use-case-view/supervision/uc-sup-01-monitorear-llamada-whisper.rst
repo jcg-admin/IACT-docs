@@ -4,10 +4,10 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :modulo: supervision
- :estado: Vigente
+ :estado: Reservado
  :version: 1.0.0
  :fecha_creacion: 2026-05-05
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Critico
 

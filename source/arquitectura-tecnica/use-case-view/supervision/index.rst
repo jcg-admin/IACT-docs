@@ -3,10 +3,10 @@
  :tipo: Diagrama Arquitectonico — UC por Modulo
  :dominio: arquitectura_tecnica
  :subdominio: UCModuleView
- :estado: Vigente
- :version: 2.0.0
+ :estado: Reservado
+ :version: 2.1.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -15,6 +15,18 @@
 ====================================================
 MOD_Supervision — Supervision en Vivo: UC por Modulo
 ====================================================
+
+.. warning:: Modulo reservado (out-of-scope para v5.6.0)
+
+ Vista arquitectonica de un **extension point open-closed** del
+ modelo RBAC v5.6.0. Las 3 funciones (UC_SUP_01..03) estan
+ declaradas en el catalogo pero NO son implementables en esta
+ release. El diagrama UML y la especificacion se preservan como
+ base de diseño para activacion futura.
+
+ Especificacion de los UCs:
+ :doc:`/requisitos/casos-uso/supervision/index`. Modelo RBAC:
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 Monitoreo en tiempo real de llamadas activas, intervención
 de supervisor y comunicación con el equipo de agentes.
