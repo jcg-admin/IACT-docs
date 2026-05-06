@@ -3,7 +3,7 @@
  :tipo: Indice
  :dominio: backend
  :estado: Vigente
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-04-29
  :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
@@ -26,6 +26,12 @@ de codigo, no en esta documentacion.
 
  overview
  conventions
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Guías de Implementación
+
+ rbac-implementation-guide
 
 .. toctree::
  :maxdepth: 1
