@@ -7,7 +7,15 @@ Modelo RBAC IACT — Mapeo Funciones UC
 10. MAPEO FUNCIONES → CASOS DE USO
 ==================================
 
+.. note:: Scope del mapeo (v5.6.0)
 
+ La tabla incluye las **64 funciones in-scope** de los 9 modulos
+ activos. Las **13 funciones reservadas** de MOD_Operator y
+ MOD_Supervision (extension points open-closed) se documentan
+ en sus respectivos catalogos pero quedan fuera del mapeo
+ operativo de esta release. Ver
+ :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` §3.9
+ y §3.10.
 
 10.1 Tabla Completa
 -------------------

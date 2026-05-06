@@ -4,6 +4,15 @@
 Requisitos Funcionales — Operator
 =====================================
 
+.. warning:: Modulo reservado (out-of-scope para v5.6.0)
+
+ MOD_Operator es un **extension point open-closed** del modelo
+ RBAC v5.6.0. Los FR derivados de UC_OPR_01..10 se preservan como
+ base de diseño para activacion futura, NO como especificacion
+ implementable en esta release. Ver
+ :doc:`/requisitos/casos-uso/operator/index` y
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
+
 Requisitos Funcionales derivados de los 10 casos de uso del módulo
 Operator (UC_OPR_01 .. UC_OPR_10). Cubre gestión de estados del agente,
 atención de llamadas entrantes/salientes, hold, transferencia, disposición,

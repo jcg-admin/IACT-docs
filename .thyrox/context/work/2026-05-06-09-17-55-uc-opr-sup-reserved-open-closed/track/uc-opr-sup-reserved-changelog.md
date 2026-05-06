@@ -2,7 +2,7 @@
 created_at: 2026-05-06 09:21:00
 project: IACT-docs
 work_package: 2026-05-06-09-17-55-uc-opr-sup-reserved-open-closed
-phase: Phase 10 — EXECUTE (B-1..B-3 done)
+phase: Phase 10 — EXECUTE (B-1..B-5 done)
 author: NestorMonroy
 status: En progreso
 version: 1.0.0
@@ -72,6 +72,33 @@ limpiamente la taxonomía existente.
 - Phase 11 TRACK: pendiente cierre por el ejecutor (I-011 — aunque
   el ejecutor declaró "ya no necesitas el gate humano", el cierre
   formal del WP queda registrado para auditabilidad).
+
+## B-4 — Requisitos funcionales OPR/SUP (extension del WP)
+
+Detectado tras B-1..B-3: existe `source/requisitos/requisitos-
+funcionales/operator/` (10 UCs UC-022..031) y
+`requisitos-funcionales/supervision/` (3 UCs UC-075..077) que
+derivan FRs de los UC_OPR/UC_SUP. Sus `index.rst` no tienen
+frontmatter (solo `.. _label:`) pero también deben advertir el
+status reservado.
+
+- `requisitos/requisitos-funcionales/operator/index.rst`: banner
+  `.. warning::` agregado debajo del título cross-link a
+  `casos-uso/operator/index` y modelo RBAC v5.6.0.
+- `requisitos/requisitos-funcionales/supervision/index.rst`:
+  mismo patrón.
+
+## B-5 — Mapeo y panorama
+
+- `requisitos/reglas-negocio/rbac/mapeo-uc.rst`: nota `:scope:` en
+  §10 declarando que la tabla cubre las **64 funciones in-scope**.
+  Las 13 reservadas (OPR + SUP) se documentan en `catalogo-
+  funciones.rst` §3.9 y §3.10 pero quedan fuera del mapeo
+  operativo.
+- `arquitectura-tecnica/use-case-view/panorama-iact.rst`: nota
+  declarando que UC_OPR_02 aparece en el panorama por valor
+  narrativo del flujo end-to-end pero NO implica implementación
+  in-scope.
 
 ## Pendientes detectados (candidatos a próximos WPs)
 

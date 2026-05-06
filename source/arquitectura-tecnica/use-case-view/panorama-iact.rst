@@ -26,6 +26,16 @@ Per uml-07 ``profundizacion.rst``: este panorama es el
 punto de entrada — desde cada UC se profundiza al modelo
 detallado de su módulo.
 
+.. note:: Scope visual del panorama (v5.6.0)
+
+ Este diagrama muestra UC_OPR_02 como representante de la
+ actividad del Operator, pero **MOD_Operator y MOD_Supervision
+ son reservados open-closed** para esta release (ver
+ :doc:`/requisitos/casos-uso/operator/index`,
+ :doc:`/requisitos/casos-uso/supervision/index`). El UC
+ aparece en el panorama por valor narrativo del flujo
+ end-to-end — no implica implementacion in-scope.
+
 .. uml::
  :caption: Panorama IACT — UCs operativos clave por
            dominio con actores principales.
