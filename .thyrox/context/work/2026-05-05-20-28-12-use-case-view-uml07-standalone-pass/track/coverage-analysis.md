@@ -4,7 +4,7 @@ project: IACT-docs
 work_package: 2026-05-05-20-28-12-use-case-view-uml07-standalone-pass
 phase: Phase 11 — TRACK/EVALUATE (pre-cierre)
 author: NestorMonroy
-status: Borrador
+status: Aprobado
 version: 1.0.0
 ```
 
