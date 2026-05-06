@@ -23,12 +23,8 @@ Parte 11 — Implementacion tecnica
    - validar param
  * - **MetricsCache**
    - get / set / invalidate
- * - **AnalyticsRepo**
-   - query agregada (read replica)
- * - **KPICalculator**
-   - derivar TMO, SL, abandono
- * - **TrendBuilder**
-   - construir buckets
+ * - **ReportingService**
+   - cursor.callproc(sp_rpt_centros_xsegmento) sobre BD_IVR
  * - **StalenessChecker**
    - comparar last_etl vs threshold
 
@@ -83,20 +79,18 @@ Parte 11 — Implementacion tecnica
            return cached + cache: true
 
        try:
-           agg =
-             AnalyticsRepo.aggregate(
-               segments=segments,
-               period=period)
+           rows = ReportingService.callproc(
+             'sp_rpt_centros_xsegmento',
+             [period, segments])
        except BDTimeout:
            raise
 
-       kpis =
-         KPICalculator.derive(agg)
-       trend =
-         TrendBuilder.build(agg.buckets,
-                              period)
+       # El SP retorna filas pre-agregadas
+       # (KPIs ya calculados en BD_IVR).
+       kpis = rows.kpis
+       trend = rows.trend
        staleness =
-         StalenessChecker.compute(agg)
+         StalenessChecker.compute(rows)
 
        response = DashboardOutput(
          period, now(), kpis, trend,
@@ -135,7 +129,9 @@ Parte 11 — Implementacion tecnica
 11.5 Restricciones cross-cutting
 ================================
 
-- Read-only Analytics (CNST-007).
+- Read-only sobre BD_IVR (CNST-007).
+- KPIs pre-calculados en el SP — no se
+  re-agrega en backend.
 - Filtro segmento (CNST-008).
 - Sin audit por invocacion (P-51).
 - Cache TTL adaptativo segun periodo.

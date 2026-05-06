@@ -83,8 +83,9 @@ UC_RPT_03).
  * - CNST
    - Aplicacion
  * - **CNST-007**
-   - solo lectura desde BD Analytics
-     (BD operativa IVR no se toca)
+   - solo lectura desde BD_IVR via
+     ``sp_rpt_centros_xsegmento`` (BD
+     operativa no se toca)
  * - **CNST-008**
    - filtro por segmento del User
      automatico, no eludible via UI

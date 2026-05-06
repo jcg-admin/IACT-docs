@@ -12,7 +12,7 @@
  participant "SegmentResolver" as Segmentresolver
  participant "MetricsCache" as Metricscache
  participant "ReportingService\n(sp_rpt_*)" as Servicioreportes
- participant "KPICalculator" as Kpicalculator
+ database "BD_IVR" as Bdivr
 
  User -> Frontend: abrir dashboard
  Frontend -> Dashboardendpoint: GET /api/dashboard/
@@ -21,10 +21,10 @@
  Segmentresolver --> Dashboardendpoint: segments
  Dashboardendpoint -> Metricscache: get(key)
  Metricscache --> Dashboardendpoint: miss
- Dashboardendpoint -> Servicioreportes: cursor.callproc(sp_rpt_centros_xsegmento, [trimestre])
- Servicioreportes --> Dashboardendpoint: rows agregados
- Dashboardendpoint -> Kpicalculator: derive_kpis(rows)
- Kpicalculator --> Dashboardendpoint: kpis
+ Dashboardendpoint -> Servicioreportes: cursor.callproc(sp_rpt_centros_xsegmento, [period, segments])
+ Servicioreportes -> Bdivr: CALL sp_rpt_centros_xsegmento
+ Bdivr --> Servicioreportes: filas pre-agregadas
+ Servicioreportes --> Dashboardendpoint: rows (kpis + trend ya calculados)
  Dashboardendpoint -> Metricscache: set(key, response, ttl=30)
  Dashboardendpoint --> Frontend: 200 + dashboard
  Frontend --> User: render

@@ -21,9 +21,9 @@ Parte 2 — Actores y precondiciones
  * - **Frontend**
    - Sistema
    - render del UI
- * - **AnalyticsRepo**
+ * - **ReportingService**
    - Sistema
-   - fuente de KPIs (BD Analytics)
+   - cursor.callproc(sp_rpt_centros_xsegmento) sobre BD_IVR
  * - **SegmentResolver**
    - Sistema
    - obtiene scope del User
@@ -36,15 +36,16 @@ Parte 2 — Actores y precondiciones
 
 - User autenticado.
 - User tiene ``view_reports`` activa.
-- BD Analytics accesible.
+- BD_IVR accesible y SP
+  ``sp_rpt_centros_xsegmento`` instalado.
 - User tiene al menos 1 segmento (ver
   EX-02).
 
 2.3 Postcondiciones
 ===================
 
-- Sin escritura: BD Analytics y
-  operativa intactas.
+- Sin escritura: BD_IVR y BD operativa
+  intactas (read-only).
 - Cache puede haberse poblado.
 - Auto-refresh agendado.
 
