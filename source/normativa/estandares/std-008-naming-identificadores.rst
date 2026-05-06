@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.2.0
+ :version: 1.3.0
  :fecha_creacion: 2026-04-28
  :ultimo_cambio: 2026-05-06
  :autor: Equipo IACT
@@ -167,65 +167,76 @@ Ejemplo:
 - ``hasIACTPermission(permission)`` NO (acoplamiento al producto en
   el nombre).
 
-3.5 Coherencia de Idioma
-------------------------
+3.5 Coherencia de Idioma — Identifiers SIEMPRE en Inglés
+---------------------------------------------------------
 
 Los identificadores técnicos del proyecto IACT se escriben en
-**inglés**. Esto incluye:
+**inglés**, sin excepción. Esto incluye:
 
 - Funciones, métodos, clases, atributos, variables, constantes.
 - Nombres de tablas y columnas en PostgreSQL (modelos Django).
 - Endpoints REST.
 - Eventos, mensajes y nombres de logs estructurados.
+- **Ejemplos de código en cualquier artefacto** (lecciones,
+  tutoriales, ADRs, ERDs, diagramas de clase), incluyendo
+  zonas didácticas y normativa metodológica.
 
-La narrativa de la documentación puede ser en español; los
-identificadores que aparecen citados en ella mantienen el inglés.
+La narrativa de la documentación puede ser en español
+(títulos, párrafos explicativos, notas, captions); los
+identificadores citados en ella mantienen el inglés.
 
-3.5.1 Excepciones — Zonas Pedagógicas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.5.1 Sin excepciones por zona
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Los identificadores en español **están permitidos** en
-artefactos cuyo propósito es enseñar conceptos OOP/UML/ERD
-usando vocabulario natural del lector hispanohablante. Estos
-artefactos no describen el sistema productivo; son material
-didáctico.
+Esta regla aplica universalmente. **NO existen excepciones**
+por zona, prefijo de path o naturaleza del artefacto:
 
-Paths con la excepción aplicada:
+- Lecciones siguiendo Schmuller u otros libros con ejemplos
+  en español → traducir los identifiers al inglés. La narrativa
+  puede mantenerse en español.
+- ADRs descriptivos de código legacy → si el legacy usa
+  identifiers en español, el ADR debe documentar
+  explícitamente que ese naming **viola** este estándar y
+  proponer plan de migración. NO se cita como modelo a seguir.
+- Diagramas ERD, UML class, sequence, state, activity →
+  identifiers en inglés en TODOS los archivos, incluso
+  ejemplos pedagógicos.
 
-- ``source/requisitos/_metodologia-aplicacion/**`` —
-  lecciones de aplicación de la metodología (siguiendo
-  Schmuller, Object-Oriented Software Engineering, etc.).
-- ``source/base-cognitiva/_uml/**`` — lecciones UML del
-  proyecto.
-- ``source/normativa/estandares/metodologia-*-ucs.rst`` —
-  estándares metodológicos que usan ejemplos en español
-  para enseñar el método.
-- ADRs (``source/{tier}/adr-*.rst``) cuando el código
-  citado es **descriptivo** del legacy codebase
-  (no prescriptivo de nuevo código).
+3.5.2 Justificación
+~~~~~~~~~~~~~~~~~~~
 
-Convención sintáctica para reconocer zonas pedagógicas: el
-prefijo ``_`` en algún segmento del path (``_metodologia-
-aplicacion``, ``_uml``) marca contenido didáctico. Para
-artefactos sin prefijo (ADRs, normativa) la naturaleza
-descriptiva debe ser explícita en el contenido (e.g. "código
-del legacy", "ejemplo de tutorial").
+Permitir identifiers en español en zonas didácticas envía un
+mensaje implícito incorrecto al lector: "es aceptable nombrar
+clases/atributos/funciones en español". Esa interpretación
+contradice STD-008 §3.1 (Clean Code obligatorio) y degrada
+la consistencia del corpus.
 
-3.5.2 Zona Productiva — Inglés Obligatorio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mantener la narrativa en español preserva el valor pedagógico
+para lectores hispanohablantes; traducir identifiers al inglés
+preserva el modelo correcto del estándar.
 
-Las siguientes zonas **deben** usar identificadores en inglés
-sin excepción:
+3.5.3 Comentarios y narrativa — español permitido
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``source/arquitectura-tecnica/**`` — domain-model, design-view,
-  use-case-view, system-view, etc.
-- ``source/databases/**`` — esquemas SQL.
-- Código real (Python, TypeScript, SQL) bajo cualquier path
-  que represente la implementación productiva.
+Los siguientes elementos **pueden** estar en español:
 
-Validación automática: ``scripts/validate-naming-arquitectura
--tecnica.sh`` (check C-07) detecta identificadores en español
-en estas zonas.
+- Comentarios de código (``# explicacion``, ``// nota``,
+  ``-- descripcion``).
+- Strings de UI (mensajes al usuario final).
+- Captions de figuras y diagramas.
+- Texto narrativo de la documentación (RST prosa).
+- Nombres de archivos y directorios cuando STD-007 lo
+  permite (e.g. paths de capítulos didácticos).
+- Texto dentro de notas PlantUML (``note bottom of``,
+  ``note over``).
+
+3.5.4 Validación automática
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``scripts/validate-naming-corpus.sh`` (check C-07) audita
+TODO el corpus sin exclusiones por zona, detectando
+identifiers en español en declaraciones ``class X``,
+``entity X``, atributos y métodos.
 
 ----
 
