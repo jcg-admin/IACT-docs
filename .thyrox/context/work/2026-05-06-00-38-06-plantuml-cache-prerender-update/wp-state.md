@@ -2,8 +2,14 @@
 project: IACT-docs
 work_package: 2026-05-06-00-38-06-plantuml-cache-prerender-update
 created_at: 2026-05-06 00:38:06
-current_phase: Phase 10 — EXECUTE
-status: Activo
+closed_at: 2026-05-06 01:25:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+final_hit_rate: "99.7% (1162/1165)"
+final_misses: 3
+build_strict_clean: true
+build_strict_log: execute/build-logs/sphinx-strict-post-prerender-2026-05-06T00-52-22.log
+script_fixes_applied: 3 (-cfgfile removido, validacion defensiva, strip @startuml NAME)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
