@@ -33,7 +33,7 @@
 
    Authservice --> Logoutview: success
    Logoutview --> InterfazDeUsuario: 200 OK\n{"message": "Sesion cerrada"}
-   InterfazDeUsuario -> InterfazDeUsuario: localStorage.clear\nRedux clear
+   InterfazDeUsuario -> InterfazDeUsuario: limpia almacenamiento local\nlimpia Gestor de Estado
    InterfazDeUsuario --> Usuario: Redirect /login
  end
 

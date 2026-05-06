@@ -414,10 +414,18 @@ def transition(menu_item, target, by_user):
     # ... audit + cache invalidation ...
 ```
 
-#### Job de monitoreo (Celery beat)
+#### Job de monitoreo (Planificador de Tareas)
+
+> **STD-010 §3.5 — vocabulario canónico:** la narrativa UC
+> debe llamarlo "el Planificador de Tareas". La elección de
+> motor concreto (Celery beat / APScheduler / Cron) vive en
+> `source/arquitectura-tecnica/scheduled-tasks.rst` y en
+> `implementacion-tecnica.rst` del UC, fuera del alcance de
+> STD-010. El código siguiente es ilustrativo de la
+> implementación esperada (no narrativa UC).
 
 ```python
-# apps/access/tasks.py
+# apps/access/tasks.py — implementación técnica (Celery)
 from celery import shared_task
 
 DEPRECATED_WARNING_DAYS = 30  # alerta amarilla
@@ -489,7 +497,7 @@ El job solo **notifica**, no actúa.
 |---|---|---|
 | 1 | Índices exactos | **13 índices definidos** distribuidos en 4 tablas (UAGA: 4, FGM: 2, Function: 4, MenuItem: 3) + test de cobertura verbatim |
 | 2 | Comportamiento Redis falla | **Degraded mode** con telemetría obligatoria. Transición no se hace rollback. Documentado en ADR-BACK-009. |
-| 3 | Política tiempo DEPRECATED | **30 días recomendado**, warning 30d / critical 90d, NO auto-archive. Job Celery diario + notificación a system_admin. |
+| 3 | Política tiempo DEPRECATED | **30 días recomendado**, warning 30d / critical 90d, NO auto-archive. Planificador de Tareas con job diario + notificación a system_admin (motor concreto en `arquitectura-tecnica/`, no en narrativa UC — STD-010 §3.5). |
 
 ## Sección 6 — Estado del WP — listo para Phase 5 STRATEGY
 

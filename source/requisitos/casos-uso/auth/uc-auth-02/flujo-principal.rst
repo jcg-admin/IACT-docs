@@ -216,8 +216,8 @@ PASO 10 — Frontend limpia almacenamiento local
  * - **Accion**
    - ``localStorage.removeItem('access_token')``;
      ``localStorage.removeItem('refresh_token')``;
-     limpia state de Redux (``isAuthenticated =
-     false``).
+     limpia state del Gestor de Estado
+     (``isAuthenticated = false``).
 
 PASO 11 — Frontend redirige a /login
 ------------------------------------

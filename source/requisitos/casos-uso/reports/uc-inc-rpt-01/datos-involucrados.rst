@@ -24,7 +24,7 @@ Parte 7 — Datos involucrados
 =======================
 
 Los segmentos se derivan de la tabla de asignaciones RBAC
-(PostgreSQL — base operacional IACT). No hay entidad
+(repositorio operacional IACT). No hay entidad
 ``SegmentoUsuario`` persistida; es una proyeccion calculada.
 
 7.3 Indices
