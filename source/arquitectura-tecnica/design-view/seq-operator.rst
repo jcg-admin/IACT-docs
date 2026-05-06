@@ -1,82 +1,86 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_OPERATOR_CALLS
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_OPERATOR
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: operator
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_operator_calls:
+.. _at_design_seq_operator:
 
-=====================================================
-Design View — MOD_Operator: Operacion del Agente
-=====================================================
+============================================================
+Design View — MOD_Operator: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de operacion del agente. Muestra la
-atencion de una llamada entrante: lectura de ``Call`` desde la BD
-operativa (CNST-007: solo lectura), transferencia y ingreso de
-disposition. La BD operativa MariaDB es de solo lectura para IACT.
+Secuencia canonica del modulo MOD_Operator: el agente acepta
+una llamada en cola, atiende, registra ``Action`` por cada
+operacion y finalmente disposition (cierre con codigo).
 
 .. uml::
- :caption: Design View MOD_Operator — flujo de atencion de llamada entrante.
+ :caption: MOD_Operator — atencion de llamada con disposition.
 
  @startuml
 
- actor AGR_OPERADOR
+ actor "answer_call" as answer_call
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "Call" as Call <<sistema>>
+ actor "Action" as Action <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazAgente   <<frontend>>
- participant ServicioLlamadas <<api>>
- participant RepositorioCall  <<repository>>
- database    BDOperativa      <<mariadb, readonly>>
- database    AlmacenDatos     <<postgresql>>
+ answer_call -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> answer_call : OK
+ deactivate AuthorizationGuard
 
- AGR_OPERADOR -> InterfazAgente : recibir notificacion de llamada
- activate InterfazAgente
+ answer_call -> Call : answer()
+ activate Call
+ Call --> answer_call : Call{state=answered}
 
- InterfazAgente -> ServicioLlamadas : obtenerLlamada(call_id)
- activate ServicioLlamadas
+ answer_call -> Action : create(answer, call_id)
+ activate Action
+ Action -> AuditService : emit(AuditEvent)
+ Action --> answer_call : OK
+ deactivate Action
 
- ServicioLlamadas -> RepositorioCall : buscar(call_id)
- activate RepositorioCall
- RepositorioCall -> BDOperativa : SELECT call_id, started_at,\n  duration_seconds, agent_id,\n  campaign_id, region\nFROM tbl_llamadas\nWHERE call_id=?\n<<CNST-007: readonly>>
- BDOperativa --> RepositorioCall : Call{call_id, campaign_id}
- RepositorioCall --> ServicioLlamadas : Call
- deactivate RepositorioCall
+ ' Operacion durante la llamada
+ answer_call -> Call : hold()
+ Call --> answer_call : Call{state=on_hold}
+ answer_call -> Action : create(hold, call_id)
+ Action -> AuditService : emit(AuditEvent)
 
- ServicioLlamadas --> InterfazAgente : datos de la llamada
- deactivate ServicioLlamadas
+ answer_call -> Call : unhold()
+ Call --> answer_call : Call{state=answered}
+ answer_call -> Action : create(unhold, call_id)
 
- InterfazAgente --> AGR_OPERADOR : pantalla con Call + Campaign
- deactivate InterfazAgente
+ ' Cierre con disposition
+ answer_call -> Call : disposition(code, notes)
+ Call -> AuditService : emit(AuditEvent\ntype=call_closed)
+ Call --> answer_call : Call{state=closed}
+ deactivate Call
+ deactivate AuditService
 
- AGR_OPERADOR -> InterfazAgente : ingresar disposition + transferir
- activate InterfazAgente
-
- InterfazAgente -> ServicioLlamadas : registrarDisposition(call_id, disposition)
- activate ServicioLlamadas
-
- ServicioLlamadas -> AlmacenDatos : INSERT call_dispositions{\n  call_id, disposition,\n  agent_id, registered_at\n}
- AlmacenDatos --> ServicioLlamadas : OK
-
- ServicioLlamadas --> InterfazAgente : 200 OK
- deactivate ServicioLlamadas
- InterfazAgente --> AGR_OPERADOR : disposition guardada
- deactivate InterfazAgente
-
- note right of BDOperativa
-   CNST-007: BD operativa solo lectura.
-   IACT no escribe en tbl_llamadas.
+ note right of Call
+   Call FSM: answered -> on_hold ->
+   answered -> wrap -> closed.
+   Ver state-call.
  end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/call`
- :doc:`/arquitectura-tecnica/domain-model/campaign`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-etl`
+ - :doc:`/arquitectura-tecnica/design-view/class-operator`
+ - :doc:`/arquitectura-tecnica/design-view/state-call`
+ - :doc:`/arquitectura-tecnica/use-case-view/operator/index`
+ - :doc:`/arquitectura-tecnica/domain-model/user`
+ - :doc:`/arquitectura-tecnica/domain-model/call`
+ - :doc:`/arquitectura-tecnica/domain-model/action`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

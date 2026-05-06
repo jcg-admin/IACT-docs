@@ -1,84 +1,76 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_ADMIN
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_ADMIN
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: admin
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_admin:
+.. _at_design_seq_admin:
 
-=========================================
-Design View — MOD_Admin: Administracion
-=========================================
+============================================================
+Design View — MOD_Admin: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de administracion. Muestra la
-desactivacion de ``User`` (BR-009: state → INACTIVE, no eliminar)
-con revocacion de todos sus ``Assignment`` activos y registro de
-``AuditEvent``.
+Secuencia canonica del modulo MOD_Admin: creacion de una nueva
+``SeparationRule`` en el catalogo, con verificacion previa de
+permiso ``create_separation_rule`` y emision de AuditEvent.
 
 .. uml::
- :caption: Design View MOD_Admin — desactivacion de usuario con revocacion de asignaciones.
+ :caption: MOD_Admin — crear regla SoD en catalogo.
 
  @startuml
 
- actor AGR_ADMIN
+ actor "create_separation_rule" as create_separation_rule
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "FunctionRepo" as FunctionRepo <<sistema>>
+ actor "SeparationRuleRepo" as SeparationRuleRepo <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazAdmin        <<frontend>>
- participant ServicioAdmin        <<api>>
- participant RepositorioUser      <<repository>>
- participant RepositorioAssignment <<repository>>
- database    AlmacenDatos         <<postgresql>>
+ create_separation_rule -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> create_separation_rule : OK
+ deactivate AuthorizationGuard
 
- AGR_ADMIN -> InterfazAdmin : DELETE /users/{user_id}
- activate InterfazAdmin
+ create_separation_rule -> FunctionRepo : exists(conjuntoA)
+ activate FunctionRepo
+ FunctionRepo --> create_separation_rule : OK
+ create_separation_rule -> FunctionRepo : exists(conjuntoB)
+ FunctionRepo --> create_separation_rule : OK
+ deactivate FunctionRepo
 
- InterfazAdmin -> ServicioAdmin : desactivarUsuario(user_id)
- activate ServicioAdmin
+ create_separation_rule -> SeparationRuleRepo : create(rule)
+ activate SeparationRuleRepo
+ SeparationRuleRepo --> create_separation_rule : SeparationRule
+ deactivate SeparationRuleRepo
 
- ServicioAdmin -> RepositorioUser : buscar(user_id)
- activate RepositorioUser
- RepositorioUser -> AlmacenDatos : SELECT users WHERE user_id=?
- AlmacenDatos --> RepositorioUser : User
- RepositorioUser --> ServicioAdmin : User
- deactivate RepositorioUser
+ create_separation_rule -> AuditService : emit(AuditEvent\ntype=high)
+ activate AuditService
+ AuditService --> create_separation_rule : OK
+ deactivate AuditService
 
- note right of ServicioAdmin
-   BR-009 v2.0.0: desactivar, no eliminar.
-   User.state → INACTIVE
+ note right of AuditService
+   P-39: cambios al catalogo RBAC
+   son auditoria de criticidad alta.
  end note
-
- ServicioAdmin -> RepositorioAssignment : revocarTodos(user_id)
- activate RepositorioAssignment
- RepositorioAssignment -> AlmacenDatos : UPDATE assignments\nSET state=REVOKED\nWHERE user_id=? AND state=ACTIVE
- AlmacenDatos --> RepositorioAssignment : N filas actualizadas
- RepositorioAssignment --> ServicioAdmin : OK
- deactivate RepositorioAssignment
-
- ServicioAdmin -> RepositorioUser : actualizar(User{state:UserState.INACTIVE})
- activate RepositorioUser
- RepositorioUser -> AlmacenDatos : UPDATE users SET state=INACTIVE
- AlmacenDatos --> RepositorioUser : OK
- RepositorioUser --> ServicioAdmin : User actualizado
- deactivate RepositorioUser
-
- ServicioAdmin -> AlmacenDatos : INSERT audit_events\n{event_type:ACCESS_CHANGE,\n details:{user_id, accion:DEACTIVATE}}
- AlmacenDatos --> ServicioAdmin : AuditEvent registrado
-
- ServicioAdmin --> InterfazAdmin : 200 OK
- deactivate ServicioAdmin
- InterfazAdmin --> AGR_ADMIN : confirmacion
- deactivate InterfazAdmin
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/user`
- :doc:`/arquitectura-tecnica/domain-model/assignment`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/class-admin`
+ - :doc:`/arquitectura-tecnica/use-case-view/admin/index`
+ - :doc:`/arquitectura-tecnica/domain-model/function`
+ - :doc:`/arquitectura-tecnica/domain-model/function-group`
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule`
+ - :doc:`/arquitectura-tecnica/domain-model/function-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

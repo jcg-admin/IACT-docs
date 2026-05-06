@@ -1,91 +1,93 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_VIS_REPORTS
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_REPORTS
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: reports
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_vis_reports:
+.. _at_design_seq_reports:
 
-===================================================
-Design View — MOD_Reports: Reporteria y Dashboard
-===================================================
+============================================================
+Design View — MOD_Reports: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de reportes. Muestra el filtrado de
-``Report`` por ``ReportScope``, la composicion de ``Metric``, y la
-exportacion asincrona via ``ExportJob`` con ciclo
-QUEUED → PROCESSING → DONE.
+Secuencia canonica del modulo MOD_Reports: generacion de
+``AgentReport`` con KPIs derivados (KpiCalculator) leyendo
+estadisticas pre-agregadas de ``AgentDailyStatRepo``, opcion
+de export asincrono via ``ExportWorker``.
 
 .. uml::
- :caption: Design View MOD_Reports — reporte con filtros, metricas y exportacion asincrona.
+ :caption: MOD_Reports — generacion de reporte con KPIs derivados.
 
  @startuml
 
- actor AGR_OPERADOR
+ actor "view_agent_report" as view_agent_report
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "AgentReportService" as AgentReportService <<sistema>>
+ actor "AgentDailyStatRepo" as AgentDailyStatRepo <<sistema>>
+ actor "KpiCalculator" as KpiCalculator <<sistema>>
+ actor "ExportWorker" as ExportWorker <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazReportes   <<frontend>>
- participant ReportingService   <<api>>
- participant RepositorioReport  <<repository>>
- participant ColaProcesamiento  <<queue>>
- database    AlmacenDatos       <<postgresql>>
+ view_agent_report -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> view_agent_report : OK
+ deactivate AuthorizationGuard
 
- AGR_OPERADOR -> InterfazReportes : GET /reports\n?scope=AGENTS\n&from=2026-01-01
- activate InterfazReportes
+ view_agent_report -> AgentReportService : generate(period, agent_ids)
+ activate AgentReportService
 
- InterfazReportes -> ReportingService : filtrarReportes(scope:ReportScope.AGENTS, filtros)
- activate ReportingService
+ AgentReportService -> AgentDailyStatRepo : query(period, agent_ids)
+ activate AgentDailyStatRepo
+ AgentDailyStatRepo --> AgentReportService : List<AgentDailyStat>
+ deactivate AgentDailyStatRepo
 
- ReportingService -> RepositorioReport : filter(ReportScope.AGENTS, filtros)
- activate RepositorioReport
- RepositorioReport -> AlmacenDatos : SELECT reports WHERE scope=AGENTS
- AlmacenDatos --> RepositorioReport : List<Report>
- RepositorioReport --> ReportingService : reportes
- deactivate RepositorioReport
+ AgentReportService -> KpiCalculator : derive_agent_kpis(stats)
+ activate KpiCalculator
+ KpiCalculator --> AgentReportService : KPISet
+ deactivate KpiCalculator
 
- ReportingService -> AlmacenDatos : SELECT metrics\nWHERE name IN (\n  ABANDONMENT_RATE,\n  AVG_WAIT_TIME\n)
- AlmacenDatos --> ReportingService : List<Metric>
+ AgentReportService --> view_agent_report : Report
 
- ReportingService --> InterfazReportes : Report + Metric[]
- deactivate ReportingService
- InterfazReportes --> AGR_OPERADOR : dashboard
- deactivate InterfazReportes
+ alt usuario solicita export
+   view_agent_report -> ExportWorker : enqueue(report, format)
+   activate ExportWorker
+   ExportWorker --> view_agent_report : ExportJob{state=pending}
+   deactivate ExportWorker
+ end
 
- AGR_OPERADOR -> InterfazReportes : POST /reports/{id}/export\n{format:EXCEL}
- activate InterfazReportes
+ AgentReportService -> AuditService : emit(AuditEvent\ntype=report_generated)
+ activate AuditService
+ AuditService --> AgentReportService : OK
+ deactivate AuditService
+ deactivate AgentReportService
 
- InterfazReportes -> ReportingService : exportar(report_id, ExportFormat.EXCEL)
- activate ReportingService
-
- ReportingService -> AlmacenDatos : INSERT export_jobs{\n  job_id:UUID,\n  report_id,\n  format:EXCEL,\n  state:JobState.QUEUED,\n  enqueued_at\n}
- AlmacenDatos --> ReportingService : ExportJob creado
-
- ReportingService -> ColaProcesamiento : encolar(job_id)
- ColaProcesamiento --> ReportingService : OK
-
- ReportingService --> InterfazReportes : 202 Accepted {job_id}
- deactivate ReportingService
- InterfazReportes --> AGR_OPERADOR : job_id
-
- ... procesamiento asincrono ...
-
- ColaProcesamiento -> AlmacenDatos : UPDATE export_jobs\nSET state=DONE,\n  completed_at,\n  artifact_path
- deactivate InterfazReportes
-
- note right of ColaProcesamiento
-   CNST-019 v3.0.0: cola asincrona abstracta.
-   CNST-020 v3.0.0: throttling abstracto.
+ note right of KpiCalculator
+   Strategy stateless. Centraliza
+   formulas (occupancy, AHT, ASA,
+   service_level, etc.).
  end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/report`
- :doc:`/arquitectura-tecnica/domain-model/metric`
- :doc:`/arquitectura-tecnica/domain-model/export-job`
+ - :doc:`/arquitectura-tecnica/design-view/class-reports`
+ - :doc:`/arquitectura-tecnica/design-view/state-export-job`
+ - :doc:`/arquitectura-tecnica/design-view/act-export-async`
+ - :doc:`/arquitectura-tecnica/use-case-view/reports/index`
+ - :doc:`/arquitectura-tecnica/domain-model/agent-report-service`
+ - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator`
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker`
+ - :doc:`/arquitectura-tecnica/domain-model/export-job`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

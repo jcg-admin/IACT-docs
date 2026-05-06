@@ -1,72 +1,81 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_CALLER
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_CALLER
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: caller
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_caller:
+.. _at_design_seq_caller:
 
-=========================================
-Design View — MOD_Caller: Flujo IVR
-=========================================
+============================================================
+Design View — MOD_Caller: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de experiencia del cliente IVR. Muestra
-el flujo completo desde que el ciudadano llama hasta que el sistema registra
-la llamada en la BD Operativa. IACT accede a estos datos en modo solo lectura
-via ETL (CNST-007, P-01).
+Secuencia canonica del modulo MOD_Caller: ingreso de una llamada
+nueva, navegacion IVR (NavDomain), enrutamiento a cola/operador
+y registro del Call.
 
 .. uml::
- :caption: Design View MOD_Caller — flujo de llamada del ciudadano al IVR.
+ :caption: MOD_Caller — ingreso y enrutamiento IVR.
 
  @startuml
 
- actor CALLER
+ actor Caller <<externo>>
+ actor "Call" as Call <<sistema>>
+ actor "Menu" as Menu <<sistema>>
+ actor "NavDomain" as NavDomain <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant PbxIvr          <<pbx>>
- participant RepositorioIVR  <<repository>>
- database    BDOperativa     <<mariadb, readonly>>
- participant ServicioETL     <<etl>>
- database    AlmacenDatos    <<postgresql>>
+ Caller -> Call : initiate(phone, dnis)
+ activate Call
+ Call -> Menu : load(dnis)
+ activate Menu
+ Menu --> Call : Menu{opciones}
+ deactivate Menu
 
- CALLER -> PbxIvr : llamada telefonica
- activate PbxIvr
+ loop navegacion IVR
+   Call -> Caller : prompt opciones
+   Caller --> Call : DTMF
+   Call -> NavDomain : record(option)
+   activate NavDomain
+   NavDomain --> Call : OK
+   deactivate NavDomain
+ end
 
- PbxIvr -> RepositorioIVR : registrar llamada
- activate RepositorioIVR
- RepositorioIVR -> BDOperativa : INSERT tbl_historico_detalle\n(started_at, duration, agent_id,\ncampaign_id, region)
- BDOperativa --> RepositorioIVR : OK
- RepositorioIVR --> PbxIvr : registrado
- deactivate RepositorioIVR
+ alt opcion = transfer to operator
+   Call -> Call : enqueue(queue)
+ else opcion = self-service
+   Call -> Call : provide info
+ end
 
- PbxIvr --> CALLER : menu IVR / cola / respuesta
- deactivate PbxIvr
+ Call -> AuditService : emit(AuditEvent\ntype=call_routed)
+ activate AuditService
+ AuditService --> Call : OK
+ deactivate AuditService
+ deactivate Call
 
- note over ServicioETL
-   ETL nocturno (CNST-008: ventana 6-12h).
-   IACT lee BDOperativa solo en ventana ETL.
-   P-01: IACT no escribe en BDOperativa.
+ note right of Call
+   Call FSM: initiated -> menu ->
+   queued | self_service -> ...
+   ver state-call.
  end note
-
- ServicioETL -> BDOperativa : SELECT tbl_historico_*\n<<CNST-007: readonly>>
- activate ServicioETL
- BDOperativa --> ServicioETL : registros de llamadas
-
- ServicioETL -> AlmacenDatos : INSERT / UPDATE\nbase_ivr_detalle\nbase_ivr_clientes
- AlmacenDatos --> ServicioETL : OK
- deactivate ServicioETL
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/use-case-view/caller/index`
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/call`
- :doc:`/arquitectura-tecnica/domain-model/campaign`
- :doc:`/arquitectura-tecnica/process-view/proc-etl-pipeline`
+ - :doc:`/arquitectura-tecnica/design-view/class-caller`
+ - :doc:`/arquitectura-tecnica/design-view/state-call`
+ - :doc:`/arquitectura-tecnica/use-case-view/caller/index`
+ - :doc:`/arquitectura-tecnica/domain-model/call`
+ - :doc:`/arquitectura-tecnica/domain-model/menu`
+ - :doc:`/arquitectura-tecnica/domain-model/nav-domain`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

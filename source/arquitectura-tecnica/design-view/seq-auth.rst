@@ -1,76 +1,84 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_AUTH
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_AUTH
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: auth
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_auth:
+.. _at_design_seq_auth:
 
-==========================================
-Design View — MOD_Auth: Autenticacion
-==========================================
+============================================================
+Design View — MOD_Auth: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de autenticacion. Muestra el flujo
-de login: validacion de credenciales, creacion de ``Session``, emision
-de token JWT y registro de ``AuditEvent(LOGIN)``.
+Secuencia canonica del modulo MOD_Auth: login con credenciales,
+verificacion de IdempotencyPolicy, creacion de Session con TTL
+de ExpirationPolicy, y emision de JWT.
 
 .. uml::
- :caption: Design View MOD_Auth — secuencia de autenticacion y gestion de sesion.
+ :caption: MOD_Auth — login con creacion de Session.
 
  @startuml
 
- actor AGR_OPERADOR
+ actor "login" as login
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "User" as User <<sistema>>
+ actor "IdempotencyPolicy" as IdempotencyPolicy <<sistema>>
+ actor "ExpirationPolicy" as ExpirationPolicy <<sistema>>
+ actor "Session" as Session <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazWeb      <<frontend>>
- participant ServicioAuth     <<api>>
- participant RepositorioUser  <<repository>>
- participant RepositorioSession <<repository>>
- database    AlmacenDatos     <<postgresql>>
+ login -> User : verify_credentials()
+ activate User
+ User --> login : OK
+ deactivate User
 
- AGR_OPERADOR -> InterfazWeb : POST /auth/login\n{username, password}
- activate InterfazWeb
+ login -> IdempotencyPolicy : check(request_id)
+ activate IdempotencyPolicy
+ IdempotencyPolicy --> login : not_duplicate
+ deactivate IdempotencyPolicy
 
- InterfazWeb -> ServicioAuth : autenticar(username, password)
- activate ServicioAuth
+ login -> ExpirationPolicy : compute_ttl()
+ activate ExpirationPolicy
+ ExpirationPolicy --> login : ttl_seconds
+ deactivate ExpirationPolicy
 
- ServicioAuth -> RepositorioUser : buscar(username)
- activate RepositorioUser
- RepositorioUser -> AlmacenDatos : SELECT users WHERE username=?
- AlmacenDatos --> RepositorioUser : User{user_id, state:UserState}
- RepositorioUser --> ServicioAuth : User
- deactivate RepositorioUser
+ login -> Session : create(user_id, ttl)
+ activate Session
+ Session --> login : Session{jwt, refresh}
+ deactivate Session
 
- alt User.state != ACTIVE
-   ServicioAuth --> InterfazWeb : 401 Unauthorized
- else credenciales validas
-   ServicioAuth -> RepositorioSession : crear(Session{\n  session_id:UUID,\n  user_id,\n  state:ACTIVE,\n  expires_at\n})
-   activate RepositorioSession
-   RepositorioSession -> AlmacenDatos : INSERT sessions
-   AlmacenDatos --> RepositorioSession : OK
-   RepositorioSession --> ServicioAuth : Session
-   deactivate RepositorioSession
+ login -> AuditService : emit(AuditEvent\ntype=login)
+ activate AuditService
+ AuditService --> login : OK
+ deactivate AuditService
 
-   ServicioAuth -> AlmacenDatos : INSERT audit_events\n{event_type:LOGIN, actor_user_id}
-   AlmacenDatos --> ServicioAuth : AuditEvent registrado
+ login --> AuthorizationGuard : Session disponible para verify futuros
 
-   ServicioAuth --> InterfazWeb : 200 {jwt_token, session_id}
- end
-
- deactivate ServicioAuth
- InterfazWeb --> AGR_OPERADOR : dashboard
- deactivate InterfazWeb
+ note right of Session
+   P-44: codename inmutable.
+   El JWT lleva user_id, no email.
+ end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/session`
- :doc:`/arquitectura-tecnica/domain-model/user`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/class-auth`
+ - :doc:`/arquitectura-tecnica/design-view/act-jwt-auth`
+ - :doc:`/arquitectura-tecnica/design-view/state-session`
+ - :doc:`/arquitectura-tecnica/use-case-view/auth/index`
+ - :doc:`/arquitectura-tecnica/domain-model/user`
+ - :doc:`/arquitectura-tecnica/domain-model/session`
+ - :doc:`/arquitectura-tecnica/domain-model/idempotency-policy`
+ - :doc:`/arquitectura-tecnica/domain-model/expiration-policy`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

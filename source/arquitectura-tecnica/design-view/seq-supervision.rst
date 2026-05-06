@@ -1,90 +1,85 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_SUPERVISION
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_SUPERVISION
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: supervision
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_supervision:
+.. _at_design_seq_supervision:
 
-=========================================================
-Design View — MOD_Supervision: Supervision en Tiempo Real
-=========================================================
+============================================================
+Design View — MOD_Supervision: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de supervision en tiempo real.
-Muestra el monitoreo de llamadas activas, barge-in del supervisor
-a una ``Call`` en curso y envio de mensaje broadcast al equipo de
-agentes.
+Secuencia canonica del modulo MOD_Supervision: Supervisor envia
+``InternalMessage`` broadcast al equipo, con resolucion de
+destinatarios via ``SegmentResolver`` (CNST-008 isolation por
+scope) y entrega via ``InternalMailbox`` por User.
 
 .. uml::
- :caption: Design View MOD_Supervision — monitoreo, barge-in y broadcast.
+ :caption: MOD_Supervision — broadcast con resolucion de segmento.
 
  @startuml
 
- actor AGR_SUPERVISOR
+ actor "broadcast_team_messages" as broadcast_team_messages
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "SegmentResolver" as SegmentResolver <<sistema>>
+ actor "InternalMessage" as InternalMessage <<sistema>>
+ actor "InternalMailbox" as InternalMailbox <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazSupervision <<frontend>>
- participant ServicioSupervision <<api>>
- participant ServicioLlamadas    <<api>>
- participant RepositorioCall     <<repository>>
- database    BDOperativa         <<mariadb, readonly>>
- database    AlmacenDatos        <<postgresql>>
+ broadcast_team_messages -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> broadcast_team_messages : OK
+ deactivate AuthorizationGuard
 
- AGR_SUPERVISOR -> InterfazSupervision : GET /supervision/calls/active
- activate InterfazSupervision
+ broadcast_team_messages -> SegmentResolver : resolve(target, supervisor_scope)
+ activate SegmentResolver
+ SegmentResolver --> broadcast_team_messages : List<User>
+ deactivate SegmentResolver
 
- InterfazSupervision -> ServicioSupervision : listarLlamadasActivas()
- activate ServicioSupervision
+ broadcast_team_messages -> InternalMessage : create(content, urgency)
+ activate InternalMessage
+ InternalMessage --> broadcast_team_messages : InternalMessage
+ deactivate InternalMessage
 
- ServicioSupervision -> RepositorioCall : findActive()
- activate RepositorioCall
- RepositorioCall -> BDOperativa : SELECT call_id, agent_id,\n  campaign_id, started_at\nFROM tbl_llamadas\nWHERE estado=ACTIVA\n<<CNST-007: readonly>>
- BDOperativa --> RepositorioCall : List<Call>
- RepositorioCall --> ServicioSupervision : llamadas activas
- deactivate RepositorioCall
+ loop por cada destinatario
+   broadcast_team_messages -> InternalMailbox : enqueue(user, message)
+   activate InternalMailbox
+   InternalMailbox --> broadcast_team_messages : OK
+   deactivate InternalMailbox
+ end
 
- ServicioSupervision --> InterfazSupervision : dashboard en tiempo real
- deactivate ServicioSupervision
- InterfazSupervision --> AGR_SUPERVISOR : lista de llamadas
- deactivate InterfazSupervision
+ alt urgency = URGENT
+   broadcast_team_messages -> InternalMailbox : push_realtime(users)
+ end
 
- AGR_SUPERVISOR -> InterfazSupervision : POST /supervision/calls/{call_id}/barge-in
- activate InterfazSupervision
+ broadcast_team_messages -> AuditService : emit(AuditEvent)
+ activate AuditService
+ AuditService --> broadcast_team_messages : OK
+ deactivate AuditService
 
- InterfazSupervision -> ServicioSupervision : bargeIn(call_id, supervisor_id)
- activate ServicioSupervision
-
- ServicioSupervision -> ServicioLlamadas : unirseALlamada(call_id)
- activate ServicioLlamadas
- ServicioLlamadas --> ServicioSupervision : canal abierto
- deactivate ServicioLlamadas
-
- ServicioSupervision -> AlmacenDatos : INSERT audit_events\n{event_type:CONFIG_CHANGED,\n details:{barge_in:call_id}}
- AlmacenDatos --> ServicioSupervision : AuditEvent registrado
-
- ServicioSupervision --> InterfazSupervision : 200 OK conectado
- deactivate ServicioSupervision
-
- AGR_SUPERVISOR -> InterfazSupervision : POST /supervision/broadcast\n{message, team_id}
- InterfazSupervision -> ServicioSupervision : enviarBroadcast(message, agentes)
- activate ServicioSupervision
- ServicioSupervision -> AlmacenDatos : INSERT internal_mailbox_messages\n(por cada agente del equipo)
- AlmacenDatos --> ServicioSupervision : mensajes entregados
- ServicioSupervision --> InterfazSupervision : 200 OK
- deactivate ServicioSupervision
- InterfazSupervision --> AGR_SUPERVISOR : confirmacion
- deactivate InterfazSupervision
+ note bottom of SegmentResolver
+   CNST-008: target_team o segment_codes
+   deben estar en el segmento del Supervisor.
+ end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/call`
- :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/class-supervision`
+ - :doc:`/arquitectura-tecnica/use-case-view/supervision/index`
+ - :doc:`/arquitectura-tecnica/domain-model/internal-message`
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

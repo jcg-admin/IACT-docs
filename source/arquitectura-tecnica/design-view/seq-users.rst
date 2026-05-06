@@ -1,74 +1,73 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_USER_IDENTITY
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_USERS
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: users
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_user_identity:
+.. _at_design_seq_users:
 
-=================================================
-Design View — MOD_Users: Gestion de Identidad
-=================================================
+============================================================
+Design View — MOD_Users: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de gestion de usuarios. Muestra el
-flujo de creacion de ``User`` con validacion de unicidad, asignacion
-de ``primary_access_group_id`` y registro de ``AuditEvent``.
+Secuencia canonica del modulo MOD_Users: alta de un nuevo
+``User`` con generacion automatica de password inicial via
+``PasswordGenerator``, persistencia via ``UserRepo`` y emision
+de AuditEvent.
 
 .. uml::
- :caption: Design View MOD_Users — creacion y gestion de identidad de usuarios.
+ :caption: MOD_Users — alta de usuario con password generado.
 
  @startuml
 
- actor AGR_ADMIN
+ actor "create_user" as create_user
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "PasswordGenerator" as PasswordGenerator <<sistema>>
+ actor "UserRepo" as UserRepo <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazAdmin    <<frontend>>
- participant ServicioUsuarios <<api>>
- participant RepositorioUser  <<repository>>
- database    AlmacenDatos     <<postgresql>>
+ create_user -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> create_user : OK
+ deactivate AuthorizationGuard
 
- AGR_ADMIN -> InterfazAdmin : POST /users\n{username, email, full_name,\n primary_access_group_id}
- activate InterfazAdmin
+ create_user -> PasswordGenerator : generate()
+ activate PasswordGenerator
+ PasswordGenerator --> create_user : password_initial
+ deactivate PasswordGenerator
 
- InterfazAdmin -> ServicioUsuarios : crearUsuario(datos)
- activate ServicioUsuarios
+ create_user -> UserRepo : create(User{...})
+ activate UserRepo
+ UserRepo --> create_user : User
+ deactivate UserRepo
 
- ServicioUsuarios -> RepositorioUser : existeUsername(username)
- activate RepositorioUser
- RepositorioUser -> AlmacenDatos : SELECT users WHERE username=?
- AlmacenDatos --> RepositorioUser : resultado
- RepositorioUser --> ServicioUsuarios : boolean
- deactivate RepositorioUser
+ create_user -> AuditService : emit(AuditEvent\ntype=user_created)
+ activate AuditService
+ AuditService --> create_user : OK
+ deactivate AuditService
 
- alt username ya existe
-   ServicioUsuarios --> InterfazAdmin : 409 Conflict
- else username libre
-   ServicioUsuarios -> RepositorioUser : crear(User{\n  user_id:UUID,\n  username,\n  email,\n  state:UserState.ACTIVE,\n  created_at\n})
-   activate RepositorioUser
-   RepositorioUser -> AlmacenDatos : INSERT users
-   AlmacenDatos --> RepositorioUser : OK
-   RepositorioUser --> ServicioUsuarios : User
-   deactivate RepositorioUser
-
-   ServicioUsuarios -> AlmacenDatos : INSERT audit_events\n{event_type:ACCESS_CHANGE,\n actor_user_id:AGR_ADMIN}
-   AlmacenDatos --> ServicioUsuarios : AuditEvent registrado
-
-   ServicioUsuarios --> InterfazAdmin : 201 Created {user_id}
- end
-
- deactivate ServicioUsuarios
- InterfazAdmin --> AGR_ADMIN : confirmacion
- deactivate InterfazAdmin
+ note right of UserRepo
+   BR-009: bajas son logicas
+   (state=DISABLED, no DELETE).
+ end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/user`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/class-users`
+ - :doc:`/arquitectura-tecnica/use-case-view/users/index`
+ - :doc:`/arquitectura-tecnica/domain-model/user`
+ - :doc:`/arquitectura-tecnica/domain-model/user-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/password-generator`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`
