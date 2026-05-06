@@ -37,14 +37,40 @@ Cualquier comando con duración estimada >5 minutos (build
 completo, tests E2E, prerender masivo, batch generation) se lanza
 detached. **NUNCA** esperar foreground.
 
+#### Patrón preferido — `nohup … & disown` dentro de Bash foreground
+
 ```bash
-# CORRECTO — detached con disown
+# CORRECTO — Bash retorna inmediato tras lanzar el nohup;
+# no crea shell entry trackeada en Claude Code.
 nohup bash -c "long_command ..." > "$LOG" 2>&1 &
-disown $!
+PID=$!
+disown $PID
+echo "$PID" > /tmp/<wp>_pid.txt   # si se necesitará para Monitor R-2.1
+```
 
-# CORRECTO — Bash tool con run_in_background=true
-Bash(command="long_command ...", run_in_background=true)
+#### Patrón evitado — `Bash run_in_background=true`
 
+```python
+Bash(command="long_command ...", run_in_background=true)  # ⚠
+```
+
+Este patrón crea una **shell trackeada por Claude Code** que
+persiste en el state del agente aunque el proceso PID muera.
+Solo se elimina con `KillBash` (no siempre disponible) o al
+cerrar la sesión. En sesiones largas se acumulan: 10-20 shells
+fantasma que el ejecutor humano debe cancelar manualmente desde
+el UI.
+
+Usar `Bash run_in_background=true` solo si:
+
+- Se va a llamar `KillBash` explícitamente al terminar.
+- El comando es muy corto (<1 min) y no merece el setup de
+  `nohup`.
+- Se necesita `BashOutput` para leer el output stream.
+
+En cualquier otro caso, preferir el patrón `nohup … & disown`.
+
+```bash
 # INCORRECTO — foreground >5 min, dispara SSE timeout
 sphinx-build -W -j auto -b html source build/html
 ```
@@ -113,6 +139,30 @@ sea posible.
 # ❌ Monitor queda activo hasta el timeout aunque el comando termine
 tail -f "$LOG" | grep --line-buffered "PATTERN"
 ```
+
+#### R-2.2 — Cada Monitor crea un task entry; minimizar el número
+
+Cada llamada a `Monitor(...)` crea un task entry persistente en
+el UI del usuario. Estos entries:
+
+- No se eliminan al expirar (timeout) — quedan visibles como
+  "Monitor timed out".
+- No se eliminan al completar limpiamente — quedan visibles como
+  "completed".
+- Solo se descartan con `TaskStop` (no siempre disponible) o al
+  cerrar la sesión.
+
+Reglas:
+
+- **Reusar el mismo Monitor** si se sigue observando el mismo
+  log/proceso, en lugar de cancelar y rearmar.
+- **No rearmar tras timeout** salvo que el comando aún esté vivo
+  (usar el patrón `--pid=$PID` para que esto sea improbable).
+- **Un solo Monitor por work**, no uno por iteración.
+
+Sesiones con 10+ entries Monitor son señal de que se rearmó
+varias veces o se observó por separado lo que se podía observar
+con uno solo.
 
 ### R-3 — Probes periódicos cuando no hay output natural
 
