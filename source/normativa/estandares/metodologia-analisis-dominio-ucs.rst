@@ -325,15 +325,15 @@ responsabilidades y restricciones**:
 
    @startuml
 
-   class Usuario {
+   class User {
      .. atributos básicos ..
      - id : Integer
      - email : String
      - password_hash : String
      .. atributos personales ..
-     - nombre : String
-     - apellido : String
-     - telefono : String = "+1234567890"
+     - first_name : String
+     - last_name : String
+     - phone : String = "+1234567890"
      .. atributos de estado ..
      - is_active : Boolean = true
      - is_verified : Boolean = false
@@ -346,7 +346,7 @@ responsabilidades y restricciones**:
      + changePassword(old : String, new : String) : void
      + forgotPassword(email : String) : void
      == operaciones de perfil ==
-     + updateProfile(nombre, telefono) : void
+     + updateProfile(name, phone) : void
      + getProfile() : UserProfile
      + deleteAccount() : void
      -- responsabilidades --
@@ -354,7 +354,7 @@ responsabilidades y restricciones**:
      facilitar autenticación y autorización
      proteger datos personales
    }
-   note right of Usuario
+   note right of User
      {email: formato válido RFC5322}
      {password: mínimo 8 caracteres}
      {is_active: true | false}
@@ -413,24 +413,24 @@ responsabilidades y restricciones**:
 
    class Role {
      - id : Integer
-     - nombre : String
-     - permisos : List<Permission>
+     - name : String
+     - permissions : List<Permission>
      + addPermission(perm)
      + removePermission(perm)
    }
 
    class Permission {
      - id : Integer
-     - codigo : String
-     - descripcion : String
+     - code : String
+     - description : String
    }
 
    class AuditLog {
      - id : Integer
      - user_id : Integer
-     - accion : String
+     - action : String
      - timestamp : DateTime
-     + registrar(user, accion)
+     + record(user, action)
    }
 
    User "1" --> "*" Role
@@ -457,11 +457,11 @@ Eliminar, Agregar imagen, Crear variante.
    class Product {
      - id : Integer
      - sku : String
-     - nombre : String
-     - precio : Decimal
+     - name : String
+     - price : Decimal
      - stock : Integer
-     - categoria : Category
-     + getDetalles() : ProductDetail
+     - category : Category
+     + getDetails() : ProductDetail
      + updateStock(qty)
      + addImage(url)
      + createVariant()
@@ -469,23 +469,23 @@ Eliminar, Agregar imagen, Crear variante.
 
    class Category {
      - id : Integer
-     - nombre : String
-     - productos : List<Product>
+     - name : String
+     - products : List<Product>
    }
 
    class ProductImage {
      - id : Integer
      - product_id : Integer
      - url : String
-     - orden : Integer
+     - position : Integer
    }
 
    class Stock {
      - id : Integer
      - product_id : Integer
-     - cantidad : Integer
+     - quantity : Integer
      - warehouse : String
-     + updateCantidad(qty)
+     + updateQuantity(qty)
    }
 
    Product "1" --> "*" ProductImage
@@ -615,45 +615,45 @@ Cada sustantivo es una clase candidata.
      - email : String
    }
 
-   class Cliente {
-     - nombre : String
-     - direccion : DireccionEnvio
-     + crearOrden(carrito) : Orden
+   class Client {
+     - name : String
+     - shipping_address : ShippingAddress
+     + createOrder(cart) : Order
    }
 
-   class Carrito {
+   class Cart {
      - items : List<CartItem>
      - total : Decimal
      + getTotal() : Decimal
    }
 
-   class Orden {
-     - numero : String
-     - cliente : Cliente
-     - items : List<OrdenItem>
-     - pago : Pago
+   class Order {
+     - number : String
+     - client : Client
+     - items : List<OrderItem>
+     - payment : Payment
      - status : String
-     + crear(cliente, carrito) : Orden
-     + calcularTotal() : Decimal
+     + create(client, cart) : Order
+     + calculateTotal() : Decimal
    }
 
-   class Pago {
-     - monto : Decimal
+   class Payment {
+     - amount : Decimal
      - status : String
      - stripe_id : String
-     + procesarPago(token) : Boolean
+     + processPayment(token) : Boolean
    }
 
-   class Cupon {
-     - codigo : String
-     - descuento : Decimal
-     + aplicar(orden) : void
+   class Coupon {
+     - code : String
+     - discount : Decimal
+     + apply(order) : void
    }
 
-   User <|-- Cliente
-   Orden "1" --> "1" Pago
-   Orden "1" --> "*" CartItem
-   Cupon "1" --> "1" Orden
+   User <|-- Client
+   Order "1" --> "1" Payment
+   Order "1" --> "*" CartItem
+   Coupon "1" --> "1" Order
    @enduml
 
 6.4 Paso 4 — especificar responsabilidades
@@ -681,27 +681,27 @@ Cada sustantivo es una clase candidata.
 
    @startuml
 
-   class Orden {
-     - numero_orden : String
+   class Order {
+     - order_number : String
      - status : OrderStatus
      - total : Decimal
    }
-   note right of Orden
-     {numero_orden: único, autoincremental}
+   note right of Order
+     {order_number: único, autoincremental}
      {status: PENDING|CONFIRMED|SHIPPED|DELIVERED|CANCELLED}
      {total: >= 0.00}
-     {cada OrdenItem.cantidad >= 1}
-     {total = SUM(OrdenItem.precio_unitario × cantidad) + tax}
+     {cada OrderItem.quantity >= 1}
+     {total = SUM(OrderItem.unit_price × quantity) + tax}
    end note
 
-   class Pago {
-     - monto : Decimal
+   class Payment {
+     - amount : Decimal
      - status : PaymentStatus
    }
-   note right of Pago
-     {monto: > 0}
+   note right of Payment
+     {amount: > 0}
      {status: PENDING|AUTHORIZED|CAPTURED|REFUNDED|FAILED}
-     {monto == Orden.total}
+     {amount == Order.total}
    end note
    @enduml
 
