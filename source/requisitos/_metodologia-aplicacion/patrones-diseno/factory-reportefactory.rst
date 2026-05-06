@@ -8,19 +8,19 @@ agregador, pero comparte la interfaz ``IReporte``.
 .. uml::
 
    @startuml
-   interface IReporte {
-     + generar() : Resultado
+   interface IReport {
+     + generate() : Result
    }
-   class ReporteVolumen
-   class ReporteAbandono
-   class ReporteSoDCompliance
-   class ReporteFactory {
-     + {static} crear(tipo : str, params) : IReporte
+   class VolumeReport
+   class AbandonmentReport
+   class SoDComplianceReport
+   class ReportFactory {
+     + {static} create(type : str, params) : IReport
    }
-   IReporte <|.. ReporteVolumen
-   IReporte <|.. ReporteAbandono
-   IReporte <|.. ReporteSoDCompliance
-   ReporteFactory ..> IReporte : crea
+   IReport <|.. VolumeReport
+   IReport <|.. AbandonmentReport
+   IReport <|.. SoDComplianceReport
+   ReportFactory ..> IReport : creates
    @enduml
 
 .. note::

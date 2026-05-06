@@ -5,27 +5,27 @@
 
    @startuml
 
-   class Usuario
-   class Sesion
-   class Grupo
-   class Funcion
-   class SegmentoDatos
-   class Reporte
-   class Alerta
+   class User
+   class Session
+   class Group
+   class Function
+   class DataSegment
+   class Report
+   class Alert
 
-   Usuario "1" -- "0..1" Sesion          : posee
-   Usuario "1" -- "1"   SegmentoDatos    : restringido_por
-   Usuario "*" -- "*"   Grupo            : asignado_a
-   Grupo   "*" -- "*"   Funcion          : contiene
-   Usuario "1" -- "0..*" Reporte         : consulta
-   Usuario "1" -- "0..*" Alerta          : suscrito_a
+   User "1" -- "0..1" Session            : owns
+   User "1" -- "1"   DataSegment         : restricted_by
+   User "*" -- "*"   Group               : assigned_to
+   Group   "*" -- "*"   Function         : contains
+   User "1" -- "0..*" Report             : queries
+   User "1" -- "0..*" Alert              : subscribed_to
 
-   note right of Usuario
-     - Usuario posee 0..1 Sesion          (CNST_002)
-     - Usuario tiene 1 segmento           (BR_012)
-     - Usuario en 0..* grupos             (UC_PERM_01)
-     - Grupo contiene 0..* funciones      (UC_PERM_06)
-     - Usuario consulta 0..* reportes     (UC_RPT)
-     - Usuario suscrito a 0..* alertas    (UC_ALR_05)
+   note right of User
+     - User posee 0..1 Session            (CNST_002)
+     - User tiene 1 segment               (BR_012)
+     - User en 0..* groups                (UC_PERM_01)
+     - Group contiene 0..* functions      (UC_PERM_06)
+     - User consulta 0..* reports         (UC_RPT)
+     - User suscrito a 0..* alerts        (UC_ALR_05)
    end note
    @enduml

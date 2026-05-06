@@ -5,25 +5,25 @@
 
    @startuml
 
-   class Reporte {
+   class Report {
      == interfaz pública ==
-     + generar(filtros : FiltroReporte) : Reporte
-     + exportar(formato : Enum) : Archivo
-     + getResultados() : List<Fila>
-     + getMetadatos() : Metadatos
+     + generate(filters : ReportFilter) : Report
+     + export(format : Enum) : File
+     + getResults() : List<Row>
+     + getMetadata() : Metadata
      == privado / oculto ==
-     - validarSegmentoUsuario()
-     - construirQuerySQL()
-     - aplicarFiltrosPorSegmento()
-     - cachearResultado()
-     - registrarConsulta()
-     - aplicarThrottling(formato)
+     - validateUserSegment()
+     - buildSQLQuery()
+     - applySegmentFilters()
+     - cacheResult()
+     - recordQuery()
+     - applyThrottling(format)
    }
-   note right of Reporte
+   note right of Report
      El cliente sólo ve:
-       generar(), exportar(),
-       getResultados(),
-       getMetadatos()
+       generate(), export(),
+       getResults(),
+       getMetadata()
      El sistema gestiona internamente:
        segmentación (CNST_008), SQL,
        cache, auditoría, throttling
