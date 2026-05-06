@@ -2,7 +2,7 @@
 created_at: 2026-05-06 08:25:00
 project: IACT-docs
 work_package: 2026-05-06-08-10-51-uc-rpt-sp-flujo-principal-rewrite
-phase: Phase 10 — EXECUTE (B-1 done)
+phase: Phase 10 — EXECUTE (B-1, B-2 done)
 author: NestorMonroy
 status: En progreso
 version: 0.1.0
@@ -54,9 +54,37 @@ version: 0.1.0
 - 0 referencias residuales a `AnalyticsRepo`, `KPICalculator`,
   `TrendBuilder`, `Analytics ` en uc-rpt-01/.
 
+## B-2 — UC_RPT_13 (sp_rpt_llamadas_abandonadas)
+
+### Changed
+
+- `flujo-principal.rst`: PASOs 7-8 reescritos a un solo
+  `ReportingService.callproc('sp_rpt_llamadas_abandonadas',
+  [period, segments])`. Renumerados 9..11 → 8..10. Nota
+  CNST-007.
+- `actores-precondiciones.rst`: AnalyticsRepo →
+  ReportingService (callproc); precondicion BD_IVR + SP;
+  postcondicion read-only.
+- `implementacion-tecnica.rst`: ReportingService agregado a
+  componentes; pseudocodigo usa callproc + parser
+  AbandonReportOutput.from_rows; restricciones cross-cutting.
+- `datos-involucrados.rst`: Base Analitica IVR → BD_IVR via
+  callproc al SP.
+- `excepciones.rst`, `criterios-aceptacion.rst`,
+  `testing.rst`: BD timeout → callproc BD_IVR timeout;
+  UT-01..03 testean parser de filas del SP, no calculos
+  derivados en backend.
+- `diagramas-uml/diagrama-de-caso-de-uso.rst`: actores
+  KpiCalculator/Bucket/BaseReportService removidos; reemplazados
+  por ReportingService (SP) → BD_IVR.
+
+### Verification
+
+- Strict build OK: `execute/build-logs/sphinx-strict-b2-uc-rpt-13-
+  2026-05-06T08-27-48.log` (EXIT=0).
+
 ## Pendiente
 
-- B-2 UC_RPT_13 (sp_rpt_llamadas_abandonadas)
 - B-3 UC_RPT_15 (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
 - B-4 UC_RPT_16 (sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR)
 - B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion)

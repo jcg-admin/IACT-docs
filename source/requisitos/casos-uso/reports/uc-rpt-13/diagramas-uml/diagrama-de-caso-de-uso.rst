@@ -9,35 +9,26 @@
  left to right direction
 
  actor "view_reports" as INVOKER
- actor "BaseReportService" as SVC <<sistema>>
- actor "Bucket" as BK <<sistema>>
- actor "KpiCalculator" as KPI <<sistema>>
+ actor "ReportingService\n(sp_rpt_llamadas_abandonadas)" as SP <<sistema>>
+ database "BD_IVR" as BDIVR
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_13\nReporte de Colas" as UC_RPT_13
    usecase "UC_INC_RPT_01\nResolver Segmento\n(included)" as UC_INC_RPT_01
-   usecase "Calcular Calls\noffered / answered / abandoned" as METRIC_VOL
-   usecase "Calcular ASA\n(Average Speed of Answer)" as METRIC_ASA
-   usecase "Calcular SL %\n(within threshold)" as METRIC_SL
-   usecase "Calcular Abandon rate\n+ Max wait + Queue depth peak" as METRIC_QUEUE
  }
 
  INVOKER --> UC_RPT_13
  UC_RPT_13 ..> UC_INC_RPT_01 : <<include>>
- UC_RPT_13 ..> METRIC_VOL : <<include>>
- UC_RPT_13 ..> METRIC_ASA : <<include>>
- UC_RPT_13 ..> METRIC_SL : <<include>>
- UC_RPT_13 ..> METRIC_QUEUE : <<include>>
-
- METRIC_VOL --> SVC
- METRIC_ASA --> KPI
- METRIC_SL --> KPI
- METRIC_QUEUE --> BK
+ UC_RPT_13 --> SP : callproc(period, segments)
+ SP --> BDIVR : CALL sp_rpt_llamadas_abandonadas
 
  note bottom of UC_RPT_13
    BReq-001 + BReq-006. Detectar
    colas saturadas o con SL bajo.
-   CNST-007 read-only Analytics.
+   CNST-007 read-only BD_IVR via SP.
+   El SP entrega offered/answered/
+   abandoned/asa/SL/abandon rate ya
+   pre-calculados.
  end note
 
  @enduml

@@ -13,7 +13,7 @@ CA-06: Detalle con trends por hora.
 CA-07: Cross-segmento → 403.
 CA-08: Sin colas → items=[].
 CA-09: Periodo invalido → 400.
-CA-10: BD timeout → 503.
+CA-10: callproc BD_IVR timeout → 503.
 CA-11: Sort por SL.
 CA-12: Sin permiso → 403.
 

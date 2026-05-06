@@ -4,10 +4,12 @@
 Parte 12 — Testing
 ==================
 
-UT-01: ASA derivada.
-UT-02: SL %.
-UT-03: Abandon rate.
-UT-04: Summary del segmento.
+UT-01: parser mapea ``rows.asa``
+(entregado por el SP) sin re-calculo.
+UT-02: parser mapea ``rows.service_level``.
+UT-03: parser mapea ``rows.abandon_rate``.
+UT-04: Summary del segmento construido
+desde las filas del SP.
 
 IT-01: List basico.
 IT-02: Filtro multi-cola.
@@ -15,7 +17,7 @@ IT-03: Detalle con trends.
 IT-04: Cross-segmento → 403.
 IT-05: Cache hit.
 IT-06: Sort por SL.
-IT-07: BD timeout.
+IT-07: callproc BD_IVR timeout → 503.
 
 E2E-01: Supervisor ve colas, drill, ve
 trends.

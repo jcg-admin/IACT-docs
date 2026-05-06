@@ -8,17 +8,23 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion** ``view_reports``
-- **AnalyticsRepo**
+- **ReportingService** —
+  ``cursor.callproc('sp_rpt_llamadas_
+  abandonadas', [period, segments])``
+  sobre BD_IVR.
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC + segmento.
+Auth + RBAC + segmento. BD_IVR accesible
+y SP ``sp_rpt_llamadas_abandonadas``
+instalado.
 
 2.3 Postcondiciones
 ===================
 
-Sin escrituras.
+Sin escrituras (read-only sobre BD_IVR
+y BD operativa, CNST-007).
 
 2.4 Datos de entrada
 ====================
