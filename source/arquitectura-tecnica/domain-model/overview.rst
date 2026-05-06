@@ -38,8 +38,10 @@ MODELO DOMINIO IACT
  **Modelo conceptual canonico del dominio IACT**, complementario a
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
- filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 74
- funciones RBAC v5.6.0 activas, BR/CNST en sus versiones vigentes).
+ filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 64
+ funciones RBAC v5.6.0 activas (77 declaradas, 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision), BR/CNST en
+ sus versiones vigentes).
 
  **Convencion de nombres**: identificadores (clases, atributos,
  operaciones, valores de enum) en **ingles** por consistencia con el

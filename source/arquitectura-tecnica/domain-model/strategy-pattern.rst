@@ -17,6 +17,16 @@
 Patron Strategy — Catalogo
 ============================
 
+.. note:: Scope (v5.6.0)
+
+ Las strategies ``DispatchModeStrategy`` (UC_OPR_03),
+ ``HoldMessageStrategy`` (UC_OPR_04) y ``DispositionPromptStrategy``
+ (UC_OPR_06) corresponden a UCs de **MOD_Operator** que es modulo
+ reservado open-closed (out-of-scope para esta release). Se
+ documentan en este catalogo como puntos de extension para activacion
+ futura, NO como strategies implementables en v5.6.0. Ver
+ :doc:`/requisitos/casos-uso/operator/index`.
+
 El patron **Strategy** encapsula algoritmos intercambiables detras de
 una interfaz comun. En IACT se usa para variar comportamiento sin
 cambiar el cliente: politicas de notificacion, calculos de KPI,
