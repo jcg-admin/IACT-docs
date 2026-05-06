@@ -8,19 +8,19 @@
 
  left to right direction
 
- actor "view_reports" as INVOKER
- actor "ReportingService\n(sp_rpt_centros_transferencia\n+ sp_rpt_centros_xsegmento)" as SP <<sistema>>
- database "BD_IVR" as BDIVR
+ actor "view_reports" as view_reports
+ actor "ReportingService\n(sp_rpt_centros_transferencia\n+ sp_rpt_centros_xsegmento)" as ReportingService <<sistema>>
+ database "BD_IVR" as BdIvrLegacy
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_15\nReporte de Transferencias" as UC_RPT_15
    usecase "UC_INC_RPT_01\nResolver Segmento\n(included)" as UC_INC_RPT_01
  }
 
- INVOKER --> UC_RPT_15
+ view_reports --> UC_RPT_15
  UC_RPT_15 ..> UC_INC_RPT_01 : <<include>>
- UC_RPT_15 --> SP : callproc x2 (centros + xsegmento)
- SP --> BDIVR : CALL sp_rpt_centros_transferencia\nCALL sp_rpt_centros_xsegmento
+ UC_RPT_15 --> ReportingService : callproc x2 (centros + xsegmento)
+ ReportingService --> BdIvrLegacy : CALL sp_rpt_centros_transferencia\nCALL sp_rpt_centros_xsegmento
 
  note bottom of UC_RPT_15
    BReq-001 + BReq-002. Identificar

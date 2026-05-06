@@ -12,7 +12,7 @@
  participant "SegmentResolver" as Segmentresolver
  participant "MetricsCache" as Metricscache
  participant "ReportingService\n(sp_rpt_*)" as Servicioreportes
- database "BD_IVR" as Bdivr
+ database "BD_IVR" as BdIvrLegacy
 
  User -> Frontend: abrir dashboard
  Frontend -> Dashboardendpoint: GET /api/dashboard/
@@ -22,8 +22,8 @@
  Dashboardendpoint -> Metricscache: get(key)
  Metricscache --> Dashboardendpoint: miss
  Dashboardendpoint -> Servicioreportes: cursor.callproc(sp_rpt_centros_xsegmento, [period, segments])
- Servicioreportes -> Bdivr: CALL sp_rpt_centros_xsegmento
- Bdivr --> Servicioreportes: filas pre-agregadas
+ Servicioreportes -> BdIvrLegacy: CALL sp_rpt_centros_xsegmento
+ BdIvrLegacy --> Servicioreportes: filas pre-agregadas
  Servicioreportes --> Dashboardendpoint: rows (kpis + trend ya calculados)
  Dashboardendpoint -> Metricscache: set(key, response, ttl=30)
  Dashboardendpoint --> Frontend: 200 + dashboard
