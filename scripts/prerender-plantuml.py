@@ -94,8 +94,22 @@ def render_to_svg(uml_block: str, svg_path: Path) -> Tuple[bool, str]:
     """
     svg_path.parent.mkdir(parents=True, exist_ok=True)
     # Write the block to a temp .puml in the cache dir to leverage local paths.
+    # Strip "@startuml NAME" → "@startuml" so PlantUML writes the SVG to
+    # {hash}.svg (stem of the .puml file) instead of NAME.svg. The hash is
+    # computed from the original block, so runtime cache lookup still
+    # matches. Without this strip, named diagrams produce SVGs at the wrong
+    # path and the script reports "no output" while NAME.svg leaks into
+    # the cache dir overwriting unrelated legacy files.
+    normalized = normalize_block(uml_block)
+    normalized = re.sub(
+        r"^([ \t]*)@startuml\b[^\n]*",
+        r"\1@startuml",
+        normalized,
+        count=1,
+        flags=re.MULTILINE,
+    )
     puml_path = svg_path.with_suffix(".puml")
-    puml_path.write_text(normalize_block(uml_block), encoding="utf-8")
+    puml_path.write_text(normalized, encoding="utf-8")
     try:
         # Note: do NOT use -cfgfile with plantuml-styles.puml. That file is
         # designed to be `!include`d from inside @startuml blocks, not used
