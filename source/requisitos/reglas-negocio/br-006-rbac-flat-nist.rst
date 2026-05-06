@@ -132,7 +132,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  * - Componente
    - Descripcion de Aplicacion
  * - MOD_Access
-   - Implementa modelo RBAC con 74 funciones atomicas
+   - Implementa modelo RBAC con 64 funciones atomicas activas (v5.6.0; catalogo declara 77, 13 reservadas open-closed)
  * - Middleware de API
    - Valida permisos por funcion, no por rol
  * - Base Analytics
@@ -165,7 +165,8 @@ Sin excepciones. El modelo Flat es absoluto.
  * - CNST-005
    - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
  * - :ref:`cnst-029`
-   - Modelo RBAC Flat consolidado: 74 funciones, 12 grupos, 3 reglas SoD,
+   - Modelo RBAC Flat consolidado: 64 funciones activas (catalogo v5.6.0
+     declara 77 con 13 reservadas open-closed), 12 grupos, 3 reglas SoD,
      permisos temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
@@ -210,7 +211,7 @@ Sin excepciones. El modelo Flat es absoluto.
 
 1. No existe tabla de herencia de roles
 2. Permisos se resuelven por union de funciones asignadas
-3. 74 funciones atomicas definidas en catalogo
+3. 64 funciones atomicas activas definidas en catalogo (77 declaradas, 13 reservadas open-closed)
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: rbac/modelo-rbac-iact
  :estado: Vigente
- :version: 5.5.0
+ :version: 5.6.0
  :fecha_creacion: 2026-01-13
- :ultimo_cambio: 2026-05-02
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -17,11 +17,21 @@ Modelo RBAC IACT
 ================
 
 Modelo conceptual canonico del control de acceso basado en funciones
-atomicas (RBAC) del sistema IACT — version 5.5.0.
+atomicas (RBAC) del sistema IACT — version 5.6.0.
 
-**Version:** 5.5.0 — Nuevos modulos MOD_Operator (10 funciones) y
-MOD_Supervision (3 funciones) derivados del analisis de UCs
-UC_OPR_01..10 y UC_SUP_01..03 → total 74 funciones.
+**Version:** 5.6.0 — Nuevo modulo **MOD_Admin** (3 funciones) que
+formaliza el plano de configuracion del modelo RBAC. Catalogo declara
+77 funciones distribuidas en:
+
+- **In-scope / activo (9 modulos · 64 funciones):** MOD_Auth (4),
+  MOD_Users (9), MOD_Access (12), MOD_Pipeline (4), MOD_Reports (11),
+  MOD_Alerts (10), MOD_Audit (4), MOD_Logs (7), **MOD_Admin (3)**.
+- **Reservado / open-closed (2 modulos · 13 funciones):**
+  MOD_Operator (10) y MOD_Supervision (3) — declarados en el catalogo
+  como extension points; out-of-scope para esta release. Se
+  mencionan para preservar el principio open/closed: el catalogo
+  esta cerrado para modificacion del set activo, abierto para
+  extension a estos dos modulos cuando se decida activarlos.
 
 Las reglas operativas formales viven en:
 

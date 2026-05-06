@@ -4,8 +4,12 @@
 Modelo RBAC IACT — Catalogo de Funciones
 ==========================================
 
-3. CATÁLOGO DE 73 FUNCIONES
-===========================
+3. CATÁLOGO DE 77 FUNCIONES (v5.6.0)
+====================================
+
+**64 activas in-scope** (módulos 3.1–3.8 + 3.11) + **13 reservadas
+open-closed** (módulos 3.9–3.10 — MOD_Operator y MOD_Supervision,
+declarados en el catálogo pero out-of-scope para esta release).
 
 
 

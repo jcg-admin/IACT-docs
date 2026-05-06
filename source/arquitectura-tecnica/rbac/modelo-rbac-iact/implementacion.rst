@@ -95,8 +95,8 @@ Modelo RBAC IACT — Implementacion
 **CAMBIO v5.2.1:** ``rule_group`` (NO ``separation_group``, más conciso)
 
 
-8.8 Datos Iniciales - 74 Funciones (v5.5.0)
--------------------------------------------
+8.8 Datos Iniciales - 64 Funciones Activas (v5.6.0)
+---------------------------------------------------
 
 
 
@@ -187,11 +187,11 @@ Modelo RBAC IACT — Implementacion
 
 .. code-block:: bash
 
- # Inicializar RBAC v5.2.1
+ # Inicializar RBAC v5.6.0
  python manage.py initialize_permissions
- 
+
  # O paso a paso:
- python manage.py initialize_functions # 74 funciones
+ python manage.py initialize_functions # 64 funciones activas (in-scope)
  python manage.py initialize_function_groups # 12 grupos
  python manage.py initialize_separation_rules # 3 reglas SoD
 
