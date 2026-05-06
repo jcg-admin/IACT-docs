@@ -123,194 +123,194 @@ entrenador de baloncesto).
 
    @startuml
 
-   class Usuario {
+   class User {
      - id : Integer
      - email : String
      - password_hash : String
-     - nombre : String
+     - name : String
      - is_active : Boolean
-     - ordenes : List<Orden>
-     + registrarse(email, password)
+     - orders : List<Order>
+     + register(email, password)
      + login(email, password)
      + logout()
      + changePassword(old, new)
-     + verHistorialOrdenes()
-     + crearOrden()
+     + viewOrderHistory()
+     + createOrder()
    }
 
-   class Catalogo {
+   class Catalog {
      - id : Integer
-     - nombre : String
-     - productos : List<Producto>
-     - categorias : List<Categoria>
-     + verProductos()
-     + buscarProducto(termino)
-     + filtrarPorCategoria(categoria)
-     + filtrarPorPrecio(min, max)
-     + ordenarResultados(campo)
+     - name : String
+     - products : List<Product>
+     - categories : List<Category>
+     + viewProducts()
+     + searchProduct(term)
+     + filterByCategory(category)
+     + filterByPrice(min, max)
+     + sortResults(field)
    }
 
-   class Producto {
+   class Product {
      - id : Integer
      - sku : String
-     - nombre : String
-     - descripcion : String
-     - precio : Decimal
+     - name : String
+     - description : String
+     - price : Decimal
      - stock : Integer
-     - categoria : Categoria
-     - resenas : List<Resena>
-     + getDetalles()
-     + updateStock(cantidad)
-     + agregarResena(text, rating)
+     - category : Category
+     - reviews : List<Review>
+     + getDetails()
+     + updateStock(quantity)
+     + addReview(text, rating)
    }
 
-   class Categoria {
+   class Category {
      - id : Integer
-     - nombre : String
+     - name : String
      - slug : String
-     - productos : List<Producto>
+     - products : List<Product>
    }
 
-   class Carrito {
+   class Cart {
      - id : Integer
-     - owner : Usuario
+     - owner : User
      - items : List<CartItem>
      - created_at : DateTime
-     + agregarItem(producto, cantidad)
-     + removerItem(producto)
-     + cambiarCantidad(producto, nuevaCant)
-     + calcularTotal()
-     + vaciarCarrito()
+     + addItem(product, quantity)
+     + removeItem(product)
+     + changeQuantity(product, new_quantity)
+     + calculateTotal()
+     + emptyCart()
    }
 
    class CartItem {
      - id : Integer
-     - producto : Producto
-     - cantidad : Integer
-     - precio_unitario : Decimal
-     + calcularSubtotal()
+     - product : Product
+     - quantity : Integer
+     - unit_price : Decimal
+     + calculateSubtotal()
    }
 
-   class Orden {
+   class Order {
      - id : Integer
-     - numero_orden : String
-     - cliente : Usuario
+     - order_number : String
+     - client : User
      - status : String
      - subtotal : Decimal
-     - impuesto : Decimal
+     - tax : Decimal
      - total : Decimal
-     - items : List<OrdenItem>
-     - pago : Pago
-     - direccion : DireccionEnvio
+     - items : List<OrderItem>
+     - payment : Payment
+     - shipping_address : ShippingAddress
      - created_at : DateTime
-     + crearDesdeCarrito(carrito)
-     + calcularTotal()
+     + createFromCart(cart)
+     + calculateTotal()
      + updateStatus(newStatus)
-     + solicitarDevolucion()
-     + descargarFactura()
+     + requestRefund()
+     + downloadInvoice()
    }
 
-   class OrdenItem {
+   class OrderItem {
      - id : Integer
-     - producto : Producto
-     - cantidad : Integer
-     - precio_unitario : Decimal
+     - product : Product
+     - quantity : Integer
+     - unit_price : Decimal
    }
 
-   class Pago {
+   class Payment {
      - id : Integer
-     - orden : Orden
-     - monto : Decimal
+     - order : Order
+     - amount : Decimal
      - status : String
      - stripe_charge_id : String
      - processed_at : DateTime
-     + procesarPago(token)
-     + reembolsar()
+     + processPayment(token)
+     + refund()
    }
 
-   class Cupon {
+   class Coupon {
      - id : Integer
-     - codigo : String
-     - descuento_percent : Decimal
-     - fecha_vencimiento : DateTime
-     - usos_limite : Integer
-     - usos_actual : Integer
-     + aplicarA(orden)
-     + validar()
-     + incrementarUsos()
+     - code : String
+     - discount_percent : Decimal
+     - expiration_date : DateTime
+     - max_uses : Integer
+     - current_uses : Integer
+     + applyTo(order)
+     + validate()
+     + incrementUses()
    }
 
-   class DireccionEnvio {
+   class ShippingAddress {
      - id : Integer
-     - usuario : Usuario
-     - calle : String
-     - ciudad : String
-     - estado : String
-     - codigoPostal : String
-     - pais : String
-     + validar()
-     + verificarCobertura()
+     - user : User
+     - street : String
+     - city : String
+     - state : String
+     - postal_code : String
+     - country : String
+     + validate()
+     + verifyCoverage()
    }
 
    class Email {
      - id : Integer
-     - destinatario : String
-     - asunto : String
-     - cuerpo : String
-     - plantilla : String
-     - enviado_at : DateTime
-     + generar(template, datos)
-     + enviar()
-     + registrarEnvio()
+     - recipient : String
+     - subject : String
+     - body : String
+     - template : String
+     - sent_at : DateTime
+     + generate(template, data)
+     + send()
+     + recordSent()
    }
 
-   class Resena {
+   class Review {
      - id : Integer
-     - autor : Usuario
-     - producto : Producto
+     - author : User
+     - product : Product
      - rating : Integer
-     - texto : String
-     - aprobada : Boolean
-     + crearResena()
-     + aceptarResena()
-     + rechazarResena()
+     - text : String
+     - approved : Boolean
+     + createReview()
+     + acceptReview()
+     + rejectReview()
    }
 
-   class Administrador {
+   class Administrator {
      - id : Integer
-     - nombre_admin : String
-     - roles : List<Rol>
-     + crearProducto()
-     + editarProducto(id)
-     + eliminarProducto(id)
-     + verReportes()
-     + gestionarUsuarios()
+     - admin_name : String
+     - roles : List<Role>
+     + createProduct()
+     + editProduct(id)
+     + deleteProduct(id)
+     + viewReports()
+     + manageUsers()
    }
 
-   class Reporte {
+   class Report {
      - id : Integer
-     - tipo : String
-     - nombre : String
-     - generado_at : DateTime
-     + generar()
-     + exportarCSV()
-     + exportarPDF()
+     - type : String
+     - name : String
+     - generated_at : DateTime
+     + generate()
+     + exportCSV()
+     + exportPDF()
    }
 
-   Usuario "1" --> "*" Orden
-   Usuario "1" --> "1" Carrito
-   Carrito "1" --> "*" CartItem
-   CartItem "1" --> "1" Producto
-   Orden "1" --> "*" OrdenItem
-   OrdenItem "1" --> "1" Producto
-   Orden "1" --> "1" Pago
-   Orden "1" --> "1" DireccionEnvio
-   Producto "1" --> "1" Categoria
-   Producto "*" --> "*" Resena
-   Cupon "1" --> "*" Orden
-   Catalogo "1" --> "*" Producto
-   Catalogo "1" --> "*" Categoria
-   Usuario <|-- Administrador
+   User "1" --> "*" Order
+   User "1" --> "1" Cart
+   Cart "1" --> "*" CartItem
+   CartItem "1" --> "1" Product
+   Order "1" --> "*" OrderItem
+   OrderItem "1" --> "1" Product
+   Order "1" --> "1" Payment
+   Order "1" --> "1" ShippingAddress
+   Product "1" --> "1" Category
+   Product "*" --> "*" Review
+   Coupon "1" --> "*" Order
+   Catalog "1" --> "*" Product
+   Catalog "1" --> "*" Category
+   User <|-- Administrator
    @enduml
 
 ----

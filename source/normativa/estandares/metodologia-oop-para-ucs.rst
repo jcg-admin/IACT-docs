@@ -140,43 +140,43 @@ subclases heredan características de superclases.
      + changePassword(old, new)
    }
 
-   class ClienteUser {
-     - nombre : String
-     - telefono : String
-     - ordenes : List<Order>
-     + crearOrden()
-     + verHistorial()
-     + dejarReseña()
+   class ClientUser {
+     - name : String
+     - phone : String
+     - orders : List<Order>
+     + createOrder()
+     + viewHistory()
+     + leaveReview()
    }
 
    class AdminUser {
-     - nombre_admin : String
+     - admin_name : String
      - roles : List<Role>
-     - permisos : List<Permission>
-     + crearProducto()
-     + editarProducto()
-     + verReportes()
+     - permissions : List<Permission>
+     + createProduct()
+     + editProduct()
+     + viewReports()
    }
 
-   class ModeradorUser {
-     - departamento : String
-     + aceptarReseña()
-     + rechazarReseña()
-     + responderReseña()
+   class ModeratorUser {
+     - department : String
+     + acceptReview()
+     + rejectReview()
+     + replyToReview()
    }
 
-   User <|-- ClienteUser
+   User <|-- ClientUser
    User <|-- AdminUser
-   User <|-- ModeradorUser
+   User <|-- ModeratorUser
    @enduml
 
 **Aplicación en UC_ACC:**
 
 ::
 
- UC_ACC_01 (Registrarse)         → Crea instancia de ClienteUser
- UC_ACC_07 (Asignar Funciones)   → Convierte ClienteUser en AdminUser
- UC_ACC_08 (Revocar Funciones)   → Revierte a ClienteUser
+ UC_ACC_01 (Registrarse)         → Crea instancia de ClientUser
+ UC_ACC_07 (Asignar Funciones)   → Convierte ClientUser en AdminUser
+ UC_ACC_08 (Revocar Funciones)   → Revierte a ClientUser
 
 2.3 Polimorfismo en acciones
 ----------------------------
@@ -191,29 +191,29 @@ diferente** según el objeto.
    @startuml
 
    class Product {
-     - precio_base : Decimal
-     + getPrecio() : Decimal
+     - base_price : Decimal
+     + getPrice() : Decimal
    }
-   class ProductoConDescuento {
-     - descuento_percent : Decimal
-     + getPrecio() : Decimal
+   class DiscountedProduct {
+     - discount_percent : Decimal
+     + getPrice() : Decimal
    }
-   class ProductoVIP {
+   class VipProduct {
      - is_vip : Boolean
-     - descuento_vip : Decimal
-     + getPrecio() : Decimal
+     - vip_discount : Decimal
+     + getPrice() : Decimal
    }
-   Product <|-- ProductoConDescuento
-   Product <|-- ProductoVIP
+   Product <|-- DiscountedProduct
+   Product <|-- VipProduct
    @enduml
 
 Mismo método, comportamiento diferente:
 
 ::
 
- Product.getPrecio()              → return $100
- ProductoConDescuento.getPrecio() → return $100 * (1 - 0.20) = $80
- ProductoVIP.getPrecio()          → return $100 * (1 - desc_vip)  = $75
+ Product.getPrice()              → return $100
+ DiscountedProduct.getPrice()    → return $100 * (1 - 0.20) = $80
+ VipProduct.getPrice()           → return $100 * (1 - vip_discount) = $75
 
 **Aplicación en UCs:**
 
