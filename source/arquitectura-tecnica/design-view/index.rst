@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
  :estado: Vigente
- :version: 3.0.0
+ :version: 3.1.0
  :fecha_creacion: 2026-05-03
  :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
@@ -17,13 +17,21 @@ Design View — Vista de Diseno
 =====================================
 
 **Vista Logica (Kruchten 4+1) / Functional + Information
-(Rozanski)** del sistema IACT. Materializa los UCs ya
-documentados en una representacion de diseno: paquetes
+(Rozanski)** del sistema IACT. Materializa los UCs en scope
+de implementacion en una representacion de diseno: paquetes
 (modulos), interacciones (secuencias), flujos cross-modulo
 (actividades) y ciclos de vida (estados).
 
 NO duplica las definiciones del domain-model — los class
 diagrams referencian las clases canonicas via ``:doc:``.
+
+.. note::
+
+ **Scope de implementacion:** los modulos MOD_Operator,
+ MOD_Supervision y MOD_Caller estan documentados en
+ ``use-case-view/`` como vista de requisitos pero **NO entran
+ en este DesignView**. Su construccion queda diferida a WP
+ futuros si/cuando se decida implementarlos.
 
 Tipos de diagramas
 ==================
@@ -77,9 +85,6 @@ Class diagrams (estructura por modulo)
  class-permissions
  class-admin
  class-audit
- class-caller
- class-operator
- class-supervision
  class-pipeline
  class-reports
  class-alerts
@@ -100,9 +105,6 @@ Sequence diagrams (patrones de interaccion)
  seq-permissions
  seq-admin
  seq-audit
- seq-caller
- seq-operator
- seq-supervision
  seq-pipeline
  seq-reports
  seq-alerts
@@ -133,7 +135,6 @@ State diagrams (ciclos de vida)
  :maxdepth: 1
  :caption: Ciclos de vida de entidades
 
- state-call
  state-session
  state-assignment
  state-pipeline-execution
@@ -147,6 +148,6 @@ State diagrams (ciclos de vida)
  - :doc:`/arquitectura-tecnica/domain-model/index` — vocabulario
    canonico de las 85 clases del sistema.
  - :doc:`/arquitectura-tecnica/use-case-view/index` — UCs por
-   modulo que motivan esta vista.
+   modulo (incluyendo los out-of-scope para implementacion).
  - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`
    — guia interna de seleccion de tipo de diagrama UML.
