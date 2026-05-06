@@ -2,7 +2,7 @@
 created_at: 2026-05-06 08:25:00
 project: IACT-docs
 work_package: 2026-05-06-08-10-51-uc-rpt-sp-flujo-principal-rewrite
-phase: Phase 10 — EXECUTE (B-1, B-2 done)
+phase: Phase 10 — EXECUTE (B-1..B-3 done)
 author: NestorMonroy
 status: En progreso
 version: 0.1.0
@@ -83,9 +83,37 @@ version: 0.1.0
 - Strict build OK: `execute/build-logs/sphinx-strict-b2-uc-rpt-13-
   2026-05-06T08-27-48.log` (EXIT=0).
 
+## B-3 — UC_RPT_15 (DOBLE: sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
+
+### Changed
+
+- `flujo-principal.rst`: PASO 7 dividido en PASO 7a + 7b
+  (un callproc por SP); PASO 8 = combinar result sets sin
+  recalculo; nota CNST-007 + DOBLE SP.
+- `actores-precondiciones.rst`: AnalyticsRepo →
+  ReportingService con dos callprocs.
+- `implementacion-tecnica.rst`: ReportingService como
+  componente principal con DOBLE SP; pseudocodigo invoca
+  los dos SPs y compone TransferReportOutput.from_rows;
+  restricciones cross-cutting.
+- `datos-involucrados.rst`: Base Analitica IVR → BD_IVR
+  via DOS SPs.
+- `excepciones.rst`, `criterios-aceptacion.rst`,
+  `testing.rst`: BD timeout → callproc BD_IVR timeout
+  (cualquiera de los 2 SPs); UT-01..03 testean parsers
+  contra filas de cada SP.
+- `diagramas-uml/diagrama-de-caso-de-uso.rst`: actores
+  TransferReportService/Call/TimingCalculator removidos;
+  reemplazados por ReportingService (2 SPs) → BD_IVR.
+
+### Verification
+
+- Strict build OK: `execute/build-logs/sphinx-strict-b3-uc-rpt-15-
+  2026-05-06T08-31-22.log` (EXIT=0).
+
 ## Pendiente
 
-- B-3 UC_RPT_15 (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
+- B-4 UC_RPT_16 (TRIPLE SP) (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
 - B-4 UC_RPT_16 (sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR)
 - B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion)
 - Cierre WP en Phase 11.

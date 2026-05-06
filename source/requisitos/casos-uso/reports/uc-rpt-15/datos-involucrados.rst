@@ -7,14 +7,14 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **Base Analitica IVR** — datos de llamadas por centro de
-  transferencia y segmento, generados por el ETL y consultados
-  via Servicio de Reportes.
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_detalle`` poblado por el ETL. Se accede via
+  ``cursor.callproc(...)`` a DOS SPs (uno por dimension).
 
-7.2 Datos retornados por el Servicio de Reportes
-=================================================
+7.2 Datos retornados por los SPs
+================================
 
-El Servicio de Reportes provee dos dimensiones de analisis:
+UC_RPT_15 invoca dos SPs y combina sus result sets:
 
 **Por centro de transferencia** (``sp_rpt_centros_transferencia``):
 
