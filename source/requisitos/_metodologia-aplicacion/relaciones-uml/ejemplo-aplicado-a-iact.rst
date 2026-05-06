@@ -4,16 +4,16 @@ Ejemplo aplicado a IACT
 .. uml::
 
    @startuml
-   abstract class Reporte {
-     + generar()
-     + exportar(formato)
+   abstract class Report {
+     + generate()
+     + export(format)
    }
-   class ReporteVolumen
-   class ReporteAbandono
-   class ReporteSoDCompliance
-   Reporte <|-- ReporteVolumen
-   Reporte <|-- ReporteAbandono
-   Reporte <|-- ReporteSoDCompliance
+   class VolumeReport
+   class AbandonmentReport
+   class SoDComplianceReport
+   Report <|-- VolumeReport
+   Report <|-- AbandonmentReport
+   Report <|-- SoDComplianceReport
    @enduml
 
 Cada subclase **mantiene** ``generar()`` y ``exportar()``

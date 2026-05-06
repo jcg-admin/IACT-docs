@@ -5,7 +5,7 @@
 
    @startuml
 
-   class Usuario {
+   class User {
      - id : Integer
      - email : String
      - password_hash : String
@@ -13,40 +13,40 @@
      + logout()
    }
 
-   class Operador {
-     + verDashboard()
-     + verAlertasActivas()
+   class Operator {
+     + viewDashboard()
+     + viewActiveAlerts()
    }
 
    class Supervisor {
-     - centros : List<Integer>
-     + verReportesHistoricos()
-     + reconocerAlerta()
+     - centers : List<Integer>
+     + viewHistoricalReports()
+     + acknowledgeAlert()
    }
 
-   class AdminAcceso {
-     + asignarFunciones()
-     + revocarFunciones()
+   class AccessAdmin {
+     + assignFunctions()
+     + revokeFunctions()
    }
 
-   class AdminPipeline {
-     + supervisarETL()
-     + solicitarReintento()
+   class PipelineAdmin {
+     + superviseETL()
+     + requestRetry()
    }
 
    class Auditor {
-     + consultarAuditoria()
-     + generarReporteCompliance()
+     + queryAudit()
+     + generateComplianceReport()
    }
 
-   Usuario <|-- Operador
-   Usuario <|-- Supervisor
-   Usuario <|-- AdminAcceso
-   Usuario <|-- AdminPipeline
-   Usuario <|-- Auditor
-   note right of Usuario
+   User <|-- Operator
+   User <|-- Supervisor
+   User <|-- AccessAdmin
+   User <|-- PipelineAdmin
+   User <|-- Auditor
+   note right of User
      Cada rol "es un tipo de"
-     Usuario. Todos heredan
+     User. Todos heredan
      login(), logout().
    end note
    @enduml

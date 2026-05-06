@@ -5,33 +5,33 @@
 
    @startuml
 
-   class Usuario
-   class Sesion
-   class SegmentoDatos
-   class Grupo
-   class Funcion
-   class Llamada
-   class Reporte
-   class EjecucionETL
-   class ErrorETL
-   class Alerta
-   class Suscripcion
+   class User
+   class Session
+   class DataSegment
+   class Group
+   class Function
+   class Call
+   class Report
+   class ETLExecution
+   class ETLError
+   class Alert
+   class Subscription
 
-   Usuario "1" -- "0..1" Sesion           : posee
-   Usuario "1" -- "1"   SegmentoDatos     : restringido
-   Usuario "*" -- "*"   Grupo             : asignado
-   Grupo   "*" -- "*"   Funcion           : contiene
-   Reporte "1" -- "0..*" Llamada          : agrega
-   EjecucionETL "1" -- "0..*" ErrorETL    : compose
-   EjecucionETL "1" -- "1..*" Llamada     : carga
-   Alerta "1" -- "0..*" Suscripcion       : tiene
-   Suscripcion "0..*" -- "1" Usuario      : pertenece
+   User "1" -- "0..1" Session             : owns
+   User "1" -- "1"   DataSegment          : restricted
+   User "*" -- "*"   Group                : assigned
+   Group   "*" -- "*"   Function          : contains
+   Report "1" -- "0..*" Call              : aggregates
+   ETLExecution "1" -- "0..*" ETLError    : compose
+   ETLExecution "1" -- "1..*" Call        : loads
+   Alert "1" -- "0..*" Subscription       : has
+   Subscription "0..*" -- "1" User        : belongs
 
-   note right of Usuario
-     - Usuario:Sesion = 1:0..1 (CNST_002 sesión única)
-     - Usuario:SegmentoDatos = 1:1 (BR_012)
-     - Reporte:Llamada = 1:0..* (filtro CNST_008)
-     - EjecucionETL:Llamada = 1:1..*
-     - Alerta:Suscriptor = 1:0..*
+   note right of User
+     - User:Session = 1:0..1 (CNST_002 sesión única)
+     - User:DataSegment = 1:1 (BR_012)
+     - Report:Call = 1:0..* (filtro CNST_008)
+     - ETLExecution:Call = 1:1..*
+     - Alert:Subscriber = 1:0..*
    end note
    @enduml

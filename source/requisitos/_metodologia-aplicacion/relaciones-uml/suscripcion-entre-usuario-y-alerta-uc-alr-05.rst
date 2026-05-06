@@ -5,21 +5,21 @@
 
    @startuml
 
-   class Usuario
-   class Alerta
+   class User
+   class Alert
 
-   class Suscripcion {
-     - fecha_inscripcion : DateTime
-     - canal : Enum
-     - severidad_minima : Enum
-     - silenciada_hasta : DateTime
-     + actualizar(canal, severidad)
-     + silenciar(hasta)
+   class Subscription {
+     - enrollment_date : DateTime
+     - channel : Enum
+     - min_severity : Enum
+     - silenced_until : DateTime
+     + update(channel, severity)
+     + silence(until)
    }
 
-   Usuario "0..*" -- "0..*" Alerta : suscrito_a
-   (Usuario, Alerta) .. Suscripcion
-   note right of Suscripcion
+   User "0..*" -- "0..*" Alert : subscribed_to
+   (User, Alert) .. Subscription
+   note right of Subscription
      Atributos propios de la
      suscripción: fecha, canal
      (sólo buzón interno per

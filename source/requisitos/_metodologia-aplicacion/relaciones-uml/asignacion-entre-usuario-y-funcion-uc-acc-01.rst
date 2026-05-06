@@ -5,26 +5,26 @@
 
    @startuml
 
-   class Usuario
-   class Funcion
+   class User
+   class Function
 
-   class Asignacion {
-     - fecha_inicio : DateTime
-     - fecha_fin : DateTime
-     - aprobador : Usuario
-     - es_temporal : Boolean
-     - justificacion : String
-     + revocar()
-     + extender(nueva_fecha)
+   class Assignment {
+     - start_date : DateTime
+     - end_date : DateTime
+     - approver : User
+     - is_temporary : Boolean
+     - justification : String
+     + revoke()
+     + extend(new_date)
    }
 
-   Usuario "0..*" -- "0..*" Funcion : asignado
-   (Usuario, Funcion) .. Asignacion
-   note right of Asignacion
-     Cuando es_temporal = true,
+   User "0..*" -- "0..*" Function : assigned
+   (User, Function) .. Assignment
+   note right of Assignment
+     Cuando is_temporary = true,
      CNST_031 obliga
-     fecha_fin ≤ fecha_inicio + 6
-     meses y justificación con
+     end_date ≤ start_date + 6
+     meses y justification con
      ≥ 20 caracteres.
    end note
    @enduml

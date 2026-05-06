@@ -9,13 +9,13 @@ función:
 
    @startuml
 
-   class Usuario
-   class Grupo
-   class PermisoExcepcional
+   class User
+   class Group
+   class ExceptionalPermission
 
-   Usuario --> Grupo : asignado_a
-   Usuario --> PermisoExcepcional : tiene
+   User --> Group : assigned_to
+   User --> ExceptionalPermission : has
    note "{xor} para una misma\nfunción atómica" as NotaXor
-   Grupo .. NotaXor
-   PermisoExcepcional .. NotaXor
+   Group .. NotaXor
+   ExceptionalPermission .. NotaXor
    @enduml

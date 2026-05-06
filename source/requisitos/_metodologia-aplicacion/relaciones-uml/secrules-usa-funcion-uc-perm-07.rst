@@ -6,16 +6,16 @@
    @startuml
 
    class SecRules {
-     + verificarPermiso(usuario : Usuario, funcion : Funcion) : Boolean
+     + verifyPermission(user : User, function : Function) : Boolean
    }
-   class Usuario
-   class Funcion
+   class User
+   class Function
 
-   SecRules ..> Usuario : <<usa>>
-   SecRules ..> Funcion : <<usa>>
+   SecRules ..> User : <<uses>>
+   SecRules ..> Function : <<uses>>
    note right of SecRules
      Dependencia: SecRules usa
-     Usuario y Funcion como
+     User y Function como
      parámetros — no las contiene
      ni las hereda.
    end note
