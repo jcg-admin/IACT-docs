@@ -6,21 +6,21 @@
    @startuml
    allowmixing
 
-   class Funcion {
-     - codigo : String
-     - descripcion : String
-     - modulo : String
+   class Function {
+     - code : String
+     - description : String
+     - module : String
      {static} - TOTAL : Integer = 42
-     {static} + listarTodas() : List<Funcion>
-     {static} + buscarPorCodigo(c : String) : Funcion
+     {static} + listAll() : List<Function>
+     {static} + findByCode(c : String) : Function
    }
-   note right of Funcion
-     - codigo / descripcion / modulo
-       → instancia (cada Funcion es única)
+   note right of Function
+     - code / description / module
+       → instancia (cada Function es única)
      - TOTAL = 42 (CNST_029)
        → archivador (compartido por todas
          las instancias)
-     - listarTodas / buscarPorCodigo
+     - listAll / findByCode
        → archivador (operaciones de catálogo)
    end note
    @enduml

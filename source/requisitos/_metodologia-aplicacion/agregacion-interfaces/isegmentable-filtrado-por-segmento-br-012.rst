@@ -7,19 +7,19 @@
    allowmixing
 
    interface ISegmentable <<interface>> {
-     + aplicarFiltroSegmento(s : SegmentoDatos)
-     + perteneceA(s : SegmentoDatos) : Boolean
+     + applySegmentFilter(s : DataSegment)
+     + belongsTo(s : DataSegment) : Boolean
    }
 
-   class Llamada
-   class Reporte
-   class Alerta
-   class EventoAuditoria
+   class Call
+   class Report
+   class Alert
+   class AuditEvent
 
-   Llamada ..|> ISegmentable
-   Reporte ..|> ISegmentable
-   Alerta ..|> ISegmentable
-   EventoAuditoria ..|> ISegmentable
+   Call ..|> ISegmentable
+   Report ..|> ISegmentable
+   Alert ..|> ISegmentable
+   AuditEvent ..|> ISegmentable
 
    note right of ISegmentable
      Toda entidad consultada por

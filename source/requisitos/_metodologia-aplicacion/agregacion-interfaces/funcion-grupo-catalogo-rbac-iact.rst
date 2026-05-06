@@ -6,17 +6,17 @@
    @startuml
    allowmixing
 
-   class Grupo {
+   class Group {
      - id : Integer
-     - nombre : String
+     - name : String
    }
-   class Funcion {
-     - codigo : String
-     - descripcion : String
+   class Function {
+     - code : String
+     - description : String
    }
 
-   Grupo "*" o-- "*" Funcion : contiene
-   note right of Funcion
+   Group "*" o-- "*" Function : contains
+   note right of Function
      Una función (capacidad atómica) PUEDE
      existir sin pertenecer a ningún grupo;
      pertenece a múltiples grupos

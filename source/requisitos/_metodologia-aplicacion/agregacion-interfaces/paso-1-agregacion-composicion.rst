@@ -6,20 +6,20 @@
    @startuml
    allowmixing
 
-   class Grupo
-   class Funcion
-   class EjecucionETL
-   class ErrorETL
+   class Group
+   class Function
+   class ETLExecution
+   class ETLError
 
-   Grupo "*" o-- "*" Funcion           : agregación
-   EjecucionETL "1" *-- "0..*" ErrorETL : composición
+   Group "*" o-- "*" Function           : agregación
+   ETLExecution "1" *-- "0..*" ETLError : composición
 
-   note right of Funcion
-     Agregación: Funcion sobrevive
-     al borrado de Grupo.
+   note right of Function
+     Agregación: Function sobrevive
+     al borrado de Group.
    end note
-   note right of ErrorETL
-     Composición: ErrorETL muere
-     con la EjecucionETL.
+   note right of ETLError
+     Composición: ETLError muere
+     con la ETLExecution.
    end note
    @enduml

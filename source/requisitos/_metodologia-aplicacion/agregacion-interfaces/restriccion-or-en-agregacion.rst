@@ -11,16 +11,16 @@ CNST_001):
    @startuml
    allowmixing
 
-   class AlertaCritica
-   class CanalUrgente
-   class CanalPrioritario
-   class TipoEntregaImmediata
+   class CriticalAlert
+   class UrgentChannel
+   class PriorityChannel
+   class ImmediateDeliveryType
 
-   AlertaCritica o-- CanalUrgente
-   AlertaCritica o-- CanalPrioritario
-   AlertaCritica o-- TipoEntregaImmediata
+   CriticalAlert o-- UrgentChannel
+   CriticalAlert o-- PriorityChannel
+   CriticalAlert o-- ImmediateDeliveryType
 
-   note "{xor}\nCanalUrgente OR CanalPrioritario\n(no ambos)" as NotaXor
-   CanalUrgente .. NotaXor
-   CanalPrioritario .. NotaXor
+   note "{xor}\nUrgentChannel OR PriorityChannel\n(no ambos)" as NotaXor
+   UrgentChannel .. NotaXor
+   PriorityChannel .. NotaXor
    @enduml
