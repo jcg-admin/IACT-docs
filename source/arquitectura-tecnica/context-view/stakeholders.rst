@@ -68,7 +68,7 @@ Stakeholders organizacionales
      seguridad de datos (RBAC restrictivo), disponibilidad
      del sistema y cumplimiento normativo.
  * - **Equipo de desarrollo**
-   - Concern: modularidad arquitectonica (12 modulos),
+   - Concern: modularidad arquitectonica (13 modulos UC: 10 RBAC activos in-scope v5.6.0 + 2 reservados open-closed + Caller sin RBAC),
      evolucionabilidad incremental, stack Django/Python,
      separacion de capas (5-layer stack en implementation-view).
  * - **Operaciones / DevOps**

@@ -46,7 +46,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 2. Alcance
 ----------
 
-**Aplica A:** Los 12 modulos IACT.
+**Aplica A:** Los 13 modulos UC del sistema IACT v5.6.0 (10 RBAC activos in-scope + 2 reservados open-closed + Caller sin RBAC).
 
 **No Aplica A:** Componentes transversales (documentar en arquitectura).
 

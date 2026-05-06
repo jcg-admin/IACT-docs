@@ -25,7 +25,7 @@ Frontera del sistema
 
 **Dentro de la frontera IACT:**
 
-- Aplicacion Django REST Framework (12 modulos funcionales: Auth, Users, Access, Permissions,
+- Aplicacion Django REST Framework (10 modulos RBAC activos in-scope v5.6.0: Auth, Users, Access, Permissions,
   Reports, Alerts, Pipeline, Audit, Logs, Operator, Supervision, Caller)
 - Servicio ETL (extraccion de datos IVR, transformacion, carga en BDPropia)
 - Almacen de Datos propio (PostgreSQL — tablas operacionales de IACT)
@@ -69,7 +69,7 @@ Diagrama de contexto — System boundary
  rectangle "APScheduler / Cron" as Scheduler
 
  rectangle "  Sistema IACT  " as SISTEMA_IACT #EEF4FF {
-   rectangle "Aplicacion\nDjango REST Framework\n(12 modulos)" as App
+   rectangle "Aplicacion\nDjango REST Framework\n(10 RBAC activos)" as App
    rectangle "Servicio\nETL" as SERVICIO_ETL
    database "BD Propia\n(PostgreSQL)" as BDPropia
  }

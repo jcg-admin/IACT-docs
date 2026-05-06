@@ -60,7 +60,7 @@ URLs / API
 Estructura de apps
 ==================
 
-Por dominio funcional, alineado con los 12 modulos
+Por dominio funcional, alineado con los 13 modulos UC del sistema (9 RBAC activos + ADM nuevo + 2 reservados open-closed + Caller sin RBAC)
 arquitectonicos:
 
 .. code-block:: text

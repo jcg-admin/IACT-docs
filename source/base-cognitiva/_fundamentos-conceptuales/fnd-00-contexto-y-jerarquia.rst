@@ -154,74 +154,94 @@ El sistema IACT se compone de:
 
 ----
 
-1.3.2 Los 8 Módulos Funcionales
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.3.2 Los Módulos Funcionales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-El sistema IACT se divide en 12 módulos funcionales:
+El sistema IACT se divide en **13 módulos UC** (9 RBAC activos
+in-scope + 1 RBAC NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed
++ 1 sin RBAC propio para llamantes externos):
 
 .. list-table:: Módulos del Sistema IACT
- :widths: 10 20 15 10 45
+ :widths: 10 20 15 10 12 33
  :header-rows: 1
 
  * - Código
    - Nombre
    - Prefijo UC
    - # UC
+   - Status v5.6.0
    - Responsabilidad
  * - MOD_Auth
    - Autenticación
    - UC_AUTH
    - 5
+   - Activo
    - Login, logout, recuperación contraseña, 2FA
  * - MOD_Users
    - Gestión Usuarios
    - UC_USR
    - 4
+   - Activo
    - CRUD de usuarios, suspensión, activación
  * - MOD_Access
    - Control Acceso
    - UC_ACC
    - 7
+   - Activo
    - RBAC, permisos, agrupadores, SoD, segmentos
  * - MOD_Pipeline
    - Supervisión ETL
    - UC_PIP
    - 4
+   - Activo
    - Monitoreo ETL, errores, disponibilidad
  * - MOD_Reports
    - Reportería
    - UC_RPT
    - 16
+   - Activo
    - Dashboards, reportes, exportaciones, métricas
  * - MOD_Alerts
    - Sistema Alertas
    - UC_ALR
    - 5
+   - Activo
    - Configuración alertas, umbrales, suscripciones
  * - MOD_Audit
    - Auditoría
    - UC_AUD
    - 4
+   - Activo
    - Consulta auditoría, compliance, exportación
  * - MOD_Logs
    - Bitácoras
    - UC_LOG
    - 7
+   - Activo
    - Consulta logs técnicos, exportación
+ * - MOD_Admin
+   - Admin Modelo RBAC
+   - UC_ADM
+   - 3
+   - Activo (NUEVO v5.6.0)
+   - Catálogo RBAC, reglas SoD, asignaciones a grupos del sistema
  * - MOD_Operator
    - Operación Agente
    - UC_OPR
    - 10
+   - Reservado (open-closed)
    - Estado agente, llamadas, disposición, autogestion
  * - MOD_Supervision
    - Supervisión Tiempo Real
    - UC_SUP
    - 3
+   - Reservado (open-closed)
    - Monitor llamadas, barge-in, broadcast equipo
  * - MOD_Caller
    - Llamante Externo
    - UC_CLI
    - 5
+   - Activo (sin RBAC propio)
    - Flujo IVR: marcado, menú, cola, callback, CSAT
 
 **Total:** 80 Casos de Uso, 23,401+ líneas de documentación RST, 147+ diagramas PlantUML
@@ -802,7 +822,7 @@ La trazabilidad permite navegar en ambas direcciones:
 
 Esta introducción ha establecido:
 
-OK El contexto del Sistema IACT (12 módulos, 80 UC, 20+ BR)
+OK El contexto del Sistema IACT (13 módulos UC, 80 UC, 20+ BR)
 OK La estructura de la documentación base_cognitiva/
 OK Un ejemplo completo de Business Rule (BR_011)
 OK La relación entre BR, UC, FR y código
