@@ -12,7 +12,7 @@
      Agregación:
      si el Group se elimina,
      la Function sigue existiendo
-     en el catálogo de 74 funciones
+     en el catálogo de 64 funciones activas (77 declaradas, 13 reservadas open-closed)
      (CNST_029) y puede pertenecer
      a otros grupos.
    end note

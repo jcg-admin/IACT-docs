@@ -606,7 +606,7 @@ detalle:
    con funciones externas al alcance?
 
    En IACT: 12 módulos UC (AUTH, USR, ACC, PERM, RPT,
-   ALR, PIP, AUD, LOG, OPR, SUP, CLI) con sus 74 funciones
+   ALR, PIP, AUD, LOG, OPR, SUP, CLI) con sus 64 funciones activas
    atómicas y los enganches con LDAP, BD operativa e IVR.
 3. **Interfaz de usuario** — ¿cómo navegará el usuario,
    cómo se verá el sistema, qué controles especiales

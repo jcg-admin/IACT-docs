@@ -169,8 +169,11 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  El catalogo vigente declara:
 
- - **74 funciones atomicas** (capabilities) en formato accion-recurso:
-   view_own_sessions, view_reports, export_csv, etc.
+ - **64 funciones atomicas activas** (capabilities) en formato
+   accion-recurso: view_own_sessions, view_reports, export_csv, etc.
+   El catalogo declara 77 funciones — 13 reservadas open-closed
+   (MOD_Operator y MOD_Supervision) son extension points
+   out-of-scope para esta release.
  - **12 grupos predefinidos** (system groups, inmutables)
    AGR-001..AGR-012 que agrupan funciones por uso tipico.
  - **3 reglas SoD** (Separation of Duties) atomicas: SOD-001
@@ -195,8 +198,8 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  Las 3 reglas SoD aplican TANTO a system como a custom groups.
 
- La materializacion concreta de este metamodelo (las 74 funciones,
- los 12 grupos, las 3 reglas SoD, la politica de permisos
+ La materializacion concreta de este metamodelo (las 64 funciones
+ activas, los 12 grupos, las 3 reglas SoD, la politica de permisos
  temporales) esta documentada en la restriccion
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` (cuyo
  detalle pendiente de enriquecer en iteracion v3 del WP #4).
@@ -647,7 +650,8 @@ Modelo_RBAC_Completo_IACT y referenciado en los UC de gestion
 de usuarios (UC-005 a UC-011).
 
 **Catalogo poblado:** la materializacion concreta de este metamodelo
-(las 74 funciones, los 12 grupos, las 3 reglas SoD, la politica de
+(las 64 funciones activas — 77 declaradas con 13 reservadas
+open-closed —, los 12 grupos, las 3 reglas SoD, la politica de
 permisos temporales) esta documentada como restricción
 :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 

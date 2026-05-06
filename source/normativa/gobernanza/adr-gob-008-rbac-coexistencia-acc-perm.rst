@@ -32,7 +32,7 @@ formal:
 **Vista funcional (MOD_Access — modelo conceptual v5.2.1):**
 
 - Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index``.
-- Catalogo cerrado: 74 funciones atomicas + 12 grupos predefinidos
+- Catalogo cerrado para set activo, abierto a extension: 64 funciones activas + 13 reservadas open-closed + 12 grupos predefinidos
   AGR-001..AGR-012 + 3 reglas SoD.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
 - Casos de uso: UC_ACC_01..UC_ACC_09 (admin no-tech asigna

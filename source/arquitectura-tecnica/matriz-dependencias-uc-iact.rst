@@ -28,7 +28,7 @@ MATRIZ DEPENDENCIAS UC IACT
  - :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0
    (25 clases canonicas, 7 bounded contexts).
  - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.5.0
-   (74 funciones RBAC).
+   (64 funciones RBAC activas).
 
  **Convencion de nombres**: identificadores en ingles (clases,
  funciones, atributos); prosa, comentarios y notas en espanol.

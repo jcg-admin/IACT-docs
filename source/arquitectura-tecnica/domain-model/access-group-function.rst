@@ -19,7 +19,7 @@ AccessGroupFunction
 
 Tabla pivote M:N entre ``AccessGroup`` y ``Function``.
 Materializa qué funciones componen un grupo de acceso. Es
-el corazón del modelo RBAC v5.5.0: el ``effective_set`` de
+el corazón del modelo RBAC v5.6.0: el ``effective_set`` de
 funciones de un usuario se calcula vía ``Assignment`` →
 ``AccessGroup`` → ``AccessGroupFunction`` → ``Function``.
 

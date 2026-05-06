@@ -20,14 +20,14 @@ MODELO DOMINIO IACT
  **Modelo conceptual canonico del dominio IACT**, complementario a
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
- filtro de Abbott + IEEE 830 sobre el corpus vigente (74 funciones
- RBAC v5.5.0, BR/CNST en sus versiones vigentes). El numero de UCs
+ filtro de Abbott + IEEE 830 sobre el corpus vigente (64 funciones activas
+ RBAC v5.6.0, BR/CNST en sus versiones vigentes). El numero de UCs
  es dinamico y evoluciona con el scope; la trazabilidad UC-clase se
  mantiene en la seccion de cobertura.
 
  **Convencion de nombres**: identificadores (clases, atributos,
  operaciones, valores de enum) en **ingles** por consistencia con el
- modelo RBAC v5.5.0 y NOM_001 § 2.3. La prosa, los comentarios y las
+ modelo RBAC v5.6.0 y NOM_001 § 2.3. La prosa, los comentarios y las
  notas de los diagramas estan en **espanol**.
 
 ----
@@ -64,7 +64,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
   ``schedule_report``).
 - **Valores de enum** en UPPER_SNAKE (``ACTIVE``, ``ACKNOWLEDGED``).
 
-Justificacion: el modelo RBAC v5.5.0 ya usa ingles para nombres de
+Justificacion: el modelo RBAC v5.6.0 ya usa ingles para nombres de
 funciones tras la correccion aplicada por Z.1.C. Mantener una
 unica convencion idiomatica para todos los identificadores formales
 del dominio reduce el costo cognitivo y el riesgo de mismatches que
@@ -155,7 +155,7 @@ El WP que produjo este modelo verifico cobertura **bidireccional al
 La matriz detallada vive en el WP
 ``2026-05-01-02-01-06-domain-model-canonization/pilot/uc-vs-domain-validation.md``
 con mapeo completo (cluster por cluster, categoria Z.2.A por UC,
-funcion RBAC v5.5.0 por UC).
+funcion RBAC v5.6.0 por UC).
 
 Resumen de actividad por clase:
 
@@ -275,7 +275,7 @@ para este modelo. Resumen de su impacto sobre las clases:
 - ``2026-04-30-00-07-08-rbac-functions-count-audit`` (Z.1.C):
   conteo de funciones reconciliado, concepto Segmento descartado.
 - ``2026-04-30-00-37-45-rbac-modelo-conceptual-cleanup`` (Z.2):
-  bump del modelo RBAC a v5.5.0 con 74 funciones, decisiones
+  bump del modelo RBAC a v5.5.0 con 64 funciones activas, decisiones
   D-01..D-11.
 - ``2026-04-30-00-44-07-rbac-missing-ucs-discovery`` (Z.2.A):
   clasificacion de los 61 UCs base en cinco categorias (+ 19 OPR/SUP/CLI en v5.5.0).
@@ -286,7 +286,7 @@ para este modelo. Resumen de su impacto sobre las clases:
 ---------------------------
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo RBAC
-  v5.5.0 con las 74 funciones que operan sobre las clases
+  v5.6.0 con las 64 funciones activas (77 declaradas, 13 reservadas open-closed) que operan sobre las clases
   declaradas aqui.
 - ``source/requisitos/_metodologia-aplicacion/analisis-dominio.rst``
   — guia metodologica del modelado del dominio. La cifra "97 UCs"

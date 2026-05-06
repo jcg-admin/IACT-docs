@@ -181,7 +181,7 @@ Ver subseccion 2.1.
  * - Modulo
    - Impacto
  * - MOD_Access
-   - Implementa modelo plano + 74 funciones atomicas
+   - Implementa modelo plano + 64 funciones atomicas activas
  * - (todos)
    - Consultan permisos sin jerarquia
 

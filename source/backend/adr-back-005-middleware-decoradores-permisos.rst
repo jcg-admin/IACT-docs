@@ -82,7 +82,7 @@ un mecanismo para:
 **Restricciones (al momento del ADR original):**
 
 - Sistema de permisos granulares con 130+ capacidades (vocabulario
-  legacy; hoy = 74 funciones del modelo v5.5.0).
+  legacy; hoy = 64 funciones activas del modelo v5.6.0 (77 declaradas, 13 reservadas open-closed)).
 - Django 5.x + Django REST Framework 3.x.
 - Necesidad de auditoria automatica (ISO 27001).
 - Performance: overhead < 5ms por request.
@@ -554,7 +554,7 @@ Por que se descarto:
   materialice la implementacion, aplicar:
 
   - Vocabulario CNST-033: ``capacidad`` -> ``function``.
-  - Modelo v5.5.0: 74 funciones + 12 grupos AGR (no "130+
+  - Modelo v5.6.0: 64 funciones activas (77 declaradas, 13 reservadas open-closed) + 12 grupos AGR (no "130+
     capacidades").
   - Estrategia tecnica del adr-back-006 nuevo (supersede
     adr-back-003).

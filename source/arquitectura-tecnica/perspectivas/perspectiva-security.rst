@@ -42,7 +42,7 @@ No existe endpoint funcional sin funcion atomica asociada.
    - JWT emitido por UC-AUTH-01. Token valido durante la sesion activa
      (CNST-002: tiempo maximo configurable). Sin sesion activa = sin acceso.
  * - **Autorizacion granular**
-   - 74 funciones atomicas organizadas en AccessGroups (AGR-001..012).
+   - 64 funciones atomicas activas organizadas en AccessGroups (AGR-001..012).
      Cada peticion verifica la funcion atomica correspondiente antes de
      ejecutarse. Permisos temporales con rango ``granted_at..expires_at``
      (CNST-031: maximo 6 meses, justificacion documentada).

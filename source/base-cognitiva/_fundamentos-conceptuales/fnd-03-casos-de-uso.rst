@@ -23,8 +23,10 @@ FND_03: Casos de Uso
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.5.0: 74 funciones
- atomicas + 12 grupos predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
+ atomicas activas (catalogo declara 77 con 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
+ predefinidos AGR-001..AGR-012 + 3 reglas SoD.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -265,10 +267,10 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  - Proporciona informacion o recibe notificacion
  - Ejemplo: AGR-007 que recibe notificacion de cambio
 
-3.4 Actores en IACT (Agrupadores RBAC v5.5.0)
+3.4 Actores en IACT (Agrupadores RBAC v5.6.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Los actores en IACT corresponden a los 12 Agrupadores del modelo RBAC v5.5.0,
+Los actores en IACT corresponden a los 12 Agrupadores del modelo RBAC v5.6.0,
 siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
@@ -617,8 +619,8 @@ Los Casos de Uso en IACT siguen la convencion:
 8. Lista de UC Identificados en IACT (80 UC)
 --------------------------------------------
 
-Basado en el analisis del modelo RBAC v5.5.0, se han identificado 80 Casos de Uso
-distribuidos en 12 modulos funcionales.
+Basado en el analisis del modelo RBAC v5.6.0, se han identificado 80 Casos de Uso
+distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados open-closed).
 
 8.1 Autenticacion - MOD_Auth (5 UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

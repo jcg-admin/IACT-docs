@@ -102,7 +102,7 @@ Responsabilidades del sistema
    - Extraer, transformar y cargar datos del call center desde
      el Sistema IVR para generar reportes y dashboards analiticos.
  * - **Control de acceso RBAC**
-   - Gestionar el acceso granular mediante 74 funciones atomicas,
+   - Gestionar el acceso granular mediante 64 funciones atomicas activas,
      grupos de funciones y AccessGroups. Enforcar SoD (CNST-030)
      y permisos temporales (CNST-031).
  * - **Auditoria regulatoria**

@@ -8,7 +8,7 @@ RACI RBAC IACT — Trazabilidad
 ===============
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo
-  conceptual v5.5.0 (catalogo de 74 funciones + 12 AGR + 3 SoD).
+  conceptual v5.6.0 (catalogo de 77 funciones declaradas (64 activas + 13 reservadas open-closed) + 12 AGR + 3 SoD).
 - :doc:`/normativa/gobernanza/adr-gob-009-rbac-modelo-conceptual` —
   ADR canonico que motivo la generacion de esta matriz (resuelve
   nota in-text de ADR-BACK-004 legacy).

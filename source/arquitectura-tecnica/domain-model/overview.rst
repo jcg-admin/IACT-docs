@@ -39,11 +39,11 @@ MODELO DOMINIO IACT
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
  filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 74
- funciones RBAC v5.5.0, BR/CNST en sus versiones vigentes).
+ funciones RBAC v5.6.0 activas, BR/CNST en sus versiones vigentes).
 
  **Convencion de nombres**: identificadores (clases, atributos,
  operaciones, valores de enum) en **ingles** por consistencia con el
- modelo RBAC v5.5.0 y NOM_001 § 2.3. La prosa, los comentarios y las
+ modelo RBAC v5.6.0 y NOM_001 § 2.3. La prosa, los comentarios y las
  notas de los diagramas estan en **espanol**.
 
 ----
@@ -80,7 +80,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
   ``schedule_report``).
 - **Valores de enum** en UPPER_SNAKE (``ACTIVE``, ``ACKNOWLEDGED``).
 
-Justificacion: el modelo RBAC v5.5.0 ya usa ingles para nombres de
+Justificacion: el modelo RBAC v5.6.0 ya usa ingles para nombres de
 funciones tras la correccion aplicada por Z.1.C. Mantener una
 unica convencion idiomatica para todos los identificadores formales
 del dominio reduce el costo cognitivo y el riesgo de mismatches que

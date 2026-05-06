@@ -31,7 +31,7 @@ Grupos de usuario IACT
    - Concerns arquitectonicos
  * - **AGR_ADMIN**
    - Administrador IACT
-   - Control de acceso RBAC granular (74 funciones atomicas);
+   - Control de acceso RBAC granular (64 funciones atomicas activas);
      gestion de usuarios (crear, desactivar — BR-009);
      asignacion de permisos temporales (CNST-031);
      visualizacion de separacion de funciones SoD (CNST-030).
@@ -91,7 +91,7 @@ formales (CNST-*) y decisiones arquitectonicas (ADR-GOB-*):
    - Resolucion
  * - Seguridad vs. operabilidad
    - AGR_ADMIN (acceso restrictivo) vs. AGR_OPERADOR (acceso amplio)
-   - RBAC granular: 74 funciones atomicas; SoD (CNST-030);
+   - RBAC granular: 64 funciones atomicas activas; SoD (CNST-030);
      permisos temporales (CNST-031) para casos excepcionales.
  * - Disponibilidad vs. consistencia ETL
    - AGR_OPERADOR (sistema disponible 24/7) vs. restriccion ETL
