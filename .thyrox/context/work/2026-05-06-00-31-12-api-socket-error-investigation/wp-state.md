@@ -2,8 +2,13 @@
 project: IACT-docs
 work_package: 2026-05-06-00-31-12-api-socket-error-investigation
 created_at: 2026-05-06 00:31:12
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-06 00:50:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+root_cause: cli_sse_liveness_timeout — SSE transport idle >5 min sin mensajes server-side
+hypotheses_confirmed: H-1 (keepalive timeout) + H-2 (build largo sin tool_use)
+hypotheses_discarded: H-3 (proxy), H-5 (OOM)
+hypotheses_inconclusive: H-4 (CPU starvation)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-elicitation
