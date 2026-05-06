@@ -107,7 +107,7 @@ respuesta.
  * - **Paso de origen**
    - PASO 9
  * - **Condicion**
-   - verificarHash(new, current_hash) == True
+   - verifyHash(new, current_hash) == True
  * - **Response**
    - 400
  * - **Body**

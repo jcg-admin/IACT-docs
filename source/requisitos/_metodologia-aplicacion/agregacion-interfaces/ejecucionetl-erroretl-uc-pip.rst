@@ -6,35 +6,35 @@
    @startuml
    allowmixing
 
-   class EjecucionETL {
+   class ETLExecution {
      - id : Integer
-     - fecha_inicio : DateTime
-     - fecha_fin : DateTime
-     - estado : Enum
-     + cargarDesdeIVR()
+     - start_date : DateTime
+     - end_date : DateTime
+     - state : Enum
+     + loadFromIVR()
    }
 
-   class ErrorETL {
-     - codigo : String
-     - mensaje : String
-     - tabla : String
+   class ETLError {
+     - code : String
+     - message : String
+     - table : String
      - timestamp : DateTime
    }
 
-   class FilaCargada {
-     - tabla : String
-     - id_origen : Integer
+   class LoadedRow {
+     - table : String
+     - source_id : Integer
      - timestamp : DateTime
    }
 
-   EjecucionETL "1" *-- "0..*" ErrorETL    : compone
-   EjecucionETL "1" *-- "0..*" FilaCargada : compone
+   ETLExecution "1" *-- "0..*" ETLError    : composes
+   ETLExecution "1" *-- "0..*" LoadedRow   : composes
 
-   note right of EjecucionETL
+   note right of ETLExecution
      Composición:
-       si la EjecucionETL se purga
-       (UC_PIP), sus ErrorETL y
-       FilaCargada se eliminan
+       si la ETLExecution se purga
+       (UC_PIP), sus ETLError y
+       LoadedRow se eliminan
        en cascada. No tienen
        sentido fuera de la
        ejecución que los generó.

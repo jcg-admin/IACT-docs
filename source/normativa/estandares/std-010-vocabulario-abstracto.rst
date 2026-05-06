@@ -149,10 +149,10 @@ Usar el término canónico en toda la narrativa de requisitos.
    - el algoritmo de hash seguro de contraseñas
    - en flujo de autenticación
  * - ``bcrypt.checkpw()``
-   - verificarHash()
+   - verifyHash()
    - en pseudocódigo / diagramas
  * - ``bcrypt.hashpw()``
-   - generarHash()
+   - generateHash()
    - en pseudocódigo / diagramas
  * - ``bcrypt cost N``
    - costo de hash configurado

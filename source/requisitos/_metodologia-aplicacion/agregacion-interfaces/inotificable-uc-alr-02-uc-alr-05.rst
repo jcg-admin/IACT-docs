@@ -6,27 +6,27 @@
    @startuml
    allowmixing
 
-   interface INotificable <<interface>> {
-     + entregar(usuario : Usuario, mensaje : Mensaje) : Boolean
-     + obtenerEstado() : EstadoEntrega
+   interface INotifiable <<interface>> {
+     + deliver(user : User, message : Message) : Boolean
+     + getDeliveryStatus() : DeliveryStatus
    }
 
-   class BuzonInterno {
-     + entregar(usuario, mensaje) : Boolean
-     + obtenerEstado() : EstadoEntrega
+   class InternalMailbox {
+     + deliver(user, message) : Boolean
+     + getDeliveryStatus() : DeliveryStatus
    }
 
-   class NotificacionPush {
-     + entregar(usuario, mensaje) : Boolean
-     + obtenerEstado() : EstadoEntrega
+   class PushNotification {
+     + deliver(user, message) : Boolean
+     + getDeliveryStatus() : DeliveryStatus
    }
 
-   BuzonInterno ..|> INotificable
-   NotificacionPush ..|> INotificable
+   InternalMailbox ..|> INotifiable
+   PushNotification ..|> INotifiable
 
-   note right of INotificable
+   note right of INotifiable
      CNST_001 prohíbe email →
-     IACT NO implementa NotificacionEmail.
+     IACT NO implementa EmailNotification.
      Las únicas implementaciones válidas son
      buzón interno y notificación push interna.
    end note

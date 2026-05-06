@@ -13,22 +13,22 @@ Diseño incorrecto (herencia por construcción):
    @startuml
    title Diseno incorrecto — herencia por construccion
 
-   class BaseDeDatos {
-     + guardar()
-     + cargar()
-     + eliminar()
+   class Database {
+     + save()
+     + load()
+     + delete()
    }
 
-   class Documento {
-     - contenido : String
-     - titulo : String
-     + editarContenido()
-     + mostrarDocumento()
+   class Document {
+     - content : String
+     - title : String
+     + editContent()
+     + showDocument()
    }
 
-   Documento --|> BaseDeDatos
-   note right of Documento
-     Documento NO es-una BaseDeDatos.
+   Document --|> Database
+   note right of Document
+     Document NO es-una Database.
      La herencia miente sobre el dominio.
    end note
    @enduml
@@ -40,25 +40,25 @@ Diseño correcto (composición):
    @startuml
    title Diseno correcto — composicion
 
-   class BaseDeDatos {
-     + guardar()
-     + cargar()
-     + eliminar()
+   class Database {
+     + save()
+     + load()
+     + delete()
    }
 
-   class DocumentoCorrecto {
-     - contenido : String
-     - titulo : String
-     - persistencia : BaseDeDatos
-     + editarContenido()
-     + mostrarDocumento()
-     + guardarDocumento()
+   class CorrectDocument {
+     - content : String
+     - title : String
+     - persistence : Database
+     + editContent()
+     + showDocument()
+     + saveDocument()
    }
 
-   DocumentoCorrecto o-- BaseDeDatos : tiene-un
-   note right of DocumentoCorrecto
-     DocumentoCorrecto tiene-un
-     BaseDeDatos como componente
+   CorrectDocument o-- Database : has-a
+   note right of CorrectDocument
+     CorrectDocument tiene-un
+     Database como componente
      (composicion).
    end note
    @enduml

@@ -18,24 +18,24 @@ clase; es decir, podrá **crear nuevos objetos**.
 
    @startuml
 
-   class Lavadora {
-     - marca : String
-     - modelo : String
-     - numeroSerie : String
-     - capacidad : Float
+   class WashingMachine {
+     - brand : String
+     - model : String
+     - serialNumber : String
+     - capacity : Float
      --
-     + agregarRopa()
-     + agregarDetergente()
-     + sacarRopa()
+     + addClothes()
+     + addDetergent()
+     + removeClothes()
    }
 
-   object "lavadora1 : Lavadora" as l1
-   object "lavadora2 : Lavadora" as l2
-   object "lavadora3 : Lavadora" as l3
+   object "washer1 : WashingMachine" as l1
+   object "washer2 : WashingMachine" as l2
+   object "washer3 : WashingMachine" as l3
 
-   Lavadora ..> l1 : <<instantiate>>
-   Lavadora ..> l2 : <<instantiate>>
-   Lavadora ..> l3 : <<instantiate>>
+   WashingMachine ..> l1 : <<instantiate>>
+   WashingMachine ..> l2 : <<instantiate>>
+   WashingMachine ..> l3 : <<instantiate>>
    @enduml
 
 **Las clases en los programas orientados a objetos pueden crear
@@ -57,25 +57,25 @@ y ``cronometrarCentrifugado``.
 
    @startuml
 
-   class Lavadora {
-     - marca : String
-     - modelo : String
-     - numeroSerie : String
-     - capacidad : Float
-     - volumenTambor : Float
-     - cronometroInterno : Cronometro
-     - trampa : Trampa
+   class WashingMachine {
+     - brand : String
+     - model : String
+     - serialNumber : String
+     - capacity : Float
+     - drumVolume : Float
+     - internalTimer : Timer
+     - trap : Trap
      - motor : Motor
-     - velocidadMotor : Integer
+     - motorSpeed : Integer
      --
-     + agregarRopa()
-     + agregarDetergente()
-     + agregarBlanqueador()
-     + cronometrarRemojo()
-     + cronometrarLavado()
-     + cronometrarEnjuague()
-     + cronometrarCentrifugado()
-     + sacarRopa()
+     + addClothes()
+     + addDetergent()
+     + addBleach()
+     + timeSoak()
+     + timeWash()
+     + timeRinse()
+     + timeSpin()
+     + removeClothes()
    }
    @enduml
 
