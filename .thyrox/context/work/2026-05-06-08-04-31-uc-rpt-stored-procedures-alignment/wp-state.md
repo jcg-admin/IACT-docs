@@ -2,8 +2,11 @@
 project: IACT-docs
 work_package: 2026-05-06-08-04-31-uc-rpt-stored-procedures-alignment
 created_at: 2026-05-06 08:04:31
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-06 08:15:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado (DISCOVER-only — ejecucion delegada a WP sucesor)
+sp01_decision: Opcion B aprobada por ejecutor (audit completo todas las 12 partes de los 5 UCs)
+successor_wp: 2026-05-06-08-15-XX-uc-rpt-sp-flujo-principal-rewrite (bootstrap inminente)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
