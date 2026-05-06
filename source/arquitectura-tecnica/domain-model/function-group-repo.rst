@@ -53,7 +53,7 @@ filtros explicitos.
 
  note bottom of FunctionGroupRepo
    AGR-001..012: is_system=True
-   (mutable solo por admin_sistema).
+   (mutable solo por system_admin AGR-010).
    Grupos custom: is_system=False
    (UC_PERM_05).
    add/remove disparan recompute en

@@ -490,7 +490,7 @@ Ejemplo detallado para UC_ADM_01:
  UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
  Flujo Normal:
- 1. admin_sistema selecciona Gestionar Reglas SoD
+ 1. system_admin (AGR-010) selecciona Gestionar Reglas SoD
  2. Sistema muestra lista de restricciones actuales --> FR-ADM-01.1
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion

@@ -244,7 +244,7 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
    - Ejemplo IACT
  * - Humano
    - Persona con agrupador especifico
-   - AGR-004 (visor_dashboard)
+   - AGR-004 (data_exporter_group)
  * - Sistema
    - Sistema externo que interactua
    - Sistema IVR MySQL
@@ -275,19 +275,20 @@ siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
 
- AGRUPADOR FUNCIONES UC TIPICOS
- 
- AGR-001: administrador_usuarios (manage_users, ...) UC-006 a UC-009
- AGR-002: visor_usuarios (search_users, block_users) UC-009
- AGR-003: analista_reportes (view_reports..view_charts) UC-017 a UC-024
- AGR-004: visor_dashboard (view_reports, view_kpis, view_charts) UC-025 a UC-030
- AGR-005: gestor_alertas (view_alerts, ...) UC-036 a UC-040
- AGR-006: supervisor_equipo (search_users, block_users, view_reports) UC-009, UC-017
- AGR-007: auditor (view_audit_log, ...) UC-060 a UC-063
- AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC_ACC_03, UC_ACC_05, UC_ACC_09
- AGR-010: system_admin (NUEVO v5.6.0 — admin del modelo RBAC) UC_ADM_01, UC_ADM_02, UC_ADM_03
- AGR-009: pipeline_admin (view_pipeline_status, ...) UC-050-053, UC-070-072
- AGR-010: operador_etl (view_pipeline_status, ...) UC-050 a UC-053
+ AGRUPADOR (codigo v5.6.0) FUNCIONES UC TIPICOS
+
+ AGR-001: basic_operator_group       (view_own_sessions, view_reports, ...) UC-005, UC-017
+ AGR-002: report_viewer_group        (view_reports, view_kpis, view_charts) UC-017 a UC-024
+ AGR-003: quality_supervisor_group   (search_users, block_users, view_reports) UC-009, UC-017
+ AGR-004: data_exporter_group        (export_csv, export_excel, export_pdf, ...) UC-022 a UC-024
+ AGR-005: alert_manager_group        (view_alerts, configure_alerts, ...) UC-036 a UC-040
+ AGR-006: user_admin_group           (create/update/deactivate_users, ...) UC-006 a UC-009
+ AGR-007: permission_admin_group     (assign_functions, revoke_functions, ...) UC-010, UC_ACC_03, UC_ACC_05, UC_ACC_09
+ AGR-008: auditor_group              (view_audit_log, search_audit_log, ...) UC-060 a UC-063
+ AGR-009: pipeline_admin_group       (view_pipeline_status, ...) UC-050-053, UC-070-072
+ AGR-010: system_admin_group         (NUEVO v5.6.0 — admin del modelo RBAC) UC_ADM_01..03
+ AGR-011: call_center_operator_group (RESERVADO open-closed v5.6.0) UC_OPR_01..10
+ AGR-012: call_center_supervisor_group (RESERVADO open-closed v5.6.0) UC_SUP_01..03
 
  ACTOR ESPECIAL:
  - TIEMPO: Para procesos batch (ETL nocturno) - UC-050
@@ -295,7 +296,17 @@ siguiendo la filosofia Sin Pretensiones:
 3.5 Mapeo de Actores Legacy a Agrupadores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para compatibilidad con documentacion anterior que usaba roles R001-R018:
+Para compatibilidad con documentacion anterior que usaba roles R001-R018.
+
+.. note::
+
+ Los nombres AGR de esta tabla (``administrador_usuarios``,
+ ``visor_usuarios``, etc.) son los **alias en español del modelo
+ RBAC v5.2.x** (legacy). Los nombres canónicos actuales (v5.6.0) son
+ en inglés (ver §3.4 y :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`):
+ ``basic_operator_group``, ``report_viewer_group``, ``user_admin_group``,
+ etc. Esta tabla preserva los nombres legacy para trazabilidad
+ histórica.
 
 .. list-table::
  :header-rows: 1
@@ -338,8 +349,8 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018:
    - AGR-008: admin_seguridad
    - Renombrado
  * - (nuevo)
-   - AGR-010: operador_etl
-   - Nuevo en RBAC v5.2.x
+   - AGR-009: pipeline_admin
+   - Nuevo en RBAC v5.2.x (renombrado desde alias legacy ``operador_etl``)
 
 ----
 
@@ -646,7 +657,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-008: Baja Usuario (logica)
  UC-009: Listar Usuarios
 
- Actor Primario: AGR-001 (administrador_usuarios)
+ Actor Primario: AGR-006 (user_admin_group)
  BR Relacionadas: BR_009 (Bajas Logicas), BR_013 (Username Unico)
 
 8.3 Control de Acceso - MOD_Access (9 UC)
@@ -677,7 +688,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-052: Consultar Disponibilidad de Datos
  UC-053: Solicitar Reintento ETL
 
- Actor Primario: AGR-010 (operador_etl), AGR-009 (admin_sistema)
+ Actor Primario: AGR-009 (pipeline_admin) — supervisión y reintento ETL
  BR Relacionadas: BR_001 (Fuente Inmutable), BR_002 (ETL Nocturno)
 
 8.5 Reportes y Dashboards - MOD_Reports (14 UC)
@@ -707,7 +718,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-029: Ver Distribucion por Centro
  UC-030: Personalizar Dashboard
 
- Actor Primario: AGR-003 (analista_reportes), AGR-004 (visor_dashboard)
+ Actor Primario: AGR-002 (report_viewer_group), AGR-004 (data_exporter_group)
  BR Relacionadas: BR_011 (Limites Exportacion), BR_020 (Rango Temporal)
 
 8.6 Alertas - MOD_Alerts (5 UC)
@@ -721,7 +732,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-039: Consultar Historial de Alertas
  UC-040: Gestionar Destinatarios
 
- Actor Primario: AGR-005 (gestor_alertas)
+ Actor Primario: AGR-005 (alert_manager_group)
  BR Relacionadas: BR_004 (Comunicaciones Internas), BR_014 (Alerta Umbral)
 
 8.7 Auditoria - MOD_Audit (4 UC)
@@ -747,7 +758,7 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-072: Exportar Logs
  UC-073: Configurar Retencion de Logs
 
- Actor Primario: AGR-009 (admin_sistema)
+ Actor Primario: AGR-010 (system_admin)
  BR Relacionadas: (ninguna directa)
 
 8.9 Resumen de UC por Modulo

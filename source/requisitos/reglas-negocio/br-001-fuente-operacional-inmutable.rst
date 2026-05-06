@@ -214,7 +214,7 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
 
 - Excepcion DatabaseError bloqueando la operacion
 - Registro en log de seguridad
-- Notificacion a admin_sistema
+- Notificacion a ``system_admin_group`` (AGR-010) y ``pipeline_admin_group`` (AGR-009)
 
 ----
 

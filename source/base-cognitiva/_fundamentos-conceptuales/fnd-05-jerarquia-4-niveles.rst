@@ -323,11 +323,11 @@ especifican interacciones completas entre actores y sistema.
 
  UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
- Actor Primario: AGR-009 (admin_sistema)
+ Actor Primario: AGR-010 (system_admin)
  Objetivo: Crear restricciones para prevenir conflictos de funciones
 
  Flujo Normal:
- 1. admin_sistema selecciona Gestionar Reglas SoD
+ 1. system_admin selecciona Gestionar Reglas SoD
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion

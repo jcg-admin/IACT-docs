@@ -59,7 +59,7 @@ FR-008.01: Validar que el usuario está activo
  **Restricciones de Seguridad:**
  
  - Un administrador no puede darse de baja a sí mismo
- - No se puede dar de baja al último usuario con rol admin_sistema
+ - No se puede dar de baja al último usuario con grupo ``system_admin_group`` (AGR-010)
 
 ----
 
@@ -89,7 +89,7 @@ FR-008.01: Validar que el usuario está activo
  ENTONCES se muestra "No puede dar de baja su propia cuenta"
  
  Escenario 4: Último admin protegido
- DADO único usuario con rol admin_sistema
+ DADO único usuario con grupo ``system_admin_group`` (AGR-010)
  CUANDO se intenta dar de baja
  ENTONCES se muestra "No se puede dar de baja al último administrador"
 
