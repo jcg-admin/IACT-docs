@@ -8,10 +8,23 @@ ARQ_MOD_009 — Panel del Operador
  :artefacto: ARQ_MOD_009_INDEX
  :tipo: Modulo Arquitectonico
  :dominio: arquitectura_tecnica
- :estado: Vigente
- :version: 1.0.0
+ :estado: Reservado
+ :version: 1.1.0
  :fecha_creacion: 2026-05-02
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
+
+.. warning:: Modulo reservado (out-of-scope para v5.6.0)
+
+ ARQ_MOD_009 (Panel del Operador) corresponde a **MOD_Operator**,
+ modulo declarado en el catalogo RBAC v5.6.0 pero **out-of-scope
+ para esta release** (extension point open-closed). El grupo
+ AGR-011 ``call_center_operator_group`` y sus 10 funciones se
+ preservan en el catalogo como puntos de extension; la
+ documentacion arquitectonica permanece como base de diseño para
+ activacion futura. Ver
+ :doc:`/requisitos/casos-uso/operator/index` y
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 Proposito
 =========

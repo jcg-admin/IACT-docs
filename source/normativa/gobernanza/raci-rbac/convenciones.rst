@@ -96,12 +96,12 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
  * - AGR-010
    - Sysadmin
    - Administracion tecnica del sistema.
- * - AGR-011
+ * - AGR-011 (RESERVADO v5.6.0 — open-closed)
    - Operador Call Center
-   - Funciones de operacion de call center (OPR-001..010).
- * - AGR-012
+   - Funciones de operacion de call center (OPR-001..010). Mapea a MOD_Operator out-of-scope.
+ * - AGR-012 (RESERVADO v5.6.0 — open-closed)
    - Supervisor Call Center
-   - Supervision en tiempo real: ``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + quality_supervisor_group.
+   - Supervision en tiempo real: ``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + quality_supervisor_group. Mapea a MOD_Supervision out-of-scope.
 
 **Razones de la R/A elegida en este documento:**
 

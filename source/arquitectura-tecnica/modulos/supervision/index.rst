@@ -8,10 +8,24 @@ ARQ_MOD_010 — Supervision en Vivo
  :artefacto: ARQ_MOD_010_INDEX
  :tipo: Modulo Arquitectonico
  :dominio: arquitectura_tecnica
- :estado: Vigente
- :version: 1.0.0
+ :estado: Reservado
+ :version: 1.1.0
  :fecha_creacion: 2026-05-02
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
+
+.. warning:: Modulo reservado (out-of-scope para v5.6.0)
+
+ ARQ_MOD_010 (Supervision en Vivo) corresponde a **MOD_Supervision**,
+ modulo declarado en el catalogo RBAC v5.6.0 pero **out-of-scope
+ para esta release** (extension point open-closed). El grupo
+ AGR-012 ``call_center_supervisor_group`` y sus funciones
+ (incluyendo barge-in y whisper con tono legal de compliance)
+ se preservan en el catalogo como puntos de extension; la
+ documentacion arquitectonica permanece como base de diseño para
+ activacion futura. Ver
+ :doc:`/requisitos/casos-uso/supervision/index` y
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 Proposito
 =========
