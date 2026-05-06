@@ -2,8 +2,11 @@
 project: IACT-docs
 work_package: 2026-05-06-00-11-02-plantuml-cached-effectiveness-audit
 created_at: 2026-05-06 00:11:02
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-06 00:30:00
+current_phase: Phase 11 — TRACK/EVALUATE
+status: Cerrado
+closure_mode: early-close — pregunta resuelta en Phase 1 DISCOVER, no se requieren fases adicionales
+key_finding: cache funciona 83.2% hit rate; misses corresponden a 99 archivos del WP predecesor sin pasar por scripts/prerender-plantuml.py
 author: NestorMonroy
 flow: rm
 methodology_step: rm-elicitation
