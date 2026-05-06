@@ -8,37 +8,36 @@
 
  left to right direction
 
- actor "view_reports" as INVOKER
- actor "IvrNavigationReportService" as SVC <<sistema>>
- actor "Bucket" as BK <<sistema>>
- actor "Call" as CALL <<sistema>>
+ actor "view_reports" as view_reports
+ actor "ReportingService\n(sp_rpt_menu_redirigidos\n+ sp_rpt_menu_centro\n+ sp_rpt_cMENU_ERROR)" as ReportingService <<sistema>>
+ database "BD_IVR" as BdIvrLegacy
 
  rectangle "MOD_Reports" {
    usecase "UC_RPT_16\nReporte de Menus IVR" as UC_RPT_16
    usecase "UC_INC_RPT_01\nResolver Segmento\n(included)" as UC_INC_RPT_01
-   usecase "Calcular total\ningresos al IVR" as METRIC_VOL
-   usecase "Distribucion por\nopcion del menu raiz" as METRIC_DIST
-   usecase "Drop-off rate\npor nodo" as METRIC_DROP
-   usecase "Avg time in menu\n+ Top paths" as METRIC_PATH
+   usecase "Vista: redirigidos" as VistaRedirigidos
+   usecase "Vista: menu_centro" as VistaMenuCentro
+   usecase "Vista: errores" as VistaErrores
  }
 
- INVOKER --> UC_RPT_16
+ view_reports --> UC_RPT_16
  UC_RPT_16 ..> UC_INC_RPT_01 : <<include>>
- UC_RPT_16 ..> METRIC_VOL : <<include>>
- UC_RPT_16 ..> METRIC_DIST : <<include>>
- UC_RPT_16 ..> METRIC_DROP : <<include>>
- UC_RPT_16 ..> METRIC_PATH : <<include>>
-
- METRIC_VOL --> SVC
- METRIC_DIST --> BK
- METRIC_DROP --> BK
- SVC --> CALL
+ UC_RPT_16 ..> VistaRedirigidos : <<extend>>
+ UC_RPT_16 ..> VistaMenuCentro : <<extend>>
+ UC_RPT_16 ..> VistaErrores : <<extend>>
+ VistaRedirigidos --> ReportingService : callproc(sp_rpt_menu_redirigidos)
+ VistaMenuCentro  --> ReportingService : callproc(sp_rpt_menu_centro)
+ VistaErrores     --> ReportingService : callproc(sp_rpt_cMENU_ERROR)
+ ReportingService --> BdIvrLegacy : CALL sp_rpt_*
 
  note bottom of UC_RPT_16
    BReq-001 + BReq-007. Identificar
    cuello de botella en IVR: opciones
    confusas, drop-off alto,
    tiempo en menu excesivo.
+   CNST-007 read-only BD_IVR — TRIPLE SP.
+   Cada vista mapea a un SP distinto;
+   backend no agrega ni hace path mining.
  end note
 
  @enduml

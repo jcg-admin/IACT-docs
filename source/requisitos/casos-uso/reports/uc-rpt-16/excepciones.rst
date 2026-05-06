@@ -9,7 +9,8 @@ EX-02: Sin permiso — 403.
 EX-03: ivr_id no existe — 404.
 EX-04: Cross-segmento — 403.
 EX-05: Periodo invalido — 400.
-EX-06: BD timeout — 503.
+EX-06: callproc BD_IVR timeout — 503
+(cualquiera de los 3 SPs).
 
 Resumen
 =======

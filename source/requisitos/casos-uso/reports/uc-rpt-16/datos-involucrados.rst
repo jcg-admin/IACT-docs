@@ -7,13 +7,15 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **Base Analitica IVR** — datos de navegacion de menus IVR,
-  generados por el ETL y consultados via Servicio de Reportes.
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_detalle`` poblado por el ETL. Se accede via
+  ``cursor.callproc(...)`` a TRES SPs (uno por sub-vista).
 
-7.2 Datos retornados por el Servicio de Reportes
-=================================================
+7.2 Datos retornados por los SPs
+================================
 
-El Servicio de Reportes provee tres dimensiones:
+UC_RPT_16 invoca uno de tres SPs segun la ``vista``
+solicitada:
 
 **Menus redirigidos** (``sp_rpt_menu_redirigidos``):
 

@@ -2,7 +2,7 @@
 created_at: 2026-05-06 08:25:00
 project: IACT-docs
 work_package: 2026-05-06-08-10-51-uc-rpt-sp-flujo-principal-rewrite
-phase: Phase 10 — EXECUTE (B-1..B-3 done)
+phase: Phase 10 — EXECUTE (B-1..B-4 done)
 author: NestorMonroy
 status: En progreso
 version: 0.1.0
@@ -111,9 +111,49 @@ version: 0.1.0
 - Strict build OK: `execute/build-logs/sphinx-strict-b3-uc-rpt-15-
   2026-05-06T08-31-22.log` (EXIT=0).
 
+## B-4 — UC_RPT_16 (TRIPLE: sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR)
+
+### Changed
+
+- `flujo-principal.rst`: PASOs 7-8 reescritos en sub-vistas
+  (PASO 7a/7b/7c) — un callproc por SP segun la `vista`
+  solicitada; PASO 8 = combinar / parsear sin recalculo;
+  nota CNST-007 + TRIPLE SP. Las sub-vistas son ALTERNAS
+  (un panel UI por vista), no flujos paralelos.
+- `actores-precondiciones.rst`: AnalyticsRepo →
+  ReportingService con tres callprocs.
+- `implementacion-tecnica.rst`: ReportingService como
+  componente principal con TRIPLE SP; pseudocodigo con
+  diccionario `SP_BY_VISTA` que dispatcha vista→SP;
+  parser MenuReportOutput.from_rows; restricciones
+  cross-cutting.
+- `datos-involucrados.rst`: Base Analitica IVR → BD_IVR
+  via TRES SPs (uno por sub-vista).
+- `excepciones.rst`, `criterios-aceptacion.rst`,
+  `testing.rst`: BD timeout → callproc BD_IVR timeout
+  (cualquiera de los 3 SPs); UT-01..03 testean parsers
+  de las filas de cada SP, no PathMiner.
+- `patrones-diseno.rst`: P-74 reformulado como "Triple SP
+  por sub-vista" (no "Path mining bounded"); explica el
+  trade-off.
+- `diagramas-uml/diagrama-de-caso-de-uso.rst`: actores
+  IvrNavigationReportService/Bucket/Call removidos;
+  reemplazados por ReportingService (3 SPs) → BdIvrLegacy
+  con un usecase por vista (Vista: redirigidos /
+  menu_centro / errores). Aliases STD-011 compliant.
+
+### Verification
+
+- Strict build OK: `execute/build-logs/sphinx-strict-b4-aliases-fix-
+  2026-05-06T08-37-17.log` (EXIT=0). Build previo
+  `sphinx-strict-b4-uc-rpt-16-2026-05-06T08-35-15.log` tambien EXIT=0.
+- STD-011 alias compliance verificada en B-1..B-4 (commit
+  separado: aliases SP/BDIVR/INVOKER → ReportingService/
+  BdIvrLegacy/view_reports).
+
 ## Pendiente
 
-- B-4 UC_RPT_16 (TRIPLE SP) (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
+- B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion) (sp_rpt_centros_transferencia + sp_rpt_centros_xsegmento)
 - B-4 UC_RPT_16 (sp_rpt_menu_redirigidos + sp_rpt_menu_centro + sp_rpt_cMENU_ERROR)
 - B-5 UC_RPT_17 (sp_rpt_clientes + ETL anonimizacion)
 - Cierre WP en Phase 11.
