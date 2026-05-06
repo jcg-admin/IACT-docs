@@ -99,9 +99,9 @@ resultado.
   cae a ``allowed=false``. Pruebas de
   fault-injection obligatorias.
 - P-15: ``view_assignments`` esta en
-  AGR-008 (``daily_audit_group``) y
-  AGR-009 (auditor) — no se otorga
-  ad-hoc.
+  AGR-007 (``permission_admin_group``) y
+  AGR-008 (``auditor_group``) — no se
+  otorga ad-hoc.
 
 10.5 Trazabilidad
 =================

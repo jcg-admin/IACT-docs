@@ -83,7 +83,8 @@ es UC_PERM_08 (solo own menu).
 
 - funcion canonica:
   ``view_user_menu_simulation``
-- backing en AGR-009 auditor / soporte
+- backing en AGR-008 (``auditor_group``)
+  o AGR-010 (``system_admin_group``) para soporte
 - modo read-only
 - audit obligatorio (P-39 audit reforzado).
 
