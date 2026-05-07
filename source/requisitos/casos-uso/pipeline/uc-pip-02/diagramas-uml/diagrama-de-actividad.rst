@@ -28,3 +28,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-secuencia`.
  - :doc:`diagrama-de-clases`.
+ - :doc:`/arquitectura-tecnica/domain-model/errores-etl-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`.
