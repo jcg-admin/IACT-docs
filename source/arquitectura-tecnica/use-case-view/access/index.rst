@@ -34,7 +34,8 @@ arquitectónica aprobada).
 
  actor TargetUser
 
- rectangle "MOD_Access" as MOD_Access {   usecase "UC_ACC_01\nAsignar Funciones\na Usuario\n.. extension points ..\nPermiso temporal excepcional" as UC_ACC_01
+ rectangle "MOD_Access" as MOD_Access {
+   usecase "UC_ACC_01\nAsignar Funciones\na Usuario\n.. extension points ..\nPermiso temporal excepcional" as UC_ACC_01
    usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as UC_ACC_02
    usecase "UC_ACC_03\nConsultar Permisos\nEfectivos" as UC_ACC_03
    usecase "UC_ACC_04\nAsignar Agrupador\na Usuario" as UC_ACC_04

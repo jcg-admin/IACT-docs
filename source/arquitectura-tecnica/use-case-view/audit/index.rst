@@ -30,7 +30,9 @@ escritura. Append-only por CNST-025.
 
  actor Auditor
 
- rectangle "MOD_Audit" as MOD_Audit {   usecase "UC_AUD_01\nVer Auditoria\nGeneral\n.. extension points ..\nBuscar" as VER_AUDITORIA   usecase "UC_AUD_02\nBuscar en\nAuditoria\n.. extension points ..\nExportar" as BUSCAR_AUDITORIA
+ rectangle "MOD_Audit" as MOD_Audit {
+   usecase "UC_AUD_01\nVer Auditoria\nGeneral\n.. extension points ..\nBuscar" as VER_AUDITORIA
+   usecase "UC_AUD_02\nBuscar en\nAuditoria\n.. extension points ..\nExportar" as BUSCAR_AUDITORIA
    usecase "UC_AUD_03\nExportar\nAuditoria" as EXPORTAR_AUDITORIA
    usecase "UC_AUD_04\nGenerar Reporte\nCompliance" as REPORTE_COMPLIANCE
  }

@@ -33,7 +33,10 @@ de log puede ver cada usuario.
  actor Auditor
  actor PipelineAdmin
 
- rectangle "MOD_Logs" as MOD_Logs {   usecase "UC_LOG_01\nVer Logs\ndel Sistema\n.. extension points ..\nBuscar" as VER_LOGS_SISTEMA   usecase "UC_LOG_02\nVer Logs Pipeline\n.. extension points ..\nBuscar" as VER_LOGS_PIPELINE   usecase "UC_LOG_03\nBuscar Logs\n.. extension points ..\nExportar" as BUSCAR_LOGS
+ rectangle "MOD_Logs" as MOD_Logs {
+   usecase "UC_LOG_01\nVer Logs\ndel Sistema\n.. extension points ..\nBuscar" as VER_LOGS_SISTEMA
+   usecase "UC_LOG_02\nVer Logs Pipeline\n.. extension points ..\nBuscar" as VER_LOGS_PIPELINE
+   usecase "UC_LOG_03\nBuscar Logs\n.. extension points ..\nExportar" as BUSCAR_LOGS
    usecase "UC_LOG_04\nExportar Logs" as EXPORTAR_LOGS
    usecase "UC_LOG_05\nVer Logs de\nInfraestructura" as VER_LOGS_INFRAESTRUCTURA
    usecase "UC_LOG_06\nVer Estado\ndel Sistema" as VER_ESTADO_SISTEMA
