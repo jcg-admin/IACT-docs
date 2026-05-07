@@ -7,7 +7,7 @@ Parte 3 — Flujo principal
 3.1 Crear regla SoD
 ===================
 
-PASO 1 — POST /api/admin/sod-rules/.
+PASO 1 — POST /api/admin/separation-rules/.
 PASO 2 — JWT + verificar AGR-010.
 PASO 3 — Validar:
 
