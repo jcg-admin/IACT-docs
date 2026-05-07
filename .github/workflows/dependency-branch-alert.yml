@@ -38,11 +38,11 @@ jobs:
         if: steps.alert.outputs.alert_required == 'true'
         uses: actions/github-script@v7
         env:
-          ALERT_MESSAGE: ${{ steps.alert.outputs.message }}
+          ALERT_MESSAGE_JSON: ${{ toJson(steps.alert.outputs.message) }}
         with:
           script: |
             const marker = '<!-- dependency-branch-sync-alert -->';
-            const message = process.env.ALERT_MESSAGE || '';
+            const message = JSON.parse(process.env.ALERT_MESSAGE_JSON || '""');
             const body = `${marker}\n${message}`;
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;

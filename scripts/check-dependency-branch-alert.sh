@@ -16,6 +16,8 @@ if [ -z "$EVENT_PATH" ] || [ ! -f "$EVENT_PATH" ]; then
   exit 1
 fi
 
+# Optional override variables from the caller workflow.
+# If unset, values are read from GITHUB_EVENT_PATH.
 BASE_SHA="${GITHUB_BASE_SHA:-}"
 HEAD_SHA="${GITHUB_HEAD_SHA:-}"
 
