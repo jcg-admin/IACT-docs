@@ -40,3 +40,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-clases`.
  - :doc:`diagrama-de-estados-saved-view`.
+ - :doc:`/arquitectura-tecnica/domain-model/saved-view`.
+ - :doc:`/arquitectura-tecnica/domain-model/saved-filter`.
