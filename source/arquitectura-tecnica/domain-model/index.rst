@@ -139,6 +139,7 @@ directas con otras clases del mismo bounded context.
  alert-repo
  alert-history-summary
  alert-history-service
+ segment-change-listener
  evaluator-reloader
  rule-validator
  timing-calculator
