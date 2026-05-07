@@ -30,6 +30,13 @@ Estado y metadata
     — modelo flat sin herencia (compatible).
   - :doc:`/backend/adr-back-007-rbac-custom-vs-auth-group`
     — RBAC custom (compatible).
+  - :doc:`/backend/adr-back-009-cache-capabilities-degraded-mode`
+    — politica de cache que consume MenuItem (caps:user e
+    menu:user invalidados en transiciones de UC_ADM_05).
+  - :doc:`/backend/adr-back-010-function-is-critical-governance`
+    — ``manage_menu_catalog`` y ``manage_menu_lifecycle``
+    (caps de UC_ADM_04/05) son ``is_critical=True``, bypass
+    de cache (AP-2b).
   - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
   - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
     (a reescribir en CNST-032 v2.0.0 con prohibicion explicita

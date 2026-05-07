@@ -94,10 +94,13 @@ ver :doc:`/backend/adr-back-010-function-is-critical-governance`.
    - Capabilities que modifican permisos de otros, modifican
      catalogo RBAC, o son acciones irreversibles
  * - Catalogo inicial True
-   - ``assign_functions``, ``revoke_function_group``,
-     ``manage_menu_catalog``, ``manage_menu_lifecycle``,
-     ``manage_function_catalog``, ``manage_access_groups``,
-     ``delete_user``, ``delete_function``, ``delete_access_group``
+   - 9 capabilities alineadas al catalogo canonico:
+     ``assign_functions``, ``revoke_functions``,
+     ``assign_function_groups``, ``revoke_function_group``,
+     ``assign_functions_to_group``,
+     ``manage_function_catalog``, ``manage_menu_catalog``,
+     ``manage_menu_lifecycle``, ``deactivate_users``.
+     Ver ADR-BACK-010 §3.3.
  * - Modificable en runtime
    - **No** — solo via Django RunPython data migration con
      review >= 2 aprobaciones

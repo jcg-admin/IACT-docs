@@ -149,28 +149,81 @@ El ``UserCapabilityResolver`` decide cache vs DB segun el flag:
 3.3 Catalogo inicial de is_critical=True
 ----------------------------------------
 
-Capabilities marcadas como criticas desde el dia 1:
+Capabilities marcadas como criticas desde el dia 1, alineadas
+al catalogo canonico
+:doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`:
 
 .. list-table::
- :widths: 30 70
+ :widths: 30 12 22 36
  :header-rows: 1
 
  * - Codename
+   - Modulo
+   - UC titular
    - Razon
  * - ``assign_functions``
-   - Modifica permisos de otros usuarios
+   - ACC
+   - UC-010, UC-042
+   - Asigna Function a usuarios — modifica permisos de otros
+ * - ``revoke_functions``
+   - ACC
+   - UC-010
+   - Revoca Function de usuarios (simetria con asignar)
+ * - ``assign_function_groups``
+   - ACC
+   - UC-010
+   - Asigna grupos de funciones — modifica permisos
  * - ``revoke_function_group``
-   - Modifica permisos de otros usuarios
- * - ``manage_menu_catalog``
-   - Modifica catalogo UX que afecta a todos
- * - ``manage_menu_lifecycle``
-   - Transiciones de estado afectan render para todos
+   - PERM
+   - UC_PERM_02
+   - Revoca grupo asignado a usuario
+ * - ``assign_functions_to_group``
+   - PERM/ADM
+   - UC_PERM_06, UC_ADM_03
+   - Modifica composicion de AGRs (catalogo de los 12 grupos
+     predefinidos del sistema y AGRs custom)
  * - ``manage_function_catalog``
-   - Modifica el catalogo RBAC mismo
- * - ``manage_access_groups``
-   - Modifica composicion de AGRs
- * - ``delete_user``, ``delete_function``, ``delete_access_group``
-   - Acciones irreversibles sobre RBAC
+   - ADM
+   - UC_ADM_02
+   - CRUD del catalogo RBAC mismo (Function entries)
+ * - ``manage_menu_catalog``
+   - ADM (v5.6.x)
+   - UC_ADM_04
+   - CRUD del catalogo UX persistido (MenuItem)
+ * - ``manage_menu_lifecycle``
+   - ADM (v5.6.x)
+   - UC_ADM_05
+   - Transiciones de estado afectan render para todos
+ * - ``deactivate_users``
+   - USR
+   - UC_USR_xx
+   - Soft delete de usuarios (semantica BR-009 — no
+     eliminacion fisica)
+
+**Total inicial: 9 capabilities.**
+
+**Nota sobre semantica de borrado en IACT:**
+
+El catalogo IACT NO incluye capabilities de tipo
+``delete_*`` con borrado fisico — el proyecto aplica
+**BR-009 baja logica** documentada en catalogo §3.x:
+``deactivate_users`` (RENAME v5.4.0 desde
+``delete_users``), ``disable_alerts`` (RENAME v5.4.0
+desde ``delete_alerts``), etc. La proteccion
+``is_critical=True`` cubre las capabilities de
+desactivacion donde aplica el riesgo de revocacion
+diferida.
+
+**Capabilities consideradas y NO incluidas:**
+
+- ``manage_access_groups``, ``delete_function``,
+  ``delete_access_group`` — no existen en el catalogo
+  IACT. La gestion de AGRs y Function se realiza via
+  ``assign_functions_to_group`` (composicion) y
+  ``manage_function_catalog`` (catalogo Function);
+  ambas ya en la lista. La desactivacion sigue el
+  patron ``is_active=False`` (soft) cubierto por
+  ``manage_function_catalog``.
 
 3.4 Governance del flag — separacion de capabilities
 ----------------------------------------------------
@@ -358,21 +411,35 @@ para criticas.
    from django.db import migrations, models
 
 
+   # Alineado al catalogo canonico v5.6.x (catalogo-funciones.rst).
+   # 9 capabilities marcadas is_critical=True (D-DR-001).
    CRITICAL_INITIAL = {
+       # ACC — modifican permisos de usuarios
        "assign_functions",
+       "revoke_functions",
+       "assign_function_groups",
+       # PERM — modifican grupos / asignaciones
        "revoke_function_group",
-       "manage_menu_catalog",
-       "manage_menu_lifecycle",
+       "assign_functions_to_group",
+       # ADM — catalogos y lifecycle
        "manage_function_catalog",
-       "manage_access_groups",
-       "delete_user",
-       "delete_function",
-       "delete_access_group",
+       "manage_menu_catalog",          # v5.6.x extension
+       "manage_menu_lifecycle",        # v5.6.x extension
+       # USR — soft delete (BR-009)
+       "deactivate_users",
    }
 
 
    def mark_critical_functions(apps, schema_editor):
        Function = apps.get_model("access", "Function")
+       missing = set(CRITICAL_INITIAL) - set(
+           Function.objects.filter(codename__in=CRITICAL_INITIAL)
+                           .values_list("codename", flat=True)
+       )
+       assert not missing, (
+           f"CRITICAL_INITIAL contains codenames not in catalog: {missing}. "
+           f"Update catalogo-funciones.rst or remove from CRITICAL_INITIAL."
+       )
        Function.objects.filter(codename__in=CRITICAL_INITIAL).update(
            is_critical=True,
        )
