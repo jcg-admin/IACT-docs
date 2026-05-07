@@ -46,3 +46,5 @@
 
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-estados-share`.
+ - :doc:`/arquitectura-tecnica/domain-model/saved-view`.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`.
