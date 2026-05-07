@@ -34,12 +34,12 @@ if [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
   exit 1
 fi
 
-if ! git cat-file -e "${BASE_SHA}^{commit}" 2>/dev/null; then
+if ! git rev-parse --verify --quiet "${BASE_SHA}^{commit}" >/dev/null; then
   echo "::error::Base SHA $BASE_SHA is not available in local git history."
   exit 1
 fi
 
-if ! git cat-file -e "${HEAD_SHA}^{commit}" 2>/dev/null; then
+if ! git rev-parse --verify --quiet "${HEAD_SHA}^{commit}" >/dev/null; then
   echo "::error::Head SHA $HEAD_SHA is not available in local git history."
   exit 1
 fi
