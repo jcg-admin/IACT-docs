@@ -14,19 +14,19 @@ Parte 7 — Datos involucrados
  * - Endpoint
    - Metodo
    - RBAC
- * - ``/api/access/sod-rules/``
+ * - ``/api/access/separation-rules/``
    - GET
    - ``view_separation_rules``
- * - ``/api/access/sod-rules/{id}/``
+ * - ``/api/access/separation-rules/{id}/``
    - GET
    - ``view_separation_rules``
- * - ``/api/access/sod-rules/``
+ * - ``/api/access/separation-rules/``
    - POST
    - ``view_separation_rules``
- * - ``/api/access/sod-rules/{id}/``
+ * - ``/api/access/separation-rules/{id}/``
    - PATCH
    - ``view_separation_rules``
- * - ``/api/access/sod-rules/{id}/``
+ * - ``/api/access/separation-rules/{id}/``
    - DELETE
    - ``view_separation_rules``
 
