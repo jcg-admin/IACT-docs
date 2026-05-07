@@ -15,11 +15,11 @@ BASE_SHA="${GITHUB_BASE_SHA:-}"
 HEAD_SHA="${GITHUB_HEAD_SHA:-}"
 
 if [ -z "$BASE_SHA" ]; then
-  BASE_SHA="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["pull_request"]["base"]["sha"])' "$EVENT_PATH")"
+  BASE_SHA="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print((((d.get("pull_request") or {}).get("base") or {}).get("sha", "")) )' "$EVENT_PATH")"
 fi
 
 if [ -z "$HEAD_SHA" ]; then
-  HEAD_SHA="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["pull_request"]["head"]["sha"])' "$EVENT_PATH")"
+  HEAD_SHA="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print((((d.get("pull_request") or {}).get("head") or {}).get("sha", "")) )' "$EVENT_PATH")"
 fi
 
 if [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
