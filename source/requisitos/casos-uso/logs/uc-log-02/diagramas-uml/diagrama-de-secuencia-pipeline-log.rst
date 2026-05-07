@@ -27,3 +27,5 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-log`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`.
