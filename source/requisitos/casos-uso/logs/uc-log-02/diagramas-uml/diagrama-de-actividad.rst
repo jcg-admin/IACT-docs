@@ -30,3 +30,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-componentes-pipeline-log`.
  - :doc:`diagrama-de-secuencia-pipeline-log`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-log`.
+ - :doc:`/arquitectura-tecnica/domain-model/log-store`.
