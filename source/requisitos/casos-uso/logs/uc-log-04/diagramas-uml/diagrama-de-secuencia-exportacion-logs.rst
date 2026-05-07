@@ -33,3 +33,6 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker`.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`.
