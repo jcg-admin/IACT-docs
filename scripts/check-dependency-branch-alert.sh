@@ -7,7 +7,7 @@ set -euo pipefail
 EVENT_PATH="${GITHUB_EVENT_PATH:-}"
 
 if [ -z "$EVENT_PATH" ] || [ ! -f "$EVENT_PATH" ]; then
-  echo "::error::GITHUB_EVENT_PATH no está disponible."
+  echo "::error::GITHUB_EVENT_PATH is not available."
   exit 1
 fi
 
@@ -23,7 +23,7 @@ if [ -z "$HEAD_SHA" ]; then
 fi
 
 if [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
-  echo "::error::No se pudieron resolver BASE_SHA y HEAD_SHA del evento."
+  echo "::error::Unable to resolve BASE_SHA and HEAD_SHA from event payload."
   exit 1
 fi
 
@@ -47,16 +47,16 @@ fi
 
 ALERT_MESSAGE=""
 if [ "$ALERT_REQUIRED" = true ]; then
-  ALERT_MESSAGE="⚠️ **Alerta de sincronización de ramas**\n\n"
-  ALERT_MESSAGE+="Este PR modifica dependencias bloqueadas (**pyproject.toml**/**uv.lock**).\n"
-  ALERT_MESSAGE+="Las demás ramas activas deberían hacer **merge/rebase con main** para evitar conflictos y desalineación de dependencias.\n"
+  ALERT_MESSAGE="⚠️ **Branch synchronization alert**\n\n"
+  ALERT_MESSAGE+="This PR modifies locked dependencies (**pyproject.toml**/**uv.lock**).\n"
+  ALERT_MESSAGE+="Other active branches should **merge/rebase with main** to avoid dependency drift and future lockfile conflicts.\n"
 
   if [ "$CHANGED_PYPROJECT" = true ] && [ "$CHANGED_UV_LOCK" = false ]; then
-    ALERT_MESSAGE+="\n❗ Se cambió **pyproject.toml** sin cambios en **uv.lock**. Recomendación: regenerar lockfile antes del merge.\n"
+    ALERT_MESSAGE+="\n❗ **pyproject.toml** changed without **uv.lock**. Recommendation: regenerate the lockfile before merge.\n"
   fi
 
   if [ "$CHANGED_PYPROJECT" = false ] && [ "$CHANGED_UV_LOCK" = true ]; then
-    ALERT_MESSAGE+="\nℹ️ Se cambió solo **uv.lock**. Verifica que corresponda a cambios intencionales de resolución.\n"
+    ALERT_MESSAGE+="\nℹ️ Only **uv.lock** changed. Verify this matches an intentional dependency resolution update.\n"
   fi
 
   echo "::warning::$ALERT_MESSAGE"
