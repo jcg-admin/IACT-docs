@@ -6,6 +6,11 @@ set -euo pipefail
 
 EVENT_PATH="${GITHUB_EVENT_PATH:-}"
 
+if ! command -v jq >/dev/null 2>&1; then
+  echo "::error::jq is required but not available in the runner."
+  exit 1
+fi
+
 if [ -z "$EVENT_PATH" ] || [ ! -f "$EVENT_PATH" ]; then
   echo "::error::GITHUB_EVENT_PATH is not available."
   exit 1
