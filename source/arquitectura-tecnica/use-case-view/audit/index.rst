@@ -17,7 +17,8 @@ MOD_Audit — Auditoria de Acciones: UC por Modulo
 ================================================
 
 Consulta inmutable del registro de acciones de modificación en
-``audit_log`` (PostgreSQL). Cubre altas/bajas de usuarios,
+``audit_log`` (Almacen de Datos centralizado). Cubre
+altas/bajas de usuarios,
 cambios RBAC, disparos de pipeline y cualquier acción de
 escritura. Append-only por CNST-025.
 
@@ -61,7 +62,7 @@ escritura. Append-only por CNST-025.
 Lectura del diagrama
 ====================
 
-- ``Auditor`` (AGR-008) es el único rol con acceso al
+- ``Auditor`` (AGR-008) es el único AGR con acceso al
   log de auditoría — operación read-only sobre tabla
   append-only (CNST-025).
 - ``UC_AUD_01`` ``<<extend>>`` ``UC_AUD_02``: tras ver
