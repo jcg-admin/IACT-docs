@@ -19,7 +19,7 @@ Parte 11 — Implementacion tecnica
  * - Componente
    - Responsabilidad
  * - **HTTPListEndpoint**
-   - GET ``/api/access/sod-rules/``
+   - GET ``/api/access/separation-rules/``
  * - **HTTPDetailEndpoint**
    - GET por id
  * - **HTTPCreateEndpoint**
