@@ -20,7 +20,7 @@ UC_PERM_08 — Generar Menu Dinamico
 Genera el menu de navegacion personalizado para el User segun su
 ``effective_set`` de funciones. Cada nodo del menu (Domain → Section →
 Action) se filtra por las funciones que el User posee. Funcion implicita
-``view_own_navigation`` (auto-otorgada al rol User).
+``view_own_navigation`` (auto-otorgada a usuarios autenticados).
 
 .. uml::
  :caption: UC_PERM_08 — actores y casos asociados.
@@ -60,8 +60,8 @@ Action) se filtra por las funciones que el User posee. Funcion implicita
  note bottom of UC_PERM_08
    GET /api/me/menu/ — cada User
    ve su menu segun su effective_set.
-   Sin RBAC explicito (auto al
-   rol User).
+   Sin RBAC explicito (auto a
+   usuarios autenticados).
  end note
 
  note bottom of FILTRAR
