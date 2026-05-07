@@ -40,7 +40,7 @@ sin notificacion al destino el grant no se completa.
  actor "EffectivePermissionsAggregator" as EffectivePermissionsAggregator <<sistema>>
  actor "InternalMailbox" as InternalMailbox <<sistema>>
  actor "AuditService" as AuditService <<sistema>>
- actor "Cron expiracion" as Cron_expiracion <<sistema_externo>>
+ actor "Planificador expiracion" as Planificador_expiracion <<sistema>>
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_03\nConceder Permiso\nExcepcional (vista PERM)" as UC_PERM_03
@@ -79,7 +79,7 @@ sin notificacion al destino el grant no se completa.
  InternalMailbox --> User_destino
  AUDITAR --> AuditService
  AuditService --> view_audit_log
- Cron_expiracion --> EXPIRY
+ Planificador_expiracion --> EXPIRY
 
  note bottom of UC_PERM_03
    ADR-GOB-008: vista PERM con audiencia
@@ -96,7 +96,7 @@ sin notificacion al destino el grant no se completa.
 
  note bottom of EXPIRY
    BR-008: expires_at obligatorio
-   (1h-30d). Cron consume
+   (1h-30d). Planificador consume
    ExpirationPolicy.find_expiring_in
    y remueve permiso al vencer.
  end note
@@ -108,7 +108,8 @@ sin notificacion al destino el grant no se completa.
  - :doc:`/arquitectura-tecnica/domain-model/exceptional-permission` —
    entidad persistida.
  - :doc:`/arquitectura-tecnica/domain-model/exceptional-permission-repo` —
-   repositorio (find_active_grant, find_expiring_in para cron).
+   repositorio (find_active_grant, find_expiring_in para
+   el Planificador de Tareas).
  - :doc:`/arquitectura-tecnica/domain-model/expiration-policy` —
    bounds + deteccion vencimiento.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
