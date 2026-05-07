@@ -7,8 +7,8 @@ status: Activo
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
-size: mediano (~17 archivos a modificar, ~30 ediciones)
-target: Audit y remediacion de cumplimiento STD-010 (vocabulario abstracto) + alineacion con backend post-A-005 (eliminacion concepto rol) en `source/arquitectura-tecnica/use-case-view/`. Aunque STD-010 §2 declara arquitectura-tecnica EXENTO, §4 (reglas de diagramas UML) y la consistencia con A-005 hacen necesario el audit.
+size: mediano-grande (~36 archivos, ~46 ediciones, ~3-5 h)
+target: Audit y remediacion COMBINADO (Opcion A) de (1) STD-010 vocabulario, (2) alineacion A-005 concepto rol, y (3) **18 UCs con estado desincronizado** entre use-case-view y casos-uso (operator/caller/supervision — deuda heredada del WP std-012). Aprobado por ejecutor.
 predecessor_wp: 2026-05-07-23-30-26-use-case-view-users-alignment (en pausa Phase 1)
 trigger: directiva del ejecutor "vamos a realizar un analisis para ver si se esta respetando std-010-vocabulario-abstracto.rst" antes de Phase 8/EXECUTE del WP previo
 ```
