@@ -35,3 +35,5 @@
 
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-pipeline-metricas`.
+ - :doc:`/arquitectura-tecnica/domain-model/technical-metric`.
+ - :doc:`/arquitectura-tecnica/domain-model/system-health`.
