@@ -33,3 +33,5 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/infra-log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/infrastructure-log`.
