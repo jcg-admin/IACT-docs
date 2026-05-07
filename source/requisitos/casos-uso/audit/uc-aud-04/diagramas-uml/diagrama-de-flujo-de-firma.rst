@@ -34,3 +34,5 @@
 
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-secuencia-verify`.
+ - :doc:`/arquitectura-tecnica/domain-model/hmac-verifier`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`.
