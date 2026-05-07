@@ -30,7 +30,7 @@ MOD_Supervision — Supervision en Vivo: UC por Modulo
 
 Monitoreo en tiempo real de llamadas activas, intervención
 de supervisor y comunicación con el equipo de agentes.
-Requiere rol ``Supervisor`` (AGR-003 quality_supervisor).
+Requiere AGR-003 ``quality_supervisor`` (Supervisor).
 
 .. uml::
  :caption: MOD_Supervision — Supervisor monitorea, interviene
