@@ -179,7 +179,7 @@ Parte 12 — Testing
 ::
 
    GIVEN invoker con view_separation_rules
-   WHEN  GET /api/access/sod-rules/
+   WHEN  GET /api/access/separation-rules/
    THEN  status == 200
 
 12.3.2 GET filter rule_id audita
