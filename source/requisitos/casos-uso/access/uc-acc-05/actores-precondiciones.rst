@@ -28,7 +28,7 @@ otorgarse sin la gestion (perfil auditor).
 ==================
 
 - Backend respondiendo en
-  ``/api/access/sod-rules/`` (GET/POST/
+  ``/api/access/separation-rules/`` (GET/POST/
   PATCH/DELETE).
 - BD Base de Datos accesible.
 - Invocante con la funcion correspondiente.
