@@ -168,6 +168,8 @@ directas con otras clases del mismo bounded context.
  application-log
  pipeline-log
  infrastructure-log
+ log-store
+ infra-log-store
  system-health
  technical-metric
 
