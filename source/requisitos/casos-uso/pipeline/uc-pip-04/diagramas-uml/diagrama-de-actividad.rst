@@ -41,3 +41,6 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-secuencia`.
  - :doc:`diagrama-de-estados-reintento`.
+ - :doc:`/arquitectura-tecnica/domain-model/disparador-etl`.
+ - :doc:`/arquitectura-tecnica/domain-model/supervision-etl-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`.
