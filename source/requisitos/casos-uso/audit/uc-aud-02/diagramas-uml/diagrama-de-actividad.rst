@@ -42,3 +42,6 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-componentes-fts`.
  - :doc:`diagrama-de-secuencia`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-query-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
