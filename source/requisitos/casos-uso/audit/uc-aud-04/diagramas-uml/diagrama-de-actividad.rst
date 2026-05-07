@@ -51,3 +51,7 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-flujo-de-firma`.
  - :doc:`diagrama-de-secuencia-verify`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/hmac-verifier`.
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker`.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`.
