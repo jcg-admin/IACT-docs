@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :modulo: operator
- :estado: Reservado
+ :estado: Fuera del scope
  :version: 1.0.0
  :fecha_creacion: 2026-05-05
  :ultimo_cambio: 2026-05-06
@@ -18,7 +18,7 @@ UC_OPR_08 — Ver Propio Dashboard
 ============================================================
 
 Vista PROPIA del agente con KPIs (Calls handled, TMO, SL personal,
-Adherence, Breaks, ranking team opt-in). Sin RBAC adicional al rol User.
+Adherence, Breaks, ranking team opt-in). Sin RBAC adicional al usuario autenticado.
 Diferencia con UC_RPT_12 (vista supervisor sobre todos los agentes).
 
 .. uml::
@@ -60,8 +60,8 @@ Diferencia con UC_RPT_12 (vista supervisor sobre todos los agentes).
 
  note bottom of UC_OPR_08
    Vista PROPIA — sin RBAC adicional
-   al rol User. Diferencia con
-   UC_RPT_12 (vista supervisor).
+   al usuario autenticado. Diferencia
+   con UC_RPT_12 (vista supervisor).
  end note
 
  note bottom of RANKING
