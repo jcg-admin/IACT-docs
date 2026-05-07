@@ -20,7 +20,7 @@ UC_ACC_08 — Permiso Temporal
 Otorga ``ExceptionalPermission`` con ``expires_at`` y ``justification``
 obligatorios. Mailbox-or-abort HARD (P-10): sin notificacion al destino,
 el grant no se completa. UC_PERM_03 es la vista PERM (governance) que
-incluye este UC. Cron de expiracion remueve permisos vencidos.
+incluye este UC. Planificador de Tareas remueve permisos vencidos.
 
 .. uml::
  :caption: UC_ACC_08 — actores y casos asociados.
@@ -32,7 +32,7 @@ incluye este UC. Cron de expiracion remueve permisos vencidos.
  actor "grant_exceptional_permission" as grant_exceptional_permission
  actor "User destino" as User_destino <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "Cron expiracion" as Cron_expiracion <<sistema_externo>>
+ actor "Planificador expiracion" as Planificador_expiracion <<sistema>>
  actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
  actor "ExceptionalPermissionRepo" as ExceptionalPermissionRepo <<sistema>>
  actor "ExpirationPolicy" as ExpirationPolicy <<sistema>>
@@ -52,7 +52,7 @@ incluye este UC. Cron de expiracion remueve permisos vencidos.
    usecase "InternalMailbox\nOBLIGATORIO (P-10)" as MAILBOX
    usecase "Invalidar PermissionCache" as INVALIDAR
    usecase "Emitir AuditEvent\nEXCEPTIONAL_*_GRANTED\n(P-39 reforzado)" as AUDITAR
-   usecase "Vencimiento automatico\n(cron find_expiring_in)" as EXPIRY
+   usecase "Vencimiento automatico\n(Planificador find_expiring_in)" as EXPIRY
  }
 
  grant_exceptional_permission --> UC_ACC_08
@@ -77,7 +77,7 @@ incluye este UC. Cron de expiracion remueve permisos vencidos.
  InternalMailbox --> User_destino
  AUDITAR --> AuditService
  AuditService --> view_audit_log
- Cron_expiracion --> EXPIRY
+ Planificador_expiracion --> EXPIRY
 
  note bottom of MAILBOX
    P-10 mailbox-or-abort HARD: sin
@@ -87,7 +87,7 @@ incluye este UC. Cron de expiracion remueve permisos vencidos.
 
  note bottom of EXPIRY
    BR-008: expires_at obligatorio
-   (1h-30d). Cron consume
+   (1h-30d). Planificador consume
    ExpirationPolicy.find_expiring_in
    y remueve permiso al vencer
    + audit EXCEPTIONAL_EXPIRED.
