@@ -32,6 +32,16 @@ if [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
   exit 1
 fi
 
+if ! git cat-file -e "${BASE_SHA}^{commit}" 2>/dev/null; then
+  echo "::error::Base SHA $BASE_SHA is not available in local git history."
+  exit 1
+fi
+
+if ! git cat-file -e "${HEAD_SHA}^{commit}" 2>/dev/null; then
+  echo "::error::Head SHA $HEAD_SHA is not available in local git history."
+  exit 1
+fi
+
 CHANGED_FILES="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
 
 CHANGED_PYPROJECT=false
