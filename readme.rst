@@ -228,6 +228,13 @@ Antes de construir la documentación, asegúrese de tener instalado:
 Instalación de Dependencias
 ----------------------------
 
+**Nota de compatibilidad (Sphinx 9):**
+
+Actualmente este repositorio mantiene ``Sphinx>=8,<9`` porque la dependencia
+``autodocsumm==0.2.14`` declara compatibilidad solo con ``Sphinx<9``.
+La migración a Sphinx 9 se hará cuando exista una versión compatible de
+``autodocsumm`` (o se reemplace esta extensión).
+
 Para Windows (Git Bash):
 
 .. code-block:: bash

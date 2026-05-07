@@ -22,9 +22,9 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
-# Core Sphinx documentation engine (v9.0.4 with Phase A: Configuration Standardization fixes)
+# Core Sphinx documentation engine pinned <9 until autodocsumm supports Sphinx 9
 dependencies = [
-    "Sphinx>=9.0.4",                              # Core documentation engine (fixed RST compliance Phase B)
+    "Sphinx>=8,<9",                               # Core documentation engine (temporary pin for autodocsumm compatibility)
 
     # Theme & UI
     "Furo==2025.9.25",                             # Professional documentation theme
@@ -45,7 +45,7 @@ dependencies = [
     "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
 
     # Python API Documentation (Tier 2: Recommended - Phase A enabled)
-    "sphinx-autodoc-typehints==3.6.1",             # Type hints support (added Phase A)
+    "sphinx-autodoc-typehints==3.5.2",             # Compatible with Sphinx<9 during temporary pin
     "autodocsumm==0.2.14",                         # Auto-generate summaries
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
@@ -144,4 +144,3 @@ skip_gitignore = true
 [tool.black]
 line-length = 100
 target-version = ["py311", "py312"]
-
