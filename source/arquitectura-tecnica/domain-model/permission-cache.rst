@@ -5,9 +5,9 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -124,6 +124,13 @@ Trazabilidad a UCs
   — gestión de composición (dispara invalidación).
 - :doc:`/requisitos/casos-uso/permissions/uc-perm-03/index`
   — concesión excepcional (dispara invalidación).
+- :doc:`/requisitos/casos-uso/admin/uc-adm-04/index`
+  — UC_ADM_04 (v5.6.x): manage_menu_catalog dispara
+  ``invalidate(user_id)`` para users con la Function
+  subyacente.
+- :doc:`/requisitos/casos-uso/admin/uc-adm-05/index`
+  — UC_ADM_05 (v5.6.x): cada transicion lifecycle
+  invalida los menus de los users afectados.
 
 Relaciones
 ==========
@@ -133,3 +140,45 @@ Relaciones
   lo consulta.
 - Asociado con ``CacheBackend`` (servicio de
   infraestructura: Redis, Memcached, in-memory).
+- Consumido por ``UserCapabilityResolver`` (v5.6.x) — el
+  resolver canonico para capabilities de usuario.
+
+Politica v5.6.x — Degraded mode + Bypass selectivo
+==================================================
+
+Documentado en
+:doc:`/backend/adr-back-009-cache-capabilities-degraded-mode`
+y :doc:`/backend/adr-back-010-function-is-critical-governance`.
+
+**Key namespace v5.6.x:**
+
+.. list-table::
+ :widths: 35 15 50
+ :header-rows: 1
+
+ * - Key pattern
+   - TTL
+   - Owner
+ * - ``caps:user:{user_id}``
+   - 300s
+   - ``UserCapabilityResolver.resolve``
+ * - ``menu:user:{user_id}``
+   - 300s
+   - ``UserMenuView`` (UC_PERM_08 ext)
+ * - ``func:critical_set``
+   - 60s
+   - ``UserCapabilityResolver._critical_codenames``
+
+**Degraded mode:** falla del cache no bloquea UCs
+mutating. ``cache.delete`` falla → log + telemetria
+``rbac.cache.invalidation_failed`` → UC continua. Falla
+de ``cache.get`` → query DB sin abortar.
+
+**Bypass selectivo (AP-2b):** capabilities con
+``Function.is_critical=True`` consultan DB directamente
+sin pasar por el cache. Strong consistency en
+verificacion de capabilities sensibles.
+
+**Detalle de implementacion del motor concreto** (Redis
+7.x con django-redis): vive en
+:doc:`/arquitectura-tecnica/cache-strategy`.

@@ -193,3 +193,51 @@ El proyecto avanzó significativamente desde el DISCOVER inicial: 7+ WPs ejecuta
 
 **Estado del WP:** todas las TDs cerradas el 2026-05-06 en el WP
 `2026-05-06-20-26-07-close-all-technical-debt`. No hay deuda técnica pendiente al cierre de esta actualización.
+
+---
+
+## TD-RBAC-03: `manage_critical_function_flag` sin titular runtime
+
+```
+Severidad: media
+Origen: ADR-BACK-010 §3.6 (2026-05-07)
+Estado: [ ] Pendiente
+WP de origen: 2026-05-06-21-42-06-menu-rbac-user-scope-docs
+```
+
+**Descripción:**
+
+La capability ``manage_critical_function_flag`` se declara en
+el catálogo RBAC v5.6.x como activa (``is_active=True``,
+``is_critical=True``) **sin AGR titular**. Cambios al campo
+``Function.is_critical`` solo se aplican via Django RunPython
+data migration con review obligatoria ≥ 2 aprobaciones —
+**no hay vía runtime para modificar el flag**.
+
+**Justificación de la postergación:**
+
+ADR-BACK-010 §3.4 documenta el vector de ataque que la
+governance separada mitiga: si la capability fuera asignable a
+un AGR comun, un atacante con acceso a `manage_function_catalog`
+comprometido podria marcar su propia capability como
+``is_critical=False`` antes de ser revocado, anulando la
+proteccion AP-2b.
+
+**Trigger de revisión:**
+
+- Si el equipo operativo requiere modificar `is_critical` con
+  frecuencia mayor a 1 vez por release.
+- Si surge una operación de seguridad que requiere bloquear /
+  desbloquear capabilities en runtime.
+- Si se aprueba la asignación a un slot reservado (AGR-013) o
+  hardcoded a un superuser específico.
+
+**Resolución requerida:**
+
+ADR explícito que apruebe (a) asignación a un AGR especial
+(consume slot reservado AGR-011/012 o crea AGR-013), o (b)
+mecanismo alternativo (e.g., feature flag con gate doble).
+
+**Refs:**
+- ``source/backend/adr-back-010-function-is-critical-governance.rst``
+- ``source/requisitos/reglas-negocio/rbac/catalogo-funciones.rst`` §3.11

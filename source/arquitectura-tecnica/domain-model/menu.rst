@@ -5,9 +5,10 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-07
+ :superseded_by: dm_class_menu_item
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -16,6 +17,29 @@
 ====
 Menu
 ====
+
+.. warning:: **DEPRECATED v5.6.x — modelo legacy v5.0.0/v5.5.0**
+
+   La clase ``Menu`` (proyeccion transient en arbol
+   ``Domain > Section > Action``) corresponde al modelo
+   legacy basado en ``MenuBuilder`` y ``obtener_menu_usuario(user_id)``
+   (CNST-032 v1.0.0). En v5.6.x este modelo se reemplaza por:
+
+   - :doc:`menu-item` — wrapper UX persistido 1:1 sobre Function.
+   - :doc:`menu-item-repo` — repositorio + queryset.
+   - :doc:`menu-lifecycle-service` — state machine.
+   - :doc:`user-capability-resolver` — resolver canonico
+     (reemplaza ``MenuBuilder``).
+
+   El nuevo endpoint ``GET /api/v1/menu/`` retorna shape **flat**
+   ``{capabilities, menu_items}`` (no jerarquia transient).
+   Ver CNST-032 v2.0.0 y
+   :doc:`/requisitos/casos-uso/permissions/uc-perm-08/extension-v560-menu-item-wrapper`.
+
+   Esta pagina se mantiene para trazabilidad historica y para
+   documentar diagramas / ejemplos legacy. NO se usa en codigo
+   v5.6.x — los UCs nuevos referencian directamente
+   ``MenuItem`` y ``MenuItemRepo``.
 
 Proyección del menú de navegación generada para un usuario
 en un locale específico. Es el resultado de ``MenuBuilder``
@@ -82,3 +106,10 @@ Relaciones
 - Compone (composición ``*--``) ``Domain``: la vida del
   menú genera y descarta sus dominios renderizados.
 - Proyecta a ``MenuViewModel`` para entrega al frontend.
+
+**Migracion a v5.6.x:**
+
+- Codigo nuevo: usar :doc:`menu-item` y :doc:`menu-item-repo`.
+- Codigo legacy con ``MenuBuilder``: marcar para refactor
+  segun :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
+  v2.0.0.

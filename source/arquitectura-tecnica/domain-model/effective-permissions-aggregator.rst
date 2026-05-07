@@ -5,9 +5,9 @@
  :subdominio: DomainModel
  :bounded_context: RBAC
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-05
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -16,6 +16,23 @@
 ==============================
 EffectivePermissionsAggregator
 ==============================
+
+.. note:: **v5.6.x — coexistencia con UserCapabilityResolver**
+
+   ``EffectivePermissionsAggregator`` (este documento) es la clase
+   canonica de **agregacion** de permisos del usuario para la version
+   v5.0.0..v5.5.x. En v5.6.x se mantiene vigente como **fuente del
+   computo agregado** consumida internamente por
+   :doc:`user-capability-resolver`, que agrega encima la **politica de
+   cache** (TTL 300s, degraded mode, bypass selectivo via
+   ``Function.is_critical``).
+
+   Codigo nuevo (v5.6.x) consume ``UserCapabilityResolver``. Codigo
+   pre-v5.6.x que use ``EffectivePermissionsAggregator`` directamente
+   sigue funcionando — el aggregator no cambia su contrato de
+   agregacion. Ver
+   :doc:`/backend/adr-back-009-cache-capabilities-degraded-mode` y
+   :doc:`/backend/adr-back-010-function-is-critical-governance`.
 
 Computa el ``effective_set`` de funciones RBAC para un User combinando
 todas las fuentes de permisos: ``Assignment`` activos sobre ``Function``

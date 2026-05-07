@@ -856,7 +856,94 @@ PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
    - (ninguna — actor externo sin RBAC)
    - ``Call``, ``base_ivr_*``
 
-2.13 Verificacion cuantitativa
+2.13 Cluster ADM (5 UCs) — v5.6.0 baseline + v5.6.x extension
+-------------------------------------------------------------
+
+Plano de configuracion del modelo RBAC: gestiona QUE
+funciones, grupos del sistema, reglas SoD y catalogo UX
+EXISTEN. Actor principal: ``system_admin`` (AGR-010).
+**0 CRITICOS + 3 ALTOS + 2 MEDIOS + 0 BAJOS = 5**.
+
+.. list-table::
+ :widths: 30 12 8 25 25
+ :header-rows: 1
+
+ * - UC
+   - Criticidad
+   - In-deg
+   - Funciones RBAC
+   - Entidades
+ * - UC_ADM_01 Gestionar Ciclo de Vida de Reglas SoD
+   - ALTO
+   - 1
+   - ``create_separation_rule``,
+     ``update_separation_rule``,
+     ``disable_separation_rule``
+   - ``SeparationRule``,
+     ``AccessGroup``,
+     ``Function``
+ * - UC_ADM_02 Gestionar Catalogo de Funciones
+   - ALTO
+   - 2
+   - ``manage_function_catalog``
+   - ``Function``,
+     ``FunctionGroup``,
+     ``PermissionCache``
+ * - UC_ADM_03 Gestionar Catalogo de Agrupadores del Sistema
+   - ALTO
+   - 1
+   - ``assign_functions_to_group``
+   - ``AccessGroup``,
+     ``Function``,
+     ``FunctionGroupMembership``
+ * - UC_ADM_04 Gestionar Catalogo de MenuItems (v5.6.x)
+   - MEDIO
+   - 1
+   - ``manage_menu_catalog``
+     (``is_critical=True``)
+   - ``MenuItem``,
+     ``Function``,
+     ``MenuItemRepo``,
+     ``UserCapabilityResolver``
+ * - UC_ADM_05 Gestionar Lifecycle de MenuItem (v5.6.x)
+   - MEDIO
+   - 1
+   - ``manage_menu_lifecycle``
+     (``is_critical=True``)
+   - ``MenuItem``,
+     ``MenuLifecycleService``,
+     ``InternalMailbox``,
+     ``AuditEvent``
+
+**Dependencias internas del cluster ADM:**
+
+::
+
+   UC_ADM_05 → UC_ADM_04 (MenuItem creado por UC_ADM_04
+                          es transicionado por UC_ADM_05)
+   UC_ADM_04 → UC_ADM_02 (Function existe — wrapped 1:1)
+   UC_ADM_03 → UC_ADM_02 (asigna Function existentes)
+   UC_ADM_01 → (raiz dentro del cluster)
+
+**Dependencias externas:**
+
+- UC_ADM_05 ← Planificador de Tareas (job
+  ``auto_archive_menu_items`` — actor=system).
+- UC_PERM_08 (Generar Menu Dinamico) ← lee ``MenuItem``
+  creados/transicionados por UC_ADM_04/05.
+- UC_PERM_06 (Asignar Funciones a Grupo) ← lee ``Function``
+  modificadas por UC_ADM_02.
+
+**Out-of-cluster: ``manage_critical_function_flag``**
+
+Capability declarada (TD-RBAC-03) **sin titular en v5.6.x**.
+No tiene UC asociado — gobernanza exclusivamente via Django
+RunPython data migration con review ≥ 2. Ver
+:doc:`/backend/adr-back-010-function-is-critical-governance`.
+
+----
+
+2.14 Verificacion cuantitativa
 ------------------------------
 
 .. list-table::
@@ -941,12 +1028,18 @@ PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
    - 1
    - 2
    - 5
+ * - ADM (v5.6.0 + v5.6.x)
+   - 0
+   - 3
+   - 2
+   - 0
+   - 5
  * - **Total**
    - **9**
-   - **34**
-   - **24**
+   - **37**
+   - **26**
    - **13**
-   - **80**
+   - **85**
 
 ----
 

@@ -13,38 +13,38 @@
 
    @startuml
 
-   actor "manage_menu_catalog" as Actor
-   participant "Interfaz de Usuario" as UI
-   participant "Servicio de Aplicacion" as Svc
-   database   "Almacen de Datos" as DB
-   participant "Servicio de Cache" as Cache
-   database   "Audit Log" as Audit
+   actor "manage_menu_catalog" as manage_menu_catalog
+   participant "Interfaz de Usuario" as InterfazDeUsuario
+   participant "Servicio de Aplicacion" as SvcAplicacion
+   database   "Almacen de Datos" as AlmacenDatos
+   participant "Servicio de Cache" as SvcCache
+   database   "Audit Log" as AuditLog
 
-   Actor -> UI: Crea MenuItem
-   UI -> Svc: POST /api/v1/admin/menu-items/
-   Svc -> Svc: Verificar capability (bypass cache)
-   Svc -> DB: Validar Function existe + activa
-   DB --> Svc: ok
-   Svc -> DB: Validar Function sin MenuItem previo
-   DB --> Svc: ok (I-1)
-   Svc -> DB: Validar parent (si aplica)
-   DB --> Svc: ok
+   manage_menu_catalog -> InterfazDeUsuario: Crea MenuItem
+   InterfazDeUsuario -> SvcAplicacion: POST /api/v1/admin/menu-items/
+   SvcAplicacion -> SvcAplicacion: Verificar capability (bypass cache)
+   SvcAplicacion -> AlmacenDatos: Validar Function existe + activa
+   AlmacenDatos --> SvcAplicacion: ok
+   SvcAplicacion -> AlmacenDatos: Validar Function sin MenuItem previo
+   AlmacenDatos --> SvcAplicacion: ok (I-1)
+   SvcAplicacion -> AlmacenDatos: Validar parent (si aplica)
+   AlmacenDatos --> SvcAplicacion: ok
 
    group Transaccion atomica
-     Svc -> DB: INSERT menu_items (status=DRAFT)
-     Svc -> Audit: registrar MENU_ITEM_CREATED
+     SvcAplicacion -> AlmacenDatos: INSERT menu_items (status=DRAFT)
+     SvcAplicacion -> AuditLog: registrar MENU_ITEM_CREATED
    end
 
-   Svc -> Cache: invalidar menu:user:{ids} (post-COMMIT)
+   SvcAplicacion -> SvcCache: invalidar menu:user:{ids} (post-COMMIT)
    alt cache OK
-     Cache --> Svc: ok
+     SvcCache --> SvcAplicacion: ok
    else cache fail
-     Cache --> Svc: error
-     Svc -> Audit: CACHE_INVALIDATION_FAILED
-     Svc -> Svc: metric +1 (degraded mode)
+     SvcCache --> SvcAplicacion: error
+     SvcAplicacion -> AuditLog: CACHE_INVALIDATION_FAILED
+     SvcAplicacion -> SvcAplicacion: metric +1 (degraded mode)
    end
 
-   Svc --> UI: 201 Created + MenuItem
-   UI --> Actor: confirmacion + preview admin
+   SvcAplicacion --> InterfazDeUsuario: 201 Created + MenuItem
+   InterfazDeUsuario --> manage_menu_catalog: confirmacion + preview admin
 
    @enduml

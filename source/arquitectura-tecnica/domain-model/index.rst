@@ -63,10 +63,14 @@ directas con otras clases del mismo bounded context.
  permission-service
  permission-cache
  effective-permissions-aggregator
+ user-capability-resolver
  authorization-guard
  rbac-repo
  rule-validator
  menu
+ menu-item
+ menu-item-repo
+ menu-lifecycle-service
  nav-domain
  section
  action

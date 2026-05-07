@@ -238,8 +238,10 @@ E.6 Cambios respecto a UC_PERM_08 v5.0.0
    - ``GET /api/permisos/verificar/<user_id>/menu/``
    - ``GET /api/v1/menu/`` (sin ``user_id`` — toma del JWT)
  * - Computo del menu
-   - ``obtener_menu_usuario(user_id)`` (function SQL)
-   - Query Django ORM via ``MenuItem.objects.for_user``
+   - funcion SQL legacy ``obtener_menu_usuario(user_id)``
+   - Query del Servicio de Aplicacion sobre el Almacen de
+     Datos via ``MenuItemRepo.for_user`` (motor concreto en
+     ``arquitectura-tecnica/``)
  * - Shape
    - Jerarquico (dominio → seccion → accion)
    - Flat ``{capabilities, menu_items}``
