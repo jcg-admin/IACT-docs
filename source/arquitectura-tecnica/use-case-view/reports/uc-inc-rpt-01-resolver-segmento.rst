@@ -32,7 +32,7 @@ vacio sin error 403.
  actor "Caller UC (UC_RPT_01..17)" as Caller_UC <<sistema>>
  actor "PermissionService" as PermissionService <<sistema>>
  actor "SegmentResolver" as SegmentResolver <<sistema>>
- actor "User" as User <<sistema>>
+ actor "view_reports" as view_reports <<beneficiario>>
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento\ndel Usuario" as UC_INC_RPT_01
@@ -50,7 +50,7 @@ vacio sin error 403.
  CONSULTAR --> PermissionService
  LISTAR --> SegmentResolver
  ISOLATION --> SegmentResolver
- PermissionService --> User
+ PermissionService --> view_reports
 
  note bottom of UC_INC_RPT_01
    UC de inclusion — no aparece
