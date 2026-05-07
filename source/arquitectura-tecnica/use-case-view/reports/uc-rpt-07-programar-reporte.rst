@@ -18,7 +18,8 @@ UC_RPT_07 — Programar Reporte
 ==============================
 
 Crea ScheduledReport recurrente (diario, semanal, mensual). Cada run
-del cron ejecuta export con filtros guardados y entrega via mailbox.
+del Planificador ejecuta export con filtros guardados y entrega
+via mailbox.
 ``schedule_report``.
 
 .. uml::
@@ -29,7 +30,7 @@ del cron ejecuta export con filtros guardados y entrega via mailbox.
  left to right direction
 
  actor "schedule_report" as schedule_report
- actor "Cron expiracion" as Cron <<sistema_externo>>
+ actor "Planificador" as Planificador <<sistema>>
  actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
  actor "ScheduledReportRepo" as ScheduledReportRepo <<sistema>>
  actor "ScheduledReport" as ScheduledReport <<sistema>>
@@ -40,11 +41,11 @@ del cron ejecuta export con filtros guardados y entrega via mailbox.
    usecase "Verificar\nschedule_report" as VERIFICAR_AGR
    usecase "Validar period\n+ filtros + format" as VALIDAR
    usecase "Persistir ScheduledReport" as PERSISTIR
-   usecase "Run cron\n(crear ExportJob)" as RUN_CRON
+   usecase "Run programado\n(crear ExportJob)" as RUN_CRON
  }
 
  schedule_report --> UC_RPT_07
- Cron --> RUN_CRON
+ Planificador --> RUN_CRON
 
  UC_RPT_07 ..> VERIFICAR_AGR : <<include>>
  UC_RPT_07 ..> VALIDAR : <<include>>
