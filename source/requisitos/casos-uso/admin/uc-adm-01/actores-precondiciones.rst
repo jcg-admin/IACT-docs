@@ -29,17 +29,17 @@ Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 
 ::
 
-   POST /api/admin/sod-rules/
+   POST /api/admin/separation-rules/
    body: {
      name, group_a: [function_codenames],
      group_b: [function_codenames],
      rationale
    }
 
-   PATCH /api/admin/sod-rules/{id}/
+   PATCH /api/admin/separation-rules/{id}/
    body: { name?, group_a?, group_b?, rationale? }
 
-   POST /api/admin/sod-rules/{id}/disable/
+   POST /api/admin/separation-rules/{id}/disable/
 
 2.5 Datos de salida
 ===================
