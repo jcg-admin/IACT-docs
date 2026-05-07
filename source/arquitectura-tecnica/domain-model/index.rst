@@ -124,6 +124,7 @@ directas con otras clases del mismo bounded context.
  disparador-etl
  errores-etl-service
  resumen-salud
+ resumen-salud-builder
 
 .. toctree::
  :maxdepth: 1
