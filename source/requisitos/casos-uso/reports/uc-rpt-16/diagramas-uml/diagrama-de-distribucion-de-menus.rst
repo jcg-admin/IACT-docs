@@ -19,3 +19,5 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/ivr-navigation-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/menu`.
