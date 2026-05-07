@@ -29,3 +29,5 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/agent-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`.
