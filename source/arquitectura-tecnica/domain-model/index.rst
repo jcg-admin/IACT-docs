@@ -123,6 +123,7 @@ directas con otras clases del mismo bounded context.
  pipeline-execution-repo
  disparador-etl
  errores-etl-service
+ resumen-salud
 
 .. toctree::
  :maxdepth: 1
