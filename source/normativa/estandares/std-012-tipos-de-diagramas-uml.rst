@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-05
- :ultimo_cambio: 2026-05-05
+ :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -132,26 +132,26 @@ Referencia metodológica:
    - Ilustrar un flujo concreto, una violación específica,
      un fixture de prueba.
  * - **Casos de uso**
-   - ``casos-uso/{cluster}/{uc}/diagramas-uml/caso-de-uso.rst``
+   - ``casos-uso/{cluster}/{uc}/diagramas-uml/diagrama-de-caso-de-uso.rst``
      +
-     ``arquitectura-tecnica/use-case-view/{cluster}/{uc}/caso-de-uso.rst``
+     ``arquitectura-tecnica/use-case-view/{cluster}/{uc}-{nombre}.rst``
    - 1 UC / archivo (spec) + 1 vista módulo
    - Spec del UC: actores + relaciones include/extend.
      Vista arq: módulo entero.
  * - **Secuencia**
-   - ``casos-uso/{cluster}/{uc}/diagramas-uml/secuencia*.rst``
+   - ``casos-uso/{cluster}/{uc}/diagramas-uml/diagrama-de-secuencia*.rst``
    - 1 escenario / archivo
    - Mostrar interacción cronológica entre componentes.
  * - **Actividad**
-   - ``casos-uso/{cluster}/{uc}/diagramas-uml/actividad.rst``
+   - ``casos-uso/{cluster}/{uc}/diagramas-uml/diagrama-de-actividad.rst``
    - 1 flujo / archivo
    - Flujo de control con decisiones (if/else) y forks.
  * - **Estados**
-   - ``casos-uso/{cluster}/{uc}/diagramas-uml/estados-{entidad}.rst``
+   - ``casos-uso/{cluster}/{uc}/diagramas-uml/diagrama-de-estados-{entidad}.rst``
    - 1 entidad / archivo
    - Ciclo de vida de una entidad con state machine.
  * - **Componentes**
-   - ``arquitectura-tecnica/{view}/*-componentes.rst``
+   - ``arquitectura-tecnica/{view}/diagrama-de-componentes-*.rst``
    - 1 vista / archivo
    - Bloques arquitectónicos y sus dependencias.
  * - **Distribución (deployment)**
@@ -334,7 +334,72 @@ Cada clase va en su propio archivo (``user.rst``, ``session.rst``).
 
 ----
 
-7. Referencias
+7. Convención de nomenclatura de archivos (v1.1.0)
+===================================================
+
+7.1 Prefijo ``diagrama-de-`` obligatorio
+----------------------------------------
+
+Todo archivo dentro de ``diagramas-uml/`` que contiene un
+diagrama UML DEBE iniciar con el prefijo ``diagrama-de-``.
+
+**Razones:**
+
+(a) **Inequivocidad:** ``caso-de-uso.rst`` puede confundirse
+    con un archivo textual del UC. ``diagrama-de-caso-de-uso.rst``
+    es inequivoco.
+
+(b) **Alineamiento con STD-011:** los ejemplos canonicos de
+    aliases en ``STD-011`` ya usan el prefijo en sus
+    snippets (``diagrama-de-secuencia.rst``, etc.).
+
+(c) **Consistencia con la practica reciente:** los UCs
+    nuevos creados desde ``2026-05-04`` adoptaron el prefijo
+    organicamente.
+
+7.2 Tabla canonica de nombres
+-----------------------------
+
+.. list-table::
+ :widths: 30 50 20
+ :header-rows: 1
+
+ * - Tipo de diagrama
+   - Nombre canonico (con prefijo)
+   - Variantes
+ * - Caso de uso
+   - ``diagrama-de-caso-de-uso.rst``
+   - ``diagrama-de-caso-de-uso-{contexto}.rst`` (ej:
+     ``-relacion-de-inclusion``)
+ * - Secuencia
+   - ``diagrama-de-secuencia.rst``
+   - ``diagrama-de-secuencia-{escenario}.rst`` (ej:
+     ``-detalle``, ``-listado``, ``-export``)
+ * - Actividad
+   - ``diagrama-de-actividad.rst``
+   - ``diagrama-de-actividad-{escenario}.rst`` (ej:
+     ``-aplicar``, ``-cold``, ``-warm``)
+ * - Estados
+   - ``diagrama-de-estados-{entidad}.rst``
+   - singular: ``diagrama-de-estado-{entidad}.rst``
+ * - Clases
+   - ``diagrama-de-clases.rst``
+   - ``diagrama-de-clases-{contexto}.rst``
+ * - Componentes
+   - ``diagrama-de-componentes.rst``
+   - ``diagrama-de-componentes-{escenario}.rst``
+
+7.3 Excepciones
+---------------
+
+**Documentos auxiliares de texto en ``diagramas-uml/``** que
+NO contienen un diagrama UML (e.g., ``notas-sobre-los-diagramas.rst``)
+no aplican el prefijo. La regla aplica solo a archivos que
+contienen ``.. uml::`` o ``@startuml``.
+
+----
+
+8. Referencias
 ==============
 
 - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/diagrama-de-clases`
@@ -345,7 +410,7 @@ Cada clase va en su propio archivo (``user.rst``, ``session.rst``).
 
 ----
 
-8. Historial de Cambios
+9. Historial de Cambios
 =======================
 
 .. list-table::
@@ -355,6 +420,23 @@ Cada clase va en su propio archivo (``user.rst``, ``session.rst``).
  * - Versión
    - Fecha
    - Cambios
+ * - 1.1.0
+   - 2026-05-07
+   - Formaliza el prefijo ``diagrama-de-`` obligatorio para
+     todos los archivos UML en ``diagramas-uml/`` (seccion 7
+     nueva). Alinea STD-012 con la convencion ya usada en
+     STD-011 y con la practica adoptada organicamente en los
+     UCs nuevos desde 2026-05-04. Razon: eliminar ambiguedad
+     entre archivos textuales y archivos de diagrama, y
+     resolver la inconsistencia normativa STD-011/STD-012
+     detectada en WP
+     ``2026-05-07-04-08-13-use-case-view-analysis`` (G-CU-06).
+     Producto del WP
+     ``2026-05-07-04-50-49-std-012-prefix-normalization``.
+     Actualiza tabla maestra (§3.1) con nombres canonicos.
+     **Nota operativa:** el cambio normativo se aplica en commit
+     dedicado (este); las operaciones de archivo (renames +
+     deletes) se aplican en commits posteriores por UC.
  * - 1.0.0
    - 2026-05-05
    - Versión inicial. Establece distinción clase vs. objeto y
