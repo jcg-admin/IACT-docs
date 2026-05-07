@@ -38,3 +38,4 @@ Casos de Uso
  uc-adm-02/index
  uc-adm-03/index
  uc-adm-04/index
+ uc-adm-05/index
