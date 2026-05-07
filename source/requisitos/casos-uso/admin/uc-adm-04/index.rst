@@ -3,8 +3,8 @@
  :tipo: Caso de Uso
  :dominio: requisitos
  :subdominio: casos_uso/admin
- :estado: Borrador
- :version: 1.0.0
+ :estado: Vigente
+ :version: 1.1.0
  :fecha_creacion: 2026-05-07
  :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy

@@ -69,9 +69,9 @@ UC_PERM_09 audita estos tipos de evento:
  * - ``AGR_REVOKED``
    - UC_ACC_02 / UC_PERM_02
  * - ``ACCESS_GRANTED``
-   - UC_ACC_06 (concesion excepcional)
+   - UC_PERM_03 (concesion excepcional)
  * - ``ACCESS_REVOKED_EXCEPTIONAL``
-   - UC_ACC_06 (revocacion excepcional)
+   - UC_PERM_04 (revocacion excepcional)
  * - ``ACCESS_GROUP_CREATED``
    - UC_PERM_05
  * - ``ACCESS_GROUP_RETIRED``
