@@ -2,9 +2,10 @@
 project: IACT-docs
 work_package: 2026-05-06-21-42-06-menu-rbac-user-scope-docs
 created_at: 2026-05-06 21:42:06
-closed_at: 2026-05-07 01:55:00
+closed_at: 2026-05-07 04:08:13
 current_phase: Phase 11 — TRACK
-status: En revision (cierre pendiente de aprobacion del ejecutor)
+status: Cerrado (aprobado por ejecutor 2026-05-07)
+successor_wp: 2026-05-07-04-08-13-use-case-view-analysis
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
