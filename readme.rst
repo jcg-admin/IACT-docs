@@ -230,10 +230,9 @@ Instalación de Dependencias
 
 **Nota de compatibilidad (Sphinx 9):**
 
-Actualmente este repositorio mantiene ``Sphinx>=8,<9`` porque la dependencia
-``autodocsumm==0.2.14`` declara compatibilidad solo con ``Sphinx<9``.
-La migración a Sphinx 9 se hará cuando exista una versión compatible de
-``autodocsumm`` (o se reemplace esta extensión).
+Este repositorio usa ``Sphinx>=9,<10``. La migración fue posible al eliminar
+``autodocsumm==0.2.14`` (incompatible con Sphinx 9), sustituyéndolo por el
+``sphinx.ext.autosummary`` nativo que ya estaba configurado en ``conf.py``.
 
 Para Windows (Git Bash):
 

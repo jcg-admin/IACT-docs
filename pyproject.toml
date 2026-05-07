@@ -22,17 +22,16 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
-# Core Sphinx documentation engine pinned <9 until autodocsumm supports Sphinx 9
 dependencies = [
-    "Sphinx>=8,<9",                               # Core documentation engine (temporary pin for autodocsumm compatibility)
+    "Sphinx>=9,<10",                              # Core documentation engine
 
     # Theme & UI
-    "Furo==2025.9.25",                             # Professional documentation theme
+    "Furo==2025.12.19",                            # Professional documentation theme (supports Sphinx 9)
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
     "sphinx-design==0.6.1",                        # Card/grid layouts (Phase 6 design)
 
     # Markdown & Content Parsing
-    "myst-parser==4.0.1",                          # Markdown support in Sphinx
+    "myst-parser==5.0.0",                          # Markdown support in Sphinx (supports Sphinx 9)
     "PyYAML==6.0.3",                               # YAML parsing
 
     # Documentation Features
@@ -45,8 +44,7 @@ dependencies = [
     "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
 
     # Python API Documentation (Tier 2: Recommended - Phase A enabled)
-    "sphinx-autodoc-typehints==3.5.2",             # Compatible with Sphinx<9 during temporary pin
-    "autodocsumm==0.2.14",                         # Auto-generate summaries
+    "sphinx-autodoc-typehints==3.10.2",            # Type hints support (requires Sphinx>=9)
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
     "sphinxcontrib-spelling==8.0.0",               # Spell checker (added Phase A)
@@ -54,7 +52,7 @@ dependencies = [
     # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
     "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
     "docutils==0.21.2",
-    "markdown-it-py==3.0.0",
+    "markdown-it-py==4.1.0",
     "mdit-py-plugins==0.5.0",
     "mdurl==0.1.2",
     "sphinx-autobuild==2025.8.25",
