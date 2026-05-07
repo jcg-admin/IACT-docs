@@ -134,6 +134,7 @@ directas con otras clases del mismo bounded context.
  alert-rule-repo
  alert-repo
  alert-history-summary
+ alert-history-service
  evaluator-reloader
  rule-validator
  timing-calculator
