@@ -18,7 +18,8 @@ UC_RPT_09 — Configurar Filtros
 ==============================
 
 User crea/modifica/borra ``SavedFilter``. ``manage_own_filters``
-implicita (auto al rol User). Limit hard 30 SavedFilter por User.
+implicita (auto-otorgada a usuarios autenticados). Limit hard
+30 SavedFilter por User.
 Filter encapsula solo filtros (period, dimensiones); diferente de
 SavedView (incluye presentation).
 
