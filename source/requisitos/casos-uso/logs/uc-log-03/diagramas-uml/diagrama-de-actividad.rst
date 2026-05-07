@@ -33,5 +33,7 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
  - :doc:`/requisitos/casos-uso/audit/uc-aud-02/index`
    (UC similar para audit log — comparte arquitectura FTS).
