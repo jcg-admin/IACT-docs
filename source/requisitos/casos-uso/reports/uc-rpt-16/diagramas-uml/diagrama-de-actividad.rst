@@ -40,3 +40,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-clases`.
  - :doc:`diagrama-de-distribucion-de-menus`.
+ - :doc:`/arquitectura-tecnica/domain-model/ivr-navigation-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
