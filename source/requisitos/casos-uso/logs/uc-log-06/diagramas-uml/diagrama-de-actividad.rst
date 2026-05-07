@@ -45,3 +45,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-componentes`.
  - :doc:`diagrama-de-estados-overall`.
+ - :doc:`/arquitectura-tecnica/domain-model/system-health`.
+ - :doc:`/arquitectura-tecnica/domain-model/technical-metric`.
