@@ -9,5 +9,5 @@ Parte 8 — Diagramas
 
    diagrama-de-caso-de-uso
    diagrama-de-actividad
-   estados-accessgroup
+   diagrama-de-estados-accessgroup
    diagrama-de-clases
