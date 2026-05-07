@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-07 23:15:34
+updated_at: 2026-05-07 23:31:06
 cold_boot: false
 current_epic: 28
 epic_name: alias-fix-uc-numericos
-current_work: .thyrox/context/work/2026-05-07-23-15-00-endpoint-sod-rules-rename
+current_work: .thyrox/context/work/2026-05-07-23-30-26-use-case-view-users-alignment
 stage: discover
 stage_number: 1
 current_phase: Phase 1 — DISCOVER
