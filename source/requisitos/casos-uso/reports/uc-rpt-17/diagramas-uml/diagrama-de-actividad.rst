@@ -34,3 +34,6 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-clases`.
  - :doc:`diagrama-de-flujo-de-anonimizacion-etl`.
+ - :doc:`/arquitectura-tecnica/domain-model/caller-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
