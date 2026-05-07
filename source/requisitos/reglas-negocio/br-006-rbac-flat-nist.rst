@@ -132,7 +132,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  * - Componente
    - Descripcion de Aplicacion
  * - MOD_Access
-   - Implementa modelo RBAC con 64 funciones atomicas activas (v5.6.0; catalogo declara 77, 13 reservadas open-closed)
+   - Implementa modelo RBAC con 67 funciones atomicas activas (v5.6.x current = 64 baseline v5.6.0 + 3 v5.6.x extension; catalogo declara 80, 13 reservadas open-closed)
  * - Middleware de API
    - Valida permisos por funcion, no por rol
  * - Base Analytics
@@ -165,9 +165,10 @@ Sin excepciones. El modelo Flat es absoluto.
  * - CNST-005
    - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
  * - :ref:`cnst-029`
-   - Modelo RBAC Flat consolidado: 64 funciones activas (catalogo v5.6.0
-     declara 77 con 13 reservadas open-closed), 12 grupos, 3 reglas SoD,
-     permisos temporales con vencimiento. Implementa esta BR.
+   - Modelo RBAC Flat consolidado: 67 funciones activas (v5.6.x current
+     = 64 baseline v5.6.0 + 3 v5.6.x extension; catalogo declara 80 con
+     13 reservadas open-closed), 12 grupos, 3 reglas SoD, permisos
+     temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -200,6 +201,10 @@ Sin excepciones. El modelo Flat es absoluto.
    - Gestionar Catalogo de Agrupadores del Sistema
  * - UC_ADM_02
    - Gestionar Catalogo de Funciones
+ * - UC_ADM_04
+   - Gestionar Catalogo de MenuItems (v5.6.x extension)
+ * - UC_ADM_05
+   - Gestionar Lifecycle de MenuItem (v5.6.x extension)
 
 ----
 
@@ -211,7 +216,7 @@ Sin excepciones. El modelo Flat es absoluto.
 
 1. No existe tabla de herencia de roles
 2. Permisos se resuelven por union de funciones asignadas
-3. 64 funciones atomicas activas definidas en catalogo (77 declaradas, 13 reservadas open-closed)
+3. 67 funciones atomicas activas definidas en catalogo (80 declaradas, 13 reservadas open-closed) — 64 baseline v5.6.0 + 3 v5.6.x extension (MOD_Admin)
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

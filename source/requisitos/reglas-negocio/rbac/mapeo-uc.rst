@@ -7,15 +7,16 @@ Modelo RBAC IACT — Mapeo Funciones UC
 10. MAPEO FUNCIONES → CASOS DE USO
 ==================================
 
-.. note:: Scope del mapeo (v5.6.0)
+.. note:: Scope del mapeo (v5.6.x current — 67 funciones)
 
- La tabla incluye las **64 funciones in-scope** de los 9 modulos
- activos. Las **13 funciones reservadas** de MOD_Operator y
- MOD_Supervision (extension points open-closed) se documentan
- en sus respectivos catalogos pero quedan fuera del mapeo
- operativo de esta release. Ver
- :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` §3.9
- y §3.10.
+ La tabla incluye las **67 funciones in-scope**: 64 baseline v5.6.0
+ (modulos 3.1–3.8 + 3.11 con 3 funciones originales) +
+ 3 v5.6.x extension (MOD_Admin §3.11 ampliado a 6 funciones).
+ Las **13 funciones reservadas** de MOD_Operator y MOD_Supervision
+ (extension points open-closed) se documentan en sus respectivos
+ catalogos pero quedan fuera del mapeo operativo. Ver
+ :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` §3.9,
+ §3.10 y §3.11.
 
 10.1 Tabla Completa
 -------------------
@@ -221,3 +222,12 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - assign_functions_to_group
    - UC_ADM_03, UC_PERM_06
    - Admin
+ * - manage_menu_catalog
+   - UC_ADM_04
+   - Admin (v5.6.x extension)
+ * - manage_menu_lifecycle
+   - UC_ADM_05
+   - Admin (v5.6.x extension)
+ * - manage_critical_function_flag
+   - (sin UC — gobernanza via migration)
+   - Admin (v5.6.x extension, sin titular runtime, TD-RBAC-03)

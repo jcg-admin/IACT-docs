@@ -678,9 +678,37 @@ Tests obligatorios
 
 
  @pytest.mark.django_db
- def test_bootstrap_creates_64_in_scope_functions():
+ def test_bootstrap_creates_67_in_scope_functions():
      # La migración corre automáticamente al setup de DB de tests
-     assert Function.objects.count() == 64
+     # 64 baseline v5.6.0 + 3 v5.6.x extension (MOD_Admin):
+     # manage_menu_catalog, manage_menu_lifecycle,
+     # manage_critical_function_flag
+     assert Function.objects.count() == 67
+
+
+ @pytest.mark.django_db
+ def test_bootstrap_v560_baseline_64_functions():
+     # Las 64 baseline v5.6.0 — modulos 3.1-3.8 + 3.11 con 3 funciones
+     v560_baseline = Function.objects.exclude(
+         codename__in=[
+             "manage_menu_catalog",
+             "manage_menu_lifecycle",
+             "manage_critical_function_flag",
+         ]
+     )
+     assert v560_baseline.count() == 64
+
+
+ @pytest.mark.django_db
+ def test_manage_critical_function_flag_has_no_titular():
+     # TD-RBAC-03: capability declarada activa pero sin AGR titular
+     fn = Function.objects.get(codename="manage_critical_function_flag")
+     assert fn.is_active is True
+     assert fn.is_critical is True
+     groups = AccessGroup.objects.filter(
+         functiongroupmembership__function=fn
+     )
+     assert not groups.exists()
 
 
  @pytest.mark.django_db
