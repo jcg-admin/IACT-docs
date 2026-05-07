@@ -108,6 +108,7 @@ directas con otras clases del mismo bounded context.
  agent-report-service
  agent-daily-stat-repo
  campaign-daily-stat-repo
+ campaign-report-service
  caller-report-service
  ivr-navigation-report-service
  transfer-report-service
