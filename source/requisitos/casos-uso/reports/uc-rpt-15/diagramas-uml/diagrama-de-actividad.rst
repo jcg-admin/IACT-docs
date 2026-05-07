@@ -34,3 +34,5 @@
 
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-clases`.
+ - :doc:`/arquitectura-tecnica/domain-model/transfer-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
