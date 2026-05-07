@@ -18,3 +18,9 @@
 
  @enduml
 
+.. seealso::
+
+ - :doc:`/arquitectura-tecnica/domain-model/access-group`
+ - :doc:`/arquitectura-tecnica/domain-model/access-group-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/access-group-function`
+ - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
