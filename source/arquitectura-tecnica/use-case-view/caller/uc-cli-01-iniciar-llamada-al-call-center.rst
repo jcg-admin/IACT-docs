@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :modulo: caller
- :estado: Vigente
+ :estado: Fuera del scope
  :version: 1.0.0
  :fecha_creacion: 2026-05-05
  :ultimo_cambio: 2026-05-05
