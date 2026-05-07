@@ -28,4 +28,7 @@
 
  - :doc:`diagrama-de-caso-de-uso-relacion-de-inclusion`.
  - :doc:`diagrama-de-clases`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-scope`.
+ - :doc:`/arquitectura-tecnica/domain-model/rbac-repo`.
  - :doc:`/requisitos/reglas-negocio/br-012-usuario-segmento-unico`.
