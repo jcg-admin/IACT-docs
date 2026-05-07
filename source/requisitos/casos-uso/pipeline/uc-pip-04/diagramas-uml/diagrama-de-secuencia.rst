@@ -28,3 +28,6 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/disparador-etl`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`.
