@@ -47,19 +47,27 @@ fi
 
 ALERT_MESSAGE=""
 if [ "$ALERT_REQUIRED" = true ]; then
-  ALERT_MESSAGE="⚠️ **Branch synchronization alert**\n\n"
-  ALERT_MESSAGE+="This PR modifies locked dependencies (**pyproject.toml**/**uv.lock**).\n"
-  ALERT_MESSAGE+="Other active branches should **merge/rebase with main** to avoid dependency drift and future lockfile conflicts.\n"
+  ALERT_MESSAGE="$(cat <<'EOF'
+⚠️ **Branch synchronization alert**
+
+This PR modifies locked dependencies (**pyproject.toml**/**uv.lock**).
+Other active branches should **merge/rebase with main** to avoid dependency drift and future lockfile conflicts.
+EOF
+)"
 
   if [ "$CHANGED_PYPROJECT" = true ] && [ "$CHANGED_UV_LOCK" = false ]; then
-    ALERT_MESSAGE+="\n❗ **pyproject.toml** changed without **uv.lock**. Recommendation: regenerate the lockfile before merge.\n"
+    ALERT_MESSAGE="$ALERT_MESSAGE
+
+❗ **pyproject.toml** changed without **uv.lock**. Recommendation: regenerate the lockfile before merge."
   fi
 
   if [ "$CHANGED_PYPROJECT" = false ] && [ "$CHANGED_UV_LOCK" = true ]; then
-    ALERT_MESSAGE+="\nℹ️ Only **uv.lock** changed. Verify this matches an intentional dependency resolution update.\n"
+    ALERT_MESSAGE="$ALERT_MESSAGE
+
+ℹ️ Only **uv.lock** changed. Verify this matches an intentional dependency resolution update."
   fi
 
-  echo "::warning::$ALERT_MESSAGE"
+  echo "::warning::Dependency lockfiles changed; branch sync alert generated."
 fi
 
 {
@@ -67,6 +75,6 @@ fi
   echo "changed_pyproject=$CHANGED_PYPROJECT"
   echo "changed_uv_lock=$CHANGED_UV_LOCK"
   echo "message<<EOF"
-  echo -e "$ALERT_MESSAGE"
+  printf '%s\n' "$ALERT_MESSAGE"
   echo "EOF"
 } >> "$GITHUB_OUTPUT"
