@@ -142,6 +142,7 @@ directas con otras clases del mismo bounded context.
  audit-repo
  audit-query-service
  audit-validator
+ hmac-verifier
  pii-scanner
  sanitizer
  cursor-encoder
