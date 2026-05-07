@@ -5,7 +5,7 @@
  :estado: Vigente
  :version: 1.2.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-05-06
+ :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -44,3 +44,6 @@ de codigo, no en esta documentacion.
  adr-back-005-middleware-decoradores-permisos
  adr-back-006-rbac-estrategia-implementacion
  adr-back-007-rbac-custom-vs-auth-group
+ adr-back-008-menuitem-wrapper-ux-sobre-function
+ adr-back-009-cache-capabilities-degraded-mode
+ adr-back-010-function-is-critical-governance
