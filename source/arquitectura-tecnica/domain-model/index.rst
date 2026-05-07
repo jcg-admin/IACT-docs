@@ -102,6 +102,7 @@ directas con otras clases del mismo bounded context.
  filter-validator
  kpi-calculator
  segment-resolver
+ segment-scope
  base-report-service
  abandonment-report-service
  agent-report-service
