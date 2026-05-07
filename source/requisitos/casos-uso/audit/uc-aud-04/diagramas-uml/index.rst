@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   flujo-de-firma
-   verify
+   diagrama-de-actividad
+   diagrama-de-flujo-de-firma
+   diagrama-de-secuencia-verify

@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   componente-fts
-   secuencia
+   diagrama-de-actividad
+   diagrama-de-componentes-fts
+   diagrama-de-secuencia
