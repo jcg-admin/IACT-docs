@@ -18,3 +18,9 @@
  end note
 
  @enduml
+
+.. seealso::
+
+ - :doc:`/arquitectura-tecnica/domain-model/exceptional-permission`
+ - :doc:`/arquitectura-tecnica/domain-model/exceptional-permission-repo`
+ - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
