@@ -20,7 +20,7 @@ ACTIVE,
 9.2 CA-02: Detalle por id
 =========================
 
-**DADO** GET ``/api/access/sod-rules/{id}/``,
+**DADO** GET ``/api/access/separation-rules/{id}/``,
 
 **ENTONCES**:
 
