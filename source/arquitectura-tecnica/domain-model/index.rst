@@ -55,6 +55,7 @@ directas con otras clases del mismo bounded context.
  access-group-repo
  access-group-function
  function-group-membership
+ user-access-group-assignment
  assignment
  assignment-repo
  exceptional-permission
