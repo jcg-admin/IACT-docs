@@ -34,3 +34,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-componentes`.
  - :doc:`diagrama-de-estados-frescura-datos`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`.
