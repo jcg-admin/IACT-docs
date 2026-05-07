@@ -78,3 +78,9 @@ Estructura de la spec
  patrones-diseno
  implementacion-tecnica
  testing
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Extensiones
+
+ extension-v560-menu-item-wrapper
