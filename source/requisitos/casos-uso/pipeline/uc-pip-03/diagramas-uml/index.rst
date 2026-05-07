@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   estado-de-frescura-de-datos
-   componentes
+   diagrama-de-actividad
+   diagrama-de-estados-frescura-datos
+   diagrama-de-componentes

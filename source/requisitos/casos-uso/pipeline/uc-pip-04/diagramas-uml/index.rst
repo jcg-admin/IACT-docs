@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   estado-del-reintento
-   secuencia
+   diagrama-de-actividad
+   diagrama-de-estados-reintento
+   diagrama-de-secuencia

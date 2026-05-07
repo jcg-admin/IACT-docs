@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   estados-de-ejecucion-etl
-   clases
+   diagrama-de-actividad
+   diagrama-de-estados-ejecucion-etl
+   diagrama-de-clases
