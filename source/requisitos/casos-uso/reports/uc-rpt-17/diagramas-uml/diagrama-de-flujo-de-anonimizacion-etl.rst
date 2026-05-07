@@ -29,4 +29,7 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
+ - :doc:`/arquitectura-tecnica/domain-model/sanitizer`.
+ - :doc:`/arquitectura-tecnica/domain-model/caller-report-service`.
  - :doc:`/requisitos/reglas-negocio/br-020-clasificacion-datos`.
