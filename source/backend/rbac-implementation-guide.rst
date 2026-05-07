@@ -834,6 +834,430 @@ Trazabilidad
 
 ----
 
+Q9 — MenuItem UI metadata layer + UserCapabilityResolver
+=========================================================
+
+Extension de la guia para v5.6.x con la capa UX persistida del
+menu (``MenuItem``) y el resolver canonico de capabilities. Las
+decisiones arquitectonicas viven en ADR-BACK-008/009/010 y
+CNST-032 v2.0.0.
+
+Q9.1 Modelo MenuItem
+--------------------
+
+``MenuItem`` es **wrapper UX 1:1** sobre ``Function``. Ver
+ADR-BACK-008 para invariantes I-1..I-4 y rationale completo.
+
+.. code-block:: python
+
+   # apps/access/models.py
+   class MenuItem(models.Model):
+       function = models.OneToOneField(
+           Function,
+           on_delete=models.PROTECT,
+           related_name="menu_item",
+       )
+       display_label = models.CharField(max_length=100)
+       icon = models.CharField(max_length=100, blank=True)
+       display_order = models.IntegerField(default=0)
+       route_path = models.URLField(max_length=200)
+       parent = models.ForeignKey(
+           "self", null=True, blank=True,
+           on_delete=models.SET_NULL,
+           related_name="children",
+       )
+       status = models.CharField(
+           max_length=20,
+           choices=[
+               ("DRAFT", "Borrador"),
+               ("ACTIVE", "Activo"),
+               ("DEPRECATED", "Deprecado"),
+               ("ARCHIVED", "Archivado"),
+           ],
+           default="DRAFT",
+       )
+       deprecated_at = models.DateTimeField(null=True, blank=True)
+       archived_at = models.DateTimeField(null=True, blank=True)
+       block_auto_archive = models.BooleanField(default=False)
+       block_reason = models.CharField(max_length=500, blank=True, default="")
+       block_set_by = models.ForeignKey(
+           User, null=True, blank=True,
+           on_delete=models.PROTECT,
+           related_name="menu_items_archive_blocked",
+       )
+       block_set_at = models.DateTimeField(null=True, blank=True)
+       created_at = models.DateTimeField(auto_now_add=True)
+       updated_at = models.DateTimeField(auto_now=True)
+       created_by = models.ForeignKey(
+           User, on_delete=models.PROTECT,
+           related_name="menu_items_created",
+       )
+
+       objects = MenuItemQuerySet.as_manager()
+
+       class Meta:
+           db_table = "menu_items"
+           ordering = ("display_order",)
+           indexes = [
+               models.Index(fields=("status",)),
+               models.Index(fields=("status", "display_order")),
+               models.Index(fields=("deprecated_at",)),
+           ]
+
+Q9.2 Function extendida con is_critical
+---------------------------------------
+
+.. code-block:: python
+
+   class Function(models.Model):
+       # ... campos existentes ...
+       is_critical = models.BooleanField(
+           default=False,
+           help_text=(
+               "Si True, has_capability bypassa el cache. "
+               "Cambiable solo via data migration "
+               "(ADR-BACK-010)."
+           ),
+       )
+
+       class Meta:
+           db_table = "functions"
+           indexes = [
+               models.Index(fields=("codename",)),
+               models.Index(fields=("is_active",)),
+               models.Index(fields=("module",)),
+               models.Index(fields=("codename", "is_active")),
+           ]
+
+Q9.3 UserCapabilityResolver canonico
+------------------------------------
+
+Unico punto de computo de capabilities. Endpoints,
+middlewares, views y serializers consumen este resolver — NO
+calculan capabilities ad-hoc.
+
+.. code-block:: python
+
+   # apps/access/resolvers.py
+   from django.core.cache import cache, CacheError
+   from django.db.models import Q
+   from django.utils import timezone
+
+   from .models import Function
+
+
+   class UserCapabilityResolver:
+       CACHE_TTL = 300
+       CRITICAL_TTL = 60
+
+       @staticmethod
+       def resolve(user) -> set[str]:
+           """Cache-first. Para reads (AP-2a)."""
+           if not user or not user.is_authenticated:
+               return set()
+           key = f"caps:user:{user.id}"
+           try:
+               cached = cache.get(key)
+               if cached is not None:
+                   return cached
+           except CacheError:
+               pass  # degraded mode — continua a DB
+           codenames = UserCapabilityResolver._query_db(user)
+           try:
+               cache.set(key, codenames, timeout=UserCapabilityResolver.CACHE_TTL)
+           except CacheError:
+               pass
+           return codenames
+
+       @staticmethod
+       def resolve_uncached(user) -> set[str]:
+           """DB-first. Para critical writes (AP-2b)."""
+           if not user or not user.is_authenticated:
+               return set()
+           return UserCapabilityResolver._query_db(user)
+
+       @staticmethod
+       def has_capability(user, codename: str) -> bool:
+           """Decide cache vs DB segun is_critical."""
+           critical_set = UserCapabilityResolver._critical_codenames()
+           if codename in critical_set:
+               return codename in UserCapabilityResolver.resolve_uncached(user)
+           return codename in UserCapabilityResolver.resolve(user)
+
+       @staticmethod
+       def _query_db(user) -> set[str]:
+           now = timezone.now()
+           codenames = (
+               Function.objects
+               .filter(is_active=True)
+               .filter(access_groups__useraccessgroupassignment__user=user)
+               .filter(
+                   Q(access_groups__useraccessgroupassignment__expires_at__isnull=True)
+                   | Q(access_groups__useraccessgroupassignment__expires_at__gt=now)
+               )
+               .values_list("codename", flat=True)
+               .distinct()
+           )
+           return set(codenames)
+
+       @staticmethod
+       def _critical_codenames() -> set[str]:
+           cached = cache.get("func:critical_set") if cache else None
+           if cached is not None:
+               return cached
+           codenames = set(
+               Function.objects
+                       .filter(is_critical=True, is_active=True)
+                       .values_list("codename", flat=True)
+           )
+           cache.set("func:critical_set", codenames,
+                     timeout=UserCapabilityResolver.CRITICAL_TTL)
+           return codenames
+
+Q9.4 Invalidacion explicita en UCs
+----------------------------------
+
+Helper centralizado, llamado desde cada UC mutating de RBAC:
+
+.. code-block:: python
+
+   # apps/access/cache.py
+   import logging
+
+   from django.core.cache import cache, CacheError
+
+   logger = logging.getLogger(__name__)
+
+
+   def invalidate_user_capabilities(user_id: int) -> None:
+       try:
+           cache.delete(f"caps:user:{user_id}")
+       except CacheError as exc:
+           logger.error(
+               "cache_invalidation_failed",
+               extra={"user_id": user_id, "exc": str(exc)},
+           )
+           # NO re-raise — degraded mode (ADR-BACK-009)
+
+
+   def invalidate_critical_set() -> None:
+       """Llamado solo por migrations que cambian is_critical."""
+       try:
+           cache.delete("func:critical_set")
+       except CacheError:
+           pass
+
+Patron de uso en UC:
+
+.. code-block:: python
+
+   from django.db import transaction
+   from .cache import invalidate_user_capabilities
+
+
+   class AssignFunctionsToGroupUC:
+       @transaction.atomic
+       def execute(self, group_id: int, function_codes: list[str], invoker):
+           # ... insert/update FunctionGroupMembership ...
+           affected_user_ids = list(
+               UserAccessGroupAssignment.objects
+               .filter(group_id=group_id)
+               .values_list("user_id", flat=True)
+           )
+           transaction.on_commit(
+               lambda: [
+                   invalidate_user_capabilities(uid)
+                   for uid in affected_user_ids
+               ]
+           )
+
+Q9.5 MenuItem queryset visible / for_user
+-----------------------------------------
+
+.. code-block:: python
+
+   # apps/access/managers.py
+   from django.db import models
+
+   from .resolvers import UserCapabilityResolver
+
+
+   class MenuItemQuerySet(models.QuerySet):
+       def visible(self):
+           """ACTIVE + Function activa."""
+           return self.filter(
+               status="ACTIVE",
+               function__is_active=True,
+           )
+
+       def for_user(self, user):
+           """MenuItems que el user puede ver."""
+           codenames = UserCapabilityResolver.resolve(user)
+           return self.visible().filter(
+               function__codename__in=codenames,
+           ).select_related("function")
+
+       def with_status_for_admin(self, statuses):
+           """Para preview admin de items DRAFT/DEPRECATED."""
+           return self.filter(
+               status__in=statuses,
+               function__is_active=True,
+           )
+
+Q9.6 Endpoint GET /api/v1/menu/
+-------------------------------
+
+.. code-block:: python
+
+   # apps/access/views.py
+   from rest_framework.permissions import IsAuthenticated
+   from rest_framework.response import Response
+   from rest_framework.views import APIView
+
+   from .resolvers import UserCapabilityResolver
+   from .models import MenuItem
+   from .serializers import MenuItemSerializer
+
+
+   class UserMenuView(APIView):
+       permission_classes = [IsAuthenticated]
+
+       def get(self, request):
+           user = request.user
+           capabilities = UserCapabilityResolver.resolve(user)
+           items = MenuItem.objects.for_user(user)
+           return Response({
+               "capabilities": sorted(capabilities),
+               "menu_items": MenuItemSerializer(items, many=True).data,
+           })
+
+Shape de respuesta:
+
+.. code-block:: text
+
+   GET /api/v1/menu/
+
+   200 OK
+   {
+     "capabilities": ["view_reports", "manage_menu_catalog"],
+     "menu_items": [
+       {
+         "id": 12,
+         "codename": "view_reports",
+         "display_label": "Mis Reportes",
+         "icon": "BarChartIcon",
+         "route_path": "/reports",
+         "display_order": 10,
+         "parent_id": null,
+         "status": "ACTIVE"
+       }
+     ]
+   }
+
+Q9.7 Indices que sostienen P95 ≤ 20ms
+-------------------------------------
+
+13 indices distribuidos en 4 tablas:
+
+.. list-table::
+ :widths: 30 60 10
+ :header-rows: 1
+
+ * - Tabla
+   - Indices
+   - Total
+ * - ``user_access_group_assignment`` (UAGA)
+   - ``user_id``, ``group_id``, ``(user_id, expires_at)``,
+     ``expires_at``
+   - 4
+ * - ``function_group_membership`` (FGM)
+   - ``group_id``, ``function_id``
+   - 2
+ * - ``functions``
+   - ``codename``, ``is_active``, ``module``,
+     ``(codename, is_active)``
+   - 4
+ * - ``menu_items``
+   - ``status``, ``(status, display_order)``,
+     ``deprecated_at``
+   - 3
+
+Q9.8 Tests obligatorios extension
+---------------------------------
+
+.. code-block:: python
+
+   @pytest.mark.django_db
+   def test_user_capability_resolver_query_count():
+       """resolve() ejecuta exactamente 1 query."""
+       user = make_user_with_agr("AGR-002")
+       cache.clear()
+       with django_assert_num_queries(1):
+           UserCapabilityResolver.resolve(user)
+
+
+   @pytest.mark.django_db
+   def test_critical_capability_bypasses_cache():
+       fn = Function.objects.create(
+           codename="assign_functions", module="ADM",
+           is_critical=True, is_active=True,
+       )
+       user = make_user_with_capability("assign_functions")
+       cache.set(f"caps:user:{user.id}", set())  # cache vacio
+       assert UserCapabilityResolver.has_capability(
+           user, "assign_functions",
+       ) is True
+
+
+   @pytest.mark.django_db
+   def test_invalidate_user_capabilities_no_raise_on_cache_error():
+       """Degraded mode: cache fail no aborta UC."""
+       with mock.patch.object(cache, "delete",
+                                side_effect=CacheError):
+           invalidate_user_capabilities(1)  # no debe lanzar
+
+Q9.9 Mapping Q9 → archivos
+--------------------------
+
+.. list-table::
+ :widths: 6 30 32 32
+ :header-rows: 1
+
+ * - Q9
+   - Hallazgo
+   - Archivo de implementacion
+   - Test
+ * - 9.1
+   - MenuItem wrapper UX
+   - ``apps/access/models.py``
+   - ``test_menu_item.py``
+ * - 9.2
+   - is_critical en Function
+   - ``apps/access/models.py``
+   - ``test_models.py``
+ * - 9.3
+   - UserCapabilityResolver
+   - ``apps/access/resolvers.py``
+   - ``test_resolvers.py``
+ * - 9.4
+   - Invalidacion explicita
+   - ``apps/access/cache.py``
+   - ``test_cache.py``
+ * - 9.5
+   - Queryset MenuItem
+   - ``apps/access/managers.py``
+   - ``test_menu_item.py``
+ * - 9.6
+   - Endpoint /api/v1/menu/
+   - ``apps/access/views.py``
+   - ``test_menu_endpoint.py``
+ * - 9.7
+   - Indices P95
+   - ``apps/access/models.py`` (Meta.indexes)
+   - ``test_models.py`` (assert indexes)
+
+----
+
 Sources Django/DRF (verbatim)
 =============================
 
