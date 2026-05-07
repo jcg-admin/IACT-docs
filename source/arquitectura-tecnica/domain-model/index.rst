@@ -128,6 +128,7 @@ directas con otras clases del mismo bounded context.
  alert
  threshold
  subscription
+ subscription-repo
  alert-rule
  alert-rule-repo
  alert-repo
