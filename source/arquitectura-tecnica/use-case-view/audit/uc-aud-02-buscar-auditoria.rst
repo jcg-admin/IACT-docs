@@ -17,7 +17,8 @@
 UC_AUD_02 — Buscar Auditoria
 ==============================
 
-FTS bounded sobre payload indexado (Elasticsearch / Postgres FTS).
+FTS bounded sobre payload indexado (motor de busqueda
+full-text del Almacen de Datos).
 ``search_audit_log`` distinta de ``view_audit_log`` (P-15).
 ``date_range`` obligatorio (max 90 dias) para evitar full table scans.
 
