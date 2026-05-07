@@ -34,3 +34,6 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-pipeline`.
  - :doc:`diagrama-de-tail-sse`.
+ - :doc:`/arquitectura-tecnica/domain-model/log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/application-log`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
