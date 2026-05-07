@@ -20,7 +20,8 @@ UC_AUTH_05 — Gestionar Sesiones
 User consulta sesiones activas propias (web, mobile, API) y puede
 revocar sesiones individuales (logout remoto). Tambien soporta renovar
 JWT tras expiracion (refresh token flow). Funciones implicitas
-``view_own_sessions`` + ``revoke_own_session`` (auto al rol User).
+``view_own_sessions`` + ``revoke_own_session`` (auto-otorgadas
+a usuarios autenticados).
 
 .. uml::
  :caption: UC_AUTH_05 — actores y casos asociados.
