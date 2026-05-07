@@ -59,7 +59,7 @@ de ejecuciones vive en ``pipeline_runs``.
      PipelineAdmin (AGR-009) →
        view_pipeline_errors, request_pipeline_retry
      Auditor (AGR-008) → view_pipeline_status
-     Scheduler: actor sistema (cron / APScheduler).
+     Scheduler: actor sistema (Planificador de Tareas).
    Tabla: pipeline_runs (CNST-033 §3.5).
  end note
 
@@ -75,7 +75,8 @@ Lectura del diagrama
 - ``Auditor`` lee el estado para generar reportes de
   cumplimiento.
 - ``Scheduler`` es **actor sistema**: ejecuta el
-  pipeline automáticamente según cron y registra en
+  pipeline automáticamente según el Planificador de Tareas
+  y registra en
   ``pipeline_runs`` (sin intervención humana).
 - ``UC_PIP_04`` ``<<include>>`` ``UC_PIP_01``: el
   reintento siempre consulta el estado actual antes de
