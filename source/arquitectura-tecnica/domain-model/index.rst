@@ -124,6 +124,7 @@ directas con otras clases del mismo bounded context.
  threshold
  subscription
  alert-rule
+ alert-rule-repo
  alert-repo
  evaluator-reloader
  rule-validator
