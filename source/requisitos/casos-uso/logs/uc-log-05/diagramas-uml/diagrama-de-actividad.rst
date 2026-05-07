@@ -30,3 +30,5 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-pipeline-infraestructura`.
  - :doc:`diagrama-de-secuencia-tail-sse`.
+ - :doc:`/arquitectura-tecnica/domain-model/infra-log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/infrastructure-log`.
