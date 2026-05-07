@@ -3,7 +3,7 @@
  :tipo: Caso de Uso (Spec Completa)
  :dominio: requisitos
  :subdominio: casos_uso/caller
- :estado: Vigente
+ :estado: Fuera del scope
  :version: 5.0.0
  :fecha_creacion: 2026-05-01
  :ultimo_cambio: 2026-05-01
