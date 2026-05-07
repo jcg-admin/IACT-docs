@@ -32,3 +32,4 @@
 
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-flujo-de-firma`.
+ - :doc:`/arquitectura-tecnica/domain-model/hmac-verifier`.
