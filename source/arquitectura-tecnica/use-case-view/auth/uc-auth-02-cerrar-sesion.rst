@@ -57,8 +57,8 @@ sesion propia.
 
  note bottom of BLACKLIST
    TTL hasta exp del token original.
-   Cron purga BlacklistedToken
-   expirados.
+   Planificador de Tareas purga
+   BlacklistedToken expirados.
  end note
 
  @enduml
