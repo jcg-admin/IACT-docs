@@ -43,3 +43,7 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-componentes-export`.
  - :doc:`diagrama-de-secuencia-exportacion-logs`.
+ - :doc:`/arquitectura-tecnica/domain-model/log-store`.
+ - :doc:`/arquitectura-tecnica/domain-model/export-worker`.
+ - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox`.
+ - :doc:`/arquitectura-tecnica/domain-model/pii-scanner`.
