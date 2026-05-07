@@ -9,7 +9,7 @@
  @startuml
 
  start
- :Invoker emite POST /api/v1/admin/sod-rules/;
+ :Invoker emite POST /api/v1/admin/separation-rules/;
  :Servicio de Aplicacion verifica capability
    create_separation_rule (AGR-010);
  if (Capability presente?) then (no)
