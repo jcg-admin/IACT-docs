@@ -120,6 +120,7 @@ directas con otras clases del mismo bounded context.
 
  pipeline-execution
  pipeline-execution-repo
+ disparador-etl
 
 .. toctree::
  :maxdepth: 1
