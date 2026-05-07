@@ -125,6 +125,7 @@ directas con otras clases del mismo bounded context.
  errores-etl-service
  resumen-salud
  resumen-salud-builder
+ supervision-etl-service
 
 .. toctree::
  :maxdepth: 1
