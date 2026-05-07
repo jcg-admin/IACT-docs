@@ -1,95 +1,84 @@
+.. _uc-adm-03-parte-08-diagrama-caso-de-uso:
+
 8.1 Diagrama de caso de uso
 ===========================
 
 .. uml::
- :caption: UC_ADM_03 — actores y casos asociados
+ :caption: UC_ADM_03 — actores y casos asociados.
 
  @startuml
 
  left to right direction
 
- actor "assign_functions_to_group" as F_ASSIGN
- actor "view_system_groups" as F_VIEW <<beneficiario>>
+ actor "assign_functions_to_group" as assign_functions_to_group
+ actor "view_system_groups" as view_system_groups <<beneficiario>>
  actor "view_audit_log" as view_audit_log <<beneficiario>>
- actor "RuleValidator" as RV <<sistema>>
- actor "PermissionService" as PS <<sistema>>
- actor "PermissionCache" as PC <<sistema>>
- actor "EvaluatorReloader" as EE <<sistema>>
- actor "AuditService" as AS <<sistema>>
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "AccessGroupRepo" as AccessGroupRepo <<sistema>>
+ actor "FunctionRepo" as FunctionRepo <<sistema>>
+ actor "FunctionGroupRepo" as FunctionGroupRepo <<sistema>>
+ actor "RuleValidator" as RuleValidator <<sistema>>
+ actor "EvaluatorReloader" as EvaluatorReloader <<sistema>>
+ actor "PermissionCache" as PermissionCache <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
  rectangle "MOD_Admin" {
-   usecase "UC_ADM_03\nGestionar Catalogo de\nAgrupadores del Sistema" as UC_ADM_03
-   usecase "Verificar\nis_system=True" as VERIFY_SYS
-   usecase "Validar funcion en\ncatalogo (UC_ADM_02)" as VALIDAR_FUNCION
-   usecase "Validar SoD\n(UC_ADM_01, CNST-005)" as VALIDAR_SOD
-   usecase "Validar idempotencia\n(funcion no ya asignada)" as IDEMP
-   usecase "Persistir\nAccessGroupFunction" as PERSISTIR
-   usecase "Emitir AuditEvent\nAGR_FUNCTION_*" as AUDIT
-   usecase "Invalidar cache\npermisos" as INVALIDAR
-   usecase "EvaluatorReloader\n.recalculate(agr_id)" as RECALC
-   usecase "Vista de impacto\n(que usuarios cambian)" as IMPACT
+   usecase "UC_ADM_03\nGestionar Catalogo\nde Agrupadores del Sistema" as UC_ADM_03
+   usecase "Verificar capability\n(AGR-010)" as VERIFICAR_CAP
+   usecase "Verificar AccessGroup\nis_system=True" as VERIFICAR_SISTEMA
+   usecase "Verificar Function\nen catalogo activo" as VERIFICAR_FN
+   usecase "Validar SoD precheck\n(BR-007)" as VALIDAR_SOD
+   usecase "Persistir\nFunctionGroupMembership" as PERSISTIR
+   usecase "Calcular impacto\n(preview)" as PREVIEW
+   usecase "Invalidar PermissionCache" as INVALIDAR
+   usecase "EvaluatorReloader\n.recalculate()" as RELOAD
+   usecase "Emitir AuditEvent\nAGR_*" as AUDITAR
  }
 
- F_ASSIGN --> UC_ADM_03
- F_VIEW --> UC_ADM_03
+ assign_functions_to_group --> UC_ADM_03
+ view_system_groups --> UC_ADM_03
 
- UC_ADM_03 ..> VERIFY_SYS : <<include>>
- UC_ADM_03 ..> VALIDAR_FUNCION : <<include>>
+ UC_ADM_03 ..> VERIFICAR_CAP : <<include>>
+ UC_ADM_03 ..> VERIFICAR_SISTEMA : <<include>>
+ UC_ADM_03 ..> VERIFICAR_FN : <<include>>
  UC_ADM_03 ..> VALIDAR_SOD : <<include>>
- UC_ADM_03 ..> IDEMP : <<include>>
  UC_ADM_03 ..> PERSISTIR : <<include>>
- UC_ADM_03 ..> AUDIT : <<include>>
+ UC_ADM_03 ..> PREVIEW : <<extend>>
  UC_ADM_03 ..> INVALIDAR : <<include>>
- UC_ADM_03 ..> RECALC : <<include>>
- IMPACT ..> UC_ADM_03 : <<extend>>
+ UC_ADM_03 ..> RELOAD : <<include>>
+ UC_ADM_03 ..> AUDITAR : <<include>>
 
- VALIDAR_SOD --> RV
- INVALIDAR --> PC
- RECALC --> EE
- RECALC --> PS
- AUDIT --> AS
- AS --> view_audit_log
+ VERIFICAR_CAP --> AuthorizationGuard
+ VERIFICAR_SISTEMA --> AccessGroupRepo
+ VERIFICAR_FN --> FunctionRepo
+ VALIDAR_SOD --> RuleValidator
+ PERSISTIR --> FunctionGroupRepo
+ INVALIDAR --> PermissionCache
+ RELOAD --> EvaluatorReloader
+ AUDITAR --> AuditService
+ AuditService --> view_audit_log
 
- note bottom of VERIFY_SYS
-   AGR-001..012 son del sistema.
-   UC_PERM_05 cubre AGR custom.
+ note bottom of VERIFICAR_SISTEMA
+   AGR-001..010 (predefinidos del
+   sistema, is_system=True). Para
+   AGRs custom (is_system=False)
+   usar UC_PERM_06.
  end note
 
  note bottom of VALIDAR_SOD
-   BR-007 + CNST-005: agregar
-   funcion no debe romper reglas
-   SoD de los usuarios que ya
-   tienen el AGR.
- end note
-
- note bottom of RECALC
-   Cambio en composicion afecta
-   effective_set de TODOS los
-   usuarios con AGR-N asignado.
-   Invalidacion en cascada.
+   BR-007: la nueva Function no
+   debe violar ninguna regla SoD
+   activa con las Functions ya
+   asignadas al AGR.
  end note
 
  @enduml
 
 .. seealso::
 
- Modelo del dominio relevante para este UC:
-
- - :doc:`/arquitectura-tecnica/domain-model/access-group` —
-   AccessGroup (AGR-001..012 con is_system=True).
- - :doc:`/arquitectura-tecnica/domain-model/access-group-function` —
-   tabla de asociacion M:N persistida por este UC.
- - :doc:`/arquitectura-tecnica/domain-model/function` —
-   Function validada en VALIDAR_FUNCION (catalogo UC_ADM_02).
- - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas en VALIDAR_SOD (CNST-005).
- - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   componente que ejecuta validaciones de SoD.
- - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
-   cache invalidado tras cambio de composicion AGR.
- - :doc:`/arquitectura-tecnica/domain-model/permission-service` —
-   recalcula effective_set de usuarios afectados.
- - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
-   coordinador del recalculo en cascada.
- - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
-   emisor de AuditEvent AGR_FUNCTION_*.
+ - :doc:`/arquitectura-tecnica/domain-model/access-group`.
+ - :doc:`/arquitectura-tecnica/domain-model/access-group-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/function-group`.
+ - :doc:`/arquitectura-tecnica/domain-model/function-group-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/rule-validator`.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`.
