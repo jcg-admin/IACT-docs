@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   componentes-pipeline-log
-   secuencia-de-consulta-pipeline-log
+   diagrama-de-actividad
+   diagrama-de-componentes-pipeline-log
+   diagrama-de-secuencia-pipeline-log

@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   componentes-export
-   secuencia-de-exportacion-de-logs
+   diagrama-de-actividad
+   diagrama-de-componentes-export
+   diagrama-de-secuencia-exportacion-logs

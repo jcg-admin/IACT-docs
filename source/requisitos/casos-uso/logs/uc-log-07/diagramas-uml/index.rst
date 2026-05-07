@@ -8,7 +8,5 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   pipeline-metricas
-   tail-sse
+   diagrama-de-actividad
+   diagrama-de-pipeline-metricas
