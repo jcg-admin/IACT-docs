@@ -34,7 +34,21 @@
 
  @enduml
 
+.. note::
+
+ Este UC es **de inclusion pura**: las relaciones de
+ ``<<extend>>`` y de generalizacion entre UC no aplican
+ — el UC_INC_RPT_01 NO extiende ningun UC base, ni
+ hereda de otro. La generalizacion implicita entre
+ ``UC_RPT_GENERICO`` y los UC_RPT_01..UC_RPT_17
+ concretos se modela en
+ ``arquitectura-tecnica/use-case-view/reports/index``.
+
 .. seealso::
 
  - :doc:`/requisitos/casos-uso/reports/uc-inc-rpt-01/index`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-scope`.
+ - :doc:`/arquitectura-tecnica/domain-model/rbac-repo`.
+ - :doc:`/arquitectura-tecnica/use-case-view/reports/index`.
  - :doc:`/requisitos/reglas-negocio/br-012-usuario-segmento-unico`.
