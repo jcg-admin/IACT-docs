@@ -41,3 +41,7 @@
  - :doc:`diagrama-de-caso-de-uso`.
  - :doc:`diagrama-de-clases`.
  - :doc:`diagrama-de-secuencia-detalle`.
+ - :doc:`/arquitectura-tecnica/domain-model/agent-report-service`.
+ - :doc:`/arquitectura-tecnica/domain-model/agent-daily-stat-repo`.
+ - :doc:`/arquitectura-tecnica/domain-model/kpi-calculator`.
+ - :doc:`/arquitectura-tecnica/domain-model/segment-resolver`.
