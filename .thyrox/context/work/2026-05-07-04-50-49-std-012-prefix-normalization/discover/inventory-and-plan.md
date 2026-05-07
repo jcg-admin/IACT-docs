@@ -14,7 +14,29 @@ version: 1.0.0
 > de Phase 7. Ejecutor pidio: *"realiza un analisis de
 > cuantos se van a actualizar"*.
 
-## Sección 1 — Resumen ejecutivo
+## Sección 1 — Resumen ejecutivo (CORREGIDO 2026-05-07 05:00)
+
+.. note:: **Reduccion de scope por directiva del ejecutor**
+
+   El ejecutor confirmo que los clusters
+   ``operator``, ``supervision`` y ``caller`` estan
+   **out-of-scope** del proyecto IACT (no se realizan ni
+   se implementan). El plan original incluia esos
+   clusters incorrectamente.
+
+   - **operator**: 10 UCs marcados ``:estado: Reservado``
+     (consistente con out-of-scope).
+   - **supervision**: 3 UCs ``:estado: Reservado``
+     (consistente).
+   - **caller**: 5 UCs marcados ``:estado: Vigente`` pero
+     **el ejecutor confirma que es out-of-scope**. Existe
+     un **gap de metadata** — los UCs de caller deberian
+     reclasificarse a Reservado o a un estado
+     "Out-of-scope-implementacion". Registrado como item
+     adicional al cierre.
+
+   Los 70 archivos legacy de estos 3 clusters quedan
+   **sin tocar** en este WP.
 
 .. list-table::
  :widths: 35 15 50
@@ -26,65 +48,121 @@ version: 1.0.0
  * - Total archivos legacy en ``diagramas-uml/``
    - **195**
    - sin prefijo ``diagrama-de-``
- * - Legacy con contenido de diagrama
-   - **193**
-   - tienen ``@startuml`` o ``.. uml::``
- * - Legacy auxiliares (no diagrama)
+ * - **Legacy IN-SCOPE** (10 clusters)
+   - **125**
+   - access, admin, alerts, audit, auth, logs,
+     permissions, pipeline, reports, users
+ * - Legacy OUT-OF-SCOPE (3 clusters)
+   - **70**
+   - caller (20), operator (38), supervision (12)
+ * - Legacy auxiliares (no diagrama, in-scope)
    - **2**
    - texto narrativo, NO renombrar
- * - **Tipo A: DELETE** (legacy con par canonical)
-   - **49**
-   - solo ``caso-de-uso.rst``
- * - **Tipo B: RENAME** (legacy sin par canonical)
-   - **144**
+ * - **Tipo A: DELETE** (legacy con par canonical, in-scope)
+   - **31**
+   - solo ``caso-de-uso.rst`` con par
+ * - **Tipo B: RENAME** (legacy sin par, in-scope)
+   - **94**
    - todos los demas tipos
  * - Toctree (``index.rst``) afectados
-   - **50**
-   - de los 85 totales
+   - **~38**
+   - solo de UCs in-scope
  * - Cross-refs externos
    - **0**
    - cero referencias fuera de ``diagramas-uml/``
- * - Archivos canonicos existentes (mantener)
-   - **192**
-   - con prefijo ``diagrama-de-`` ya correcto
+ * - Cluster users
+   - **0**
+   - todos los diagramas ya canonicos (sin operacion)
 
-**Total operaciones de archivo:**
+**Total operaciones de archivo (IN-SCOPE):**
 
-- 49 deletes
-- 144 renames (git mv)
-- 50 toctree updates
+- 31 deletes (caso-de-uso.rst con par canonical)
+- 92 renames/recreate (excluye 2 archivos auxiliares
+  texto: ``notas-sobre-los-diagramas.rst`` en uc-auth-01,
+  ``tail-sse.rst`` en uc-log-07)
+- ~38 toctree updates
 - 1 update normativo (STD-012 v1.0.0 → v1.1.0)
+- **Backup total preservado:** 195 archivos legacy
+  (incluyendo out-of-scope) en ``backup/`` del WP para
+  trazabilidad historica
 
 **Riesgo de cross-refs rotos:** **bajo** — STD-012 mismo es
 la unica referencia externa al patron legacy.
 
+### Item adicional detectado
+
+**Gap de metadata en cluster caller:** los 5 UCs
+(uc-cli-01..05) tienen ``:estado: Vigente`` pero su
+implementacion esta out-of-scope. Esto crea inconsistencia
+entre el metadata declarado y el alcance operativo del
+proyecto. **Resolver:**
+
+- Opcion A: reclasificar a ``:estado: Reservado``
+  (consistente con OPR/SUP).
+- Opcion B: introducir nuevo estado
+  ``:estado: Out-of-scope`` con semantica explicita.
+- Opcion C: dejar como esta y agregar nota de scope en
+  el index del cluster.
+
+Decision postergada — fuera del scope de este WP. Se
+registra como item para WP separado o ADR.
+
 ## Sección 2 — Inventario detallado por tipo
 
-### 2.1 Tipo A — DELETE (49 archivos)
+### 2.1 Tipo A — DELETE (31 archivos in-scope)
 
 | Pattern | Count | Justification |
 |---|---|---|
-| ``caso-de-uso.rst`` con ``diagrama-de-caso-de-uso.rst`` en mismo dir | 49 | El canonical contiene info mas rica (codenames RBAC vs roles, includes/extends explicitos). Verificado en muestras uc-adm-01/02/03. |
+| ``caso-de-uso.rst`` con ``diagrama-de-caso-de-uso.rst`` en mismo dir | 31 | El canonical contiene info mas rica (codenames RBAC vs roles, includes/extends explicitos). Verificado en muestras uc-adm-01/02/03. |
 
-**Distribucion por cluster:**
+**Distribucion por cluster (IN-SCOPE solamente):**
 
 ::
 
    admin: 3 (uc-adm-01, 02, 03)
    alerts: 5 (uc-alr-01..05)
    audit: 4 (uc-aud-01..04)
-   caller: 5 (uc-cli-01..05)
    logs: 7 (uc-log-01..07)
-   operator: 9
-   pipeline: 4
-   reports: 9
+   pipeline: 4 (uc-pip-01..04)
+   reports: 8 (uc-rpt-* in-scope)
+
+   Total in-scope: 31
+
+   --- OUT-OF-SCOPE (no procesar) ---
+   caller: 5
+   operator: 10
    supervision: 3
 
-   Total: 49
+   Total out-of-scope: 18
 
-**Acción:** ``git rm`` los 49 archivos.
+**Acción in-scope:** ``git rm`` los 31 archivos.
 
-### 2.2 Tipo B — RENAME (144 archivos)
+### 2.2 Tipo B — RENAME (94 archivos in-scope, 50 out-of-scope no procesar)
+
+**Inventario IN-SCOPE por cluster (Tipo B = total cluster - cdu pares):**
+
+::
+
+   access: 1 (1 var)
+   admin: 6 (3 act + 2 estado-* + 1 var)
+   alerts: 15 (5 act + 3 sec + 3 cls + 4 estado-*)
+   audit: 12 (4 act + 2 sec + 1 cls + 1 estado + 4 var)
+   auth: 1 (1 var — notas-sobre-los-diagramas, EXCLUIR
+            por ser texto auxiliar)
+   logs: 19 (7 act + 1 cmp + 1 estado + 10 var)
+   permissions: 2 (2 estado-*)
+   pipeline: 12 (4 act + 2 sec + 2 cls + 1 cmp + 3 estado-*)
+   reports: 26 (7 act + 2 sec + 8 cls + 2 estado-* + 7 var)
+   users: 0
+
+   Total in-scope: 94 (tras excluir 1 auxiliar de auth)
+
+   --- OUT-OF-SCOPE (no procesar) ---
+   caller: 15
+   operator: 28
+   supervision: 9
+   Total out-of-scope: 52
+
 
 #### B.1 — Tipos principales (90 archivos)
 
@@ -323,54 +401,129 @@ Beneficios:
   (e.g., revertir las operaciones de archivo manteniendo
   la actualizacion normativa).
 
-## Sección 7 — Sub-clusters de ejecucion del Commit 2
+## Sección 7 — Sub-clusters de ejecucion del Commit 2 (REFINADO POR CLUSTER)
 
-Para reducir el riesgo de errores, ejecutar las
-operaciones en lotes verificados:
+Si se aprueba el approach **recreate-from-backup**
+(directiva del ejecutor del 2026-05-07 04:55), los lotes
+se organizan **por cluster** (no por tipo de archivo)
+para garantizar atomicidad por commit:
 
 .. list-table::
- :widths: 8 30 12 50
+ :widths: 6 18 14 18 22 22
  :header-rows: 1
 
  * - Lote
-   - Operacion
-   - Archivos
-   - Verificacion
+   - Cluster
+   - Tipo A delete
+   - Tipo B rename/recreate
+   - Subtotal
+   - Estado UCs
  * - L-1
-   - Delete 49 ``caso-de-uso.rst`` (Tipo A)
-   - 49 deletes
-   - canonical existe en mismo dir
+   - access
+   - 0
+   - 1
+   - 1
+   - Vigente
  * - L-2
-   - Rename 46 ``actividad.rst`` → canonical
-   - 46 renames
-   - dest no existe en mismo dir
+   - admin
+   - 3
+   - 6
+   - 9
+   - Vigente (post-WP previo)
  * - L-3
-   - Rename 24 ``secuencia.rst`` → canonical
-   - 24 renames
-   - dest no existe en mismo dir
+   - alerts
+   - 5
+   - 15
+   - 20
+   - Vigente
  * - L-4
-   - Rename 14 ``clases.rst`` → canonical
-   - 14 renames
-   - dest no existe en mismo dir
+   - audit
+   - 4
+   - 12
+   - 16
+   - Vigente
  * - L-5
-   - Rename 6 ``componentes.rst`` → canonical
-   - 6 renames
-   - dest no existe en mismo dir
+   - auth
+   - 0
+   - 0
+   - 0 (1 auxiliar excluido)
+   - Vigente
  * - L-6
-   - Rename estados (6 + 14 + 3 = 23)
-   - 23 renames
-   - dest no existe en mismo dir
+   - logs
+   - 7
+   - 18
+   - 25 (1 auxiliar excluido)
+   - Vigente
  * - L-7
-   - Rename variantes con sufijo (~31)
-   - ~31 renames
-   - dest no existe en mismo dir
+   - permissions
+   - 0
+   - 2
+   - 2
+   - Vigente
  * - L-8
-   - Update 50 toctree
-   - 50 modificaciones
-   - sphinx build EXIT=0
+   - pipeline
+   - 4
+   - 12
+   - 16
+   - Vigente
+ * - L-9
+   - reports
+   - 8
+   - 26
+   - 34
+   - Vigente
+ * - L-10
+   - users
+   - 0
+   - 0
+   - 0 (todos canonicos)
+   - Vigente — **NO REQUIERE OPERACION**
+ * - **Total IN-SCOPE**
+   - 9 clusters
+   - **31**
+   - **92**
+   - **123**
+   - todos Vigente
+ * - --- caller ---
+   - --- 
+   - 5
+   - 15
+   - 20
+   - **OUT-OF-SCOPE — NO PROCESAR**
+ * - --- operator ---
+   - ---
+   - 10
+   - 28
+   - 38
+   - **OUT-OF-SCOPE (Reservado v5.6.0)**
+ * - --- supervision ---
+   - ---
+   - 3
+   - 9
+   - 12
+   - **OUT-OF-SCOPE (Reservado v5.6.0)**
 
-**Total operaciones del commit 2:** 49 + 144 = **193
-operaciones de archivo + 50 toctree updates.**
+**Total operaciones in-scope:** 31 deletes + 92 renames =
+**123 operaciones de archivo + ~38 toctree updates**.
+
+**Strict build EXIT=0 obligatorio entre cada lote.** Esto
+permite que el WP pueda pausarse a la mitad sin dejar el
+corpus en estado inconsistente.
+
+**Por que cluster-by-cluster en lugar de tipo-por-tipo:**
+
+Cuando se aplica el approach recreate-from-backup, cada
+archivo recreado debe verificarse contra:
+
+- Codenames RBAC del cluster (especificos por modulo).
+- Clases del domain-model relevantes al cluster.
+- Cross-refs a otros UCs del mismo cluster.
+
+Procesar un cluster completo en un commit garantiza que
+todas las refs internas del cluster sean consistentes en
+el commit. Procesar tipo-por-tipo cross-cluster genera
+estados intermedios donde un cluster tiene mezcla de
+refs viejas y nuevas.
 
 ## Sección 8 — Riesgos identificados
 
