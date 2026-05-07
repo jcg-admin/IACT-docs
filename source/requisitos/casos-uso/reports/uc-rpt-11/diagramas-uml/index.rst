@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad-compartir
-   actividad-aplicar
-   estado-del-share
+   diagrama-de-actividad-compartir
+   diagrama-de-actividad-aplicar
+   diagrama-de-estados-share

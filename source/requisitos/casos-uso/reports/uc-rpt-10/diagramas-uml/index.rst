@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad-crear
-   clases
-   estado
+   diagrama-de-actividad-crear
+   diagrama-de-clases
+   diagrama-de-estados-saved-view

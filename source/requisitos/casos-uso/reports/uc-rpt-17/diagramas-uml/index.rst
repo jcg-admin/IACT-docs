@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   flujo-de-anonimizacion-etl
-   clases
+   diagrama-de-actividad
+   diagrama-de-flujo-de-anonimizacion-etl
+   diagrama-de-clases

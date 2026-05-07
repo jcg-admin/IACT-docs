@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   distribucion-de-menus
-   clases
+   diagrama-de-actividad
+   diagrama-de-distribucion-de-menus
+   diagrama-de-clases

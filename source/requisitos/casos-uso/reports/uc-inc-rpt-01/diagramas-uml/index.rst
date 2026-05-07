@@ -8,6 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso-relacion-de-inclusion
-   actividad
-   clases
+   diagrama-de-caso-de-uso-relacion-de-inclusion
+   diagrama-de-actividad
+   diagrama-de-clases

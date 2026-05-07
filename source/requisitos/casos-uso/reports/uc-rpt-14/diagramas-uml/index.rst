@@ -8,7 +8,6 @@ Parte 8 — Diagramas
    :maxdepth: 1
 
    diagrama-de-caso-de-uso
-   caso-de-uso
-   actividad
-   clases
-   secuencia
+   diagrama-de-actividad
+   diagrama-de-clases
+   diagrama-de-secuencia
