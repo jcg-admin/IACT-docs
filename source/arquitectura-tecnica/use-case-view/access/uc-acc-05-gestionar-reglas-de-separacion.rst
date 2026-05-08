@@ -11,13 +11,13 @@
  :autor: NestorMonroy
  :clasificacion: Importante
 
-.. _at_uc_acc_05_gestionar_reglas_sod:
+.. _at_uc_acc_05_gestionar_reglas_de_separacion:
 
-==================================
-UC_ACC_05 — Gestionar Reglas SoD
-==================================
+============================================
+UC_ACC_05 — Gestionar Reglas de Separacion
+============================================
 
-Vista operativa de reglas SoD (lectura). ``view_separation_rules``
+Vista operativa de reglas de separacion (lectura). ``view_separation_rules``
 permite consultar reglas activas. La gestion CRUD completa esta en
 UC_ADM_01 (admin de reglas). UC_ACC_05 es la consulta — los validators
 de UC_ACC_01/04 + UC_PERM_03 cargan estas reglas en cache.
@@ -35,7 +35,7 @@ de UC_ACC_01/04 + UC_PERM_03 cargan estas reglas en cache.
  actor "PermissionCache" as PermissionCache <<sistema>>
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_05\nGestionar Reglas SoD\n(consulta operativa)" as UC_ACC_05
+   usecase "UC_ACC_05\nGestionar Reglas\nde Separacion\n(consulta operativa)" as UC_ACC_05
    usecase "Verificar\nview_separation_rules" as VERIFICAR_AGR
    usecase "Listar reglas\nactivas (cache)" as LISTAR
    usecase "Filtrar por scope\n+ rule_group" as FILTRAR

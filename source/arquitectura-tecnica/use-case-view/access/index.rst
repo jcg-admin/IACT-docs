@@ -17,7 +17,7 @@ MOD_Access — Asignacion de Accesos: UC por Modulo
 =================================================
 
 Vista funcional del RBAC: asignar y revocar funciones
-individuales, gestionar agrupadores y reglas SoD. Coexiste
+individuales, gestionar agrupadores y reglas de separacion. Coexiste
 con ``MOD_Permissions`` (Hipótesis 1 — decisión
 arquitectónica aprobada).
 
@@ -39,7 +39,7 @@ arquitectónica aprobada).
    usecase "UC_ACC_02\nRevocar Funciones\nde Usuario" as UC_ACC_02
    usecase "UC_ACC_03\nConsultar Permisos\nEfectivos" as UC_ACC_03
    usecase "UC_ACC_04\nAsignar Agrupador\na Usuario" as UC_ACC_04
-   usecase "UC_ACC_05\nGestionar Reglas SoD" as UC_ACC_05
+   usecase "UC_ACC_05\nGestionar Reglas\nde Separacion" as UC_ACC_05
    usecase "UC_ACC_08\nOtorgar Permiso\nTemporal Excepcional" as UC_ACC_08
    usecase "UC_ACC_09\nAuditar Cambios\nde Acceso" as UC_ACC_09
  }
@@ -78,7 +78,7 @@ Lectura del diagrama
 - Cualquier ``User`` autenticado consulta sus permisos
   efectivos (``UC_ACC_03``).
 - ``AccessAdmin`` (AGR-007) gestiona asignaciones,
-  revocaciones, agrupadores y reglas SoD.
+  revocaciones, agrupadores y reglas de separacion.
 - ``UC_ACC_08 Otorgar Permiso Temporal`` ``<<extend>>``
   ``UC_ACC_01`` cuando se requiere asignación con
   ventana temporal acotada (CNST-031).
@@ -126,7 +126,7 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
    - Asignar Agrupador
    - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso>`
  * - :doc:`UC_ACC_05 </requisitos/casos-uso/access/uc-acc-05/index>`
-   - Gestionar Reglas SoD
+   - Gestionar Reglas de Separacion
    - :doc:`Diagrama </requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso>`
  * - :doc:`UC_ACC_08 </requisitos/casos-uso/access/uc-acc-08/index>`
    - Permiso Temporal
@@ -147,7 +147,7 @@ Diagramas standalone uml-07 por UC (auto-explicativos):
  uc-acc-02-revocar-funciones
  uc-acc-03-consultar-permisos-efectivos
  uc-acc-04-asignar-agrupador
- uc-acc-05-gestionar-reglas-sod
+ uc-acc-05-gestionar-reglas-de-separacion
  uc-acc-08-permiso-temporal
  uc-acc-09-auditar-cambios-acceso
 
