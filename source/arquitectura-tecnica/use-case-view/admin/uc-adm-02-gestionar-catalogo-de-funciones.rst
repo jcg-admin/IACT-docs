@@ -18,7 +18,8 @@ UC_ADM_02 — Gestionar Catalogo de Funciones
 ==============================================
 
 Administra el catalogo de **funciones atomicas** del sistema RBAC.
-74+ funciones actuales se administran via migraciones Django; este UC
+74+ funciones actuales se administran via migraciones de datos del
+Servicio de Aplicacion; este UC
 formaliza la capacidad UI para crear, actualizar metadata, desactivar
 y consultar funciones sin redespliegue. P-44 codename inmutable tras
 creacion. PermissionsEngine recarga catalogo activo al cambio.
