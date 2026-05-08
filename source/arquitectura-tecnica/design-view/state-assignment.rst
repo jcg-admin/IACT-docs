@@ -19,7 +19,7 @@ Design View — Ciclo de Vida: Assignment
 
 Maquina de estados de la entidad ``Assignment``. Cubre el ciclo
 de una asignacion de FunctionGroup a un User: creacion (con
-verificacion SoD), expiracion natural por TTL, o revocacion
+verificacion de separacion), expiracion natural por TTL, o revocacion
 explicita.
 
 Per BR-009, las "bajas" son logicas — el Assignment nunca se
@@ -30,7 +30,7 @@ elimina, transita a un estado terminal (expired/revoked).
 
  @startuml
 
- [*] --> active : create()\n[SoD check OK]
+ [*] --> active : create()\n[separation check OK]
 
  active --> active : update(expires_at)\n(extiende ttl)
 
@@ -41,7 +41,7 @@ elimina, transita a un estado terminal (expired/revoked).
  revoked --> [*]
 
  note right of active
-   Verify SoD se aplica antes
+   Verify separacion se aplica antes
    de crear. Solo Assignments
    en estado=active cuentan
    en effective_set.

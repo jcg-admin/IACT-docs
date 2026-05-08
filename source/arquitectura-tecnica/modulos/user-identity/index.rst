@@ -54,7 +54,7 @@ alta, modificacion, baja logica, y datos de perfil.
 
 - Calculo de permisos efectivos → :ref:`arq-mod-003`
 - Definicion de catalogos de roles/permisos → :ref:`arq-mod-003`
-- Validacion de SoD (conflicto de roles) → :ref:`arq-mod-003`
+- Validacion de separacion (conflicto de roles) → :ref:`arq-mod-003`
 - Autenticacion (login/logout) → :ref:`arq-mod-001`
 
 ----

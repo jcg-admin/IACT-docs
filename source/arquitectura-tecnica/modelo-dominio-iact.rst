@@ -114,7 +114,7 @@ vigentes tras el programa Z (modelo-rbac-improvement):
  * - CNST-025 — Auditoria inmutable
    - vigente
    - Append-only en ``AuditEvent``; sin actualizar ni DELETE
- * - CNST-030 — Separacion de funciones (SoD)
+ * - CNST-030 — Separacion de funciones (separation of duties)
    - vigente
    - Reglas de exclusion mutua entre funciones
  * - CNST-031 — Rango temporal de permisos
@@ -192,7 +192,7 @@ Resumen de actividad por clase:
    - Cluster PIP completo + LOG-02 cross-context
  * - ExceptionalPermission, FunctionGroup, Alert
    - 4 c/u
-   - Operaciones especificas con SoD via RBAC
+   - Operaciones especificas con separacion via RBAC
 
 ----
 

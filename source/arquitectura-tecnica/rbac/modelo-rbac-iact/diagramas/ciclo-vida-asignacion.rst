@@ -23,8 +23,8 @@ Ciclo de Vida de una Asignacion
 
  [*] --> PENDING_VALIDATION : assign_functions invocado
 
- PENDING_VALIDATION --> ACTIVE : SoD ok + registrar exitoso
- PENDING_VALIDATION --> REJECTED : viola SoD (EX-07)
+ PENDING_VALIDATION --> ACTIVE : separacion ok + registrar exitoso
+ PENDING_VALIDATION --> REJECTED : viola separacion (EX-07)
 
  ACTIVE --> EXPIRED : expires_at alcanzado\n(job nocturno)
  ACTIVE --> REVOKED : revoke_functions invocado\n(UC_ACC_02)

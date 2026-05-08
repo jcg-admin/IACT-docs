@@ -327,7 +327,7 @@ con ciclo de vida soft-delete (BR-009 v2.0.0). **1 CRITICO + 3 ALTOS**.
 -----------------------
 
 Responsabilidad: asignar/revocar funciones, agrupadores
-predefinidos, permisos excepcionales y reglas SoD.
+predefinidos, permisos excepcionales y reglas de separacion.
 **1 CRITICO + 4 ALTOS + 1 MEDIO + 1 BAJO**.
 
 .. list-table::
@@ -359,7 +359,7 @@ predefinidos, permisos excepcionales y reglas SoD.
    - 2
    - ``assign_function_groups``
    - ``Assignment``, ``AccessGroup``, ``User``, ``AuditEvent``
- * - UC_ACC_05 Gestionar SoD
+ * - UC_ACC_05 Gestionar separacion de deberes
    - ALTO
    - 5
    - ``view_separation_rules`` / ``update_separation_rule`` / ``disable_separation_rule`` (per Z.2 D-01)
@@ -860,7 +860,7 @@ PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
 -------------------------------------------------------------
 
 Plano de configuracion del modelo RBAC: gestiona QUE
-funciones, grupos del sistema, reglas SoD y catalogo UX
+funciones, grupos del sistema, reglas de separacion y catalogo UX
 EXISTEN. Actor principal: ``system_admin`` (AGR-010).
 **0 CRITICOS + 3 ALTOS + 2 MEDIOS + 0 BAJOS = 5**.
 
@@ -873,7 +873,7 @@ EXISTEN. Actor principal: ``system_admin`` (AGR-010).
    - In-deg
    - Funciones RBAC
    - Entidades
- * - UC_ADM_01 Gestionar Ciclo de Vida de Reglas SoD
+ * - UC_ADM_01 Gestionar Ciclo de Vida de Reglas de Separacion
    - ALTO
    - 1
    - ``create_separation_rule``,
@@ -1448,7 +1448,7 @@ FunctionGroup, ExceptionalPermission). Materializa ADR-GOB-008.
 **Patron P-06 — Larman Consolidation** (2 UCs):
 Un solo UC (UC_RPT_04 "Exportar Reporte") con flujos alternativos
 por formato; tres funciones RBAC distintas (export_csv / export_excel / export_pdf) para
-SoD. Capa UC y capa RBAC son ortogonales. Mismo patron en
+Separacion de deberes. Capa UC y capa RBAC son ortogonales. Mismo patron en
 UC_ALR_05.
 
 **Patron P-07 — Async Throttled Export** (3 UCs):

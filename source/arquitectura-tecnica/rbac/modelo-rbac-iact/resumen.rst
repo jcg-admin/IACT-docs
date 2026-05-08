@@ -27,7 +27,7 @@ Modelo RBAC IACT — Resumen
  * - **Nombres grupos**
    - Español con `agr_`
    - Inglés sin prefijo
- * - **Nombres reglas SoD**
+ * - **Nombres reglas de separacion**
    - Español con `sod_`
    - Inglés sin prefijo
  * - **Campos**
@@ -79,7 +79,7 @@ Modelo RBAC IACT — Resumen
    - 77
  * - **Grupos**
    - 12
- * - **Restricciones SoD**
+  * - **Restricciones de Separacion**
    - 3
  * - **Segmentos de datos**
    - 0
@@ -99,7 +99,7 @@ Modelo RBAC IACT — Resumen
 1. **[OK] 100% Inglés en código:**
    - Funciones: ``manage_sessions``, ``view_reports``, ``export_csv``
    - Grupos: ``basic_operator_group``, ``user_admin_group``
-   - Reglas SoD: ``pipeline_audit_separation``
+   - Reglas de Separacion: ``pipeline_audit_separation``
 
 2. **[OK] Clean Code completo:**
    - Sin prefijos redundantes (``agr_``, ``sod_``)
@@ -127,9 +127,9 @@ Modelo RBAC IACT — Resumen
 
 **Changelog:**
 
-- v5.5.0 → v5.6.0: NUEVO MOD_Admin (3 funciones) que formaliza el plano de configuración RBAC (catálogo, SoD, asignaciones a grupos del sistema). MOD_Operator y MOD_Supervision reclasificados como reservados open-closed (out-of-scope para esta release).
+- v5.5.0 → v5.6.0: NUEVO MOD_Admin (3 funciones) que formaliza el plano de configuración RBAC (catálogo, separacion de deberes, asignaciones a grupos del sistema). MOD_Operator y MOD_Supervision reclasificados como reservados open-closed (out-of-scope para esta release).
 - v5.4.0 → v5.5.0: alta de MOD_Operator (10) y MOD_Supervision (3) derivados de UC_OPR_01..10 y UC_SUP_01..03 (luego reservados en v5.6.0).
 - v5.3.0 → v5.4.0: splits SRP en MOD_Auth, MOD_Users, MOD_Access, MOD_Alerts, MOD_Logs (renames + 5 nuevas en MOD_Logs).
 - v5.2.1 → v5.3.0: nuevas funciones en MOD_Access, MOD_Reports y MOD_Logs (custom groups, schedule, comparte, search).
-- v5.2.0 → v5.2.1: consistencia 100% inglés en código (funciones, grupos, reglas SoD); ``assigned_date`` → ``assigned_at``; ``separation_group`` → ``rule_group``.
+- v5.2.0 → v5.2.1: consistencia 100% inglés en código (funciones, grupos, reglas de separacion); ``assigned_date`` → ``assigned_at``; ``separation_group`` → ``rule_group``.
 - Base: Clean Code v2.0.0 + MODELO_RBAC_IACT_v5_1_1.rst

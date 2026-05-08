@@ -117,7 +117,7 @@ Modelo RBAC IACT — Implementacion
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
 
-8.10 Datos Iniciales - 3 Reglas SoD
+8.10 Datos Iniciales - 3 Reglas de Separacion
 -----------------------------------
 
 
@@ -185,7 +185,7 @@ Modelo RBAC IACT — Implementacion
 
 Per ADR-BACK-007, el bootstrap canónico de los 12 grupos
 predefinidos AGR-001..012, las 64 funciones activas y las 3
-reglas SoD se hace **via data migration con** ``RunPython``,
+reglas de separacion se hace **via data migration con** ``RunPython``,
 no via fixtures ni management command.
 
 Esta es la forma idiomática Django per
@@ -244,7 +244,7 @@ los docs oficiales:
  # O paso a paso:
  python manage.py initialize_functions          # 64 funciones activas (in-scope)
  python manage.py initialize_function_groups    # 12 grupos
- python manage.py initialize_separation_rules   # 3 reglas SoD
+ python manage.py initialize_separation_rules   # 3 reglas de separacion
 
 El management command **delega internamente** en las funciones
 de la data migration — no las duplica. Existe como conveniencia

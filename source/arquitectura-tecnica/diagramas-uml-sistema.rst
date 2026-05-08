@@ -50,7 +50,7 @@ conforme al catalogo de funciones del sistema.
 **view_audit_log**
   Usuario con funciones ``view_audit_log``, ``search_audit_log``,
   ``export_audit_log``. Solo lectura sobre ``audit_log``
-  (PostgreSQL). SoD: no puede tener funciones de AGR-006.
+  (PostgreSQL). Separacion de deberes: no puede tener funciones de AGR-006.
 
 **Sistema IVR (Fuente de Datos)**
   Entidad externa. Provee datos de llamadas en ``tbl_historico_*``

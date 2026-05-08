@@ -48,7 +48,7 @@ validaciones internas del RBAC.
 - Catalogo de permisos (view, export, create, edit, delete, etc.)
 - Segmentos de datos (por centro, servicio, region)
 - Calculo de permisos efectivos (precedencia: Directo > Rol > Segmento)
-- Reglas SoD (Separation of Duties — conflicto entre roles)
+- Reglas de Separacion (Separation of Duties — conflicto entre roles)
 - Simulacion de acceso ("¿que veria este usuario?")
 - Matriz consolidada de roles/permisos (vista PMO)
 - **Enforcers de seguridad** (middleware, decoradores, policies)

@@ -29,7 +29,7 @@ PUEDE Hacer
  * - Aplicar precedencia (Directo > Rol > Segmento)
    - UC_042
    - -
- * - Validar reglas SoD
+ * - Validar reglas de separacion
    - UC_042
    - -
  * - Asignar/retirar roles a usuarios

@@ -19,13 +19,13 @@ Design View — MOD_Access: Patron de Interaccion
 
 Secuencia canonica del modulo MOD_Access: asignacion de
 ``FunctionGroup`` a un usuario con verificacion previa de
-``SeparationRule`` (SoD) antes de crear el ``Assignment``.
+``SeparationRule`` (separation of duties) antes de crear el ``Assignment``.
 
 Actores ``<<sistema>>`` son clases canonicas del domain-model.
 La funcion RBAC iniciadora es ``assign_functions_to_group``.
 
 .. uml::
- :caption: MOD_Access — asignacion con verificacion SoD.
+ :caption: MOD_Access — asignacion con verificacion separacion de deberes.
 
  @startuml
 
@@ -40,13 +40,13 @@ La funcion RBAC iniciadora es ``assign_functions_to_group``.
  AuthorizationGuard --> assign_functions_to_group : OK
  deactivate AuthorizationGuard
 
- assign_functions_to_group -> SeparationRuleRepo : check_sod(user_id, group_ref)
+ assign_functions_to_group -> SeparationRuleRepo : check_separation(user_id, group_ref)
  activate SeparationRuleRepo
  SeparationRuleRepo --> assign_functions_to_group : sod_result
  deactivate SeparationRuleRepo
 
- alt conflicto SoD detectado
-   assign_functions_to_group --> assign_functions_to_group : 422 SoD Violation
+ alt conflicto de separacion detectado
+   assign_functions_to_group --> assign_functions_to_group : 422 Separation Violation
  else sin conflicto
    assign_functions_to_group -> AssignmentRepo : create(Assignment)
    activate AssignmentRepo
@@ -60,7 +60,7 @@ La funcion RBAC iniciadora es ``assign_functions_to_group``.
  end
 
  note right of SeparationRuleRepo
-   CNST-005: SoD evaluado en
+   CNST-005: separacion evaluada en
    funciones, no en grupos.
  end note
 

@@ -69,7 +69,7 @@ In-scope para esta release. 9 modulos activos.
    - **ADM**
    - **3**
    - **4.7%**
-   - **Plano de configuración RBAC (catálogo, SoD, asignaciones a grupos del sistema)**
+   - **Plano de configuración RBAC (catálogo, separacion de deberes, asignaciones a grupos del sistema)**
  * - **TOTAL ACTIVO**
    - -
    - **64**

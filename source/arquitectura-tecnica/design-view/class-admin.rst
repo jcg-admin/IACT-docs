@@ -18,7 +18,7 @@ Design View — MOD_Admin: Estructura de Clases
 ============================================================
 
 Modulo de **configuracion del catalogo RBAC**: gestiona el ciclo
-de vida de funciones, agrupadores del sistema y reglas SoD. Es
+de vida de funciones, agrupadores del sistema y reglas de separacion. Es
 el unico modulo que puede mutar el catalogo declarativo.
 
 .. uml::
@@ -55,7 +55,7 @@ el unico modulo que puede mutar el catalogo declarativo.
 UCs cubiertos
 ==============
 
-UC_ADM_01 (gestionar reglas SoD) · UC_ADM_02 (catalogo de
+UC_ADM_01 (gestionar reglas de separacion) · UC_ADM_02 (catalogo de
 funciones) · UC_ADM_03 (catalogo de agrupadores). Ver
 :doc:`/arquitectura-tecnica/use-case-view/admin/index`.
 

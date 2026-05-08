@@ -85,7 +85,7 @@ Capacidades de soporte por rol
  * - **AGR_ADMIN**
    - Ver sesiones activas; cerrar sesiones en caso de incidente
      de seguridad (``view_all_active_sessions``); ver
-     asignaciones y reglas SoD.
+     asignaciones y reglas de separacion.
  * - **Ops / DevOps**
    - Acceso a metricas tecnicas (``TechnicalMetric``:
      response_time, throughput, error_rate, CPU, memoria);

@@ -106,7 +106,7 @@ Diagrama de actividad: bootstrap automatico via ``migrate``
 ============================================================
 
 .. uml::
- :caption: Bootstrap de los 12 AGR + 64 Function activas + 3 SoD durante ``python manage.py migrate``.
+ :caption: Bootstrap de los 12 AGR + 64 Function activas + 3 reglas de separacion durante ``python manage.py migrate``.
 
  @startuml
 
@@ -133,7 +133,7 @@ Diagrama de actividad: bootstrap automatico via ``migrate``
    :Asocia ``Function`` correspondientes via\n``group.functions.set(...)``;
  }
 
- partition "3 reglas SoD" {
+ partition "3 reglas de separacion" {
    :``FunctionSeparationRule.objects.get_or_create(...)``\ncon pares de grupos mutuamente exclusivos;
  }
 
@@ -202,7 +202,7 @@ Pseudocodigo del bootstrap (data migration canonica)
      # ('AGR-012', 'call_center_supervisor_group', [...]),
  ]
 
- SOD_RULES = [
+ SEPARATION_RULES = [
      ('SOD-001', 'pipeline_audit_separation',
       ['AGR-009'], ['AGR-008']),
      ('SOD-002', 'user_audit_separation',
@@ -214,7 +214,7 @@ Pseudocodigo del bootstrap (data migration canonica)
  def bootstrap_rbac(apps, schema_editor):
      Function     = apps.get_model('access', 'Function')
      AccessGroup  = apps.get_model('access', 'AccessGroup')
-     SoDRule      = apps.get_model('access',
+     SeparationRule      = apps.get_model('access',
                                    'FunctionSeparationRule')
 
      for agr_code, group_name, function_codenames in PREDEFINED_GROUPS:
@@ -230,8 +230,8 @@ Pseudocodigo del bootstrap (data migration canonica)
          )
          group.functions.set(functions)
 
-     for sod_code, sod_name, group_a, group_b in SOD_RULES:
-         SoDRule.objects.get_or_create(
+     for separation_code, separation_name, group_a, group_b in SEPARATION_RULES:
+         SeparationRule.objects.get_or_create(
              code=sod_code,
              defaults={
                  'name': sod_name,
@@ -267,7 +267,7 @@ NO se bootstrap aquí — se crean dinámicamente con
 Ver :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`
 para el caso de uso de creación de custom groups.
 
-Reglas SoD (Separation of Duties)
+Reglas de Separacion (Separation of Duties)
 =================================
 
 .. list-table::
@@ -293,7 +293,7 @@ Reglas SoD (Separation of Duties)
 
 **Patrón:** todas las reglas v5.6.0 separan ``auditor_group``
 (AGR-008) de roles administrativos. Esto previene que un
-admin audite sus propias acciones — base teórica de SoD.
+admin audite sus propias acciones — base teórica de separacion de deberes.
 
 Ver :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 para la formalización SBVR.
@@ -308,5 +308,5 @@ Trazabilidad
 - Implementación detalle: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/implementacion`.
 - Catálogo funciones: :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`.
 - Especificación grupos: :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`.
-- SoD: :doc:`/requisitos/reglas-negocio/rbac/separacion-de-deberes`.
+- Separacion de deberes: :doc:`/requisitos/reglas-negocio/rbac/separacion-de-deberes`.
 - Vista UC del módulo Admin: :doc:`/arquitectura-tecnica/use-case-view/admin/index`.

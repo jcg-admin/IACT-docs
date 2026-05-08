@@ -58,7 +58,7 @@ clases que viven en su bounded context. Para detalle ver
  ' --- Dependencias core ---
  MOD_Permissions ..> MOD_Auth : verifica sesion
  MOD_Access ..> MOD_Permissions : grupos -> funciones
- MOD_Access ..> MOD_Admin : reglas SoD
+ MOD_Access ..> MOD_Admin : reglas de separacion
  MOD_Admin ..> MOD_Permissions : catalogo funciones
  MOD_Users ..> MOD_Permissions : assignments
 

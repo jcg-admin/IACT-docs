@@ -51,7 +51,7 @@ Flujo de instalacion
  partition "Bootstrap RBAC (automatico via migrate)" {
    :64 funciones atomicas activas\n(in-scope v5.6.0);
    :12 AccessGroups predefinidos\nAGR-001..012 con is_system=True;
-   :3 reglas SoD\n(CNST-030);
+   :3 reglas de separacion\n(CNST-030);
    :Crear usuario administrador inicial\n(python manage.py createsuperuser);
  }
 

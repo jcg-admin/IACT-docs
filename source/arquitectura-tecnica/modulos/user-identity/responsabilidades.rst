@@ -65,7 +65,7 @@ NO PUEDE Hacer (Violaciones)
   - Ejemplo: "Si tiene rol X y segmento Y, puede acceder a Z"
   - Responsabilidad de → :ref:`arq-mod-003`
 
-- **Validar conflictos de roles (SoD)**
+- **Validar conflictos de roles (separation of duties)**
 
   - Ejemplo: "No puede tener rol A y rol B simultaneamente"
   - Responsabilidad de → :ref:`arq-mod-003`

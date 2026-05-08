@@ -103,7 +103,7 @@ Responsabilidades del sistema
      el Sistema IVR para generar reportes y dashboards analiticos.
  * - **Control de acceso RBAC**
    - Gestionar el acceso granular mediante 64 funciones atomicas activas,
-     grupos de funciones y AccessGroups. Enforcar SoD (CNST-030)
+     grupos de funciones y AccessGroups. Enforcar separacion de deberes (CNST-030)
      y permisos temporales (CNST-031).
  * - **Auditoria regulatoria**
    - Registrar de forma inmutable (CNST-025) toda accion con

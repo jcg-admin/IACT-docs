@@ -18,7 +18,7 @@ Design View — MOD_Access: Estructura de Clases
 ============================================================
 
 Modulo de **asignaciones RBAC**: gestiona las relaciones entre
-usuarios y grupos de funciones, validando reglas SoD antes de
+usuarios y grupos de funciones, validando reglas de separacion antes de
 crear o modificar cualquier asignacion.
 
 Las clases mostradas viven en ``domain-model/``. Aqui solo se
@@ -49,7 +49,7 @@ bounded context.
  AccessGroupRepo ..> AccessGroup
  SeparationRuleRepo ..> SeparationRule
 
- AuthorizationGuard ..> SeparationRuleRepo : valida SoD
+ AuthorizationGuard ..> SeparationRuleRepo : valida separacion de deberes
  AuthorizationGuard ..> AssignmentRepo : crea/revoca
 
  Assignment ..> AuditService : emite AuditEvent
@@ -62,7 +62,7 @@ bounded context.
 UCs cubiertos por este modulo
 ==============================
 
-UC_ACC_01..09 — gestion de asignaciones, validacion SoD,
+UC_ACC_01..09 — gestion de asignaciones, validacion de separacion,
 revocacion, expiracion. Ver
 :doc:`/arquitectura-tecnica/use-case-view/access/index`.
 

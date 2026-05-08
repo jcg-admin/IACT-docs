@@ -1,5 +1,5 @@
 .. meta::
- :artefacto: ARQ_MOD_003_DIAG_CONFLICTO_SOD
+ :artefacto: ARQ_MOD_003_DIAG_CONFLICTO_SEPARACION
  :tipo: Diagrama Arquitectonico — Comportamiento de Modulo
  :dominio: arquitectura_tecnica
  :subdominio: modulos/rbac-core/diagramas
@@ -10,14 +10,14 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _arq_mod_003_evaluacion_conflicto_sod:
+.. _arq_mod_003_evaluacion_conflicto_separacion:
 
 ===========================
-Evaluacion de Conflicto SoD
+Evaluacion de Conflicto separacion de deberes
 ===========================
 
 .. uml::
- :caption: Evaluación de conflicto SoD — antes de activar cualquier asignación.
+ :caption: Evaluación de conflicto de separacion — antes de activar cualquier asignación.
 
  @startuml
 
@@ -27,8 +27,8 @@ Evaluacion de Conflicto SoD
 
  :Obtener funciones activas del usuario U;
 
- if (¿Alguna función activa entra\nen conflicto SoD con F?) then (sí)
-   :Rechazar asignación\n→ error SoD_VIOLATION;
+ if (¿Alguna función activa entra\nen conflicto de separacion con F?) then (sí)
+   :Rechazar asignación\n→ error SEPARATION_VIOLATION;
    stop
  else (no)
    :Registrar asignación;

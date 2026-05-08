@@ -17,7 +17,7 @@ Modelo de Clases — Entidades RBAC
 =================================
 
 .. uml::
- :caption: Entidades centrales del modelo RBAC IACT v5.6.0 — 64 funciones atomicas activas (catalogo declara 77, 13 reservadas open-closed), 12 grupos, 3 reglas SoD.
+ :caption: Entidades centrales del modelo RBAC IACT v5.6.0 — 64 funciones atomicas activas (catalogo declara 77, 13 reservadas open-closed), 12 grupos, 3 reglas de separacion.
 
  @startuml
 
@@ -55,13 +55,13 @@ Modelo de Clases — Entidades RBAC
    + expires_at : DateTime
  }
 
- class SoDRule {
+ class SeparationRule {
    + rule_id : String
    + name : String
    + state : String
  }
 
- class SoDRuleDetail {
+ class SeparationRuleDetail {
    + rule_id : String
    + function_id : String
    + group_side : Enum
@@ -72,8 +72,8 @@ Modelo de Clases — Entidades RBAC
  Function "1" *-- "0..*" Assignment : asignada a
  FunctionGroup "1" *-- "0..*" GroupAssignment : asignado a
  FunctionGroup "1" *-- "0..*" Function : contiene
- SoDRule "1" *-- "2..*" SoDRuleDetail : define grupos
- Function "1" -- "0..*" SoDRuleDetail : referenciada por
+ SeparationRule "1" *-- "2..*" SeparationRuleDetail : define grupos
+ Function "1" -- "0..*" SeparationRuleDetail : referenciada por
 
  @enduml
 

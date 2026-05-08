@@ -18,18 +18,18 @@ Implementation View — MOD_Access
 
 Componentes y paquetes de codigo del modulo de control de acceso.
 Cubre asignacion y revocacion de ``FunctionGroup`` / ``AccessGroup``
-con verificacion de ``SeparationRule`` (SoD, CNST-030).
+con verificacion de ``SeparationRule`` (separation of duties, CNST-030).
 
 .. uml::
- :caption: Implementation View MOD_Access — componentes RBAC con SoD.
+ :caption: Implementation View MOD_Access — componentes RBAC con separacion de deberes.
 
  @startuml
 
  package "MOD_Access" {
-   component "AssignmentView\nSoDCheckView\nRevokeAssignmentView" as AccessView <<api>>
+   component "AssignmentView\nSeparationCheckEndpoint\nRevokeAssignmentView" as AccessView <<api>>
    component "AssignmentSerializer" as AccessSerializer <<serializer>>
    component "AccessService\nverificar SeparationRule\nasignar/revocar grupos" as AccessService <<service>>
-   component "AssignmentRepository\nSoDRepository" as AccessRepo <<repository>>
+   component "AssignmentRepository\nSeparationRuleRepository" as AccessRepo <<repository>>
    component "AssignmentORM\nSeparationRuleORM\nFunctionGroupORM" as AccessORM <<orm>>
  }
 
@@ -43,7 +43,7 @@ con verificacion de ``SeparationRule`` (SoD, CNST-030).
 
  note right of AccessService
    Assignment{state:AssignmentState}.
-   SeparationRule.conflicting_functions verifica SoD.
+   SeparationRule.conflicting_functions verifica separacion de deberes.
    CNST-030: enforcement en tiempo de asignacion.
    AuditEvent{ACCESS_CHANGE} en cada operacion.
  end note

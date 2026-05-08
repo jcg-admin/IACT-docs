@@ -22,7 +22,7 @@ Secuencia canonica del modulo MOD_Admin: creacion de una nueva
 permiso ``create_separation_rule`` y emision de AuditEvent.
 
 .. uml::
- :caption: MOD_Admin — crear regla SoD en catalogo.
+ :caption: MOD_Admin — crear regla de separacion en catalogo.
 
  @startuml
 

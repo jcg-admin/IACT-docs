@@ -1,9 +1,9 @@
 .. meta::
- :artefacto: AT_DESIGN_ACT_SOD_CHECK
+ :artefacto: AT_DESIGN_ACT_SEPARATION_CHECK
  :tipo: Diagrama Arquitectonico — Design View — Activity
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
- :flujo: sod-check
+ :flujo: separation-check
  :estado: Vigente
  :version: 1.0.0
  :fecha_creacion: 2026-05-06
@@ -17,7 +17,7 @@
 Design View — Flujo: Verificacion Separation of Duties
 ============================================================
 
-Flujo de verificacion SoD (CNST-005) que se invoca antes de
+Flujo de verificacion de separacion (CNST-005) que se invoca antes de
 crear o modificar cualquier ``Assignment``. Compara las
 funciones que el usuario tendria post-asignacion contra todas
 las ``SeparationRule`` activas.
@@ -26,12 +26,12 @@ Cubre los UCs UC_ACC_01 (asignar grupo), UC_ACC_03 (revocar
 grupo), UC_PERM_03 (conceder permiso excepcional).
 
 .. uml::
- :caption: Flujo SoD check — antes de cualquier mutacion RBAC.
+ :caption: Flujo separation check — antes de cualquier mutacion RBAC.
 
  @startuml
 
  start
- :Recibir check_sod(user_id, group_ref);
+ :Recibir check_separation(user_id, group_ref);
 
  :Consultar Assignments existentes(user_id);
  :existing_functions = UNION(grupos.funciones);
@@ -74,11 +74,11 @@ grupo), UC_PERM_03 (conceder permiso excepcional).
 Notas de diseno
 ================
 
-- **CNST-005**: SoD se evalua sobre **funciones**, no sobre
+- **CNST-005**: separacion se evalua sobre **funciones**, no sobre
   grupos. Dos grupos distintos pueden compartir funciones — la
   union es lo que cuenta.
 - **Assignments + Exceptional Grants**: ambos se consideran en
-  total_set; el SoD check ve la realidad efectiva post-mutacion.
+  total_set; el separation check ve la realidad efectiva post-mutacion.
 - **No revokes**: los exceptional revokes no afectan el check
   porque solo restringen, no expanden.
 - **Audit en violacion**: cada intento bloqueado deja trazabilidad.

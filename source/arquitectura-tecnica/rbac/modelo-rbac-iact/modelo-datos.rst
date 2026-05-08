@@ -18,6 +18,6 @@ Modelo RBAC IACT — Modelo de Datos
 3. **``function_group_membership``** - M2M funciones-grupos
 4. **``user_function_assignments``** - Asignaciones directas
 5. **``user_function_group_assignments``** - Asignaciones de grupos
-6. **``function_separation_rules``** - 3 reglas SoD
-7. **``function_separation_rule_details``** - Detalle SoD (grupos A/B)
+6. **``function_separation_rules``** - 3 reglas de separacion
+7. **``function_separation_rule_details``** - Detalle separacion (grupos A/B)
 
