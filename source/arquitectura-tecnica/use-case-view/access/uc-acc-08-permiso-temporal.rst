@@ -46,7 +46,7 @@ incluye este UC. Planificador de Tareas remueve permisos vencidos.
    usecase "UC_ACC_08\nPermiso Temporal\n.. extension points ..\nVencimientoAuto" as UC_ACC_08
    usecase "Verificar\ngrant_exceptional_permission" as VERIFICAR_AGR
    usecase "Validar payload\n(justification ≥20\n+ expires_at bounds)" as VALIDAR_PAYLOAD
-   usecase "Validar SoD write-time" as VALIDAR_SOD
+   usecase "Validar separacion write-time" as VALIDAR_SEPARATION_RULES
    usecase "Persistir\nExceptionalPermission" as PERSISTIR
    usecase "Recompute effective_set\n(source=EXCEPTIONAL)" as RECALC
    usecase "InternalMailbox\nOBLIGATORIO (P-10)" as MAILBOX
@@ -59,7 +59,7 @@ incluye este UC. Planificador de Tareas remueve permisos vencidos.
 
  UC_ACC_08 ..> VERIFICAR_AGR : <<include>>
  UC_ACC_08 ..> VALIDAR_PAYLOAD : <<include>>
- UC_ACC_08 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_08 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_08 ..> PERSISTIR : <<include>>
  UC_ACC_08 ..> RECALC : <<include>>
  UC_ACC_08 ..> MAILBOX : <<include>>
@@ -69,7 +69,7 @@ incluye este UC. Planificador de Tareas remueve permisos vencidos.
 
  VERIFICAR_AGR --> AuthorizationGuard
  VALIDAR_PAYLOAD --> ExpirationPolicy
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> ExceptionalPermissionRepo
  RECALC --> EffectivePermissionsAggregator
  INVALIDAR --> PermissionCache
@@ -104,9 +104,9 @@ incluye este UC. Planificador de Tareas remueve permisos vencidos.
  - :doc:`/arquitectura-tecnica/domain-model/expiration-policy` —
    bounds + deteccion vencimiento.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD.
+   reglas de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta SoD write-time.
+   ejecuta separacion write-time.
  - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
    P-10 mailbox-or-abort.
  - :doc:`/arquitectura-tecnica/domain-model/internal-message` —
