@@ -1,99 +1,96 @@
 .. meta::
  :artefacto: UC_USR_05
- :tipo: Caso de Uso (stub Reservado)
+ :tipo: Caso de Uso (Spec Completa)
  :dominio: requisitos
  :subdominio: casos_uso/users
- :estado: Reservado
- :version: 0.1.0
+ :estado: Aprobado
+ :version: 1.0.0
  :fecha_creacion: 2026-05-07
- :ultimo_cambio: 2026-05-07
+ :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
- :clasificacion: Interno
- :origen: incierto — referenciado en uc-auth-03/04/05
-          sin decision arquitectonica formal documentada
+ :clasificacion: Importante
+ :normativa: CNST-009, CNST-013, CNST-025, CNST-026
 
 .. _uc-usr-05:
 
-==============================================
-UC_USR_05 — Bloquear Usuario (RESERVADO)
-==============================================
+==============================
+UC_USR_05 — Bloquear Usuario
+==============================
 
-.. warning:: **UC en estado Reservado — sin spec completa**
+.. note::
 
-   Este UC esta declarado como **planificado** pero no
-   tiene spec formal. Aparece referenciado en:
+ **Especificacion completa de 12 partes** — promocion del
+ placeholder Reservado a spec Aprobada por el WP
+ ``2026-05-08-04-10-27-uc-view-domain-alignment``.
 
-   - ``auth/uc-auth-03/flujos-alternos.rst:14`` — "el User
-     existe pero ``state='BLOCKED'`` (UC_USR_05 lo bloqueo)".
-   - ``auth/uc-auth-04/flujos-alternos.rst:97`` — "(UC_USR_06)
-     el User ya tenga contrasena".
-   - ``auth/uc-auth-05/informacion-general.rst:75,109`` —
-     "UC_USR_05 (bloquear usuario)".
+Resumen
+=======
 
-   La investigacion del WP
-   ``2026-05-07-04-08-13-use-case-view-analysis`` confirma
-   que **nunca existio commit de creacion** de este UC. Las
-   referencias asumen su existencia pero la decision
-   arquitectonica formal sobre su scope, capability RBAC y
-   relacion con BR-015 (Bloqueo Intentos Fallidos) no esta
-   documentada.
+UC_USR_05 ejecuta el **bloqueo administrativo manual** de
+un User por parte de un admin. Transicion
+``User.state: ACTIVE → BLOCKED``, cierre de Sessions
+activas y emision de AuditEvent ``USER_BLOCKED``. La
+cuenta se conserva (no es DELETE ni soft-delete); puede
+ser desbloqueada por UC_USR_06.
 
-   Estado **Reservado** hasta que el ejecutor confirme:
+Distinto de:
 
-   - El alcance del UC (¿bloqueo administrativo manual?
-     ¿bloqueo automatico por intentos fallidos? ¿ambos?).
-   - La capability RBAC asociada (sugerencia: ``block_users``
-     o ``deactivate_users``).
-   - El AGR titular (sugerencia: AGR-002 user_admin).
-   - Si la funcionalidad actualmente vive en BR-015 +
-     ``deactivate_users`` y este UC es redundante.
-
-Resumen propuesto
-=================
-
-UC_USR_05 administraria el bloqueo manual de usuarios por
-parte de un admin (distinto del bloqueo automatico de
-BR-015 por intentos fallidos). El bloqueo es una transicion
-``state: ACTIVE -> BLOCKED`` que impide login pero preserva
-la cuenta para auditoria y posible reactivacion (UC_USR_06).
-
-Trazabilidad
-============
+- **UC_USR_04 (eliminar)** — baja logica permanente
+  (``state → ELIMINATED``), no reversible.
+- **BR-015 (bloqueo automatico)** — transicion a BLOCKED
+  disparada por el sistema tras N intentos fallidos. UC_USR_05
+  es el equivalente manual con admin como actor.
 
 .. list-table::
- :widths: 30 70
+ :widths: 25 75
  :header-rows: 0
 
  * - **ID**
    - UC_USR_05
- * - **Nombre propuesto**
-   - Bloquear Usuario
  * - **Modulo**
    - MOD_Users
- * - **Capability propuesta**
-   - ``block_users`` (no existe en catalogo) o
-     ``deactivate_users`` (existe — soft delete BR-009)
- * - **Estado**
-   - **Reservado** (origen incierto)
- * - **BR relacionada**
-   - BR-015 (Bloqueo Intentos Fallidos) — semantica
-     diferente, automatica por sistema vs manual por admin
- * - **UCs que lo referencian**
-   - UC_AUTH_03, UC_AUTH_04, UC_AUTH_05, UC_PERM_07,
-     UC_PERM_09
+ * - **Criticidad**
+   - ALTA (afecta acceso del usuario; reversible via UC_USR_06)
+ * - **Complejidad**
+   - BAJA (1 dia)
+ * - **Actor Principal**
+   - User con funcion ``block_users``
+ * - **Funcion RBAC**
+   - ``block_users``
+ * - **BReq satisfecho**
+   - BReq-004 (Cumplimiento de Seguridad y Auditoria)
+ * - **BRQ legacy**
+   - BRQ-USR-005 (parcial)
 
-Decision pendiente
-==================
+Documentos vinculados
+=====================
 
-Antes de promover este UC a Borrador / Vigente, requiere
-ADR explicito que defina:
+- :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
+- :doc:`/requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos`
+  (bloqueo automatico — semantica relacionada pero distinta)
+- :doc:`/requisitos/casos-uso/users/uc-usr-06/index`
+  (desbloqueo — operacion inversa)
+- :doc:`/requisitos/casos-uso/users/uc-usr-04/index`
+  (eliminar — baja logica permanente, NO reversible)
+- :doc:`/requisitos/casos-uso/auth/uc-auth-05/index`
+  (gestion de sessions — patron similar de cierre masivo)
 
-1. ¿Es necesario un UC separado o la funcionalidad ya
-   esta cubierta por ``deactivate_users`` (UC_USR_03)?
-2. Si separado, ¿cual es la capability RBAC (nueva o
-   existente)?
-3. ¿Que relacion tiene con BR-015 (bloqueo automatico)?
+Estructura de la spec
+=====================
 
-Mientras el ADR no exista, las referencias en otros UCs
-deben tratarse como **referencias a funcionalidad
-planificada** (no a UC documentado).
+.. toctree::
+ :maxdepth: 1
+ :caption: Las 12 partes
+
+ informacion-general
+ actores-precondiciones
+ flujo-principal
+ flujos-alternos
+ excepciones
+ requisitos-no-funcionales
+ datos-involucrados
+ diagramas-uml/index
+ criterios-aceptacion
+ patrones-diseno
+ implementacion-tecnica
+ testing
