@@ -762,7 +762,7 @@ Ejemplo 1: Trazabilidad de Autenticación
  ├─ RS-001: Usuario gerente necesita acceso 24/7
  │ └─ RF-005: Login con username/password
  │ ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.rst#2.1
- │ ├─ CODE: apps/authentication/views.py#LoginView
+ │ ├─ CODE: apps/authentication/views.py#LoginEndpoint
  │ └─ TEST: tests/test_auth_login.py::test_login_success
  │
  └─ RNF-001: Tiempo de autenticación < 500ms

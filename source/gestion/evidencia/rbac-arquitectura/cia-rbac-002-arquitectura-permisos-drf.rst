@@ -542,13 +542,13 @@ Nombres corregidos::
    from permissions.enforcement import FunctionPermission
 
 
-   class ReportListView(APIView):
+   class ReportListEndpoint(APIView):
        permission_classes = [
            FunctionPermission(FunctionCatalog.VIEW_REPORTS)
        ]
 
 
-   class ReportExportView(APIView):
+   class ReportExportEndpoint(APIView):
        permission_classes = [
            FunctionPermission(FunctionCatalog.VIEW_REPORTS),
            FunctionPermission(FunctionCatalog.EXPORT_CSV),

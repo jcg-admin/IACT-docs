@@ -164,7 +164,7 @@ y :doc:`/backend/adr-back-010-function-is-critical-governance`.
    - ``UserCapabilityResolver.resolve``
  * - ``menu:user:{user_id}``
    - 300s
-   - ``UserMenuView`` (UC_PERM_08 ext)
+   - ``UserMenuEndpoint`` (UC_PERM_08 ext)
  * - ``func:critical_set``
    - 60s
    - ``UserCapabilityResolver._critical_codenames``

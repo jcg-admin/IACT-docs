@@ -266,6 +266,6 @@ E.7 Trazabilidad
 - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
   (v2.0.0 — wrapper UX obligatorio).
 - :doc:`/backend/rbac-implementation-guide` §Q9.6 (codigo
-  del endpoint ``UserMenuView``).
+  del endpoint ``UserMenuEndpoint``).
 - WP de origen:
   ``2026-05-06-21-42-06-menu-rbac-user-scope-docs``.

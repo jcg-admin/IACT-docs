@@ -264,7 +264,7 @@ Crear sección de activos críticos con clasificación:
       - Impacto
       - Riesgo
       - Mitigación
-    * - LoginView
+    * - LoginEndpoint
       - Ataque de fuerza bruta en credenciales
       - Alta
       - Crítico

@@ -458,7 +458,7 @@ en lugar de ``auth.Permission``. Compatible con
      """DRF permission class — usar en views.
 
      Uso:
-         class MyView(APIView):
+         class MyEndpoint(APIView):
              permission_classes = [FunctionPermission]
              required_function = 'view_reports'
      """
@@ -479,7 +479,7 @@ en lugar de ``auth.Permission``. Compatible con
  from apps.access.permissions import FunctionPermission
 
 
- class ReportListView(APIView):
+ class ReportListEndpoint(APIView):
      permission_classes = [FunctionPermission]
      required_function = "view_reports"   # ← Function codename
 
@@ -1147,7 +1147,7 @@ Q9.6 Endpoint GET /api/v1/menu/
    from .serializers import MenuItemSerializer
 
 
-   class UserMenuView(APIView):
+   class UserMenuEndpoint(APIView):
        permission_classes = [IsAuthenticated]
 
        def get(self, request):

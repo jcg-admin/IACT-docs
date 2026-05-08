@@ -24,7 +24,7 @@ implementacion).
      ``LoginRequestContract`` aislados con mocks de
      BD y servicios externos
  * - **Integracion (Django TestCase)**
-   - ``LoginView`` con BD real (sqlite test) +
+   - ``LoginEndpoint`` con BD real (sqlite test) +
      transacciones reales
  * - **API contract**
    - request/response JSON shape verificada
@@ -323,7 +323,7 @@ de respuesta:
  * - Cobertura de lineas (``AuthService``)
    - >= 95%
    - Codigo critico de seguridad
- * - Cobertura de lineas (``LoginView``)
+ * - Cobertura de lineas (``LoginEndpoint``)
    - >= 90%
    - Wrapping del service; alta cobertura sin
      ser absoluta

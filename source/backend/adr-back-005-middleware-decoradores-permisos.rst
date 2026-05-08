@@ -230,7 +230,7 @@ Contras:
        verificar_permiso('sistema.vistas.dashboards.ver'),
        name='dispatch'
    )
-   class DashboardView(TemplateView):
+   class DashboardEndpoint(TemplateView):
        template_name = 'dashboard.html'
 
 4.3 Permission Class para DRF

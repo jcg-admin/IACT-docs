@@ -845,7 +845,7 @@ manteniendo tests verdes
  from django.contrib.auth.models import User
 
 
- class LoginView(APIView):
+ class LoginEndpoint(APIView):
  
  Vista para login con username/password.
 
@@ -870,7 +870,7 @@ manteniendo tests verdes
  return Response(tokens, status=status.HTTP_200_OK)
 
 
- class RefreshTokenView(APIView):
+ class RefreshTokenEndpoint(APIView):
  
  Vista para renovar access token usando refresh token.
 
@@ -940,13 +940,13 @@ manteniendo tests verdes
  """URLs para autenticación JWT."""
 
  from django.urls import path
- from .views import LoginView, RefreshTokenView
+ from .views import LoginEndpoint, RefreshTokenEndpoint
 
  app_name = 'authentication'
 
  urlpatterns = [
- path('login', LoginView.as_view, name='login'),
- path('refresh', RefreshTokenView.as_view, name='refresh'),
+ path('login', LoginEndpoint.as_view, name='login'),
+ path('refresh', RefreshTokenEndpoint.as_view, name='refresh'),
  ]
 
 .. code:: python
@@ -1187,8 +1187,8 @@ Al hacer commit, se ejecutan automáticamente:
 
  - Tests unitarios para LoginRequestContract
  - Tests unitarios para TokenResponseContract
- - Tests de integración para LoginView
- - Tests de integración para RefreshTokenView
+ - Tests de integración para LoginEndpoint
+ - Tests de integración para RefreshTokenEndpoint
  - Tests de middleware JWT
 
  Cobertura: 95% del módulo authentication
@@ -1315,9 +1315,9 @@ Test Plan
 - [x] Tests unitarios de LoginRequestContract (4 casos)
 - [x] Tests unitarios de TokenResponseContract (generación tokens)
 - [x] Tests unitarios de RefreshTokenRequestContract (validación)
-- [x] Tests de integración LoginView (success, invalid creds, missing
+- [x] Tests de integración LoginEndpoint (success, invalid creds, missing
   fields, inactive user)
-- [x] Tests de integración RefreshTokenView (success, invalid token)
+- [x] Tests de integración RefreshTokenEndpoint (success, invalid token)
 - [x] Tests de middleware JWT (sin token, token válido, token expirado)
 - [x] Cobertura total: 95%
 - [x] Security scan con Bandit: 0 issues
@@ -1460,7 +1460,7 @@ Responder a Comentarios
 
  - Renombrar variable confusa 'x' a 'user_id'
  - Agregar docstring faltante en generate_tokens
- - Mejorar manejo de excepciones en RefreshTokenView"
+ - Mejorar manejo de excepciones en RefreshTokenEndpoint"
 
  # Push
  git push

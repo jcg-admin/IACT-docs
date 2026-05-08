@@ -97,7 +97,7 @@ el invariante I-4 (visibilidad cascade desde
    - cualquier endpoint que lista items
    - Solo ACTIVE + Function activa (I-4)
  * - ``for_user(user)``
-   - ``UserMenuView`` (UC_PERM_08 ext)
+   - ``UserMenuEndpoint`` (UC_PERM_08 ext)
    - visible() + filtro por
      ``UserCapabilityResolver.resolve(user)``
  * - ``with_status_for_admin(statuses)``

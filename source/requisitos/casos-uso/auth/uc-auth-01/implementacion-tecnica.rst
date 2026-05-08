@@ -77,7 +77,7 @@ Stack **prohibido** en este UC (per ADR-DEVOPS-001):
    - ``AnonRateThrottle`` + ``UserRateThrottle``
      (CNST-011)
  * - **View class**
-   - ``LoginView(APIView)``
+   - ``LoginEndpoint(APIView)``
 
 11.3 Estructura de archivos backend
 ===================================
@@ -93,7 +93,7 @@ estructura de directorios):
            ├── __init__.py
            ├── apps.py                       # AppConfig
            ├── urls.py                       # POST /api/auth/login/
-           ├── views.py                      # LoginView, LogoutView, ...
+           ├── views.py                      # LoginEndpoint, LogoutEndpoint, ...
            ├── serializers.py                # LoginRequestContract
            ├── services.py                   # AuthService.authenticate()
            ├── strategies.py                 # AuthenticationStrategy +
@@ -129,7 +129,7 @@ Archivos en otras apps que UC_AUTH_01 toca:
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
 
-11.5 LoginView (esqueleto)
+11.5 LoginEndpoint (esqueleto)
 ==========================
 
 .. note::

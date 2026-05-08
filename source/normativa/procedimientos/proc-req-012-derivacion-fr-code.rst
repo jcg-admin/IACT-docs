@@ -88,7 +88,7 @@ Mapear FR a componentes de codigo:
  
  Componentes:
  - apps/auth/services.py::JWTService.generate_token
- - apps/auth/views.py::LoginView.post
+ - apps/auth/views.py::LoginEndpoint.post
 
 **Paso 3: Implementar Codigo**
 

@@ -32,7 +32,7 @@
 
    # apps/access/urls.py
    from rest_framework.routers import DefaultRouter
-   from .views import MenuItemAdminEndpoints, MenuItemBulkReorderView
+   from .views import MenuItemAdminEndpoints, MenuItemBulkReorderEndpoint
 
    router = DefaultRouter()
    router.register(r"admin/menu-items", MenuItemAdminEndpoints,
@@ -40,7 +40,7 @@
 
    urlpatterns = router.urls + [
        path("admin/menu-items/bulk-reorder/",
-            MenuItemBulkReorderView.as_view(),
+            MenuItemBulkReorderEndpoint.as_view(),
             name="admin-menu-items-bulk-reorder"),
    ]
 
@@ -135,7 +135,7 @@
 
    from django.db.models import Case, When, Value, IntegerField
 
-   class MenuItemBulkReorderView(APIView):
+   class MenuItemBulkReorderEndpoint(APIView):
        permission_classes = [IsAuthenticated,
                              HasCriticalCapability("manage_menu_catalog")]
 

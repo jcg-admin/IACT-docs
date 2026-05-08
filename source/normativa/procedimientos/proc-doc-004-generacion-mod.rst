@@ -135,7 +135,7 @@ Casos de uso que implementa.
  ├── Responsabilidad
  ├── Componentes
  │ ├── Models: User, Session
- │ ├── Views: LoginView, LogoutView
+ │ ├── Views: LoginEndpoint, LogoutEndpoint
  │ └── Services: AuthService, JWTService
  ├── Dependencias
  │ ├── Usa: MOD_Audit
