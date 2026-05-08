@@ -284,9 +284,9 @@ Usar ORM Django cuando:
    # Fixtures, factories, mocking fácil
    @pytest.fixture
    def usuario_con_permisos():
-       usuario = UserFactory()
-       grupo = GrupoPermisoFactory()
-       UsuarioGrupoFactory(usuario=usuario, grupo=grupo)
+       usuario = UserTestData()
+       grupo = GrupoPermisoTestData()
+       UsuarioGrupoTestData(usuario=usuario, grupo=grupo)
        return usuario
 
 [OK] **Admin / CRUD operations**

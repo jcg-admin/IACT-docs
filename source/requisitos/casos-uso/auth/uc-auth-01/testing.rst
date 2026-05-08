@@ -349,7 +349,7 @@ Helpers que viven en
 
 .. code-block:: python
 
-   class UserFactory(factory.django.DjangoModelFactory):
+   class UserTestData(factory.django.DjangoModelFactory):
        class Meta:
            model = User
        user_id     = factory.LazyFunction(uuid.uuid4)
@@ -363,7 +363,7 @@ Helpers que viven en
                          state='ACTIVE',
                          first_login=False,
                          password_expires_at=None):
-       user = UserFactory(username=username,
+       user = UserTestData(username=username,
                           state=state,
                           first_login=first_login)
        user.set_password(password)

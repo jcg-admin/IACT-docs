@@ -381,15 +381,15 @@ Parte 12 — Testing
    import factory
    from apps.auth_app.models import Session, User
 
-   class UserFactory(factory.django.DjangoModelFactory):
+   class UserTestData(factory.django.DjangoModelFactory):
        class Meta:
            model = User
        username = factory.Sequence(lambda n: f'user{n}')
 
-   class SessionFactory(factory.django.DjangoModelFactory):
+   class SessionTestData(factory.django.DjangoModelFactory):
        class Meta:
            model = Session
-       user = factory.SubFactory(UserFactory)
+       user = factory.SubFactory(UserTestData)
        state = 'ACTIVE'
        expires_at = factory.LazyFunction(
            lambda: timezone.now() + timedelta(minutes=15))
