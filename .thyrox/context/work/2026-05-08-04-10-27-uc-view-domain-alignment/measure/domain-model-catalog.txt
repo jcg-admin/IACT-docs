@@ -1,0 +1,1331 @@
+## AbandonReport  (abandonment-report-service.rst)
+  attribute:abandonment_rate
+  attribute:average_wait_before_abandon
+  attribute:by_interval
+  attribute:period
+  attribute:total_abandoned
+  attribute:total_offered
+## AbandonmentCurve  (abandonment-report-service.rst)
+  attribute:buckets
+## AbandonmentReportService  (abandonment-report-service.rst)
+  method:abandonment_curve
+  method:by_queue
+  method:get
+## AccessGroup  (access-group.rst)
+  attribute:agr_id
+  attribute:name
+  attribute:profile_description
+  method:assign_to_user
+  method:revoke_from_user
+## AccessGroupFunction  (access-group-function.rst)
+  attribute:added_at
+  attribute:added_by
+## AccessGroupRepo  (access-group-repo.rst)
+  attribute:storage_backend
+  method:create
+  method:deactivate
+  method:exists_code
+  method:find_active
+  method:find_assignable_by_segment
+  method:find_system
+  method:get_by_code
+  method:get_by_id
+  method:update
+## Action  (action.rst)
+  attribute:code
+  attribute:function_code
+  attribute:icon
+  attribute:label
+  attribute:order
+  attribute:url_template
+  method:is_visible_for
+  method:render_url
+## AgentDailyStat  (agent-daily-stat-repo.rst)
+  attribute:agent_id
+  attribute:calls_handled
+  attribute:day
+  attribute:scheduled_time
+  attribute:staffed_time
+  attribute:total_acw_time
+  attribute:total_handle_time
+## AgentDailyStatRepo  (agent-daily-stat-repo.rst)
+  attribute:storage_backend
+  method:aggregate_by_agent
+  method:count_active_days
+  method:get_for_day
+  method:stream_by_agent
+  method:top_n_by_kpi
+## AgentDetailReport  (agent-report-service.rst)
+  attribute:agent_id
+  attribute:comparative
+  attribute:daily_breakdown
+  attribute:kpis
+  attribute:period
+## AgentRanking  (agent-daily-stat-repo.rst)
+  attribute:agent_id
+  attribute:rank
+  attribute:value
+## AgentReportService  (agent-report-service.rst)
+  method:detail
+  method:get
+  method:top_performers
+## AgentStats  (agent-daily-stat-repo.rst)
+  attribute:agent_id
+  attribute:aggregated_kpis
+  attribute:period
+## AggregateResult  (audit-repo.rst)
+  attribute:buckets
+  attribute:total
+## Alert  (alert.rst)
+  attribute:acknowledged_at
+  attribute:acknowledged_by
+  attribute:alert_id
+  attribute:state
+  attribute:threshold_id
+  attribute:triggered_at
+  attribute:value
+  method:acknowledge
+  method:configure
+  method:disable
+## AlertFilters  (alert-repo.rst)
+  attribute:acknowledged_by
+  attribute:rule_id
+  attribute:scope
+  attribute:severity
+  attribute:state
+## AlertHistoryRow  (alert-history-summary.rst)
+  attribute:acknowledged_at
+  attribute:alert_id
+  attribute:resolved_at
+  attribute:rule_name
+  attribute:severity
+  attribute:triggered_at
+## AlertHistoryService  (alert-history-service.rst)
+  method:query
+## AlertHistorySummary  (alert-history-summary.rst)
+  attribute:by_rule
+  attribute:by_severity
+  attribute:range
+  attribute:rows
+  attribute:total_alerts
+  attribute:ttak_p50
+  attribute:ttak_p95
+  attribute:ttar_p50
+  attribute:ttar_p95
+## AlertHook  (alert-hook.rst)
+  attribute:alert_engine
+  attribute:max_retries
+  attribute:retry_queue
+  attribute:rule_matcher
+  method:dispatch
+  method:match_rules
+  method:on_commit
+  method:retry_pending
+  method:schedule_retry
+## AlertRepo  (alert-repo.rst)
+  attribute:storage_backend
+  method:count_active
+  method:count_by_severity
+  method:find_active
+  method:get_by_id
+  method:query_history
+  method:save
+  method:update_state
+## AlertRule  (alert-rule.rst)
+  attribute:actions
+  attribute:condition
+  attribute:cooldown
+  attribute:created_at
+  attribute:created_by
+  attribute:description
+  attribute:metric
+  attribute:name
+  attribute:rule_id
+  attribute:scope
+  attribute:severity
+  attribute:status
+  attribute:updated_at
+  attribute:window
+  method:archive
+  method:disable
+  method:enable
+  method:is_in_cooldown
+  method:matches
+## AlertRuleFilters  (alert-rule-repo.rst)
+  attribute:scope
+  attribute:severity
+  attribute:state
+## AlertRuleRepo  (alert-rule-repo.rst)
+  attribute:storage_backend
+  method:by_id
+  method:create
+  method:disable
+  method:list_active
+  method:list_all
+  method:update
+## ApplicationLog  (application-log.rst)
+  attribute:level
+  attribute:log_id
+  attribute:message
+  attribute:occurred_at
+  attribute:source_module
+  attribute:user_id
+  method:export
+  method:record
+  method:search
+  method:view
+## ArchiveJobResult  (menu-lifecycle-service.rst)
+  attribute:archived_count
+  attribute:critical_alert_count
+  attribute:failures
+  attribute:warned_count
+## Assignment  (assignment.rst)
+  attribute:assigned_at
+  attribute:assigned_by
+  attribute:assignment_id
+  attribute:expires_at
+  attribute:group_ref
+  attribute:state
+  attribute:user_id
+  method:create
+  method:revoke
+## AssignmentFilters  (assignment-repo.rst)
+  attribute:state
+  attribute:valid_at
+## AssignmentRepo  (assignment-repo.rst)
+  attribute:storage_backend
+  method:count_active
+  method:create
+  method:exists_active
+  method:find_active_by_user
+  method:find_by_access_group
+  method:get_by_id
+  method:revoke
+## AuditEvent  (audit-event.rst)
+  attribute:actor_user_id
+  attribute:details
+  attribute:event_id
+  attribute:event_type
+  attribute:occurred_at
+  attribute:target_entity_id
+  attribute:target_entity_type
+  method:export
+  method:generate_compliance_report
+  method:record
+  method:search
+  method:view
+## AuditEventView  (audit-query-service.rst)
+  attribute:actor_username
+  attribute:event_id
+  attribute:event_type
+  attribute:occurred_at
+  attribute:summary
+## AuditFilters  (audit-repo.rst)
+  attribute:actor_user_id
+  attribute:entity_id
+  attribute:event_type
+  attribute:occurred_at_from
+  attribute:occurred_at_to
+  attribute:period
+  attribute:target_entity_id
+  attribute:target_entity_type
+## AuditQueryResult  (general-audit-service.rst)
+  attribute:events
+  attribute:next_cursor
+  attribute:total_estimate
+## AuditQueryService  (audit-query-service.rst)
+  attribute:cursor_encoder
+  attribute:export_worker
+  attribute:repo
+  attribute:sanitizer
+  method:aggregate
+  method:apply_scope
+  method:export
+  method:get
+  method:list
+  method:sanitize_for_view
+  method:search
+## AuditRepo  (audit-repo.rst)
+  attribute:retention_policy
+  attribute:storage_backend
+  method:aggregate
+  method:append
+  method:append_batch
+  method:count
+  method:exists
+  method:find
+  method:get_by_id
+## AuditService  (audit-service.rst)
+  attribute:alert_hook
+  attribute:pii_scanner
+  attribute:repo
+  attribute:sanitizer
+  attribute:validator
+  method:emit
+  method:emit_batch
+  method:notify_post_commit
+  method:persist
+  method:sanitize
+  method:validate
+## AuditValidator  (audit-validator.rst)
+  attribute:allowed_event_types
+  attribute:allowed_target_types
+  attribute:max_details_size_bytes
+  attribute:schema_version
+  method:validate
+  method:validate_actor_exists
+  method:validate_details_size
+  method:validate_event_type_consistency
+  method:validate_required_fields
+  method:validate_target_entity
+## AuthorizationDecision  (authorization-guard.rst)
+  attribute:allowed
+  attribute:decided_at
+  attribute:matched_function
+  attribute:reason
+## AuthorizationGuard  (authorization-guard.rst)
+  attribute:audit_service
+  attribute:permission_service
+  method:check
+  method:check_bulk
+  method:check_or_raise
+  method:decide
+## BaseReportService  (base-report-service.rst)
+  attribute:kpi_calculator
+  attribute:segment_resolver
+  attribute:stat_repo
+## BlacklistedToken  (blacklisted-token.rst)
+  attribute:expires_at
+  attribute:reason
+  attribute:revoked_at
+  attribute:token_jti
+  attribute:user_id
+  method:add
+  method:is_blacklisted
+  method:purge_expired
+## Bucket  (bucket.rst)
+  attribute:bucket_key
+  attribute:kpis
+  attribute:period_end
+  attribute:period_start
+  attribute:sample_count
+  method:get_kpi
+  method:has_kpi
+  method:is_empty
+## BulkCheckResult  (permission-service.rst)
+  attribute:cache_hit_rate
+  attribute:results
+## CacheEntry  (permission-cache.rst)
+  attribute:cached_at
+  attribute:expires_at
+  attribute:hit_count
+  attribute:value
+## CacheKey  (permission-cache.rst)
+  attribute:function_code
+  attribute:user_id
+  method:serialize
+## CacheStats  (permission-cache.rst)
+  attribute:entry_count
+  attribute:hit_rate
+  attribute:total_hits
+  attribute:total_misses
+## Call  (call.rst)
+  attribute:abandoned
+  attribute:agent_id
+  attribute:call_id
+  attribute:campaign_id
+  attribute:center
+  attribute:duration_seconds
+  attribute:region
+  attribute:started_at
+  attribute:transferred
+## CallerReportService  (caller-report-service.rst)
+  method:by_segment
+  method:get
+  method:retention_curve
+## Campaign  (campaign.rst)
+  attribute:campaign_id
+  attribute:name
+  attribute:region
+  attribute:service_type
+## CampaignDailyStat  (campaign-daily-stat-repo.rst)
+  attribute:abandoned_count
+  attribute:answered_count
+  attribute:avg_duration_sec
+  attribute:calls_count
+  attribute:campaign_id
+  attribute:date
+## CampaignDailyStatRepo  (campaign-daily-stat-repo.rst)
+  attribute:storage_backend
+  method:aggregate
+  method:top_n
+  method:total_by_period
+## CampaignFilters  (campaign-daily-stat-repo.rst)
+  attribute:campaign_id
+  attribute:state
+  attribute:tenant_id
+## CampaignReportService  (campaign-report-service.rst)
+  method:detail
+  method:list
+## CenterTransferStats  (transfer-report-service.rst)
+  attribute:balance
+  attribute:center_id
+  attribute:transfers_in
+  attribute:transfers_out
+## ChainVerifyResult  (hmac-verifier.rst)
+  attribute:broken_at
+  attribute:chain_intact
+## CheckResult  (permission-service.rst)
+  attribute:allowed
+  attribute:cached
+  attribute:reason
+## ClientsReport  (caller-report-service.rst)
+  attribute:new_callers
+  attribute:period
+  attribute:repeat_caller_rate
+  attribute:retention_by_month
+  attribute:returning_callers
+  attribute:total_unique_callers
+## ColumnCatalog  (column-catalog.rst)
+  attribute:columns_by_report
+  method:exists
+  method:get
+  method:list_for
+  method:reload
+## ColumnSpec  (column-catalog.rst)
+  attribute:column_id
+  attribute:data_type
+  attribute:default_visible
+  attribute:display_name
+  attribute:is_filterable
+  attribute:is_groupable
+  attribute:is_sortable
+## Comparative  (comparative.rst)
+  attribute:diff_pct_by_kpi
+  attribute:kpis_summary
+  attribute:period_current
+  attribute:period_prior
+  attribute:trend_by_kpi
+  method:get_diff_pct
+  method:get_trend
+  method:has_significant_change
+## CompositeSpecification  (specification-pattern.rst)
+  method:is_satisfied_by
+## Condition  (alert-rule.rst)
+  attribute:aggregation
+  attribute:operator
+  attribute:threshold_value
+## Context  (strategy-pattern.rst)
+  attribute:strategy
+  method:run
+  method:set_strategy
+## CursorEncoder  (cursor-encoder.rst)
+  attribute:encoding_version
+  attribute:signing_key
+  method:decode
+  method:encode
+  method:is_valid
+  method:sign
+  method:verify_signature
+## CursorState  (cursor-encoder.rst)
+  attribute:filters_hash
+  attribute:last_event_id
+  attribute:last_occurred_at
+  attribute:page_size
+  attribute:version
+## DateRange  (alert-repo.rst)
+  attribute:from
+  attribute:to
+## DetectionRule  (pii-scanner.rst)
+  attribute:category
+  attribute:min_confidence
+  attribute:pattern
+  method:extract
+  method:matches
+## DisparadorETL  (disparador-etl.rst)
+  attribute:cron_expression
+  attribute:mailbox
+  method:cancel_scheduled
+  method:invocar_reproceso
+  method:schedule
+## Domain  (nav-domain.rst)
+  attribute:code
+  attribute:label
+  attribute:order
+  method:has_visible_sections
+  method:visible_sections
+## DropOffCurve  (ivr-navigation-report-service.rst)
+  attribute:buckets
+## ETLError  (errores-etl-service.rst)
+  attribute:id
+  attribute:level
+  attribute:message
+  attribute:occurred_at
+  attribute:run_id
+  attribute:step
+  attribute:traceback
+## ETLErrorSummary  (errores-etl-service.rst)
+  attribute:by_level
+  attribute:by_step
+  attribute:total
+## ETLScope  (disparador-etl.rst)
+  attribute:from_date
+  attribute:pipeline_id
+  attribute:to_date
+## EffectivePermissionsAggregator  (effective-permissions-aggregator.rst)
+  attribute:access_group_repo
+  attribute:assignment_repo
+  attribute:exceptional_repo
+  attribute:permission_cache
+  method:compute
+  method:compute_for_function
+  method:recompute_after_assign
+  method:recompute_after_expiry
+  method:recompute_after_revoke
+## EffectiveSet  (effective-permissions-aggregator.rst)
+  attribute:computed_at
+  attribute:functions
+  attribute:sources
+  attribute:user_id
+## EmitResult  (audit-service.rst)
+  attribute:error
+  attribute:event_id
+  attribute:ok
+## ErroresETLService  (errores-etl-service.rst)
+  method:query
+  method:record
+  method:summary
+## EvaluatorReloader  (evaluator-reloader.rst)
+  attribute:evaluator
+  attribute:rule_repo
+  attribute:version_clock
+  method:apply_diff
+  method:bump_version
+  method:current_version
+  method:reload_all
+  method:reload_rule
+## ExceptionalPermission  (exceptional-permission.rst)
+  attribute:expires_at
+  attribute:function_id
+  attribute:granted_at
+  attribute:granted_by
+  attribute:justification
+  attribute:permission_id
+  attribute:state
+  attribute:user_id
+  method:grant
+  method:revoke
+## ExceptionalPermissionRepo  (exceptional-permission-repo.rst)
+  attribute:storage_backend
+  method:find_active_by_user
+  method:find_expiring_in
+  method:get_by_id
+  method:grant
+  method:revoke
+## ExpirationPolicy  (expiration-policy.rst)
+  attribute:max_ttl
+  attribute:min_ttl
+  attribute:notify_before
+  method:calculate_expiry
+  method:find_expiring_in
+  method:is_expired
+  method:is_near_expiry
+  method:validate_bounds
+## ExportJob  (export-job.rst)
+  attribute:artifact_path
+  attribute:completed_at
+  attribute:enqueued_at
+  attribute:error
+  attribute:filters
+  attribute:format
+  attribute:job_id
+  attribute:report_id
+  attribute:requested_by
+  attribute:requester_user_id
+  attribute:result_url
+  attribute:started_at
+  attribute:state
+  attribute:status
+  method:complete
+  method:enqueue
+  method:fail
+  method:process
+## ExportWorker  (export-worker.rst)
+  attribute:notification_service
+  attribute:queue
+  attribute:storage
+  attribute:throttle_policy
+  method:cancel
+  method:enqueue
+  method:get_status
+  method:notify_completion
+  method:process_next
+  method:render
+  method:upload
+## FilterClause  (saved-filter.rst)
+  attribute:field
+  attribute:operator
+  attribute:value
+## FilterValidationReport  (filter-validator.rst)
+  attribute:errors_by_clause
+  attribute:ok
+  method:first_error
+  method:has_errors
+## FilterValidator  (filter-validator.rst)
+  attribute:column_catalog
+  attribute:segment_resolver
+  method:validate
+  method:validate_authorization
+  method:validate_catalog
+  method:validate_structure
+## Function  (function.rst)
+  attribute:codename
+  attribute:created_at
+  attribute:description
+  attribute:id
+  attribute:is_active
+  attribute:is_critical
+  attribute:module
+  attribute:name
+  attribute:updated_at
+  method:bypass_cache_required
+  method:deactivate
+  method:register
+  method:view
+## FunctionGroup  (function-group.rst)
+  attribute:description
+  attribute:group_id
+  attribute:name
+  method:assign_functions_to_group
+  method:create_function_group
+  method:revoke_function_group
+## FunctionGroupMembership  (function-group-membership.rst)
+  attribute:added_at
+  attribute:added_by
+  attribute:function
+  attribute:group
+  attribute:id
+## FunctionGroupRepo  (function-group-repo.rst)
+  attribute:storage_backend
+  method:add_function
+  method:count_users_with_group
+  method:create
+  method:find_active
+  method:find_custom
+  method:find_system
+  method:get_by_id
+  method:get_by_name
+  method:list_functions
+  method:remove_function
+## FunctionInactiveError  (menu-lifecycle-service.rst)
+  attribute:function_codename
+## FunctionRepo  (function-repo.rst)
+  attribute:storage_backend
+  method:count_active
+  method:create
+  method:deactivate
+  method:exists_codename
+  method:find_active
+  method:find_by_module
+  method:get_by_codename
+  method:get_by_id
+  method:update
+## GeneralAuditService  (general-audit-service.rst)
+  method:query
+## HistoricalReport  (historical-report.rst)
+  attribute:buckets
+  attribute:comparative
+  attribute:filters_applied
+  attribute:generated_at
+  attribute:group_by
+  attribute:period
+  attribute:report_id
+  method:bucket_for_key
+  method:has_comparative
+  method:summary_kpis
+  method:total_buckets
+## HmacVerifier  (hmac-verifier.rst)
+  attribute:signing_key_ref
+  method:recompute
+  method:verify
+  method:verify_chain
+## IdempotencyKey  (idempotency-policy.rst)
+  attribute:actor_id
+  attribute:endpoint
+  attribute:expires_at
+  attribute:request_id
+## IdempotencyPolicy  (idempotency-policy.rst)
+  attribute:default_window
+  attribute:storage
+  method:is_replay
+  method:lookup
+  method:purge_expired
+  method:register
+## ImpactReport  (impact-report.rst)
+  attribute:access_group_id
+  attribute:affected_users
+  attribute:affected_users_count
+  attribute:change_type
+  attribute:functions_added
+  attribute:functions_removed
+  attribute:sod_violations
+## InfraLogFilters  (infra-log-store.rst)
+  attribute:component
+  attribute:host
+  attribute:level
+## InfraLogStore  (infra-log-store.rst)
+  method:append
+  method:query
+  method:tail
+## InfrastructureLog  (infrastructure-log.rst)
+  attribute:host
+  attribute:level
+  attribute:log_id
+  attribute:message
+  attribute:occurred_at
+  method:record
+  method:view
+## InternalMailbox  (internal-mailbox.rst)
+  attribute:last_read_at
+  attribute:mailbox_id
+  attribute:owner_user_id
+  method:deliver_message
+  method:mark_read
+  method:view_messages
+## InternalMessage  (internal-message.rst)
+  attribute:body
+  attribute:created_at
+  attribute:message_id
+  attribute:read_at
+  attribute:read_state
+  attribute:sender_id
+  attribute:subject
+  attribute:target_type
+  attribute:target_user_id
+  attribute:urgency
+  method:create
+  method:mark_as_read
+  method:sanitize_pii
+## InvalidCursorError  (cursor-encoder.rst)
+  attribute:reason
+## InvalidTransitionError  (menu-lifecycle-service.rst)
+  attribute:current
+  attribute:requested
+## IvrNavigationReportService  (ivr-navigation-report-service.rst)
+  method:by_option
+  method:drop_off_curve
+  method:get
+## KPICalculator  (kpi-calculator.rst)
+  method:derive_agent_kpis
+  method:derive_campaign_kpis
+  method:derive_global_kpis
+  method:derive_queue_kpis
+  method:percentage
+  method:safe_divide
+## KPISet  (bucket.rst)
+  attribute:values
+  method:get
+  method:names
+  method:size
+## ListPage  (audit-query-service.rst)
+  attribute:items
+  attribute:next_cursor
+  attribute:total_estimate
+## LogFilters  (log-store.rst)
+  attribute:level
+  attribute:service
+  attribute:tenant_id
+## LogQueryResult  (log-store.rst)
+  attribute:entries
+  attribute:next_cursor
+## LogStore  (log-store.rst)
+  method:append
+  method:append_batch
+  method:query
+  method:tail_sse
+## Match  (pii-scanner.rst)
+  attribute:category
+  attribute:confidence
+  attribute:end
+  attribute:field_path
+  attribute:raw_value
+  attribute:start
+## Menu  (menu.rst)
+  attribute:cache
+  attribute:domains
+  attribute:generated_at
+  attribute:locale_used
+  attribute:user_id
+  method:has_any_visible
+  method:to_view_model
+  method:total_visible_actions
+## MenuItem  (menu-item.rst)
+  attribute:archived_at
+  attribute:block_auto_archive
+  attribute:block_reason
+  attribute:block_set_at
+  attribute:block_set_by
+  attribute:created_at
+  attribute:created_by
+  attribute:deprecated_at
+  attribute:display_label
+  attribute:display_order
+  attribute:function
+  attribute:icon
+  attribute:id
+  attribute:parent
+  attribute:route_path
+  attribute:status
+  attribute:updated_at
+  method:clean
+  method:clear_block_flag
+  method:days_in_deprecated
+  method:is_visible_to
+  method:set_block_flag
+  method:transition_to
+## MenuItemQuerySet  (menu-item-repo.rst)
+  method:due_for_auto_archive
+  method:due_for_pre_archive_warning
+  method:for_user
+  method:select_with_function
+  method:visible
+  method:with_status_for_admin
+## MenuItemRepo  (menu-item-repo.rst)
+  attribute:queryset
+  method:ancestors
+  method:bulk_reorder
+  method:by_function
+  method:count_by_status
+  method:descendants
+  method:for_user
+  method:has_cycle
+  method:visible
+  method:with_status_for_admin
+## MenuIvrReport  (ivr-navigation-report-service.rst)
+  attribute:average_depth
+  attribute:by_option
+  attribute:fall_through_rate
+  attribute:period
+  attribute:total_completions
+  attribute:total_entries
+## MenuLifecycleService  (menu-lifecycle-service.rst)
+  attribute:VALID_TRANSITIONS
+  method:_apply_derived_fields
+  method:_emit_audit
+  method:_validate_transition
+  method:auto_archive_due_items
+  method:clear_block_flag
+  method:set_block_flag
+  method:transition
+## MenuOptionStats  (ivr-navigation-report-service.rst)
+  attribute:drop_off_rate
+  attribute:option_id
+  attribute:option_label
+  attribute:selections
+## Metric  (metric.rst)
+  attribute:formula
+  attribute:metric_id
+  attribute:name
+  attribute:unit
+  method:compute
+  method:view
+## MetricKey  (metrics-cache.rst)
+  attribute:dataset
+  attribute:group_by
+  attribute:metric_name
+  attribute:period
+  attribute:segment_codes
+## MetricsCache  (metrics-cache.rst)
+  attribute:default_ttl
+  attribute:storage_backend
+  method:get
+  method:hit_ratio
+  method:invalidate
+  method:invalidate_by_dataset
+  method:invalidate_by_period
+  method:set
+  method:warm
+## NotifyFailure  (alert-hook.rst)
+  attribute:reason
+  attribute:retry_scheduled
+  attribute:rule_id
+## NotifyResult  (alert-hook.rst)
+  attribute:dispatched_count
+  attribute:failures
+  attribute:matched_rules_count
+  attribute:ok
+## OriginDestinationMatrix  (transfer-report-service.rst)
+  attribute:cells
+## PIIScanner  (pii-scanner.rst)
+  attribute:rules
+  attribute:tokenization_strategy
+  method:register_rule
+  method:remove_rule
+  method:scan
+  method:scan_field
+## PasswordGenerator  (password-generator.rst)
+  attribute:policy
+  method:generate
+  method:generate_initial
+  method:generate_temporary
+  method:meets_policy
+## PasswordPolicy  (password-generator.rst)
+  attribute:forbidden_patterns
+  attribute:min_length
+  attribute:require_digits
+  attribute:require_lowercase
+  attribute:require_symbols
+  attribute:require_uppercase
+## Period  (comparative.rst)
+  attribute:end
+  attribute:start
+  method:duration
+## PermissionCache  (permission-cache.rst)
+  attribute:default_ttl
+  attribute:storage_backend
+  method:delete
+  method:get
+  method:invalidate
+  method:invalidate_all
+  method:invalidate_by_function
+  method:set
+  method:stats
+## PermissionService  (permission-service.rst)
+  attribute:cache
+  attribute:rbac_repo
+  method:apply_exceptional
+  method:check
+  method:check_bulk
+  method:effective_set
+  method:resolve_from_assignments
+## PipelineExecution  (pipeline-execution.rst)
+  attribute:base_records
+  attribute:error_message
+  attribute:executed_by
+  attribute:finished_at
+  attribute:id
+  attribute:period
+  attribute:source_table
+  attribute:started_at
+  attribute:status
+  method:duration_seconds
+  method:is_failed
+  method:is_successful
+## PipelineExecutionRepo  (pipeline-execution-repo.rst)
+  attribute:storage_backend
+  method:calculate_lag
+  method:calculate_throughput
+  method:count_running
+  method:create
+  method:find_by_source
+  method:find_by_state
+  method:find_failed
+  method:get_by_id
+  method:last_successful_by_dataset
+  method:verify_idle
+## PipelineLog  (pipeline-log.rst)
+  attribute:execution_id
+  attribute:level
+  attribute:log_id
+  attribute:message
+  attribute:occurred_at
+  method:record
+  method:view
+## ProcessResult  (export-worker.rst)
+  attribute:duration_ms
+  attribute:job_id
+  attribute:outcome
+## QueryResult  (alert-repo.rst)
+  attribute:alerts
+  attribute:events
+  attribute:has_more
+  attribute:next_cursor
+  attribute:total
+## QueueAbandonStats  (abandonment-report-service.rst)
+  attribute:abandonment_rate
+  attribute:queue_id
+  attribute:worst_hour
+## RBACRepo  (rbac-repo.rst)
+  attribute:assignment_repo
+  attribute:exceptional_permission_repo
+  method:get_active_assignments
+  method:get_active_function_codes
+  method:get_did_assignments
+  method:get_users_in_access_group
+  method:get_users_with_function
+  method:is_global_admin
+## ReloadError  (evaluator-reloader.rst)
+  attribute:reason
+  attribute:rule_id
+## ReloadResult  (evaluator-reloader.rst)
+  attribute:errors
+  attribute:new_version
+  attribute:ok
+  attribute:rules_dropped
+  attribute:rules_loaded
+## Report  (report.rst)
+  attribute:filters
+  attribute:owner_user_id
+  attribute:report_id
+  attribute:scope
+  attribute:state
+  method:export
+  method:filter
+  method:share
+  method:view
+## ResponseMetrics  (timing-calculator.rst)
+  attribute:count
+  attribute:ttak_avg
+  attribute:ttak_p50
+  attribute:ttak_p95
+  attribute:ttar_avg
+  attribute:ttar_p50
+  attribute:ttar_p95
+## ResumenSalud  (resumen-salud.rst)
+  attribute:computed_at
+  attribute:errores_recientes
+  attribute:estado_general
+  attribute:lag_segundos
+  attribute:runs_activos
+  attribute:total_exitosas
+  attribute:total_fallidas
+  attribute:ultima_ejecucion
+  attribute:ultimo_exito
+## ResumenSaludAssembler  (resumen-salud-assembler.rst)
+  attribute:umbral_errores_rojo
+  attribute:umbral_lag_amarillo
+  attribute:umbral_lag_rojo
+  method:build
+  method:derive_estado
+## RetentionCurve  (caller-report-service.rst)
+  attribute:buckets
+## RuleValidator  (rule-validator.rst)
+  attribute:metric_catalog
+  attribute:segment_resolver
+  method:validate
+  method:validate_actions_executable
+  method:validate_condition_coherent
+  method:validate_metric_known
+  method:validate_scope_authorized
+  method:validate_structure
+  method:validate_window_positive
+## RunSummary  (scheduled-report-list-service.rst)
+  attribute:finished_at
+  attribute:output_url
+  attribute:run_id
+  attribute:started_at
+  attribute:status
+## Sanitizer  (sanitizer.rst)
+  attribute:max_array_length
+  attribute:max_string_length
+  attribute:tokenization_strategy
+  method:apply_caps
+  method:normalize_encoding
+  method:redact_field
+  method:sanitize
+  method:tokenize_match
+  method:truncate
+## SavedFilter  (saved-filter.rst)
+  attribute:applies_to
+  attribute:created_at
+  attribute:filter_id
+  attribute:filters
+  attribute:is_default
+  attribute:is_invalid
+  attribute:last_used_at
+  attribute:name
+  attribute:owner_user_id
+  attribute:period_relative
+  method:applies_to_report
+  method:mark_invalid
+  method:resolve_period
+  method:use
+## SavedView  (saved-view.rst)
+  attribute:filters_snapshot
+  attribute:name
+  attribute:owner_user_id
+  attribute:report_id
+  attribute:state
+  attribute:view_id
+  method:deactivate
+  method:load
+  method:save
+## ScanReport  (pii-scanner.rst)
+  attribute:categories_found
+  attribute:matches
+  attribute:total_count
+  method:by_category
+  method:has_pii
+## ScheduledReport  (scheduled-report-repo.rst)
+  attribute:cron_schedule
+  attribute:delivery_target
+  attribute:filters
+  attribute:last_run_at
+  attribute:next_run_at
+  attribute:owner_user_id
+  attribute:report_id
+  attribute:report_type
+  attribute:schedule_expression
+  attribute:schedule_id
+  attribute:scheduled_id
+  attribute:state
+  attribute:status
+  method:create
+  method:disable
+  method:modify
+## ScheduledReportDetail  (scheduled-report-list-service.rst)
+  attribute:last_runs
+  attribute:scheduled
+## ScheduledReportListService  (scheduled-report-list-service.rst)
+  attribute:permission_service
+  attribute:repo
+  method:assert_can_view
+  method:detail
+  method:list
+  method:runs
+## ScheduledReportRepo  (scheduled-report-repo.rst)
+  attribute:storage_backend
+  method:create
+  method:disable
+  method:get
+  method:list_by_actor
+  method:list_due
+  method:list_runs
+  method:record_run
+  method:update
+## ScheduledReportRun  (scheduled-report-repo.rst)
+  attribute:error
+  attribute:finished_at
+  attribute:output_url
+  attribute:run_id
+  attribute:scheduled_id
+  attribute:started_at
+  attribute:status
+## ScheduledReportSummary  (scheduled-report-list-service.rst)
+  attribute:cron_schedule
+  attribute:last_run_at
+  attribute:last_run_status
+  attribute:report_type
+  attribute:scheduled_id
+## Scope  (alert-rule.rst)
+  attribute:entity_ids
+  attribute:scope_type
+  attribute:tags
+## Section  (section.rst)
+  attribute:code
+  attribute:icon
+  attribute:label
+  attribute:order
+  method:has_visible_actions
+  method:visible_actions
+## Segment  (segment-resolver.rst)
+  attribute:agents
+  attribute:campaigns
+  attribute:id
+  attribute:is_global
+  attribute:ivrs
+  attribute:kind
+  attribute:queues
+  attribute:ref
+  method:contains_entity
+  method:is_empty
+## SegmentChangeEvent  (segment-change-listener.rst)
+  attribute:change_type
+  attribute:new_scope
+  attribute:previous_scope
+  attribute:user_id
+## SegmentChangeListener  (segment-change-listener.rst)
+  attribute:subscription_repo
+  method:on_segment_change
+  method:resolve_affected_subscriptions
+## SegmentClientStats  (caller-report-service.rst)
+  attribute:repeat_rate
+  attribute:segment_id
+  attribute:unique_callers
+## SegmentResolver  (segment-resolver.rst)
+  attribute:cache
+  attribute:rbac_repo
+  attribute:segment_config_repo
+  method:has_access_to
+  method:intersect
+  method:resolve
+  method:resolve_for_report
+## SegmentScope  (segment-scope.rst)
+  attribute:es_global
+  attribute:segments
+  method:as_filter
+  method:contains
+  method:intersect
+## SeparationRule  (separation-rule.rst)
+  attribute:conflicting_functions
+  attribute:name
+  attribute:rule_group
+  attribute:rule_id
+  attribute:state
+  method:create
+  method:disable_separation_rule
+  method:update_separation_rule
+  method:view
+## SeparationRuleRepo  (separation-rule-repo.rst)
+  attribute:storage_backend
+  method:create
+  method:disable
+  method:exists_name
+  method:find_active
+  method:find_applicable
+  method:get_by_id
+  method:get_by_name
+  method:update
+## Session  (session.rst)
+  attribute:client_info
+  attribute:expires_at
+  attribute:last_activity_at
+  attribute:session_id
+  attribute:started_at
+  attribute:state
+  attribute:user_id
+  method:close
+  method:close_all
+  method:open
+  method:view_own_sessions
+## SodViolation  (impact-report.rst)
+  attribute:rule_id
+  attribute:user_id
+## Subscription  (subscription.rst)
+  attribute:alert_id
+  attribute:severity_filter
+  attribute:state
+  attribute:subscriber_user_id
+  attribute:subscription_id
+  method:configure_severity
+  method:subscribe
+  method:unsubscribe
+## SubscriptionFilters  (subscription-repo.rst)
+  attribute:rule_id
+  attribute:state
+## SubscriptionRepo  (subscription-repo.rst)
+  attribute:storage_backend
+  method:by_id
+  method:by_user
+  method:cancel
+  method:create
+  method:find_active_for_rule
+  method:pause
+  method:resume
+## SupervisionETLService  (supervision-etl-service.rst)
+  attribute:builder
+  attribute:disparador
+  attribute:errores_service
+  attribute:pipeline_repo
+  method:estado_run
+  method:invocar_reproceso
+  method:supervisar
+## SystemHealth  (system-health.rst)
+  attribute:captured_at
+  attribute:cpu_usage_pct
+  attribute:disk_usage_pct
+  attribute:memory_usage_pct
+  attribute:services_status
+  attribute:snapshot_id
+  method:snapshot
+  method:view
+## TechnicalMetric  (technical-metric.rst)
+  attribute:metric_id
+  attribute:name
+  attribute:period
+  attribute:sampled_at
+  attribute:value
+  method:aggregate
+  method:view
+## TemporalFilter  (exceptional-permission-repo.rst)
+  attribute:state
+  attribute:valid_at
+## Threshold  (threshold.rst)
+  attribute:comparison_operator
+  attribute:metric_id
+  attribute:severity
+  attribute:threshold_id
+  attribute:value
+  method:configure
+## TimingCalculator  (timing-calculator.rst)
+  attribute:business_calendar
+  method:compute_business_ttak
+  method:compute_business_ttar
+  method:compute_response_metrics
+  method:compute_ttak
+  method:compute_ttar
+## TransferReportService  (transfer-report-service.rst)
+  method:by_center
+  method:get
+  method:origin_destination_matrix
+## TransferenciasReport  (transfer-report-service.rst)
+  attribute:average_transfer_time
+  attribute:by_status
+  attribute:period
+  attribute:success_rate
+  attribute:successful_transfers
+  attribute:total_transfers
+## User  (user-capability-resolver.rst)
+  attribute:created_at
+  attribute:email
+  attribute:full_name
+  attribute:id
+  attribute:is_authenticated
+  attribute:last_login_at
+  attribute:primary_access_group_id
+  attribute:state
+  attribute:user_id
+  attribute:username
+  method:create
+  method:deactivate
+  method:modify
+  method:recover_password
+  method:view
+## UserAccessGroupAssignment  (user-access-group-assignment.rst)
+  attribute:expires_at
+  attribute:granted_at
+  attribute:granted_by
+  attribute:group
+  attribute:id
+  attribute:state
+  attribute:user
+## UserCapabilityResolver  (user-capability-resolver.rst)
+## UserRepo  (user-repo.rst)
+  attribute:storage_backend
+  method:block
+  method:count_active
+  method:create
+  method:deactivate
+  method:find_active
+  method:find_by_segment
+  method:get_by_email
+  method:get_by_id
+  method:get_by_username
+  method:increment_failed_attempts
+  method:record_login_attempt
+  method:update
+## ValidationError  (audit-validator.rst)
+  attribute:clause_index
+  attribute:code
+  attribute:field
+  attribute:message
+  attribute:severity
+## ValidationReport  (rule-validator.rst)
+  attribute:errors
+  attribute:ok
+  attribute:warnings
+  method:has_blocking_errors
+## ValidationResult  (audit-validator.rst)
+  attribute:errors
+  attribute:ok
+  method:add_error
+  method:has_errors
+## ValidationWarning  (rule-validator.rst)
+  attribute:field
+  attribute:message
+## VerifyResult  (hmac-verifier.rst)
+  attribute:hash
+  attribute:match
+  attribute:reason
+
+=== Total: 190 class definitions ===
