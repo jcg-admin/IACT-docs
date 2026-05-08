@@ -504,7 +504,7 @@ Los FR en IACT siguen la convencion:
 
 .. code-block:: text
 
- FR-10.6: Validar Compatibilidad SoD
+ FR-10.6: Validar Compatibilidad de Separacion
 
  El sistema DEBE verificar que el rol a asignar no tenga
  conflicto de Separacion de Funciones (separation of duties) con los roles

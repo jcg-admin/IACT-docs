@@ -217,7 +217,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  1a.3. Caso de uso termina
 
  TRAZABILIDAD:
- Business Rules: BR_007 (Separacion de Funciones SoD)
+ Business Rules: BR_007 (Separacion de Funciones (separation of duties))
  BReq: BReq-004 (Cumplimiento Seguridad)
  FR Derivados: FR-043.1 a FR-043.5
 
@@ -260,7 +260,7 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  ACTOR PRIMARIO:
  - Inicia el caso de uso
  - Tiene el objetivo principal
- - Ejemplo: AGR-010 (system_admin_group) que configura SoD
+ - Ejemplo: AGR-010 (system_admin_group) que configura separacion
 
  ACTOR SECUNDARIO:
  - Participa pero no inicia
@@ -590,7 +590,7 @@ Los Casos de Uso en IACT siguen la convencion:
 
  Ejemplos:
  - UC_006_Crear_Usuario.rst
- - UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst
+ - UC_ADM_01_Gestionar_Ciclo_Vida_Separacion.rst
  - UC_050_Supervisar_ETL.rst
 
 7.2 Ubicacion en el Modelo IACT

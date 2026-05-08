@@ -188,7 +188,7 @@ in-scope + 1 RBAC NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed
    - UC_ACC
    - 7
    - Activo
-   - RBAC, permisos, agrupadores, SoD, segmentos
+   - RBAC, permisos, agrupadores, separacion de deberes, segmentos
  * - MOD_Pipeline
    - Supervisión ETL
    - UC_PIP

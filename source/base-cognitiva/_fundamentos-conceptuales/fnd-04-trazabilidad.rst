@@ -408,7 +408,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
  ^^^^^^^^^^^^^^
  - Modulo: MOD_Access
  - Codigo: apps/access/separation.py
- - Tests: TST_Access_SoD_*
+ - Tests: TST_Access_Separation_*
 
 ----
 
@@ -519,7 +519,7 @@ Ejemplo detallado para UC_ADM_01:
 
  FR Implementacion
  
- FR-043.1 --> apps/access/views/sod_views.py::list_sod
+ FR-043.1 --> apps/access/views/separation_views.py::list_separation_rules
  FR-043.2 --> apps/access/validators/sod_validator.py
  FR-043.3 --> apps/access/middleware/sod_enforcement.py
  FR-043.4 --> apps/audit/signals/sod_audit.py

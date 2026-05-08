@@ -411,8 +411,8 @@ los Casos de Uso.
 
  FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones de separacion existentes
  FR-043.2: Sistema DEBE validar conflictos al crear nueva regla de separacion
- FR-043.3: Sistema DEBE impedir asignacion que viole SoD
- FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
+ FR-043.3: Sistema DEBE impedir asignacion que viole separacion
+ FR-043.4: Sistema DEBE registrar en auditoria cambios en reglas de separacion
  FR-043.5: Sistema DEBE notificar al admin de seguridad
 
 5.5 FR en IACT
