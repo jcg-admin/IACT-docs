@@ -123,3 +123,18 @@ Diagramas standalone uml-07 por UC (auto-explicativos):
  uc-usr-02-consultar-usuarios
  uc-usr-03-modificar-usuario
  uc-usr-04-eliminar-usuario
+
+UCs Reservados (planificados, sin spec completa)
+=================================================
+
+Los siguientes UCs estan declarados como **Reservado** —
+referenciados en otros UCs pero sin decision arquitectonica
+formal. El diagrama uml-07 standalone se generara cuando los
+ADRs formalicen el scope de cada uno.
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-usr-05-bloquear-usuario
+ uc-usr-06-desbloquear-usuario
+ uc-usr-07-editar-perfil-propio
