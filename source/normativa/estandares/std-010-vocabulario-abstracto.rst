@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.2.0
+ :version: 1.3.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
@@ -85,6 +85,14 @@ implementación.
 +----------------------------------------------+--------------------------+
 | source/requisitos/casos-uso/**/testing.rst   | No — exenta (§2.5.3)     |
 +----------------------------------------------+--------------------------+
+| source/normativa/procedimientos/**           | No — exenta (§2.5.4)     |
++----------------------------------------------+--------------------------+
+| source/normativa/gobernanza/adr-*            | No — exenta (§2.5.5)     |
++----------------------------------------------+--------------------------+
+| source/normativa/estandares/plantillas/**    | No — exenta (§2.5.6)     |
++----------------------------------------------+--------------------------+
+| source/gestion/evidencia/arquitectura-modular/** | No — exenta (§2.5.7) |
++--------------------------------------------------+----------------------+
 
 2.2 ``index.rst`` raíz — aplicación por contenido
 -------------------------------------------------
@@ -231,6 +239,100 @@ Archivos exentos:
 Esta exención queda formalmente establecida en v1.2.0 tras
 detección en WP ``2026-05-08-03-08-21-wpg-std010-cleanup``
 (WP-G).
+
+2.5.4 Procedimientos operativos — instrucciones ejecutables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Archivos en ``source/normativa/procedimientos/`` documentan
+procesos operativos del proyecto: DevOps automation, gobernanza
+SDLC, generación de artefactos, despliegue, seguridad, QA. Son
+**instrucciones ejecutables** que requieren nombres tecnológicos
+concretos para ser ejecutables.
+
+::
+
+   ✓ EXENTO:  "Configurar el job de CI con
+              ``runs-on: ubuntu-latest`` ejecutando
+              ``pytest --django-settings=...``"
+   ✗ ABSURDO: "el Procesador Asíncrono ejecutando el
+              Framework de Tests con configuración del
+              Framework de Aplicación"
+
+El propósito documental del procedimiento es ser **ejecutable
+literalmente** por el operador; abstraer las herramientas
+elimina la utilidad operativa del documento.
+
+NO aplica:
+
+- Las decisiones de fondo dentro del procedimiento que se
+  describen como conceptos arquitectónicos siguen STD-010
+  cuando son narrativa de requisitos (no instrucción
+  ejecutable).
+
+2.5.5 ADRs (Architecture Decision Records)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Archivos ``source/normativa/gobernanza/adr-*.rst`` y
+``source/arquitectura-tecnica/modulos/*/decisiones/adr-*.rst``
+registran **decisiones tecnológicas documentadas**: por qué se
+eligió X tecnología vs alternativa Y, con sus trade-offs. El
+propósito del ADR es **nombrar explícitamente la tecnología
+elegida y la descartada** — abstraer elimina la decisión.
+
+::
+
+   ✓ EXENTO:  "Decisión: usar PostgreSQL para ``audit_log``,
+              no MySQL, porque PostgreSQL soporta CHECK
+              constraints sobre row immutability y MySQL no
+              lo hace consistentemente."
+   ✗ ABSURDO: "Decisión: usar el Almacén de Datos analítico
+              en vez del Repositorio operativo, porque uno
+              soporta constraints y el otro no"
+              (la decisión pierde su trazabilidad: ¿cuál era
+              la alternativa real?)
+
+Aplica al árbol completo de ADRs en
+``source/normativa/gobernanza/adr-*`` y a los ADRs anidados
+bajo ``source/arquitectura-tecnica/modulos/*/decisiones/``.
+
+2.5.6 Plantillas técnicas con ejemplos concretos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Archivos en ``source/normativa/estandares/plantillas/**``
+proveen **plantillas con ejemplos concretos** que el usuario
+copia y rellena. Los ejemplos requieren nombres tecnológicos
+para ilustrar el patrón correctamente.
+
+::
+
+   ✓ EXENTO:  Plantilla ``tpl-uc-larman-contratos.rst``:
+              "Stack: Django REST Framework + PostgreSQL,
+               Cache Redis (TTL 300s)"
+   ✗ ABSURDO: Plantilla con stack abstracto que el usuario
+              tendría que re-abstraer en cada uso (los
+              ejemplos pierden su valor pedagógico).
+
+El usuario que rellena la plantilla copia el patrón concreto;
+abstraer los ejemplos lo deja sin guía.
+
+2.5.7 Análisis de arquitectura modular
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Archivos en ``source/gestion/evidencia/arquitectura-modular/**``
+son **evidencia de análisis arquitectónico real** del sistema:
+documentan qué tecnologías se eligieron, cómo se modularizó el
+código, qué librerías se importaron en cada módulo. Tienen el
+mismo carácter que identity files (§2.5.1) pero a granularidad
+de módulo.
+
+Aplicar STD-010 a un análisis de cómo está modularizado el
+backend Django destruye la información factual: el análisis
+existe precisamente para describir el stack real adoptado.
+
+Estas exenciones (§2.5.4 — §2.5.7) quedan formalmente
+establecidas en v1.3.0 tras decisión TD-D6 que cierra el
+roadmap de remediación CLEAN_CODE iniciado en WP
+``clean-code-naming-audit``.
 
 ----
 
@@ -614,3 +716,15 @@ Un resultado vacío indica que la narrativa está conforme al estándar.
      §5.1. Tabla §2.1 actualizada con dos filas adicionales.
      Cubre 21 referencias diferidas en WP-G
      ``2026-05-08-03-08-21-wpg-std010-cleanup``. TD-D5.
+ * - 1.3.0
+   - 2026-05-08
+   - NestorMonroy
+   - MINOR — extiende §2.5 con cuatro exenciones adicionales:
+     §2.5.4 procedimientos operativos (instrucciones
+     ejecutables), §2.5.5 ADRs (decisiones tecnológicas con
+     trade-offs), §2.5.6 plantillas técnicas con ejemplos
+     concretos, §2.5.7 análisis de arquitectura modular.
+     Tabla §2.1 actualizada con cuatro filas adicionales.
+     Cubre 230 referencias diferidas tras TD-D5; cierra el
+     roadmap de remediación CLEAN_CODE sin deuda activa
+     pendiente. TD-D6.
