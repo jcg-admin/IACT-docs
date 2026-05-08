@@ -80,4 +80,4 @@ revocacion, expiracion. Ver
  - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
  - :doc:`/arquitectura-tecnica/domain-model/audit-service`
  - :doc:`/arquitectura-tecnica/use-case-view/access/index`
- - :doc:`/arquitectura-tecnica/design-view/seq-access`
+ - :doc:`/arquitectura-tecnica/design-view/access/sequence`

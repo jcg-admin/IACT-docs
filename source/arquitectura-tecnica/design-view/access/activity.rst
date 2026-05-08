@@ -87,8 +87,8 @@ Notas de diseno
 
 .. seealso::
 
- - :doc:`/arquitectura-tecnica/design-view/seq-access`
- - :doc:`/arquitectura-tecnica/design-view/class-access`
+ - :doc:`/arquitectura-tecnica/design-view/access/sequence`
+ - :doc:`/arquitectura-tecnica/design-view/access/class`
  - :doc:`/arquitectura-tecnica/use-case-view/access/uc-acc-01-asignar-funciones`
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule`
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule-repo`

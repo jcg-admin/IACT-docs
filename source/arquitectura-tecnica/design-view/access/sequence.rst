@@ -70,7 +70,7 @@ La funcion RBAC iniciadora es ``assign_functions_to_group``.
 
 .. seealso::
 
- - :doc:`/arquitectura-tecnica/design-view/class-access`
+ - :doc:`/arquitectura-tecnica/design-view/access/class`
  - :doc:`/arquitectura-tecnica/use-case-view/access/index`
  - :doc:`/arquitectura-tecnica/domain-model/assignment`
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule`

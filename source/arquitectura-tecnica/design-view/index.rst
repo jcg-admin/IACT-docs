@@ -72,6 +72,17 @@ Vista global
 
 ----
 
+Modulos (cajas por modulo)
+==========================
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Modulos del DesignView
+
+ access/index
+
+----
+
 Class diagrams (estructura por modulo)
 =======================================
 
@@ -81,7 +92,6 @@ Class diagrams (estructura por modulo)
 
  class-auth
  class-users
- class-access
  class-permissions
  class-admin
  class-audit
@@ -101,7 +111,6 @@ Sequence diagrams (patrones de interaccion)
 
  seq-auth
  seq-users
- seq-access
  seq-permissions
  seq-admin
  seq-audit
@@ -121,7 +130,6 @@ Activity diagrams (flujos cross-modulo)
 
  act-rbac-effective-set-eval
  act-jwt-auth
- act-validacion-separacion
  act-etl-pipeline-execution
  act-alert-evaluation
  act-export-async
@@ -136,7 +144,6 @@ State diagrams (ciclos de vida)
  :caption: Ciclos de vida de entidades
 
  state-session
- state-assignment
  state-pipeline-execution
  state-alert-event
  state-export-job

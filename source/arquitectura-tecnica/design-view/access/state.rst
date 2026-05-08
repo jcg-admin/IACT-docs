@@ -64,10 +64,10 @@ elimina, transita a un estado terminal (expired/revoked).
 
 .. seealso::
 
- - :doc:`/arquitectura-tecnica/design-view/seq-access`
- - :doc:`/arquitectura-tecnica/design-view/act-validacion-separacion`
+ - :doc:`/arquitectura-tecnica/design-view/access/sequence`
+ - :doc:`/arquitectura-tecnica/design-view/access/activity`
  - :doc:`/arquitectura-tecnica/design-view/act-rbac-effective-set-eval`
- - :doc:`/arquitectura-tecnica/design-view/class-access`
+ - :doc:`/arquitectura-tecnica/design-view/access/class`
  - :doc:`/arquitectura-tecnica/use-case-view/access/index`
  - :doc:`/arquitectura-tecnica/domain-model/assignment`
  - :doc:`/arquitectura-tecnica/domain-model/assignment-repo`
