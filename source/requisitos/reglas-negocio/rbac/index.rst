@@ -29,5 +29,5 @@ decisiones de arquitectura. La implementacion tecnica vive en
 
  catalogo-funciones
  grupos-funciones
- sod
+ separacion-de-deberes
  mapeo-uc

@@ -308,5 +308,5 @@ Trazabilidad
 - Implementación detalle: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/implementacion`.
 - Catálogo funciones: :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`.
 - Especificación grupos: :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`.
-- SoD: :doc:`/requisitos/reglas-negocio/rbac/sod`.
+- SoD: :doc:`/requisitos/reglas-negocio/rbac/separacion-de-deberes`.
 - Vista UC del módulo Admin: :doc:`/arquitectura-tecnica/use-case-view/admin/index`.

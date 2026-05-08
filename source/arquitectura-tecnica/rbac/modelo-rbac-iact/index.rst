@@ -48,7 +48,7 @@ Especificacion de negocio RBAC (movida a requisitos):
 
 - :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` — catalogo de funciones
 - :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones` — grupos de funciones
-- :doc:`/requisitos/reglas-negocio/rbac/sod` — separacion de deberes
+- :doc:`/requisitos/reglas-negocio/rbac/separacion-de-deberes` — separacion de deberes
 - :doc:`/requisitos/reglas-negocio/rbac/mapeo-uc` — mapeo UC→funcion
 
 Matriz RACI (movida a normativa):

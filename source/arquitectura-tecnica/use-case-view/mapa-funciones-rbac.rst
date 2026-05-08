@@ -181,4 +181,4 @@ Implementación en domain-model
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
  :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`
  :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`
- :doc:`/requisitos/reglas-negocio/rbac/sod`
+ :doc:`/requisitos/reglas-negocio/rbac/separacion-de-deberes`
