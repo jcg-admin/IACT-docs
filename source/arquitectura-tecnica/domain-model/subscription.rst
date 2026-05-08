@@ -31,6 +31,8 @@ permitir separacion de deberes.
    + subscription_id : UUID
    + alert_id : UUID
    + subscriber_user_id : UUID
+   + scope : SubscriptionScope
+   + channel : NotificationChannel
    + severity_filter : Severity
    + state : SubscriptionState
    --

@@ -41,6 +41,7 @@ no se borra ni modifica historial.
    + find_by_state(state : ExecutionState) : List<PipelineExecution>
    + find_by_source(source : String, period : Period) : List<PipelineExecution>
    + find_failed(period : Period, filters : Map) : List<PipelineExecution>
+   + find_recent(period : Period) : List<PipelineExecution>
    + count_running() : Integer
    + verify_idle() : Boolean
    + last_successful_by_dataset(dataset : String) : DateTime

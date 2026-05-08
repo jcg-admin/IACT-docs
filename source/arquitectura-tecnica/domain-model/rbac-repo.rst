@@ -44,6 +44,8 @@ unir múltiples queries).
    + is_global_admin(user_id : UUID) : Boolean
    + get_users_with_function(function_code : String) : List<UUID>
    + get_users_in_access_group(access_group_id : UUID) : List<UUID>
+   + get_user_segments(user_id : UUID) : List<Segment>
+   + has_global_capability(user_id : UUID, capability : String) : Boolean
  }
 
  class AssignmentRepo

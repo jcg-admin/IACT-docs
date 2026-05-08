@@ -42,6 +42,8 @@ ve agentes de X).
    + resolve(user_id : UUID) : Segment
    + resolve_for_report(user_id : UUID, report_type : ReportType) : Segment
    + has_access_to(user_id : UUID, entity_id : UUID, entity_type : EntityType) : Boolean
+   + is_global(user_id : UUID) : Boolean
+   + invalidate_cache(user_id : UUID) : void
    - intersect(segments : List<Segment>) : Segment
  }
 
