@@ -43,7 +43,7 @@ Estado y metadata
 1. Contexto y Problema
 ======================
 
-Cada request autenticado ejecuta el ``FunctionAuthBackend`` que
+Cada request autenticado ejecuta el ``FunctionAuthProvider`` que
 resuelve las capabilities del usuario. Sin cache, la query
 canonica es:
 

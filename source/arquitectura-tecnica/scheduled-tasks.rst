@@ -175,7 +175,7 @@ Los jobs se ejecutan con un **service account** dedicado
 
 **Importante:** ``system_user`` NO esta asignado a ningun
 ``AccessGroup`` — los jobs invocan directamente la capa de
-servicios sin pasar por el ``FunctionAuthBackend``. Auditoria
+servicios sin pasar por el ``FunctionAuthProvider``. Auditoria
 trazable por el ``actor='system'`` en cada audit event.
 
 ----

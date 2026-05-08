@@ -41,7 +41,7 @@ Estructura de archivos del backend
    ├── apps.py
    ├── models.py                          # Function, AccessGroup, FunctionSeparationRule, ...
    ├── managers.py                        # AccessGroupQueryRepository con queryset.system() / .custom()
-   ├── permissions.py                     # FunctionAuthBackend + DRF FunctionAccessPolicy
+   ├── permissions.py                     # FunctionAuthProvider + DRF FunctionAccessPolicy
    ├── signals.py                         # enforcement de separacion en pre_save
    ├── admin.py                           # ModelAdmin con is_system protection
    ├── migrations/
@@ -409,13 +409,13 @@ en lugar de ``auth.Permission``. Compatible con
  from .models import AccessGroup, UserAccessGroupAssignment
 
 
- class FunctionAuthBackend:
+ class FunctionAuthProvider:
      """Custom auth backend que extiende permissions con Function.
 
      Settings:
          AUTHENTICATION_BACKENDS = [
              'django.contrib.auth.backends.ModelBackend',
-             'apps.access.permissions.FunctionAuthBackend',
+             'apps.access.permissions.FunctionAuthProvider',
          ]
      """
 
@@ -838,7 +838,7 @@ Settings.py — registro
 
  AUTHENTICATION_BACKENDS = [
      "django.contrib.auth.backends.ModelBackend",
-     "apps.access.permissions.FunctionAuthBackend",
+     "apps.access.permissions.FunctionAuthProvider",
  ]
 
  # Conectar signal de separacion al app config
