@@ -1,0 +1,153 @@
+
+========== AccessGroup ==========
+-- Canonical DM members (all files):
+   + agr_id : String          <<AGR-001..012>>    [access-group.rst]
+   + assign_to_user()        <<assign_function_groups>>    [access-group.rst]
+   + name : String            <<p.ej. quality_supervisor_group>>    [access-group.rst]
+   + profile_description : String    [access-group.rst]
+   + revoke_from_user()    [access-group.rst]
+-- UC declares missing members: ['agr_code', 'id', 'is_system', 'state']
+
+========== AgentReportService ==========
+-- Canonical DM members (all files):
+   + detail(invoker : User, agent_id : UUID, period : Period) : AgentDetailReport    [agent-report-service.rst]
+   + get(invoker : User, period : Period, \    [agent-report-service.rst]
+   + top_performers(invoker : User, kpi_name : String, \    [agent-report-service.rst]
+-- UC declares missing members: ['list']
+
+========== AlertRule ==========
+-- Canonical DM members (all files):
+   + actions : List<Action>    [alert-rule.rst]
+   + archive() : void    [alert-rule.rst]
+   + condition : Condition    [alert-rule.rst]
+   + cooldown : Duration    [alert-rule.rst]
+   + created_at : DateTime    [alert-rule.rst]
+   + created_by : UUID    [alert-rule.rst]
+   + description : String    [alert-rule.rst]
+   + disable(reason : String) : void    [alert-rule.rst]
+   + enable() : void    [alert-rule.rst]
+   + is_in_cooldown(now : DateTime, last_fired_at : DateTime) : Boolean    [alert-rule.rst]
+   + matches(measurement : Measurement) : Boolean    [alert-rule.rst]
+   + metric : MetricId    [alert-rule.rst]
+   + name : String    [alert-rule.rst]
+   + rule_id : UUID    [alert-rule.rst]
+   + scope : Scope    [alert-rule.rst]
+   + severity : Severity    [alert-rule.rst]
+   + status : RuleState    [alert-rule.rst]
+   + updated_at : DateTime    [alert-rule.rst]
+   + window : Duration    [alert-rule.rst]
+-- UC declares missing members: ['id', 'state']
+
+========== AuditRepo ==========
+-- Canonical DM members (all files):
+   + aggregate(filters : AuditFilters, group_by : List<String>) : AggregateResult    [audit-repo.rst]
+   + append(event : AuditEvent) : UUID    [audit-repo.rst]
+   + append_batch(events : List<AuditEvent>) : List<UUID>    [audit-repo.rst]
+   + count(filters : AuditFilters) : Integer    [audit-repo.rst]
+   + exists(event_id : UUID) : Boolean    [audit-repo.rst]
+   + find(filters : AuditFilters, cursor : Cursor, limit : Integer) : QueryResult    [audit-repo.rst]
+   + get_by_id(event_id : UUID) : AuditEvent    [audit-repo.rst]
+   - retention_policy : RetentionPolicy    [audit-repo.rst]
+   - storage_backend : StorageBackend    [audit-repo.rst]
+-- UC declares missing members: ['query']
+
+========== ErroresETLService ==========
+-- Canonical DM members (all files):
+   + query(filters : ETLErrorFilters, \    [errores-etl-service.rst]
+   + record(run_id : UUID, \    [errores-etl-service.rst]
+   + summary(period : DateRange) : ETLErrorSummary    [errores-etl-service.rst]
+-- UC declares missing members: ['listar']
+
+========== EvaluatorReloader ==========
+-- Canonical DM members (all files):
+   - apply_diff(removed : Set<UUID>, added : Set<UUID>, \    [evaluator-reloader.rst]
+   - bump_version() : Integer    [evaluator-reloader.rst]
+   + current_version() : Integer    [evaluator-reloader.rst]
+   - evaluator : AlertEvaluator    [evaluator-reloader.rst]
+   + reload_all() : ReloadResult    [evaluator-reloader.rst]
+   + reload_rule(rule_id : UUID) : ReloadResult    [evaluator-reloader.rst]
+   - rule_repo : AlertRuleRepo    [evaluator-reloader.rst]
+   - version_clock : VersionClock    [evaluator-reloader.rst]
+-- UC declares missing members: ['reload']
+
+========== PipelineExecutionRepo ==========
+-- Canonical DM members (all files):
+   + calculate_lag(source : String) : Duration    [pipeline-execution-repo.rst]
+   + calculate_throughput(period : Period) : Float    [pipeline-execution-repo.rst]
+   + count_running() : Integer    [pipeline-execution-repo.rst]
+   + create(execution : PipelineExecution) : UUID    [pipeline-execution-repo.rst]
+   + find_by_source(source : String, period : Period) : List<PipelineExecution>    [pipeline-execution-repo.rst]
+   + find_by_state(state : ExecutionState) : List<PipelineExecution>    [pipeline-execution-repo.rst]
+   + find_failed(period : Period, filters : Map) : List<PipelineExecution>    [pipeline-execution-repo.rst]
+   + get_by_id(execution_id : UUID) : PipelineExecution    [pipeline-execution-repo.rst]
+   + last_successful_by_dataset(dataset : String) : DateTime    [pipeline-execution-repo.rst]
+   - storage_backend : StorageBackend    [pipeline-execution-repo.rst]
+   + verify_idle() : Boolean    [pipeline-execution-repo.rst]
+-- UC declares missing members: ['ejecuciones_recientes', 'por_estado', 'ultima_ejecucion']
+
+========== RBACRepo ==========
+-- Canonical DM members (all files):
+   - assignment_repo : AssignmentRepo    [rbac-repo.rst]
+   - exceptional_permission_repo : ExceptionalPermissionRepo    [rbac-repo.rst]
+   + get_active_assignments(user_id : UUID) : List<Assignment>    [rbac-repo.rst]
+   + get_active_function_codes(user_id : UUID) : Set<String>    [rbac-repo.rst]
+   + get_did_assignments(user_id : UUID) : List<String>    [rbac-repo.rst]
+   + get_users_in_access_group(access_group_id : UUID) : List<UUID>    [rbac-repo.rst]
+   + get_users_with_function(function_code : String) : List<UUID>    [rbac-repo.rst]
+   + is_global_admin(user_id : UUID) : Boolean    [rbac-repo.rst]
+-- UC declares missing members: ['get_user_segments', 'has_global_capability']
+
+========== SavedView ==========
+-- Canonical DM members (all files):
+   + deactivate()         <<BR-009>>    [saved-view.rst]
+   + filters_snapshot : List<Filter>    [saved-view.rst]
+   + load()    [saved-view.rst]
+   + name : String    [saved-view.rst]
+   + owner_user_id : UUID    [saved-view.rst]
+   + report_id : UUID    [saved-view.rst]
+   + save()               <<save_view>>    [saved-view.rst]
+   + state : ViewState    [saved-view.rst]
+   + view_id : UUID    [saved-view.rst]
+-- UC declares missing members: ['chart_config', 'columns', 'filters', 'id', 'owner', 'report_type']
+
+========== SegmentResolver ==========
+-- Canonical DM members (all files):
+   - cache : SegmentCache    [segment-resolver.rst]
+   + has_access_to(user_id : UUID, entity_id : UUID, entity_type : EntityType) : Boolean    [segment-resolver.rst]
+   - intersect(segments : List<Segment>) : Segment    [segment-resolver.rst]
+   - rbac_repo : RBACRepo    [segment-resolver.rst]
+   + resolve(user_id : UUID) : Segment    [segment-resolver.rst]
+   + resolve_for_report(user_id : UUID, report_type : ReportType) : Segment    [segment-resolver.rst]
+   - segment_config_repo : SegmentConfigRepo    [segment-resolver.rst]
+-- UC declares missing members: ['invalidate_cache', 'is_global']
+
+========== Subscription ==========
+-- Canonical DM members (all files):
+   + alert_id : UUID    [subscription.rst]
+   + configure_severity()     <<configure_subscription_severity>>    [subscription.rst]
+   + severity_filter : Severity    [subscription.rst]
+   + state : SubscriptionState    [subscription.rst]
+   + subscribe()              <<subscribe_to_alert>>    [subscription.rst]
+   + subscriber_user_id : UUID    [subscription.rst]
+   + subscription_id : UUID    [subscription.rst]
+   + unsubscribe()            <<unsubscribe_from_alert>>    [subscription.rst]
+-- UC declares missing members: ['channel', 'id', 'rule', 'scope', 'user']
+
+========== User ==========
+-- Canonical DM members (all files):
+   + create()    [user.rst]
+   + created_at : DateTime    [user.rst]
+   + deactivate()       <<BR-009 v2.0.0>>    [user.rst]
+   + email : String    [user.rst]
+   + full_name : String    [user.rst]
+   + id : UUID    [user-capability-resolver.rst]
+   + is_authenticated : Boolean    [user-capability-resolver.rst]
+   + last_login_at : DateTime    [user.rst]
+   + modify()    [user.rst]
+   + primary_access_group_id : String    [user.rst]
+   + recover_password()    [user.rst]
+   + state : UserState    [user.rst]
+   + user_id : UUID    [user.rst]
+   + username : String    [user.rst]
+   + view()    [user.rst]
+-- UC declares missing members: ['segment_id']

@@ -1,0 +1,453 @@
+==================== access-group ====================
+ @startuml
+
+ class AccessGroup {
+   + agr_id : String          <<AGR-001..012>>
+   + name : String            <<p.ej. quality_supervisor_group>>
+   + profile_description : String
+   --
+   + assign_to_user()        <<assign_function_groups>>
+   + revoke_from_user()
+ }
+
+ @enduml
+==================== agent-report-service ====================
+ @startuml
+
+ abstract class BaseReportService
+
+ class AgentReportService {
+   --
+   + get(invoker : User, period : Period, \
+         filters : AgentFilters) : HistoricalReport
+   + detail(invoker : User, agent_id : UUID, period : Period) : AgentDetailReport
+   + top_performers(invoker : User, kpi_name : String, \
+                     period : Period, n : Integer) : List<AgentRanking>
+ }
+
+ class AgentDetailReport {
+   + agent_id : UUID
+   + period : Period
+   + kpis : KPISet
+   + daily_breakdown : List<Bucket>
+   + comparative : Comparative
+ }
+
+ class AgentDailyStatRepo
+ class HistoricalReport
+ class AgentRanking
+
+ BaseReportService <|-- AgentReportService
+
+ AgentReportService "1" o-- "1" AgentDailyStatRepo : reads
+ AgentReportService "1" ..> "1" HistoricalReport : <<returns>>
+ AgentReportService "1" ..> "0..1" AgentDetailReport : <<returns>>
+ AgentReportService "1" ..> "0..*" AgentRanking : <<returns>>
+
+ note bottom of AgentDetailReport
+   daily_breakdown : {ordered}
+ end note
+
+ note right of AgentReportService
+   Hereda atributos protegidos y
+   apply_segment_filter de
+   BaseReportService (template-method).
+ end note
+
+ @enduml
+==================== alert-rule ====================
+ @startuml
+
+ class AlertRule {
+   + rule_id : UUID
+   + name : String
+   + description : String
+   + metric : MetricId
+   + scope : Scope
+   + condition : Condition
+   + window : Duration
+   + cooldown : Duration
+   + severity : Severity
+   + actions : List<Action>
+   + status : RuleState
+   + created_at : DateTime
+   + updated_at : DateTime
+   + created_by : UUID
+   --
+   + enable() : void
+   + disable(reason : String) : void
+   + archive() : void
+   + matches(measurement : Measurement) : Boolean
+   + is_in_cooldown(now : DateTime, last_fired_at : DateTime) : Boolean
+ }
+
+ class Condition {
+   + operator : ComparisonOperator
+   + threshold_value : Double
+   + aggregation : Aggregation
+ }
+
+ class Scope {
+   + scope_type : ScopeType
+   + entity_ids : Set<UUID>
+   + tags : Map<String, String>
+ }
+
+ enum RuleState {
+   DRAFT
+   ENABLED
+   DISABLED
+   ARCHIVED
+ }
+
+ enum Severity {
+   INFO
+   WARNING
+   CRITICAL
+ }
+
+ enum ComparisonOperator {
+   GT
+   GTE
+   LT
+   LTE
+   EQ
+   NEQ
+ }
+
+ enum Aggregation {
+==================== audit-repo ====================
+ @startuml
+
+ class AuditRepo {
+   - storage_backend : StorageBackend
+   - retention_policy : RetentionPolicy
+   --
+   + append(event : AuditEvent) : UUID
+   + append_batch(events : List<AuditEvent>) : List<UUID>
+   + find(filters : AuditFilters, cursor : Cursor, limit : Integer) : QueryResult
+   + get_by_id(event_id : UUID) : AuditEvent
+   + count(filters : AuditFilters) : Integer
+   + aggregate(filters : AuditFilters, group_by : List<String>) : AggregateResult
+   + exists(event_id : UUID) : Boolean
+ }
+
+ class AuditFilters {
+   + actor_user_id : UUID
+   + event_type : EventType
+   + target_entity_type : String
+   + target_entity_id : String
+   + occurred_at_from : DateTime
+   + occurred_at_to : DateTime
+ }
+
+ class QueryResult {
+   + events : List<AuditEvent>
+   + next_cursor : Cursor
+   + has_more : Boolean
+ }
+
+ class AggregateResult {
+   + buckets : List<AggregateBucket>
+   + total : Integer
+ }
+
+ class AuditEvent
+
+ AuditRepo "1" -- "(event_id)" AuditEvent : resolves
+ AuditRepo "1" ..> "0..*" AuditEvent : <<persists>>
+ AuditRepo "1" ..> "0..1" AuditFilters : <<uses>>
+ AuditRepo "1" ..> "1" QueryResult : <<returns>>
+ AuditRepo "1" ..> "1" AggregateResult : <<returns>>
+
+ note bottom of QueryResult
+   events : {ordered}
+ end note
+
+ note right of AuditRepo
+   CNST-025: append-only.
+   Sin update, sin delete en la interfaz.
+ end note
+
+ @enduml
+==================== errores-etl-service ====================
+ @startuml
+
+ class ErroresETLService {
+   --
+   + record(run_id : UUID, \
+            step : String, \
+            error : ErrorDetail) : void
+   + query(filters : ETLErrorFilters, \
+            period : DateRange) : List<ETLError>
+   + summary(period : DateRange) : ETLErrorSummary
+ }
+
+ class ETLError {
+   + id : UUID
+   + run_id : UUID
+   + step : String
+   + level : ErrorLevel
+   + message : String
+   + traceback : String
+   + occurred_at : DateTime
+ }
+
+ class ETLErrorSummary {
+   + total : Integer
+   + by_step : Map<String, Integer>
+   + by_level : Map<ErrorLevel, Integer>
+ }
+
+ class ETLErrorFilters
+ class ErrorLevel
+
+ ErroresETLService ..> ETLError : produces
+ ErroresETLService ..> ETLErrorSummary : produces
+ ErroresETLService ..> ETLErrorFilters : queries with
+
+ @enduml
+==================== evaluator-reloader ====================
+ @startuml
+
+ class EvaluatorReloader {
+   - rule_repo : AlertRuleRepo
+   - evaluator : AlertEvaluator
+   - version_clock : VersionClock
+   --
+   + reload_rule(rule_id : UUID) : ReloadResult
+   + reload_all() : ReloadResult
+   + current_version() : Integer
+   - apply_diff(removed : Set<UUID>, added : Set<UUID>, \
+                modified : Set<UUID>) : ReloadResult
+   - bump_version() : Integer
+ }
+
+ class ReloadResult {
+   + ok : Boolean
+   + rules_loaded : Integer
+   + rules_dropped : Integer
+   + errors : List<ReloadError>
+   + new_version : Integer
+ }
+
+ class ReloadError {
+   + rule_id : UUID
+   + reason : String
+ }
+
+ class AlertRuleRepo
+ class AlertEvaluator
+ class VersionClock
+
+ EvaluatorReloader "1" o-- "1" AlertRuleRepo : reads
+ EvaluatorReloader "1" o-- "1" AlertEvaluator : updates
+ EvaluatorReloader "1" *-- "1" VersionClock : composes
+ EvaluatorReloader "1" ..> "0..*" ReloadResult : returns
+ ReloadResult *-- "*" ReloadError
+
+ note right of EvaluatorReloader
+   Hot-reload: el evaluador no se reinicia.
+   version_clock identifica la generacion
+   de reglas activa.
+ end note
+
+ @enduml
+==================== pipeline-execution-repo ====================
+ @startuml
+
+ class PipelineExecutionRepo {
+   - storage_backend : StorageBackend
+   --
+   + create(execution : PipelineExecution) : UUID
+   + get_by_id(execution_id : UUID) : PipelineExecution
+   + find_by_state(state : ExecutionState) : List<PipelineExecution>
+   + find_by_source(source : String, period : Period) : List<PipelineExecution>
+   + find_failed(period : Period, filters : Map) : List<PipelineExecution>
+   + count_running() : Integer
+   + verify_idle() : Boolean
+   + last_successful_by_dataset(dataset : String) : DateTime
+   + calculate_lag(source : String) : Duration
+   + calculate_throughput(period : Period) : Float
+ }
+
+ class PipelineExecution
+
+ PipelineExecutionRepo "1" --> "*" PipelineExecution : gestiona
+
+ note bottom of PipelineExecutionRepo
+   CNST-007 read-only Analytics.
+   BR-009 sin DELETE — registros
+   permanecen para auditoria operacional.
+ end note
+
+ @enduml
+==================== rbac-repo ====================
+ @startuml
+
+ class RBACRepo {
+   - assignment_repo : AssignmentRepo
+   - exceptional_permission_repo : ExceptionalPermissionRepo
+   --
+   + get_active_function_codes(user_id : UUID) : Set<String>
+   + get_active_assignments(user_id : UUID) : List<Assignment>
+   + get_did_assignments(user_id : UUID) : List<String>
+   + is_global_admin(user_id : UUID) : Boolean
+   + get_users_with_function(function_code : String) : List<UUID>
+   + get_users_in_access_group(access_group_id : UUID) : List<UUID>
+ }
+
+ class AssignmentRepo
+ class ExceptionalPermissionRepo
+ class Function
+
+ RBACRepo "1" o-- "1" AssignmentRepo : aggregates
+ RBACRepo "1" o-- "1" ExceptionalPermissionRepo : aggregates
+ RBACRepo "1" -- "(user_id, function_code)" Function : resolves
+
+ note right of RBACRepo
+   Operaciones agregadas optimizadas
+   para path critico de verificacion.
+   No reemplaza CRUD por entidad —
+   los repos especializados siguen
+   siendo el punto de escritura.
+ end note
+
+ @enduml
+==================== saved-view ====================
+ @startuml
+
+ class SavedView {
+   + view_id : UUID
+   + owner_user_id : UUID
+   + report_id : UUID
+   + filters_snapshot : List<Filter>
+   + name : String
+   + state : ViewState
+   --
+   + save()               <<save_view>>
+   + load()
+   + deactivate()         <<BR-009>>
+ }
+
+ enum ViewState {
+   ACTIVE
+   INACTIVE
+ }
+
+ SavedView -- ViewState
+
+ @enduml
+==================== segment-resolver ====================
+ @startuml
+
+ class SegmentResolver {
+   - rbac_repo : RBACRepo
+   - segment_config_repo : SegmentConfigRepo
+   - cache : SegmentCache
+   --
+   + resolve(user_id : UUID) : Segment
+   + resolve_for_report(user_id : UUID, report_type : ReportType) : Segment
+   + has_access_to(user_id : UUID, entity_id : UUID, entity_type : EntityType) : Boolean
+   - intersect(segments : List<Segment>) : Segment
+ }
+
+ class Segment {
+   + queues : Set<UUID>
+   + campaigns : Set<UUID>
+   + agents : Set<UUID>
+   + ivrs : Set<UUID>
+   + is_global : Boolean
+   --
+   + contains_entity(entity_id : UUID, entity_type : EntityType) : Boolean
+   + is_empty() : Boolean
+ }
+
+ enum EntityType {
+   QUEUE
+   CAMPAIGN
+   AGENT
+   IVR
+ }
+
+ class RBACRepo
+ class SegmentConfigRepo
+ class SegmentCache
+
+ SegmentResolver "1" o-- "1" RBACRepo : reads
+ SegmentResolver "1" o-- "1" SegmentConfigRepo : reads
+ SegmentResolver "1" *-- "1" SegmentCache : composes
+ SegmentResolver "1" ..> "0..*" Segment : returns
+ Segment "*" -- "1" EntityType
+
+ note right of SegmentResolver
+   is_global = true para usuarios con
+   permiso amplio (e.g. system_admin):
+   bypass del filtro segmento.
+ end note
+
+ @enduml
+==================== subscription ====================
+ @startuml
+
+ class Subscription {
+   + subscription_id : UUID
+   + alert_id : UUID
+   + subscriber_user_id : UUID
+   + severity_filter : Severity
+   + state : SubscriptionState
+   --
+   + subscribe()              <<subscribe_to_alert>>
+   + unsubscribe()            <<unsubscribe_from_alert>>
+   + configure_severity()     <<configure_subscription_severity>>
+ }
+
+ enum SubscriptionState {
+   ACTIVE
+   INACTIVE
+ }
+
+ Subscription "*" -- "1" SubscriptionState : has
+
+ note right of Subscription
+   D-03: tres operaciones separadas para separacion de deberes a nivel RBAC.
+ end note
+
+ @enduml
+==================== user ====================
+ @startuml
+
+ class User {
+   + user_id : UUID
+   + username : String
+   + email : String
+   + full_name : String
+   + state : UserState
+   + created_at : DateTime
+   + last_login_at : DateTime
+   + primary_access_group_id : String
+   --
+   + create()
+   + deactivate()       <<BR-009 v2.0.0>>
+   + modify()
+   + view()
+   + recover_password()
+ }
+
+ enum UserState {
+   ACTIVE
+   INACTIVE
+   BLOCKED
+ }
+
+ User "*" -- "1" UserState : has
+ User "1" -- "0..*" Session         : posee
+ User "1" -- "1"    InternalMailbox : posee
+ User "1" --> "0..*" AuditEvent     : genera
+
+ note bottom of User
+   BR-009 v2.0.0: desactivar, no eliminar.
+   primary_access_group_id referencia AGR-001..012.
+ end note
+
+ @enduml
