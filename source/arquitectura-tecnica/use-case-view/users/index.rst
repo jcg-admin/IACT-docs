@@ -17,12 +17,12 @@ MOD_Users — Gestion de Usuarios: UC por Modulo
 ==============================================
 
 Altas, consultas, modificaciones y bajas lógicas de usuarios
-IACT. Solo el rol ``UserAdmin`` (AGR-006) modifica el catálogo
+IACT. Solo usuarios con ``UserAdmin`` (AGR-006) modifican el catálogo
 de usuarios.
 
 .. uml::
  :caption: MOD_Users — UserAdmin gestiona el catálogo;
-           cualquier rol autenticado consulta.
+           cualquier usuario autenticado consulta.
 
  @startuml
  left to right direction
