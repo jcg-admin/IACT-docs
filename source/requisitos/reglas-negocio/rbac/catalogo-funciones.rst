@@ -752,9 +752,9 @@ MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
    - (sin UC — gobernanza)
    - **True**
    - Modifica el campo ``Function.is_critical``. **Sin titular en
-     v5.6.x:** no asignada a ningun AGR. Cambios solo via Django
-     RunPython data migration con review obligatoria ≥ 2 aprobaciones.
-     Read-only en admin Django. (NUEVA v5.6.x —
+     v5.6.x:** no asignada a ningun AGR. Cambios solo via data
+     migration del backend con review obligatoria ≥ 2 aprobaciones.
+     Read-only en el panel administrativo del backend. (NUEVA v5.6.x —
      gobernanza ADR-BACK-010, TD-RBAC-03)
 
 

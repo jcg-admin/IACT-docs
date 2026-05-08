@@ -24,8 +24,8 @@ Parte 1 — Informacion general de UC_ADM_02
 =============
 
 UC_ADM_02 gestiona el **catalogo de funciones atomicas** del sistema
-RBAC. Las 74+ funciones actuales se administran via migraciones Django
-— no existe mecanismo de UI para agregar, desactivar o modificar
+RBAC. Las 74+ funciones actuales se administran via migraciones del
+backend — no existe mecanismo de UI para agregar, desactivar o modificar
 funciones sin despliegue de codigo. Este UC formaliza esa capacidad.
 
 1.3 Alcance
@@ -74,7 +74,7 @@ o verificacion (MOD_Permissions).
    - UC_PERM_01 (effective_set — consume catalogo),
      UC_ADM_01 (separacion referencia funciones del catalogo)
  * - **Clase primaria**
-   - ``Function`` (modelo Django)
+   - ``Function`` (modelo del backend)
 
 .. seealso::
 
