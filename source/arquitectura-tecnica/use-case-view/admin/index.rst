@@ -226,8 +226,9 @@ catalogo v5.5.0 (2 v5.6.0 baseline + 3 v5.6.x extension):
    - ADM (nueva)
    - **True**
    - Modifica el campo ``Function.is_critical``. **Sin titular
-     en v5.6.x** (TD-RBAC-03). Solo via Django RunPython data
-     migration con review ≥ 2 aprobaciones. Read-only en admin.
+     en v5.6.x** (TD-RBAC-03). Solo via migracion de datos del
+     Servicio de Aplicacion con review ≥ 2 aprobaciones.
+     Read-only en admin.
      ADR-BACK-010.
 
 Implementación en domain-model
