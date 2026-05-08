@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   flujo-de-firma
-   verify
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-flujo-de-firma
+   diagrama-de-secuencia-verify

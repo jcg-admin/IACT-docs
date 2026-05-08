@@ -77,7 +77,7 @@ Parte 12 — Testing
    WHEN  detect
    THEN  result incluye el Assignment
 
-12.2.5 SoDValidator info-mode no lanza
+12.2.5 SeparationRuleValidator info-mode no lanza
 --------------------------------------
 
 ::
@@ -85,7 +85,7 @@ Parte 12 — Testing
    GIVEN par conflictivo en effective_set
    WHEN  find_violations_info_mode
    THEN  return list con violations
-         (NO lanza SoDViolation)
+         (NO lanza SeparationRuleViolation)
 
 12.2.6 get_effective_permissions happy
 --------------------------------------
@@ -214,13 +214,13 @@ Parte 12 — Testing
    THEN  body.expired_pending_purge incluye
          el Assignment
 
-12.3.8 SoD violations informativas (CA-08)
+12.3.8 violaciones de separacion informativas (CA-08)
 ------------------------------------------
 
 ::
 
    GIVEN target con par conflictivo segun
-         SoDRule activa
+         SeparationRule activa
    WHEN  GET
    THEN  body.sod_violations_detected incluye
          la regla
@@ -256,12 +256,12 @@ Parte 12 — Testing
    WHEN  navega a "/profile/permissions"
    THEN  ve sus permisos (self-view)
 
-12.4.3 Indicador visual SoD
+12.4.3 Indicador visual de separacion
 ---------------------------
 
 ::
 
-   GIVEN target con violacion SoD detectada
+   GIVEN target con violacion de separacion detectada
    WHEN  admin abre vista
    THEN  alerta destacada con detalle
 
@@ -284,7 +284,7 @@ Parte 12 — Testing
  * - ExpiredPendingDetector
    - 100%
    - 100%
- * - SoDValidator (info-mode)
+ * - SeparationRuleValidator (info-mode)
    - 100%
    - 100%
  * - HTTPGetEndpoint

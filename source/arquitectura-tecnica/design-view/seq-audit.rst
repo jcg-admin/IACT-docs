@@ -1,81 +1,89 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_AUDIT
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_AUDIT
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: audit
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_audit:
+.. _at_design_seq_audit:
 
-===========================================
-Design View — MOD_Audit: Auditoria
-===========================================
+============================================================
+Design View — MOD_Audit: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de auditoria. Muestra la busqueda
-de ``AuditEvent`` por tipo y rango de fechas, y la exportacion
-asincrona via ``ExportJob``. ``AuditEvent`` es append-only (CNST-025):
-ninguna operacion modifica registros existentes.
+Secuencia canonica del modulo MOD_Audit: query de eventos de
+auditoria con filtros + paginacion cursor (CursorEncoder).
+Verificacion previa del filtro (FilterValidator) y validacion
+sin PII en respuesta (CNST-026).
 
 .. uml::
- :caption: Design View MOD_Audit — busqueda y exportacion de eventos de auditoria.
+ :caption: MOD_Audit — query con filtros y cursor pagination.
 
  @startuml
 
- actor AGR_AUDITOR
+ actor "view_audit_log" as view_audit_log
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "AuditQueryService" as AuditQueryService <<sistema>>
+ actor "FilterValidator" as FilterValidator <<sistema>>
+ actor "CursorEncoder" as CursorEncoder <<sistema>>
+ actor "AuditRepo" as AuditRepo <<sistema>>
 
- participant InterfazAuditoria      <<frontend>>
- participant ServicioAuditoria      <<api>>
- participant RepositorioAuditEvent  <<repository>>
- participant ServicioExportacion    <<api>>
- database    AlmacenDatos           <<postgresql>>
+ view_audit_log -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> view_audit_log : OK
+ deactivate AuthorizationGuard
 
- AGR_AUDITOR -> InterfazAuditoria : GET /audit/events\n?event_type=ACCESS_CHANGE\n&from=2026-01-01\n&to=2026-05-01
- activate InterfazAuditoria
+ view_audit_log -> AuditQueryService : query(filters, cursor?)
+ activate AuditQueryService
 
- InterfazAuditoria -> ServicioAuditoria : buscarEventos(event_type, rango)
- activate ServicioAuditoria
+ AuditQueryService -> FilterValidator : validate(filters)
+ activate FilterValidator
+ FilterValidator --> AuditQueryService : OK
+ deactivate FilterValidator
 
- ServicioAuditoria -> RepositorioAuditEvent : search(EventType, occurred_at rango)
- activate RepositorioAuditEvent
- RepositorioAuditEvent -> AlmacenDatos : SELECT audit_events\nWHERE event_type=?\nAND occurred_at BETWEEN ? AND ?
- AlmacenDatos --> RepositorioAuditEvent : List<AuditEvent>
- RepositorioAuditEvent --> ServicioAuditoria : resultados
- deactivate RepositorioAuditEvent
+ alt cursor presente
+   AuditQueryService -> CursorEncoder : decode(cursor)
+   activate CursorEncoder
+   CursorEncoder --> AuditQueryService : pagination_state
+   deactivate CursorEncoder
+ end
 
- ServicioAuditoria --> InterfazAuditoria : pagina de AuditEvent
- deactivate ServicioAuditoria
+ AuditQueryService -> AuditRepo : query(state)
+ activate AuditRepo
+ AuditRepo --> AuditQueryService : List<AuditEvent>
+ deactivate AuditRepo
 
- InterfazAuditoria --> AGR_AUDITOR : tabla de eventos
- deactivate InterfazAuditoria
+ AuditQueryService -> CursorEncoder : encode(next_state)
+ activate CursorEncoder
+ CursorEncoder --> AuditQueryService : next_cursor
+ deactivate CursorEncoder
 
- AGR_AUDITOR -> InterfazAuditoria : POST /audit/export\n{format:PDF, filters}
- activate InterfazAuditoria
+ AuditQueryService --> view_audit_log : {events, next_cursor}
+ deactivate AuditQueryService
 
- InterfazAuditoria -> ServicioExportacion : exportar(filtros, format:ExportFormat.PDF)
- activate ServicioExportacion
-
- ServicioExportacion -> AlmacenDatos : INSERT export_jobs{\n  job_id:UUID,\n  format:PDF,\n  state:JobState.QUEUED\n}
- AlmacenDatos --> ServicioExportacion : ExportJob encolado
-
- ServicioExportacion --> InterfazAuditoria : 202 Accepted {job_id}
- deactivate ServicioExportacion
- InterfazAuditoria --> AGR_AUDITOR : job_id para seguimiento
- deactivate InterfazAuditoria
-
- note right of AlmacenDatos
-   AuditEvent append-only (CNST-025).
-   No UPDATE ni DELETE sobre audit_events.
+ note right of AuditQueryService
+   CNST-026: respuesta sin PII
+   (validado por AuditValidator
+   en escritura, garantia leida).
  end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
- :doc:`/arquitectura-tecnica/domain-model/export-job`
+ - :doc:`/arquitectura-tecnica/design-view/class-audit`
+ - :doc:`/arquitectura-tecnica/use-case-view/audit/index`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-query-service`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/filter-validator`
+ - :doc:`/arquitectura-tecnica/domain-model/cursor-encoder`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`

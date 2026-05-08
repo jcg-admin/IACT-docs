@@ -10,47 +10,47 @@
 
    package "IACT — sistema completo" {
      package "Catálogo RBAC" {
-       class Funcion
-       class Grupo
-       Grupo "*" o-- "*" Funcion
+       class Function
+       class Group
+       Group "*" o-- "*" Function
      }
 
      package "Pipeline ETL" {
-       class EjecucionETL
-       class ErrorETL
-       EjecucionETL "1" *-- "0..*" ErrorETL
+       class ETLExecution
+       class ETLError
+       ETLExecution "1" *-- "0..*" ETLError
      }
 
      package "Reportes" {
        interface IExportable <<interface>>
-       class Reporte
-       class FilaResultado
-       Reporte ..|> IExportable
-       Reporte "1" *-- "0..*" FilaResultado
+       class Report
+       class ResultRow
+       Report ..|> IExportable
+       Report "1" *-- "0..*" ResultRow
      }
 
      package "Auditoría" {
-       class EventoAuditoria
-       class DetalleAuditoria
-       EventoAuditoria ..|> IExportable
-       EventoAuditoria "1" *-- "0..*" DetalleAuditoria
+       class AuditEvent
+       class AuditDetail
+       AuditEvent ..|> IExportable
+       AuditEvent "1" *-- "0..*" AuditDetail
      }
 
      package "Alertas" {
-       interface INotificable <<interface>>
-       class Alerta
-       class BuzonInterno
-       Alerta -- BuzonInterno : usa
-       BuzonInterno ..|> INotificable
+       interface INotifiable <<interface>>
+       class Alert
+       class InternalMailbox
+       Alert -- InternalMailbox : uses
+       InternalMailbox ..|> INotifiable
      }
    }
 
    note bottom
-     ◇ agregación (Grupo–Funcion)
-     ● composición (Reporte–FilaResultado,
-       EjecucionETL–ErrorETL,
-       EventoAuditoria–DetalleAuditoria)
+     ◇ agregación (Group–Function)
+     ● composición (Report–ResultRow,
+       ETLExecution–ETLError,
+       AuditEvent–AuditDetail)
      ..|> realización (IExportable,
-                      INotificable)
+                      INotifiable)
    end note
    @enduml

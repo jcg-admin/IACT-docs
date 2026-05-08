@@ -23,7 +23,7 @@ clusters de UCs accesibles:
      note right
        Punto de entrada autenticado.
        Acceso filtrado por RBAC
-       (CNST_030 SoD).
+       (CNST-030 separacion de funciones).
      end note
 
      fork

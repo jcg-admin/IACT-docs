@@ -5,10 +5,10 @@
 
    @startuml
 
-   class Usuario
-   class Reporte
-   Usuario "1" -[#black]- "(nombre)" Reporte : recupera_programado
-   note right of Reporte
+   class User
+   class Report
+   User "1" -[#black]- "(name)" Report : recovers_scheduled
+   note right of Report
      UC_RPT_08 — el usuario
      recupera el reporte programado
      por su nombre (único en

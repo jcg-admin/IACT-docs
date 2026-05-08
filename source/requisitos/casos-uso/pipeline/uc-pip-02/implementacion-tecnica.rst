@@ -5,7 +5,7 @@ Parte 11 — Implementacion tecnica
 =================================
 
 Componentes: ``ErroresETLView`` (DRF APIView),
-``AuthorizationGuard``, ``ETLEjecucionRepo``.
+``AuthorizationGuard``, ``PipelineExecutionRepo``.
 
 Contrato del servicio:
 
@@ -21,31 +21,31 @@ Pseudocodigo:
 
    procedure get(filters, period, page, invoker, ctx):
        require AuthorizationGuard.has(invoker, 'view_pipeline_errors')
-       ejecuciones = ETLEjecucionRepo.get_fallidas(
+       ejecuciones = PipelineExecutionRepo.get_fallidas(
            period=period,
            trimestre=filters.trimestre,
            page=page
        )
        return ListaErroresETL(ejecuciones)
 
-Implementacion de ETLEjecucionRepo.get_fallidas:
+Implementacion de PipelineExecutionRepo.get_fallidas:
 
 ::
 
-   ETLEjecucionRepo.get_fallidas(period, trimestre, page):
-       # Consulta directa sobre etl_runs en Almacen de Datos
+   PipelineExecutionRepo.get_fallidas(period, trimestre, page):
+       # Consulta directa sobre pipeline_runs en Almacen de Datos
        # via connections['ivr'].cursor()
-       SELECT id, tabla_origen, trimestre,
-              iniciado_en, finalizado_en,
-              mensaje_error, ejecutado_por
-       FROM etl_runs
+       SELECT id, source_table, trimestre,
+              started_at, finished_at,
+              error_message, executed_by
+       FROM pipeline_runs
        WHERE estado = 'fallido'
-         AND iniciado_en >= :period_start
+         AND started_at >= :period_start
          AND (:trimestre IS NULL OR trimestre = :trimestre)
-       ORDER BY iniciado_en DESC
+       ORDER BY started_at DESC
        LIMIT :page_size OFFSET :offset
 
-El campo ``mensaje_error`` se retorna tal como fue almacenado
+El campo ``error_message`` se retorna tal como fue almacenado
 por el Disparador ETL. No se aplica sanitizacion adicional en
 la capa de presentacion dado que el mensaje es generado por el
 sistema interno (no por input de usuario).

@@ -4,8 +4,42 @@
 Modelo RBAC IACT — Catalogo de Funciones
 ==========================================
 
-3. CATÁLOGO DE 73 FUNCIONES
-===========================
+3. CATÁLOGO DE FUNCIONES (v5.6.0 baseline + v5.6.x extension)
+==============================================================
+
+.. list-table::
+ :widths: 30 12 12 12 34
+ :header-rows: 1
+
+ * - Linea base
+   - Activas
+   - Declaradas
+   - Reservadas
+   - Notas
+ * - **v5.6.0 baseline**
+   - 64
+   - 77
+   - 13
+   - Modulos 3.1–3.8 + 3.11 (3 funciones); reservadas en
+     3.9–3.10 (MOD_Operator, MOD_Supervision)
+ * - **v5.6.x extension**
+   - +3
+   - +3
+   - 0
+   - Trazables al WP ``2026-05-06-21-42-06-menu-rbac-user-scope-docs``:
+     ``manage_menu_catalog``, ``manage_menu_lifecycle``,
+     ``manage_critical_function_flag``
+ * - **v5.6.x current**
+   - **67**
+   - **80**
+   - **13**
+   - 67 activas in-scope + 13 reservadas open-closed
+
+**64 activas in-scope baseline** (módulos 3.1–3.8 + 3.11 con 3
+funciones originales) + **13 reservadas open-closed** (módulos
+3.9–3.10 — MOD_Operator y MOD_Supervision, declarados en el
+catálogo pero out-of-scope para esta release) + **3 v5.6.x
+extension** (MOD_Admin §3.11 ampliado a 6 funciones).
 
 
 
@@ -157,7 +191,7 @@ Modelo RBAC IACT — Catalogo de Funciones
  * - `view_separation_rules`
    - access:view_sod
    - UC_ADM_01
-   - Ve reglas SoD configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
+   - Ve reglas de separacion configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
  * - `create_function_group`
    - access:create_group
    - UC_PERM_05
@@ -181,16 +215,16 @@ Modelo RBAC IACT — Catalogo de Funciones
  * - `update_separation_rule`
    - access:update_sod
    - UC_ADM_01
-   - Actualiza parámetros de regla SoD existente (NUEVA v5.4.0 — split SRP de ACC-005)
+   - Actualiza parámetros de regla de separacion existente (NUEVA v5.4.0 — split SRP de ACC-005)
  * - `disable_separation_rule`
    - access:disable_sod
    - UC_ADM_01
-   - Desactiva regla SoD temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
+   - Desactiva regla de separacion temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
 
 
 **CAMBIO v5.4.0:**
 - ACC-005 RENAME ``manage_separation_rules`` → ``view_separation_rules``
-- ACC-011/012 NUEVAS (split SRP B2; gestión SoD ahora granular)
+- ACC-011/012 NUEVAS (split SRP B2; gestión de separacion ahora granular)
 
 **CAMBIO v5.2.1:**
 - ``assign_function_groups`` (completo, NO "assign_groupers")
@@ -203,7 +237,7 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 **CNST aplicables:**
 - CNST-005: Flat RBAC (sin jerarquías)
-- CNST-005: SoD obligatorio
+- CNST-005: separacion de deberes obligatoria
 - CNST-005: Permisos temporales: justificación mín 20 chars, vencimiento máx 6 meses
 
 ----
@@ -495,7 +529,7 @@ Modelo RBAC IACT — Catalogo de Funciones
    - logs:search
    - uc-log-03
    - Busca logs por criterios (timestamp, severity, source) (NUEVA v5.3.0)
- * - `view_etl_logs`
+ * - `view_pipeline_logs`
    - logs:view_etl
    - uc-log-02
    - Ve logs específicos del proceso ETL (sync IVR→Analytics, métricas carga) (NUEVA v5.4.0 — SRP)
@@ -517,7 +551,7 @@ Modelo RBAC IACT — Catalogo de Funciones
 
 - LOG-001 RENAME ``view_technical_logs`` → ``view_application_logs``
   (SRP: ya no cubre ETL ni infra)
-- LOG-004 NUEVA ``view_etl_logs`` (uc-log-02 deja de ser instancia)
+- LOG-004 NUEVA ``view_pipeline_logs`` (uc-log-02 deja de ser instancia)
 - LOG-005 NUEVA ``view_infrastructure_logs`` (uc-log-05 nuevo)
 - LOG-006 NUEVA ``view_system_health`` (gap UC_081 ARQ-MOD-008)
 - LOG-007 NUEVA ``view_technical_metrics`` (gap UC_083 ARQ-MOD-008)
@@ -655,56 +689,110 @@ Módulo nuevo derivado del análisis de UC_SUP_01..03.
 
 ----
 
-3.11 MOD_Admin (3 funciones) — NUEVO v5.6.0
---------------------------------------------
+3.11 MOD_Admin (6 funciones — 3 v5.6.0 baseline + 3 v5.6.x extension)
+----------------------------------------------------------------------
 
 Plano de configuracion del modelo RBAC: gestiona QUE funciones, grupos del
-sistema y reglas SoD EXISTEN. Diferenciado de MOD_Access (asignaciones) y
-MOD_Permissions (verificacion runtime). Actor principal: ``admin_sistema``
-(AGR-009).
+sistema y reglas de separacion EXISTEN. Diferenciado de MOD_Access (asignaciones) y
+MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
+(AGR-010 — ``system_admin_group``; ver
+:doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`).
 
 .. list-table::
- :widths: 30 25 15 30
+ :widths: 30 22 12 6 30
  :header-rows: 1
 
  * - Función
    - Capacidad
    - UC
+   - is_critical
    - Descripción
  * - `create_separation_rule`
-   - adm:create_sod
+   - adm:create_separation_rule
    - UC_ADM_01
-   - Crea nueva regla SoD declarando el par de conjuntos de funciones
+   - False
+   - Crea nueva regla de separacion declarando el par de conjuntos de funciones
      mutuamente excluyentes. Complementa ``update_separation_rule`` y
      ``disable_separation_rule`` para el ciclo de vida completo.
      (NUEVA v5.6.0 — extend ACC module)
  * - `manage_function_catalog`
    - adm:manage_catalog
    - UC_ADM_02
+   - False
    - CRUD sobre definiciones de funciones atomicas: nombre, descripcion,
      scope, modulo, estado activo/inactivo. Requiere migracion de datos
-     y control de versiones del catalogo. (NUEVA v5.6.0 — nueva ADM)
+     y control de versiones del catalogo.
+     **No incluye el campo `is_critical`** (gobernanza separada — ver
+     `manage_critical_function_flag`). (NUEVA v5.6.0 — nueva ADM)
  * - `assign_functions_to_group`
    - access:assign_to_group
    - UC_ADM_03, UC_PERM_06
+   - False
    - Asigna funciones a un grupo predefinido del sistema (scope AGR-001..012,
-     solo ``admin_sistema``) o custom (scope AGR custom,
-     ``admin_seguridad``). Reutilizada de MOD_Permissions.
+     solo ``system_admin`` AGR-010) o custom (scope AGR custom,
+     ``permission_admin``). Reutilizada de MOD_Permissions.
+ * - `manage_menu_catalog`
+   - adm:manage_menu_catalog
+   - UC_ADM_04
+   - **True**
+   - CRUD del catalogo de ``MenuItem`` (wrapper UX 1:1 sobre ``Function``).
+     Maneja metadata visual (label, icon, route_path, display_order, parent).
+     **No** modifica ``status`` (eso es ``manage_menu_lifecycle``).
+     (NUEVA v5.6.x — extension WP menu-rbac-user-scope)
+ * - `manage_menu_lifecycle`
+   - adm:manage_menu_lifecycle
+   - UC_ADM_05
+   - **True**
+   - Gestiona transiciones de estado del ``MenuItem``
+     (DRAFT → ACTIVE → DEPRECATED → ARCHIVED) y el flag
+     ``block_auto_archive`` con justificacion obligatoria.
+     (NUEVA v5.6.x — extension WP menu-rbac-user-scope)
+ * - `manage_critical_function_flag`
+   - adm:manage_is_critical
+   - (sin UC — gobernanza)
+   - **True**
+   - Modifica el campo ``Function.is_critical``. **Sin titular en
+     v5.6.x:** no asignada a ningun AGR. Cambios solo via data
+     migration del backend con review obligatoria ≥ 2 aprobaciones.
+     Read-only en el panel administrativo del backend. (NUEVA v5.6.x —
+     gobernanza ADR-BACK-010, TD-RBAC-03)
 
 
-**CAMBIO v5.6.0:**
+**CAMBIO v5.6.0 (baseline):**
 - ADM-001 NUEVA ``create_separation_rule`` (extiende modulo ACC)
 - ADM-002 NUEVA ``manage_function_catalog`` (nuevo modulo ADM)
 - ADM-003 ``assign_functions_to_group`` reutilizada de PERM con scope extendido
 
+**EXTENSION v5.6.x (WP menu-rbac-user-scope):**
+
+- ADM-004 NUEVA ``manage_menu_catalog`` — gestion del catalogo UX (ADR-BACK-008, CNST-032 v2.0.0)
+- ADM-005 NUEVA ``manage_menu_lifecycle`` — transiciones de estado + block_auto_archive (ADR-BACK-008)
+- ADM-006 NUEVA ``manage_critical_function_flag`` — gobernanza del flag ``is_critical`` (ADR-BACK-010); declarada activa pero sin titular runtime — TD-RBAC-03
+
 **CNST aplicables:**
+
 - CNST-029: Modelo RBAC Flat — toda modificacion al catalogo se audita
-- BR-007: SoD — ``create_separation_rule`` requiere par de conjuntos validos
+- CNST-032 v2.0.0: MenuItem como wrapper UX sobre Function — afecta ADM-004, ADM-005
+- BR-007: Separacion de deberes — ``create_separation_rule`` requiere par de conjuntos validos
 - MOD_Audit: Toda operacion ADM genera evento de alta criticidad
+
+**ADRs aplicables:**
+
+- ADR-BACK-008: MenuItem wrapper UX (afecta ADM-004, ADM-005)
+- ADR-BACK-009: Cache degraded mode (afecta verificacion de todas las is_critical=True)
+- ADR-BACK-010: ``Function.is_critical`` governance (afecta ADM-006 + politica de bypass de cache para ADM-004, ADM-005)
 
 **Nota v5.6.0:**
 Modulo nuevo — formaliza el plano de configuracion RBAC que existia
 implicito en referencias de arquitectura (arquitectura-sistema.rst,
 despliegue-multicliente.rst) pero sin definicion formal de UCs ni
 funciones RBAC propias.
+
+**Nota v5.6.x extension:**
+Las 3 nuevas funciones ADM-004..006 son **extension del baseline
+v5.6.0**, NO modifican el conteo original (3 funciones MOD_Admin).
+Trazables al WP ``2026-05-06-21-42-06-menu-rbac-user-scope-docs``.
+``manage_critical_function_flag`` es la unica capability del
+catalogo v5.6.x **sin titular en ningun AGR** — gobernanza
+exclusivamente via data migration.
 

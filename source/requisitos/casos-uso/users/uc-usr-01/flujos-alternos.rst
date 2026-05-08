@@ -51,8 +51,8 @@ y el INSERT.
 
 ::
 
-   PASO 10A (FA-02)  INSERT falla con
-                     IntegrityError (UNIQUE
+   PASO 10A (FA-02)  INSERT falla con error de
+                     integridad de datos (UNIQUE
                      violation en username).
 
    PASO 7B           Backend reintenta:

@@ -325,7 +325,7 @@ Asignar a clase A la responsabilidad de crear instancias de clase B si:
  Opciones:
  A) User - tiene asociación con Report pero no lo agrega
  B) ReportService - contiene/agrega/registra Reports
- C) ReportFactory - solo crea, no contiene
+ C) ReportTypeRegistry - solo crea, no contiene
  
  Decisión: ReportService
  
@@ -539,7 +539,7 @@ Una clase = una responsabilidad bien definida.
  def save(self, report): pass
  def find_by_id(self, id): pass
  
- class ReportSerializer:
+ class ReportContract:
  """Solo serialización"""
  def to_json(self, report): pass
  def to_xml(self, report): pass

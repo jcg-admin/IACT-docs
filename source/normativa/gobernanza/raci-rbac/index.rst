@@ -16,7 +16,7 @@
 Matriz RACI — RBAC IACT
 =============================================
 
-Matriz de responsabilidades (RACI) para las 74 funciones atomicas
+Matriz de responsabilidades (RACI) para las 64 funciones atomicas activas
 del modelo RBAC IACT, los 12 grupos predefinidos (AGR-001..012),
 y las 3 reglas de separacion de funciones (SOD-001..003).
 
@@ -29,7 +29,7 @@ Referencia al modelo conceptual: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-ia
  stakeholders
  raci-modulo
  raci-grupos
- raci-sod
+ raci-separacion-de-deberes
  raci-gobernanza
  trazabilidad
  convenciones

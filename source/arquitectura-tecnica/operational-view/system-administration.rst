@@ -36,7 +36,7 @@ Casos de uso operacionales — AGR_ADMIN
  skinparam actorBorderColor #555555
  skinparam shadowing false
 
- actor "agr_admin" as AGR_ADMIN
+ actor "system_admin\nAGR-010" as AGR_ADMIN
 
  rectangle "Administracion IACT" {
    usecase "Crear usuario" as CREAR_USUARIO
@@ -47,7 +47,7 @@ Casos de uso operacionales — AGR_ADMIN
    usecase "Revocar permiso temporal" as REVOCAR_PERMISO_TEMPORAL
    usecase "Ver sesiones activas" as VER_SESIONES_ACTIVAS
    usecase "Cerrar sesiones\n(view_all_active_sessions)" as CERRAR_SESIONES
-   usecase "Ver reglas SoD\n(CNST-030)" as VER_REGLAS_SOD
+   usecase "Ver reglas de separacion\n(CNST-030)" as VER_REGLAS_SEPARACION
    usecase "Ver audit log\n(CNST-025)" as VER_AUDIT_LOG
  }
 
@@ -59,7 +59,7 @@ Casos de uso operacionales — AGR_ADMIN
  AGR_ADMIN --> REVOCAR_PERMISO_TEMPORAL
  AGR_ADMIN --> VER_SESIONES_ACTIVAS
  AGR_ADMIN --> CERRAR_SESIONES
- AGR_ADMIN --> VER_REGLAS_SOD
+ AGR_ADMIN --> VER_REGLAS_SEPARACION
  AGR_ADMIN --> VER_AUDIT_LOG
 
  @enduml
@@ -79,14 +79,14 @@ Flujo de actividad — Alta de usuario
 
  start
 
- :agr_admin: autenticar en sistema;
+ :system_admin (AGR-010): autenticar en sistema;
  :Crear cuenta de usuario\n(username, email, full_name);
  :Asignar AccessGroup primario\n(AGR-001..012);
 
  if (¿Requiere funciones adicionales?) then (si)
    :Asignar FunctionGroup(s)\ncomplementarios;
-   if (¿Conflicto SoD detectado?) then (si)
-     :Rechazar asignacion\n(CNST-030: enforcement SoD);
+   if (¿Conflicto de separacion detectado?) then (si)
+     :Rechazar asignacion\n(CNST-030: enforcement de separacion);
      stop
    else (no)
      :Confirmar asignacion;
@@ -114,7 +114,7 @@ Restricciones operacionales
    - Los usuarios no se eliminan — se desactivan. Estado
      ``INACTIVE`` o ``BLOCKED`` pero el registro permanece.
  * - **CNST-030**
-   - Separacion de funciones (SoD): el sistema impide asignar
+   - Separacion de funciones (separation of duties): el sistema impide asignar
      conjuntos de funciones en conflicto al mismo usuario.
      La separacion se evalua en tiempo de asignacion.
  * - **CNST-031**

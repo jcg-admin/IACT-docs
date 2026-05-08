@@ -20,18 +20,18 @@ Componentes de Aplicacion
  * - Componente
    - Descripcion
  * - apps.etl
-   - DisparadorETL (management command), ETLEjecucionRepo,
-     vistas de supervision via cursor sobre etl_runs
+   - DisparadorETL (management command), PipelineExecutionRepo,
+     vistas de supervision via cursor sobre pipeline_runs
  * - apps.monitoring
-   - Consultas directas a etl_runs; metricas de calidad de datos
+   - Consultas directas a pipeline_runs; metricas de calidad de datos
 
 ----
 
-Acceso a Datos — etl_runs (Almacen de Datos)
-============================================
+Acceso a Datos — pipeline_runs (Almacen de Datos)
+=================================================
 
 El ETL no usa el ORM del backend para persistir ejecuciones. El estado
-se almacena directamente en la tabla ``etl_runs`` de Almacen de Datos,
+se almacena directamente en la tabla ``pipeline_runs`` de Almacen de Datos,
 accedida via ``cursor.execute`` / ``cursor.callproc``.
 
 **DSC_MOD_005_etl_runs** — Tabla de registro de ejecuciones
@@ -42,7 +42,7 @@ accedida via ``cursor.execute`` / ``cursor.callproc``.
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
 
-**ETLEjecucionRepo** — Repositorio Python sobre cursor
+**PipelineExecutionRepo** — Repositorio Python sobre cursor
 
 .. note::
 
@@ -66,10 +66,10 @@ APIs Expuestas
    - Descripcion
  * - GET
    - /api/v1/etl/executions
-   - Listar filas de etl_runs
+   - Listar filas de pipeline_runs
  * - GET
    - /api/v1/etl/executions/{id}
-   - Detalle de ejecucion en etl_runs
+   - Detalle de ejecucion en pipeline_runs
  * - GET
    - /api/v1/etl/availability
    - Disponibilidad de datos (base_ivr_*)

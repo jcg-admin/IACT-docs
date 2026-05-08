@@ -33,7 +33,7 @@ indican guarda basada en funcion RBAC del JWT activo.
  object ": AuthEndpoint" as AuthEndpoint
  object ": DashboardEndpoint" as DashboardEndpoint
  object ": SegmentResolver" as SegmentResolver
- object ": ServicioReportes" as ServicioReportes
+ object ": ReportingService" as ReportingService
  object ": DisparadorETL" as ProcesoETL
  object "AutenticacionFallida" as AutenticacionFallida
 
@@ -43,12 +43,12 @@ indican guarda basada en funcion RBAC del JWT activo.
  AuthEndpoint --> DashboardEndpoint : 4 *[status==TRUE]: dashboard_data()
  DashboardEndpoint --> SegmentResolver : 5 *[view_dashboard]: segments_for(user_id)
  SegmentResolver --> DashboardEndpoint : 6: segmentos
- DashboardEndpoint --> ServicioReportes : 7 *[view_dashboard]: callproc(sp_rpt_centros_xsegmento)
- ServicioReportes --> DashboardEndpoint : 8: KPIs IVR
+ DashboardEndpoint --> ReportingService : 7 *[view_dashboard]: callproc(sp_rpt_centros_xsegmento)
+ ReportingService --> DashboardEndpoint : 8: KPIs IVR
  DashboardEndpoint --> UserRBAC : 9: dashboard_mostrado
  UserRBAC --> DashboardEndpoint : 10 *[view_reports]: reporte(trimestre)
- DashboardEndpoint --> ServicioReportes : 11 *[view_reports]: callproc(sp_rpt_*)
- ServicioReportes --> DashboardEndpoint : 12: rows_reporte
+ DashboardEndpoint --> ReportingService : 11 *[view_reports]: callproc(sp_rpt_*)
+ ReportingService --> DashboardEndpoint : 12: rows_reporte
  DashboardEndpoint --> UserRBAC : 13: reporte_mostrado
  UserRBAC --> ETL : 14 *[view_pipeline_status]: disparar_etl(trimestre)
  ETL --> ETL : 15: CALL sp_etl_maestro(trimestre)

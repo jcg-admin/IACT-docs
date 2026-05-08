@@ -28,7 +28,7 @@ módulo del catálogo modular.
 
      package "UC_ACC (9 UCs)" {
        usecase "Asignar funciones"   as ASIGNAR_FUNCIONES_A_USUARIO
-       usecase "Gestionar SoD"       as GESTIONAR_REGLAS_SOD
+       usecase "Gestionar separacion de deberes"       as GESTIONAR_REGLAS_SEPARACION
      }
 
      package "UC_PERM (10 UCs)" {
@@ -64,7 +64,7 @@ módulo del catálogo modular.
    Supervisor --> EJECUTAR_PROCEDIMIENTO_RPT
    Supervisor --> RECONOCER_ALERTA
    AdminAcceso         --> ASIGNAR_FUNCIONES_A_USUARIO
-   AdminAcceso         --> GESTIONAR_REGLAS_SOD
+   AdminAcceso         --> GESTIONAR_REGLAS_SEPARACION
    AdminPipeline         --> PASO_AUTENTICACION
    AdminPipeline         --> GESTION_PIPELINE_ETL
    Auditor    --> CONSULTAR_AUDITORIA

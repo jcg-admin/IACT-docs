@@ -7,167 +7,167 @@ ERD consolidado
    title IACT — ERD snapshot consolidado (2026-04-30)
 
    ' === RBAC ===
-   entity Usuario {
-     * usuario_id : int <<PK>>
+   entity User {
+     * user_id : int <<PK>>
      --
      * username : varchar(100) <<UQ>>
      * email : varchar(150) <<UQ>>
-     activo : boolean
-     creado_en : datetime
+     active : boolean
+     created_at : datetime
    }
 
-   entity Grupo {
-     * grupo_id : int <<PK>>
+   entity Group {
+     * group_id : int <<PK>>
      --
-     * nombre : varchar(50) <<UQ>>
-     descripcion : varchar(200)
-     creado_en : datetime
+     * name : varchar(50) <<UQ>>
+     description : varchar(200)
+     created_at : datetime
    }
 
-   entity Funcion {
-     * funcion_id : varchar(100) <<PK>>
+   entity Function {
+     * function_id : varchar(100) <<PK>>
      --
-     * nombre : varchar(150)
-     categoria : varchar(50) <<IDX>>
+     * name : varchar(150)
+     category : varchar(50) <<IDX>>
    }
 
-   entity Asignacion {
-     * asignacion_id : int <<PK>>
+   entity Assignment {
+     * assignment_id : int <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * grupo_id : int <<FK>>
-     * fecha_alta : datetime <<IDX>>
-     fecha_baja : datetime
-     asignado_por : int <<FK>>
+     * user_id : int <<FK>>
+     * group_id : int <<FK>>
+     * start_date : datetime <<IDX>>
+     end_date : datetime
+     assigned_by : int <<FK>>
    }
 
-   entity GrupoFuncion {
-     * grupo_id : int <<PK>> <<FK>>
-     * funcion_id : varchar(100) <<PK>> <<FK>>
+   entity GroupFunction {
+     * group_id : int <<PK>> <<FK>>
+     * function_id : varchar(100) <<PK>> <<FK>>
      --
-     fecha_asignacion : datetime
-     adr_aprobacion : varchar(100)
+     assignment_date : datetime
+     adr_approval : varchar(100)
    }
 
-   entity ReglaSoD {
-     * regla_id : int <<PK>>
+   entity SeparationRule {
+     * rule_id : int <<PK>>
      --
-     * nombre : varchar(100) <<UQ>>
-     descripcion : varchar(300)
+     * name : varchar(100) <<UQ>>
+     description : varchar(300)
    }
 
-   entity ReglaSoDFuncion {
-     * regla_id : int <<PK>> <<FK>>
-     * funcion_id : varchar(100) <<PK>> <<FK>>
+   entity SeparationRuleFunction {
+     * rule_id : int <<PK>> <<FK>>
+     * function_id : varchar(100) <<PK>> <<FK>>
    }
 
    ' === ETL ===
-   entity VentanaETL {
-     * ventana_id : int <<PK>>
+   entity ETLWindow {
+     * window_id : int <<PK>>
      --
-     * inicio : datetime
-     * fin : datetime
-     estado : varchar(20)
+     * start : datetime
+     * end : datetime
+     state : varchar(20)
    }
 
-   entity EjecucionETL {
-     * ejecucion_etl_id : int <<PK>>
+   entity ETLExecution {
+     * etl_execution_id : int <<PK>>
      --
-     * ventana_id : int <<FK>>
-     usuario_id : int <<FK>>
-     * estado : varchar(20)
-     * inicio : datetime
-     fin : datetime
+     * window_id : int <<FK>>
+     user_id : int <<FK>>
+     * state : varchar(20)
+     * start : datetime
+     end : datetime
    }
 
-   entity ErrorETL {
-     * ejecucion_etl_id : int <<PK>> <<FK>>
+   entity ETLError {
+     * etl_execution_id : int <<PK>> <<FK>>
      * error_seq : int <<PK>>
      --
-     * tipo_error : varchar(50)
-     mensaje : text
+     * error_type : varchar(50)
+     message : text
    }
 
-   entity RegistroIngesta {
-     * ejecucion_etl_id : int <<PK>> <<FK>>
-     * ingesta_seq : int <<PK>>
+   entity IngestRecord {
+     * etl_execution_id : int <<PK>> <<FK>>
+     * ingest_seq : int <<PK>>
      --
-     * tabla_destino : varchar(100)
-     filas_insertadas : int
+     * target_table : varchar(100)
+     rows_inserted : int
    }
 
    ' === Reportería ===
-   entity Reporte {
-     * reporte_id : int <<PK>>
+   entity Report {
+     * report_id : int <<PK>>
      --
-     * tipo : varchar(50)
-     * nombre : varchar(150)
-     creado_por : int <<FK>>
-     creado_en : datetime
+     * type : varchar(50)
+     * name : varchar(150)
+     created_by : int <<FK>>
+     created_at : datetime
    }
 
-   entity TareaExport {
-     * tarea_id : int <<PK>>
+   entity ExportTask {
+     * task_id : int <<PK>>
      --
-     * reporte_id : int <<FK>>
-     * solicitado_por : int <<FK>>
-     * estado : varchar(20)
-     formato : varchar(10)
-     solicitado_en : datetime
-     completado_en : datetime
+     * report_id : int <<FK>>
+     * requested_by : int <<FK>>
+     * state : varchar(20)
+     format : varchar(10)
+     requested_at : datetime
+     completed_at : datetime
    }
 
    ' === Auditoría ===
-   entity TipoEvento {
-     * tipo_id : int <<PK>>
+   entity EventType {
+     * type_id : int <<PK>>
      --
-     * nombre : varchar(50) <<UQ>>
+     * name : varchar(50) <<UQ>>
    }
 
-   entity EventoAuditoria {
-     * evento_id : bigint <<PK>>
+   entity AuditEvent {
+     * event_id : bigint <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * tipo_id : int <<FK>>
+     * user_id : int <<FK>>
+     * type_id : int <<FK>>
      * timestamp : datetime <<IDX>>
-     reporte_id : int <<FK>>
-     ejecucion_etl_id : int <<FK>>
+     report_id : int <<FK>>
+     etl_execution_id : int <<FK>>
      payload : text
-     ip_origen : varchar(45)
+     source_ip : varchar(45)
    }
 
-   entity DetalleAuditoria {
-     * evento_id : bigint <<PK>> <<FK>>
-     * detalle_seq : int <<PK>>
+   entity AuditDetail {
+     * event_id : bigint <<PK>> <<FK>>
+     * detail_seq : int <<PK>>
      --
-     * campo : varchar(100)
-     valor_anterior : text
-     valor_nuevo : text
+     * field : varchar(100)
+     previous_value : text
+     new_value : text
    }
 
    ' === Relaciones RBAC ===
-   Usuario ||..o{ Asignacion : "es asignado en"
-   Grupo ||..o{ Asignacion : contiene
-   Grupo ||--o{ GrupoFuncion : agrupa
-   Funcion ||--o{ GrupoFuncion : "esta en"
-   ReglaSoD ||--|{ ReglaSoDFuncion : restringe
-   Funcion ||--o{ ReglaSoDFuncion : "aparece en"
+   User ||..o{ Assignment : "is assigned in"
+   Group ||..o{ Assignment : contains
+   Group ||--o{ GroupFunction : groups
+   Function ||--o{ GroupFunction : "is in"
+   SeparationRule ||--|{ SeparationRuleFunction : restricts
+   Function ||--o{ SeparationRuleFunction : "appears in"
 
    ' === Relaciones ETL ===
-   VentanaETL ||..o{ EjecucionETL : "contiene (no-id)"
-   EjecucionETL ||--o{ ErrorETL : "produce (id)"
-   EjecucionETL ||--o{ RegistroIngesta : "produce (id)"
-   Usuario ||..o{ EjecucionETL : "dispara (manual)"
+   ETLWindow ||..o{ ETLExecution : "contains (no-id)"
+   ETLExecution ||--o{ ETLError : "produces (id)"
+   ETLExecution ||--o{ IngestRecord : "produces (id)"
+   User ||..o{ ETLExecution : "triggers (manual)"
 
    ' === Relaciones Reportería ===
-   Usuario ||..o{ Reporte : crea
-   Reporte ||..o{ TareaExport : "se exporta como"
-   Usuario ||..o{ TareaExport : solicita
+   User ||..o{ Report : creates
+   Report ||..o{ ExportTask : "is exported as"
+   User ||..o{ ExportTask : requests
 
    ' === Relaciones Auditoría ===
-   TipoEvento ||--o{ EventoAuditoria : clasifica
-   Usuario ||..o{ EventoAuditoria : genera
-   EventoAuditoria ||--o{ DetalleAuditoria : detalla
-   Reporte ||..o{ EventoAuditoria : "origina (opcional)"
-   EjecucionETL ||..o{ EventoAuditoria : "origina (opcional)"
+   EventType ||--o{ AuditEvent : classifies
+   User ||..o{ AuditEvent : generates
+   AuditEvent ||--o{ AuditDetail : details
+   Report ||..o{ AuditEvent : "originates (optional)"
+   ETLExecution ||..o{ AuditEvent : "originates (optional)"
    @enduml

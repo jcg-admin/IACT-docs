@@ -37,6 +37,8 @@ high-level, vistas, modelos de datos y diagramas.
  :caption: Analisis arquitectonicos
 
  matriz-dependencias-uc-iact
+ cache-strategy
+ scheduled-tasks
 
 .. toctree::
  :maxdepth: 2

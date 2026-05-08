@@ -47,7 +47,7 @@ BReq-004: Cumplimiento de Seguridad y Auditoría
 El sistema IACT DEBE garantizar que **todo acceso a datos
 operativos y toda acción administrativa** se realice bajo
 un control de acceso basado en roles (RBAC) auditable,
-con segregación de funciones (SoD) y registro inmutable
+con segregación de funciones (separation of duties) y registro inmutable
 append-only de cada evento de seguridad, garantizando
 **0 accesos no autorizados** y trazabilidad completa para
 auditorías regulatorias.
@@ -75,7 +75,7 @@ BReq-004 se considera satisfecho cuando:
    (medido vía AuditEvent).
 2. 100% de eventos privilegiados generan AuditEvent
    inmutable (CNST-025).
-3. Las reglas SoD impiden conflictos críticos en tiempo
+3. Las reglas de separación impiden conflictos críticos en tiempo
    de asignación (no post-hoc).
 4. Auditor externo reproduce trazabilidad completa para
    cualquier evento solicitado.
@@ -87,7 +87,7 @@ BReq-004 se considera satisfecho cuando:
 
 - :doc:`/requisitos/reglas-negocio/br-005-sesion-unica-por-usuario`
 - :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/reglas-negocio/br-008-auditoria-accesos`
 - :doc:`/requisitos/reglas-negocio/br-010-auditoria-inmutable`
 - :doc:`/requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos`

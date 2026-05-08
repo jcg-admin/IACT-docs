@@ -8,7 +8,7 @@ Parte 6 — Requisitos no funcionales
   catalog ≤ 3 s.
 - Confiabilidad: ≥ 99.9%; operacion critica
   sobre el catalogo base del RBAC.
-- Seguridad: solo AGR-009. Toda escritura
+- Seguridad: solo AGR-010. Toda escritura
   auditada con alta criticidad (CNST-025).
 - Trazabilidad: codename inmutable tras
   creacion; description/scope actualizables.

@@ -8,12 +8,12 @@ Parte 3 — Flujo principal
 =====================================
 
 PASO 1 — POST /api/admin/system-groups/{id}/functions/.
-PASO 2 — JWT + verificar AGR-009.
+PASO 2 — JWT + verificar AGR-010.
 PASO 3 — Verificar que FunctionGroup.is_system=True.
 PASO 4 — Validar:
 
 - Funcion existe en catalogo activo (UC_ADM_02).
-- Funcion no genera conflicto SoD con otras
+- Funcion no genera conflicto de separacion con otras
   funciones del grupo (UC_ADM_01).
 - Funcion no ya asignada al grupo.
 
@@ -54,7 +54,7 @@ de effective_set resultante (informativo, sin cambio).
    - Guard
    - 029
  * - 4
-   - Validar SoD + exist
+   - Validar separacion + exist
    - Validator
    - 030
  * - 5

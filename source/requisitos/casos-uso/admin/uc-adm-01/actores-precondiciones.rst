@@ -7,21 +7,21 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **AGR-009** ``admin_sistema`` — unico actor autorizado
-- **SoDRuleRepo**
+- **AGR-010** ``system_admin`` — unico actor autorizado
+- **SeparationRuleRepo**
 - **EnforcementEngine** (consume reglas activas)
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC verificado. Actor tiene AGR-009 asignado.
+Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 
 2.3 Postcondiciones
 ===================
 
-- SoDRule creada / actualizada / desactivada.
-- Audit ``SOD_RULE_CREATED`` / ``SOD_RULE_UPDATED`` /
-  ``SOD_RULE_DISABLED`` emitido.
+- SeparationRule creada / actualizada / desactivada.
+- Audit ``SEPARATION_RULE_CREATED`` / ``SEPARATION_RULE_UPDATED`` /
+  ``SEPARATION_RULE_DISABLED`` emitido.
 - EnforcementEngine recarga reglas activas.
 
 2.4 Datos de entrada
@@ -29,19 +29,19 @@ Auth + RBAC verificado. Actor tiene AGR-009 asignado.
 
 ::
 
-   POST /api/admin/sod-rules/
+   POST /api/admin/separation-rules/
    body: {
      name, group_a: [function_codenames],
      group_b: [function_codenames],
      rationale
    }
 
-   PATCH /api/admin/sod-rules/{id}/
+   PATCH /api/admin/separation-rules/{id}/
    body: { name?, group_a?, group_b?, rationale? }
 
-   POST /api/admin/sod-rules/{id}/disable/
+   POST /api/admin/separation-rules/{id}/disable/
 
 2.5 Datos de salida
 ===================
 
-SoDRule completa con estado y version.
+SeparationRule completa con estado y version.

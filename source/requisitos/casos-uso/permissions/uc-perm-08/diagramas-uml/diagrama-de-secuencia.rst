@@ -9,7 +9,7 @@
  actor "User" as User
  participant "Frontend" as Frontend
  participant "MenuView" as Menuview
- participant "MenuBuilder" as Menubuilder
+ participant "MenuAssembler" as Menubuilder
  participant "PermSvc" as Permsvc
  participant "Registry" as Registry
  participant "MenuCache" as Menucache

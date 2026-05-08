@@ -29,7 +29,7 @@ revocacion siempre gana — P-08 fail-closed.
 
 User no esta en ningun AGR que otorgue
 ``view_kpi_dashboard``, pero un Admin le
-concedio acceso temporal (UC_ACC_06).
+concedio acceso temporal (UC_PERM_03).
 
 Resultado: ``allowed = true``,
 ``origin = GRANTED_EXCEPTIONAL``,

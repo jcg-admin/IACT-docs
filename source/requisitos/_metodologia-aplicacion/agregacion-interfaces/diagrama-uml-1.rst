@@ -6,26 +6,26 @@ Diagrama UML
    @startuml
    allowmixing
 
-   class Documento {
-     - parrafos : List<Parrafo>
-     - titulo : String
-     + modificarParrafo(pos, contenido)
-     + agregarParrafo(contenido)
-     + getContenidoParrafo(pos) : String
-     + getNumeroParrafos() : int
+   class Document {
+     - paragraphs : List<Paragraph>
+     - title : String
+     + modifyParagraph(pos, content)
+     + addParagraph(content)
+     + getParagraphContent(pos) : String
+     + getParagraphCount() : int
    }
 
-   class Parrafo {
-     - contenido : String
-     - posicion : int
-     ~ getContenido() : String
-     ~ modificarContenido(nuevo : String)
+   class Paragraph {
+     - content : String
+     - position : int
+     ~ getContent() : String
+     ~ modifyContent(new : String)
    }
 
-   Documento *-- "1..*" Parrafo
-   note right of Parrafo
+   Document *-- "1..*" Paragraph
+   note right of Paragraph
      No existe independientemente.
-     Pertenece a un unico Documento.
-     Se destruye con el Documento.
+     Pertenece a un unico Document.
+     Se destruye con el Document.
    end note
    @enduml

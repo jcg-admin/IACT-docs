@@ -46,7 +46,7 @@ RACI RBAC IACT — RACI sobre Gobernanza
    - A
    - C
    - C
- * - Agregar regla SoD
+ * - Agregar regla de separacion
    - —
    - C
    - —

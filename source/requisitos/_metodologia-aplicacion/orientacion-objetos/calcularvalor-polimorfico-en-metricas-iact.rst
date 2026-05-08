@@ -5,35 +5,35 @@
 
    @startuml
 
-   abstract class Metrica {
-     - nombre : String
-     - segmento : SegmentoDatos
-     + calcularValor(periodo : Rango) : Decimal
+   abstract class Metric {
+     - name : String
+     - segment : DataSegment
+     + calculateValue(period : Range) : Decimal
    }
 
-   class TasaAbandono {
-     + calcularValor(periodo : Rango) : Decimal
+   class AbandonmentRate {
+     + calculateValue(period : Range) : Decimal
    }
 
-   class TiempoPromedioEspera {
-     + calcularValor(periodo : Rango) : Decimal
+   class AverageWaitTime {
+     + calculateValue(period : Range) : Decimal
    }
 
-   class IndiceEficiencia {
-     - peso_atendidas : Decimal
-     - peso_tiempo : Decimal
-     + calcularValor(periodo : Rango) : Decimal
+   class EfficiencyIndex {
+     - answered_weight : Decimal
+     - time_weight : Decimal
+     + calculateValue(period : Range) : Decimal
    }
 
-   Metrica <|-- TasaAbandono
-   Metrica <|-- TiempoPromedioEspera
-   Metrica <|-- IndiceEficiencia
+   Metric <|-- AbandonmentRate
+   Metric <|-- AverageWaitTime
+   Metric <|-- EfficiencyIndex
 
-   note right of Metrica
+   note right of Metric
      Polimorfismo (BR_016, BR_017, BR_018):
-       TasaAbandono           → abandonadas / total × 100
-       TiempoPromedioEspera   → SUM(esperas) / N
-       IndiceEficiencia       → fórmula compuesta
-                                ponderada por servicio
+       AbandonmentRate    → abandoned / total × 100
+       AverageWaitTime    → SUM(waits) / N
+       EfficiencyIndex    → fórmula compuesta
+                            ponderada por servicio
    end note
    @enduml

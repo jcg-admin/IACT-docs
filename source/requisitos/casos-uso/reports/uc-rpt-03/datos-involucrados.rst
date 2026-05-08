@@ -45,7 +45,7 @@ solo existe Q3 2025 — ver D-ETL-009).
 7.4 Datos NO involucrados
 ==========================
 
-- BD operativa (PostgreSQL — tablas de usuarios, RBAC).
+- BD operativa (repositorio operacional — tablas de usuarios, RBAC).
 - PII: numeros de telefono individuales.
 - Audio / transcripciones.
 - Datos de agentes o colas de call center.

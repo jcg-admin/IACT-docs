@@ -7,7 +7,16 @@ Modelo RBAC IACT — Mapeo Funciones UC
 10. MAPEO FUNCIONES → CASOS DE USO
 ==================================
 
+.. note:: Scope del mapeo (v5.6.x current — 67 funciones)
 
+ La tabla incluye las **67 funciones in-scope**: 64 baseline v5.6.0
+ (modulos 3.1–3.8 + 3.11 con 3 funciones originales) +
+ 3 v5.6.x extension (MOD_Admin §3.11 ampliado a 6 funciones).
+ Las **13 funciones reservadas** de MOD_Operator y MOD_Supervision
+ (extension points open-closed) se documentan en sus respectivos
+ catalogos pero quedan fuera del mapeo operativo. Ver
+ :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones` §3.9,
+ §3.10 y §3.11.
 
 10.1 Tabla Completa
 -------------------
@@ -74,13 +83,28 @@ Modelo RBAC IACT — Mapeo Funciones UC
    - Access
  * - view_separation_rules
    - UC_ADM_01
-   - Admin
+   - Access
+ * - create_function_group
+   - UC_PERM_05
+   - Access
+ * - assign_functions_to_group
+   - UC_PERM_06
+   - Access
+ * - grant_exceptional_permission
+   - UC_PERM_03
+   - Access
+ * - revoke_exceptional_permission
+   - UC_PERM_04
+   - Access
+ * - revoke_function_group
+   - UC_PERM_02
+   - Access
  * - update_separation_rule
    - UC_ADM_01
-   - Admin
+   - Access
  * - disable_separation_rule
    - UC_ADM_01
-   - Admin
+   - Access
  * - view_pipeline_status
    - UC-050
    - Pipeline
@@ -116,6 +140,15 @@ Modelo RBAC IACT — Mapeo Funciones UC
    - Reports
  * - view_charts
    - UC-027, UC-028, UC-029
+   - Reports
+ * - schedule_report
+   - UC_RPT_07
+   - Reports
+ * - save_view
+   - UC_RPT_10
+   - Reports
+ * - share_report
+   - UC_RPT_11
    - Reports
  * - view_alerts
    - UC-039
@@ -168,7 +201,7 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - search_logs
    - uc-log-03
    - Logs
- * - view_etl_logs
+ * - view_pipeline_logs
    - uc-log-02
    - Logs
  * - view_infrastructure_logs
@@ -180,7 +213,21 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - view_technical_metrics
    - uc-log-07
    - Logs
- * - read_own_mailbox
-   - UC_OPR_10
-   - Operator
-
+ * - create_separation_rule
+   - UC_ADM_01
+   - Admin
+ * - manage_function_catalog
+   - UC_ADM_02
+   - Admin
+ * - assign_functions_to_group
+   - UC_ADM_03, UC_PERM_06
+   - Admin
+ * - manage_menu_catalog
+   - UC_ADM_04
+   - Admin (v5.6.x extension)
+ * - manage_menu_lifecycle
+   - UC_ADM_05
+   - Admin (v5.6.x extension)
+ * - manage_critical_function_flag
+   - (sin UC — gobernanza via migration)
+   - Admin (v5.6.x extension, sin titular runtime, TD-RBAC-03)

@@ -7,15 +7,17 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **Base Analitica IVR** — datos de llamadas abandonadas
-  por segmento, generados por el ETL y consultados via
-  Servicio de Reportes.
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_detalle`` poblado por el ETL. Se accede
+  exclusivamente via ``cursor.callproc('sp_rpt_llamadas_
+  abandonadas', [period, segments])``; el SP entrega filas
+  pre-agregadas por queue_id / segmento con counts y trend.
 
-7.2 Datos retornados por el Servicio de Reportes
-=================================================
+7.2 Datos retornados por el SP
+==============================
 
-El Servicio de Reportes (``sp_rpt_llamadas_abandonadas``)
-retorna para el trimestre indicado:
+``sp_rpt_llamadas_abandonadas`` (BD_IVR) retorna para el
+trimestre / periodo indicado:
 
 ::
 

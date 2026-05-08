@@ -28,12 +28,20 @@ tener un ``AccessGroup`` primario y asignaciones adicionales via
  @startuml
 
  class AccessGroup {
+   + id : UUID                  <<technical PK>>
    + agr_id : String          <<AGR-001..012>>
-   + name : String            <<p.ej. agr_supervisor>>
+   + name : String            <<p.ej. quality_supervisor_group>>
    + profile_description : String
+   + is_system : Boolean      <<true para AGR-001..012, false para custom>>
+   + state : AccessGroupState
    --
    + assign_to_user()        <<assign_function_groups>>
    + revoke_from_user()
+ }
+
+ enum AccessGroupState {
+   ACTIVE
+   INACTIVE
  }
 
  @enduml

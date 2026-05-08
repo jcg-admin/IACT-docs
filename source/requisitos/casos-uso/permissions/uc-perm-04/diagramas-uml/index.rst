@@ -10,4 +10,4 @@ Parte 8 — Diagramas
    diagrama-de-caso-de-uso
    diagrama-de-secuencia
    diagrama-de-actividad
-   estados-exceptionalpermission
+   diagrama-de-estados-exceptionalpermission

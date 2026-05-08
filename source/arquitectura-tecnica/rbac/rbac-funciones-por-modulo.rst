@@ -46,7 +46,7 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
    artifact "revoke_function_group" as FUNCION_REVOCAR_GRUPO_FUNCION
    artifact "create_function_group" as FUNCION_CREAR_GRUPO_FUNCION
    artifact "assign_functions_to_group" as FUNCION_ASIGNAR_FUNCIONES_A_GRUPO
-   artifact "view_separation_rules" as FUNCION_VER_REGLAS_SOD
+   artifact "view_separation_rules" as FUNCION_VER_REGLAS_SEPARACION
    artifact "view_audit_log" as FUNCION_VER_AUDITORIA
    artifact "view_own_navigation" as FUNCION_VER_NAVEGACION_PROPIA
  }
@@ -85,7 +85,7 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
    artifact "export_audit_log" as FUNCION_EXPORTAR_AUDITORIA
    artifact "generate_compliance_report" as FUNCION_GENERAR_REPORTE_COMPLIANCE
    artifact "view_application_logs" as FUNCION_VER_LOGS_APLICACION
-   artifact "view_etl_logs" as FUNCION_VER_LOGS_ETL
+   artifact "view_pipeline_logs" as FUNCION_VER_LOGS_ETL
    artifact "search_logs" as FUNCION_BUSCAR_LOGS
    artifact "export_logs" as FUNCION_EXPORTAR_LOGS
    artifact "view_infrastructure_logs" as FUNCION_VER_LOGS_INFRAESTRUCTURA

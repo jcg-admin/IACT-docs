@@ -47,7 +47,7 @@ son las siguientes:
   datos del Repositorio IVR (``tbl_historico_*``) y los carga en la
   Base Analitica IVR (``base_ivr_detalle``, ``base_ivr_clientes``)
   via los stored procedures ``sp_etl_*``. El registro de cada
-  ejecucion se almacena en la tabla ``etl_runs`` de Almacen de Datos con
+  ejecucion se almacena en la tabla ``pipeline_runs`` de Almacen de Datos con
   estados ``en_ejecucion``, ``exitoso`` y ``fallido``.
 
 **Consulta de Logs** (MOD_Logs)
@@ -71,7 +71,7 @@ son las siguientes:
 **Alertas y Notificaciones**
   Notificaciones automaticas sobre umbrales criticos de tasa de
   abandono (BR-016: >30%), estado del pipeline ETL (fallo en
-  ``etl_runs``) y ventana de sincronizacion ETL (CNST-008).
+  ``pipeline_runs``) y ventana de sincronizacion ETL (CNST-008).
 
 **Resolver Segmento** (UC_INC_RPT_01)
   Comportamiento comun incluido por todos los reportes: mapea los

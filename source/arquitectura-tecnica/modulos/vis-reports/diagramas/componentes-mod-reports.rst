@@ -23,7 +23,7 @@ Diagrama de componentes — MOD_Reports
 
  component "apps.reports\n(API views)" as MODULO_REPORTES
  component "SegmentResolver\n(DID_MAP)" as Segmentresolver
- component "ServicioReportes\n(cursor.callproc)" as Servicioreportes
+ component "ReportingService\n(cursor.callproc)" as Servicioreportes
  component "apps.exports\n(CSV/Excel)" as AppsExports
  component "InternalMailbox" as Internalmailbox
 

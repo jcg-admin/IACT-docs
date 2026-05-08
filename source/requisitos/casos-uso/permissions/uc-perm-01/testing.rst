@@ -74,15 +74,15 @@ Parte 12 — Testing
    THEN  ZERO Assignment creado
    AND   ZERO AuditEvent
 
-12.2.5 Preview detecta SoD violations
+12.2.5 Preview detecta violaciones de separacion
 -------------------------------------
 
 ::
 
-   GIVEN AGR con funcion en conflicto SoD
+   GIVEN AGR con funcion en conflicto de separacion
    WHEN  preview
    THEN  estimated_sod_violations > 0
-   AND   warnings lista regla SoD
+   AND   warnings lista regla de separacion
 
 12.2.6 Cache catalogo invalidate post-asignacion
 ------------------------------------------------
@@ -196,7 +196,7 @@ confirmar
    THEN  modal muestra:
          - functions_to_add_count
          - functions_already_present_count
-         - warnings de SoD si aplican
+         - warnings de separacion si aplican
 
 12.4.3 Boton oculto sin permiso (CA-PERM-06)
 --------------------------------------------

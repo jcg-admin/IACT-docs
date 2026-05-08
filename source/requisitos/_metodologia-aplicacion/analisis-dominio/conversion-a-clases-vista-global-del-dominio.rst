@@ -6,46 +6,46 @@
    @startuml
 
    package "Acceso & RBAC" as MODULO_ACCESO_RBAC {
-     class Usuario
-     class Sesion
-     class SegmentoDatos
-     class Funcion
-     class Grupo
-     class PermisoExcepcional
+     class User
+     class Session
+     class DataSegment
+     class Function
+     class Group
+     class ExceptionalPermission
    }
 
    package "Llamadas / IVR" as MODULO_LLAMADAS_IVR {
-     class Llamada
-     class Centro
-     class Campana
-     class Servicio
+     class Call
+     class Center
+     class Campaign
+     class Service
      class Region
    }
 
    package "Reportes / Métricas" as MODULO_REPORTES {
-     class Reporte
+     class Report
      class Dashboard
-     class Metrica
-     class Filtro
+     class Metric
+     class Filter
    }
 
    package "Pipeline ETL" as MODULO_ETL {
-     class EjecucionETL
-     class ErrorETL
-     class FilaCargada
+     class ETLExecution
+     class ETLError
+     class LoadedRow
      class Scheduler
    }
 
    package "Alertas / Notificaciones" as MODULO_ALERTAS {
-     class Alerta
-     class Umbral
-     class Suscripcion
-     class BuzonInterno
+     class Alert
+     class Threshold
+     class Subscription
+     class InternalMailbox
    }
 
    package "Auditoría" as MODULO_AUDITORIA {
-     class EventoAuditoria
-     class AuditoriaPermiso
-     class AuditoriaAcceso
+     class AuditEvent
+     class PermissionAudit
+     class AccessAudit
    }
    @enduml

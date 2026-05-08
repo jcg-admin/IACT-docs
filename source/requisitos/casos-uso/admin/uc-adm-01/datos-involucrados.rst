@@ -4,7 +4,7 @@
 Parte 7 — Datos involucrados
 ================================
 
-7.1 SoDRule
+7.1 SeparationRule
 ===========
 
 .. list-table::
@@ -36,7 +36,7 @@ Parte 7 — Datos involucrados
    - incrementado por update
  * - created_by
    - int
-   - AGR-009 user_id
+   - AGR-010 user_id
  * - created_at, updated_at
    - timestamp
    -
@@ -44,16 +44,16 @@ Parte 7 — Datos involucrados
 7.2 AuditEvent generados
 ========================
 
-- ``SOD_RULE_CREATED``
-- ``SOD_RULE_UPDATED``
-- ``SOD_RULE_DISABLED``
-- ``SOD_RULE_REACTIVATED``
+- ``SEPARATION_RULE_CREATED``
+- ``SEPARATION_RULE_UPDATED``
+- ``SEPARATION_RULE_DISABLED``
+- ``SEPARATION_RULE_REACTIVATED``
 
 7.3 Indices
 ===========
 
-- ``SoDRule(state)`` — enforcement filtra por ACTIVE.
-- ``SoDRule(name)`` — unicidad.
+- ``SeparationRule(state)`` — enforcement filtra por ACTIVE.
+- ``SeparationRule(name)`` — unicidad.
 
 7.4 Datos NO involucrados
 =========================

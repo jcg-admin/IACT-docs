@@ -63,7 +63,7 @@ Principio central preservado en v5.x:
 Razones del enfoque granular:
 
 1. Seguridad maxima (principio de menor privilegio).
-2. SoD posible (separar funciones conflictivas).
+2. Separacion posible (separar funciones conflictivas).
 3. Auditoria precisa (saber exactamente que puede hacer cada quien).
 4. Escalabilidad (crece sin refactorizar).
 5. Cumplimiento (SOX, ISO 27001).
@@ -204,9 +204,9 @@ preservo el principio y simplifico el catalogo a 42 funciones +
  * - Namespaces
    - Si (``identity:``, ``epm:``, ``base``)
    - **No** (modulos flat)
- * - SoD
+  * - Separacion de deberes
    - SSD con cardinalidad
-   - **3 reglas SOD-001/002/003**
+   - **3 reglas de separacion-001/002/003**
  * - Vocabulario
    - "Personas, Funciones, Capacidades"
    - **"Funcion / Function"** unico canonico (CNST-033)
@@ -218,7 +218,7 @@ preservo el principio y simplifico el catalogo a 42 funciones +
 
 - Principio "Sin Pretensiones" (sin etiquetas jerarquicas).
 - Granularidad funcional.
-- SoD declarativo.
+- Separacion declarativa.
 - Bundles -> AGR-001..010.
 - Auditoria explicita por funcion.
 

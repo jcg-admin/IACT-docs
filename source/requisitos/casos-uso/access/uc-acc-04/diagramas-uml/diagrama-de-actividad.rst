@@ -53,10 +53,10 @@
  :Expandir funciones del AGR;
  :Construir effective_post_assign
   = current ∪ agr_functions;
- :Evaluar SoDRules;
+ :Evaluar SeparationRules;
 
- if (SoD viola?) then (si)
-   :409 SOD_VIOLATION;
+ if (separacion viola?) then (si)
+   :409 SEPARATION_VIOLATION;
    :Audit AGR_ASSIGN_FAILED;
    stop
  else (no)

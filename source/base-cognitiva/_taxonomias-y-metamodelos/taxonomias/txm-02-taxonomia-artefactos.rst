@@ -316,7 +316,7 @@ ubicaciones y relaciones entre artefactos.
 
 **Formato:** Actor + Objetivo + Precondiciones + Flujos + Postcondiciones
 
-**Cantidad IACT:** 80 casos de uso (12 módulos, catálogo v5.5.0 — ver :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`)
+**Cantidad IACT:** 80 casos de uso (13 módulos UC: 9 RBAC activos + 1 NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed (OPR, SUP) + 1 sin RBAC (CLI); catálogo v5.6.0 — ver :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`)
 
 4.3 Requisito Funcional (FR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

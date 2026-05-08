@@ -26,7 +26,7 @@ Flujo de Enforcement RBAC
  participant "AuthGuard" as AuthGuard
  participant "FunctionCheck" as FunctionCheck
  database "AssignmentRepo" as AssignmentRepo
- participant "SoDValidator" as SoDValidator
+ participant "SeparationRuleValidator" as SeparationRuleValidator
  participant "Handler" as Handler
 
  Usuario -> Endpoint : HTTP request + JWT
@@ -41,10 +41,10 @@ Flujo de Enforcement RBAC
    alt funcion ausente
      FunctionCheck --> Usuario : 403 Forbidden
    else funcion presente
-     FunctionCheck -> SoDValidator : verificar SoD\n(no conflicto en conjunto)
-     alt viola SoD
-       SoDValidator --> Usuario : 409 SoD Violation
-     else SoD ok
+     FunctionCheck -> SeparationRuleValidator : verificar separacion\n(no conflicto en conjunto)
+     alt viola separacion de deberes
+       SeparationRuleValidator --> Usuario : 409 Separation Violation
+     else separacion ok
        FunctionCheck -> Handler : ejecutar handler
        Handler --> Usuario : 200 / 201 response
      end

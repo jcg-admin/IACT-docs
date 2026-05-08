@@ -10,7 +10,7 @@ Parte 3 — Flujo principal (Camino feliz)
  :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
  Parte 3. Los pasos backend (validar JWT,
  verificar ``assign_function_groups``,
- expandir AGR, validar SoD, INSERT
+ expandir AGR, validar separacion, INSERT
  Assignment, audit, mailbox, cache) son los
  mismos. Esta parte documenta el flujo
  desde la vista PERM.
@@ -31,7 +31,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 8   Validar JWT + RBAC (Backend)
    PASO 9   Validar User + AGR
    PASO 10  Idempotencia check
-   PASO 11  Expandir AGR + SoD
+   PASO 11  Expandir AGR + separacion
    PASO 12  INSERT Assignment AGR
    PASO 13  AuditEvent + InternalMessage
    PASO 14  Cache invalidate post-COMMIT

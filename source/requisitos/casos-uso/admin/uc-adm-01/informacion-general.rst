@@ -14,7 +14,7 @@ Parte 1 — Informacion general de UC_ADM_01
  * - **ID UC**
    - UC_ADM_01
  * - **Nombre**
-   - Gestionar Ciclo de Vida de Reglas SoD
+   - Gestionar Ciclo de Vida de Reglas de Separacion
  * - **Version spec**
    - 1.0.0
  * - **Modulo**
@@ -23,7 +23,7 @@ Parte 1 — Informacion general de UC_ADM_01
 1.2 Proposito
 =============
 
-UC_ADM_01 administra el ciclo de vida completo de las **reglas SoD**:
+UC_ADM_01 administra el ciclo de vida completo de las **reglas de separacion**:
 crear, actualizar parametros y activar/desactivar. Diferencia con
 UC_ACC_05 (vista operativa de reglas): este UC gestiona el modelo —
 que reglas EXISTEN — mientras UC_ACC_05 cubre la consulta/vista
@@ -39,7 +39,7 @@ agregar una 4a regla o modificar las existentes desde la aplicacion.
 1.3.1 IN
 --------
 
-- **Crear** nueva regla SoD (``create_separation_rule``): declarar
+- **Crear** nueva regla de separacion (``create_separation_rule``): declarar
   par de conjuntos de funciones mutuamente excluyentes, nombre,
   descripcion, scope.
 - **Actualizar** parametros de regla existente
@@ -60,7 +60,7 @@ agregar una 4a regla o modificar las existentes desde la aplicacion.
 --------------------------
 
 UC_ADM_01 es operacion de configuracion critica — modifica el modelo
-RBAC, no asignaciones. Requiere AGR-009 (admin_sistema). Toda
+RBAC, no asignaciones. Requiere AGR-010 (system_admin). Toda
 modificacion genera notificacion a stakeholders de seguridad.
 
 1.4 Trazabilidad inicial
@@ -71,23 +71,23 @@ modificacion genera notificacion a stakeholders de seguridad.
  :header-rows: 0
 
  * - **Reglas**
-   - BR-007 Separacion de Funciones (SoD)
+   - BR-007 Separacion de Funciones (separation of duties)
  * - **CNST**
-   - CNST-029 (modelo RBAC), CNST-030 (reglas SoD estaticas)
+   - CNST-029 (modelo RBAC), CNST-030 (reglas de separacion estaticas)
  * - **Funciones RBAC**
    - ``view_separation_rules``,
      ``create_separation_rule`` (NUEVA v5.6.0),
      ``update_separation_rule``,
      ``disable_separation_rule``
  * - **AGR actor**
-   - AGR-009 (admin_sistema — unico actor autorizado)
+   - AGR-010 (system_admin — unico actor autorizado)
  * - **UCs relacionados**
    - UC_ACC_05 (vista operativa),
      UC_ACC_01/04/PERM_03 (consumidores de enforcement)
  * - **Clase primaria**
-   - ``SoDRule``
+   - ``SeparationRule``
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/use-case-view/uc-admin`
- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+ :doc:`/arquitectura-tecnica/use-case-view/admin/index`
+ :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`

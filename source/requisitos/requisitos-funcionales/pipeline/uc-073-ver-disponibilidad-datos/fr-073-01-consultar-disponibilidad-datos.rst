@@ -48,7 +48,7 @@ FR-073.01: Consultar estado de frescura de los datos IVR disponibles
 
 **Descripción:**
 
- Valida JWT + view_data_availability. Consulta última ejecución exitosa para el trimestre indicado (default: trimestre activo). Calcula minutos_desde_etl = now() - finalizado_en. Estado_frescura: fresco (<720 min) / degradado (720-1440 min) / vencido (≥1440 min). Sin ejecución exitosa: estado_frescura=vencido.
+ Valida JWT + view_data_availability. Consulta última ejecución exitosa para el trimestre indicado (default: trimestre activo). Calcula minutos_desde_etl = now() - finished_at. Estado_frescura: fresco (<720 min) / degradado (720-1440 min) / vencido (≥1440 min). Sin ejecución exitosa: estado_frescura=vencido.
 
 ----
 

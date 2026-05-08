@@ -18,7 +18,7 @@
    usecase "Expandir AGRs\nen funciones" as GrupoAcceso
    usecase "Cargar permisos\nexcepcionales" as ExcepcionSistema
    usecase "Consolidar\n+ metadata origen" as CONSOLIDAR_METADATA
-   usecase "Detectar SoD\ninformativo" as ValidadorSoD
+   usecase "Detectar separacion\ninformativo" as ValidadorSeparacion
    usecase "Audit selectivo\nP-16" as AUDITORIA_SELECTIVA
  }
 
@@ -27,7 +27,7 @@
  UC_ACC_03 ..> AGR : <<include>>
  UC_ACC_03 ..> EXC : <<include>>
  UC_ACC_03 ..> CONSOLIDAR_METADATA : <<include>>
- UC_ACC_03 ..> SOD : <<include>>
+ UC_ACC_03 ..> VALIDAR_SEPARATION : <<include>>
  UC_ACC_03 ..> AUDITORIA_SELECTIVA : <<include>>
  Sistema --> AUDITORIA_SELECTIVA
  AUDITORIA_SELECTIVA --> view_audit_log
@@ -36,7 +36,7 @@
    3 fuentes: direct + AGR + excepcional
    deduplicacion + metadata por funcion
  end note
- note bottom of SOD
+ note bottom of VALIDAR_SEPARATION
    INFORMATIVO no bloqueo
    (UC_ACC_01 valida write-time)
  end note

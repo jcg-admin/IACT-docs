@@ -153,7 +153,7 @@ El admin puede crear **custom groups** dinamicamente via
 asignando capabilities especificas via
 :doc:`/requisitos/casos-uso/permissions/uc-perm-06/index`.
 
-Las reglas SoD (:doc:`cnst-030-reglas-de-separacion-de-funciones-sod`)
+Las reglas de separacion (:doc:`cnst-030-reglas-de-separacion-de-funciones`)
 aplican TANTO a system groups como a custom groups.
 
 2.2 Parametros
@@ -181,7 +181,7 @@ Ver subseccion 2.1.
  * - Modulo
    - Impacto
  * - MOD_Access
-   - Implementa modelo plano + 74 funciones atomicas
+   - Implementa modelo plano + 64 funciones atomicas activas
  * - (todos)
    - Consultan permisos sin jerarquia
 
@@ -270,7 +270,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
-   - :doc:`cnst-030-reglas-de-separacion-de-funciones-sod`, :doc:`cnst-031-permisos-temporales-maximo-6-meses`
+   - :doc:`cnst-030-reglas-de-separacion-de-funciones`, :doc:`cnst-031-permisos-temporales-maximo-6-meses`
  * - **BR derivadas**
    - Pendiente WP requisitos
  * - **UCs afectados**

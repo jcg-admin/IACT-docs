@@ -42,7 +42,7 @@ operacionales de Django.
     generada por el ETL a partir de ``tbl_historico_*``.
   - ``base_ivr_clientes`` — tabla de dimension de clientes IVR,
     generada por el ETL.
-  - ``etl_runs`` — tabla de tracking de ejecuciones ETL (propiedad
+  - ``pipeline_runs`` — tabla de tracking de ejecuciones ETL (propiedad
     IACT), usada por los casos de uso de supervision del pipeline.
 
 - **El ETL trabaja completamente dentro de Almacen de Datos:** lee de las
@@ -105,7 +105,7 @@ directamente via ``cursor.callproc()`` sobre la conexion ``ivr``
  * - IVR Analitica
    - Almacen de Datos
    - R/W (ETL) / R (reportes)
-   - ``base_ivr_detalle``, ``base_ivr_clientes``, ``etl_runs``
+   - ``base_ivr_detalle``, ``base_ivr_clientes``, ``pipeline_runs``
  * - Operacional IACT
    - PostgreSQL
    - R/W (ORM)

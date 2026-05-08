@@ -52,7 +52,7 @@ para auditoría e integridad referencial.
 
 Esta regla aplica a **TODOS los módulos del sistema**, no solo a
 MOD_Users como en versiones previas. Cubre usuarios, alertas,
-reglas SoD, suscripciones, configuraciones, y cualquier otra
+reglas de separacion, suscripciones, configuraciones, y cualquier otra
 entidad persistente.
 
 1.2 Formulacion SBVR
@@ -67,7 +67,7 @@ entidad persistente.
  - Estados canónicos por entidad:
    * Usuario: ACTIVO, INACTIVO, BLOQUEADO
    * Alerta: ACTIVE, ACKNOWLEDGED, RESOLVED, DISABLED
-   * Regla SoD: ENABLED, DISABLED
+   * Regla de separacion: ENABLED, DISABLED
    * Suscripción: ACTIVE, INACTIVE
    * Otros: ACTIVE/INACTIVE como mínimo
 
@@ -215,8 +215,10 @@ documentado.
 - BReq-004: Cumplimiento de Seguridad
 - BReq de Auditoría (preservación de evidencia)
 
-5.3 Cambios al modelo RBAC v5.4.0 motivados por esta BR
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.3 Cambios al modelo RBAC motivados por esta BR (v5.4.0+)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Introducidos en v5.4.0; vigentes en v5.6.0 (modelo actual).
 
 - RENAME ``delete_users`` → ``deactivate_users``
 - RENAME ``delete_alerts`` → ``disable_alerts``

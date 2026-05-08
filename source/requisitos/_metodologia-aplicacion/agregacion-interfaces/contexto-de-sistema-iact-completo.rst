@@ -7,25 +7,25 @@
    allowmixing
 
    package "IACT (contexto del sistema)" {
-     class Usuario
-     class Sesion
-     class Reporte
-     class Metrica
-     class Alerta
-     class Suscripcion
-     class EjecucionETL
-     class EventoAuditoria
+     class User
+     class Session
+     class Report
+     class Metric
+     class Alert
+     class Subscription
+     class ETLExecution
+     class AuditEvent
      class IVR
-     class BuzonInterno
+     class InternalMailbox
 
-     Usuario --> Sesion         : abre
-     Usuario --> Reporte        : consulta
-     Reporte --> Metrica        : agrega
-     Alerta  --> Suscripcion    : notifica
-     Suscripcion --> Usuario    : pertenece
-     EjecucionETL --> IVR       : lee (read-only)
-     Alerta --> BuzonInterno    : notifica via (CNST_001)
-     Usuario --> EventoAuditoria : genera
+     User --> Session         : opens
+     User --> Report          : queries
+     Report --> Metric        : aggregates
+     Alert  --> Subscription  : notifies
+     Subscription --> User    : belongs
+     ETLExecution --> IVR     : reads (read-only)
+     Alert --> InternalMailbox : notifies via (CNST_001)
+     User --> AuditEvent      : generates
    }
 
    cloud "Stripe / SendGrid" as Externos

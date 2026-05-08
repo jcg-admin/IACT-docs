@@ -1,0 +1,2 @@
+/arquitectura-tecnica/use-case-view/admin/index
+/arquitectura-tecnica/use-case-view/reports/index

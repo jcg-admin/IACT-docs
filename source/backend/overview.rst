@@ -28,7 +28,7 @@ Stack
 Modulos arquitectonicos
 =======================
 
-El backend implementa los 12 modulos definidos en
+El backend implementa los 9 modulos RBAC activos + 1 nuevo ADM (v5.6.0) definidos en
 :doc:`/arquitectura-tecnica/modulos/index`:
 
 - AUTH — autenticacion y sesion
@@ -47,7 +47,7 @@ Aspectos cubiertos por esta documentacion:
 
 - **Settings** — configuracion por entorno (dev, staging, prod).
 - **Apps** — descomposicion por dominio funcional alineada con
-  los 12 modulos arquitectonicos.
+  los 9 modulos RBAC activos + ADM nuevo (v5.6.0) — los 2 modulos reservados open-closed (OPR, SUP) no se implementan en esta release.
 - **Middleware** — pipeline de procesamiento de request/response.
 - **URLs** — convenciones de routing y versionado de API.
 - **Serializers / ViewSets / Permisos** — capas DRF.

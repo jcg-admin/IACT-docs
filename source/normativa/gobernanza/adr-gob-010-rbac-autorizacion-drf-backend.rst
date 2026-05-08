@@ -59,7 +59,7 @@ cero — no a traves del Django Admin nativo.
 
 El metodo central del modelo es ``calculate_effective_functions()``,
 que retorna el conjunto de codenames activos para un usuario dado,
-considerando asignaciones directas, grupos y reglas SoD.
+considerando asignaciones directas, grupos y reglas de separacion.
 
 2.2 El contrato de autorizacion Django
 ---------------------------------------
@@ -485,7 +485,7 @@ elimina ni se modifica.
  * - ``permissions/catalog.py``
    - ``class FunctionCatalog``
  * - ``permissions/enforcement.py``
-   - ``class FunctionPermission``
+   - ``class FunctionAccessPolicy``
  * - ``permissions/services.py``
    - ``def calculate_effective_functions()``
  * - ``permissions/apps.py``

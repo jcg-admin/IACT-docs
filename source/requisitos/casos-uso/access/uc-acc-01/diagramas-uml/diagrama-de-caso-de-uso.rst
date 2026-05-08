@@ -18,7 +18,7 @@
    usecase "Validar User destino" as VALIDAR_USUARIO_DESTINO
    usecase "Validar funciones\n(existen + activas)" as VALIDAR_FUNCIONES
    usecase "Filtrar idempotente" as FILTRO_IDEMPOTENTE
-   usecase "Validar SoD\n(CNST-005)" as VALIDAR_SOD
+   usecase "Validar separacion\n(CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "registrar N Assignments" as RegistrarDatos
    usecase "Invalidar cache\npermisos" as CACHE_PERMISOS
    usecase "Notificar via\nInternalMailbox" as NotificacionMailbox
@@ -29,7 +29,7 @@
  UC_ACC_01 ..> VALIDAR_USUARIO_DESTINO : <<include>>
  UC_ACC_01 ..> VALIDAR_FUNCIONES : <<include>>
  UC_ACC_01 ..> FILTRO_IDEMPOTENTE : <<include>>
- UC_ACC_01 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_01 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_01 ..> INS : <<include>>
  UC_ACC_01 ..> CACHE_PERMISOS : <<include>>
  UC_ACC_01 ..> NOT : <<extend>>
@@ -38,9 +38,9 @@
  Sistema --> EMI
  EMI --> view_audit_log
 
- note bottom of VALIDAR_SOD
+ note bottom of VALIDAR_SEPARATION_RULES
    BR-007 + CNST-005:
-   all-or-nothing — SoD violation
+   all-or-nothing — separacion violation
    bloquea TODA la asignacion
  end note
  note bottom of VALIDAR_FUNCIONES

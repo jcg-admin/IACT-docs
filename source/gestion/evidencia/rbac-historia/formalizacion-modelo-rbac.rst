@@ -27,8 +27,8 @@ Tras decisión arquitectónica aprobada (Hipótesis 1 —
 :doc:`decision-coexistencia-acc-perm`), el siguiente paso es
 **formalizar el modelo RBAC IACT**: consolidar el modelo legacy
 ``MODELO_RBAC_IACT_v5_2_1`` (42 funciones, 10 grupos predefinidos,
-3 SoD, permisos temporales) con la **implementación PERM granular**
-del backend (8 modelos Django, 5 funciones SQL, menú dinámico) en
+3 separacion de deberes, permisos temporales) con la **implementación PERM granular**
+del backend (8 modelos del backend, 5 funciones SQL, menú dinámico) en
 un solo modelo coherente con vocabulario unificado.
 
 2. Objetivo
@@ -42,7 +42,7 @@ RBAC IACT, integrando:
 3. **Modelo de datos formal** — 7+ tablas backend.
 4. **Catálogo cerrado** (10 grupos predefinidos AGR-001..010) +
    **catálogo abierto** (grupos creables admin).
-5. **3 reglas SoD** atómicas declarativas.
+5. **3 reglas de separacion** atómicas declarativas.
 6. **Permisos temporales** con justificación + vencimiento.
 7. **Menú dinámico** runtime basado en capacidades del usuario.
 8. **Auditoría** runtime + admin.
@@ -118,7 +118,7 @@ el rebuild.
    - ``PermisoExcepcional``
    - Capabilities con justificación + vencimiento ≤ 6 meses.
  * - Restricción mutual exclusion
-   - **Regla SoD**
+   - **Regla de separacion**
    - ``function_separation_rules``
    - (sin equivalente PERM)
    - Prohibición de tener simultáneamente funciones de A y B.
@@ -176,7 +176,7 @@ integrar este vocabulario).
           └──────────────────────┘
 
           ┌──────────────────────┐
-          │      Regla SoD       │  ← Si tiene función de A,
+          │      Regla de separacion       │  ← Si tiene función de A,
           │  - grupo_a, grupo_b  │    no puede tener de B
           └──────────────────────┘
 
@@ -212,11 +212,11 @@ integrar este vocabulario).
    - Asignaciones de grupos a usuarios
  * - ``function_separation_rules``
    - v5.2.1
-   - 3 reglas SoD
+   - 3 reglas de separacion
  * - ``function_separation_rule_details``
    - v5.2.1
-   - Detalle SoD (grupos A vs B)
- * - ``Capacidad`` (Django model)
+   - Detalle separacion (grupos A vs B)
+ * - ``Capacidad`` (modelo del backend)
    - PERM backend
    - Vista granular de función
  * - ``PermisoExcepcional``
@@ -225,7 +225,7 @@ integrar este vocabulario).
  * - ``AuditoriaPermiso``
    - PERM backend
    - Audit log runtime de cada verificación
- * - ``UserFunctionAssignment`` (Django)
+ * - ``UserFunctionAssignment`` (modelo del backend)
    - v5.2.1 (UC_ACC_08)
    - Asignaciones temporales con vencimiento
 
@@ -259,7 +259,7 @@ Distribución por módulo (de ``MODELO_RBAC_IACT_v5_2_1`` § 3):
    - ACC-NNN
    - 6
    - assign_functions, revoke_functions, query_permissions,
-     manage_sod, manage_segments
+     manage_separation_rules, manage_segments
  * - MOD_Reports
    - RPT-NNN
    - 8
@@ -347,7 +347,7 @@ Phase 2 debe inventariar el set vigente.
    - auditor_group
    - 4
    - Auditor
-   - Solo auditoría (SoD)
+   - Solo auditoría (separation of duties)
  * - AGR-009
    - pipeline_admin_group
    - 4
@@ -363,7 +363,7 @@ Phase 2 debe inventariar el set vigente.
 UC_PERM_05. Los predefinidos quedan como "system groups" no
 editables.
 
-8. Reglas SoD (3 atómicas)
+8. Reglas de Separacion (3 atómicas)
 ==========================
 
 Origen: ``MODELO_RBAC_IACT_v5_2_1`` § 5.
@@ -396,7 +396,7 @@ Origen: ``MODELO_RBAC_IACT_v5_2_1`` § 5.
 **Enforcement:** signal ``pre_save`` de ``UserGroup`` valida en
 runtime y rechaza con ``ValidationError`` si la asignación crea
 conflicto. Vínculo a
-:doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+:doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 
 9. Permisos Temporales
 ======================
@@ -410,7 +410,7 @@ Origen: v5.2.1 § 6 + PERM ``PermisoExcepcional``.
 - Revocación automática al vencer (cron diario).
 - Sin auto-renovación: cada renovación = nueva justificación + nueva
   aprobación.
-- Validación SoD aplica también a permisos temporales.
+- Validación de separacion aplica también a permisos temporales.
 - Cada uso del permiso temporal genera registro en
   ``AuditoriaPermiso``.
 
@@ -506,7 +506,7 @@ tablas separadas con foreign key a entidad raíz (Usuario), pero
    - SELECT a vista ``vista_capacidades_usuario``
  * - UC_ACC_04 Asignar Agrupador
    - INSERT en ``user_function_group_assignments`` con AGR-NNN
- * - UC_ACC_05 Gestionar SoD
+ * - UC_ACC_05 Gestionar separacion de deberes
    - CRUD sobre ``function_separation_rules``
  * - UC_ACC_06 Gestionar Segmentos
    - (modelo de datos separado, ortogonal al RBAC)
@@ -567,7 +567,7 @@ tablas separadas con foreign key a entidad raíz (Usuario), pero
    - RBAC Modelo Plano (sin jerarquía)
    - function_groups, GrupoPermiso
  * - CNST_030
-   - Reglas SoD Atómicas Declarativas
+   - Reglas de Separacion Atómicas Declarativas
    - function_separation_rules
  * - CNST_031
    - Permisos Temporales Máximo 6 Meses
@@ -609,7 +609,7 @@ Estado documentado como **referencia**, no compromiso inmutable:
 - **42 funciones atómicas** (catálogo cerrado v5.2.1, puede crecer).
 - **10 grupos predefinidos** AGR-001..010 + grupos custom creables
   vía UC_PERM_05.
-- **3 reglas SoD** atómicas (catálogo cerrado v5.2.1).
+- **3 reglas de separacion** atómicas (catálogo cerrado v5.2.1).
 - **Permisos temporales** máximo 6 meses con justificación ≥ 20 ch.
 
 16. Trazabilidad

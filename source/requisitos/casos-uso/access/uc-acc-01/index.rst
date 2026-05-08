@@ -33,7 +33,7 @@ UC_ACC_01 permite a un User con funcion
 RBAC a un User destino. Cada asignacion crea un
 ``Assignment`` con metadata de granted_by y
 opcionalmente fecha de expiracion (BR-008,
-CNST-005). Validacion de SoD (BR-007 + CNST-005)
+CNST-005). Validacion de separacion (BR-007 + CNST-005)
 es obligatoria antes de aceptar la asignacion.
 
 .. list-table::
@@ -49,7 +49,7 @@ es obligatoria antes de aceptar la asignacion.
  * - **Criticidad**
    - CRITICA (cambia capacidades RBAC del User)
  * - **Complejidad**
-   - ALTA (validacion SoD compleja)
+   - ALTA (validacion de separacion compleja)
  * - **Actor Principal**
    - User con funcion ``assign_functions``
      (la dependencia canonica del UC es la
@@ -68,7 +68,7 @@ es obligatoria antes de aceptar la asignacion.
  * - **Clases secundarias**
    - ``User`` (lectura),
      ``Function`` (lectura),
-     ``SoDRule`` (lectura, validacion),
+     ``SeparationRule`` (lectura, validacion),
      ``AuditEvent``
 
 Documentos vinculados
@@ -77,14 +77,14 @@ Documentos vinculados
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/reglas-negocio/br-008-auditoria-accesos`
 - :doc:`/requisitos/casos-uso/access/uc-acc-02/index`
   (operacion inversa)
 - :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
   (asignacion masiva via AGR)
 - :doc:`/requisitos/casos-uso/access/uc-acc-05/index`
-  (configuracion de las reglas SoD)
+  (configuracion de las reglas de separacion)
 
 Estructura de la spec
 =====================

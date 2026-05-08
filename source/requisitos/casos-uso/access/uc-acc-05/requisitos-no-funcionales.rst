@@ -36,9 +36,9 @@ Parte 6 — Requisitos no funcionales
 - CNST-025 append-only.
 - CNST-026 sin PII.
 - Granularidad por evento:
-  SOD_RULES_VIEWED (selectivo P-16),
-  SOD_RULE_CREATED, SOD_RULE_MODIFIED,
-  SOD_RULE_RETIRED, FAILED.
+  SEPARATION_RULES_VIEWED (selectivo P-16),
+  SEPARATION_RULE_CREATED, SEPARATION_RULE_MODIFIED,
+  SEPARATION_RULE_RETIRED, FAILED.
 
 6.5 Usabilidad
 ==============
@@ -57,21 +57,21 @@ Parte 6 — Requisitos no funcionales
 ==================
 
 - Counter
-  ``access.sod.{view, create, modify,
+  ``access.separation.{view, create, modify,
   retire, duplicate, forbidden}``;
   histograma de reglas activas.
 
 6.7 Cumplimiento
 ================
 
-- BR-007 SoD: este UC es el lugar canonico
+- BR-007 separacion de deberes: este UC es el lugar canonico
   donde se define BR-007 operativamente.
 - CNST-005, CNST-009/013/025/026.
 
 6.8 Cache (operacional)
 =======================
 
-- Las reglas SoD se cachean en memoria
+- Las reglas de separacion se cachean en memoria
   (TTL corto 60s) para que UC_ACC_01/04 no
   golpeen BD en cada validacion.
 - Cache invalidation en cualquier

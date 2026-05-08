@@ -5,25 +5,25 @@
 
    @startuml
 
-   class Usuario {
+   class User {
      - id : Integer
      - email : String
      + login()
-     + consultarReporte()
+     + queryReport()
    }
 
-   class Reporte {
+   class Report {
      - id : Integer
-     - tipo : Enum
-     + generar()
+     - type : Enum
+     + generate()
    }
 
-   Usuario "1" --> "0..*" Reporte : consulta
+   User "1" --> "0..*" Report : queries
 
-   note right of Usuario
+   note right of User
      Asociación:
-     un Usuario consulta muchos Reportes;
-     un Reporte es consultado por 1 Usuario
+     un User consulta muchos Reports;
+     un Report es consultado por 1 User
      (en una sesión).
    end note
    @enduml

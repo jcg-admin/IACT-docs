@@ -40,8 +40,8 @@ Respuesta esperada:
      "estado_general": "ok | degradado | critico",
      "ultima_ejecucion_exitosa": {
        "trimestre": "Q3_25",
-       "finalizado_en": "<timestamp>",
-       "registros_base": 1234567
+       "finished_at": "<timestamp>",
+       "base_records": 1234567
      },
      "ejecucion_en_curso": null,
      "total_exitosas_24h": 2,

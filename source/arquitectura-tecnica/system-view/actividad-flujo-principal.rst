@@ -65,9 +65,9 @@ de sesion.
    :POST /api/pipeline/ejecutar/;
    :CALL sp_etl_maestro(trimestre);
    if (ETL exitoso?) then
-     :etl_runs.estado = exitoso;
+     :pipeline_runs.estado = exitoso;
    else
-     :etl_runs.estado = fallido;
+     :pipeline_runs.estado = fallido;
      :Generar Alerta BR-016;
    endif
 

@@ -29,7 +29,7 @@ Parte 11 — Implementacion tecnica
 
    apps/auth_app/
    ├── views/
-   │   └── logout_view.py            # LogoutView (DRF APIView)
+   │   └── logout_view.py            # LogoutEndpoint (DRF APIView)
    ├── services/
    │   ├── auth_service.py           # logout()
    │   └── token_invalidator.py      # Strategy pattern
@@ -40,7 +40,7 @@ Parte 11 — Implementacion tecnica
    │   └── logout_serializer.py
    └── urls.py                       # path('logout/', ...)
 
-11.3 LogoutView (esqueleto)
+11.3 LogoutEndpoint (esqueleto)
 ===========================
 
 .. note::

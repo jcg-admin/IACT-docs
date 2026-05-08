@@ -21,7 +21,7 @@ Parte 11 — Implementacion tecnica
    - detectar patrones PII
  * - **Sanitizer**
    - hashear, normalizar UTC
- * - **EventFactory**
+ * - **AuditEventCreator**
    - construir AuditEvent con UUID v7
  * - **AuditRepo**
    - INSERT (no UPDATE / DELETE)
@@ -86,7 +86,7 @@ Parte 11 — Implementacion tecnica
          Sanitizer.sanitize(payload)
 
        # 4) Construir
-       event = EventFactory.build(
+       event = AuditEventCreator.build(
          event_type=event_type,
          actor_id=actor_id,
          target_type=target_type,

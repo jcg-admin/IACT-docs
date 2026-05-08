@@ -9,13 +9,13 @@ Un caso de roles aplicado a IACT: la relación entre
 
    @startuml
 
-   class Usuario
-   Usuario "1\n<<aprobador>>" -- "0..*\n<<ejecutor>>" Usuario : asigna_funciones
-   note right of Usuario
+   class User
+   User "1\n<<approver>>" -- "0..*\n<<executor>>" User : assigns_functions
+   note right of User
      Roles en la asignación
      de funciones:
-       - aprobador  (supervisor)
-       - ejecutor   (operador o
-                    admin de acceso)
+       - approver  (supervisor)
+       - executor  (operator or
+                    access admin)
    end note
    @enduml

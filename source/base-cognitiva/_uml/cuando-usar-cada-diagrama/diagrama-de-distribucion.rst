@@ -18,10 +18,10 @@ máquinas, cómo se conectan).
      component "Navegador"
    }
    node "Servidor Web" <<procesador>> as W {
-     component "Apache + Django"
+     component "Servidor de Aplicación"
    }
    node "BD" <<procesador>> as BASE_DATOS {
-     database "MySQL"
+     database "Almacén de Datos"
    }
    cloud "Stripe API" as S
 

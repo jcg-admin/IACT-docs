@@ -12,29 +12,29 @@ lectura:
    hide empty members
 
    package "Auth + Sesion" {
-     class Usuario
-     class Sesion
+     class User
+     class Session
    }
 
    package "RBAC" {
-     class Grupo
-     class Funcion
+     class Group
+     class Function
    }
 
    package "Operacional" {
-     class Llamada
-     class Segmento
+     class Call
+     class Segment
    }
 
    package "Auditoria" {
-     class EventoAuditoria
+     class AuditEvent
    }
 
-   Sesion "1" *-- "1" Usuario : pertenece a
-   Usuario "0..*" o-- "0..*" Grupo : asignado a
-   Grupo "1..*" o-- "0..*" Funcion : agrupa
-   Llamada "1..*" -- "1" Segmento : pertenece a
-   Usuario "1" --> "0..*" EventoAuditoria : genera
+   Session "1" *-- "1" User : belongs to
+   User "0..*" o-- "0..*" Group : assigned to
+   Group "1..*" o-- "0..*" Function : groups
+   Call "1..*" -- "1" Segment : belongs to
+   User "1" --> "0..*" AuditEvent : generates
    @enduml
 
 Los clusters se ven inmediatamente como cajas, sin

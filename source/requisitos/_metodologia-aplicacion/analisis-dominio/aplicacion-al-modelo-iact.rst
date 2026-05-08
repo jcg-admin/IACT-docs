@@ -8,32 +8,32 @@ reglas del dominio:
 
    @startuml
 
-   class Llamada
-   class Segmento
-   class EjecucionETL
-   class VentanaETL
-   class ErrorETL
-   class Reporte
-   class Filtro
-   class Alerta
+   class Call
+   class Segment
+   class ETLExecution
+   class ETLWindow
+   class ETLError
+   class Report
+   class Filter
+   class Alert
    class Supervisor
-   class Usuario
-   class Sesion
-   class Grupo
-   class Funcion
-   class EventoAuditoria
-   class ReglaSoD
+   class User
+   class Session
+   class Group
+   class Function
+   class AuditEvent
+   class SeparationRule
 
-   Llamada "1..*" -- "1" Segmento : pertenece a
-   VentanaETL "1" -- "0..*" EjecucionETL : contiene
-   EjecucionETL "1..*" -- "0..*" Llamada : carga
-   EjecucionETL "1" *-- "0..*" ErrorETL : produce
-   Reporte "1..*" -- "0..*" Llamada : agrega
-   Reporte "1" o-- "0..*" Filtro : aplica
-   Alerta "0..*" -- "0..1" Supervisor : es reconocida por
-   Sesion "1" *-- "1" Usuario : pertenece a
-   Usuario "0..*" o-- "0..*" Grupo : asignado a
-   Grupo "1..*" o-- "0..*" Funcion : agrupa
-   Usuario "1" --> "0..*" EventoAuditoria : genera
-   ReglaSoD "0..*" -- "2..3" Funcion : restringe
+   Call "1..*" -- "1" Segment : belongs to
+   ETLWindow "1" -- "0..*" ETLExecution : contains
+   ETLExecution "1..*" -- "0..*" Call : loads
+   ETLExecution "1" *-- "0..*" ETLError : produces
+   Report "1..*" -- "0..*" Call : aggregates
+   Report "1" o-- "0..*" Filter : applies
+   Alert "0..*" -- "0..1" Supervisor : is acknowledged by
+   Session "1" *-- "1" User : belongs to
+   User "0..*" o-- "0..*" Group : assigned to
+   Group "1..*" o-- "0..*" Function : groups
+   User "1" --> "0..*" AuditEvent : generates
+   SeparationRule "0..*" -- "2..3" Function : restricts
    @enduml

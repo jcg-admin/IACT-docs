@@ -7,10 +7,10 @@
 
    @startuml
 
-   class Grupo
-   class Funcion
-   Grupo "*" o-- "*" Funcion : contiene
-   note right of Funcion
+   class Group
+   class Function
+   Group "*" o-- "*" Function : contains
+   note right of Function
      Una función (capacidad atómica)
      puede ser parte de varios grupos
      (predefinidos AGR-001..012 o
@@ -26,13 +26,13 @@
 
    @startuml
 
-   class EjecucionETL
-   class ErrorETL
-   class FilaCargada
-   EjecucionETL "1" *-- "0..*" ErrorETL    : compone
-   EjecucionETL "1" *-- "0..*" FilaCargada : compone
-   note right of EjecucionETL
-     Si la EjecucionETL se purga
+   class ETLExecution
+   class ETLError
+   class LoadedRow
+   ETLExecution "1" *-- "0..*" ETLError    : composes
+   ETLExecution "1" *-- "0..*" LoadedRow : composes
+   note right of ETLExecution
+     Si la ETLExecution se purga
      (UC_PIP), sus errores y filas
      cargadas no tienen sentido
      fuera de ella.

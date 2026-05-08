@@ -15,7 +15,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - solo AGR-009 accede
+   - solo AGR-010 accede
  * - **P-39**
    - Audit reforzado
    - toda escritura auditada
@@ -28,8 +28,8 @@ Parte 10 — Patrones
    - GET /impact/ antes de confirmar;
      operador evalua antes de cambiar
  * - **P-30**
-   - SoD pre-check
-   - verificar SoD al agregar funcion
+   - separacion pre-check
+   - verificar separacion al agregar funcion
      al grupo
 
 10.2 P-45: System-group guard
@@ -73,4 +73,4 @@ effective_set resultante, sin persistir.
  * - P-46
    - GET /impact/ endpoint
  * - P-30
-   - PASO 4 SoD pre-check
+   - PASO 4 separacion pre-check

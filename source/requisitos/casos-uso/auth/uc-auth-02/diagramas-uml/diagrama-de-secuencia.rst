@@ -8,7 +8,7 @@
 
  actor Usuario as Usuario
  participant "Interfaz de Usuario" as InterfazDeUsuario
- participant "LogoutView" as Logoutview
+ participant "LogoutEndpoint" as Logoutview
  participant "AuthService" as Authservice
  database "Base de Datos\n(analitica)" as BaseDeDatos
  database "Blacklist\n(cache/BD)" as Blacklist
@@ -33,7 +33,7 @@
 
    Authservice --> Logoutview: success
    Logoutview --> InterfazDeUsuario: 200 OK\n{"message": "Sesion cerrada"}
-   InterfazDeUsuario -> InterfazDeUsuario: localStorage.clear\nRedux clear
+   InterfazDeUsuario -> InterfazDeUsuario: limpia almacenamiento local\nlimpia Gestor de Estado
    InterfazDeUsuario --> Usuario: Redirect /login
  end
 

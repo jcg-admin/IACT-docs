@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   estado-transicion
-   secuencia
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-estados-transicion
+   diagrama-de-secuencia

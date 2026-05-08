@@ -8,11 +8,11 @@ Algunas funciones del catálogo RBAC se componen de otras
 
    @startuml
 
-   class Funcion
-   Funcion "0..*" -- "0..*" Funcion : implica
-   note right of Funcion
+   class Function
+   Function "0..*" -- "0..*" Function : implies
+   note right of Function
      Reflexiva en el catálogo
-     de 74 funciones (CNST_029):
+     de 64 funciones activas (77 declaradas) (CNST_029):
        p.ej. ``manage_users``
        implica view_users +
        create_users +

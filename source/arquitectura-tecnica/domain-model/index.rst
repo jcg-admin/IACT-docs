@@ -36,27 +36,44 @@ directas con otras clases del mismo bounded context.
  :caption: BC Auth — Autenticacion
 
  user
+ user-repo
  session
  internal-mailbox
+ internal-message
+ blacklisted-token
+ password-generator
 
 .. toctree::
  :maxdepth: 1
  :caption: BC RBAC — Control de Acceso
 
  function
+ function-repo
  function-group
+ function-group-repo
  access-group
+ access-group-repo
  access-group-function
+ function-group-membership
+ user-access-group-assignment
+ impact-report
  assignment
+ assignment-repo
  exceptional-permission
+ exceptional-permission-repo
  separation-rule
+ separation-rule-repo
  permission-service
  permission-cache
- assignment-repo
- exceptional-permission-repo
+ effective-permissions-aggregator
+ user-capability-resolver
+ authorization-guard
  rbac-repo
  rule-validator
  menu
+ menu-item
+ menu-item-repo
+ menu-lifecycle-service
  nav-domain
  section
  action
@@ -85,21 +102,30 @@ directas con otras clases del mismo bounded context.
  filter-validator
  kpi-calculator
  segment-resolver
- servicio-reportes
- abandono-report-service
+ segment-scope
+ base-report-service
+ abandonment-report-service
  agent-report-service
  agent-daily-stat-repo
- clientes-report-service
- menu-ivr-report-service
- transferencias-report-service
+ campaign-daily-stat-repo
+ campaign-report-service
+ caller-report-service
+ ivr-navigation-report-service
+ transfer-report-service
  scheduled-report-list-service
  scheduled-report-repo
 
 .. toctree::
  :maxdepth: 1
- :caption: BC Pipeline ETL
+ :caption: BC Pipeline
 
- etl-ejecucion
+ pipeline-execution
+ pipeline-execution-repo
+ disparador-etl
+ errores-etl-service
+ resumen-salud
+ resumen-salud-assembler
+ supervision-etl-service
 
 .. toctree::
  :maxdepth: 1
@@ -108,8 +134,13 @@ directas con otras clases del mismo bounded context.
  alert
  threshold
  subscription
+ subscription-repo
  alert-rule
+ alert-rule-repo
  alert-repo
+ alert-history-summary
+ alert-history-service
+ segment-change-listener
  evaluator-reloader
  rule-validator
  timing-calculator
@@ -122,7 +153,9 @@ directas con otras clases del mismo bounded context.
  audit-service
  audit-repo
  audit-query-service
+ general-audit-service
  audit-validator
+ hmac-verifier
  pii-scanner
  sanitizer
  cursor-encoder
@@ -134,7 +167,24 @@ directas con otras clases del mismo bounded context.
  :caption: BC Logs — Bitacoras
 
  application-log
- etl-log
+ pipeline-log
  infrastructure-log
+ log-store
+ infra-log-store
  system-health
  technical-metric
+
+.. toctree::
+ :maxdepth: 1
+ :caption: BC CrossCutting — Politicas y caches
+
+ idempotency-policy
+ expiration-policy
+ metrics-cache
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Patrones documentales
+
+ specification-pattern
+ strategy-pattern

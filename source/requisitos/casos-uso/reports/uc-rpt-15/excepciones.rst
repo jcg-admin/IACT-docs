@@ -8,7 +8,8 @@ EX-01: JWT — 401.
 EX-02: Sin permiso — 403.
 EX-03: Periodo invalido — 400.
 EX-04: Cross-segmento — 403.
-EX-05: BD timeout — 503.
+EX-05: callproc BD_IVR timeout — 503
+(cualquiera de los dos SPs).
 
 Resumen
 =======

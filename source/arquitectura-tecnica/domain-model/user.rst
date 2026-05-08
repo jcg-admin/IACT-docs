@@ -36,6 +36,7 @@ v2.0.0).
    + created_at : DateTime
    + last_login_at : DateTime
    + primary_access_group_id : String
+   + segment_id : UUID                  <<BR-012: segmento unico por usuario>>
    --
    + create()
    + deactivate()       <<BR-009 v2.0.0>>
@@ -50,7 +51,7 @@ v2.0.0).
    BLOCKED
  }
 
- User -- UserState
+ User "*" -- "1" UserState : has
  User "1" -- "0..*" Session         : posee
  User "1" -- "1"    InternalMailbox : posee
  User "1" --> "0..*" AuditEvent     : genera

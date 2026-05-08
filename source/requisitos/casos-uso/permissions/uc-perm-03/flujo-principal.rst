@@ -14,7 +14,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 2   Selecciona User + functions +
             expires_at + justification +
             ticket_reference                       (Frontend)
-   PASO 3   Modal robusto con preview SoD          (Frontend)
+   PASO 3   Modal robusto con preview separacion          (Frontend)
    PASO 4   Confirma                                (Frontend)
    PASO 5   POST /api/users/{id}/
             exceptional-permissions/                (FE → BE)
@@ -26,7 +26,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 9   Validar payload (justification +
             expires_at bounds)
    PASO 10  Filtrar idempotencia
-   PASO 11  Validar SoD effective_post_grant
+   PASO 11  Validar separacion effective_post_grant
    PASO 12  INSERT ExceptionalPermission (N)
    PASO 13  Invalidar cache (post-COMMIT)
    PASO 14  INSERT InternalMessage OBLIGATORIO
@@ -45,14 +45,14 @@ Entrada desde vista de catalogo de funciones
 o desde detalle del User en vista PERM.
 Audiencia conoce el catalogo de funciones.
 
-PASO 3 — Preview SoD
+PASO 3 — Preview separacion
 --------------------
 
 Modal muestra:
 
 - Funciones a otorgar (display_names).
 - Conjunto efectivo resultante.
-- Posibles violaciones SoD detectadas
+- Posibles violaciones de separacion detectadas
   client-side (sin bloquear, solo info —
   el bloqueo es write-time).
 - Warning de high-priority audit ("esta

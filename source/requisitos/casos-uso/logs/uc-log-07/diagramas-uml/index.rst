@@ -7,7 +7,6 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   pipeline-metricas
-   tail-sse
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-pipeline-metricas

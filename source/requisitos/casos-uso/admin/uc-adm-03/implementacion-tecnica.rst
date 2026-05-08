@@ -8,9 +8,9 @@ Parte 11 — Implementacion tecnica
 ================
 
 - SystemGroupEndpoint (GET, POST function, DELETE function, GET impact)
-- AuthorizationGuard (requiere AGR-009)
+- AuthorizationGuard (requiere AGR-010)
 - SystemGroupGuard (verifica is_system=True)
-- SoDPreCheckValidator (valida contra reglas activas)
+- SeparationPreCheckValidator (valida contra reglas activas)
 - FunctionGroupRepo
 - PermissionsEngine.recalculate(agr_id)
 - AuditService
@@ -36,11 +36,11 @@ Parte 11 — Implementacion tecnica
 
    procedure add_function(group_id, codename, invoker):
        require AuthorizationGuard.has_agr(
-                 invoker, 'AGR-009')
+                 invoker, 'AGR-010')
        group = FunctionGroupRepo.get(group_id)
        require group.is_system == True
        fn = FunctionRepo.get_active(codename)
-       SoDPreCheckValidator.validate(
+       SeparationPreCheckValidator.validate(
          group, fn)
        FunctionGroupRepo.add_function(
          group, fn)

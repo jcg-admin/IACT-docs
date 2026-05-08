@@ -36,7 +36,7 @@ Parte 11 — Implementacion tecnica
  * - **EffectivePermissionsAggregator**
    - reutilizado de UC_ACC_03 para
      calcular current_effective
- * - **SoDValidator**
+ * - **SeparationRuleValidator**
    - validate_set_against_rules
  * - **PermissionCache**
    - invalidate post-COMMIT
@@ -61,7 +61,7 @@ Parte 11 — Implementacion tecnica
                SelfAssignForbidden,
                AccessGroupNotFound,
                AccessGroupInactive,
-               SoDViolation,
+               SeparationRuleViolation,
                BDTimeout, AuditFalla
 
    data AssignAGROutput:
@@ -129,16 +129,16 @@ Parte 11 — Implementacion tecnica
                          .list_functions(agr.id)
        agr_function_ids = {f.id for f in agr_functions}
 
-       # SoD
+       # Separacion de deberes
        current_effective_set =
          EffectivePermissionsAggregator
            .compute_set_only(target)
        effective_post_assign =
          current_effective_set | agr_function_ids
-       sod_rules = SoDRuleRepository.list_active()
-       SoDValidator.validate(
-         effective_post_assign, sod_rules)
-       # raise SoDViolation si viola
+       separation_rules = SeparationRuleRepository.list_active()
+       SeparationRuleValidator.validate(
+         effective_post_assign, separation_rules)
+       # raise SeparationRuleViolation si viola
 
        functions_already_present_count =
          len(current_effective_set & agr_function_ids)
@@ -173,7 +173,7 @@ Parte 11 — Implementacion tecnica
              functions_already_present_count:
                functions_already_present_count,
              expires_at: expires_at,
-             sod_rules_evaluated: len(sod_rules),
+             sod_rules_evaluated: len(separation_rules),
              ip: ctx.ip,
              user_agent: ctx.user_agent})
 
@@ -224,9 +224,9 @@ Parte 11 — Implementacion tecnica
  * - AccessGroupInactive
    - 400
    - ACCESS_GROUP_INACTIVE
- * - SoDViolation
+ * - SeparationRuleViolation
    - 409
-   - SOD_VIOLATION
+   - SEPARATION_VIOLATION
  * - ValidationError
    - 400
    - VALIDATION_ERROR
@@ -246,7 +246,7 @@ Parte 11 — Implementacion tecnica
 - Atomicidad PASOS 13-16.
 - Audit obligatorio.
 - PII fuera del payload.
-- SoD evaluado sobre funciones expandidas
+- Separacion evaluada sobre funciones expandidas
   (P-35).
 - Cache post-COMMIT (P-29).
 

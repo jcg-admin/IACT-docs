@@ -14,7 +14,7 @@ nuevas asignaciones bloqueadas.
 CA-07: Asignaciones historicas preservadas
 tras desactivacion.
 CA-08: Audit completo (CREATED/UPDATED/DEACTIVATED).
-CA-09: Sin AGR-009 → 403.
+CA-09: Sin AGR-010 → 403.
 CA-10: PermissionsEngine recarga tras creacion.
 CA-11: Listado filtrando por module y state.
 

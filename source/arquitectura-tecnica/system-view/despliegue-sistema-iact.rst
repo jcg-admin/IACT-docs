@@ -45,7 +45,7 @@ conexion nombrada ``ivr`` en la configuracion de bases de datos.
          artifact "base_ivr_clientes" as BASE_DATOS_CLIENTES
        }
        node "ETL control\netl_control" as SCHEMA_ETL_CONTROL {
-         artifact "etl_runs" as BASE_DATOS_ETL_RUNS
+         artifact "pipeline_runs" as BASE_DATOS_ETL_RUNS
        }
        node "IVR source\nivr_fuente" as SCHEMA_IVR_FUENTE {
          artifact "tbl_historico_*" as BASE_DATOS_HISTORICO

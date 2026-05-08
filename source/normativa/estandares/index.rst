@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 2.0.0
+ :version: 2.1.0
  :fecha_creacion: 2026-01-07
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-05-06
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -65,6 +65,15 @@ Los estándares cubren:
  std-009-profesional-documentacion
  std-010-vocabulario-abstracto
  std-011-alias-diagramas-uml
+ std-012-tipos-de-diagramas-uml
+ std-013-rest-api-conventions
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Normas autoritativas (Clean Code Naming)
+
+ clean-code-naming-principles
+ clean-code-naming-principles-frontend
 
 .. toctree::
  :maxdepth: 1

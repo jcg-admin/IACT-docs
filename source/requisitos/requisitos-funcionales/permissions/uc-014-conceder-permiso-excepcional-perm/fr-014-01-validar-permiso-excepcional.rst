@@ -44,11 +44,11 @@ FR-014.01: Validar justificación y período del permiso excepcional
 
 **Declaración:**
 
- El sistema DEBE validar la justificación, el período de vigencia y las restricciones SoD CUANDO se solicita un permiso excepcional, antes de persistirlo.
+ El sistema DEBE validar la justificación, el período de vigencia y las restricciones de separacion CUANDO se solicita un permiso excepcional, antes de persistirlo.
 
 **Descripción:**
 
- La validación incluye: función grant_exceptional_permission, restricción anti-self (P-11), justificación obligatoria no vacía, expires_at dentro de los límites permitidos, filtro de idempotencia y validación SoD del conjunto efectivo post-concesión.
+ La validación incluye: función grant_exceptional_permission, restricción anti-self (P-11), justificación obligatoria no vacía, expires_at dentro de los límites permitidos, filtro de idempotencia y validación de separacion del conjunto efectivo post-concesión.
 
 ----
 
@@ -62,7 +62,7 @@ FR-014.01: Validar justificación y período del permiso excepcional
  ENTONCES se validan todas las reglas antes de persistir
  
  Escenario 1: Validación exitosa
- DADO payload completo y SoD sin conflicto
+ DADO payload completo y separacion sin conflicto
  ENTONCES INSERT ExceptionalPermission
  
  Escenario 2: Auto-concesión bloqueada

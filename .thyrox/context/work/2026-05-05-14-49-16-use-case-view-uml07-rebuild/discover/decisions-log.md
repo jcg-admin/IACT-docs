@@ -1,0 +1,423 @@
+```yml
+created_at: 2026-05-05 16:10:00
+project: IACT-docs
+work_package: 2026-05-05-14-49-16-use-case-view-uml07-rebuild
+phase: Phase 1 — DISCOVER
+author: Nestor Monroy
+status: Activo
+version: 1.0.0
+```
+
+# Decisions Log — WP use-case-view-uml07-rebuild
+
+> Decisiones tomadas durante el WP, ordenadas cronológicamente.
+> Decisiones globales (no específicas del WP) van a `.thyrox/context/decisions/`.
+> Decisiones aquí están ligadas al contexto puntual de este WP.
+
+## D-01 — Crear `.claude/rules/git-flow.md` como regla auto-cargada
+
+**Fecha:** 2026-05-05 ~14:50
+**Contexto:** El proyecto venía sin convención escrita de branching;
+varios WPs habían acumulado deuda de proceso (commits post-merge en
+`claude/wp-merge-pr-review`, intentos de PR a `develop` directo).
+
+**Decisión:** Codificar la política de branching como regla
+auto-cargada (`.claude/rules/git-flow.md`), no sólo como ADR. Las
+reglas en `.claude/rules/` cargan en cada sesión (I-009) — críticas
+para que cualquier sesión futura respete el flujo sin tener que
+consultar un ADR.
+
+**Alternativas descartadas:**
+
+- *Sólo ADR en `.thyrox/context/decisions/`:* lazy-load, no garantiza
+  que se aplique sin lectura explícita.
+- *Sólo entrada en CLAUDE.md:* mezcla convenciones operacionales con
+  contexto del proyecto. Las reglas merecen archivo propio.
+
+**Refs:** PR #14, commit `9007137d`, ADR-pendiente.
+
+---
+
+## D-02 — R-03: `feature/<wp>` integra a `feature/solve-problem-docs`, NO a `develop`
+
+**Fecha:** 2026-05-05 ~14:55
+**Contexto:** Sub-features del refactor masivo de docs IACT (cnst-033,
+arquitectura-tecnica-content, repository-diagnostics, etc.) deben
+agruparse antes de tocar `develop`. Sin rama de feature padre, cada
+PR a `develop` exponía 30+ commits poco relacionados.
+
+**Decisión:** `feature/solve-problem-docs` es la rama padre del trabajo
+en curso. Todos los `feature/<wp-slug>` mergean primero ahí. Sólo cuando
+solve-problem-docs está coherente y validado, se integra a `develop` con
+PR independiente.
+
+**Alternativas descartadas:**
+
+- *PR directo a `develop`:* viola separación de scope, dificulta revert.
+- *Rama `develop-iact-docs` paralela:* añade complejidad sin valor sobre
+  una rama feature padre.
+
+**Beneficios:**
+
+- Aislar feature completo del resto de develop.
+- Validar coherencia entre sub-features.
+- Revert quirúrgico (sólo el merge a develop, no commits).
+- Code review por sub-feature en su scope.
+
+**Refs:** `.claude/rules/git-flow.md` R-03, post-mortem en R-08.
+
+---
+
+## D-03 — PR #14 como vehículo de integración (no `git push` directo)
+
+**Fecha:** 2026-05-05 16:00
+**Contexto:** Tras el merge local `feature/cnst-033-uml-conformance →
+feature/solve-problem-docs`, el push falló con HTTP 403 — branch
+protection en `feature/solve-problem-docs` requiere PR.
+
+**Decisión:** Aceptar la branch protection (no buscar bypass).
+Crear PR #14 vía GitHub MCP. Resetear local refs no destructivamente
+(`git branch -f` en lugar de `git reset --hard`) para evitar
+divergencia con origen.
+
+**Alternativas descartadas:**
+
+- *`git push --force` con bypass:* ni siquiera lo intenté — viola
+  política de R-04 y la safety norm general (CLAUDE.md).
+- *Pedir override de protection a admin:* innecesario; el PR es
+  exactamente el mecanismo correcto.
+
+**Refs:** PR #14, commit local `4066f925` (descartado vía branch -f).
+
+---
+
+## D-04 — Investigar CI antes de mergear PR #14 (opción A sobre B/C)
+
+**Fecha:** 2026-05-05 16:05
+**Contexto:** PR #14 abrió con `mergeable_state: unstable` — el job
+`validate` (sphinx-build -W + validate-plantuml) reporta failure tras
+29 minutos.
+
+**Decisión:** Reproducir el strict build localmente antes de mergear.
+Identificar causa exacta del failure. Decidir fix vs override basado
+en el diagnóstico, no en suposiciones.
+
+**Alternativas descartadas:**
+
+- *(B) Mergear igualmente:* propaga build roto a rama padre. Eleva
+  costo de cualquier integración futura desde otra sub-feature.
+- *(C) Mergear ahora, fix después:* aceptable si el fallo fuera
+  conocido como cosmético. Sin diagnóstico previo es apuesta a ciegas.
+
+**Beneficio principal de A:** 5-10 min de costo, ganamos información
+para decidir entre fix-blocking, fix-deferred, u override informado.
+
+**Output esperado:** archivo
+`discover/build-logs/sphinx-strict-pr14-{HH-MM}.log` con causa raíz
+identificada.
+
+**Refs:** PR #14 check_run 74443710941, run 25385055640.
+
+---
+
+## D-05 — Codificar regla de persistencia de build logs
+
+**Fecha:** 2026-05-05 16:10
+**Contexto:** Durante D-04 redirigí output de `sphinx-build -W` a
+`/tmp/sphinx.log`. El ejecutor (humano) corrigió: los build logs
+deben vivir en el WP activo, no en `/tmp`.
+
+**Decisión:** Crear `.claude/rules/build-logs.md` que codifica:
+
+- Logs de build van a `{wp}/{stage}/build-logs/{cmd}-{ctx}-{HH-MM}.log`.
+- Naming: `sphinx-strict-pr14-16-10.log`.
+- Excepción: builds exploratorios < 30s sin warnings nuevos pueden ir
+  a stdout.
+- Trazabilidad: claims que citan logs deben referenciar el archivo.
+
+**Alternativas descartadas:**
+
+- *Memoria informal:* falla — el ejecutor tuvo que recordármelo.
+- *Sólo nota en CLAUDE.md:* mezcla convenciones operacionales.
+
+**Beneficio:** logs son evidencia diagnóstica reproducible. En `/tmp`
+se pierden y los claims que dependen de ellos se degradan a SPECULATIVE
+(I-012 + evidence-classification).
+
+**Refs:** `.claude/rules/build-logs.md`.
+
+---
+
+## D-06 — Fix de CI failure: rename ETL→Pipeline en uc-log-02
+
+**Fecha:** 2026-05-05 16:50
+**Contexto:** Strict build local reproduce el failure de CI con
+**4 warnings reales** (la 5ª es ruido de race condition por dos builds
+simultáneos):
+
+- 2 warnings `toc.not_readable`: `uc-log-02/diagramas-uml/index.rst:7`
+  refiere `componentes-pipeline-log` y `secuencia-de-consulta-pipeline-log`
+  pero los archivos tienen el nombre antiguo `*-etl-log.rst`.
+- 2 warnings `toc.not_included`: los 2 archivos `*-etl-log.rst` quedaron
+  huérfanos.
+
+**Causa raíz:** El sweep ETL→Pipeline (CNST-033 §8.2) actualizó el toctree
+referenciador (`index.rst`) pero olvidó renombrar los 2 archivos
+referenciados. Es deuda del WP `domain-model-residual-spanish-pass`.
+
+**Decisión:** Fix minimal — rename de los 2 archivos vía `git mv` y
+actualizar sólo los títulos H1 internos para reflejar "Pipeline log".
+
+**Alcance NO incluido (separado como TD):**
+
+- PlantUML interno en estos 2 archivos sigue usando `ETLScheduler`,
+  `sp_etl_maestro`, `/logs/etl/`, `ETLLogEndpoint`. Estos son
+  identificadores que reflejan implementación real (component IDs,
+  stored procedure names, HTTP routes). Su rename a Pipeline requiere
+  decisión arquitectónica separada que CNST-033 no resolvió.
+- Crear TD-NN en `.thyrox/context/technical-debt.md` para tracking.
+
+**Refs:** `discover/build-logs/sphinx-strict-pr14-16-15.log` (5 warnings
+identificadas), `discover/build-logs/sphinx-strict-postfix-*.log`
+(verificación post-fix), commits del WP `domain-model-residual-spanish-pass`.
+
+**Verificación:** Postfix build ejecutándose. Espera EXIT=0 + 0 warnings
+para validar fix antes de commit.
+
+**ACTUALIZACIÓN POST-COMMIT (16:55):** El build limpio (single, no race
+condition) revela que el fix de D-06 sólo resuelve **4 de ~73 warnings**.
+La medición original de "5 warnings" provino de dos builds corriendo
+concurrentemente y stompando entre sí — observable falso. Ver D-06b.
+
+---
+
+## D-06b — Realización: el CI failure no es 4 warnings, es ~73
+
+**Fecha:** 2026-05-05 16:55
+**Contexto:** Post-commit `405751c1` (rename ETL→Pipeline en uc-log-02),
+ejecuté un build limpio (single process, doctrees cleared) para validar
+0 warnings. Resultado parcial al 69% del build: **73 warnings ya
+contadas**, build aún corriendo.
+
+**Reclasificación de warnings:**
+
+| Categoría | Count aprox | Patrón |
+|-----------|-------------|--------|
+| `toc.not_readable` + `toc.not_included` (uc-log-02) | 4 | Resuelto por D-06 |
+| `Title overline/underline too short` | ~12 | Typography (RST estricto) |
+| `unknown document — domain-model → casos-uso` | ~3 | UC paths que no existen |
+| `unknown document — use-case-view/{module}/index.rst → diagrama-de-caso-de-uso` | ~50+ | **Forward refs del WP conformance-pass a archivos que pertenecen al WP rebuild (este WP, en DISCOVER)** |
+
+**Causa raíz arquitectónica:** El WP `use-case-view-uml07-conformance-pass`
+escribió `:doc:` refs en 11 archivos `use-case-view/{module}/index.rst`
+asumiendo que cada UC de `casos-uso/` tendría un sub-archivo
+`diagramas-uml/diagrama-de-caso-de-uso.rst`. Pero la creación de esos
+sub-archivos pertenece al WP activo `use-case-view-uml07-rebuild`,
+que sigue en Phase 1 DISCOVER.
+
+**Implicación:** El fix de D-06 era necesario pero no suficiente. PR #14
+sigue con CI roto.
+
+**Decisión metodológica:** No comprometerme con un fix más antes de:
+
+1. Esperar el build limpio completo (conteo final exacto).
+2. Presentar al ejecutor las 3 alternativas:
+   - **Path 1:** Remover los `:doc:` forward-refs en los 11 module
+     index.rst (~30 min, pierde cross-references hasta que rebuild WP
+     los re-cree).
+   - **Path 2:** Crear stubs `diagrama-de-caso-de-uso.rst` para
+     ~80 UCs (~1-2h scripted, deja stubs visibles en docs publicados).
+   - **Path 3:** Bloquear PR #14, avanzar WP rebuild hasta EXECUTE
+     (días/semanas, integración limpia).
+
+**Refs:** `discover/build-logs/sphinx-strict-postfix-16-51.log` (en
+progreso, build limpio); commit `405751c1` (fix parcial).
+
+**Lección registrada como invariante:**
+
+- Nunca confiar en un build con 2+ procesos sphinx-build simultáneos.
+  Race condition produce conteos falsamente bajos.
+- Antes de declarar "X warnings", verificar `pgrep -af "sphinx-build" |
+  wc -l` = 1 durante todo el run.
+
+---
+
+## D-07 — Híbrido B+A para los 53 UC diagrams faltantes
+
+**Fecha:** 2026-05-05 17:05
+**Contexto:** Build limpio confirma 73 warnings (66 únicos):
+
+- 53 `ref.doc` UC `diagrama-de-caso-de-uso.rst` faltantes
+- 3 refs `uc-access`/`uc-permissions`/`uc-audit` rotos en `use-case-
+  view/admin/index.rst` (paths relativos incorrectos)
+- 2-3 refs UC index faltantes (`uc-acc-06/index`, `uc-acc-07/index`)
+- 7 typography warnings (Title underline/overline too short)
+
+**Decisión:** Híbrido **Nivel B (ahora) + Nivel A (después)**.
+
+### Nivel B — esta sesión
+
+1. Crear 53 stubs estructurados de `diagrama-de-caso-de-uso.rst`
+   desde `inventory.json` con marca TODO explícita:
+
+   ```rst
+   8.1 Diagrama de caso de uso
+   ===========================
+
+   .. uml::
+    :caption: UC_XXX_NN — actores y casos asociados
+
+    @startuml
+    ' TODO (use-case-view-uml07-rebuild Nivel A): completar
+    ' actores, includes/extends y notas según uc-acc-01.
+    actor "INVOKER" as INVOKER
+    rectangle "MOD_<Module>" {
+      usecase "UC_XXX_NN\n<title>" as UC_XXX_NN
+    }
+    INVOKER --> UC_XXX_NN
+    @enduml
+   ```
+
+2. Fix typography (7 archivos): ajustar underline/overline al ancho
+   del título.
+3. Fix refs cortos en `use-case-view/admin/index.rst`: cambiar
+   `uc-access` → `../access` (idem permissions, audit).
+4. Crear `uc-acc-06/index.rst` y `uc-acc-07/index.rst` (o ajustar
+   refs si esos UCs no existen).
+5. Verificar build limpio: EXIT=0, 0 warnings.
+6. Commit + push.
+7. PR #14 se vuelve verde y mergeable.
+
+### Nivel A — sesiones futuras
+
+WPs subsecuentes por módulo (`use-case-view-uml07-rebuild-batch-
+<module>`), reemplazando stubs por contenido real:
+
+1. Leer spec del UC (`caso-de-uso.rst`, `flujo-principal.rst`,
+   `flujos-alternos.rst`, `excepciones.rst`).
+2. Inferir actor INVOKER (función RBAC del UC).
+3. Inferir beneficiarios y Sistema.
+4. Inferir sub-usecases (validations, side-effects, audit emit).
+5. Definir relaciones `..> <<include>>` / `..> <<extend>>`.
+6. Agregar notas referenciando BRs/CNSTs.
+
+Orden propuesto de batches (de menor a mayor complejidad):
+admin (3) → permissions (3) → audit (4) → pipeline (4) →
+alerts (5) → caller (5) → supervision (3) → reports (9) →
+logs (7) → operator (10).
+
+**Alternativas descartadas:**
+
+- Nivel A puro: 5-10 días, bloquea `feature/arquitectura-tecnica-
+  content` y `review-project-config-V8Fg5`.
+- Nivel B puro: rápido pero deja deuda invisible (sin TODOs marcados
+  no se sabe qué hace falta).
+- Nivel C bloquear PR #14: misma duración que A puro sin valor extra.
+
+**Beneficios del híbrido:**
+
+- CI verde HOY → desbloquea integración del WP cnst-033 + uml-07
+  conformance (1455 archivos cambios reales que SÍ están listos).
+- Stubs marcados con TODO → deuda explícita, trazable, scripted-
+  detectable.
+- Nivel A se trabaja sin presión, módulo por módulo, con tiempo
+  para análisis de spec.
+
+**Refs:** `discover/build-logs/sphinx-strict-postfix-16-51.log`,
+`discover/inventory.json`, PR #14, commit `c97d7bfd`.
+
+---
+
+## D-08 — Pivot a Nivel A puro: 53 UCs con contenido real
+
+**Fecha:** 2026-05-05 17:30
+**Contexto:** Tras la generación de los 53 stubs (D-07 Híbrido B+A
+con CI desbloqueado), el ejecutor pidió "generalos completos y con
+calma". Decisión: subir el alcance de la sesión a Nivel A puro.
+
+**Decisión:** Reemplazar los 53 stubs uno a uno con diagramas reales,
+extraídos del spec del UC (informacion-general, actores-precondiciones,
+flujo-principal, excepciones).
+
+**Patrón canónico aplicado** (basado en uc-acc-01):
+
+- `left to right direction`
+- INVOKER actor con función RBAC del UC (P-15 granular)
+- Beneficiarios con stereotype `<<beneficiario>>` (User destino,
+  view_audit_log, etc.)
+- Sistema con stereotype `<<sistema>>` (services, repos, engines)
+- Caller con `<<externo>>` para módulo caller (no autenticado)
+- `rectangle "MOD_<Module>"` con UC principal + sub-usecases
+- Sub-usecases para validaciones, side-effects, audit emit, reload
+- Relaciones: `-->` directo, `..>` con `<<include>>` / `<<extend>>`
+- Notas explicativas con BR-NN, CNST-NN, P-NN
+
+**Patrones cross-MOD identificados:**
+
+- `UC_PERM_NN` (vista PERM) `<<include>>` su `UC_ACC_NN` backing
+  (ADR-GOB-008). Funciones canónicas distintas — assignment_function_
+  groups vs revoke_function_group vs grant_exceptional_permission.
+- `UC_RPT_NN` `<<include>>` `UC_INC_RPT_01` (resolver segmento) en
+  todos los reportes 12-17 — UC de inclusión, no standalone.
+- `UC_OPR_NN` interactuan con `MOD_Alerts` (alerta cuando hold > N
+  seg) y `MOD_Reports` (insumos para UC_RPT_12, UC_RPT_15).
+- `UC_LOG_06` agrega métricas de `UC_PIP_01`, `UC_ALR_02`.
+
+**Total:** 53 diagramas Level A en 6 commits checkpoint:
+
+| Commit | Módulo(s) | UCs |
+|--------|-----------|-----|
+| 449a3f06 | admin + permissions + audit | 10 |
+| f474e6d1 | pipeline + alerts | 9 |
+| fa085e74 | caller + supervision | 8 |
+| 5d6804be | reports | 9 |
+| 7339fb15 | logs | 7 |
+| ec30cd3c | operator | 10 |
+| **TOTAL** | **10 modules** | **53** |
+
+**Verificación:** `find-uc-stubs.sh` retorna 0 (sin stubs pendientes).
+Build limpio final en `sphinx-strict-leveA-final-2026-05-05T17-58-41.log`
+(en progreso al momento de escribir esto).
+
+**Lección registrada:** Cuando el WP tiene scope grande (53 UCs),
+commits checkpoint por módulo son críticos. Permiten:
+
+- Recovery sin perder progreso si build falla a mitad.
+- Verificación incremental del patrón antes de propagarlo.
+- PR review más manejable (~10 archivos por commit vs 53 archivos
+  en uno).
+
+---
+
+## D-09 — Vocabulario interno: ETL en specs vs Pipeline en domain-model
+
+**Fecha:** 2026-05-05 17:35
+**Hallazgo durante D-08:** El sweep CNST-033 §8.2 ETL→Pipeline
+(WP `domain-model-residual-spanish-pass`) renombró domain-model
+correctamente pero NO actualizó las metadata internas de los UC
+specs:
+
+- UC_PIP_01..04: el campo `Funcion RBAC` en `informacion-general.rst`
+  todavía dice `view_etl_supervision`, `view_etl_logs`, etc.
+- La sección `actores-precondiciones.rst` del mismo UC usa la forma
+  rename-compliant `view_pipeline_status`, `view_pipeline_logs`.
+
+**Decisión D-08:** Los diagramas UML usan la forma rename-compliant
+(`view_pipeline_*`) — alineada con CNST-033.
+
+**TD pendiente:** un WP futuro debe sweep las metadata `Funcion RBAC`
+de los UC specs ETL para alinear con CNST-033. Bajo riesgo
+(metadata en docs, no en código), pero rompe consistencia interna.
+
+---
+
+## Decisiones pendientes
+
+- **D-10 (post-merge PR #14):** orden de revisión de `feature/
+  arquitectura-tecnica-content` y `claude/review-project-config-
+  V8Fg5`.
+- **TD-N1:** vocabulario PlantUML interno en uc-log-02
+  (ETLScheduler, sp_etl_maestro, /logs/etl/, ETLLogEndpoint) — del
+  D-06.
+- **TD-N2:** UC specs metadata "Funcion RBAC" desalineada con
+  CNST-033 §8.2 — del D-09.

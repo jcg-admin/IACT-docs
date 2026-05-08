@@ -8,32 +8,32 @@ las descripciones precisas refuerzan la legibilidad:
 
    @startuml
 
-   class Llamada
-   class Segmento
-   class EjecucionETL
-   class VentanaETL
-   class ErrorETL
-   class Reporte
-   class Filtro
-   class Alerta
+   class Call
+   class Segment
+   class ETLExecution
+   class ETLWindow
+   class ETLError
+   class Report
+   class Filter
+   class Alert
    class Supervisor
-   class Usuario
-   class Sesion
-   class Grupo
-   class Funcion
-   class EventoAuditoria
+   class User
+   class Session
+   class Group
+   class Function
+   class AuditEvent
 
-   Llamada "1..*" -- "1" Segmento : pertenece a
-   VentanaETL "1" -- "*" EjecucionETL : contiene
-   EjecucionETL "*" -- "*" Llamada : carga
-   EjecucionETL "1" *-- "*" ErrorETL : produce
-   Reporte "*" -- "*" Llamada : agrega
-   Reporte "1" o-- "*" Filtro : aplica
-   Alerta "*" -- "1" Supervisor : es reconocida por
-   Sesion "1" *-- "1" Usuario : pertenece a
-   Usuario "*" o-- "*" Grupo : asignado a
-   Grupo "*" o-- "*" Funcion : agrupa
-   Usuario "1" --> "*" EventoAuditoria : genera
+   Call "1..*" -- "1" Segment : belongs to
+   ETLWindow "1" -- "*" ETLExecution : contains
+   ETLExecution "*" -- "*" Call : loads
+   ETLExecution "1" *-- "*" ETLError : produces
+   Report "*" -- "*" Call : aggregates
+   Report "1" o-- "*" Filter : applies
+   Alert "*" -- "1" Supervisor : is acknowledged by
+   Session "1" *-- "1" User : belongs to
+   User "*" o-- "*" Group : assigned to
+   Group "*" o-- "*" Function : groups
+   User "1" --> "*" AuditEvent : generates
    @enduml
 
 Notar:

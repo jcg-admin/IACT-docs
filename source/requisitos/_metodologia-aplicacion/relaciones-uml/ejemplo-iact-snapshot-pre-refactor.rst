@@ -7,50 +7,50 @@ dependencias antes de un hipotético refactor:
 .. uml::
 
    @startuml
-   title Snapshot pre-refactor — ExportarReporteFacade
+   title Snapshot pre-refactor — ExportReportFacade
 
-   class ExportarReporteFacade {
+   class ExportReportFacade {
      - _perm : SecRules
-     - _rpt : Reporte
+     - _rpt : Report
      - _worker : Worker
      - _audit : Bus
-     - _notify : Buzon
+     - _notify : Mailbox
      --
-     + __init__(perm : SecRules, rpt : Reporte, \
-       worker : Worker, audit : Bus, notify : Buzon)
-     + ejecutar(user : Usuario, cfg : ConfigExport) : TareaId
-     - _validar_filtros(cfg : ConfigExport) : bool
-     - _disparar_audit(user : Usuario, tarea : TareaId)
-     - _disparar_notify(cfg : ConfigExport, tarea : TareaId)
+     + __init__(perm : SecRules, rpt : Report, \
+       worker : Worker, audit : Bus, notify : Mailbox)
+     + execute(user : User, cfg : ExportConfig) : TaskId
+     - _validate_filters(cfg : ExportConfig) : bool
+     - _trigger_audit(user : User, task : TaskId)
+     - _trigger_notify(cfg : ExportConfig, task : TaskId)
    }
 
    class SecRules {
-     + verificar(user : Usuario, fn_id : str) : bool
+     + verify(user : User, fn_id : str) : bool
    }
 
-   class Reporte {
-     - _filtros : List<Filtro>
+   class Report {
+     - _filters : List<Filter>
      --
-     + cuota_disponible(user : Usuario) : bool
-     + validar_filtro(f : Filtro) : bool
+     + quota_available(user : User) : bool
+     + validate_filter(f : Filter) : bool
    }
 
    class Worker {
-     + encolar_tarea(cfg : ConfigExport) : TareaId
+     + enqueue_task(cfg : ExportConfig) : TaskId
    }
 
    class Bus {
-     {static} + publicar(evento : Evento)
+     {static} + publish(event : Event)
    }
 
-   class Buzon {
-     + notificar_buzon(destinatarios : List<UserId>, \
-       mensaje : str)
+   class Mailbox {
+     + notify_mailbox(recipients : List<UserId>, \
+       message : str)
    }
 
-   ExportarReporteFacade --> SecRules
-   ExportarReporteFacade --> Reporte
-   ExportarReporteFacade --> Worker
-   ExportarReporteFacade --> Bus
-   ExportarReporteFacade --> Buzon
+   ExportReportFacade --> SecRules
+   ExportReportFacade --> Report
+   ExportReportFacade --> Worker
+   ExportReportFacade --> Bus
+   ExportReportFacade --> Mailbox
    @enduml

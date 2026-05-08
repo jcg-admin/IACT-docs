@@ -3,9 +3,9 @@
  :tipo: Indice
  :dominio: backend
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.2.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-07
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -29,6 +29,12 @@ de codigo, no en esta documentacion.
 
 .. toctree::
  :maxdepth: 1
+ :caption: Guías de Implementación
+
+ rbac-implementation-guide
+
+.. toctree::
+ :maxdepth: 1
  :caption: ADRs Backend
 
  adr-back-001-grupos-funcionales-sin-jerarquia
@@ -37,3 +43,7 @@ de codigo, no en esta documentacion.
  adr-back-004-sistema-permisos-sin-roles-jerarquicos
  adr-back-005-middleware-decoradores-permisos
  adr-back-006-rbac-estrategia-implementacion
+ adr-back-007-rbac-custom-vs-auth-group
+ adr-back-008-menuitem-wrapper-ux-sobre-function
+ adr-back-009-cache-capabilities-degraded-mode
+ adr-back-010-function-is-critical-governance

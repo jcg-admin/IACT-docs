@@ -12,7 +12,7 @@
 .. _fr-012-03:
 
 ============================================================
-FR-012.03: Asignar grupo a usuario con validación RBAC y SoD
+FR-012.03: Asignar grupo a usuario con validación RBAC y separacion de deberes
 ============================================================
 
 
@@ -25,7 +25,7 @@ FR-012.03: Asignar grupo a usuario con validación RBAC y SoD
  * - **ID**
    - FR-012.03
  * - **Nombre**
-   - Asignar grupo a usuario con validación RBAC y SoD
+   - Asignar grupo a usuario con validación RBAC y separacion de deberes
  * - **UC Origen**
    - UC_PERM_01: Asignar Grupo a Usuario (vista PERM)
  * - **Paso UC**
@@ -44,11 +44,11 @@ FR-012.03: Asignar grupo a usuario con validación RBAC y SoD
 
 **Declaración:**
 
- El sistema DEBE asignar el grupo de permisos al usuario destino CUANDO el administrador confirma la asignación, validando JWT, idempotencia y restricciones SoD antes de persistir.
+ El sistema DEBE asignar el grupo de permisos al usuario destino CUANDO el administrador confirma la asignación, validando JWT, idempotencia y restricciones de separacion antes de persistir.
 
 **Descripción:**
 
- La asignación sigue el mismo flujo backend que UC_ACC_04: validar JWT, verificar función assign_function_groups, expandir AGR, validar SoD, INSERT Assignment, emitir AuditEvent AGR_ASSIGNED, invalidar caché. La operación es atómica ACID.
+ La asignación sigue el mismo flujo backend que UC_ACC_04: validar JWT, verificar función assign_function_groups, expandir AGR, validar separacion, INSERT Assignment, emitir AuditEvent AGR_ASSIGNED, invalidar caché. La operación es atómica ACID.
 
 ----
 
@@ -62,15 +62,15 @@ FR-012.03: Asignar grupo a usuario con validación RBAC y SoD
  ENTONCES status 201 y el AGR queda asignado
  
  Escenario 1: Asignación exitosa
- DADO User activo y AGR activo sin conflicto SoD
+ DADO User activo y AGR activo sin conflicto de separacion
  ENTONCES 201 Created
  
  Escenario 2: Ya asignado (idempotencia)
  DADO el AGR ya asignado al User
  ENTONCES 200 OK (no duplicado)
  
- Escenario 3: Conflicto SoD
- DADO el AGR genera conflicto SoD
+ Escenario 3: Conflicto de separacion
+ DADO el AGR genera conflicto de separacion
  ENTONCES 422 con detalle del conflicto
 
 ----

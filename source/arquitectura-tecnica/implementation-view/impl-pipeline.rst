@@ -17,7 +17,7 @@ Implementation View — MOD_ETL_Monitoring
 ==========================================
 
 Componentes y paquetes de codigo del modulo de monitoreo ETL.
-Cubre seguimiento de ``ETLEjecucion`` (es_exitosa / es_fallida),
+Cubre seguimiento de ``PipelineExecution`` (is_successful / is_failed),
 reintentos y registro en ``AuditEvent{ETL_RETRY}``.
 
 .. uml::
@@ -26,11 +26,11 @@ reintentos y registro en ``AuditEvent{ETL_RETRY}``.
  @startuml
 
  package "MOD_ETL_Monitoring" {
-   component "ETLEjecucionView\nETLRetryView" as ETLView <<api>>
-   component "ETLEjecucionSerializer" as ETLSerializer <<serializer>>
-   component "ETLMonitoringService\nmonitorear ETLEjecucion\nes_exitosa() / es_fallida()\ngestionar reintentos" as ETLService <<service>>
-   component "ETLEjecucionRepository\nETLLogRepository" as ETLRepo <<repository>>
-   component "ETLEjecucionORM\nETLLogORM" as ETLORM <<orm>>
+   component "PipelineExecutionView\nETLRetryView" as ETLView <<api>>
+   component "PipelineExecutionSerializer" as ETLSerializer <<serializer>>
+   component "ETLMonitoringService\nmonitorear PipelineExecution\nes_exitosa() / is_failed()\ngestionar reintentos" as ETLService <<service>>
+   component "PipelineExecutionRepository\nETLLogRepository" as ETLRepo <<repository>>
+   component "PipelineExecutionORM\nETLLogORM" as ETLORM <<orm>>
  }
 
  database "AlmacenDatos\n(PostgreSQL)" as AlmacenDatos
@@ -42,10 +42,10 @@ reintentos y registro en ``AuditEvent{ETL_RETRY}``.
  ETLORM --> AlmacenDatos : SQL
 
  note right of ETLService
-   ETLEjecucion{pipeline_id, estado, registros_procesados,
-     registros_fallidos, iniciado_en, finalizado_en}.
-   es_exitosa(): estado=COMPLETADO AND registros_fallidos=0.
-   es_fallida(): estado=FALLIDO OR registros_fallidos>0.
+   PipelineExecution{pipeline_id, estado, registros_procesados,
+     registros_fallidos, started_at, finished_at}.
+   is_successful(): estado=COMPLETADO AND registros_fallidos=0.
+   is_failed(): estado=FALLIDO OR registros_fallidos>0.
    AuditEvent{ETL_RETRY} en cada reintento.
  end note
 
@@ -54,5 +54,5 @@ reintentos y registro en ``AuditEvent{ETL_RETRY}``.
 .. seealso::
 
  :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/etl-ejecucion`
+ :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`
  :doc:`/arquitectura-tecnica/domain-model/audit-event`

@@ -7,20 +7,20 @@ inyectadas, complementando § 17.1:
 .. uml::
 
    @startuml
-   title Snapshot dependencias — ExportarReporteFacade
+   title Snapshot dependencias — ExportReportFacade
 
-   class ExportarReporteFacade
+   class ExportReportFacade
    class SecRules
-   class Reporte
+   class Report
    class Worker
    class Bus
-   class Buzon
+   class Mailbox
 
-   ExportarReporteFacade ..> SecRules : inyecta
-   ExportarReporteFacade ..> Reporte : inyecta
-   ExportarReporteFacade ..> Worker : inyecta
-   ExportarReporteFacade ..> Bus : usa (singleton)
-   ExportarReporteFacade ..> Buzon : inyecta
+   ExportReportFacade ..> SecRules : injects
+   ExportReportFacade ..> Report : injects
+   ExportReportFacade ..> Worker : injects
+   ExportReportFacade ..> Bus : uses (singleton)
+   ExportReportFacade ..> Mailbox : injects
    @enduml
 
 Lectura del snapshot:

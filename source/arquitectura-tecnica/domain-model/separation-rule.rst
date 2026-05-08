@@ -17,12 +17,12 @@
 SeparationRule
 ==============
 
-Regla de separacion de funciones (SoD). Define conjuntos de funciones
+Regla de separacion de funciones (separation of duties). Define conjuntos de funciones
 RBAC que no pueden ser asignadas simultaneamente al mismo usuario
 (CNST-030). Las reglas se desactivan, no se eliminan (BR-009 v2.0.0).
 
 .. uml::
- :caption: Clase SeparationRule — regla de separacion de funciones (SoD).
+ :caption: Clase SeparationRule — regla de separacion de funciones (separation of duties).
 
  @startuml
 
@@ -50,7 +50,7 @@ RBAC que no pueden ser asignadas simultaneamente al mismo usuario
 
  note right of SeparationRule
    BR-009 v2.0.0: desactivar, no eliminar.
-   CNST-030: enforcement SoD en tiempo de asignacion.
+   CNST-030: enforcement separacion en tiempo de asignacion.
  end note
 
  @enduml

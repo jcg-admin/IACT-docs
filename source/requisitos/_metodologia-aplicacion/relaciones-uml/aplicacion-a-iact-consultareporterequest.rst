@@ -21,30 +21,30 @@ campos y aporta su validación canónica
 .. uml::
 
    @startuml
-   title Snapshot post-refactor — ConsultaReporteRequest
+   title Snapshot post-refactor — ReportQueryRequest
 
-   class ConsultaReporteRequest {
+   class ReportQueryRequest {
      + user_id : int
-     + segmento_id : int
-     + fecha_desde : date
-     + fecha_hasta : date
+     + segment_id : int
+     + date_from : date
+     + date_to : date
      --
-     + validar() : bool
-     - _verificar_rango_max() : bool
+     + validate() : bool
+     - _verify_max_range() : bool
    }
 
-   class Reporte {
-     - _filtros : List<Filtro>
+   class Report {
+     - _filters : List<Filter>
      --
-     + generar(req : ConsultaReporteRequest) : Resultado
-     + exportar(req : ConsultaReporteRequest, formato : str) : TareaId
-     + contar_filas(req : ConsultaReporteRequest) : int
-     - _aplicar_filtros(req : ConsultaReporteRequest) : Query
+     + generate(req : ReportQueryRequest) : Result
+     + export(req : ReportQueryRequest, format : str) : TaskId
+     + count_rows(req : ReportQueryRequest) : int
+     - _apply_filters(req : ReportQueryRequest) : Query
    }
 
-   class ExportarReporteFacade
+   class ExportReportFacade
 
-   ExportarReporteFacade ..> ConsultaReporteRequest : usa
-   ExportarReporteFacade ..> Reporte : inyecta
-   Reporte ..> ConsultaReporteRequest : recibe
+   ExportReportFacade ..> ReportQueryRequest : uses
+   ExportReportFacade ..> Report : injects
+   Report ..> ReportQueryRequest : receives
    @enduml

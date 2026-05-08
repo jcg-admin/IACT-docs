@@ -59,7 +59,7 @@ chars,
 - Status = 400 SELF_GRANT_FORBIDDEN
 - AuditEvent ALERTA CRITICA
 
-9.6 CA-06: SoD violation (EX-09)
+9.6 CA-06: separacion violation (EX-09)
 ================================
 
 **DADO** funcion en conflicto con permisos
@@ -67,7 +67,7 @@ actuales del target,
 
 **ENTONCES**:
 
-- Status = 409 SOD_VIOLATION
+- Status = 409 SEPARATION_VIOLATION
 - All-or-nothing
 
 9.7 CA-07: Mailbox-or-abort hard (EX-11, P-10)
@@ -174,7 +174,7 @@ Invalidate llamado DESPUES del COMMIT.
    - Auto-grant prohibido
    - Seguridad
  * - CA-06
-   - SoD all-or-nothing
+   - separacion all-or-nothing
    - Cumplimiento
  * - CA-07
    - Mailbox-or-abort hard (P-10)

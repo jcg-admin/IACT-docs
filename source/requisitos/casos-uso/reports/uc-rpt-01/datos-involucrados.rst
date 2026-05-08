@@ -7,17 +7,22 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **Base Analitica IVR** — datos de llamadas por segmento,
-  trimestre y centro de transferencia, generados por el ETL
-  y consultados via Servicio de Reportes.
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_detalle`` poblado por el ETL. Se accede
+  exclusivamente via ``cursor.callproc('sp_rpt_centros_
+  xsegmento', [period, segments])``; el SP entrega filas
+  pre-agregadas por segmento, trimestre y centro de
+  transferencia.
 - **SegmentoUsuario** — filtro de segmento aplicado por
-  ``<<include>>`` UC_INC_RPT_01.
+  ``<<include>>`` UC_INC_RPT_01; los segmentos se pasan
+  como parametro al SP.
 
 7.2 Datos del dashboard IVR
 ============================
 
-El dashboard IVR agrega informacion de los Servicios de
-Reportes disponibles. Los KPIs principales son:
+El dashboard IVR consume las filas pre-agregadas que retorna
+``sp_rpt_centros_xsegmento`` desde BD_IVR. Los KPIs
+principales (calculados por el SP, no por el backend) son:
 
 ::
 
@@ -29,8 +34,9 @@ Reportes disponibles. Los KPIs principales son:
      tasa_abandono       : (total_abandonadas / total) * 100
      centros_principales : top N centros de transferencia
 
-Todos los valores se calculan sobre la Base Analitica IVR
-para el trimestre y segmento activos del usuario.
+Todos los valores los calcula el SP en BD_IVR para el
+trimestre y segmento activos del usuario; el backend solo
+parsea las filas y arma el JSON de respuesta.
 
 7.3 Cache
 =========
@@ -43,7 +49,7 @@ para el trimestre y segmento activos del usuario.
    ttl: 30s
 
 El cache se invalida al completar una ejecucion ETL exitosa
-(``etl_runs.estado = 'exitoso'``).
+(``pipeline_runs.estado = 'exitoso'``).
 
 7.4 Datos NO involucrados
 ==========================

@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: rbac/modelo-rbac-iact/diagramas
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -17,7 +17,7 @@ Modelo RBAC IACT — Diagramas
 ============================
 
 Un diagrama por archivo. Diagramas estructurales y de comportamiento
-del modelo RBAC canonico v5.5.0.
+del modelo RBAC canonico v5.6.0.
 
 .. toctree::
  :maxdepth: 1
@@ -26,3 +26,4 @@ del modelo RBAC canonico v5.5.0.
  clases-entidades-rbac
  flujo-enforcement-rbac
  ciclo-vida-asignacion
+ bootstrap-grupos-predefinidos

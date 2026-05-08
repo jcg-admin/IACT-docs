@@ -62,7 +62,7 @@ Modelo RBAC IACT — Grupos de Funciones
    - `auditor_group`
    - 4
    - Auditor
-   - Solo auditoría (SoD)
+   - Solo auditoría (separation of duties)
  * - **AGR-009**
    - `pipeline_admin_group`
    - 4
@@ -70,19 +70,19 @@ Modelo RBAC IACT — Grupos de Funciones
    - Supervisión ETL
  * - **AGR-010**
    - `system_admin_group`
-   - 6
-   - Sysadmin
-   - Administración completa
- * - **AGR-011**
-   - `call_center_operator_group`
    - 9
+   - Sysadmin
+   - Administración técnica + plano de configuración RBAC (MOD_Admin v5.6.0)
+ * - **AGR-011** (RESERVADO v5.6.0 — open-closed)
+   - `call_center_operator_group`
+   - 10
    - Agente
-   - Acciones operativas del agente de call center
- * - **AGR-012**
+   - Acciones operativas del agente de call center (mapea a MOD_Operator out-of-scope)
+ * - **AGR-012** (RESERVADO v5.6.0 — open-closed)
    - `call_center_supervisor_group`
-   - 12
+   - 3 + AGR-003
    - Supervisor
-   - Supervision en tiempo real + todas las de AGR-003
+   - Supervision en tiempo real + todas las de AGR-003 (mapea a MOD_Supervision out-of-scope)
 
 
 **CAMBIO v5.2.1:**
@@ -93,6 +93,10 @@ Modelo RBAC IACT — Grupos de Funciones
 **CAMBIO v5.5.0:**
 - AGR-011 ``call_center_operator_group`` (10 funciones OPR-001..010)
 - AGR-012 ``call_center_supervisor_group`` (``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + AGR-003)
+
+**CAMBIO v5.6.0:**
+
+- AGR-011 y AGR-012 reclasificados como **RESERVADOS open-closed**: declarados en el catálogo como puntos de extensión, mapean a los módulos out-of-scope MOD_Operator y MOD_Supervision (ver :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`).
 
 
 4.2 Detalle de Grupos
@@ -214,7 +218,7 @@ AGR-006 user_admin_group
 
 **Propósito:** Administración completa de identidades.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -235,7 +239,7 @@ AGR-007 permission_admin_group
 
 **Propósito:** Administración de RBAC.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -255,7 +259,7 @@ AGR-008 auditor_group
 
 **Propósito:** Auditoría y compliance.
 
-**SoD CRÍTICA:** NO puede combinarse con:
+**Separacion de deberes CRÍTICA:** NO puede combinarse con:
 - AGR-006 (user_admin_group)
 - AGR-007 (permission_admin_group)
 - AGR-009 (pipeline_admin_group)
@@ -278,7 +282,7 @@ AGR-009 pipeline_admin_group
 
 **Propósito:** Administración de ETL.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -286,10 +290,11 @@ AGR-010 system_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-**Funciones incluidas (6):**
+**Funciones incluidas (9):**
 
 .. code-block:: text
 
+ # Operacional (6)
  view_own_sessions
  close_user_session
  reset_password
@@ -297,16 +302,32 @@ AGR-010 system_admin_group
  view_application_logs
  export_logs
 
+ # MOD_Admin v5.6.0 (3) — plano de configuracion RBAC
+ create_separation_rule         (adm:create_separation_rule)
+ manage_function_catalog        (adm:manage_catalog)
+ assign_functions_to_group      (access:assign_to_group)
 
-**Propósito:** Administración técnica del sistema.
+
+**Propósito:** Administración técnica del sistema + plano de
+configuración RBAC. AGR-010 es el actor canónico de **MOD_Admin**
+(NUEVO v5.6.0, ver
+:doc:`/requisitos/casos-uso/admin/index`) — gestiona QUE
+funciones, grupos del sistema y reglas de separacion EXISTEN.
 
 ----
 
-AGR-011 call_center_operator_group
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AGR-011 call_center_operator_group (RESERVADO v5.6.0 — open-closed)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+
+ Grupo reservado para extensión futura. Mapea al módulo
+ **MOD_Operator** que es out-of-scope para v5.6.0. Las 10
+ funciones se preservan en el catálogo como puntos de extensión
+ open-closed.
 
 
-**Funciones incluidas (10):**
+**Funciones incluidas (10 — reservadas open-closed):**
 
 .. code-block:: text
 
@@ -327,11 +348,18 @@ Auto-asignado al activar perfil de operador.
 
 ----
 
-AGR-012 call_center_supervisor_group
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AGR-012 call_center_supervisor_group (RESERVADO v5.6.0 — open-closed)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+
+ Grupo reservado para extensión futura. Mapea al módulo
+ **MOD_Supervision** que es out-of-scope para v5.6.0. Las
+ funciones (3 propias + AGR-003 inheritance) se preservan en el
+ catálogo como puntos de extensión open-closed.
 
 
-**Funciones incluidas (12):**
+**Funciones incluidas (3 propias + AGR-003 inheritance — reservadas open-closed):**
 
 .. code-block:: text
 
@@ -343,7 +371,7 @@ AGR-012 call_center_supervisor_group
 
 **Propósito:** Supervisores con capacidad de intervención en tiempo real.
 
-**SoD:** Los supervisores NO deben tener funciones de AGR-008 (auditoría)
+**Separacion de deberes:** Los supervisores NO deben tener funciones de AGR-008 (auditoría)
 simultáneamente — aplica SOD-002 si también tienen funciones de gestión
 de usuarios.
 

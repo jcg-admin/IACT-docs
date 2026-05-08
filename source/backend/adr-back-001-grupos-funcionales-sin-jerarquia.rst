@@ -19,7 +19,7 @@ ADR-005: Sistema de Permisos con Grupos Funcionales Sin Jerarquía
    (2026-04-29).
 
    Este ADR contiene cifras divergentes del modelo v5.2.1 vigente
-   ("19 funciones / 130+ capacidades" vs "74 funciones / 12
+   ("19 funciones / 130+ capacidades" vs "64 funciones activas / 12
    grupos AGR") y vocabulario "Capacidad" que CNST-033 vigente
    prohibe. Preservado por trazabilidad historica.
 

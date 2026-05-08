@@ -24,10 +24,10 @@ Diagrama de componentes — MOD_Logs
  component "Aplicaciones del sistema\n(stdout/stderr)" as AppsDjango
  component "fluent-bit\n(shipper)" as FluentBit
  database "LogStore\n(PostgreSQL)" as Logstore
- database "etl_runs" as ARTEFACTO_ETL_LOG
+ database "pipeline_runs" as ARTEFACTO_ETL_LOG
 
  component "view_application_logs" as view_application_logs
- component "view_etl_logs" as view_etl_logs
+ component "view_pipeline_logs" as view_pipeline_logs
  component "search_logs" as search_logs
  component "export_logs" as export_logs
  component "InternalMailbox" as Internalmailbox
@@ -36,7 +36,7 @@ Diagrama de componentes — MOD_Logs
  FluentBit --> Logstore : registrar logs
 
  view_application_logs --> Logstore : consultar sistema
- view_etl_logs --> ARTEFACTO_ETL_LOG : consultar etl_runs
+ view_pipeline_logs --> ARTEFACTO_ETL_LOG : consultar pipeline_runs
  search_logs --> Logstore : consultar con filtros
  export_logs --> Logstore : consultar rango + generar CSV
  export_logs --> Internalmailbox : notificar via buzon

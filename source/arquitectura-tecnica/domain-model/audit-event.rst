@@ -56,7 +56,7 @@ representan como valores del enum ``EventType``, no como subclases.
    CONFIG_CHANGED
  }
 
- AuditEvent -- EventType
+ AuditEvent "*" -- "1" EventType : classified_as
 
  note right of AuditEvent
    CNST-025: append-only, inmutable.

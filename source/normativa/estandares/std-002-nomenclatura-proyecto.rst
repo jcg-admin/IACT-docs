@@ -375,7 +375,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 
  BR_001_Cliente_Debe_Autenticarse_1_0_0.rst
  BR_007_Separacion_Funciones_1_0_0.rst
- BR_015_Restriccion_SoD_1_0_0.rst
+ BR_015_Restriccion_Separacion_1_0_0.rst
  BR_020_Clasificacion_Datos_1_0_0.rst
 
 4.4 Requisitos Funcionales (FR)
@@ -402,7 +402,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 .. code-block:: text
 
  FR_001.01_Validar_Credenciales_1_0_0.rst
- FR_010.06_Verificar_SoD_1_0_0.rst
+ FR_010.06_Verificar_Separacion_1_0_0.rst
  FR_060.03_Generar_CSV_1_0_0.rst
 
 **Nota:** En v4.0 de UC también se acepta el formato expandido:
@@ -410,7 +410,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 .. code-block:: text
 
  FR_UCAUTH_01.01_Validar_Username_1_0_0.rst
- FR_UCACC_05.02_Verificar_SoD_1_0_0.rst
+ FR_UCACC_05.02_Verificar_Separacion_1_0_0.rst
 
 4.5 Restricciones de Arquitectura (CNST)
 ----------------------------------------
@@ -1037,17 +1037,17 @@ Al crear o renombrar un artefacto, verificar:
  │ └── BReq_001_Objetivos_IACT_1_0_0.rst
  ├── reglas_negocio/
  │ ├── BR_001_Cliente_Debe_Autenticarse_1_0_0.rst
- │ └── BR_015_Restriccion_SoD_1_0_0.rst
+ │ └── BR_015_Restriccion_Separacion_1_0_0.rst
  ├── casos_uso/
  │ ├── auth/
  │ │ ├── UC_AUTH_01_Iniciar_Sesion_4_0_0.rst
  │ │ └── UC_AUTH_02_Cerrar_Sesion_4_0_0.rst
  │ └── access/
  │ ├── UC_ACC_01_Asignar_Funciones_4_0_0.rst
- │ └── UC_ACC_05_Gestionar_SoD_4_0_0.rst
+ │ └── UC_ACC_05_Gestionar_Separacion_4_0_0.rst
  ├── funcionales/
  │ ├── FR_001.01_Validar_Credenciales_1_0_0.rst
- │ └── FR_010.06_Verificar_SoD_1_0_0.rst
+ │ └── FR_010.06_Verificar_Separacion_1_0_0.rst
  └── no_funcionales/
  └── NFR_SEC_001_Autenticacion_2FA_1_0_0.rst
 

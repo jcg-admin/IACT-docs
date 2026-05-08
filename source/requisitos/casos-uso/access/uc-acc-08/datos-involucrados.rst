@@ -131,5 +131,5 @@ invalidate post-COMMIT.
 =============================
 
 15 FR derivados (auth + RBAC + payload
-validation + funciones + idempotencia + SoD +
+validation + funciones + idempotencia + separacion +
 INSERT N + cache + mailbox + audit + response).

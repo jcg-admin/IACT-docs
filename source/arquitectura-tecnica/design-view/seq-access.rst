@@ -1,78 +1,80 @@
 .. meta::
- :artefacto: AT_DESIGN_MOD_ACCESS
- :tipo: Diagrama Arquitectonico — Design View
+ :artefacto: AT_DESIGN_SEQ_ACCESS
+ :tipo: Diagrama Arquitectonico — Design View — Sequence
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
+ :modulo: access
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Interno
 
-.. _at_design_mod_access:
+.. _at_design_seq_access:
 
-=================================================
-Design View — MOD_Access: Control de Acceso RBAC
-=================================================
+============================================================
+Design View — MOD_Access: Patron de Interaccion
+============================================================
 
-Patron de interaccion del modulo de control de acceso. Muestra la
-asignacion de ``FunctionGroup`` a un usuario con verificacion de
-``SeparationRule`` (SoD) antes de crear el ``Assignment``.
+Secuencia canonica del modulo MOD_Access: asignacion de
+``FunctionGroup`` a un usuario con verificacion previa de
+``SeparationRule`` (separation of duties) antes de crear el ``Assignment``.
+
+Actores ``<<sistema>>`` son clases canonicas del domain-model.
+La funcion RBAC iniciadora es ``assign_functions_to_group``.
 
 .. uml::
- :caption: Design View MOD_Access — asignacion con verificacion SoD.
+ :caption: MOD_Access — asignacion con verificacion separacion de deberes.
 
  @startuml
 
- actor AGR_ADMIN
+ actor "assign_functions_to_group" as assign_functions_to_group
+ actor "AuthorizationGuard" as AuthorizationGuard <<sistema>>
+ actor "SeparationRuleRepo" as SeparationRuleRepo <<sistema>>
+ actor "AssignmentRepo" as AssignmentRepo <<sistema>>
+ actor "AuditService" as AuditService <<sistema>>
 
- participant InterfazAdmin        <<frontend>>
- participant ServicioAcceso       <<api>>
- participant ServicioRBAC         <<domain>>
- participant RepositorioAssignment <<repository>>
- database    AlmacenDatos         <<postgresql>>
+ assign_functions_to_group -> AuthorizationGuard : verify()
+ activate AuthorizationGuard
+ AuthorizationGuard --> assign_functions_to_group : OK
+ deactivate AuthorizationGuard
 
- AGR_ADMIN -> InterfazAdmin : POST /access/assignments\n{user_id, group_ref, expires_at}
- activate InterfazAdmin
+ assign_functions_to_group -> SeparationRuleRepo : check_separation(user_id, group_ref)
+ activate SeparationRuleRepo
+ SeparationRuleRepo --> assign_functions_to_group : sod_result
+ deactivate SeparationRuleRepo
 
- InterfazAdmin -> ServicioAcceso : asignarGrupo(user_id, group_ref, expires_at)
- activate ServicioAcceso
-
- ServicioAcceso -> ServicioRBAC : verificarSoD(user_id, group_ref)
- activate ServicioRBAC
- ServicioRBAC -> AlmacenDatos : SELECT separation_rules\nWHERE estado=ENABLED
- AlmacenDatos --> ServicioRBAC : List<SeparationRule>
- ServicioRBAC -> AlmacenDatos : SELECT assignments\nWHERE user_id=? AND state=ACTIVE
- AlmacenDatos --> ServicioRBAC : asignaciones actuales
- ServicioRBAC --> ServicioAcceso : resultado SoD check
- deactivate ServicioRBAC
-
- alt conflicto SoD detectado
-   ServicioAcceso --> InterfazAdmin : 422 SoD Violation
+ alt conflicto de separacion detectado
+   assign_functions_to_group --> assign_functions_to_group : 422 Separation Violation
  else sin conflicto
-   ServicioAcceso -> RepositorioAssignment : crear(Assignment{\n  assignment_id:UUID,\n  user_id,\n  group_ref,\n  assigned_by,\n  expires_at,\n  state:AssignmentState.ACTIVE\n})
-   activate RepositorioAssignment
-   RepositorioAssignment -> AlmacenDatos : INSERT assignments
-   AlmacenDatos --> RepositorioAssignment : OK
-   RepositorioAssignment --> ServicioAcceso : Assignment
-   deactivate RepositorioAssignment
+   assign_functions_to_group -> AssignmentRepo : create(Assignment)
+   activate AssignmentRepo
+   AssignmentRepo --> assign_functions_to_group : Assignment
+   deactivate AssignmentRepo
 
-   ServicioAcceso -> AlmacenDatos : INSERT audit_events\n{event_type:ACCESS_CHANGE}
-   AlmacenDatos --> ServicioAcceso : AuditEvent registrado
-
-   ServicioAcceso --> InterfazAdmin : 201 Created {assignment_id}
+   assign_functions_to_group -> AuditService : emit(AuditEvent)
+   activate AuditService
+   AuditService --> assign_functions_to_group : OK
+   deactivate AuditService
  end
 
- deactivate ServicioAcceso
- InterfazAdmin --> AGR_ADMIN : confirmacion
- deactivate InterfazAdmin
+ note right of SeparationRuleRepo
+   CNST-005: separacion evaluada en
+   funciones, no en grupos.
+ end note
 
  @enduml
 
+----
+
 .. seealso::
 
- :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/domain-model/assignment`
- :doc:`/arquitectura-tecnica/domain-model/separation-rule`
- :doc:`/arquitectura-tecnica/domain-model/audit-event`
+ - :doc:`/arquitectura-tecnica/design-view/class-access`
+ - :doc:`/arquitectura-tecnica/use-case-view/access/index`
+ - :doc:`/arquitectura-tecnica/domain-model/assignment`
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule`
+ - :doc:`/arquitectura-tecnica/domain-model/authorization-guard`
+ - :doc:`/arquitectura-tecnica/domain-model/separation-rule-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/assignment-repo`
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service`

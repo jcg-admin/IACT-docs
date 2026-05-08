@@ -30,7 +30,10 @@ no se elimina (BR-009 v2.0.0).
    + view_id : UUID
    + owner_user_id : UUID
    + report_id : UUID
+   + report_type : ReportType
    + filters_snapshot : List<Filter>
+   + columns : List<String>
+   + chart_config : Map<String, Any>
    + name : String
    + state : ViewState
    --

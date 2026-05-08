@@ -41,7 +41,7 @@ UC_PERM_01 expone la asignacion de un AGR a un
 User desde la perspectiva del catalogo de
 permisos. La operacion subyacente es identica a
 UC_ACC_04 — comparten ``assign_function_groups``,
-contratos, validaciones SoD, transaccion atomica.
+contratos, validaciones separacion, transaccion atomica.
 La spec aqui se enfoca en:
 
 - Vocabulario PERM (catalogo de permisos,

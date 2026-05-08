@@ -5,10 +5,10 @@
 
    @startuml
 
-   class Reporte
-   class Llamada
-   Reporte "1" -[#black]- "(id)" Llamada : busca
-   note right of Llamada
+   class Report
+   class Call
+   Report "1" -[#black]- "(id)" Call : searches
+   note right of Call
      Calificador `id` reduce
      1:* a 1:1 en runtime.
      Se usa en UC_RPT_03 al

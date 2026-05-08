@@ -8,7 +8,7 @@ Lecturas:
 
 - ServiceHealthCheck (interno).
 - DependencyHealthCheck.
-- ETLEjecucion (Registro de Ejecuciones — UC_PIP_01).
+- PipelineExecution (Registro de Ejecuciones — UC_PIP_01).
 - Alert active count.
 
 Sin escritura.

@@ -14,15 +14,15 @@ detergente*, *activarse* y *sacar ropa*.
 
    @startuml
 
-   class Lavadora {
-     - marca : String
-     - modelo : String
-     - numeroSerie : String
-     - capacidad : Float
+   class WashingMachine {
+     - brand : String
+     - model : String
+     - serialNumber : String
+     - capacity : Float
      --
-     + agregarRopa()
-     + agregarDetergente()
-     + activarse()
-     + sacarRopa()
+     + addClothes()
+     + addDetergent()
+     + activate()
+     + removeClothes()
    }
    @enduml

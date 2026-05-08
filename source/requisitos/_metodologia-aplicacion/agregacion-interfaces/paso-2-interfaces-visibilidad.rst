@@ -7,17 +7,17 @@
    allowmixing
 
    interface IExportable <<interface>> {
-     + exportar(formato)
+     + export(format)
    }
-   class Reporte {
-     - sql_crudo : String
-     # registrarConsulta()
-     + exportar(formato)
+   class Report {
+     - raw_sql : String
+     # recordQuery()
+     + export(format)
    }
-   class LogSistema {
-     - servicio : String
-     + exportar(formato)
+   class SystemLog {
+     - service : String
+     + export(format)
    }
-   Reporte ..|> IExportable
-   LogSistema ..|> IExportable
+   Report ..|> IExportable
+   SystemLog ..|> IExportable
    @enduml

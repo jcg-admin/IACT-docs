@@ -19,7 +19,7 @@ Backend (heredados UC_ACC_08):
   JustificationValidator,
   ExpirationPolicy, AntiSelfActionPolicy,
   ExceptionalPermissionRepository,
-  SoDValidator, MailboxFailurePolicy=HARD,
+  SeparationRuleValidator, MailboxFailurePolicy=HARD,
   AuditLog (high-priority),
   TransactionManager.
 
@@ -34,7 +34,7 @@ Componentes UI especificos:
  * - **HTTPPreviewExcEndpoint**
    - GET preview sin persistir
  * - **GrantPreviewService**
-   - calculo SoD impact + duration estimate
+   - calculo separacion impact + duration estimate
  * - **FunctionCatalogCache**
    - cache de funciones + counts
      excepcionales vigentes
@@ -89,7 +89,7 @@ UI agrega:
          current_effective | function_ids
 
        sod_violations =
-         SoDValidator
+         SeparationRuleValidator
            .find_violations_info_mode(
              effective_post_grant, rules)
 

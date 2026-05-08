@@ -8,39 +8,39 @@
 
  actor Manager as Manager
  participant "Frontend" as Frontend
- participant "CreateSoDRuleView" as Createsodruleview
+ participant "CreateSeparationRuleView" as Createseparationruleview
  participant "AccessService" as Accessservice
  participant "FunctionRepo" as Functionrepo
- participant "SoDRuleRepo" as Sodrulerepo
- participant "SoDRuleCache" as Sodrulecache
+ participant "SeparationRuleRepo" as Separationrulerepo
+ participant "SeparationRuleCache" as Separationrulecache
  participant "AuditLog" as Auditlog
 
  Manager -> Frontend: Define regla con functions
- Frontend -> Createsodruleview: POST /api/access/sod-rules/
+ Frontend -> Createseparationruleview: POST /api/access/separation-rules/
 
- Createsodruleview -> Createsodruleview: Validar JWT + view_separation_rules
+ Createseparationruleview -> Createseparationruleview: Validar JWT + view_separation_rules
  alt Sin permiso
-   Createsodruleview --> Frontend: 403
-   Createsodruleview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
+   Createseparationruleview --> Frontend: 403
+   Createseparationruleview -> Auditlog: emit UNAUTHORIZED_ACCESS_ATTEMPT
  else Con permiso
-   Createsodruleview -> Accessservice: create_sod_rule(payload, invoker)
+   Createseparationruleview -> Accessservice: create_separation_rule(payload, invoker)
    Accessservice -> Functionrepo: validate_functions(payload.function_ids)
    alt Funciones invalidas
-     Accessservice --> Createsodruleview: error
-     Createsodruleview --> Frontend: 400
+     Accessservice --> Createseparationruleview: error
+     Createseparationruleview --> Frontend: 400
    else OK
-     Accessservice -> Sodrulerepo: find_active_with_same_functions(...)
+     Accessservice -> Separationrulerepo: find_active_with_same_functions(...)
      alt Duplicada
-       Accessservice --> Createsodruleview: SoDRuleDuplicate
-       Createsodruleview --> Frontend: 409
+       Accessservice --> Createseparationruleview: SeparationRuleDuplicate
+       Createseparationruleview --> Frontend: 409
      else No duplicada
        group Transaccion atomica
-         Accessservice -> Sodrulerepo: insert(payload, invoker)
-         Accessservice -> Auditlog: emit SOD_RULE_CREATED
+         Accessservice -> Separationrulerepo: insert(payload, invoker)
+         Accessservice -> Auditlog: emit SEPARATION_RULE_CREATED
        end
-       Accessservice -> Sodrulecache: invalidate() (post-COMMIT)
-       Accessservice --> Createsodruleview: rule
-       Createsodruleview --> Frontend: 201 Created
+       Accessservice -> Separationrulecache: invalidate() (post-COMMIT)
+       Accessservice --> Createseparationruleview: rule
+       Createseparationruleview --> Frontend: 201 Created
      end
    end
  end

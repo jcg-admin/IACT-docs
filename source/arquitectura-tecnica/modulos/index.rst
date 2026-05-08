@@ -14,7 +14,7 @@
 Modulos Arquitectonicos
 =======================
 
-Definicion arquitectonica de los **12 modulos funcionales** del sistema
+Definicion arquitectonica de los **13 modulos UC del sistema** (9 RBAC activos + ADM nuevo v5.6.0 + 2 reservados open-closed + Caller sin RBAC)
 IACT. Cada ``ARQ_MOD_NNN`` documenta el proposito, responsabilidades,
 componentes internos, interfaces, dependencias y consideraciones
 tecnicas del modulo correspondiente.

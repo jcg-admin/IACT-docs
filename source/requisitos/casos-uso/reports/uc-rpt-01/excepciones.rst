@@ -26,11 +26,13 @@ filtrables sin segmento).
 
 400 VALIDATION_ERROR.
 
-5.5 EX-05: BD Analytics timeout
-===============================
+5.5 EX-05: BD_IVR / callproc timeout
+====================================
 
-503. NO mostrar dashboard vacio (parecera
-bug); banner explicito.
+503. ``cursor.callproc('sp_rpt_centros_
+xsegmento', ...)`` excede timeout. NO
+mostrar dashboard vacio (parecera bug);
+banner explicito.
 
 5.6 EX-06: Throttling
 =====================
@@ -65,7 +67,7 @@ bug); banner explicito.
    - 400
    - validation
  * - EX-05
-   - BD timeout
+   - callproc BD_IVR timeout
    - 503
    - operacion FAILED
  * - EX-06

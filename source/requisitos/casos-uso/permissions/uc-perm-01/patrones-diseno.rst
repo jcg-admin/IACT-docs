@@ -17,7 +17,7 @@ Responsibility, Observer, Template Method).
 Heredados de UC_ACC_04: P-08 fail-closed,
 P-09 audit-or-abort, P-11 anti-self-action,
 P-15 RBAC granular, P-22 idempotencia, P-27
-SoD write-time, P-28 all-or-nothing, P-29
+separacion write-time, P-28 all-or-nothing, P-29
 cache post-COMMIT, P-35 AGR como unidad de
 granularidad.
 

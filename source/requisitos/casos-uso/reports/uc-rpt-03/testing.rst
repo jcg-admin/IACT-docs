@@ -7,7 +7,7 @@ Parte 12 — Testing
 12.1 Estrategia
 ===============
 
-- Unit: PeriodResolver, ComparativeBuilder,
+- Unit: PeriodResolver, ComparativeAssembler,
   KPICalculator, FilterValidator.
 - Integration: query agregada con datos
   sembrados, paginacion.
@@ -22,9 +22,9 @@ UT-01: PeriodResolver.prior(last_30d) →
 correcto.
 UT-02: PeriodResolver.prior(custom) →
 mismo length antes.
-UT-03: ComparativeBuilder con datos
+UT-03: ComparativeAssembler con datos
 sufficientes → diff_pct.
-UT-04: ComparativeBuilder sin datos prior
+UT-04: ComparativeAssembler sin datos prior
 → insufficient_data flag.
 UT-05: FilterValidator rechaza range > 2
 anos.

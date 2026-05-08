@@ -8,16 +8,16 @@ agregaciones, no composiciones:
 .. uml::
 
    @startuml
-   class Grupo
-   class Funcion
-   class Usuario
-   class Permiso
-   class ReglaSoD
+   class Group
+   class Function
+   class User
+   class Permission
+   class SeparationRule
 
-   Grupo "1" o-- "*" Funcion : agrupa
-   Grupo "1" o-- "*" Usuario : asigna
-   ReglaSoD "1" -- "2..*" Funcion : restringe
-   Permiso ..> Grupo : pertenece
+   Group "1" o-- "*" Function : groups
+   Group "1" o-- "*" User : assigns
+   SeparationRule "1" -- "2..*" Function : restricts
+   Permission ..> Group : belongs
    @enduml
 
 Lectura:
@@ -25,11 +25,11 @@ Lectura:
 - ``Grupo`` ◇ ``Funcion`` — **agregación**. Las
   funciones del catálogo RBAC existen
   independientemente de cualquier grupo. Eliminar un
-  grupo no elimina las funciones (CNST_030 SoD se
+  grupo no elimina las funciones (CNST-030 separacion de funciones se
   conserva a nivel de catálogo).
 - ``Grupo`` ◇ ``Usuario`` — **agregación**. Los
   usuarios existen sin grupos; pueden pertenecer a
   varios; eliminar un grupo no elimina los usuarios.
-- ``ReglaSoD`` ↔ ``Funcion`` — asociación: la regla
+- ``ReglaSeparacion`` ↔ ``Funcion`` — asociación: la regla
   referencia funciones del catálogo; ambas existen
   independientemente.

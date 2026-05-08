@@ -7,6 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso-relacion-de-inclusion
-   actividad
-   clases
+   diagrama-de-caso-de-uso
+   diagrama-de-caso-de-uso-relacion-de-inclusion
+   diagrama-de-actividad
+   diagrama-de-clases

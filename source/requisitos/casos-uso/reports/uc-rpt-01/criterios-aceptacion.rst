@@ -93,16 +93,17 @@ incluyendo hoy.
 9.15 CA-15: ETL desfasado banner
 ================================
 
-**DADO** Analytics atrasado > X min,
+**DADO** ETL de BD_IVR atrasado > X min,
 **ENTONCES** response incluye
 staleness_minutes > 0.
 
-9.16 CA-16: Read-only Analytics (CNST-007)
-==========================================
+9.16 CA-16: Read-only BD_IVR (CNST-007)
+=======================================
 
-**DADO** N invocaciones,
-**ENTONCES** 0 writes a BD operativa o
-Analytics.
+**DADO** N invocaciones a
+``sp_rpt_centros_xsegmento``,
+**ENTONCES** 0 writes a BD operativa y
+0 writes a BD_IVR.
 
 9.17 Resumen
 ============

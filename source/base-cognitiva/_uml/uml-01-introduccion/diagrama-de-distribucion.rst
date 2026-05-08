@@ -17,7 +17,7 @@ líneas que conectan a los cubos.
      component [Backend API]
    }
    node "Servidor de BD" as BASE_DATOS {
-     database "PostgreSQL"
+     database "Almacén de Datos"
    }
    node "Cliente" as Web {
      component [Navegador Web]

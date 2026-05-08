@@ -5,21 +5,21 @@
 
    @startuml
 
-   class Llamada {
+   class Call {
      - id : Integer
-     - centro_id : Integer
-     - campana_id : Integer
-     - servicio_id : Integer
-     - tipo : Enum
-     - duracion_seg : Integer
-     - tiempo_espera_seg : Integer
-     - resultado : Enum
-     - fecha : DateTime
-     + getDuracion() : Integer
-     + getTipo() : Enum
-     + esAbandonada() : Boolean
+     - center_id : Integer
+     - campaign_id : Integer
+     - service_id : Integer
+     - type : Enum
+     - duration_sec : Integer
+     - wait_time_sec : Integer
+     - outcome : Enum
+     - date : DateTime
+     + getDuration() : Integer
+     + getType() : Enum
+     + isAbandoned() : Boolean
    }
-   note right of Llamada
+   note right of Call
      Abstracción para analytics:
      sólo atributos relevantes para
      calcular métricas (BR_016 tasa

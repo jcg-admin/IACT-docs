@@ -31,10 +31,10 @@ Grupos de usuario IACT
    - Concerns arquitectonicos
  * - **AGR_ADMIN**
    - Administrador IACT
-   - Control de acceso RBAC granular (74 funciones atomicas);
+   - Control de acceso RBAC granular (64 funciones atomicas activas);
      gestion de usuarios (crear, desactivar — BR-009);
      asignacion de permisos temporales (CNST-031);
-     visualizacion de separacion de funciones SoD (CNST-030).
+     visualizacion de separacion de funciones (separation of duties) (CNST-030).
  * - **AGR_OPERADOR**
    - Operador / Supervisor de Operaciones
    - Disponibilidad del pipeline ETL (P-04);
@@ -68,7 +68,7 @@ Stakeholders organizacionales
      seguridad de datos (RBAC restrictivo), disponibilidad
      del sistema y cumplimiento normativo.
  * - **Equipo de desarrollo**
-   - Concern: modularidad arquitectonica (12 modulos),
+   - Concern: modularidad arquitectonica (13 modulos UC: 10 RBAC activos in-scope v5.6.0 + 2 reservados open-closed + Caller sin RBAC),
      evolucionabilidad incremental, stack Django/Python,
      separacion de capas (5-layer stack en implementation-view).
  * - **Operaciones / DevOps**
@@ -91,7 +91,7 @@ formales (CNST-*) y decisiones arquitectonicas (ADR-GOB-*):
    - Resolucion
  * - Seguridad vs. operabilidad
    - AGR_ADMIN (acceso restrictivo) vs. AGR_OPERADOR (acceso amplio)
-   - RBAC granular: 74 funciones atomicas; SoD (CNST-030);
+   - RBAC granular: 64 funciones atomicas activas; separacion de deberes (CNST-030);
      permisos temporales (CNST-031) para casos excepcionales.
  * - Disponibilidad vs. consistencia ETL
    - AGR_OPERADOR (sistema disponible 24/7) vs. restriccion ETL

@@ -60,7 +60,7 @@ alerts). La transicion queda auditada (CNST-025).
  note right of Subscription
    D-03: tres operaciones separadas
    (subscribe / unsubscribe / configure_severity)
-   para SoD a nivel RBAC.
+   para separacion de deberes a nivel RBAC.
  end note
 
  @enduml

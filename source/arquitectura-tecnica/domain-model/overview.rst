@@ -38,12 +38,14 @@ MODELO DOMINIO IACT
  **Modelo conceptual canonico del dominio IACT**, complementario a
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
- filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 74
- funciones RBAC v5.5.0, BR/CNST en sus versiones vigentes).
+ filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 64
+ funciones RBAC v5.6.0 activas (77 declaradas, 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision), BR/CNST en
+ sus versiones vigentes).
 
  **Convencion de nombres**: identificadores (clases, atributos,
  operaciones, valores de enum) en **ingles** por consistencia con el
- modelo RBAC v5.5.0 y NOM_001 § 2.3. La prosa, los comentarios y las
+ modelo RBAC v5.6.0 y NOM_001 § 2.3. La prosa, los comentarios y las
  notas de los diagramas estan en **espanol**.
 
 ----
@@ -53,7 +55,7 @@ MODELO DOMINIO IACT
 
 Este documento materializa las **26 clases canonicas** del dominio
 IACT distribuidas en **ocho bounded contexts** (Auth, RBAC, Calls,
-Reports & Metrics, Pipeline ETL, Alerts, Audit, Logs). Cada clase
+Reports & Metrics, Pipeline, Alerts, Audit, Logs). Cada clase
 incluye atributos relevantes, operaciones de negocio, restricciones
 canonicas (BR/CNST en versiones vigentes) y trazabilidad a los UCs
 del catalogo.
@@ -73,14 +75,14 @@ por Z.1.C (Camino C) y no aparece en este modelo.
 2.1 Identificadores en ingles
 -----------------------------
 
-- **Clases** en PascalCase (``User``, ``Session``, ``ETLEjecucion``).
+- **Clases** en PascalCase (``User``, ``Session``, ``PipelineExecution``).
 - **Atributos** en snake_case (``user_id``, ``started_at``,
   ``last_login_at``).
 - **Operaciones** en snake_case (``deactivate``, ``acknowledge``,
   ``schedule_report``).
 - **Valores de enum** en UPPER_SNAKE (``ACTIVE``, ``ACKNOWLEDGED``).
 
-Justificacion: el modelo RBAC v5.5.0 ya usa ingles para nombres de
+Justificacion: el modelo RBAC v5.6.0 ya usa ingles para nombres de
 funciones tras la correccion aplicada por Z.1.C. Mantener una
 unica convencion idiomatica para todos los identificadores formales
 del dominio reduce el costo cognitivo y el riesgo de mismatches que
@@ -130,7 +132,7 @@ vigentes tras el programa Z (modelo-rbac-improvement):
  * - CNST-025 — Auditoria inmutable
    - vigente
    - Append-only en ``AuditEvent``; sin actualizar ni DELETE
- * - CNST-030 — Separacion de funciones (SoD)
+ * - CNST-030 — Separacion de funciones (separation of duties)
    - vigente
    - Reglas de exclusion mutua entre funciones
  * - CNST-031 — Rango temporal de permisos
@@ -185,8 +187,8 @@ el detalle de cada contexto ver § 4.
    class SavedView
  }
 
- package "Pipeline ETL" as BC_ETL {
-   class ETLEjecucion
+ package "Pipeline" as BC_ETL {
+   class PipelineExecution
  }
 
  package "Alerts" as BC_ALERTS {
@@ -201,7 +203,7 @@ el detalle de cada contexto ver § 4.
 
  package "Logs" as BC_LOGS {
    class ApplicationLog
-   class ETLLog
+   class PipelineLog
    class InfrastructureLog
    class SystemHealth
    class TechnicalMetric
@@ -217,7 +219,7 @@ el detalle de cada contexto ver § 4.
  Report    "1" -- "*"   ScheduledReport
  Report    "1" -- "*"   SavedView
  Report    "*" .. "*"   Call                  : agrega
- ETLEjecucion "1" .. "*" Call                 : carga
+ PipelineExecution "1" .. "*" Call                 : carga
  Alert     "*" -- "1"   Threshold
  Alert     "1" -- "*"   Subscription
  Subscription "*" -- "1" User

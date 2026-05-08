@@ -11,7 +11,7 @@
  participant "AssignAGRView" as Assignagrview
  participant "AccessService" as Accessservice
  participant "AGRRepository" as Agrrepository
- participant "SoDValidator" as Sodvalidator
+ participant "SeparationRuleValidator" as Sodvalidator
  participant "PermissionCache" as Permissioncache
  participant "AuditLog" as Auditlog
  database "Repo" as Repo
@@ -47,11 +47,11 @@
          Agrrepository --> Accessservice: agr_functions
          Accessservice -> Accessservice: build effective_post_assign\n  = current_effective ∪ agr_functions
          Accessservice -> Sodvalidator: validate(effective_post_assign,\n  rules)
-         alt SoD viola
-           Sodvalidator --> Accessservice: SoDViolation
+         alt separacion viola
+           Sodvalidator --> Accessservice: SeparationRuleViolation
            Accessservice -> Auditlog: emit AGR_ASSIGN_FAILED
            Assignagrview --> Frontend: 409
-         else SoD OK
+         else separacion OK
            group Transaccion atomica
              Accessservice -> Repo: registrar Assignment\n  (target_type='AccessGroup',\n   target_id=agr.id, ...)
              Accessservice -> Auditlog: emit AGR_ASSIGNED

@@ -12,7 +12,7 @@ CA-05: Top origin agents.
 CA-06: Cross-segmento → 403.
 CA-07: Sin transfers → 0s.
 CA-08: Periodo invalido → 400.
-CA-09: BD timeout → 503.
+CA-09: callproc BD_IVR timeout → 503.
 CA-10: Sin permiso → 403.
 
 Resumen

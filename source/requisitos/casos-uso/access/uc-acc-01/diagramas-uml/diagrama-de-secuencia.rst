@@ -10,7 +10,7 @@
  participant "Frontend" as Frontend
  participant "AssignFunctionsView" as Assignfunctionsview
  participant "AccessService" as Accessservice
- participant "SoDValidator" as Sodvalidator
+ participant "SeparationRuleValidator" as Sodvalidator
  participant "PermissionCache" as Permissioncache
  participant "AuditLog" as Auditlog
  database "Repo" as Repo
@@ -45,12 +45,12 @@
          Assignfunctionsview --> Frontend: 200 OK informativo
        else hay funciones nuevas
          Accessservice -> Sodvalidator: validate(target,\n  current_functions ∪ new_function_ids)
-         Sodvalidator -> Repo: consultar SoDRule WHERE state='ACTIVE'
-         alt SoD viola
-           Sodvalidator --> Accessservice: SoDViolation(rule_id, pair)
+         Sodvalidator -> Repo: consultar SeparationRule WHERE state='ACTIVE'
+         alt separacion viola
+           Sodvalidator --> Accessservice: SeparationRuleViolation(rule_id, pair)
            Accessservice -> Auditlog: emit FUNCTIONS_ASSIGN_FAILED\n  {reason:'sod_violation'}
-           Assignfunctionsview --> Frontend: 409 SOD_VIOLATION
-         else SoD OK
+           Assignfunctionsview --> Frontend: 409 SEPARATION_VIOLATION
+         else separacion OK
            group Transaccion atomica
              Accessservice -> Repo: registrar Assignment (N filas)
              Accessservice -> Auditlog: emit FUNCTIONS_ASSIGNED

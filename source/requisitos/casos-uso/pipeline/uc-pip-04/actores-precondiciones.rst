@@ -28,7 +28,7 @@ Postcondiciones
 
 - El Servicio ETL fue invocado para reprocesar el trimestre.
 - Existe un nuevo registro en el Registro de Ejecuciones con
-  ``ejecutado_por = 'manual'``.
+  ``executed_by = 'manual'``.
 - El evento de auditoria ``ETL_REINTENTO_SOLICITADO`` fue
   emitido.
 

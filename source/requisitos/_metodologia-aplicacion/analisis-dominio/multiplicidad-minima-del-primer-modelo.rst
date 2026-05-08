@@ -8,16 +8,16 @@ Llamada-Segmento en IACT:
 .. uml::
 
    @startuml
-   class Llamada {
+   class Call {
      - id : Integer
-     - duracion_seg : Integer
-     - fecha : DateTime
+     - duration_sec : Integer
+     - date : DateTime
    }
-   class Segmento {
+   class Segment {
      - id : Integer
-     - nombre : String
+     - name : String
    }
-   Llamada "1..*" -- "1" Segmento : pertenece a
+   Call "1..*" -- "1" Segment : belongs to
    @enduml
 
 Lectura: cada ``Llamada`` pertenece a un único

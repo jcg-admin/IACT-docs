@@ -133,14 +133,14 @@ El sistema IACT se compone de:
  Ejecuta cada día a las 02:00 AM
  ↓
  ┌─────────────────────────────────────────────────┐
- │ PostgreSQL Analytics (Sistema Analítico) │
+ │ Almacén de Datos Analítico (Sistema IACT)   │
  │ - Base de datos del sistema IACT │
  │ - Acceso: READ/WRITE para IACT │
  │ - Optimizado para consultas analíticas │
  └─────────────────────────────────────────────────┘
  ↓
  ┌─────────────────────────────────────────────────┐
- │ Aplicación Web Django + React │
+ │ Aplicación Web (Backend + Interfaz UI)   │
  │ - Dashboards y reportes │
  │ - Sistema de alertas │
  │ - Gestión de usuarios y permisos │
@@ -148,80 +148,100 @@ El sistema IACT se compone de:
 
 **Restricciones arquitectónicas clave:**
 
-- **CNST_006:** Arquitectura BD Dual - MySQL IVR + PostgreSQL Analytics
+- **CNST_006:** Arquitectura BD Dual - MySQL IVR (externo) + Almacén Analítico IACT
 - **CNST_008:** Sincronizacion ETL en ventana de 6 a 12 horas (no real-time)
 - **CNST_001:** Solo notificaciones internas (NO email, SMS, webhook)
 
 ----
 
-1.3.2 Los 8 Módulos Funcionales
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.3.2 Los Módulos Funcionales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-El sistema IACT se divide en 12 módulos funcionales:
+El sistema IACT se divide en **13 módulos UC** (9 RBAC activos
+in-scope + 1 RBAC NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed
++ 1 sin RBAC propio para llamantes externos):
 
 .. list-table:: Módulos del Sistema IACT
- :widths: 10 20 15 10 45
+ :widths: 10 20 15 10 12 33
  :header-rows: 1
 
  * - Código
    - Nombre
    - Prefijo UC
    - # UC
+   - Status v5.6.0
    - Responsabilidad
  * - MOD_Auth
    - Autenticación
    - UC_AUTH
    - 5
+   - Activo
    - Login, logout, recuperación contraseña, 2FA
  * - MOD_Users
    - Gestión Usuarios
    - UC_USR
    - 4
+   - Activo
    - CRUD de usuarios, suspensión, activación
  * - MOD_Access
    - Control Acceso
    - UC_ACC
    - 7
-   - RBAC, permisos, agrupadores, SoD, segmentos
+   - Activo
+   - RBAC, permisos, agrupadores, separacion de deberes, segmentos
  * - MOD_Pipeline
    - Supervisión ETL
    - UC_PIP
    - 4
+   - Activo
    - Monitoreo ETL, errores, disponibilidad
  * - MOD_Reports
    - Reportería
    - UC_RPT
    - 16
+   - Activo
    - Dashboards, reportes, exportaciones, métricas
  * - MOD_Alerts
    - Sistema Alertas
    - UC_ALR
    - 5
+   - Activo
    - Configuración alertas, umbrales, suscripciones
  * - MOD_Audit
    - Auditoría
    - UC_AUD
    - 4
+   - Activo
    - Consulta auditoría, compliance, exportación
  * - MOD_Logs
    - Bitácoras
    - UC_LOG
    - 7
+   - Activo
    - Consulta logs técnicos, exportación
+ * - MOD_Admin
+   - Admin Modelo RBAC
+   - UC_ADM
+   - 3
+   - Activo (NUEVO v5.6.0)
+   - Catálogo RBAC, reglas de separacion, asignaciones a grupos del sistema
  * - MOD_Operator
    - Operación Agente
    - UC_OPR
    - 10
+   - Reservado (open-closed)
    - Estado agente, llamadas, disposición, autogestion
  * - MOD_Supervision
    - Supervisión Tiempo Real
    - UC_SUP
    - 3
+   - Reservado (open-closed)
    - Monitor llamadas, barge-in, broadcast equipo
  * - MOD_Caller
    - Llamante Externo
    - UC_CLI
    - 5
+   - Activo (sin RBAC propio)
    - Flujo IVR: marcado, menú, cola, callback, CSAT
 
 **Total:** 80 Casos de Uso, 23,401+ líneas de documentación RST, 147+ diagramas PlantUML
@@ -242,9 +262,9 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 
 **Arquitectura:**
 
-- 12 Módulos funcionales (MOD)
+- 11 Módulos funcionales (MOD) — 9 activos + 2 reservados (open-closed)
 - 31 Restricciones arquitectonicas (CNST) — set canonico SRP (WP #4)
-- Modelo RBAC v5.5.0 con 74 funciones atómicas y 12 agrupadores
+- Modelo RBAC v5.6.0 con 64 funciones atómicas activas (77 declaradas, 13 reservadas open-closed) y 12 agrupadores
 
 **Gobernanza:**
 
@@ -280,11 +300,15 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  Inferencias 1 BR ( 5%)
  Cálculos 3 BR (15%)
 
- MODELO RBAC v5.5.0:
+ MODELO RBAC v5.6.0:
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Agrupadores (AGR) 12
- Funciones atómicas 74
- Reglas SoD 3
+ Modulos activos (in-scope) 9
+ Modulos reservados (open-closed) 2
+ Funciones activas 64
+ Funciones reservadas 13
+ Total catalogo declarado 77
+ Reglas de Separacion 3
 
 ----
 
@@ -351,7 +375,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_04_Exportar_CSV.rst`` (489 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_csv
 :Precondición: Verificar ``COUNT(registros) <= 100,000`` (BR_011)
 
@@ -403,7 +427,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_05_Exportar_Excel.rst`` (450 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_excel
 :Precondición: Verificar ``COUNT(registros) <= 50,000`` (BR_011)
 
@@ -419,7 +443,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/reports/UC_RPT_06_Exportar_PDF.rst`` (427 líneas)
 
-:Actor Principal: AGR_008 (agr_exportador)
+:Actor Principal: AGR-004 (``data_exporter_group``)
 :Función RBAC: export_pdf
 :Precondición: Verificar ``COUNT(registros) <= 10,000`` (BR_011)
 
@@ -435,7 +459,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 **Ubicación:** ``casos_uso_v4/audit/UC_AUD_03_Exportar_Auditoria.rst`` (453 líneas)
 
-:Actor Principal: AGR_006 (agr_auditor)
+:Actor Principal: AGR-008 (``auditor_group``)
 :Función RBAC: ``export_audit_log``
 :Aplicación BR_011: Mismos límites que reportes
 
@@ -449,7 +473,7 @@ de exportación para mantener consistencia en el sistema.
 
 **Ubicación:** ``casos_uso_v4/logs/UC_LOG_04_Exportar_Logs.rst`` (475 líneas)
 
-:Actor Principal: AGR_010 (agr_soporte)
+:Actor Principal: AGR-010 (``system_admin_group``)
 :Función RBAC: ``export_logs``
 :Aplicación BR_011: Mismos límites, principalmente CSV
 
@@ -660,7 +684,7 @@ del usuario que exporta (BR_012).
 
 **Escenario combinado:**
 
-Un usuario AGR_008 del segmento "Centro Lima" intenta exportar 
+Un usuario AGR-004 (``data_exporter_group``) del segmento "Centro Lima" intenta exportar 
 llamadas del año 2024 en formato CSV:
 
 1. Sistema aplica BR_012: Filtra solo registros de "Centro Lima"
@@ -798,7 +822,7 @@ La trazabilidad permite navegar en ambas direcciones:
 
 Esta introducción ha establecido:
 
-OK El contexto del Sistema IACT (12 módulos, 80 UC, 20+ BR)
+OK El contexto del Sistema IACT (13 módulos UC, 80 UC, 20+ BR)
 OK La estructura de la documentación base_cognitiva/
 OK Un ejemplo completo de Business Rule (BR_011)
 OK La relación entre BR, UC, FR y código

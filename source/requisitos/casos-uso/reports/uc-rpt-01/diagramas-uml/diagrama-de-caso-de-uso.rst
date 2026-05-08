@@ -22,7 +22,7 @@
  UC_RPT_01 ..> REF : <<extend>>
 
  note bottom of UC_RPT_01
-   Read-only Analytics (CNST-007).
+   Read-only BD_IVR via SP (CNST-007).
    Sin auditoria por invocacion.
  end note
 

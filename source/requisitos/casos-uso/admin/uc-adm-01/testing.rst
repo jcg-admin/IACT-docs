@@ -9,7 +9,7 @@ UT-02: DisjointSetValidator — interseccion detectada.
 UT-03: FunctionValidator — funcion inexistente.
 UT-04: FunctionValidator — todas validas.
 
-IT-01: Crear SoDRule + audit + enforcement reload.
+IT-01: Crear SeparationRule + audit + enforcement reload.
 IT-02: Update incrementa version.
 IT-03: Disable → INACTIVE; enforcement recarga.
 IT-04: Reactivar → ACTIVE; enforcement recarga.
@@ -18,7 +18,7 @@ IT-05: Lista con filtro state=ACTIVE.
 E2E-01: Admin crea, actualiza y desactiva regla;
 verifica que nueva asignacion es bloqueada/liberada.
 
-SEC-01: Sin AGR-009 → 403.
+SEC-01: Sin AGR-010 → 403.
 SEC-02: Audit inmutable verificado post-cambio.
 
 Mapeo CA → Tests:

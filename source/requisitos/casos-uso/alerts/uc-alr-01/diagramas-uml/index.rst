@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   estado-de-la-regla
-   clases
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-estados-regla
+   diagrama-de-clases

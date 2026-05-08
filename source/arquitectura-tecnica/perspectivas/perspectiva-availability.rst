@@ -47,9 +47,9 @@ Las operaciones del sistema se clasifican por su dependencia del ETL y del IVR.
  * - **Alertas y notificaciones**
    - Disponibles sobre los datos existentes. Nuevas alertas se generan
      en el siguiente ETL exitoso.
- * - **Pipeline ETL**
+ * - **Pipeline**
    - Dependiente de la BD Operativa IVR. Si el IVR no esta disponible,
-     el pipeline falla y registra ``ETLEjecucion.estado = fallido``.
+     el pipeline falla y registra ``PipelineExecution.estado = fallido``.
      P-04: el fallo no corrompe datos existentes ni bloquea operaciones.
  * - **Administracion RBAC**
    - Independiente del IVR. Siempre disponible mientras la BD propia
@@ -71,8 +71,8 @@ El pipeline ETL se ejecuta como proceso aislado con estado propio.
      operaciones del sistema. La aplicacion continua sirviendo los
      ultimos datos validos.
  * - **Estado explicito**
-   - ``ETLEjecucion.estado`` es la fuente de verdad del pipeline:
-     ``en_ejecucion``, ``exitoso``, ``fallido``. AGR_OPERADOR puede
+   - ``PipelineExecution.estado`` es la fuente de verdad del pipeline:
+     ``IN_PROGRESS``, ``exitoso``, ``fallido``. AGR_OPERADOR puede
      consultar el estado en tiempo real.
  * - **Retry manual**
    - AGR_OPERADOR puede solicitar retry del pipeline (``request_pipeline_retry``)
@@ -158,7 +158,7 @@ Procedimiento de recovery
      Solicitar retry cuando IVR este disponible.
      Ver :doc:`/arquitectura-tecnica/operational-view/system-support`.
  * - **ETL falla por datos invalidos**
-   - Revisar ``ETLLog`` (``view_etl_logs``, campo ``mensaje_error``).
+   - Revisar ``PipelineLog`` (``view_pipeline_logs``, campo ``error_message``).
      Corregir parametros ETL si es necesario. Solicitar retry.
  * - **BD propia (PostgreSQL) no disponible**
    - Sistema completamente inoperativo. Recovery desde respaldo.

@@ -9,42 +9,42 @@ autenticación pura, por ejemplo).
 .. uml::
 
    @startuml
-   title IACT — ERD snapshot: EventoAuditoria con origenes opcionales
+   title IACT — ERD snapshot: AuditEvent con origenes opcionales
 
-   entity EventoAuditoria {
-     * evento_id : bigint <<PK>>
+   entity AuditEvent {
+     * event_id : bigint <<PK>>
      --
-     * usuario_id : int <<FK>>
-     * tipo_id : int <<FK>>
+     * user_id : int <<FK>>
+     * type_id : int <<FK>>
      * timestamp : datetime <<IDX>>
-     reporte_id : int <<FK>>
-     alerta_id : int <<FK>>
-     ejecucion_etl_id : int <<FK>>
+     report_id : int <<FK>>
+     alert_id : int <<FK>>
+     etl_execution_id : int <<FK>>
      payload : text
    }
 
-   entity Reporte {
-     * reporte_id : int <<PK>>
+   entity Report {
+     * report_id : int <<PK>>
      --
-     nombre : varchar(150)
+     name : varchar(150)
    }
 
-   entity Alerta {
-     * alerta_id : int <<PK>>
+   entity Alert {
+     * alert_id : int <<PK>>
      --
-     estado : varchar(20)
+     state : varchar(20)
    }
 
-   entity EjecucionETL {
-     * ejecucion_etl_id : int <<PK>>
+   entity ETLExecution {
+     * etl_execution_id : int <<PK>>
      --
-     * inicio : datetime
-     fin : datetime
+     * start : datetime
+     end : datetime
    }
 
-   Reporte ||--o{ EventoAuditoria : "origina (opcional)"
-   Alerta ||--o{ EventoAuditoria : "origina (opcional)"
-   EjecucionETL ||--o{ EventoAuditoria : "origina (opcional)"
+   Report ||--o{ AuditEvent : "originates (optional)"
+   Alert ||--o{ AuditEvent : "originates (optional)"
+   ETLExecution ||--o{ AuditEvent : "originates (optional)"
    @enduml
 
 Lectura: un mismo evento de auditoría puede tener

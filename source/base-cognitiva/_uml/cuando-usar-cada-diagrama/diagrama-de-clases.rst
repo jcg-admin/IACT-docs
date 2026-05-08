@@ -16,12 +16,12 @@ y cómo se estructuran.
 
    @startuml
 
-   class Lavadora {
-     - marca : String
-     - modelo : String
-     - capacidad : Float
-     + agregarRopa()
-     + activarse()
-     + sacarRopa()
+   class WashingMachine {
+     - brand : String
+     - model : String
+     - capacity : Float
+     + addClothes()
+     + activate()
+     + removeClothes()
    }
    @enduml

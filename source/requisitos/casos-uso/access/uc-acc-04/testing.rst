@@ -55,7 +55,7 @@ Parte 12 — Testing
    THEN  no nuevo Assignment
    AND   AuditEvent AGR_ASSIGN_NOOP
 
-12.2.3 SoD bloquea (CA-03)
+12.2.3 separacion bloquea (CA-03)
 --------------------------
 
 ::
@@ -63,7 +63,7 @@ Parte 12 — Testing
    GIVEN AGR contiene funcion en conflicto
          con functions actuales del target
    WHEN  assign_access_group
-   THEN  raise SoDViolation
+   THEN  raise SeparationRuleViolation
    AND   ningun Assignment creado
 
 12.2.4 Subset ya directo (CA-04)
@@ -177,14 +177,14 @@ Parte 12 — Testing
    THEN  status == 200
    AND   body.already_assigned == true
 
-12.3.3 SoD 409 (CA-03)
+12.3.3 separacion 409 (CA-03)
 ----------------------
 
 ::
 
-   GIVEN AGR conflicto SoD
+   GIVEN AGR conflicto de separacion
    WHEN  POST
-   THEN  status == 409 SOD_VIOLATION
+   THEN  status == 409 SEPARATION_VIOLATION
 
 12.3.4 Sin permiso 403 (CA-08)
 ------------------------------
@@ -276,14 +276,14 @@ Parte 12 — Testing
          Asignar
    THEN  toast confirma con resumen
 
-12.4.2 SoD bloquea con detalle
+12.4.2 separacion bloquea con detalle
 ------------------------------
 
 ::
 
    GIVEN AGR con conflicto
    WHEN  click Asignar
-   THEN  modal de error con regla SoD
+   THEN  modal de error con regla de separacion
 
 12.4.3 Boton oculto sin la funcion
 ----------------------------------
@@ -310,7 +310,7 @@ Parte 12 — Testing
  * - AccessGroupRepository
    - 100%
    - 100%
- * - SoDValidator
+ * - SeparationRuleValidator
    - 100%
    - 100%
  * - AntiSelfActionPolicy

@@ -36,18 +36,18 @@ protegida.
    @startuml
 
    class Television {
-     - circuitos
-     - decodificador
-     + modificarVolumen()
-     + cambiarCanal()
-     - dibujarImagenEnPantalla()
+     - circuits
+     - decoder
+     + changeVolume()
+     + changeChannel()
+     - drawImageOnScreen()
    }
 
-   class Automovil {
-     - chasis
-     # kilometraje : Integer
-     + acelerar()
-     + frenar()
-     # actualizarKilometraje()
+   class Car {
+     - chassis
+     # mileage : Integer
+     + accelerate()
+     + brake()
+     # updateMileage()
    }
    @enduml

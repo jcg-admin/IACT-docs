@@ -18,7 +18,7 @@ revocacion explicita (UC separado).
 persistir.
 
 **Diferencia**: preview con composicion +
-SoD impact + warnings.
+separacion impact + warnings.
 
 4.3 FA-07 (PERM): vista catalogo funciones
 ==========================================

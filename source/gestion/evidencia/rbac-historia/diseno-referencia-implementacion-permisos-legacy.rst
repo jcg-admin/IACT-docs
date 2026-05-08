@@ -62,7 +62,7 @@ futura esta en
    - Proposito
  * - ``call_center_privilege_models.py``
    - ~12 KB
-   - Modelos Django de privilegios call center (Campaign, User extendido)
+   - Modelos del backend de privilegios call center (Campaign, User extendido)
  * - ``call_center_privilege_service.py``
    - ~13 KB
    - Service layer para verificacion de privilegios
@@ -74,10 +74,10 @@ futura esta en
    - Datos seed iniciales (modulos, capacidades, grupos)
  * - ``module_system_admin.py``
    - ~12 KB
-   - Django Admin integration para el sistema de modulos
+   - integración con el panel administrativo del backend para el sistema de modulos
  * - ``module_system_models.py``
    - ~15 KB
-   - Modelos Django nucleares (Module, Capability, Group)
+   - Modelos del backend nucleares (Module, Capability, Group)
  * - ``module_system_permissions.py``
    - ~9 KB
    - DRF permission classes
@@ -118,7 +118,7 @@ El codigo usa vocabulario legacy que **NO cumple CNST-033 vigente**:
    - ``Funcion``, ``Function``
    - 1:1
  * - ``CallCenterUser``
-   - ``User`` (Django builtin)
+   - ``User`` (builtin del Servicio de Aplicación)
    - Eliminar extensiones
  * - ``Campaign``
    - (no aplica)

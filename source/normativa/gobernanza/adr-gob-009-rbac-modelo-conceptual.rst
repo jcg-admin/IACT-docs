@@ -32,7 +32,7 @@ ADR-GOB-009: RBAC Modelo Conceptual (Supersede BACK-001/004)
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
   (decision de coexistencia ACC + PERM, sigue vigente)
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo v5.4.0)
@@ -51,7 +51,7 @@ normativo vigente:
 
 - ``ADR-BACK-001`` cita "**19 funciones**" y "**130+
   capacidades**" — cifras divergentes del modelo vigente
-  (74 funciones v5.5.0 + 12 grupos AGR-001..AGR-012).
+  (64 funciones activas v5.6.0 + 12 grupos AGR-001..AGR-012).
 - ``ADR-BACK-001/004`` usan vocabulario "**Capacidad**" que
   CNST-033 vigente PROHIBE explicitamente.
 - ``ADR-BACK-001 + ADR-BACK-004`` documentan **la misma
@@ -79,19 +79,23 @@ El modelo RBAC del proyecto IACT es:
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
-3. **Catalogo cerrado** — **74 funciones atomicas** (modelo v5.5.0)
-   distribuidas en **12 modulos** funcionales (MOD_Auth,
-   MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
-   MOD_Audit, MOD_Logs, MOD_Operator, MOD_Supervision + MOD_Caller).
-   Bumps v5.2.1 → v5.3.0 → v5.4.0 → v5.5.0 (ver §6
+3. **Catalogo cerrado al set activo, abierto a extension** —
+   **64 funciones atomicas activas** in-scope (modelo v5.6.0)
+   en **9 modulos** activos: MOD_Auth, MOD_Users, MOD_Access,
+   MOD_Pipeline, MOD_Reports, MOD_Alerts, MOD_Audit, MOD_Logs y
+   **MOD_Admin** (NUEVO v5.6.0). El catalogo declara 77 funciones
+   en total: las 13 restantes corresponden a **MOD_Operator (10)**
+   y **MOD_Supervision (3)**, reservadas como extension points
+   open-closed (out-of-scope para esta release). Bumps
+   v5.2.1 → v5.3.0 → v5.4.0 → v5.5.0 → v5.6.0 (ver §6
    Trazabilidad version del modelo).
 4. **12 grupos predefinidos** AGR-001..AGR-012 que agrupan
    funciones tipicas para perfiles operativos.
 5. **Custom groups** creables por administradores tecnicos
    (D-RBAC-4) — distincion entre **system groups** (inmutables)
    y **custom groups** (creables).
-6. **3 reglas SoD** declarativas (SOD-001/002/003) per
-   :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+6. **3 reglas de separacion** declarativas (SOD-001/002/003) per
+   :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 7. **Permisos excepcionales temporales** con duracion maxima
    **6 meses** per
    :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.
@@ -107,7 +111,7 @@ El modelo RBAC del proyecto IACT es:
 - **"FunctionGroup"** — agrupacion (system o custom).
 - **"UserFunctionAssignment"** — asignacion de funciones a
   usuarios via grupos.
-- **"FunctionSeparationRule"** — regla SoD entre funciones.
+- **"FunctionSeparationRule"** — regla de separacion entre funciones.
 
 PROHIBIDOS: "Capacidad", "Capacity" (D-RBAC-1).
 
@@ -148,17 +152,26 @@ los adr-gob-* viven en gobernanza. Este ADR usa el modulo
 ``gob`` (gobernanza) en lugar de ``back`` para reflejar su
 naturaleza transversal.
 
-3.3 Por que cifras 61/10/3 (no 19/130+/0 ni 42/10/3 ni 51/10/3)
----------------------------------------------------------------
+3.3 Por que cifras 64/12/3 (no 19/130+/0 ni 42/10/3 ni 51/10/3 ni 74/12/3)
+--------------------------------------------------------------------------
 
-El modelo v5.5.0 (vigente, en
+El modelo v5.6.0 (vigente, en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`) declara:
 
-- **74 funciones** distribuidas en 12 modulos:
-  Auth=4, Users=9, Access=12, Pipeline=4, Reports=11, Alerts=10,
-  Audit=4, Logs=7, Operator=10, Supervision=3 + Caller (sin RBAC).
+- **77 funciones declaradas** = 64 activas + 13 reservadas
+  (open-closed):
+
+  - **In-scope (9 modulos · 64 funciones):** Auth=4, Users=9,
+    Access=12, Pipeline=4, Reports=11, Alerts=10, Audit=4,
+    Logs=7, **Admin=3** (NUEVO v5.6.0).
+  - **Reservado open-closed (2 modulos · 13 funciones):**
+    Operator=10 (UC_OPR_01..10) y Supervision=3
+    (UC_SUP_01..03) — extension points declarados en
+    catalogo, out-of-scope para esta release.
+  - Caller (sin RBAC, no es modulo del modelo).
+
 - **12 grupos** AGR-001..AGR-012.
-- **3 reglas SoD** SOD-001/002/003.
+- **3 reglas de separacion** SOD-001/002/003.
 
 Nota historica del bump v5.3.0 → v5.4.0:
 
@@ -168,7 +181,7 @@ Nota historica del bump v5.3.0 → v5.4.0:
   ``manage_separation_rules`` → ``view_separation_rules`` (ACC-005),
   ``delete_alerts`` → ``disable_alerts`` (ALR-005),
   ``view_technical_logs`` → ``view_application_logs`` (LOG-001).
-- **10 funciones nuevas:** ACC-011/012 (split SRP de SoD admin),
+- **10 funciones nuevas:** ACC-011/012 (split SRP de administracion de separacion),
   ALR-007 (acknowledge), ALR-008/009/010 (split SRP suscripciones),
   LOG-004/005/006/007 (split SRP logs ETL/infra + gaps health/metrics).
 - **0 eliminaciones:** principio "no eliminar nada" (BR-009 global).
@@ -253,11 +266,11 @@ La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 
 La matriz RACI:
 
-- Cubre las 74 funciones por modulo (MOD_Auth, MOD_Users,
+- Cubre las 64 funciones activas por modulo (MOD_Auth, MOD_Users,
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
 - Cubre los 12 grupos predefinidos AGR-001..AGR-012.
-- Cubre las 3 reglas SoD SOD-001..003.
+- Cubre las 3 reglas de separacion SOD-001..003.
 - Cubre las operaciones de gobernanza del modelo
   (agregar/eliminar funcion, crear grupo custom, etc.).
 - Identifica 6 stakeholders: Admin no-tech, Admin tecnico,
@@ -299,7 +312,7 @@ Documentos historicos del subsistema RBAC en
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.4.0).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.
 - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`.
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.

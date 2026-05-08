@@ -41,12 +41,12 @@ Respuesta esperada:
      "ejecuciones": [
        {
          "id": 42,
-         "tabla_origen": "tbl_historico_t3_2025",
+         "source_table": "tbl_historico_t3_2025",
          "trimestre": "Q3_25",
-         "iniciado_en": "<timestamp>",
-         "finalizado_en": "<timestamp>",
-         "mensaje_error": "...",
-         "ejecutado_por": "scheduler"
+         "started_at": "<timestamp>",
+         "finished_at": "<timestamp>",
+         "error_message": "...",
+         "executed_by": "scheduler"
        }
      ]
    }

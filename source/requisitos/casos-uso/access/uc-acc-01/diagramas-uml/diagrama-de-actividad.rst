@@ -60,10 +60,10 @@
 
  :Construir effective_function_set
   (actuales + nuevas);
- :Evaluar SoDRules ACTIVE contra set;
+ :Evaluar SeparationRules ACTIVE contra set;
 
- if (SoD violada?) then (si — EX-08)
-   :409 SOD_VIOLATION
+ if (Separacion violada?) then (si — EX-08)
+   :409 SEPARATION_VIOLATION
     + rule_id + conflict_pair;
    :Audit FUNCTIONS_ASSIGN_FAILED ALERTA;
    stop

@@ -42,7 +42,7 @@ No existe endpoint funcional sin funcion atomica asociada.
    - JWT emitido por UC-AUTH-01. Token valido durante la sesion activa
      (CNST-002: tiempo maximo configurable). Sin sesion activa = sin acceso.
  * - **Autorizacion granular**
-   - 74 funciones atomicas organizadas en AccessGroups (AGR-001..012).
+   - 64 funciones atomicas activas organizadas en AccessGroups (AGR-001..012).
      Cada peticion verifica la funcion atomica correspondiente antes de
      ejecutarse. Permisos temporales con rango ``granted_at..expires_at``
      (CNST-031: maximo 6 meses, justificacion documentada).
@@ -53,7 +53,7 @@ No existe endpoint funcional sin funcion atomica asociada.
    - CNST-004: tokens JWT no son compartibles. El logout invalida
      el token del usuario (UC-AUTH-04).
  * - **Separacion de funciones**
-   - CNST-030: SoD enforcement en tiempo de asignacion. No es posible
+   - CNST-030: enforcement de separacion en tiempo de asignacion. No es posible
      asignar a un usuario dos funciones en conflicto definidas como
      par de separacion.
 
@@ -123,7 +123,7 @@ La administracion operacional implementa controles de seguridad activos.
  * - Operacion
    - Control de seguridad
  * - **Alta de usuario**
-   - Asignacion de AccessGroup en el momento de creacion. SoD verificado
+   - Asignacion de AccessGroup en el momento de creacion Separacion de deberes verificada
      automaticamente. AuditEvent generado (CNST-025).
  * - **Permisos temporales**
    - Expiracion automatica. AGR_ADMIN puede revocar antes del vencimiento.
@@ -196,7 +196,7 @@ Restricciones y principios
  * - **CNST-007**
    - Credenciales IVR con GRANT SELECT exclusivo. No credenciales de escritura.
  * - **CNST-030**
-   - SoD evaluado en tiempo de asignacion. Bloquea combinaciones de funciones
+   - Separacion evaluada en tiempo de asignacion. Bloquea combinaciones de funciones
      en conflicto para el mismo usuario.
  * - **CNST-031**
    - Permisos temporales requieren rango ``granted_at..expires_at``

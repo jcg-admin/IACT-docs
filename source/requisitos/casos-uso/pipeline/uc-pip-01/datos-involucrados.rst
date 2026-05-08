@@ -7,46 +7,46 @@ Parte 7 — Datos involucrados
 7.1 Entidades
 =============
 
-- **ETLEjecucion** — registro de una ejecucion del Servicio ETL.
+- **PipelineExecution** — registro de una ejecucion del Servicio ETL.
 - **ResumenSalud** — proyeccion de lectura construida a partir de
-  los ultimos registros de ETLEjecucion.
+  los ultimos registros de PipelineExecution.
 
-7.2 Modelo ETLEjecucion
-=======================
+7.2 Modelo PipelineExecution
+============================
 
 ::
 
-   ETLEjecucion:
+   PipelineExecution:
      id               : identificador unico de la ejecucion
-     tabla_origen     : nombre de la tabla fuente procesada
+     source_table     : nombre de la tabla fuente procesada
      trimestre        : codigo del trimestre (ej: Q3_25)
-     iniciado_en      : timestamp de inicio de la ejecucion
-     finalizado_en    : timestamp de finalizacion (nulo si aun corre)
-     estado           : en_ejecucion | exitoso | fallido
-     registros_base   : filas en Base Analitica IVR tras el ETL
-     mensaje_error    : descripcion del error (nulo si exitoso)
-     ejecutado_por    : 'scheduler' | 'manual'
+     started_at      : timestamp de inicio de la ejecucion
+     finished_at    : timestamp de finalizacion (nulo si aun corre)
+     estado           : IN_PROGRESS | exitoso | fallido
+     base_records   : filas en Base Analitica IVR tras el ETL
+     error_message    : descripcion del error (nulo si exitoso)
+     executed_by    : 'scheduler' | 'manual'
 
 7.3 Indices de consulta
 =======================
 
-- ``ETLEjecucion(estado, iniciado_en DESC)`` — para obtener
+- ``PipelineExecution(estado, started_at DESC)`` — para obtener
   las ultimas ejecuciones por estado.
-- ``ETLEjecucion(trimestre)`` — para filtrar por trimestre.
+- ``PipelineExecution(trimestre)`` — para filtrar por trimestre.
 
 7.4 Proyeccion ResumenSalud
 ============================
 
 El ResumenSalud no es una entidad persistida. Es una proyeccion
 de lectura calculada en tiempo de consulta a partir de los
-registros de ETLEjecucion:
+registros de PipelineExecution:
 
 ::
 
    ResumenSalud:
-     ultima_ejecucion_exitosa : ETLEjecucion o nulo
-     ejecucion_en_curso       : ETLEjecucion o nulo
-     ultima_ejecucion_fallida : ETLEjecucion o nulo
+     ultima_ejecucion_exitosa : PipelineExecution o nulo
+     ejecucion_en_curso       : PipelineExecution o nulo
+     ultima_ejecucion_fallida : PipelineExecution o nulo
      total_exitosas_24h       : entero
      total_fallidas_24h       : entero
      estado_general           : ok | degradado | critico

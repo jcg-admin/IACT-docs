@@ -89,11 +89,11 @@ es self-view,
 - La funcion sigue en ``effective_functions``
   (no purgada por cron aun)
 
-9.8 CA-08: SoD inconsistencia detectada (FA-05)
+9.8 CA-08: separacion inconsistencia detectada (FA-05)
 ===============================================
 
 **DADO** target con par conflictivo segun
-SoDRule activa,
+SeparationRule activa,
 
 **ENTONCES**:
 
@@ -182,7 +182,7 @@ efectivas,
    - Excepciones permisos / no existe
    - Seguridad / Funcional
  * - CA-07..08
-   - Warnings (expired, SoD)
+   - Warnings (expired, separacion)
    - Auditoria informativa
  * - CA-09
    - Audit selectivo P-16

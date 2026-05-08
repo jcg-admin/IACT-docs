@@ -24,9 +24,9 @@ Ejemplos:
 
    @startuml
 
-   class Cliente
-   class Pedido
-   Cliente --> Pedido : tiene
+   class Customer
+   class Order
+   Customer --> Order : has
    @enduml
 
 **Agregación** — Representa una relación "todo/parte", donde la
@@ -146,9 +146,9 @@ Ejemplos:
 
    @startuml
 
-   class Cliente
-   class CatalogoProductos
-   Cliente ..> CatalogoProductos : <<usa>>
+   class Customer
+   class ProductCatalog
+   Customer ..> ProductCatalog : <<uses>>
    @enduml
 
 **Herencia (Generalización)** — Relación jerárquica entre clases
@@ -227,9 +227,9 @@ Ejemplos:
 
    @startuml
 
-   class Profesor
-   class Curso
-   Profesor "1" -- "1..*" Curso
+   class Teacher
+   class Course
+   Teacher "1" -- "1..*" Course
    @enduml
 
 **Asociación Binaria** — Relación entre exactamente dos objetos.
@@ -254,8 +254,8 @@ Ejemplos:
 
    @startuml
 
-   class Empleado
-   Empleado "1" -- "0..*" Empleado : supervisa
+   class Employee
+   Employee "1" -- "0..*" Employee : supervises
    @enduml
 
 **Asociación N-aria** — Relación entre tres o más objetos.

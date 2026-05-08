@@ -13,11 +13,11 @@ Modelo RBAC IACT — Modelo de Datos
 ----------
 
 
-1. **``functions``** - 74 funciones atómicas
+1. **``functions``** - 64 funciones atómicas activas (v5.6.0; catálogo declara 77 — OPR+SUP reservadas open-closed)
 2. **``function_groups``** - 12 grupos predefinidos
 3. **``function_group_membership``** - M2M funciones-grupos
 4. **``user_function_assignments``** - Asignaciones directas
 5. **``user_function_group_assignments``** - Asignaciones de grupos
-6. **``function_separation_rules``** - 3 reglas SoD
-7. **``function_separation_rule_details``** - Detalle SoD (grupos A/B)
+6. **``function_separation_rules``** - 3 reglas de separacion
+7. **``function_separation_rule_details``** - Detalle separacion (grupos A/B)
 

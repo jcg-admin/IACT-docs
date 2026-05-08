@@ -1,0 +1,50 @@
+== UC USAGE OF DOMAIN-MODEL CLASSES ==
+Total classes referenced from UC class-diagrams: 40
+Classes used in UCs but NOT defined in domain-model: 2
+  - MenuIVRReportService
+  - PiiScanner
+
+Classes IN domain-model but with missing members vs UC usage: 12
+Total missing members (attributes + methods): 29
+
+## AccessGroup  (def: access-group.rst)
+  + agr_code  used in: uc-acc-04
+  + id  used in: uc-acc-04
+  + is_system  used in: uc-acc-04
+  + state  used in: uc-acc-04
+## AgentReportService  (def: agent-report-service.rst)
+  + list  used in: uc-rpt-12
+## AlertRule  (def: alert-rule.rst)
+  + id  used in: uc-alr-01
+  + state  used in: uc-alr-01
+## AuditRepo  (def: audit-repo.rst)
+  + query  used in: uc-aud-01
+## ErroresETLService  (def: errores-etl-service.rst)
+  + listar  used in: uc-pip-02
+## EvaluatorReloader  (def: evaluator-reloader.rst)
+  + reload  used in: uc-alr-01
+## PipelineExecutionRepo  (def: pipeline-execution-repo.rst)
+  + ejecuciones_recientes  used in: uc-pip-01
+  + por_estado  used in: uc-pip-02
+  + ultima_ejecucion  used in: uc-pip-01
+## RBACRepo  (def: rbac-repo.rst)
+  + get_user_segments  used in: uc-inc-rpt-01
+  + has_global_capability  used in: uc-inc-rpt-01
+## SavedView  (def: saved-view.rst)
+  + chart_config  used in: uc-rpt-10
+  + columns  used in: uc-rpt-10
+  + filters  used in: uc-rpt-10
+  + id  used in: uc-rpt-10
+  + owner  used in: uc-rpt-10
+  + report_type  used in: uc-rpt-10
+## SegmentResolver  (def: segment-resolver.rst)
+  + invalidate_cache  used in: uc-inc-rpt-01
+  + is_global  used in: uc-inc-rpt-01
+## Subscription  (def: subscription.rst)
+  + channel  used in: uc-alr-05
+  + id  used in: uc-alr-05
+  + rule  used in: uc-alr-05
+  + scope  used in: uc-alr-05
+  + user  used in: uc-alr-05
+## User  (def: user-capability-resolver.rst)
+  + segment_id  used in: uc-acc-04

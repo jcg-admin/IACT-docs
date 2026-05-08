@@ -4,18 +4,26 @@
 Parte 12 — Testing
 ==================
 
-UT-01: DistinctCounter exact.
-UT-02: DistinctCounter HLL (within 1%).
-UT-03: RecurrenceCalculator buckets
-1, 2, 3+.
-UT-04: ComparativeCalculator new vs
-returning.
-UT-05: TopN solo prefix de hash.
+UT-01: parser mapea
+``rows.distinct_clients_count``
+(entregado por el SP, exact o HLL segun
+volumen).
+UT-02: parser mapea HLL count cuando el
+SP indica ``count_method = 'hll'``
+(within 1%).
+UT-03: parser mapea
+``rows.recurrence_distribution``
+(buckets 1, 2, 3+).
+UT-04: parser mapea
+``rows.new_vs_returning`` calculado por
+el SP contra periodo prior.
+UT-05: parser construye Top N exponiendo
+solo prefix del hash.
 
 IT-01: get basico (volumen bajo, exact).
 IT-02: get volumen alto (HLL).
 IT-03: Cross-segmento → 403.
-IT-04: BD timeout.
+IT-04: callproc BD_IVR timeout → 503.
 IT-05: Cache hit.
 
 E2E-01: Reporte para mes en curso.

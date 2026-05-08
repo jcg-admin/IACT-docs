@@ -17,7 +17,7 @@ RBAC — Especificacion
 =====================
 
 Especificacion de negocio del modelo RBAC del sistema IACT: catalogo
-de funciones, separacion de deberes (SoD), grupos de funciones y
+de funciones, separacion de deberes (separation of duties), grupos de funciones y
 mapeo a casos de uso.
 
 Estos documentos son especificaciones de requisitos de negocio, no
@@ -29,5 +29,5 @@ decisiones de arquitectura. La implementacion tecnica vive en
 
  catalogo-funciones
  grupos-funciones
- sod
+ separacion-de-deberes
  mapeo-uc

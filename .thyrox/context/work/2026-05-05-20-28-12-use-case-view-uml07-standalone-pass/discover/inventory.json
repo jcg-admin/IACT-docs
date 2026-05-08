@@ -1,0 +1,749 @@
+[
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-01",
+    "title": "UC_ACC_01 — Asignar Funciones",
+    "short": "Asignar Funciones",
+    "slug": "asignar-funciones",
+    "target": "uc-acc-01-asignar-funciones.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-01/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-02",
+    "title": "UC_ACC_02 — Revocar Funciones",
+    "short": "Revocar Funciones",
+    "slug": "revocar-funciones",
+    "target": "uc-acc-02-revocar-funciones.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-02/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-03",
+    "title": "UC_ACC_03 — Consultar Permisos Efectivos",
+    "short": "Consultar Permisos Efectivos",
+    "slug": "consultar-permisos-efectivos",
+    "target": "uc-acc-03-consultar-permisos-efectivos.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-03/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-04",
+    "title": "UC_ACC_04 — Asignar Agrupador",
+    "short": "Asignar Agrupador",
+    "slug": "asignar-agrupador",
+    "target": "uc-acc-04-asignar-agrupador.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-05",
+    "title": "UC_ACC_05 — Gestionar Reglas SoD",
+    "short": "Gestionar Reglas SoD",
+    "slug": "gestionar-reglas-sod",
+    "target": "uc-acc-05-gestionar-reglas-sod.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-05/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-08",
+    "title": "UC_ACC_08 — Permiso Temporal",
+    "short": "Permiso Temporal",
+    "slug": "permiso-temporal",
+    "target": "uc-acc-08-permiso-temporal.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-08/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "access",
+    "uc_dir": "uc-acc-09",
+    "title": "UC_ACC_09 — Auditar Cambios Acceso",
+    "short": "Auditar Cambios Acceso",
+    "slug": "auditar-cambios-acceso",
+    "target": "uc-acc-09-auditar-cambios-acceso.rst",
+    "src_diagram": "source/requisitos/casos-uso/access/uc-acc-09/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "admin",
+    "uc_dir": "uc-adm-01",
+    "title": "UC_ADM_01 — Gestionar Ciclo de Vida de Reglas SoD",
+    "short": "Gestionar Ciclo de Vida de Reglas SoD",
+    "slug": "gestionar-ciclo-de-vida-de-reglas-sod",
+    "target": "uc-adm-01-gestionar-ciclo-de-vida-de-reglas-sod.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "admin",
+    "uc_dir": "uc-adm-02",
+    "title": "UC_ADM_02 — Gestionar Catalogo de Funciones",
+    "short": "Gestionar Catalogo de Funciones",
+    "slug": "gestionar-catalogo-de-funciones",
+    "target": "uc-adm-02-gestionar-catalogo-de-funciones.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "admin",
+    "uc_dir": "uc-adm-03",
+    "title": "UC_ADM_03 — Gestionar Catalogo de Agrupadores del Sistema",
+    "short": "Gestionar Catalogo de Agrupadores del Sistema",
+    "slug": "gestionar-catalogo-de-agrupadores-del-sistema",
+    "target": "uc-adm-03-gestionar-catalogo-de-agrupadores-del-sistema.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "alerts",
+    "uc_dir": "uc-alr-01",
+    "title": "UC_ALR_01 — Configurar Umbrales de Alertas",
+    "short": "Configurar Umbrales de Alertas",
+    "slug": "configurar-umbrales-de-alertas",
+    "target": "uc-alr-01-configurar-umbrales-de-alertas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "alerts",
+    "uc_dir": "uc-alr-02",
+    "title": "UC_ALR_02 — Ver Alertas Activas",
+    "short": "Ver Alertas Activas",
+    "slug": "ver-alertas-activas",
+    "target": "uc-alr-02-ver-alertas-activas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "alerts",
+    "uc_dir": "uc-alr-03",
+    "title": "UC_ALR_03 — Reconocer Alerta",
+    "short": "Reconocer Alerta",
+    "slug": "reconocer-alerta",
+    "target": "uc-alr-03-reconocer-alerta.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "alerts",
+    "uc_dir": "uc-alr-04",
+    "title": "UC_ALR_04 — Ver Historial de Alertas",
+    "short": "Ver Historial de Alertas",
+    "slug": "ver-historial-de-alertas",
+    "target": "uc-alr-04-ver-historial-de-alertas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "alerts",
+    "uc_dir": "uc-alr-05",
+    "title": "UC_ALR_05 — Gestionar Suscripciones",
+    "short": "Gestionar Suscripciones",
+    "slug": "gestionar-suscripciones",
+    "target": "uc-alr-05-gestionar-suscripciones.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "audit",
+    "uc_dir": "uc-aud-01",
+    "title": "UC_AUD_01 — Consultar Auditoria General",
+    "short": "Consultar Auditoria General",
+    "slug": "consultar-auditoria-general",
+    "target": "uc-aud-01-consultar-auditoria-general.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "audit",
+    "uc_dir": "uc-aud-02",
+    "title": "UC_AUD_02 — Buscar Auditoria",
+    "short": "Buscar Auditoria",
+    "slug": "buscar-auditoria",
+    "target": "uc-aud-02-buscar-auditoria.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "audit",
+    "uc_dir": "uc-aud-03",
+    "title": "UC_AUD_03 — Exportar Auditoria",
+    "short": "Exportar Auditoria",
+    "slug": "exportar-auditoria",
+    "target": "uc-aud-03-exportar-auditoria.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "audit",
+    "uc_dir": "uc-aud-04",
+    "title": "UC_AUD_04 — Generar Reporte de Compliance",
+    "short": "Generar Reporte de Compliance",
+    "slug": "generar-reporte-de-compliance",
+    "target": "uc-aud-04-generar-reporte-de-compliance.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "auth",
+    "uc_dir": "uc-auth-01",
+    "title": "UC_AUTH_01 — Iniciar Sesion",
+    "short": "Iniciar Sesion",
+    "slug": "iniciar-sesion",
+    "target": "uc-auth-01-iniciar-sesion.rst",
+    "src_diagram": "source/requisitos/casos-uso/auth/uc-auth-01/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "auth",
+    "uc_dir": "uc-auth-02",
+    "title": "UC_AUTH_02 — Cerrar Sesion",
+    "short": "Cerrar Sesion",
+    "slug": "cerrar-sesion",
+    "target": "uc-auth-02-cerrar-sesion.rst",
+    "src_diagram": "source/requisitos/casos-uso/auth/uc-auth-02/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "auth",
+    "uc_dir": "uc-auth-03",
+    "title": "UC_AUTH_03 — Recuperar Contrasena",
+    "short": "Recuperar Contrasena",
+    "slug": "recuperar-contrasena",
+    "target": "uc-auth-03-recuperar-contrasena.rst",
+    "src_diagram": "source/requisitos/casos-uso/auth/uc-auth-03/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "auth",
+    "uc_dir": "uc-auth-04",
+    "title": "UC_AUTH_04 — Cambiar Contrasena",
+    "short": "Cambiar Contrasena",
+    "slug": "cambiar-contrasena",
+    "target": "uc-auth-04-cambiar-contrasena.rst",
+    "src_diagram": "source/requisitos/casos-uso/auth/uc-auth-04/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "auth",
+    "uc_dir": "uc-auth-05",
+    "title": "UC_AUTH_05 — Gestionar Sesiones",
+    "short": "Gestionar Sesiones",
+    "slug": "gestionar-sesiones",
+    "target": "uc-auth-05-gestionar-sesiones.rst",
+    "src_diagram": "source/requisitos/casos-uso/auth/uc-auth-05/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "caller",
+    "uc_dir": "uc-cli-01",
+    "title": "UC_CLI_01 — Iniciar Llamada al Call Center",
+    "short": "Iniciar Llamada al Call Center",
+    "slug": "iniciar-llamada-al-call-center",
+    "target": "uc-cli-01-iniciar-llamada-al-call-center.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "caller",
+    "uc_dir": "uc-cli-02",
+    "title": "UC_CLI_02 — Navegar IVR",
+    "short": "Navegar IVR",
+    "slug": "navegar-ivr",
+    "target": "uc-cli-02-navegar-ivr.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "caller",
+    "uc_dir": "uc-cli-03",
+    "title": "UC_CLI_03 — Esperar en Cola",
+    "short": "Esperar en Cola",
+    "slug": "esperar-en-cola",
+    "target": "uc-cli-03-esperar-en-cola.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "caller",
+    "uc_dir": "uc-cli-04",
+    "title": "UC_CLI_04 — Solicitar Callback",
+    "short": "Solicitar Callback",
+    "slug": "solicitar-callback",
+    "target": "uc-cli-04-solicitar-callback.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "caller",
+    "uc_dir": "uc-cli-05",
+    "title": "UC_CLI_05 — Calificar Atencion (Post-Call)",
+    "short": "Calificar Atencion (Post-Call)",
+    "slug": "calificar-atencion-post-call",
+    "target": "uc-cli-05-calificar-atencion-post-call.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-01",
+    "title": "UC_LOG_01 — Consultar Logs del Sistema",
+    "short": "Consultar Logs del Sistema",
+    "slug": "consultar-logs-del-sistema",
+    "target": "uc-log-01-consultar-logs-del-sistema.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-02",
+    "title": "UC_LOG_02 — Consultar Logs del ETL",
+    "short": "Consultar Logs del ETL",
+    "slug": "consultar-logs-del-etl",
+    "target": "uc-log-02-consultar-logs-del-etl.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-03",
+    "title": "UC_LOG_03 — Buscar Logs",
+    "short": "Buscar Logs",
+    "slug": "buscar-logs",
+    "target": "uc-log-03-buscar-logs.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-04",
+    "title": "UC_LOG_04 — Exportar Logs",
+    "short": "Exportar Logs",
+    "slug": "exportar-logs",
+    "target": "uc-log-04-exportar-logs.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-05",
+    "title": "UC_LOG_05 — Ver Logs de Infraestructura",
+    "short": "Ver Logs de Infraestructura",
+    "slug": "ver-logs-de-infraestructura",
+    "target": "uc-log-05-ver-logs-de-infraestructura.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-06",
+    "title": "UC_LOG_06 — Ver Estado del Sistema",
+    "short": "Ver Estado del Sistema",
+    "slug": "ver-estado-del-sistema",
+    "target": "uc-log-06-ver-estado-del-sistema.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "logs",
+    "uc_dir": "uc-log-07",
+    "title": "UC_LOG_07 — Ver Metricas Tecnicas",
+    "short": "Ver Metricas Tecnicas",
+    "slug": "ver-metricas-tecnicas",
+    "target": "uc-log-07-ver-metricas-tecnicas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-01",
+    "title": "UC_OPR_01 — Cambiar Estado del Agente",
+    "short": "Cambiar Estado del Agente",
+    "slug": "cambiar-estado-del-agente",
+    "target": "uc-opr-01-cambiar-estado-del-agente.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-02",
+    "title": "UC_OPR_02 — Atender Llamada Entrante",
+    "short": "Atender Llamada Entrante",
+    "slug": "atender-llamada-entrante",
+    "target": "uc-opr-02-atender-llamada-entrante.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-03",
+    "title": "UC_OPR_03 — Realizar Llamada Saliente",
+    "short": "Realizar Llamada Saliente",
+    "slug": "realizar-llamada-saliente",
+    "target": "uc-opr-03-realizar-llamada-saliente.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-04",
+    "title": "UC_OPR_04 — Hold / Unhold Llamada",
+    "short": "Hold / Unhold Llamada",
+    "slug": "hold-unhold-llamada",
+    "target": "uc-opr-04-hold-unhold-llamada.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-05",
+    "title": "UC_OPR_05 — Transferir Llamada",
+    "short": "Transferir Llamada",
+    "slug": "transferir-llamada",
+    "target": "uc-opr-05-transferir-llamada.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-06",
+    "title": "UC_OPR_06 — Ingresar Disposition",
+    "short": "Ingresar Disposition",
+    "slug": "ingresar-disposition",
+    "target": "uc-opr-06-ingresar-disposition.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-07",
+    "title": "UC_OPR_07 — Solicitar Break / Pausa",
+    "short": "Solicitar Break / Pausa",
+    "slug": "solicitar-break-pausa",
+    "target": "uc-opr-07-solicitar-break-pausa.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-08",
+    "title": "UC_OPR_08 — Ver Propio Dashboard",
+    "short": "Ver Propio Dashboard",
+    "slug": "ver-propio-dashboard",
+    "target": "uc-opr-08-ver-propio-dashboard.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-09",
+    "title": "UC_OPR_09 — Ver Propio Historial de Llamadas",
+    "short": "Ver Propio Historial de Llamadas",
+    "slug": "ver-propio-historial-de-llamadas",
+    "target": "uc-opr-09-ver-propio-historial-de-llamadas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "operator",
+    "uc_dir": "uc-opr-10",
+    "title": "UC_OPR_10 — Recibir Notificacion Supervisor",
+    "short": "Recibir Notificacion Supervisor",
+    "slug": "recibir-notificacion-supervisor",
+    "target": "uc-opr-10-recibir-notificacion-supervisor.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-01",
+    "title": "UC_PERM_01 — Asignar Grupo a Usuario",
+    "short": "Asignar Grupo a Usuario",
+    "slug": "asignar-grupo-a-usuario",
+    "target": "uc-perm-01-asignar-grupo-a-usuario.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-02",
+    "title": "UC_PERM_02 — Revocar Grupo a Usuario",
+    "short": "Revocar Grupo a Usuario",
+    "slug": "revocar-grupo-a-usuario",
+    "target": "uc-perm-02-revocar-grupo-a-usuario.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-03",
+    "title": "UC_PERM_03 — Conceder Permiso Excepcional",
+    "short": "Conceder Permiso Excepcional",
+    "slug": "conceder-permiso-excepcional",
+    "target": "uc-perm-03-conceder-permiso-excepcional.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-04",
+    "title": "UC_PERM_04 — Revocar Permiso Excepcional",
+    "short": "Revocar Permiso Excepcional",
+    "slug": "revocar-permiso-excepcional",
+    "target": "uc-perm-04-revocar-permiso-excepcional.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-04/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-05",
+    "title": "UC_PERM_05 — Crear Grupo de Permisos",
+    "short": "Crear Grupo de Permisos",
+    "slug": "crear-grupo-de-permisos",
+    "target": "uc-perm-05-crear-grupo-de-permisos.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-05/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-06",
+    "title": "UC_PERM_06 — Asignar Funciones a Grupo",
+    "short": "Asignar Funciones a Grupo",
+    "slug": "asignar-funciones-a-grupo",
+    "target": "uc-perm-06-asignar-funciones-a-grupo.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-06/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-07",
+    "title": "UC_PERM_07 — Verificar Permiso de Usuario",
+    "short": "Verificar Permiso de Usuario",
+    "slug": "verificar-permiso-de-usuario",
+    "target": "uc-perm-07-verificar-permiso-de-usuario.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-07/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-08",
+    "title": "UC_PERM_08 — Generar Menu Dinamico",
+    "short": "Generar Menu Dinamico",
+    "slug": "generar-menu-dinamico",
+    "target": "uc-perm-08-generar-menu-dinamico.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-08/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-09",
+    "title": "UC_PERM_09 — Auditar Acceso (write side)",
+    "short": "Auditar Acceso (write side)",
+    "slug": "auditar-acceso-write-side",
+    "target": "uc-perm-09-auditar-acceso-write-side.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-09/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "permissions",
+    "uc_dir": "uc-perm-10",
+    "title": "UC_PERM_10 — Consultar Auditoria de Permisos",
+    "short": "Consultar Auditoria de Permisos",
+    "slug": "consultar-auditoria-de-permisos",
+    "target": "uc-perm-10-consultar-auditoria-de-permisos.rst",
+    "src_diagram": "source/requisitos/casos-uso/permissions/uc-perm-10/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "pipeline",
+    "uc_dir": "uc-pip-01",
+    "title": "UC_PIP_01 — Supervisar ETL",
+    "short": "Supervisar ETL",
+    "slug": "supervisar-etl",
+    "target": "uc-pip-01-supervisar-etl.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "pipeline",
+    "uc_dir": "uc-pip-02",
+    "title": "UC_PIP_02 — Consultar Errores ETL",
+    "short": "Consultar Errores ETL",
+    "slug": "consultar-errores-etl",
+    "target": "uc-pip-02-consultar-errores-etl.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "pipeline",
+    "uc_dir": "uc-pip-03",
+    "title": "UC_PIP_03 — Consultar Disponibilidad de Datos",
+    "short": "Consultar Disponibilidad de Datos",
+    "slug": "consultar-disponibilidad-de-datos",
+    "target": "uc-pip-03-consultar-disponibilidad-de-datos.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "pipeline",
+    "uc_dir": "uc-pip-04",
+    "title": "UC_PIP_04 — Solicitar Reintento de Pipeline",
+    "short": "Solicitar Reintento de Pipeline",
+    "slug": "solicitar-reintento-de-pipeline",
+    "target": "uc-pip-04-solicitar-reintento-de-pipeline.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-inc-rpt-01",
+    "title": "UC_INC_RPT_01 — Resolver Segmento",
+    "short": "UC_INC_RPT_01 — Resolver Segmento",
+    "slug": "uc-inc-rpt-01-resolver-segmento",
+    "target": "uc-inc-rpt-01-uc-inc-rpt-01-resolver-segmento.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-01",
+    "title": "UC_RPT_01 — Ver Dashboard",
+    "short": "Ver Dashboard",
+    "slug": "ver-dashboard",
+    "target": "uc-rpt-01-ver-dashboard.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-01/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-02",
+    "title": "UC_RPT_02 — Ver Metricas en Tiempo Real",
+    "short": "Ver Metricas en Tiempo Real",
+    "slug": "ver-metricas-en-tiempo-real",
+    "target": "uc-rpt-02-ver-metricas-en-tiempo-real.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-02/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-03",
+    "title": "UC_RPT_03 — Ver Reportes Historicos",
+    "short": "Ver Reportes Historicos",
+    "slug": "ver-reportes-historicos",
+    "target": "uc-rpt-03-ver-reportes-historicos.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-03/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-04",
+    "title": "UC_RPT_04 — Exportar Reporte",
+    "short": "Exportar Reporte",
+    "slug": "exportar-reporte",
+    "target": "uc-rpt-04-exportar-reporte.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-04/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-07",
+    "title": "UC_RPT_07 — Programar Reporte",
+    "short": "Programar Reporte",
+    "slug": "programar-reporte",
+    "target": "uc-rpt-07-programar-reporte.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-07/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-08",
+    "title": "UC_RPT_08 — Ver Reportes Programados",
+    "short": "Ver Reportes Programados",
+    "slug": "ver-reportes-programados",
+    "target": "uc-rpt-08-ver-reportes-programados.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-08/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-09",
+    "title": "UC_RPT_09 — Configurar Filtros",
+    "short": "Configurar Filtros",
+    "slug": "configurar-filtros",
+    "target": "uc-rpt-09-configurar-filtros.rst",
+    "src_diagram": "source/requisitos/casos-uso/reports/uc-rpt-09/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-10",
+    "title": "UC_RPT_10 — Guardar Vista",
+    "short": "Guardar Vista",
+    "slug": "guardar-vista",
+    "target": "uc-rpt-10-guardar-vista.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-11",
+    "title": "UC_RPT_11 — Compartir Reporte",
+    "short": "Compartir Reporte",
+    "slug": "compartir-reporte",
+    "target": "uc-rpt-11-compartir-reporte.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-12",
+    "title": "UC_RPT_12 — Reporte de Agentes",
+    "short": "Reporte de Agentes",
+    "slug": "reporte-de-agentes",
+    "target": "uc-rpt-12-reporte-de-agentes.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-13",
+    "title": "UC_RPT_13 — Reporte de Colas",
+    "short": "Reporte de Colas",
+    "slug": "reporte-de-colas",
+    "target": "uc-rpt-13-reporte-de-colas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-14",
+    "title": "UC_RPT_14 — Reporte de Campanas",
+    "short": "Reporte de Campanas",
+    "slug": "reporte-de-campanas",
+    "target": "uc-rpt-14-reporte-de-campanas.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-15",
+    "title": "UC_RPT_15 — Reporte de Transferencias",
+    "short": "Reporte de Transferencias",
+    "slug": "reporte-de-transferencias",
+    "target": "uc-rpt-15-reporte-de-transferencias.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-16",
+    "title": "UC_RPT_16 — Reporte de Menus IVR",
+    "short": "Reporte de Menus IVR",
+    "slug": "reporte-de-menus-ivr",
+    "target": "uc-rpt-16-reporte-de-menus-ivr.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "reports",
+    "uc_dir": "uc-rpt-17",
+    "title": "UC_RPT_17 — Reporte de Clientes Unicos",
+    "short": "Reporte de Clientes Unicos",
+    "slug": "reporte-de-clientes-unicos",
+    "target": "uc-rpt-17-reporte-de-clientes-unicos.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "supervision",
+    "uc_dir": "uc-sup-01",
+    "title": "UC_SUP_01 — Monitorear Llamada (Whisper)",
+    "short": "Monitorear Llamada (Whisper)",
+    "slug": "monitorear-llamada-whisper",
+    "target": "uc-sup-01-monitorear-llamada-whisper.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "supervision",
+    "uc_dir": "uc-sup-02",
+    "title": "UC_SUP_02 — Barge-in en Llamada",
+    "short": "Barge-in en Llamada",
+    "slug": "barge-in-en-llamada",
+    "target": "uc-sup-02-barge-in-en-llamada.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "supervision",
+    "uc_dir": "uc-sup-03",
+    "title": "UC_SUP_03 — Mensaje Broadcast al Equipo",
+    "short": "Mensaje Broadcast al Equipo",
+    "slug": "mensaje-broadcast-al-equipo",
+    "target": "uc-sup-03-mensaje-broadcast-al-equipo.rst",
+    "src_diagram": null
+  },
+  {
+    "module": "users",
+    "uc_dir": "uc-usr-01",
+    "title": "UC_USR_01 — Crear Usuario",
+    "short": "Crear Usuario",
+    "slug": "crear-usuario",
+    "target": "uc-usr-01-crear-usuario.rst",
+    "src_diagram": "source/requisitos/casos-uso/users/uc-usr-01/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "users",
+    "uc_dir": "uc-usr-02",
+    "title": "UC_USR_02 — Consultar Usuarios",
+    "short": "Consultar Usuarios",
+    "slug": "consultar-usuarios",
+    "target": "uc-usr-02-consultar-usuarios.rst",
+    "src_diagram": "source/requisitos/casos-uso/users/uc-usr-02/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "users",
+    "uc_dir": "uc-usr-03",
+    "title": "UC_USR_03 — Modificar Usuario",
+    "short": "Modificar Usuario",
+    "slug": "modificar-usuario",
+    "target": "uc-usr-03-modificar-usuario.rst",
+    "src_diagram": "source/requisitos/casos-uso/users/uc-usr-03/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  },
+  {
+    "module": "users",
+    "uc_dir": "uc-usr-04",
+    "title": "UC_USR_04 — Eliminar Usuario",
+    "short": "Eliminar Usuario",
+    "slug": "eliminar-usuario",
+    "target": "uc-usr-04-eliminar-usuario.rst",
+    "src_diagram": "source/requisitos/casos-uso/users/uc-usr-04/diagramas-uml/diagrama-de-caso-de-uso.rst"
+  }
+]

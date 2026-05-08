@@ -15,7 +15,7 @@ Parte 9 — Criterios de aceptacion
 
 CA-01..15 de UC_ACC_04 aplican identicos:
 
-- Asignacion exitosa, idempotencia, SoD,
+- Asignacion exitosa, idempotencia, separacion,
   subset, auto-asignacion, AGR no existe /
   inactivo, sin permiso, expires_at,
   cache, atomicidad, audit sin PII,

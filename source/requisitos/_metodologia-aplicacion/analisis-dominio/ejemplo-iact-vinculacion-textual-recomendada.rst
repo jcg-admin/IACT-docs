@@ -6,9 +6,9 @@ Ejemplo IACT — vinculación textual recomendada
    @startuml
    title Modelo de dominio IACT — entidades de auditoria
    hide empty members
-   class EventoAuditoria
-   class DetalleAuditoria
-   EventoAuditoria "1" *-- "1..*" DetalleAuditoria : detalla
+   class AuditEvent
+   class AuditDetail
+   AuditEvent "1" *-- "1..*" AuditDetail : details
    @enduml
 
 **Referencias** asociadas a cada entidad (en el texto,

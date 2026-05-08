@@ -709,7 +709,7 @@ Las Business Rules en IACT siguen la convencion:
 
  Definicion: "SI es medianoche (00:00 hora local),
  ENTONCES ejecutar proceso ETL de sincronizacion
- desde MySQL hacia PostgreSQL."
+ desde el Repositorio operativo IVR hacia el Almacén de Datos analítico."
  Tipo: Trigger
  Modalidad: Deontica (Obligation)
  Fuente: Arquitectura de Sistema - Decision ADR_002

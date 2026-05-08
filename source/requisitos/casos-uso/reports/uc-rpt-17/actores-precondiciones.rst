@@ -9,17 +9,32 @@ Parte 2 — Actores y precondiciones
 
 - **User con funcion**
   ``view_reports``
-- **AnalyticsRepo**
+- **ReportingService** —
+  ``cursor.callproc('sp_rpt_clientes',
+  [period, segments])`` sobre BD_IVR.
+- **ETL upstream** (sp_etl_base_clientes)
+  — proceso previo que aplica hash
+  unidireccional a ``cTelefono_Origen``
+  antes de escribir ``base_ivr_clientes``;
+  fuera del scope del UC pero
+  precondicion de los datos.
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC + segmento.
+Auth + RBAC + segmento. BD_IVR accesible
+con ``base_ivr_clientes`` ya anonimizada
+por el ETL; SP ``sp_rpt_clientes``
+instalado y operando read-only sobre el
+hash.
 
 2.3 Postcondiciones
 ===================
 
-Sin escrituras.
+Sin escrituras (read-only sobre BD_IVR
+y BD operativa, CNST-007). Backend NUNCA
+manipula PII raw — solo lee
+``telefono_hashed``.
 
 2.4 Datos de entrada
 ====================

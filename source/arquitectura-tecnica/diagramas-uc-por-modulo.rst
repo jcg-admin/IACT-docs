@@ -24,17 +24,17 @@ su especificacion completa en
  :maxdepth: 1
  :caption: Modulos funcionales
 
- use-case-view/uc-auth
- use-case-view/uc-users
- use-case-view/uc-access
- use-case-view/uc-permissions
- use-case-view/uc-reports
- use-case-view/uc-alerts
- use-case-view/uc-pipeline
- use-case-view/uc-audit
- use-case-view/uc-logs
- use-case-view/uc-operator
- use-case-view/uc-supervision
- use-case-view/uc-caller
- use-case-view/uc-admin
+ use-case-view/auth/index
+ use-case-view/users/index
+ use-case-view/access/index
+ use-case-view/permissions/index
+ use-case-view/reports/index
+ use-case-view/alerts/index
+ use-case-view/pipeline/index
+ use-case-view/audit/index
+ use-case-view/logs/index
+ use-case-view/operator/index
+ use-case-view/supervision/index
+ use-case-view/caller/index
+ use-case-view/admin/index
  rbac/rbac-funciones-por-modulo

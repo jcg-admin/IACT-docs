@@ -48,7 +48,7 @@ FR-071.01: Consultar resumen de salud del pipeline ETL con las últimas ejecucio
 
 **Descripción:**
 
- Valida JWT + view_pipeline_status. Query Registro de Ejecuciones: últimas 20 ordenadas por iniciado_en DESC. Construye ResumenSalud: última exitosa, si hay en ejecución, última fallida. Calcula estado_general: ok (reciente) / degradado (>N horas) / crítico (sin éxito reciente).
+ Valida JWT + view_pipeline_status. Query Registro de Ejecuciones: últimas 20 ordenadas por started_at DESC. Construye ResumenSalud: última exitosa, si hay en ejecución, última fallida. Calcula estado_general: ok (reciente) / degradado (>N horas) / crítico (sin éxito reciente).
 
 ----
 

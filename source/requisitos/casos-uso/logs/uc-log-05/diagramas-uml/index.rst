@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   pipeline-de-infraestructura
-   secuencia-con-tail-sse
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-pipeline-infraestructura
+   diagrama-de-secuencia-tail-sse

@@ -1,7 +1,7 @@
 Requisitos Funcionales - Access
 ===============================
 
-Casos de uso del módulo Access (RBAC) — gestión de funciones, grupos, SoD,
+Casos de uso del módulo Access (RBAC) — gestión de funciones, grupos, separacion,
 permisos temporales.
 
 .. toctree::

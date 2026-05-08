@@ -112,7 +112,7 @@ Catalogo
  :caption: RBAC
 
  cnst-029-rbac-modelo-plano
- cnst-030-reglas-de-separacion-de-funciones-sod
+ cnst-030-reglas-de-separacion-de-funciones
  cnst-031-permisos-temporales-maximo-6-meses
  cnst-032-menu-dinamico-obligatorio
  cnst-033-vocabulario-unificado-rbac

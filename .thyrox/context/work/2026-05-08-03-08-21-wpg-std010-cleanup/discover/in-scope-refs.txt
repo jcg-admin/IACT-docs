@@ -1,0 +1,98 @@
+source/requisitos/casos-uso/permissions/uc-perm-10/implementacion-tecnica.rst:201:  (Celery, RQ, Sidekiq, custom).
+source/requisitos/casos-uso/permissions/uc-perm-07/implementacion-tecnica.rst:192:- Cache: Redis / Memcached / in-process —
+source/requisitos/casos-uso/admin/uc-adm-05/implementacion-tecnica.rst:22:- Backend: Django 5.0+ con DRF.
+source/requisitos/casos-uso/admin/uc-adm-05/implementacion-tecnica.rst:23:- Almacen de Datos: PostgreSQL 14+.
+source/requisitos/casos-uso/admin/uc-adm-05/implementacion-tecnica.rst:24:- Servicio de Cache: Redis 7.x con django-redis.
+source/requisitos/casos-uso/admin/uc-adm-05/implementacion-tecnica.rst:25:- Planificador de Tareas: Celery beat (motor concreto —
+source/requisitos/casos-uso/admin/uc-adm-05/implementacion-tecnica.rst:165:11.5 Job del Planificador (Celery beat)
+source/requisitos/casos-uso/admin/uc-adm-02/implementacion-tecnica.rst:58:- FunctionRepo puede ser ORM Django o
+source/requisitos/casos-uso/admin/uc-adm-02/informacion-general.rst:27:RBAC. Las 74+ funciones actuales se administran via migraciones Django
+source/requisitos/casos-uso/admin/uc-adm-02/informacion-general.rst:77:   - ``Function`` (modelo Django)
+source/requisitos/casos-uso/admin/uc-adm-04/implementacion-tecnica.rst:22:- Backend: Django 5.0+ con Django REST Framework.
+source/requisitos/casos-uso/admin/uc-adm-04/implementacion-tecnica.rst:23:- Almacen de Datos: PostgreSQL 14+.
+source/requisitos/casos-uso/admin/uc-adm-04/implementacion-tecnica.rst:24:- Servicio de Cache: Redis 7.x con ``django-redis``.
+source/requisitos/casos-uso/admin/uc-adm-04/implementacion-tecnica.rst:180:11.8 Migracion Django
+source/requisitos/casos-uso/users/uc-usr-03/implementacion-tecnica.rst:326:(Django/DRF, Express, Spring, ASP.NET Core)
+source/requisitos/casos-uso/users/uc-usr-01/implementacion-tecnica.rst:339:- Stack web Python: Django/DRF + algoritmo-de-hash + ORM
+source/requisitos/casos-uso/auth/uc-auth-01/testing.rst:26: * - **Integracion (Django TestCase)**
+source/requisitos/casos-uso/auth/uc-auth-01/testing.rst:37:12.2 Tests backend (pytest + Django TestCase)
+source/requisitos/casos-uso/auth/uc-auth-01/testing.rst:378:- 16 tests backend (pytest + Django TestCase)
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:27:   - Django + Django REST Framework (DRF)
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:33:   - MySQL 8.0 InnoDB
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:40:   - Django DatabaseCache (no Redis ni
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:44:   - React 18
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:57:- Celery — no (no necesario aqui; la
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:60:- Redis / Memcached — no (DatabaseCache).
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:61:- PostgreSQL — no (MySQL).
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:123:11.4 Modelo Django de Session (extracto)
+source/requisitos/casos-uso/auth/uc-auth-01/implementacion-tecnica.rst:150:11.7 Frontend (React)
+source/requisitos/casos-uso/auth/uc-auth-04/implementacion-tecnica.rst:10:Mismo que UC_AUTH_01..03 (Django/DRF, MySQL,
+source/requisitos/casos-uso/auth/uc-auth-04/implementacion-tecnica.rst:11:algoritmo-de-hash, React).
+source/requisitos/casos-uso/auth/uc-auth-02/testing.rst:27:12.2 Tests backend (pytest + Django)
+source/requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica.rst:15:   - Django 4.2+, DRF 3.14+, djangorestframework-simplejwt
+source/requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica.rst:17:   - MySQL 8.0 (analitica)
+source/requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica.rst:19:   - Redis 7 para BlacklistedToken hot path
+source/requisitos/casos-uso/auth/uc-auth-02/implementacion-tecnica.rst:21:   - React 18, Redux Toolkit, React Router v6
+source/requisitos/casos-uso/auth/uc-auth-03/implementacion-tecnica.rst:15:   - Django 4.2+, DRF 3.14+, algoritmo-de-hash
+source/requisitos/casos-uso/auth/uc-auth-03/implementacion-tecnica.rst:17:   - MySQL 8.0
+source/requisitos/casos-uso/auth/uc-auth-03/implementacion-tecnica.rst:21:   - React 18, Redux Toolkit
+source/requisitos/casos-uso/access/uc-acc-01/implementacion-tecnica.rst:12: concreto. Las implementaciones (Python/Django,
+source/requisitos/casos-uso/access/uc-acc-01/implementacion-tecnica.rst:374:(Django/DRF, Express, Spring, ASP.NET Core)
+source/requisitos/casos-uso/reports/uc-rpt-02/implementacion-tecnica.rst:144:- Pub/sub: Kafka, Redis Streams, NATS,
+source/requisitos/casos-uso/reports/uc-inc-rpt-01/implementacion-tecnica.rst:40:JWT) para evitar queries repetidas a PostgreSQL dentro de la
+source/requisitos/casos-uso/reports/uc-rpt-04/implementacion-tecnica.rst:193:- Worker: Celery / Sidekiq / RQ / custom.
+source/requisitos/casos-uso/reports/uc-rpt-01/implementacion-tecnica.rst:144:  PostgreSQL particionado).
+source/requisitos/casos-uso/reports/uc-rpt-01/implementacion-tecnica.rst:145:- Cache: Redis / Memcached / in-process.
+source/requisitos/casos-uso/reports/uc-rpt-03/implementacion-tecnica.rst:150:- Cache: Redis / Memcached / in-process.
+source/requisitos/reglas-negocio/rbac/catalogo-funciones.rst:755:     v5.6.x:** no asignada a ningun AGR. Cambios solo via Django
+source/requisitos/reglas-negocio/rbac/catalogo-funciones.rst:757:     Read-only en admin Django. (NUEVA v5.6.x —
+source/base-cognitiva/_fundamentos-conceptuales/fnd-03-casos-de-uso.rst:250:   - Sistema IVR MySQL
+source/base-cognitiva/_fundamentos-conceptuales/fnd-02-reglas-de-negocio.rst:693: Definicion: "La base de datos MySQL operacional es de SOLO LECTURA
+source/base-cognitiva/_fundamentos-conceptuales/fnd-02-reglas-de-negocio.rst:712: desde MySQL hacia PostgreSQL."
+source/base-cognitiva/_fundamentos-conceptuales/fnd-05-jerarquia-4-niveles.rst:624: BR_001: La BD MySQL operacional es de SOLO LECTURA para IACT
+source/base-cognitiva/_fundamentos-conceptuales/fnd-00-contexto-y-jerarquia.rst:126: │ MySQL IVR (Sistema Operacional) │
+source/base-cognitiva/_fundamentos-conceptuales/fnd-00-contexto-y-jerarquia.rst:136: │ PostgreSQL Analytics (Sistema Analítico) │
+source/base-cognitiva/_fundamentos-conceptuales/fnd-00-contexto-y-jerarquia.rst:143: │ Aplicación Web Django + React │
+source/base-cognitiva/_fundamentos-conceptuales/fnd-00-contexto-y-jerarquia.rst:151:- **CNST_006:** Arquitectura BD Dual - MySQL IVR + PostgreSQL Analytics
+source/requisitos/reglas-negocio/br-001-fuente-operacional-inmutable.rst:48:La base de datos MySQL del sistema IVR ES de solo lectura para el sistema IACT.
+source/requisitos/reglas-negocio/br-001-fuente-operacional-inmutable.rst:57: - Base IVR: Base de datos MySQL del sistema de telefonia
+source/base-cognitiva/_uml/cuando-usar-cada-diagrama/diagrama-de-distribucion.rst:21:     component "Apache + Django"
+source/base-cognitiva/_uml/cuando-usar-cada-diagrama/diagrama-de-distribucion.rst:24:     database "MySQL"
+source/base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/concerns-principles-decisions.rst:261:     despliegue. *En IACT:* stack PostgreSQL + Node.js como
+source/base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/concerns-principles-decisions.rst:523:   - PostgreSQL para audit_log y datos ciudadanos, Node.js para
+source/base-cognitiva/_uml/uml-14-uml-vistas-arquitectonicas/concerns-principles-decisions.rst:620:   - `audit_log` en PostgreSQL con constraints `NOT NULL` en
+source/base-cognitiva/_uml/uml-01-introduccion/diagrama-de-distribucion.rst:20:     database "PostgreSQL"
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:58:- **Backend:** Django REST Framework (Python 3.11+).
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:59:- **Frontend:** React + Webpack (lenguaje JavaScript /
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:64:  - **MySQL** — fuente operativa, modo solo-lectura desde IACT
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:66:  - **PostgreSQL** — destino analítico, optimizado para consultas
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:70:  Django).
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:71:- **Cache:** sin caché distribuido (Redis no aplicado).
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:72:- **Mensajería asíncrona:** sin broker (Celery no aplicado).
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:74:Pipeline ETL: el sistema extrae datos desde MySQL, los normaliza
+source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst:75:y los carga en PostgreSQL para servir consultas analíticas.
+source/base-cognitiva/_metadata/meta-05-estructura-documental.rst:109:   - Django REST Framework (Python 3.11+).
+source/base-cognitiva/_metadata/meta-05-estructura-documental.rst:111:   - React + Webpack.
+source/base-cognitiva/_metadata/meta-05-estructura-documental.rst:115:   - MySQL (operativa, RO) + PostgreSQL (analítica).
+source/gestion/evidencia/rbac-historia/analisis-errores-modelo-rbac-v5-2-0.rst:601:9. Errores en Modelos Django
+source/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm.rst:176:**Implementación backend:** 8 modelos Django + 5 funciones SQL
+source/gestion/evidencia/rbac-historia/decisiones-modulos-8-vs-9-historico.rst:193:   - Sesiones en BD, no Redis
+source/gestion/evidencia/rbac-historia/diseno-referencia-implementacion-permisos-legacy.rst:65:   - Modelos Django de privilegios call center (Campaign, User extendido)
+source/gestion/evidencia/rbac-historia/diseno-referencia-implementacion-permisos-legacy.rst:77:   - Django Admin integration para el sistema de modulos
+source/gestion/evidencia/rbac-historia/diseno-referencia-implementacion-permisos-legacy.rst:80:   - Modelos Django nucleares (Module, Capability, Group)
+source/gestion/evidencia/rbac-historia/diseno-referencia-implementacion-permisos-legacy.rst:121:   - ``User`` (Django builtin)
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:55:- 8 modelos Django (``models_permisos_granular.py``):
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:67:- 5 funciones SQL nativas (PostgreSQL):
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:75:- 3 migraciones Django:
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:142:   - Django Management Commands
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:158:   - Django Admin Integration
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:173:- "Capacidad" / ``Capacidad`` (modelo Django).
+source/gestion/evidencia/rbac-historia/gap-analysis-sistema-permisos-nov-2025.rst:203:- Tests adicionales, Django Admin, monitoring.
+source/gestion/evidencia/rbac-historia/formalizacion-modelo-rbac.rst:31:del backend (8 modelos Django, 5 funciones SQL, menú dinámico) en
+source/gestion/evidencia/rbac-historia/formalizacion-modelo-rbac.rst:219: * - ``Capacidad`` (Django model)
+source/gestion/evidencia/rbac-historia/formalizacion-modelo-rbac.rst:228: * - ``UserFunctionAssignment`` (Django)
+source/index.rst:18:datos operativos (origen MySQL, modo solo-lectura) con necesidades de
+source/index.rst:19:análisis de negocio (destino PostgreSQL, optimizado) mediante un proceso
+source/index.rst:20:ETL trazable. El frontend (React + Webpack) consume la API REST del
+source/index.rst:34:     - React + Webpack
+source/index.rst:40:     - MySQL (operativa, RO) + PostgreSQL (analítica)

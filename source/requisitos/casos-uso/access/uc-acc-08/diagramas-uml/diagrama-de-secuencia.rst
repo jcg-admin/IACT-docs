@@ -10,7 +10,7 @@
  participant "Frontend" as Frontend
  participant "GrantExcView" as Grantexcview
  participant "AccessService" as Accessservice
- participant "SoDValidator" as Sodvalidator
+ participant "SeparationRuleValidator" as Sodvalidator
  participant "PermissionCache" as Permissioncache
  participant "InternalMailbox" as Internalmailbox
  participant "AuditLog" as Auditlog
@@ -42,11 +42,11 @@
        Accessservice -> Repo: consultar ExceptionalPermission\n  ACTIVE existentes
        Accessservice -> Accessservice: filtrar idempotencia
        Accessservice -> Sodvalidator: validate(effective_post_grant,\n  rules)
-       alt SoD viola
-         Sodvalidator --> Accessservice: SoDViolation
+       alt separacion viola
+         Sodvalidator --> Accessservice: SeparationRuleViolation
          Accessservice -> Auditlog: emit GRANT_FAILED ALERTA
          Grantexcview --> Frontend: 409
-       else SoD OK
+       else separacion OK
          group Transaccion atomica
            Accessservice -> Repo: registrar ExceptionalPermission\n  (N filas)
            Accessservice -> Internalmailbox: send obligatorio

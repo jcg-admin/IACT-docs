@@ -111,7 +111,7 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: admin_seguridad (AGR-008)
+- **Responsable**: permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Revision de politica de seguridad
 - **Frecuencia de Revision**: Anual
 

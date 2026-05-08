@@ -238,9 +238,9 @@ que documenta todos los enlaces entre requisitos y sus derivados.
 
 ::
 
- CADENA: BR_007 (SoD) -> UC_ADM_01 -> FR-ADM-01.x
+ CADENA: BR_007 (separation of duties) -> UC_ADM_01 -> FR-ADM-01.x
 
- BR_007: Separacion de Funciones SoD
+ BR_007: Separacion de Funciones (separation of duties)
  |
  | influye
  v
@@ -248,22 +248,22 @@ que documenta todos los enlaces entre requisitos y sus derivados.
  |
  | genera
  v
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
  |
  | deriva
- +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
- +---> FR-ADM-01.2: Sistema DEBE validar conflictos al crear SoD
- +---> FR-ADM-01.3: Sistema DEBE impedir asignacion que viole SoD
- +---> FR-ADM-01.4: Sistema DEBE registrar en auditoria cambios SoD
+ +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones de separacion
+ +---> FR-ADM-01.2: Sistema DEBE validar conflictos al crear regla de separacion
+ +---> FR-ADM-01.3: Sistema DEBE impedir asignacion que viole separacion
+ +---> FR-ADM-01.4: Sistema DEBE registrar en auditoria cambios en reglas de separacion
  +---> FR-ADM-01.5: Sistema DEBE notificar al admin de sistema
  |
  | implementa
  v
- apps/access/sod.py
+ apps/access/separation.py
  |
  | verifica
  v
- TST_Admin_SoD_001 a TST_Admin_SoD_005
+ TST_Admin_Separation_001 a TST_Admin_Separation_005
 
 ----
 
@@ -344,7 +344,7 @@ trazabilidad dentro de la documentacion.
 
 ::
 
- En BR_007_Separacion_Funciones_SoD.rst:
+ En BR_007_Separacion_Funciones.rst:
 
  .. _br-007:
 
@@ -355,7 +355,7 @@ trazabilidad dentro de la documentacion.
  - FR Derivados: FR-ADM-01.1 a FR-ADM-01.5
 
 
- En UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst:
+ En UC_ADM_01_Gestionar_Ciclo_Vida_Separacion.rst:
 
  .. _uc-adm-01:
 
@@ -393,12 +393,12 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
 
  Origen
  ^^^^^^
- - Business Rule: BR_007 (Separacion de Funciones SoD)
+ - Business Rule: BR_007 (Separacion de Funciones (separation of duties))
  - Business Requirement: BReq-004 (Cumplimiento Seguridad)
 
  Derivados
  ^^^^^^^^^
- - FR-043.1: Mostrar lista restricciones SoD
+ - FR-043.1: Mostrar lista restricciones de separacion
  - FR-043.2: Validar conflictos
  - FR-043.3: Impedir asignacion violatoria
  - FR-043.4: Registrar en auditoria
@@ -407,8 +407,8 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
  Implementacion
  ^^^^^^^^^^^^^^
  - Modulo: MOD_Access
- - Codigo: apps/access/sod.py
- - Tests: TST_Access_SoD_*
+ - Codigo: apps/access/separation.py
+ - Tests: TST_Access_Separation_*
 
 ----
 
@@ -463,7 +463,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
  BR_001 (Fuente Inmutable) --> BReq-005 (Integridad Datos)
  BR_002 (ETL Nocturno) --> BReq-001 (Visibilidad)
  BR_006 (RBAC Flat) --> BReq-004 (Cumplimiento)
- BR_007 (SoD) --> BReq-004 (Cumplimiento)
+ BR_007 (separation of duties) --> BReq-004 (Cumplimiento)
  BR_010 (Auditoria Inmutable)--> BReq-004 (Cumplimiento)
  BR_014 (Alerta Umbral) --> BReq-002 (Reduccion Incidentes)
 
@@ -487,16 +487,16 @@ Ejemplo detallado para UC_ADM_01:
 
 ::
 
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
 
  Flujo Normal:
- 1. admin_sistema selecciona Gestionar Reglas SoD
+ 1. system_admin (AGR-010) selecciona Gestionar Reglas de Separacion
  2. Sistema muestra lista de restricciones actuales --> FR-ADM-01.1
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
  5. Admin define Grupo A y Grupo B de funciones
  6. Sistema valida que no hay conflictos existentes --> FR-ADM-01.2
- 7. Sistema guarda restriccion SoD
+ 7. Sistema guarda restriccion de separacion
  8. Sistema registra en auditoria --> FR-ADM-01.4
  9. Sistema notifica a administradores --> FR-ADM-01.5
 
@@ -506,10 +506,10 @@ Ejemplo detallado para UC_ADM_01:
  6a.3. Retorna a paso 5
 
  FR Derivados:
- - FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
- - FR-043.2: Sistema DEBE validar conflictos al crear SoD
- - FR-043.3: Sistema DEBE impedir asignacion que viole SoD
- - FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
+ - FR-043.1: Sistema DEBE mostrar lista de restricciones de separacion
+ - FR-043.2: Sistema DEBE validar conflictos al crear regla de separacion
+ - FR-043.3: Sistema DEBE impedir asignacion que viole separacion
+ - FR-043.4: Sistema DEBE registrar en auditoria cambios en reglas de separacion
  - FR-043.5: Sistema DEBE notificar al admin de seguridad
 
 7.4 Nivel 3 a 4: FR a CODE (Implementacion)
@@ -519,7 +519,7 @@ Ejemplo detallado para UC_ADM_01:
 
  FR Implementacion
  
- FR-043.1 --> apps/access/views/sod_views.py::list_sod
+ FR-043.1 --> apps/access/views/separation_views.py::list_separation_rules
  FR-043.2 --> apps/access/validators/sod_validator.py
  FR-043.3 --> apps/access/middleware/sod_enforcement.py
  FR-043.4 --> apps/audit/signals/sod_audit.py
@@ -554,7 +554,7 @@ artefactos se ven afectados por un cambio propuesto.
 
 ::
 
- CAMBIO PROPUESTO: Modificar BR_007 (agregar nueva restriccion SoD)
+ CAMBIO PROPUESTO: Modificar BR_007 (agregar nueva restriccion de separacion)
 
  PASO 1: Identificar derivados directos
  .. list-table::
@@ -569,7 +569,7 @@ artefactos se ven afectados por un cambio propuesto.
  PASO 3: Identificar codigo afectado
  .. list-table::
 
-    * - apps/access/sod.py apps/access/validators/ apps/access/middleware/
+    * - apps/access/separation.py apps/access/validators/ apps/access/middleware/
 
  PASO 4: Identificar tests a actualizar
  .. list-table::

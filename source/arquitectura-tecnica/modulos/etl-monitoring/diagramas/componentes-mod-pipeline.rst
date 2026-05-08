@@ -30,7 +30,7 @@ Diagrama de componentes — MOD_Pipeline
 
  database "tbl_historico_detalle\ntbl_historico_clientes\n(Repositorio IVR)" as HISTORICO_IVR
  database "base_ivr_detalle\nbase_ivr_clientes\n(Base Analitica)" as BASE_ANALITICA
- database "etl_runs\n(registro de ejecuciones)" as TABLA_ETL_RUNS
+ database "pipeline_runs\n(registro de ejecuciones)" as TABLA_ETL_RUNS
  database "audit_log\n(PostgreSQL)" as TABLA_AUDIT_LOG
 
  Apscheduler --> PROGRAMADOR_ETL : disparo automatico

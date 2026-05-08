@@ -48,7 +48,7 @@ FR-072.01: Consultar ejecuciones fallidas del pipeline con mensaje de error
 
 **Descripción:**
 
- Valida JWT + view_pipeline_errors. Valida filtros (period dentro del rango CNST_018, trimestre en formato válido). Query Registro de Ejecuciones WHERE estado='fallido' + filtros + paginación. Retorna mensaje_error de cada ejecución fallida.
+ Valida JWT + view_pipeline_errors. Valida filtros (period dentro del rango CNST_018, trimestre en formato válido). Query Registro de Ejecuciones WHERE estado='fallido' + filtros + paginación. Retorna error_message de cada ejecución fallida.
 
 ----
 
@@ -59,7 +59,7 @@ FR-072.01: Consultar ejecuciones fallidas del pipeline con mensaje de error
 
  DADO operador consulta errores del Q1
  CUANDO GET con trimestre=Q1_25
- ENTONCES lista de ejecuciones fallidas con mensaje_error
+ ENTONCES lista de ejecuciones fallidas con error_message
  
  Escenario 1: Sin errores en período
  DADO sin ejecuciones fallidas

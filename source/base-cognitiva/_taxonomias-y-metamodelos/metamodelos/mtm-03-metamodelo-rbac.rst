@@ -47,26 +47,26 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  - Roles padre/hijo
 
  Level 2: Constrained RBAC
- - Separacion de Funciones (SoD)
+ - Separacion de Funciones (separation of duties)
  - Restricciones estaticas y dinamicas
 
  Level 3: Symmetric RBAC
  - Revision de permisos
  - Auditoria completa
 
-1.2 IACT: Flat RBAC + SoD
+1.2 IACT: Flat RBAC + separacion de deberes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
  IACT implementa:
  - Flat RBAC (Level 0): Sin herencia de roles
- - SoD de Level 2: Separacion de Funciones estatica
+ - Separacion de deberes de Level 2: Separacion de Funciones estatica
 
  JUSTIFICACION:
  - Simplicidad operativa
  - Permisos explicitos (sin confusion por herencia)
- - SoD para compliance
+ - Separacion de deberes para compliance
 
 ----
 
@@ -99,7 +99,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  | - descripcion | | - accion |
  +--------+---------+ +------------------+
  |
- | N:N (SoD)
+ | N:N (separation of duties)
  v
  .. list-table::
 
@@ -169,11 +169,14 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  El catalogo vigente declara:
 
- - **74 funciones atomicas** (capabilities) en formato accion-recurso:
-   view_own_sessions, view_reports, export_csv, etc.
+ - **64 funciones atomicas activas** (capabilities) en formato
+   accion-recurso: view_own_sessions, view_reports, export_csv, etc.
+   El catalogo declara 77 funciones — 13 reservadas open-closed
+   (MOD_Operator y MOD_Supervision) son extension points
+   out-of-scope para esta release.
  - **12 grupos predefinidos** (system groups, inmutables)
    AGR-001..AGR-012 que agrupan funciones por uso tipico.
- - **3 reglas SoD** (Separation of Duties) atomicas: SOD-001
+ - **3 reglas de separacion** (Separation of Duties) atomicas: SOD-001
    pipeline_audit_separation, SOD-002 user_audit_separation,
    SOD-003 access_audit_separation.
 
@@ -193,10 +196,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  Ademas de los 12 grupos predefinidos (system, inmutables), el
  admin puede crear **custom groups** dinamicamente via
  :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
- Las 3 reglas SoD aplican TANTO a system como a custom groups.
+ Las 3 reglas de separacion aplican TANTO a system como a custom groups.
 
- La materializacion concreta de este metamodelo (las 74 funciones,
- los 12 grupos, las 3 reglas SoD, la politica de permisos
+ La materializacion concreta de este metamodelo (las 64 funciones
+ activas, los 12 grupos, las 3 reglas de separacion, la politica de permisos
  temporales) esta documentada en la restriccion
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` (cuyo
  detalle pendiente de enriquecer en iteracion v3 del WP #4).
@@ -288,7 +291,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  REGLA:
  Rol debe tener al menos 1 permiso.
 
-4.3 Rol_Conflicto (SoD)
+4.3 Rol_Conflicto (separation of duties)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -298,7 +301,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
     * - role_conflicts
     * - <<composite key>> - role_a: FK -> Rol - role_b: FK -> Rol <<attributes>> - razon: TEXT
 
- PARES CONFLICTIVOS IACT (modelo v5.5.0 — 3 reglas SoD atomicas):
+ PARES CONFLICTIVOS IACT (modelo v5.5.0 — 3 reglas de separacion atomicas):
  .. list-table::
 
     * - Grupo A
@@ -309,7 +312,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
       - Quien opera ETL no debe auditarlo Quien gestiona users no debe auditar Quien gestiona acceso no debe auditar
 
  Detalle SOD-001/SOD-002/SOD-003:
- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+ :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 
  PROPIEDAD:
  La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.
@@ -347,7 +350,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  ├─────────────┤ ├─────────────┤
  │ role_id │<──────│ role_a │
  │ codigo │ N:N │ role_b │
- │ nombre │ (SoD) │ razon │
+ │ nombre │ (separation of duties) │ razon │
  └──────┬──────┘ └─────────────┘
  │
  │ 1:N
@@ -400,7 +403,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  AND p.name = @permission_name
  );
 
-6.2 Validar SoD
+6.2 Validar separacion
 ^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -413,7 +416,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  3. Retornar TRUE si no hay conflicto
 
  La función implementa el principio de Separación de Funciones
- (concepto SoD definido en :doc:`/base-cognitiva/glosario`),
+ (concepto de separacion de deberes definido en :doc:`/base-cognitiva/glosario`),
  pero su nombre describe la operación concreta (verificación
  de conflicto entre roles) en lugar de la abreviatura del
  principio.
@@ -483,7 +486,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    - Username y email unicos
    - UNIQUE constraints
  * - R6
-   - SoD: roles conflictivos no coexisten
+   - Separacion de deberes: roles conflictivos no coexisten
    - Trigger en user_roles
 
 7.2 OCL Constraints
@@ -542,7 +545,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  * - Sesiones activas
    - 20-40
    - Concurrencia tipica
- * - Conflictos SoD
+ * - Conflictos de separacion
    - 2
    - Pares definidos
 
@@ -611,7 +614,7 @@ Documentos Relacionados
 
 - :ref:`sbvr-01` - Conceptos Nucleares (Usuario, Rol, Permiso)
 - :ref:`sbvr-02` - Fact Types (relaciones)
-- :ref:`sbvr-04` - Reglas Operativas (DEO-007 SoD)
+- :ref:`sbvr-04` - Reglas Operativas (DEO-007 separacion de deberes)
 - Modelo_RBAC_Completo_IACT
 
 Fuentes
@@ -647,7 +650,8 @@ Modelo_RBAC_Completo_IACT y referenciado en los UC de gestion
 de usuarios (UC-005 a UC-011).
 
 **Catalogo poblado:** la materializacion concreta de este metamodelo
-(las 74 funciones, los 12 grupos, las 3 reglas SoD, la politica de
+(las 64 funciones activas — 77 declaradas con 13 reservadas
+open-closed —, los 12 grupos, las 3 reglas de separacion, la politica de
 permisos temporales) esta documentada como restricción
 :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 

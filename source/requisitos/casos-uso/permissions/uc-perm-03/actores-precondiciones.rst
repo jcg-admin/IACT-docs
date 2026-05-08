@@ -40,7 +40,7 @@ Identicas a UC_ACC_08:
 - ``expires_at`` valido (NOW()+1h ≤ x ≤
   NOW()+30d).
 - ``justification`` ≥ 20 chars.
-- SoD compliance del set efectivo resultante.
+- compliance de separacion del set efectivo resultante.
 
 2.4 Postcondiciones
 ===================

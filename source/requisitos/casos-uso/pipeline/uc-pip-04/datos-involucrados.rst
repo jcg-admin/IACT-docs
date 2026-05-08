@@ -7,16 +7,16 @@ Parte 7 — Datos involucrados
 7.1 Entidades escritas
 ======================
 
-- **ETLEjecucion** — nuevo registro creado por el Disparador ETL
+- **PipelineExecution** — nuevo registro creado por el Disparador ETL
   al iniciar el reintento. Campos adicionales respecto al flujo
   normal:
 
 ::
 
-   ETLEjecucion (nuevo registro de reintento):
-     estado           : en_ejecucion  (al inicio)
-     ejecutado_por    : 'manual'
-     tabla_origen     : nombre de la tabla fuente del trimestre
+   PipelineExecution (nuevo registro de reintento):
+     estado           : IN_PROGRESS  (al inicio)
+     executed_by    : 'manual'
+     source_table     : nombre de la tabla fuente del trimestre
      trimestre        : trimestre que se esta reprocesando
 
 - **RegistroAuditoria** — evento de auditoria generado por el
@@ -26,8 +26,8 @@ Parte 7 — Datos involucrados
 7.2 Restricciones de escritura
 ================================
 
-- Solo puede existir una ETLEjecucion con ``estado = 'en_ejecucion'``
+- Solo puede existir una PipelineExecution con ``estado = 'IN_PROGRESS'``
   a la vez. El Disparador ETL rechaza el reintento si detecta
   una ejecucion activa.
-- El campo ``ejecutado_por = 'manual'`` distingue los reintentos
+- El campo ``executed_by = 'manual'`` distingue los reintentos
   manuales de las ejecuciones programadas por el scheduler.

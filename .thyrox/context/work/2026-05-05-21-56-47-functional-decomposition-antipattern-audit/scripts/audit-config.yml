@@ -1,0 +1,104 @@
+# Audit configuration — externalized heuristics for
+# Functional Decomposition (Brown 1998) detection.
+#
+# All thresholds, vocabularies and target globs are declared here.
+# The Python script is pure logic; no hardcoded vocabulary lives in
+# audit_functional_decomposition.py.
+
+target:
+  # File glob (relative to --root) to audit. Override via --glob.
+  glob: "source/arquitectura-tecnica/domain-model/*.rst"
+  # Files to exclude by basename (toctrees, overviews, indexes).
+  exclude_basenames:
+    - index.rst
+    - overview.rst
+
+c1_forbidden_verb_prefixes:
+  # PascalCase class name lowercased starting with any of these = FAIL
+  # unless the class also has a recognised pattern suffix → REVISION.
+  - calcular
+  - procesar
+  - validar
+  - ejecutar
+  - generar
+  - realizar
+  - crear
+  - obtener
+  - computar
+  - calculate
+  - process
+  - validate
+  - execute
+  - generate
+  - compute
+  - get
+  - make
+  - do
+  - run
+  - handle
+
+pattern_suffixes:
+  # Suffixes that mark a class as a candidate for a known pattern.
+  # Presence of suffix alone is NOT proof — must combine with C-5
+  # textual declaration.
+  - Repository
+  - Repo
+  - Strategy
+  - Policy
+  - Specification
+  - Aggregator
+  - Generator
+  - Validator
+  - Guard
+  - Resolver
+  - Calculator
+  - Service
+  - Factory
+  - Builder
+  - Adapter
+
+c2_suspect_single_methods:
+  # When a class has exactly 1 method and 0 attributes, these names
+  # signal "class as function call" (Brown S-2).
+  - execute
+  - process
+  - run
+  - handle
+  - apply
+  - ejecutar
+  - procesar
+  - correr
+  - compute
+  - calculate
+
+c5_pattern_declarations:
+  # Regex (case-insensitive) → label. If any matches the artifact
+  # text, the pattern is considered "declared".
+  - regex: "\\brepository\\s+pattern\\b"
+    label: "Repository pattern"
+  - regex: "\\bstrategy\\s+pattern\\b"
+    label: "Strategy pattern"
+  - regex: "\\bspecification\\s+pattern\\b"
+    label: "Specification pattern"
+  - regex: "\\bdomain\\s+service\\b"
+    label: "Domain Service"
+  - regex: "\\bvalue\\s+object\\b"
+    label: "Value Object"
+  - regex: "\\baggregate\\s+root\\b"
+    label: "Aggregate Root"
+  - regex: "\\bfactory\\s+pattern\\b"
+    label: "Factory pattern"
+  - regex: "\\bpolicy\\s+pattern\\b"
+    label: "Policy pattern"
+  - regex: "\\bguard\\s+pattern\\b"
+    label: "Guard pattern"
+  - regex: "\\bpure\\s+function\\b"
+    label: "Pure Function"
+  - regex: "\\bstateless\\b.*\\bstrategy\\b"
+    label: "Stateless Strategy"
+
+c2_thresholds:
+  # Classification cutoffs for criterion C-2 (multiple responsibilities).
+  min_methods_for_pass: 2
+  min_attrs_when_one_method: 3
+  min_attrs_when_zero_methods: 1

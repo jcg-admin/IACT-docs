@@ -25,7 +25,7 @@ Cubre login/logout, gestion de sesiones y recuperacion de contrasena.
  @startuml
 
  package "MOD_Auth" {
-   component "AuthView\nLoginView, LogoutView,\nSessionView" as AuthView <<api>>
+   component "AuthView\nLoginView, LogoutEndpoint,\nSessionView" as AuthView <<api>>
    component "AuthSerializer\nLoginSerializer,\nTokenSerializer" as AuthSerializer <<serializer>>
    component "AuthService\nvalidar credenciales,\ncrear Session, emitir JWT" as AuthService <<service>>
    component "UserRepository\nSessionRepository" as AuthRepo <<repository>>

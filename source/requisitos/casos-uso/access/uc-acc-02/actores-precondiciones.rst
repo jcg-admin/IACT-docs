@@ -100,7 +100,7 @@ detectar:
 
 - Revocaciones masivas sospechosas.
 - Patrones de revocacion-asignacion
-  (potencial bypass SoD).
+  (potencial bypass de separacion).
 - Revocacion de funciones criticas.
 
 2.3 Precondiciones

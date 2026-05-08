@@ -5,35 +5,35 @@ Diagrama UML
 
    @startuml
 
-   class Aerolinea {
-     - nombre : String
-     - codigo : String
-     - rutasAsociadas : Set<Ruta>
-     + agregarRuta(r : Ruta)
-     + removerRuta(r : Ruta)
-     + obtenerRutas() : Set<Ruta>
+   class Airline {
+     - name : String
+     - code : String
+     - associatedRoutes : Set<Route>
+     + addRoute(r : Route)
+     + removeRoute(r : Route)
+     + getRoutes() : Set<Route>
    }
 
-   class Ruta {
-     - codigo : String
-     - origen : String
-     - destino : String
-     - estado : EstadoRuta
-     - aerolineasAsociadas : Set<Aerolinea>
-     + obtenerDetalles() : String
-     + actualizarEstado(e : EstadoRuta)
-     + agregarAerolinea(a : Aerolinea)
-     + removerAerolinea(a : Aerolinea)
+   class Route {
+     - code : String
+     - origin : String
+     - destination : String
+     - state : RouteState
+     - associatedAirlines : Set<Airline>
+     + getDetails() : String
+     + updateState(s : RouteState)
+     + addAirline(a : Airline)
+     + removeAirline(a : Airline)
    }
 
-   enum EstadoRuta {
-     ACTIVA
-     SUSPENDIDA
-     CANCELADA
+   enum RouteState {
+     ACTIVE
+     SUSPENDED
+     CANCELLED
    }
 
-   Aerolinea "*" -- "*" Ruta : administra / pertenece
-   Ruta -- EstadoRuta
+   Airline "*" -- "*" Route : administers / belongs
+   Route -- RouteState
    @enduml
 
 **Elementos UML clave:**

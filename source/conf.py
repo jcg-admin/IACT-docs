@@ -6,6 +6,10 @@ import os
 # Permite importar módulos del proyecto para generar documentación automática
 # sys.path.insert(0, os.path.abspath('../../backend'))  # Descomenta cuando tengas el backend
 
+# Permite cargar extensiones locales en source/_ext/
+# WP plantuml-svg-prerender: plantuml_cached override del directive uml
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '_ext')))
+
 # -- Información General del Proyecto IACT --
 project = 'IACT - Sistema de Dashboard Analytics'
 copyright = '2025, Equipo IACT'
@@ -33,8 +37,11 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_tabs.tabs',
 
-    # PlantUML para diagramas
+    # PlantUML para diagramas — plantuml_cached debe cargarse DESPUES
+    # de sphinxcontrib.plantuml para que el override del directive
+    # `uml` quede activo (last registration wins en docutils).
     'sphinxcontrib.plantuml',
+    'plantuml_cached',
 
     # Extensiones recomendadas (adicionales)
     'sphinx_autodoc_typehints',  # Type hints support

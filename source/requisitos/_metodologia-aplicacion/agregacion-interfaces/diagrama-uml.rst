@@ -6,25 +6,25 @@ Diagrama UML
    @startuml
    allowmixing
 
-   class Universidad {
-     - estudiantes : List<Estudiante>
-     - nombre : String
-     + agregarEstudiante(e : Estudiante)
-     + removerEstudiante(e : Estudiante)
-     + transferirEstudiante(e, otra)
-     + tieneEstudiante(e) : boolean
-     + cantidadEstudiantes() : int
+   class University {
+     - students : List<Student>
+     - name : String
+     + addStudent(s : Student)
+     + removeStudent(s : Student)
+     + transferStudent(s, other)
+     + hasStudent(s) : boolean
+     + studentCount() : int
    }
 
-   class Estudiante {
+   class Student {
      - id : String
-     - nombre : String
-     - estado : String
-     + cambiarEstado(nuevo : String)
+     - name : String
+     - status : String
+     + changeStatus(new : String)
    }
 
-   Universidad o-- "0..*" Estudiante
-   note bottom of Estudiante
+   University o-- "0..*" Student
+   note bottom of Student
      Existe independientemente
      de la Universidad
    end note

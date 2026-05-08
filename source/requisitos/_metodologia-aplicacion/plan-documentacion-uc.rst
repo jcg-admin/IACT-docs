@@ -440,7 +440,7 @@ Adoptar **5+1** si el SAD necesita aislar explícitamente:
 
 - Vocabulario y reglas del dominio del centro de
   contacto (segmento BR_012, ventana ETL CNST_006/008,
-  SoD CNST_030).
+  separacion CNST-030).
 - Aprendizajes consolidados de
   :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index` (sustantivos→clases, RDD,
   CRC) que justifiquen una vista propia.
@@ -605,9 +605,12 @@ detalle:
    sistema, cómo se relacionan entre sí y cómo conectan
    con funciones externas al alcance?
 
-   En IACT: 12 módulos UC (AUTH, USR, ACC, PERM, RPT,
-   ALR, PIP, AUD, LOG, OPR, SUP, CLI) con sus 74 funciones
-   atómicas y los enganches con LDAP, BD operativa e IVR.
+   En IACT: 13 módulos UC (AUTH, USR, ACC, PERM, RPT,
+   ALR, PIP, AUD, LOG, **ADM** (NUEVO v5.6.0), OPR
+   (reservado), SUP (reservado), CLI) con sus 64 funciones
+   activas atómicas (catálogo declara 77 con 13 reservadas
+   open-closed para OPR y SUP) y los enganches con LDAP,
+   BD operativa e IVR.
 3. **Interfaz de usuario** — ¿cómo navegará el usuario,
    cómo se verá el sistema, qué controles especiales
    pueden ser necesarios?

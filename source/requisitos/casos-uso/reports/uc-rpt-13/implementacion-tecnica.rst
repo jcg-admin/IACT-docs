@@ -10,7 +10,9 @@ Parte 11 — Implementacion tecnica
 - ``AbandonoReportView`` (DRF APIView)
 - ``AuthorizationGuard``
 - ``SegmentResolver`` (``<<include>>`` UC_INC_RPT_01)
-- ``ServicioReportes``
+- ``ReportingService`` —
+  ``cursor.callproc('sp_rpt_llamadas_abandonadas',
+  [period, segments])`` sobre BD_IVR
 - ``MetricsCache``
 
 11.2 Contrato
@@ -18,38 +20,52 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract AbandonoReportService:
-     get(trimestre, segmentos, invoker, ctx)
+   contract AbandonmentReportService:
+     get(period, segmentos, invoker, ctx)
        returns: ReporteAbandono
+       throws: SinPermiso, UserWithoutSegment,
+               ValidationError, BDTimeout
 
 11.3 Pseudocodigo
 =================
 
 ::
 
-   procedure get(trimestre, invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'view_reports')
-       segmentos = SegmentResolver.resolve(invoker.id)
-       cached = MetricsCache.get('abandono', trimestre, segmentos)
+   procedure get(period, invoker, ctx):
+       require AuthorizationGuard.has(
+                 invoker, 'view_reports')
+       segmentos = SegmentResolver.resolve(
+                     invoker.id)
+       if not segmentos:
+           raise UserWithoutSegment
+
+       key = ('abandono', period,
+              hash(segmentos))
+       cached = MetricsCache.get(key)
        if cached: return cached
-       reporte = ServicioReportes.llamadas_abandonadas(trimestre)
-       reporte_filtrado = filtrar_por_segmentos(reporte, segmentos)
-       MetricsCache.set('abandono', trimestre, segmentos,
-                        reporte_filtrado, ttl=300)
-       return reporte_filtrado
 
-11.4 Implementacion ServicioReportes
-=====================================
+       try:
+           rows = ReportingService.callproc(
+             'sp_rpt_llamadas_abandonadas',
+             [period, segmentos])
+       except BDTimeout:
+           raise
 
-::
+       # El SP entrega filas por queue_id ya
+       # agregadas (offered, abandoned, asa,
+       # service_level, trend) — no se
+       # re-agrega ni filtra por segmento en
+       # backend; el filtro va en el SP.
+       reporte = AbandonReportOutput.from_rows(rows)
+       MetricsCache.set(key, reporte, ttl=300)
+       return reporte
 
-   ServicioReportes.llamadas_abandonadas(trimestre):
-       with connections['ivr'].cursor() as cursor:
-           cursor.callproc('sp_rpt_llamadas_abandonadas',
-                           [trimestre])
-           columns = [col[0] for col in cursor.description]
-           return [dict(zip(columns, row))
-                   for row in cursor.fetchall()]
+11.4 Restricciones cross-cutting
+================================
 
-El SP retorna datos de todos los segmentos. La capa de servicio
-filtra por los segmentos del usuario antes de retornar.
+- Read-only sobre BD_IVR (CNST-007).
+- KPIs pre-calculados en el SP — sin
+  re-agregacion en backend.
+- Filtro por segmento (CNST-008) aplicado
+  por el SP al recibir la lista.
+

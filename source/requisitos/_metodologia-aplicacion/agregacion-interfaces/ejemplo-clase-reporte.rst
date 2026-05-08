@@ -6,25 +6,25 @@
    @startuml
    allowmixing
 
-   class Reporte {
-     - segmento_aplicado : SegmentoDatos
+   class Report {
+     - applied_segment : DataSegment
      - cache_ttl : Integer
-     - sql_crudo : String
-     # registrarConsulta()
-     # invalidarCache()
-     + generar(filtros : Filtro)
-     + exportar(formato : Enum)
-     + getResultados()
+     - raw_sql : String
+     # recordQuery()
+     # invalidateCache()
+     + generate(filters : Filter)
+     + export(format : Enum)
+     + getResults()
    }
-   note right of Reporte
+   note right of Report
      Visibilidad:
-       + generar / exportar / getResultados
+       + generate / export / getResults
          → interfaz pública del UC_RPT
-       # registrarConsulta / invalidarCache
+       # recordQuery / invalidateCache
          → heredable por subtipos
-         (ReporteHistorico, ReporteAgentes...)
-       - segmento_aplicado / cache_ttl /
-         sql_crudo → detalles internos
+         (HistoricalReport, AgentsReport...)
+       - applied_segment / cache_ttl /
+         raw_sql → detalles internos
          (segmentación BR_012, SLA CNST_017)
    end note
    @enduml

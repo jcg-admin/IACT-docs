@@ -5,39 +5,39 @@ Ejemplo canónico — figuras geométricas
 
    @startuml
 
-   abstract class Figura {
+   abstract class Shape {
      - color : String
-     - posicionX : int
-     - posicionY : int
-     + calcularArea()
-     + calcularPerimetro()
-     + dibujar()
-     + mover()
+     - positionX : int
+     - positionY : int
+     + calculateArea()
+     + calculatePerimeter()
+     + draw()
+     + move()
    }
 
-   class Circulo {
-     - radio : double
-     + calcularArea()
-     + calcularPerimetro()
-     + dibujar()
-     + mover()
+   class Circle {
+     - radius : double
+     + calculateArea()
+     + calculatePerimeter()
+     + draw()
+     + move()
    }
 
-   class Rectangulo {
+   class Rectangle {
      - base : double
-     - altura : double
-     + calcularArea()
-     + calcularPerimetro()
-     + dibujar()
-     + mover()
+     - height : double
+     + calculateArea()
+     + calculatePerimeter()
+     + draw()
+     + move()
    }
 
-   Figura <|-- Circulo
-   Figura <|-- Rectangulo
+   Shape <|-- Circle
+   Shape <|-- Rectangle
 
-   note left of Figura : Clase base
-   note right of Circulo : Especializacion completa
-   note right of Rectangulo : Especializacion completa
+   note left of Shape : Clase base
+   note right of Circle : Especializacion completa
+   note right of Rectangle : Especializacion completa
    @enduml
 
 ``Circulo`` y ``Rectangulo`` **implementan todas** las

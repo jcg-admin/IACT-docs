@@ -34,7 +34,7 @@ y ``opt`` permite el reintento.
  participant "AuthEndpoint" as AuthEndpoint
  participant "DashboardEndpoint" as DashboardEndpoint
  participant "SegmentResolver" as SegmentResolver
- participant "ServicioReportes\n(sp_rpt_*)" as ServicioReportes
+ participant "ReportingService\n(sp_rpt_*)" as ReportingService
  participant "DisparadorETL" as ProcesoETL
  actor "Sistema IVR\n(fuente)" as SistemaIVR
 
@@ -56,8 +56,8 @@ y ``opt`` permite el reintento.
        view_reports -> DashboardEndpoint : 7: GET /api/dashboard/
        DashboardEndpoint -> SegmentResolver : 8: segments_for(user_id)
        SegmentResolver --> DashboardEndpoint : 9: segmentos
-       DashboardEndpoint -> ServicioReportes : 10: callproc(sp_rpt_centros_xsegmento)
-       ServicioReportes --> DashboardEndpoint : 11: KPIs IVR
+       DashboardEndpoint -> ReportingService : 10: callproc(sp_rpt_centros_xsegmento)
+       ReportingService --> DashboardEndpoint : 11: KPIs IVR
        DashboardEndpoint --> view_reports : 12: dashboard mostrado
      end
 
@@ -65,8 +65,8 @@ y ``opt`` permite el reintento.
        view_reports -> DashboardEndpoint : 13: GET /api/reportes/?trimestre=
        DashboardEndpoint -> SegmentResolver : 14: segments_for(user_id)
        SegmentResolver --> DashboardEndpoint : 15: segmentos
-       DashboardEndpoint -> ServicioReportes : 16: callproc(sp_rpt_*, [trimestre])
-       ServicioReportes --> DashboardEndpoint : 17: rows reporte
+       DashboardEndpoint -> ReportingService : 16: callproc(sp_rpt_*, [trimestre])
+       ReportingService --> DashboardEndpoint : 17: rows reporte
        DashboardEndpoint --> view_reports : 18: reporte mostrado
      end
 

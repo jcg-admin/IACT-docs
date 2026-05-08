@@ -4,23 +4,23 @@
 Parte 12 — Testing
 ==================
 
-UT-01: SoDPreCheckValidator — sin conflicto OK.
-UT-02: SoDPreCheckValidator — conflicto detectado.
+UT-01: SeparationPreCheckValidator — sin conflicto OK.
+UT-02: SeparationPreCheckValidator — conflicto detectado.
 UT-03: SystemGroupGuard — is_system=True OK.
 UT-04: SystemGroupGuard — is_system=False → 403.
 
 IT-01: Agregar funcion → composicion actualizada + audit.
 IT-02: Remover funcion → composicion actualizada + audit.
 IT-03: Agregar funcion ya existente → 409.
-IT-04: Agregar funcion con conflicto SoD → 400.
+IT-04: Agregar funcion con conflicto de separacion → 400.
 IT-05: GET /impact/ retorna usuarios afectados.
 IT-06: PermissionsEngine recalcula tras cambio.
 
-E2E-01: Admin agrega funcion a AGR-009; verifica
-que usuario con AGR-009 adquiere nueva funcion en
+E2E-01: Admin agrega funcion a AGR-010; verifica
+que usuario con AGR-010 adquiere nueva funcion en
 su effective_set.
 
-SEC-01: Sin AGR-009 → 403.
+SEC-01: Sin AGR-010 → 403.
 SEC-02: AGR custom (is_system=False) → 403.
 SEC-03: Audit inmutable verificado post-cambio.
 

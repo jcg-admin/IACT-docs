@@ -166,7 +166,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
 - Es middleware/decoradores/policies.
 - Se ejecuta automaticamente en cada request.
 - Aplica restricciones: NO email, BD IVR readonly, limites
-  exportacion, SoD, throttling, etc.
+  exportacion, separacion de deberes, throttling, etc.
 
 ----
 
@@ -190,7 +190,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
    - Sin WebSockets/SSE
    - CNST_003 vigente
  * - SessionDBEnforcer
-   - Sesiones en BD, no Redis
+   - Sesiones en BD, no en cache distribuido
    - CNST_002 / CNST-003 vigente
  * - ExportLimitEnforcer
    - Limites de registros por tipo
@@ -198,7 +198,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
  * - ThrottlingEnforcer
    - Rate limiting
    - CNST_007 / CNST-011 vigente
- * - SoDEnforcer
+ * - SeparationRuleEnforcer
    - Roles incompatibles
    - CNST_005 / **CNST-030 vigente**
 
@@ -215,7 +215,7 @@ Mapeo aproximado para SEC_RULES enforcers:
 - ``CNST_001`` -> :doc:`/normativa/restricciones/cnst-001-prohibicion-de-email-y-smtp`
 - ``CNST_002`` -> :doc:`/normativa/restricciones/cnst-003-sesiones-persistidas-en-base-de-datos`
 - ``CNST_003`` -> :doc:`/normativa/restricciones/cnst-007-base-de-datos-ivr-es-solo-lectura`
-- ``CNST_005`` -> :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- ``CNST_005`` -> :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - ``CNST_007`` -> :doc:`/normativa/restricciones/cnst-011-throttling-obligatorio-en-endpoints-publicos`
 
 ----

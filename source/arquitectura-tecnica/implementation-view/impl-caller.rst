@@ -63,7 +63,7 @@ lectura via el pipeline ETL — nunca directamente desde la aplicacion web
 
 .. seealso::
 
- :doc:`/arquitectura-tecnica/use-case-view/uc-caller`
+ :doc:`/arquitectura-tecnica/use-case-view/caller/index`
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/domain-model/call`
  :doc:`/arquitectura-tecnica/domain-model/campaign`

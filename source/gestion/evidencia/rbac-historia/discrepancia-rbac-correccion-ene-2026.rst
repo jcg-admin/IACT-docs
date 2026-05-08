@@ -25,7 +25,7 @@ Discrepancia RBAC y Propuesta de Correccion (Enero 2026)
  requeria enfoque funcional granular. Origen del trabajo de
  reescritura BR_006 + BR_007. NO es spec vigente — para
  vigente ver :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
- y :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`.
+ y :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`.
 
 ----
 
@@ -108,8 +108,8 @@ Ventajas del enfoque correcto:
    - 18 roles tradicionales
    - Debe ser catalogo de funciones granulares
  * - BR_007
-   - SoD entre roles
-   - Debe ser SoD entre funciones
+   - separacion entre roles
+   - Debe ser separacion entre funciones
 
 3.2 BRs que requirieron AJUSTES MENORES
 ---------------------------------------
@@ -154,8 +154,8 @@ version vigente del corpus IACT-docs:
    - Estado
  * - :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
    - Reescrito con enfoque NIST RBAC Flat (Level 0)
- * - :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
-   - Reescrito con SoD entre funciones (3 reglas SOD-001/002/003)
+ * - :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
+   - Reescrito con separacion entre funciones (3 reglas de separacion-001/002/003)
  * - :doc:`/requisitos/reglas-negocio/br-012-usuario-segmento-unico`
    - Sin cambios
 

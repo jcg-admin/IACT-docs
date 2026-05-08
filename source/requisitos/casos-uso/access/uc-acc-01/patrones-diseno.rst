@@ -10,18 +10,18 @@ Parte 10 — Patrones de diseno
 10.1.1 Specification
 --------------------
 
-**Aplica a**: cada ``SoDRule`` se modela como
+**Aplica a**: cada ``SeparationRule`` se modela como
 una ``Specification`` evaluable contra un
 conjunto de funciones. Permite componer
 reglas:
 
 ::
 
-   abstraccion SoDRule:
+   abstraccion SeparationRule:
      is_violated_by(function_set) returns bool
      find_conflict(function_set) returns Pair?
 
-   AND/OR para combinar reglas (raro en SoD,
+   AND/OR para combinar reglas (raro en separacion,
    pero posible).
 
 10.1.2 Strategy
@@ -40,7 +40,7 @@ reglas:
 
 ``AssignmentRepository``,
 ``FunctionRepository``,
-``SoDRuleRepository`` abstraen el acceso a
+``SeparationRuleRepository`` abstraen el acceso a
 datos. La capa de aplicacion no conoce la BD.
 
 10.1.4 Chain of Responsibility
@@ -50,7 +50,7 @@ Pipeline:
 authentication → permission(assign_functions)
 → throttle → request validator → user
 existence → user state → function existence
-→ SoD validator → persistence.
+→ separacion validator → persistence.
 
 Cada etapa puede rechazar con excepcion
 mapeada a status.
@@ -90,7 +90,7 @@ sin modificar el flujo.
 
 PASOS 11-13 atomicos. Si alguno falla,
 ROLLBACK total. **NUNCA** asignacion parcial
-ante violacion SoD u otro error.
+ante violacion de separacion u otro error.
 
 10.2.2 P-09 Audit-or-abort
 --------------------------
@@ -110,7 +110,7 @@ escalada en cascada.
 
 Funcion ``assign_functions`` distinta de
 ``revoke_functions`` (UC_ACC_02) y de
-``configure_sod`` (UC_ACC_05). El UC se
+``configure_separation_rules`` (UC_ACC_05). El UC se
 deende de la funcion atomica, no de un AGR
 (DEC-USR04-01).
 
@@ -121,21 +121,21 @@ Re-asignacion de funcion ya activa es no-op.
 Permite retries seguros (red intermitente,
 doble click) sin duplicados.
 
-10.2.6 P-27 SoD enforcement en write-time
+10.2.6 P-27 enforcement de separacion en write-time
 -----------------------------------------
 
-CNST-005: SoD se evalua en el momento de
+CNST-005: separacion se evalua en el momento de
 asignar (no diferido / post-hoc). Una
 violacion bloquea la operacion. Garantiza que
 el sistema NUNCA esta en estado inconsistente
-de SoD (asumiendo que UC_ACC_01 + UC_ACC_04
+de separacion (asumiendo que UC_ACC_01 + UC_ACC_04
 + UC_PERM_03 son las unicas vias de
-asignacion — todas validan SoD).
+asignacion — todas validan separacion).
 
-10.2.7 P-28 All-or-nothing en SoD violation
+10.2.7 P-28 All-or-nothing en separacion violation
 -------------------------------------------
 
-Cuando un payload con N funciones genera SoD
+Cuando un payload con N funciones genera separacion violation
 violation, ninguna se asigna (rollback total).
 Defensa contra "asignacion parcial silenciosa"
 que dejaria al admin con falsa sensacion de
@@ -166,14 +166,14 @@ implementacion.
 ------------------------------------
 
 **No aplica**: P-28 all-or-nothing. Si alguna
-funcion del payload viola SoD, NINGUNA se
+funcion del payload viola separacion, NINGUNA se
 asigna.
 
-10.3.2 SoD diferido (post-hoc)
+10.3.2 separacion diferido (post-hoc)
 ------------------------------
 
-**No aplica**: CNST-005 + P-27 — SoD se valida
-en write-time. Algunos sistemas validan SoD
+**No aplica**: CNST-005 + P-27 — separacion se valida
+en write-time. Algunos sistemas validan separacion
 solo en compliance reviews; IACT lo bloquea
 en tiempo real.
 
@@ -211,13 +211,13 @@ forzar revisiones periodicas (compliance).
    - Donde
  * - Specification
    - GoF
-   - SoDRule.is_violated_by
+   - SeparationRule.is_violated_by
  * - Strategy
    - GoF
    - Idempotency / Expiration / Notify
  * - Repository
    - GoF
-   - Assignment / Function / SoDRule
+   - Assignment / Function / SeparationRule
  * - Chain of Responsibility
    - GoF
    - Pipeline middleware
@@ -245,10 +245,10 @@ forzar revisiones periodicas (compliance).
  * - P-22 Idempotencia parcial
    - IACT
    - FA-01, FA-03
- * - P-27 SoD write-time
+ * - P-27 separacion write-time
    - IACT
    - CNST-005 enforcement
- * - P-28 All-or-nothing SoD
+ * - P-28 All-or-nothing separacion
    - IACT
    - rollback total
  * - P-29 Cache post-COMMIT

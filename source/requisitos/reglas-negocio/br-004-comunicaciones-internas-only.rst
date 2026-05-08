@@ -210,7 +210,7 @@ Sin excepciones definidas.
 
 - **Tipo**: Manual (revision de codigo) + Automatizado (tests)
 - **Frecuencia**: Por release
-- **Responsable**: QA, admin_seguridad
+- **Responsable**: QA, permission_admin
 
 6.3 Consecuencias de Incumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

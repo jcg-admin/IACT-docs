@@ -28,7 +28,7 @@ MATRIZ DEPENDENCIAS UC IACT
  - :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0
    (25 clases canonicas, 7 bounded contexts).
  - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.5.0
-   (74 funciones RBAC).
+   (64 funciones RBAC activas).
 
  **Convencion de nombres**: identificadores en ingles (clases,
  funciones, atributos); prosa, comentarios y notas en espanol.
@@ -45,7 +45,7 @@ El catalogo IACT esta formado por **80 casos de uso** agrupados en
 **12 clusters funcionales** (AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD,
 LOG, OPR, SUP, CLI) que operan sobre **25 clases de dominio** distribuidas en
 **7 bounded contexts** (Auth, RBAC, Calls, Reports & Metrics,
-Pipeline ETL, Alerts, Audit, Logs).
+Pipeline, Alerts, Audit, Logs).
 
 Esta matriz analiza las dependencias estructurales entre los 80 UCs
 para identificar:
@@ -327,7 +327,7 @@ con ciclo de vida soft-delete (BR-009 v2.0.0). **1 CRITICO + 3 ALTOS**.
 -----------------------
 
 Responsabilidad: asignar/revocar funciones, agrupadores
-predefinidos, permisos excepcionales y reglas SoD.
+predefinidos, permisos excepcionales y reglas de separacion.
 **1 CRITICO + 4 ALTOS + 1 MEDIO + 1 BAJO**.
 
 .. list-table::
@@ -359,7 +359,7 @@ predefinidos, permisos excepcionales y reglas SoD.
    - 2
    - ``assign_function_groups``
    - ``Assignment``, ``AccessGroup``, ``User``, ``AuditEvent``
- * - UC_ACC_05 Gestionar SoD
+ * - UC_ACC_05 Gestionar separacion de deberes
    - ALTO
    - 5
    - ``view_separation_rules`` / ``update_separation_rule`` / ``disable_separation_rule`` (per Z.2 D-01)
@@ -593,22 +593,22 @@ Responsabilidad: supervision del pipeline ETL. **1 CRITICO + 3 ALTOS**.
    - CRITICO
    - 4
    - PIP-001 ``view_pipeline_status``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_02 Consultar Errores ETL
    - ALTO
    - 2
    - PIP-002 ``view_pipeline_errors``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_03 Consultar Disponibilidad
    - ALTO
    - 2
    - PIP-003 ``view_data_availability``
-   - ``ETLEjecucion``
+   - ``PipelineExecution``
  * - UC_PIP_04 Solicitar Reintento
    - ALTO
    - 3
    - PIP-004 ``request_pipeline_retry``
-   - ``ETLEjecucion``, ``AuditEvent``
+   - ``PipelineExecution``, ``AuditEvent``
 
 2.8 Cluster AUD (4 UCs)
 -----------------------
@@ -670,8 +670,8 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
  * - UC_LOG_02 Consultar Logs ETL
    - ALTO
    - 2
-   - LOG-004 ``view_etl_logs`` (NUEVA)
-   - ``ETLLog``, ``ETLEjecucion``
+   - LOG-004 ``view_pipeline_logs`` (NUEVA)
+   - ``PipelineLog``, ``PipelineExecution``
  * - UC_LOG_03 Buscar Logs
    - BAJO
    - 3
@@ -856,7 +856,94 @@ PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
    - (ninguna — actor externo sin RBAC)
    - ``Call``, ``base_ivr_*``
 
-2.13 Verificacion cuantitativa
+2.13 Cluster ADM (5 UCs) — v5.6.0 baseline + v5.6.x extension
+-------------------------------------------------------------
+
+Plano de configuracion del modelo RBAC: gestiona QUE
+funciones, grupos del sistema, reglas de separacion y catalogo UX
+EXISTEN. Actor principal: ``system_admin`` (AGR-010).
+**0 CRITICOS + 3 ALTOS + 2 MEDIOS + 0 BAJOS = 5**.
+
+.. list-table::
+ :widths: 30 12 8 25 25
+ :header-rows: 1
+
+ * - UC
+   - Criticidad
+   - In-deg
+   - Funciones RBAC
+   - Entidades
+ * - UC_ADM_01 Gestionar Ciclo de Vida de Reglas de Separacion
+   - ALTO
+   - 1
+   - ``create_separation_rule``,
+     ``update_separation_rule``,
+     ``disable_separation_rule``
+   - ``SeparationRule``,
+     ``AccessGroup``,
+     ``Function``
+ * - UC_ADM_02 Gestionar Catalogo de Funciones
+   - ALTO
+   - 2
+   - ``manage_function_catalog``
+   - ``Function``,
+     ``FunctionGroup``,
+     ``PermissionCache``
+ * - UC_ADM_03 Gestionar Catalogo de Agrupadores del Sistema
+   - ALTO
+   - 1
+   - ``assign_functions_to_group``
+   - ``AccessGroup``,
+     ``Function``,
+     ``FunctionGroupMembership``
+ * - UC_ADM_04 Gestionar Catalogo de MenuItems (v5.6.x)
+   - MEDIO
+   - 1
+   - ``manage_menu_catalog``
+     (``is_critical=True``)
+   - ``MenuItem``,
+     ``Function``,
+     ``MenuItemRepo``,
+     ``UserCapabilityResolver``
+ * - UC_ADM_05 Gestionar Lifecycle de MenuItem (v5.6.x)
+   - MEDIO
+   - 1
+   - ``manage_menu_lifecycle``
+     (``is_critical=True``)
+   - ``MenuItem``,
+     ``MenuLifecycleService``,
+     ``InternalMailbox``,
+     ``AuditEvent``
+
+**Dependencias internas del cluster ADM:**
+
+::
+
+   UC_ADM_05 → UC_ADM_04 (MenuItem creado por UC_ADM_04
+                          es transicionado por UC_ADM_05)
+   UC_ADM_04 → UC_ADM_02 (Function existe — wrapped 1:1)
+   UC_ADM_03 → UC_ADM_02 (asigna Function existentes)
+   UC_ADM_01 → (raiz dentro del cluster)
+
+**Dependencias externas:**
+
+- UC_ADM_05 ← Planificador de Tareas (job
+  ``auto_archive_menu_items`` — actor=system).
+- UC_PERM_08 (Generar Menu Dinamico) ← lee ``MenuItem``
+  creados/transicionados por UC_ADM_04/05.
+- UC_PERM_06 (Asignar Funciones a Grupo) ← lee ``Function``
+  modificadas por UC_ADM_02.
+
+**Out-of-cluster: ``manage_critical_function_flag``**
+
+Capability declarada (TD-RBAC-03) **sin titular en v5.6.x**.
+No tiene UC asociado — gobernanza exclusivamente via Django
+RunPython data migration con review ≥ 2. Ver
+:doc:`/backend/adr-back-010-function-is-critical-governance`.
+
+----
+
+2.14 Verificacion cuantitativa
 ------------------------------
 
 .. list-table::
@@ -941,12 +1028,18 @@ PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
    - 1
    - 2
    - 5
+ * - ADM (v5.6.0 + v5.6.x)
+   - 0
+   - 3
+   - 2
+   - 0
+   - 5
  * - **Total**
    - **9**
-   - **34**
-   - **24**
+   - **37**
+   - **26**
    - **13**
-   - **80**
+   - **85**
 
 ----
 
@@ -1355,7 +1448,7 @@ FunctionGroup, ExceptionalPermission). Materializa ADR-GOB-008.
 **Patron P-06 — Larman Consolidation** (2 UCs):
 Un solo UC (UC_RPT_04 "Exportar Reporte") con flujos alternativos
 por formato; tres funciones RBAC distintas (export_csv / export_excel / export_pdf) para
-SoD. Capa UC y capa RBAC son ortogonales. Mismo patron en
+Separacion de deberes. Capa UC y capa RBAC son ortogonales. Mismo patron en
 UC_ALR_05.
 
 **Patron P-07 — Async Throttled Export** (3 UCs):

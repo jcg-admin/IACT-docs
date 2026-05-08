@@ -70,7 +70,7 @@ Identico a UC_ACC_08:
 Heredados de UC_ACC_08 + UI:
 
 - FR-PERM-03-A: GET preview sin persistir.
-- FR-PERM-03-B: Modal con preview SoD +
+- FR-PERM-03-B: Modal con preview separacion +
   warning de high-priority audit.
 - FR-PERM-03-C: Refresh catalogo funciones
   post-grant.

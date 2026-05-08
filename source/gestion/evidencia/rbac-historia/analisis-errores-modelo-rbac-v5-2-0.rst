@@ -62,7 +62,7 @@ CNST-033 Vocabulario Unificado RBAC.
  * - Nombres de grupos
    - 10
    - CRITICA
- * - Nombres de reglas SoD
+ * - Nombres de reglas de separacion
    - 3
    - CRITICA
  * - Campos SQL mezclados
@@ -241,7 +241,7 @@ Patron correcto:
    - ``assign_function_groups``
    - Ingles + completo
  * - ACC-005
-   - ``gestiona_sod``
+   - ``gestiona_separation``
    - ``manage_separation_rules``
    - Ingles + sin acronimo
 
@@ -488,7 +488,7 @@ Patron correcto:
 
 ----
 
-6. Errores en Nombres de Reglas SoD (3 reglas)
+6. Errores en Nombres de Reglas de Separacion (3 reglas)
 ==============================================
 
 .. list-table::
@@ -598,7 +598,7 @@ CORRECTO (segun CIA-RBAC-002 DEC-001 — codename, no function_id):
 
 ----
 
-9. Errores en Modelos Django
+9. Errores en Modelos del Backend
 ============================
 
 9.1 help_text mezclados
@@ -758,7 +758,7 @@ Categorias:
 
 - Nombres de funciones: 42 (CRITICA).
 - Nombres de grupos: 10 (CRITICA).
-- Nombres de reglas SoD: 3 (CRITICA).
+- Nombres de reglas de separacion: 3 (CRITICA).
 - Campos SQL: 15+ (ALTA).
 - Ejemplos y comentarios: 20+ (ALTA).
 

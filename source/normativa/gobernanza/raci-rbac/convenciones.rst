@@ -17,7 +17,7 @@ puede haber dos roles distintos con A para la misma funcion.
 7.2 Cambios al catalogo
 -----------------------
 
-Cualquier cambio al catalogo de funciones, grupos o reglas SoD
+Cualquier cambio al catalogo de funciones, grupos o reglas de separacion
 requiere:
 
 1. Aprobacion del **TLB** (Accountable global del modelo).
@@ -43,7 +43,7 @@ Esta matriz se actualiza cuando:
 
 - Se agrega/elimina una funcion del catalogo.
 - Se agrega/elimina un grupo predefinido.
-- Se agrega/modifica una regla SoD.
+- Se agrega/modifica una regla de separacion.
 - Cambia un stakeholder canonico.
 
 **Owner del mantenimiento:** TLB (Tech Lead Backend).
@@ -83,7 +83,7 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
  * - AGR-006
    - Admin Usuarios
    - Administracion completa de identidades.
-     **SoD:** NO puede tener funciones de AGR-008 (auditoria).
+     **Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoria).
  * - AGR-007
    - Admin Permisos
    - Administracion de RBAC.
@@ -96,12 +96,12 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
  * - AGR-010
    - Sysadmin
    - Administracion tecnica del sistema.
- * - AGR-011
+ * - AGR-011 (RESERVADO v5.6.0 — open-closed)
    - Operador Call Center
-   - Funciones de operacion de call center (OPR-001..010).
- * - AGR-012
+   - Funciones de operacion de call center (OPR-001..010). Mapea a MOD_Operator out-of-scope.
+ * - AGR-012 (RESERVADO v5.6.0 — open-closed)
    - Supervisor Call Center
-   - Supervision en tiempo real: ``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + quality_supervisor_group.
+   - Supervision en tiempo real: ``monitor_live_calls``, ``barge_in_calls``, ``broadcast_team_messages`` + quality_supervisor_group. Mapea a MOD_Supervision out-of-scope.
 
 **Razones de la R/A elegida en este documento:**
 
@@ -115,10 +115,10 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
     "Supervisor" + AGR-004 "Data Analyst") y AdmNT (AGR-006 que
     para administracion ve reportes propios).
   - ``view_audit_log``: R = Aud unico porque AGR-008
-    tiene SoD declarado contra otros admin groups
-    (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
+    tiene separacion declarada contra otros admin groups
+    (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`).
   - ``view_separation_rules``: R = AdmT, C = AdmNT/Aud
-    porque modificar reglas SoD afecta directamente la
+    porque modificar reglas de separacion afecta directamente la
     administracion no-tech (y es auditable).
 
 **Trazabilidad a fuente legacy del catalogo de grupos:**

@@ -58,21 +58,21 @@ puede ser realizada por más de una clase.
 
    @startuml
 
-   interface "ITecladoMaquinaEscribir" as ITME {
-     + presionarTecla(t)
-     + obtenerCaracter() : Char
-     + cambiarMayuscula()
+   interface "ITypewriterKeyboard" as ITK {
+     + pressKey(t)
+     + getCharacter() : Char
+     + toggleUppercase()
    }
 
-   class TecladoComputadora {
+   class ComputerKeyboard {
      - layout : String
-     + presionarTecla(t)
-     + obtenerCaracter() : Char
-     + cambiarMayuscula()
-     + enviarComandoSO()
+     + pressKey(t)
+     + getCharacter() : Char
+     + toggleUppercase()
+     + sendOSCommand()
    }
 
-   TecladoComputadora ..|> ITME
+   ComputerKeyboard ..|> ITK
    @enduml
 
 Otra forma (omitida en muchas convenciones modernas) de
@@ -83,7 +83,7 @@ representar una clase y su interfaz es con un **pequeño círculo**
 
    @startuml
 
-   class TecladoComputadora
-   () "ITecladoMaquinaEscribir" as ITME
-   TecladoComputadora -- ITME
+   class ComputerKeyboard
+   () "ITypewriterKeyboard" as ITK
+   ComputerKeyboard -- ITK
    @enduml

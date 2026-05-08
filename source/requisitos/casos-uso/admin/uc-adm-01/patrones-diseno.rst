@@ -15,7 +15,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - solo AGR-009 accede
+   - solo AGR-010 accede
  * - **P-39**
    - Audit reforzado
    - toda escritura auditada
@@ -34,7 +34,7 @@ Parte 10 — Patrones
 ==============================
 
 **Problema**: si EnforcementEngine usa cache
-de reglas SoD, un cambio en BD no se aplica
+de reglas de separacion, un cambio en BD no se aplica
 hasta restart.
 
 **Solucion**: tras cada escritura exitosa,
@@ -48,7 +48,7 @@ Aceptable por ser operacion de admin poco frecuente.
 10.3 P-43: Disjoint-set validation
 ===================================
 
-**Problema**: una regla SoD mal definida con
+**Problema**: una regla de separacion mal definida con
 funcion en ambos grupos bloquea a todos.
 
 **Solucion**: Validator comprueba

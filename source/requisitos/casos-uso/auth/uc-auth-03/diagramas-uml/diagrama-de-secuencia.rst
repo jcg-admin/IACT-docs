@@ -8,7 +8,7 @@
 
  actor Admin as Admin
  participant "Frontend" as Frontend
- participant "ResetPasswordView" as Resetpasswordview
+ participant "ResetPasswordEndpoint" as Resetpasswordview
  participant "AuthService" as Authservice
  participant "PasswordGenerator" as Passwordgenerator
  database "Base de Datos" as BaseDeDatos

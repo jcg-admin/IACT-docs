@@ -5,18 +5,18 @@
 
    @startuml
 
-   class Reporte {
-     + generar(filtros : Filtro) : Reporte
+   class Report {
+     + generate(filters : Filter) : Report
    }
-   class Filtro
+   class Filter
 
-   Reporte ..> Filtro : <<usa>>
-   note right of Reporte
-     Reporte recibe Filtro como
-     parámetro de generar(). Es
+   Report ..> Filter : <<uses>>
+   note right of Report
+     Report recibe Filter como
+     parámetro de generate(). Es
      dependencia, no composición:
-     el Filtro existe
+     el Filter existe
      independientemente del
-     Reporte.
+     Report.
    end note
    @enduml

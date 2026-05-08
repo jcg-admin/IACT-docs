@@ -15,7 +15,7 @@ Parte 5 — Excepciones
 
 EX-01..EX-12: token invalido, sin permiso,
 user invalido, auto-asignacion (P-11), AGR
-no existe / inactivo, SoD violation,
+no existe / inactivo, separacion violation,
 duplicada, BD timeout, audit fail,
 throttling, payload invalido.
 

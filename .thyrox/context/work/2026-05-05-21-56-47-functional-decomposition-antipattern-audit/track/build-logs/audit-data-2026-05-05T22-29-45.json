@@ -1,0 +1,2984 @@
+{
+  "findings": [
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 4,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get",
+          "by_queue",
+          "abandonment_curve"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/abandonment-report-service.rst",
+      "name": "abandonment-report-service",
+      "pascal": "AbandonmentReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos (entity con solo atributos)",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "added_at",
+          "added_by"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/access-group-function.rst",
+      "name": "access-group-function",
+      "pascal": "AccessGroupFunction",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "9 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 9,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "get_by_code",
+          "find_active",
+          "find_system",
+          "find_assignable_by_segment"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/access-group-repo.rst",
+      "name": "access-group-repo",
+      "pascal": "AccessGroupRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "agr_id",
+          "name",
+          "profile_description"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "assign_to_user",
+          "revoke_from_user"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/access-group.rst",
+      "name": "access-group",
+      "pascal": "AccessGroup",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "6 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 6,
+        "attrs_sample": [
+          "code",
+          "label",
+          "function_code",
+          "order",
+          "icon",
+          "url_template"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "is_visible_for",
+          "render_url"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/action.rst",
+      "name": "action",
+      "pascal": "Action",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "aggregate_by_agent",
+          "stream_by_agent",
+          "get_for_day",
+          "count_active_days",
+          "top_n_by_kpi"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/agent-daily-stat-repo.rst",
+      "name": "agent-daily-stat-repo",
+      "pascal": "AgentDailyStatRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 2,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get",
+          "detail",
+          "top_performers"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/agent-report-service.rst",
+      "name": "agent-report-service",
+      "pascal": "AgentReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "alert_engine",
+          "retry_queue",
+          "rule_matcher",
+          "max_retries"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "on_commit",
+          "retry_pending",
+          "match_rules",
+          "dispatch",
+          "schedule_retry"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/alert-hook.rst",
+      "name": "alert-hook",
+      "pascal": "AlertHook",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "save",
+          "update_state",
+          "find_active",
+          "query_history",
+          "get_by_id",
+          "count_active"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/alert-repo.rst",
+      "name": "alert-repo",
+      "pascal": "AlertRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "14 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 14,
+        "attrs_sample": [
+          "rule_id",
+          "name",
+          "description",
+          "metric",
+          "scope",
+          "condition"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "enable",
+          "disable",
+          "archive",
+          "matches",
+          "is_in_cooldown"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/alert-rule.rst",
+      "name": "alert-rule",
+      "pascal": "AlertRule",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "alert_id",
+          "threshold_id",
+          "triggered_at",
+          "value",
+          "state",
+          "acknowledged_by"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "configure",
+          "acknowledge",
+          "disable"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/alert.rst",
+      "name": "alert",
+      "pascal": "Alert",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "6 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 6,
+        "attrs_sample": [
+          "log_id",
+          "level",
+          "message",
+          "source_module",
+          "occurred_at",
+          "user_id"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "record",
+          "view",
+          "search",
+          "export"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/application-log.rst",
+      "name": "application-log",
+      "pascal": "ApplicationLog",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "create",
+          "revoke",
+          "find_active_by_user",
+          "find_by_access_group",
+          "get_by_id",
+          "count_active"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/assignment-repo.rst",
+      "name": "assignment-repo",
+      "pascal": "AssignmentRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "assignment_id",
+          "user_id",
+          "group_ref",
+          "assigned_by",
+          "assigned_at",
+          "expires_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "create",
+          "revoke"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/assignment.rst",
+      "name": "assignment",
+      "pascal": "Assignment",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "event_id",
+          "actor_user_id",
+          "event_type",
+          "target_entity_type",
+          "target_entity_id",
+          "occurred_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "record",
+          "view",
+          "search",
+          "export",
+          "generate_compliance_report"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/audit-event.rst",
+      "name": "audit-event",
+      "pascal": "AuditEvent",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "repo",
+          "cursor_encoder",
+          "export_worker",
+          "sanitizer"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "list",
+          "get",
+          "search",
+          "aggregate",
+          "export",
+          "apply_scope"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/audit-query-service.rst",
+      "name": "audit-query-service",
+      "pascal": "AuditQueryService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "storage_backend",
+          "retention_policy"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "append",
+          "append_batch",
+          "find",
+          "get_by_id",
+          "count",
+          "aggregate"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/audit-repo.rst",
+      "name": "audit-repo",
+      "pascal": "AuditRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "validator",
+          "pii_scanner",
+          "sanitizer",
+          "repo",
+          "alert_hook"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "emit",
+          "emit_batch",
+          "validate",
+          "sanitize",
+          "persist",
+          "notify_post_commit"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/audit-service.rst",
+      "name": "audit-service",
+      "pascal": "AuditService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Validator sin declaracion explicita de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "schema_version",
+          "max_details_size_bytes",
+          "allowed_event_types",
+          "allowed_target_types"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "validate",
+          "validate_required_fields",
+          "validate_event_type_consistency",
+          "validate_actor_exists",
+          "validate_target_entity",
+          "validate_details_size"
+        ],
+        "pattern_suffix": "Validator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/audit-validator.rst",
+      "name": "audit-validator",
+      "pascal": "AuditValidator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Guard sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "permission_service",
+          "audit_service"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "check",
+          "check_or_raise",
+          "check_bulk",
+          "decide"
+        ],
+        "pattern_suffix": "Guard"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/authorization-guard.rst",
+      "name": "authorization-guard",
+      "pascal": "AuthorizationGuard",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos (entity con solo atributos)",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "stat_repo",
+          "kpi_calculator",
+          "segment_resolver",
+          "{abstract"
+        ],
+        "class_count": 1,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/base-report-service.rst",
+      "name": "base-report-service",
+      "pascal": "BaseReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "token_jti",
+          "user_id",
+          "reason",
+          "revoked_at",
+          "expires_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "add",
+          "is_blacklisted",
+          "purge_expired"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/blacklisted-token.rst",
+      "name": "blacklisted-token",
+      "pascal": "BlacklistedToken",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "bucket_key",
+          "kpis",
+          "sample_count",
+          "period_start",
+          "period_end"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get_kpi",
+          "has_kpi",
+          "is_empty"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/bucket.rst",
+      "name": "bucket",
+      "pascal": "Bucket",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos (entity con solo atributos)",
+        "C-3": "9 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 9,
+        "attrs_sample": [
+          "call_id",
+          "started_at",
+          "duration_seconds",
+          "agent_id",
+          "campaign_id",
+          "center"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/call.rst",
+      "name": "call",
+      "pascal": "Call",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 4,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get",
+          "by_segment",
+          "retention_curve"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/caller-report-service.rst",
+      "name": "caller-report-service",
+      "pascal": "CallerReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos (entity con solo atributos)",
+        "C-3": "4 atributos",
+        "C-4": "No aplica (entity simple)",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "campaign_id",
+          "name",
+          "service_type",
+          "region"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": false,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/campaign.rst",
+      "name": "campaign",
+      "pascal": "Campaign",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "N/A",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "columns_by_report"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "list_for",
+          "exists",
+          "get",
+          "reload"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/column-catalog.rst",
+      "name": "column-catalog",
+      "pascal": "ColumnCatalog",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "period_current",
+          "period_prior",
+          "kpis_summary",
+          "diff_pct_by_kpi",
+          "trend_by_kpi"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get_diff_pct",
+          "get_trend",
+          "has_significant_change"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/comparative.rst",
+      "name": "comparative",
+      "pascal": "Comparative",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "signing_key",
+          "encoding_version"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "encode",
+          "decode",
+          "is_valid",
+          "sign",
+          "verify_signature"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/cursor-encoder.rst",
+      "name": "cursor-encoder",
+      "pascal": "CursorEncoder",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Aggregator sin declaracion explicita de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "assignment_repo",
+          "exceptional_repo",
+          "access_group_repo",
+          "permission_cache"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "compute",
+          "compute_for_function",
+          "recompute_after_assign",
+          "recompute_after_revoke",
+          "recompute_after_expiry"
+        ],
+        "pattern_suffix": "Aggregator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/effective-permissions-aggregator.rst",
+      "name": "effective-permissions-aggregator",
+      "pascal": "EffectivePermissionsAggregator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "rule_repo",
+          "evaluator",
+          "version_clock"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "reload_rule",
+          "reload_all",
+          "current_version",
+          "apply_diff",
+          "bump_version"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/evaluator-reloader.rst",
+      "name": "evaluator-reloader",
+      "pascal": "EvaluatorReloader",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "grant",
+          "revoke",
+          "find_active_by_user",
+          "find_expiring_in",
+          "get_by_id"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/exceptional-permission-repo.rst",
+      "name": "exceptional-permission-repo",
+      "pascal": "ExceptionalPermissionRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "8 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 8,
+        "attrs_sample": [
+          "permission_id",
+          "user_id",
+          "function_id",
+          "granted_by",
+          "granted_at",
+          "expires_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "grant",
+          "revoke"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/exceptional-permission.rst",
+      "name": "exceptional-permission",
+      "pascal": "ExceptionalPermission",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Policy sin declaracion explicita de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "min_ttl",
+          "max_ttl",
+          "notify_before"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "validate_bounds",
+          "calculate_expiry",
+          "is_expired",
+          "is_near_expiry",
+          "find_expiring_in"
+        ],
+        "pattern_suffix": "Policy"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/expiration-policy.rst",
+      "name": "expiration-policy",
+      "pascal": "ExpirationPolicy",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "8 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 8,
+        "attrs_sample": [
+          "job_id",
+          "requested_by",
+          "report_id",
+          "format",
+          "state",
+          "enqueued_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "enqueue",
+          "process",
+          "complete",
+          "fail"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/export-job.rst",
+      "name": "export-job",
+      "pascal": "ExportJob",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "queue",
+          "storage",
+          "throttle_policy",
+          "notification_service"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "enqueue",
+          "process_next",
+          "get_status",
+          "cancel",
+          "render",
+          "upload"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/export-worker.rst",
+      "name": "export-worker",
+      "pascal": "ExportWorker",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Validator sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "column_catalog",
+          "segment_resolver"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "validate",
+          "validate_structure",
+          "validate_catalog",
+          "validate_authorization"
+        ],
+        "pattern_suffix": "Validator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/filter-validator.rst",
+      "name": "filter-validator",
+      "pascal": "FilterValidator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "10 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 10,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "get_by_name",
+          "find_system",
+          "find_custom",
+          "find_active"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/function-group-repo.rst",
+      "name": "function-group-repo",
+      "pascal": "FunctionGroupRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "group_id",
+          "name",
+          "description"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "create_function_group",
+          "assign_functions_to_group",
+          "revoke_function_group"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/function-group.rst",
+      "name": "function-group",
+      "pascal": "FunctionGroup",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "9 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 9,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "get_by_codename",
+          "find_by_module",
+          "find_active",
+          "update"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/function-repo.rst",
+      "name": "function-repo",
+      "pascal": "FunctionRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "name",
+          "description",
+          "module"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "register",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/function.rst",
+      "name": "function",
+      "pascal": "Function",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "report_id",
+          "period",
+          "group_by",
+          "buckets",
+          "comparative",
+          "filters_applied"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "total_buckets",
+          "bucket_for_key",
+          "has_comparative",
+          "summary_kpis"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/historical-report.rst",
+      "name": "historical-report",
+      "pascal": "HistoricalReport",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Policy sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "storage",
+          "default_window"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "register",
+          "lookup",
+          "is_replay",
+          "purge_expired"
+        ],
+        "pattern_suffix": "Policy"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/idempotency-policy.rst",
+      "name": "idempotency-policy",
+      "pascal": "IdempotencyPolicy",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "log_id",
+          "host",
+          "level",
+          "message",
+          "occurred_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "record",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/infrastructure-log.rst",
+      "name": "infrastructure-log",
+      "pascal": "InfrastructureLog",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "mailbox_id",
+          "owner_user_id",
+          "last_read_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "deliver_message",
+          "view_messages",
+          "mark_read"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/internal-mailbox.rst",
+      "name": "internal-mailbox",
+      "pascal": "InternalMailbox",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "10 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 10,
+        "attrs_sample": [
+          "message_id",
+          "sender_id",
+          "target_user_id",
+          "target_type",
+          "subject",
+          "body"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "create",
+          "mark_as_read",
+          "sanitize_pii"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/internal-message.rst",
+      "name": "internal-message",
+      "pascal": "InternalMessage",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 4,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get",
+          "by_option",
+          "drop_off_curve"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/ivr-navigation-report-service.rst",
+      "name": "ivr-navigation-report-service",
+      "pascal": "IvrNavigationReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Calculator sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "derive_agent_kpis",
+          "derive_queue_kpis",
+          "derive_campaign_kpis",
+          "derive_global_kpis",
+          "safe_divide",
+          "percentage"
+        ],
+        "pattern_suffix": "Calculator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/kpi-calculator.rst",
+      "name": "kpi-calculator",
+      "pascal": "KPICalculator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "user_id",
+          "locale_used",
+          "generated_at",
+          "cache",
+          "domains"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "total_visible_actions",
+          "has_any_visible",
+          "to_view_model"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/menu.rst",
+      "name": "menu",
+      "pascal": "Menu",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "metric_id",
+          "name",
+          "formula",
+          "unit"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "compute",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/metric.rst",
+      "name": "metric",
+      "pascal": "Metric",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "storage_backend",
+          "default_ttl"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "get",
+          "set",
+          "invalidate",
+          "invalidate_by_dataset",
+          "invalidate_by_period",
+          "warm"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/metrics-cache.rst",
+      "name": "metrics-cache",
+      "pascal": "MetricsCache",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "code",
+          "label",
+          "order"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "visible_sections",
+          "has_visible_sections"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/nav-domain.rst",
+      "name": "nav-domain",
+      "pascal": "Domain",
+      "verdicts": {
+        "C-1": "FAIL",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "ANTIPATRON"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Generator sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "policy"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "generate",
+          "generate_initial",
+          "generate_temporary",
+          "meets_policy"
+        ],
+        "pattern_suffix": "Generator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/password-generator.rst",
+      "name": "password-generator",
+      "pascal": "PasswordGenerator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "storage_backend",
+          "default_ttl"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "get",
+          "set",
+          "invalidate",
+          "invalidate_by_function",
+          "invalidate_all",
+          "stats"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/permission-cache.rst",
+      "name": "permission-cache",
+      "pascal": "PermissionCache",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "rbac_repo",
+          "cache"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "check",
+          "check_bulk",
+          "effective_set",
+          "resolve_from_assignments",
+          "apply_exceptional"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/permission-service.rst",
+      "name": "permission-service",
+      "pascal": "PermissionService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "rules",
+          "tokenization_strategy"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "scan",
+          "scan_field",
+          "register_rule",
+          "remove_rule"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/pii-scanner.rst",
+      "name": "pii-scanner",
+      "pascal": "PIIScanner",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "10 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 10,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "find_by_state",
+          "find_by_source",
+          "find_failed",
+          "count_running"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/pipeline-execution-repo.rst",
+      "name": "pipeline-execution-repo",
+      "pascal": "PipelineExecutionRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "9 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 9,
+        "attrs_sample": [
+          "id",
+          "source_table",
+          "period",
+          "started_at",
+          "finished_at",
+          "status"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "is_successful",
+          "is_failed",
+          "duration_seconds"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/pipeline-execution.rst",
+      "name": "pipeline-execution",
+      "pascal": "PipelineExecution",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "log_id",
+          "execution_id",
+          "level",
+          "message",
+          "occurred_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "record",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/pipeline-log.rst",
+      "name": "pipeline-log",
+      "pascal": "PipelineLog",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "assignment_repo",
+          "exceptional_permission_repo"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "get_active_function_codes",
+          "get_active_assignments",
+          "get_did_assignments",
+          "is_global_admin",
+          "get_users_with_function",
+          "get_users_in_access_group"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/rbac-repo.rst",
+      "name": "rbac-repo",
+      "pascal": "RBACRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "report_id",
+          "scope",
+          "filters",
+          "owner_user_id",
+          "state"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "view",
+          "filter",
+          "share",
+          "export"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/report.rst",
+      "name": "report",
+      "pascal": "Report",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "7 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Validator sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "metric_catalog",
+          "segment_resolver"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 7,
+        "methods_sample": [
+          "validate",
+          "validate_structure",
+          "validate_metric_known",
+          "validate_condition_coherent",
+          "validate_window_positive",
+          "validate_scope_authorized"
+        ],
+        "pattern_suffix": "Validator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/rule-validator.rst",
+      "name": "rule-validator",
+      "pascal": "RuleValidator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "6 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "max_string_length",
+          "max_array_length",
+          "tokenization_strategy"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 6,
+        "methods_sample": [
+          "sanitize",
+          "truncate",
+          "normalize_encoding",
+          "tokenize_match",
+          "redact_field",
+          "apply_caps"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/sanitizer.rst",
+      "name": "sanitizer",
+      "pascal": "Sanitizer",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "10 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 10,
+        "attrs_sample": [
+          "filter_id",
+          "owner_user_id",
+          "name",
+          "filters",
+          "period_relative",
+          "applies_to"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "applies_to_report",
+          "resolve_period",
+          "mark_invalid",
+          "use"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/saved-filter.rst",
+      "name": "saved-filter",
+      "pascal": "SavedFilter",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "6 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 6,
+        "attrs_sample": [
+          "view_id",
+          "owner_user_id",
+          "report_id",
+          "filters_snapshot",
+          "name",
+          "state"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "save",
+          "load",
+          "deactivate"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/saved-view.rst",
+      "name": "saved-view",
+      "pascal": "SavedView",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "2 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 2,
+        "attrs_sample": [
+          "repo",
+          "permission_service"
+        ],
+        "class_count": 4,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "list",
+          "detail",
+          "runs",
+          "assert_can_view"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/scheduled-report-list-service.rst",
+      "name": "scheduled-report-list-service",
+      "pascal": "ScheduledReportListService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "8 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 3,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 8,
+        "methods_sample": [
+          "create",
+          "update",
+          "disable",
+          "list_by_actor",
+          "get",
+          "list_due"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/scheduled-report-repo.rst",
+      "name": "scheduled-report-repo",
+      "pascal": "ScheduledReportRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "schedule_id",
+          "report_id",
+          "owner_user_id",
+          "schedule_expression",
+          "next_run_at",
+          "last_run_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "create",
+          "modify",
+          "disable"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/scheduled-report.rst",
+      "name": "scheduled-report",
+      "pascal": "ScheduledReport",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "4 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 4,
+        "attrs_sample": [
+          "code",
+          "label",
+          "icon",
+          "order"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "visible_actions",
+          "has_visible_actions"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/section.rst",
+      "name": "section",
+      "pascal": "Section",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "3 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Resolver sin declaracion explicita de pattern",
+        "attr_count": 3,
+        "attrs_sample": [
+          "rbac_repo",
+          "segment_config_repo",
+          "cache"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "resolve",
+          "resolve_for_report",
+          "has_access_to",
+          "intersect"
+        ],
+        "pattern_suffix": "Resolver"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/segment-resolver.rst",
+      "name": "segment-resolver",
+      "pascal": "SegmentResolver",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "8 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 8,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "get_by_name",
+          "find_active",
+          "find_applicable",
+          "update"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/separation-rule-repo.rst",
+      "name": "separation-rule-repo",
+      "pascal": "SeparationRuleRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "rule_id",
+          "name",
+          "conflicting_functions",
+          "rule_group",
+          "state"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "create",
+          "view",
+          "update_separation_rule",
+          "disable_separation_rule"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/separation-rule.rst",
+      "name": "separation-rule",
+      "pascal": "SeparationRule",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "4 metodos",
+        "C-3": "7 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 7,
+        "attrs_sample": [
+          "session_id",
+          "user_id",
+          "started_at",
+          "last_activity_at",
+          "expires_at",
+          "state"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 4,
+        "methods_sample": [
+          "open",
+          "close",
+          "close_all",
+          "view_own_sessions"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/session.rst",
+      "name": "session",
+      "pascal": "Session",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos ni atributos significativos",
+        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 0,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/specification-pattern.rst",
+      "name": "specification-pattern",
+      "pascal": "SpecificationPattern",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "REVIEW",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "Sin metodos ni atributos significativos",
+        "C-3": "Stateless sin declaracion de Strategy/Pure",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 0,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 0,
+        "methods_sample": [],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/strategy-pattern.rst",
+      "name": "strategy-pattern",
+      "pascal": "StrategyPattern",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "REVIEW",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "subscription_id",
+          "alert_id",
+          "subscriber_user_id",
+          "severity_filter",
+          "state"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "subscribe",
+          "unsubscribe",
+          "configure_severity"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/subscription.rst",
+      "name": "subscription",
+      "pascal": "Subscription",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "6 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 6,
+        "attrs_sample": [
+          "snapshot_id",
+          "captured_at",
+          "cpu_usage_pct",
+          "memory_usage_pct",
+          "disk_usage_pct",
+          "services_status"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "snapshot",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/system-health.rst",
+      "name": "system-health",
+      "pascal": "SystemHealth",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "2 metodos",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "metric_id",
+          "name",
+          "value",
+          "sampled_at",
+          "period"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 2,
+        "methods_sample": [
+          "aggregate",
+          "view"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/technical-metric.rst",
+      "name": "technical-metric",
+      "pascal": "TechnicalMetric",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "1 metodo + 5 atributos (entity con state)",
+        "C-3": "5 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 5,
+        "attrs_sample": [
+          "threshold_id",
+          "metric_id",
+          "comparison_operator",
+          "value",
+          "severity"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 1,
+        "methods_sample": [
+          "configure"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/threshold.rst",
+      "name": "threshold",
+      "pascal": "Threshold",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Calculator sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "business_calendar"
+        ],
+        "class_count": 2,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "compute_ttak",
+          "compute_ttar",
+          "compute_response_metrics",
+          "compute_business_ttak",
+          "compute_business_ttar"
+        ],
+        "pattern_suffix": "Calculator"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/timing-calculator.rst",
+      "name": "timing-calculator",
+      "pascal": "TimingCalculator",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "3 metodos",
+        "C-3": "Sin atributos pero con metodos (stateless)",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Service sin declaracion explicita de pattern",
+        "attr_count": 0,
+        "attrs_sample": [],
+        "class_count": 4,
+        "has_inheritance": true,
+        "has_relations": true,
+        "method_count": 3,
+        "methods_sample": [
+          "get",
+          "by_center",
+          "origin_destination_matrix"
+        ],
+        "pattern_suffix": "Service"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/transfer-report-service.rst",
+      "name": "transfer-report-service",
+      "pascal": "TransferReportService",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "REVIEW",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "12 metodos",
+        "C-3": "1 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sufijo Repo sin declaracion explicita de pattern",
+        "attr_count": 1,
+        "attrs_sample": [
+          "storage_backend"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 12,
+        "methods_sample": [
+          "create",
+          "get_by_id",
+          "get_by_username",
+          "get_by_email",
+          "find_by_segment",
+          "find_active"
+        ],
+        "pattern_suffix": "Repo"
+      },
+      "file": "source/arquitectura-tecnica/domain-model/user-repo.rst",
+      "name": "user-repo",
+      "pascal": "UserRepo",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "REVIEW"
+      },
+      "vereditcto_global": "REVISION"
+    },
+    {
+      "evidence": {
+        "C-2": "5 metodos",
+        "C-3": "8 atributos",
+        "C-4": "Usa relaciones OOP",
+        "C-5": "Sin sufijo de pattern",
+        "attr_count": 8,
+        "attrs_sample": [
+          "user_id",
+          "username",
+          "email",
+          "full_name",
+          "state",
+          "created_at"
+        ],
+        "class_count": 1,
+        "has_inheritance": false,
+        "has_relations": true,
+        "method_count": 5,
+        "methods_sample": [
+          "create",
+          "deactivate",
+          "modify",
+          "view",
+          "recover_password"
+        ],
+        "pattern_suffix": null
+      },
+      "file": "source/arquitectura-tecnica/domain-model/user.rst",
+      "name": "user",
+      "pascal": "User",
+      "verdicts": {
+        "C-1": "PASS",
+        "C-2": "PASS",
+        "C-3": "PASS",
+        "C-4": "PASS",
+        "C-5": "N/A"
+      },
+      "vereditcto_global": "OK"
+    }
+  ]
+}

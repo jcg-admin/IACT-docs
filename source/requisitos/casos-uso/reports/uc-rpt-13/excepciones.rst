@@ -9,7 +9,7 @@ EX-02: Sin permiso — 403.
 EX-03: queue_id no existe — 404.
 EX-04: queue_id cross-segmento — 403.
 EX-05: Periodo invalido — 400.
-EX-06: BD timeout — 503.
+EX-06: callproc BD_IVR timeout — 503.
 
 Resumen
 =======

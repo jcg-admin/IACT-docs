@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   componentes-export
-   secuencia-de-exportacion-de-logs
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-componentes-export
+   diagrama-de-secuencia-exportacion-logs

@@ -81,12 +81,12 @@ Parte 12 — Testing
    AND   AuditEvent AGR_REVOKED
    AND   warnings calculadas
 
-12.2.6 SoD violations resolved tracking
+12.2.6 violaciones de separacion resolved tracking
 ---------------------------------------
 
 ::
 
-   GIVEN target con violacion SoD por AGR
+   GIVEN target con violacion de separacion por AGR
    WHEN  revoke ese AGR
    THEN  output incluye flag de
          "violations resolved"

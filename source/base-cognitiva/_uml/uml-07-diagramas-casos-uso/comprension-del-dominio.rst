@@ -13,16 +13,16 @@ El diagrama de clases podría incluir las siguientes clases:
 
    @startuml
 
-   class Consultor
-   class Cliente
-   class Proyecto
-   class Propuesta
-   class Datos
-   class Informe
+   class Consultant
+   class Client
+   class Project
+   class Proposal
+   class Data
+   class Report
 
-   Consultor "1..*" -- "0..*" Proyecto      : trabaja en
-   Cliente   "1"    -- "0..*" Proyecto      : encarga
-   Proyecto  "1"    -- "1..*" Propuesta     : produce
-   Proyecto  "1"    -- "0..*" Datos         : recopila
-   Proyecto  "1"    -- "1..*" Informe       : entrega
+   Consultant "1..*" -- "0..*" Project       : works on
+   Client     "1"    -- "0..*" Project       : commissions
+   Project    "1"    -- "1..*" Proposal      : produces
+   Project    "1"    -- "0..*" Data          : collects
+   Project    "1"    -- "1..*" Report        : delivers
    @enduml

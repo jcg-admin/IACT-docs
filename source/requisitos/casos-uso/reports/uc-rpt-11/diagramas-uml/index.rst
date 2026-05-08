@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad-compartir
-   actividad-aplicar
-   estado-del-share
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad-compartir
+   diagrama-de-actividad-aplicar
+   diagrama-de-estados-share

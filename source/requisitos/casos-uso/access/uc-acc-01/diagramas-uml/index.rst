@@ -11,4 +11,4 @@ Parte 8 — Diagramas
    diagrama-de-secuencia
    diagrama-de-actividad
    diagrama-de-estados-assignment
-   diagrama-de-sod-validation
+   diagrama-de-validacion-separacion

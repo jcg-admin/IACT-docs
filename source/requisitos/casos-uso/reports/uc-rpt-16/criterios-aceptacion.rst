@@ -11,7 +11,7 @@ CA-04: Top paths (top 10).
 CA-05: Cross-segmento → 403.
 CA-06: Sin sesiones → 0s.
 CA-07: Periodo invalido → 400.
-CA-08: BD timeout → 503.
+CA-08: callproc BD_IVR timeout → 503.
 CA-09: Sin permiso → 403.
 CA-10: Filtro ivr_id.
 

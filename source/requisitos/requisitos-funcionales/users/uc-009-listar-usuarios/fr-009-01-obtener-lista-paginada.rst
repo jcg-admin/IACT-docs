@@ -103,7 +103,7 @@ FR-009.01: Obtener lista paginada de usuarios
  Y no ve usuarios de otros segmentos
  
  Escenario 4: Admin global
- DADO actor con rol admin_sistema
+ DADO actor con grupo ``system_admin_group`` (AGR-010)
  CUANDO lista usuarios
  ENTONCES ve todos los usuarios de todos los segmentos
 

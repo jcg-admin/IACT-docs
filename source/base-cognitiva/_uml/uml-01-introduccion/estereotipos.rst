@@ -20,11 +20,11 @@ elemento, podrá utilizar el símbolo de una clase con
 
    @startuml
 
-   class Lavable <<Interfaz>> {
-     + iniciarCiclo()
-     + detenerCiclo()
-     + obtenerEstado()
+   class Washable <<Interfaz>> {
+     + startCycle()
+     + stopCycle()
+     + getStatus()
    }
-   class Lavadora
-   Lavadora ..|> Lavable
+   class WashingMachine
+   WashingMachine ..|> Washable
    @enduml

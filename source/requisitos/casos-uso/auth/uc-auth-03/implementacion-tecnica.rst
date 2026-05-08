@@ -27,7 +27,7 @@ Parte 11 — Implementacion tecnica
 
    apps/users/
    ├── views/
-   │   └── reset_password_view.py    # ResetPasswordView
+   │   └── reset_password_view.py    # ResetPasswordEndpoint
    ├── permissions.py                # HasResetPasswordFunction
    apps/auth_app/
    ├── services/
@@ -46,7 +46,7 @@ Parte 11 — Implementacion tecnica
  repositorio de codigo fuente. Esta especificacion describe el
  comportamiento esperado, no la implementacion concreta.
 
-11.4 ResetPasswordView
+11.4 ResetPasswordEndpoint
 ======================
 
 .. note::

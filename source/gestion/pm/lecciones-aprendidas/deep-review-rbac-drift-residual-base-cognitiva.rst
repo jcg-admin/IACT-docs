@@ -142,7 +142,7 @@ fix). Reservar para futuro WP.
 2. **F-DR-2 fix elegante** — ``:doc:`` directo a CNST_033 elimina
    la nota stale.
 3. **MTM_03 § 3.2 reescrita con tabla AGR-001..AGR-010 completa** y
-   SoD-001/002/003 — supera el scope mínimo del fix.
+   SOD-001/002/003 — supera el scope mínimo del fix.
 4. **F-DR-8 reformulación** evita número no calibrado, redirige a
    GAP_ANALYSIS — consistente con
    ``calibration-verified-numbers.md``.

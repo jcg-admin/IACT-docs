@@ -48,7 +48,7 @@ FR-074.01: Solicitar reintento manual del pipeline con verificación de ejecuci�
 
 **Descripción:**
 
- Valida JWT + request_pipeline_retry. Valida trimestre en formato correcto, motivo ≥ 20 chars. Verifica no hay ejecución en curso (estado='en_ejecucion'). INSERT en Registro con estado='en_ejecucion' y ejecutado_por='manual'. Invoca Disparador ETL. Worker ejecuta ETL y actualiza estado al finalizar.
+ Valida JWT + request_pipeline_retry. Valida trimestre en formato correcto, motivo ≥ 20 chars. Verifica no hay ejecución en curso (estado='en_ejecucion'). INSERT en Registro con estado='en_ejecucion' y executed_by='manual'. Invoca Disparador ETL. Worker ejecuta ETL y actualiza estado al finalizar.
 
 ----
 

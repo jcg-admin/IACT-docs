@@ -96,7 +96,7 @@ para guiar la implementacion.
    - Medio
    - Pendiente
  * - DEC-005
-   - Clase ``FunctionPermission`` para integracion con DRF
+   - Clase ``FunctionAccessPolicy`` para integracion con DRF
    - Alto
    - Pendiente
  * - DEC-006
@@ -373,7 +373,7 @@ funciones del sistema IACT.
        Uso:
            user.has_perm(FunctionCatalog.VIEW_REPORTS)
            permission_classes = [
-               FunctionPermission(FunctionCatalog.VIEW_REPORTS)
+               FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS)
            ]
        """
 
@@ -447,7 +447,7 @@ INCORRECTO:
 .. code-block:: python
 
    user.has_perm('permissions.view_reports')
-   permission_classes = [FunctionPermission('view_reports')]
+   permission_classes = [FunctionAccessPolicy('view_reports')]
 
 CORRECTO:
 
@@ -456,13 +456,13 @@ CORRECTO:
    from permissions.catalog import FunctionCatalog
 
    user.has_perm(FunctionCatalog.VIEW_REPORTS)
-   permission_classes = [FunctionPermission(FunctionCatalog.VIEW_REPORTS)]
+   permission_classes = [FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS)]
 
 ----
 
 .. _cia-rbac-002-dec-005:
 
-7. DEC-005 — Clase ``FunctionPermission`` para DRF
+7. DEC-005 — Clase ``FunctionAccessPolicy`` para DRF
 ===================================================
 
 7.1 Problema identificado
@@ -482,7 +482,7 @@ provee.
 Nombres corregidos::
 
    INCORRECTO: drf_permissions.py  →  class HasFunction
-   CORRECTO:   enforcement.py      →  class FunctionPermission
+   CORRECTO:   enforcement.py      →  class FunctionAccessPolicy
 
 7.2 Decision
 ------------
@@ -494,7 +494,7 @@ Nombres corregidos::
    from rest_framework.permissions import BasePermission
 
 
-   class FunctionPermission(BasePermission):
+   class FunctionAccessPolicy(BasePermission):
        """
        Permiso DRF para el modelo RBAC IACT.
 
@@ -504,13 +504,13 @@ Nombres corregidos::
 
        Uso:
            permission_classes = [
-               FunctionPermission(FunctionCatalog.VIEW_REPORTS)
+               FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS)
            ]
 
        Uso con multiples funciones requeridas:
            permission_classes = [
-               FunctionPermission(FunctionCatalog.VIEW_REPORTS),
-               FunctionPermission(FunctionCatalog.EXPORT_CSV),
+               FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS),
+               FunctionAccessPolicy(FunctionCatalog.EXPORT_CSV),
            ]
        """
 
@@ -527,7 +527,7 @@ Nombres corregidos::
            El modelo IACT es un sistema de control por vista, no por
            instancia. Si has_permission paso, el objeto es accesible.
 
-           Excepcion: verificaciones SoD sobre objetos especificos
+           Excepcion: verificaciones de separacion sobre objetos especificos
            se implementan en subclases dedicadas sobreescribiendo
            este metodo.
            """
@@ -539,19 +539,19 @@ Nombres corregidos::
 .. code-block:: python
 
    from permissions.catalog import FunctionCatalog
-   from permissions.enforcement import FunctionPermission
+   from permissions.enforcement import FunctionAccessPolicy
 
 
-   class ReportListView(APIView):
+   class ReportListEndpoint(APIView):
        permission_classes = [
-           FunctionPermission(FunctionCatalog.VIEW_REPORTS)
+           FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS)
        ]
 
 
-   class ReportExportView(APIView):
+   class ReportExportEndpoint(APIView):
        permission_classes = [
-           FunctionPermission(FunctionCatalog.VIEW_REPORTS),
-           FunctionPermission(FunctionCatalog.EXPORT_CSV),
+           FunctionAccessPolicy(FunctionCatalog.VIEW_REPORTS),
+           FunctionAccessPolicy(FunctionCatalog.EXPORT_CSV),
        ]
 
 7.4 Separacion de responsabilidades
@@ -569,7 +569,7 @@ Nombres corregidos::
    - Verificacion de funciones efectivas del usuario
  * - ``has_object_permission``
    - Control de acceso al objeto especifico
-   - Verificacion SoD (casos excepcionales unicamente)
+   - Verificacion de separacion (casos excepcionales unicamente)
 
 ----
 
@@ -637,7 +637,7 @@ desde ``AppConfig`` al momento de inicializacion del modulo.
        apps.py          →  class PermissionsConfig
        backends.py      →  class FunctionAuthorization
        catalog.py       →  class FunctionCatalog
-       enforcement.py   →  class FunctionPermission
+       enforcement.py   →  class FunctionAccessPolicy
        models.py        →  class Function  (unique=True en name)
        services.py      →  def calculate_effective_functions()
        migrations/
@@ -666,7 +666,7 @@ desde ``AppConfig`` al momento de inicializacion del modulo.
    - ``enforcement.py``
    - ``drf_`` es ruido tecnico; ``enforcement`` expresa el proposito
  * - ``HasFunction``
-   - ``FunctionPermission``
+   - ``FunctionAccessPolicy``
    - ``Has`` es patron getter; ``Permission`` expresa el rol de la clase
  * - ``Perm``
    - ``FunctionCatalog``
@@ -698,7 +698,7 @@ desde ``AppConfig`` al momento de inicializacion del modulo.
    - ``FunctionCatalog`` con catalogo canonico de constantes
  * - ``permissions/enforcement.py``
    - Crear
-   - ``FunctionPermission`` para integracion DRF
+   - ``FunctionAccessPolicy`` para integracion DRF
  * - ``permissions/services.py``
    - Modificar
    - ``calculate_effective_functions`` retorna ``Set[str]`` de ``name``
@@ -762,7 +762,7 @@ actualizarse antes de iniciar la implementacion:
    - Test de integracion que verifica el backend activo
  * - Logica IACT en ``has_object_permission`` en list views
    - Media
-   - Revision de todas las vistas que hereden de ``FunctionPermission``
+   - Revision de todas las vistas que hereden de ``FunctionAccessPolicy``
 
 ----
 
@@ -781,7 +781,7 @@ Las decisiones tienen orden de implementacion requerido::
        |
    DEC-004  FunctionCatalog                 <- requiere DEC-003 y DEC-006
        |
-   DEC-005  FunctionPermission              <- requiere DEC-004
+   DEC-005  FunctionAccessPolicy              <- requiere DEC-004
 
 DEC-002 no tiene dependencias tecnicas pero es prerequisito
 semantico: todos los codenames deben estar en ``snake_case`` antes

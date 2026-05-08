@@ -525,7 +525,7 @@ RACI RBAC IACT — RACI por Modulo
    - A
    - C
    - —
- * - ``view_etl_logs`` (NUEVA v5.4.0)
+ * - ``view_pipeline_logs`` (NUEVA v5.4.0)
    - —
    - R
    - —

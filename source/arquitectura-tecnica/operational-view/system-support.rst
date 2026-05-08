@@ -36,11 +36,11 @@ Flujo de diagnostico — fallo en pipeline ETL
 
  start
 
- :Sistema detecta ETLEjecucion.estado = fallido;
+ :Sistema detecta PipelineExecution.estado = fallido;
  :Alerta generada automaticamente\n(si threshold configurado);
  :AGR_OPERADOR recibe notificacion\nen InternalMailbox;
 
- :Consultar ETLLog\n(view_etl_logs — ver mensaje_error);
+ :Consultar PipelineLog\n(view_pipeline_logs — ver error_message);
 
  if (¿Error de conexion IVR?) then (si)
    :Verificar disponibilidad BD Operativa IVR\n(CNST-007: credenciales solo lectura);
@@ -56,7 +56,7 @@ Flujo de diagnostico — fallo en pipeline ETL
  endif
 
  :AGR_OPERADOR solicita retry manual si procede\n(request_pipeline_retry);
- :Nuevo ETLEjecucion registrado;
+ :Nuevo PipelineExecution registrado;
  :AuditEvent generado (CNST-025);
 
  stop
@@ -76,7 +76,7 @@ Capacidades de soporte por rol
    - Monitorear estado del pipeline ETL (``view_pipeline_status``);
      ver y reconocer alertas (``view_alerts``, ``acknowledge_alert``);
      solicitar retry de pipeline (``request_pipeline_retry``);
-     ver logs ETL (``view_etl_logs``).
+     ver logs ETL (``view_pipeline_logs``).
  * - **AGR_AUDITOR**
    - Consultar y exportar audit log (``view_audit_log``,
      ``export_audit_log``); buscar en audit log
@@ -85,7 +85,7 @@ Capacidades de soporte por rol
  * - **AGR_ADMIN**
    - Ver sesiones activas; cerrar sesiones en caso de incidente
      de seguridad (``view_all_active_sessions``); ver
-     asignaciones y reglas SoD.
+     asignaciones y reglas de separacion.
  * - **Ops / DevOps**
    - Acceso a metricas tecnicas (``TechnicalMetric``:
      response_time, throughput, error_rate, CPU, memoria);
@@ -101,8 +101,8 @@ Metricas de salud del sistema
 
  * - Metrica
    - Descripcion
- * - ``ETLEjecucion.estado``
-   - Estado del ultimo run ETL: ``en_ejecucion``, ``exitoso``,
+ * - ``PipelineExecution.estado``
+   - Estado del ultimo run ETL: ``IN_PROGRESS``, ``exitoso``,
      ``fallido``. Fuente de verdad del pipeline.
  * - ``SystemHealth.cpu_usage_pct``
    - Uso de CPU del servidor de aplicacion. Snapshot periodico.

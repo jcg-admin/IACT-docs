@@ -7,14 +7,16 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **Base Analitica IVR** — dimension de clientes IVR,
-  generada por el ETL desde ``tbl_historico_*`` y consultada
-  via Servicio de Reportes.
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_clientes`` (dimension de clientes IVR), poblado
+  por el ETL upstream desde ``tbl_historico_*`` aplicando
+  hash unidireccional. Se accede via
+  ``cursor.callproc('sp_rpt_clientes', [period, segments])``.
 
-7.2 Datos retornados por el Servicio de Reportes
-=================================================
+7.2 Datos retornados por el SP
+==============================
 
-**Clientes IVR** (``sp_rpt_clientes``):
+``sp_rpt_clientes`` (BD_IVR) retorna:
 
 ::
 

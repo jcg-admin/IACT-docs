@@ -153,7 +153,8 @@ en la ventana,
 
 - ``localStorage.access_token`` removido
 - ``localStorage.refresh_token`` removido
-- Redux ``state.auth.isAuthenticated == false``
+- Gestor de Estado refleja sesion no autenticada
+  (``state.auth.isAuthenticated == false``)
 - Navegacion a ``/login`` ejecutada
 - Mensaje "Tu sesion fue cerrada" visible
 

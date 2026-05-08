@@ -5,39 +5,39 @@
 
    @startuml
 
-   class Reporte {
+   class Report {
      - id : Integer
-     - tipo : Enum
-     + generar()
+     - type : Enum
+     + generate()
    }
 
-   class ReporteOperativo {
-     - segmento : SegmentoDatos
+   class OperationalReport {
+     - segment : DataSegment
    }
 
-   class ReporteRealTime {
-     - ttl_seg : Integer
+   class RealTimeReport {
+     - ttl_sec : Integer
    }
 
-   class ReporteHistorico {
-     - rango_max : Integer
+   class HistoricalReport {
+     - max_range : Integer
    }
 
-   class ReporteAgentes
-   class ReporteColas
-   class ReporteCampanias
+   class AgentsReport
+   class QueuesReport
+   class CampaignsReport
 
-   Reporte <|-- ReporteOperativo
-   ReporteOperativo <|-- ReporteRealTime
-   ReporteOperativo <|-- ReporteHistorico
-   ReporteHistorico <|-- ReporteAgentes
-   ReporteHistorico <|-- ReporteColas
-   ReporteHistorico <|-- ReporteCampanias
-   note right of ReporteHistorico
+   Report <|-- OperationalReport
+   OperationalReport <|-- RealTimeReport
+   OperationalReport <|-- HistoricalReport
+   HistoricalReport <|-- AgentsReport
+   HistoricalReport <|-- QueuesReport
+   HistoricalReport <|-- CampaignsReport
+   note right of HistoricalReport
      Multinivel:
-       ReporteAgentes "es un tipo de"
-       ReporteHistorico que a su vez
-       "es un tipo de" ReporteOperativo
-       que es Reporte.
+       AgentsReport "es un tipo de"
+       HistoricalReport que a su vez
+       "es un tipo de" OperationalReport
+       que es Report.
    end note
    @enduml

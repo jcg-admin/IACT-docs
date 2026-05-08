@@ -81,7 +81,7 @@ elimina la responsabilidad del olvido humano.
   vencidos.
 - Auditoria: cada uso del permiso temporal genera registro en
   ``AuditLog`` (CNST_025).
-- SoD: la validacion de :doc:`cnst-030-reglas-de-separacion-de-funciones-sod`
+- Separacion de deberes: la validacion de :doc:`cnst-030-reglas-de-separacion-de-funciones`
   aplica tambien a permisos temporales.
 
 2.3 Tecnologias Involucradas
@@ -128,7 +128,7 @@ elimina la responsabilidad del olvido humano.
 - Asignar permisos temporales con vigencia > 6 meses
 - Auto-renovar permisos temporales
 - Asignar sin justificacion (>= 20 caracteres)
-- Asignar permisos temporales que violen SoD (CNST_030)
+- Asignar permisos temporales que violen separacion (CNST_030)
 
 4. Business Rules Derivadas
 ---------------------------
@@ -195,7 +195,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
-   - :doc:`cnst-029-rbac-modelo-plano`, :doc:`cnst-030-reglas-de-separacion-de-funciones-sod`, :doc:`cnst-025-auditoria-inmutable-append-only`
+   - :doc:`cnst-029-rbac-modelo-plano`, :doc:`cnst-030-reglas-de-separacion-de-funciones`, :doc:`cnst-025-auditoria-inmutable-append-only`
  * - **BR derivadas**
    - Pendiente WP requisitos
  * - **UCs afectados**

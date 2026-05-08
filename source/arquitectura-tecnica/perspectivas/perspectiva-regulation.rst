@@ -42,7 +42,7 @@ y como deben registrarse.
  * - **Auditoria de toda operacion**
    - CNST-025: toda operacion de escritura o acceso a datos sensibles
      genera un ``AuditEvent`` inmutable (append-only). Sin excepciones.
- * - **SoD institucional**
+  * - **Separacion institucional**
    - CNST-030: separacion de funciones aplicada en tiempo de asignacion.
      Los pares de funciones en conflicto (p. ej. crear + aprobar) no
      pueden coexistir en el mismo usuario.
@@ -77,7 +77,7 @@ Los modelos de datos garantizan la trazabilidad regulatoria por diseno.
  * - **ExceptionalPermission**
    - Trazabilidad completa: quien otorgo, cuando, por cuanto tiempo y
      con que justificacion. Expiracion automatica (CNST-031).
- * - **ETLEjecucion**
+ * - **PipelineExecution**
    - Registro de cada run del pipeline: timestamp de inicio y fin,
      estado (exitoso/fallido), volumen procesado, errores. Permite
      auditar la cadena de custodia de los datos del IVR.
@@ -177,7 +177,7 @@ Restricciones y principios
    - Exportaciones de reportes registradas. El acto de exportar es
      auditable.
  * - **CNST-033**
-   - Cambios a las reglas SoD deben ser registrados con justificacion
+   - Cambios a las reglas de separacion deben ser registrados con justificacion
      y aprobacion de AGR_ADMIN.
 
 .. seealso::

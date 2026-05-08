@@ -20,7 +20,7 @@ Subscription
 Suscripcion de un usuario a una alerta con filtro de severidad. Por
 D-03 las operaciones de suscripcion se separan en tres funciones
 RBAC distintas (subscribe / unsubscribe / configure_severity) para
-permitir SoD.
+permitir separacion de deberes.
 
 .. uml::
  :caption: Clase Subscription — suscripcion de usuario a alerta.
@@ -31,6 +31,8 @@ permitir SoD.
    + subscription_id : UUID
    + alert_id : UUID
    + subscriber_user_id : UUID
+   + scope : SubscriptionScope
+   + channel : NotificationChannel
    + severity_filter : Severity
    + state : SubscriptionState
    --
@@ -44,10 +46,10 @@ permitir SoD.
    INACTIVE
  }
 
- Subscription -- SubscriptionState
+ Subscription "*" -- "1" SubscriptionState : has
 
  note right of Subscription
-   D-03: tres operaciones separadas para SoD a nivel RBAC.
+   D-03: tres operaciones separadas para separacion de deberes a nivel RBAC.
  end note
 
  @enduml

@@ -20,4 +20,4 @@ PASO 4 — El sistema consulta el Registro de Ejecuciones
           trimestre, con paginacion.
 
 PASO 5 — El sistema retorna 200 con la lista de ejecuciones
-          fallidas, incluyendo ``mensaje_error`` de cada una.
+          fallidas, incluyendo ``error_message`` de cada una.

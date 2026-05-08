@@ -14,19 +14,19 @@ sin mostrarnos el proceso necesario para ello.
    @startuml
 
    class Television {
-     - circuitos : Hardware
-     - antena : Antena
-     - decodificador : Decoder
+     - circuits : Hardware
+     - antenna : Antenna
+     - decoder : Decoder
      --
-     + encender()
-     + apagar()
-     + cambiarCanal(n)
-     + ajustarVolumen(n)
+     + powerOn()
+     + powerOff()
+     + changeChannel(n)
+     + adjustVolume(n)
    }
    note right of Television
      La complejidad interna
-     (circuitos, decodificador,
-     antena) está oculta del
+     (circuits, decoder,
+     antenna) está oculta del
      mundo exterior.
    end note
    @enduml

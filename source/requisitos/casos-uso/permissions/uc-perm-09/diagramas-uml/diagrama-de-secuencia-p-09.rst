@@ -7,7 +7,7 @@
  @startuml
 
  participant "Caller UC" as CallerUc
- participant "TxManager" as Txmanager
+ participant "TransactionalContext" as Txmanager
  participant "AuditService" as Auditservice
  participant "AuditRepo" as Auditrepo
  participant "AlertHook" as Alerthook

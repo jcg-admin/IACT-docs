@@ -7,7 +7,7 @@ Parte 8 — Diagramas
 .. toctree::
    :maxdepth: 1
 
-   caso-de-uso
-   actividad
-   estados-de-ejecucion-etl
-   clases
+   diagrama-de-caso-de-uso
+   diagrama-de-actividad
+   diagrama-de-estados-ejecucion-etl
+   diagrama-de-clases

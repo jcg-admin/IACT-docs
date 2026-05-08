@@ -56,7 +56,7 @@ metadata de origen por funcion (cual la otorgo).
 - Identificacion de funciones expiradas
   pendientes de purga.
 - Conteo y agrupacion por categoria.
-- Indicacion de violaciones SoD potenciales
+- Indicacion de violaciones de separacion potenciales
   (auditoria — no bloqueo, eso es UC_ACC_01).
 
 1.3.2 OUT
@@ -65,7 +65,7 @@ metadata de origen por funcion (cual la otorgo).
 - Asignacion → UC_ACC_01.
 - Revocacion → UC_ACC_02.
 - Asignacion masiva via AGR → UC_ACC_04.
-- Configuracion SoD → UC_ACC_05.
+- Configuracion de separacion → UC_ACC_05.
 - Permisos excepcionales → UC_PERM_03.
 
 1.3.3 Posicion en el flujo

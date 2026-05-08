@@ -10,7 +10,7 @@ Parte 10 — Patrones de diseno
 - **Strategy**: ExpirationPolicy bounds.
 - **Repository**:
   ExceptionalPermissionRepository.
-- **Specification**: SoDRule reused de
+- **Specification**: SeparationRule reused de
   UC_ACC_05.
 - **Chain of Responsibility**: pipeline.
 - **Observer**: AuditLog.
@@ -28,7 +28,7 @@ Parte 10 — Patrones de diseno
   ``grant_exceptional_permission`` distinta y
   mas restringida que ``assign_functions``.
 - P-22 Idempotencia parcial.
-- P-27 SoD write-time.
+- P-27 separacion write-time.
 - P-28 All-or-nothing.
 - P-29 Cache post-COMMIT.
 - P-32 Reason-required (justification + ≥ 20
@@ -67,7 +67,7 @@ Parte 10 — Patrones de diseno
    - ExceptionalPermission
  * - Specification
    - GoF
-   - SoDRule
+   - SeparationRule
  * - Chain of Responsibility
    - GoF
    - Pipeline
@@ -95,7 +95,7 @@ Parte 10 — Patrones de diseno
  * - P-22 Idempotencia parcial
    - IACT
    - FA-02
- * - P-27 SoD write-time
+ * - P-27 separacion write-time
    - IACT
    - PASO 12
  * - P-28 All-or-nothing

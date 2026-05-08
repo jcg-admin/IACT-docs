@@ -7,37 +7,37 @@
    allowmixing
 
    interface IExportable <<interface>> {
-     + exportar(formato : Enum) : Archivo
-     + estimarFilas() : Integer
-     + obtenerSizeMB() : Decimal
+     + export(format : Enum) : File
+     + estimateRows() : Integer
+     + getSizeMB() : Decimal
    }
 
-   class Reporte {
-     - tipo : Enum
-     - filtros : Filtro
-     + exportar(formato : Enum) : Archivo
-     + estimarFilas() : Integer
-     + obtenerSizeMB() : Decimal
+   class Report {
+     - type : Enum
+     - filters : Filter
+     + export(format : Enum) : File
+     + estimateRows() : Integer
+     + getSizeMB() : Decimal
    }
 
-   class EventoAuditoria {
-     - rango : Rango
-     + exportar(formato : Enum) : Archivo
-     + estimarFilas() : Integer
-     + obtenerSizeMB() : Decimal
+   class AuditEvent {
+     - range : Range
+     + export(format : Enum) : File
+     + estimateRows() : Integer
+     + getSizeMB() : Decimal
    }
 
-   class LogSistema {
-     - rango : Rango
-     - servicio : String
-     + exportar(formato : Enum) : Archivo
-     + estimarFilas() : Integer
-     + obtenerSizeMB() : Decimal
+   class SystemLog {
+     - range : Range
+     - service : String
+     + export(format : Enum) : File
+     + estimateRows() : Integer
+     + getSizeMB() : Decimal
    }
 
-   Reporte ..|> IExportable
-   EventoAuditoria ..|> IExportable
-   LogSistema ..|> IExportable
+   Report ..|> IExportable
+   AuditEvent ..|> IExportable
+   SystemLog ..|> IExportable
 
    note right of IExportable
      Contrato común para tres tipos
