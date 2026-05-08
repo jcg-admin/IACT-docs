@@ -4,64 +4,73 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :modulo: users
- :estado: Reservado
- :version: 0.1.0
+ :estado: Aprobado
+ :version: 1.0.0
  :fecha_creacion: 2026-05-08
  :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
  :clasificacion: Interno
- :origen: incierto — referenciado en users/uc-usr-02
-          sin decision arquitectonica formal documentada
 
 .. _at_uc_usr_07_editar_perfil_propio:
 
-==============================================
-UC_USR_07 — Editar Perfil Propio (RESERVADO)
-==============================================
+====================================
+UC_USR_07 — Editar Perfil Propio
+====================================
 
-.. warning::
+Vista arquitectonica del UC_USR_07 — self-service edit
+del propio perfil. Spec textual completa en
+:doc:`/requisitos/casos-uso/users/uc-usr-07/index`.
 
-   **UC en estado Reservado — sin diagrama hasta ADR formal.**
+.. uml::
 
-   Spec textual stub disponible en
-   :doc:`/requisitos/casos-uso/users/uc-usr-07/index`.
+   @startuml
 
-   Distinto de UC_USR_02 (admin edita usuarios con capability
-   ``edit_users``): este UC permitiria al usuario autenticado
-   editar su **propio perfil** (capability self-served, sin
-   RBAC administrativo).
+   left to right direction
 
-   El UC esta referenciado en
-   ``users/uc-usr-02/informacion-general.rst`` pero **nunca
-   tuvo commit de creacion** (verificado en WP
-   ``2026-05-07-04-08-13-use-case-view-analysis``). La
-   decision arquitectonica formal sobre scope esta pendiente.
+   actor "edit_own_profile" as USER
+   actor "AuthorizationGuard" as GUARD
+   actor "EmailValidator" as EMAIL
+   actor "AuditService" as AUDIT
 
-   El diagrama uml-07 standalone se generara cuando un ADR
-   formalice:
+   rectangle "Sistema IACT — UC_USR_07" {
+     usecase "Editar Perfil Propio" as UC
+     usecase "Validar funcion\nedit_own_profile" as INC1 <<include>>
+     usecase "Validar formato\ny unicidad email" as INC2 <<include>>
+     usecase "Emitir AuditEvent\nPROFILE_UPDATED" as INC3 <<include>>
+     usecase "Sin diff →\nno emit AuditEvent" as EXT1 <<extend>>
+   }
 
-   - Que campos son editables por el propio usuario vs
-     cuales requieren admin (UC_USR_02).
-   - Si la capability ``edit_own_profile`` es self-served
-     (auto-otorgada como ``view_own_*``) o requiere
-     asignacion explicita.
-   - Auditabilidad: si toda edicion del perfil propio
-     genera audit event.
+   USER --> UC
 
-   **Explicitamente NO incluido en UC_USR_07:**
+   UC ..> INC1 : <<include>>
+   UC ..> INC2 : <<include>>
+   UC ..> INC3 : <<include>>
+   UC <.. EXT1 : <<extend>>
 
-   - Cambio de password (UC_AUTH_03 / UC_AUTH_04).
-   - Cambio de username (potencial impacto en audit log).
-   - Cambio de ``segment_id`` (BR-012 — permanente).
-   - Cambio de AGRs / capabilities (UC_PERM_01..06).
+   INC1 --> GUARD
+   INC2 --> EMAIL
+   INC3 --> AUDIT
+
+   note right of UC
+     Self-service: actor = target.
+     target_user_id = jwt.user_id
+     (no en URL — defensa contra
+     impersonation).
+     Whitelist EDITABLE_FIELDS_SELF
+     = {full_name, email}.
+   end note
+
+   @enduml
 
 .. seealso::
 
  - :doc:`/requisitos/casos-uso/users/uc-usr-07/index` —
-   stub con resumen propuesto + decision pendiente.
- - :doc:`/arquitectura-tecnica/use-case-view/users/uc-usr-02-modificar-usuario` —
-   contraparte administrativa (admin edita usuarios).
- - :doc:`/arquitectura-tecnica/use-case-view/auth/uc-auth-03-recuperar-contrasena` —
-   cambio de password (out-of-scope de este UC).
- - :doc:`/arquitectura-tecnica/use-case-view/auth/uc-auth-04-cambiar-contrasena` —
-   cambio de password (out-of-scope de este UC).
+   spec textual completa.
+ - :doc:`/arquitectura-tecnica/domain-model/user` —
+   escritura de full_name / email.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor PROFILE_UPDATED (sin PII en payload).
+ - :doc:`/requisitos/casos-uso/users/uc-usr-03/index` —
+   modificacion administrativa (campos sensibles).
+ - :doc:`/requisitos/casos-uso/auth/uc-auth-04/index` —
+   cambiar password (credencial — fuera de UC_USR_07).

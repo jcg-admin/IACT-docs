@@ -4,53 +4,75 @@
  :dominio: arquitectura_tecnica
  :subdominio: UseCaseView
  :modulo: users
- :estado: Reservado
- :version: 0.1.0
+ :estado: Aprobado
+ :version: 1.0.0
  :fecha_creacion: 2026-05-08
  :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
  :clasificacion: Interno
- :origen: incierto — referenciado en uc-auth-03/04/05
-          sin decision arquitectonica formal documentada
 
 .. _at_uc_usr_05_bloquear_usuario:
 
-==============================================
-UC_USR_05 — Bloquear Usuario (RESERVADO)
-==============================================
+==================================
+UC_USR_05 — Bloquear Usuario
+==================================
 
-.. warning::
+Vista arquitectonica del UC_USR_05 — bloqueo administrativo
+manual de un User. Spec textual completa en
+:doc:`/requisitos/casos-uso/users/uc-usr-05/index`.
 
-   **UC en estado Reservado — sin diagrama hasta ADR formal.**
+.. uml::
 
-   Spec textual stub disponible en
-   :doc:`/requisitos/casos-uso/users/uc-usr-05/index`.
+   @startuml
 
-   Origen incierto: el UC esta referenciado en uc-auth-03,
-   uc-auth-04 y uc-auth-05 pero **nunca tuvo commit de
-   creacion** (verificado en WP
-   ``2026-05-07-04-08-13-use-case-view-analysis``). La
-   decision arquitectonica formal sobre scope, capability
-   RBAC y relacion con BR-015 (Bloqueo Intentos Fallidos)
-   esta pendiente.
+   left to right direction
 
-   El diagrama uml-07 standalone se generara cuando un ADR
-   formalice:
+   actor "block_users" as ADMIN
+   actor "AuthorizationGuard" as GUARD
+   actor "AuditService" as AUDIT
 
-   - Si es bloqueo administrativo manual, automatico por
-     intentos fallidos, o ambos.
-   - La capability RBAC asociada (candidatos:
-     ``block_users`` o ``deactivate_users`` ya existente).
-   - Si la funcionalidad ya esta cubierta por
-     ``deactivate_users`` (UC_USR_03 + BR-009 baja logica) y
-     este UC es redundante.
+   rectangle "Sistema IACT — UC_USR_05" {
+     usecase "Bloquear Usuario" as UC
+     usecase "Validar funcion\nblock_users" as INC1 <<include>>
+     usecase "Cerrar sesiones\nactivas" as INC2 <<include>>
+     usecase "Blacklistear\ntokens vivos" as INC3 <<include>>
+     usecase "Emitir AuditEvent\nUSER_BLOCKED" as INC4 <<include>>
+     usecase "Override razon\nsi bloqueo automatico\nprevio" as EXT1 <<extend>>
+   }
+
+   ADMIN --> UC
+
+   UC ..> INC1 : <<include>>
+   UC ..> INC2 : <<include>>
+   UC ..> INC3 : <<include>>
+   UC ..> INC4 : <<include>>
+   UC <.. EXT1 : <<extend>>
+
+   INC1 --> GUARD
+   INC4 --> AUDIT
+
+   note right of UC
+     Pre: User.state = ACTIVE
+     Post: User.state = BLOCKED
+     Reversible: UC_USR_06
+     Distinto de BR-015 (automatico)
+   end note
+
+   @enduml
 
 .. seealso::
 
  - :doc:`/requisitos/casos-uso/users/uc-usr-05/index` —
-   stub con resumen propuesto + decision pendiente.
- - :doc:`/requisitos/casos-uso/users/index` —
-   seccion "UCs Reservados".
+   spec textual completa.
+ - :doc:`/arquitectura-tecnica/domain-model/user` —
+   transicion state ACTIVE → BLOCKED.
+ - :doc:`/arquitectura-tecnica/domain-model/session` —
+   cierre masivo de sesiones.
+ - :doc:`/arquitectura-tecnica/domain-model/blacklisted-token` —
+   blacklisting de refresh tokens.
+ - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
+   emisor USER_BLOCKED.
  - :doc:`/requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos` —
-   BR relacionada (semantica diferente: automatica por
-   sistema).
+   bloqueo automatico (BR relacionada, semantica distinta).
+ - :doc:`/arquitectura-tecnica/use-case-view/users/uc-usr-06-desbloquear-usuario` —
+   operacion inversa.
