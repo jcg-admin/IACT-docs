@@ -8,6 +8,31 @@
 #   make html                      # Genera documentación
 #
 # ========================================================================================
+# FLUJOS RECOMENDADOS (por situación)
+#
+#   Edición continua (edit + preview):
+#     make livehtml                # sphinx-autobuild en http://127.0.0.1:8000
+#                                  # Watch + incremental + browser reload
+#
+#   Build incremental (uso diario):
+#     make html                    # Solo procesa archivos cambiados (~9s)
+#
+#   Reset rápido (HTML+doctrees, preserva cache PlantUML):
+#     make clean-fast && make html # ~30-90s. Usar si hay duda con cache HTML.
+#
+#   Reset total (incluye cache PlantUML, lento):
+#     make clean && make html      # ~6 min. Solo si cambió conf.py o cache corrupto.
+#
+#   Pre-merge / CI gate (estricto, detecta cross-refs rotas):
+#     SPHINX_NITPICKY=1 make html
+#
+#   Build serial (debug):
+#     SPHINXOPTS="" make html      # Override del default `-j auto`
+#
+# Decisiones documentadas en WP:
+#   .thyrox/context/work/2026-04-29-14-28-18-build-performance/
+#
+# ========================================================================================
 # INSTALACIÓN INICIAL:
 #
 #   Si no tienes 'uv' instalado:
@@ -33,23 +58,28 @@
 VENV            = .venv
 
 # Estas variables pueden definirse desde la línea de comandos.
-SPHINXOPTS      =
+# Default: -j auto activa build paralelo (usa todos los cores).
+# Override con: SPHINXOPTS="" make html  (serial)
+SPHINXOPTS      ?= -j auto
 
 # Selección de sphinx-build:
-# 1) Si existe el ejecutable en .venv/Scripts, usarlo (entorno virtual).
-# 2) Si no existe, usar el sphinx-build global del sistema.
-ifeq ("$(wildcard $(VENV)/Scripts/sphinx-build.exe)","")
-SPHINXBUILD     = sphinx-build
-else
+# Preferir el ejecutable del venv (Linux/Mac primero, Windows después).
+# Solo cae al sphinx-build global si ningún venv está presente.
+ifneq ("$(wildcard $(VENV)/bin/sphinx-build)","")
+SPHINXBUILD     = $(VENV)/bin/sphinx-build
+else ifneq ("$(wildcard $(VENV)/Scripts/sphinx-build.exe)","")
 SPHINXBUILD     = $(VENV)/Scripts/sphinx-build.exe
+else
+SPHINXBUILD     = sphinx-build
 endif
 
-# Selección de sphinx-autobuild:
-# Debe estar instalado en el .venv
-ifeq ("$(wildcard $(VENV)/Scripts/sphinx-autobuild.exe)","")
-SPHINXAUTOBUILD = sphinx-autobuild
-else
+# Selección de sphinx-autobuild (mismo patrón).
+ifneq ("$(wildcard $(VENV)/bin/sphinx-autobuild)","")
+SPHINXAUTOBUILD = $(VENV)/bin/sphinx-autobuild
+else ifneq ("$(wildcard $(VENV)/Scripts/sphinx-autobuild.exe)","")
 SPHINXAUTOBUILD = $(VENV)/Scripts/sphinx-autobuild.exe
+else
+SPHINXAUTOBUILD = sphinx-autobuild
 endif
 
 PAPER           =
@@ -100,7 +130,8 @@ help-plantuml:
 
 .PHONY: sync update-deps help help-uv help-sphinx help-plantuml requirements help clean html livehtml freeze dirhtml singlehtml pickle json htmlhelp \
 qthelp devhelp epub latex latexpdf latexpdfja text man texinfo info \
-gettext changes linkcheck doctest xml pseudoxml validate-plantuml plantuml-styles
+gettext changes linkcheck doctest xml pseudoxml validate-plantuml plantuml-styles \
+check-bootstrap
 
 sync:
 	@echo "Instalando dependencias con uv..."
@@ -131,21 +162,58 @@ help: help-uv help-sphinx help-plantuml
 	@echo "  make help-plantuml     # Validación de PlantUML"
 	@echo ""
 
-# Elimina todo el contenido generado dentro del directorio de construcción.
+# Elimina TODO el contenido generado, incluyendo cache de PlantUML.
+# WHEN: cambios en conf.py, theme/extensions, debug de cache corrupto.
+# COSTO: ~6 min en clean rebuild (re-render de todos los diagramas).
 clean:
 	rm -rf $(BUILDDIR)/*
 
+# Clean selectivo — preserva cache PlantUML (build/html/_plantuml/)
+# y otros assets cacheados (_images, _static).
+# WHEN: uso diario. Reset HTML+doctrees sin regenerar diagramas.
+# COSTO ESPERADO: ~30-90s vs ~6min de clean total.
+# WP origen: 2026-04-29-14-28-18-build-performance.
+clean-fast:
+	rm -rf $(BUILDDIR)/doctrees
+	@if [ -d $(BUILDDIR)/html ]; then \
+		find $(BUILDDIR)/html -mindepth 1 -maxdepth 1 \
+			-not -name "_plantuml" \
+			-not -name "_images" \
+			-not -name "_static" \
+			-exec rm -rf {} +; \
+	fi
+
+# Guard de bootstrap — verifica que setup.sh fue ejecutado.
+# Falla con mensaje accionable si falta plantuml.jar o el venv.
+check-bootstrap:
+	@missing=""; \
+	if [ ! -f tools/plantuml.jar ]; then \
+		missing="$$missing\n  - tools/plantuml.jar (descargado por setup.sh)"; \
+	fi; \
+	if [ ! -x .venv/bin/sphinx-build ] && [ ! -f .venv/Scripts/sphinx-build.exe ]; then \
+		missing="$$missing\n  - .venv/ (creado por uv sync dentro de setup.sh)"; \
+	fi; \
+	if [ -n "$$missing" ]; then \
+		printf "\033[31mERROR:\033[0m bootstrap incompleto. Faltan:%b\n\n" "$$missing"; \
+		printf "Ejecutá primero:\n  \033[1mbash scripts/setup.sh\033[0m\n\n"; \
+		exit 1; \
+	fi
+
 # Builder para HTML estándar.
-html:
+html: check-bootstrap
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Construcción finalizada. Los archivos HTML están en $(BUILDDIR)/html."
 
-# Nuevo target para Live Reload (Servidor embebido)
+# Servidor con Live Reload (sphinx-autobuild).
+# WHEN: ciclo edit-preview de documentacion. Watches source/,
+# rebuilda incremental + recarga browser en cada save.
+# Browser: http://127.0.0.1:8000
+# Detener con Ctrl+C.
 livehtml:
-	@echo "Iniciando servidor con recarga en vivo (Live Reload)..."
+	@echo "Iniciando sphinx-autobuild en http://127.0.0.1:8000"
 	@echo "Detenga con Ctrl+C."
-	$(SPHINXAUTOBUILD) source $(BUILDDIR)/html
+	$(SPHINXAUTOBUILD) $(SPHINXOPTS) source $(BUILDDIR)/html
 	@echo
 
 # Builder para HTML con estructura basada en directorios.

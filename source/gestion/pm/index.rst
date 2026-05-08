@@ -44,5 +44,17 @@ Los artefactos de este subdominio usan el prefijo **PM_** (Project Management).
 Ejemplo: ``PM_001_Plan_Proyecto.rst``
 
 .. note::
-   Contenido en desarrollo. La documentación de gestión se actualizará 
-   conforme avance el proyecto.
+ Contenido en desarrollo. La documentación de gestión se actualizará 
+ conforme avance el proyecto.
+
+
+.. toctree::
+ :hidden:
+ :maxdepth: 1
+
+ audits/index
+ checklists/index
+ lecciones-aprendidas/index
+ matrices/index
+ planificacion-releases-frontend
+ deployment-plan

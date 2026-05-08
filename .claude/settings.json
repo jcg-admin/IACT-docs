@@ -4,6 +4,17 @@
     "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "420000",
     "CLAUDE_CODE_EFFORT_LEVEL": "medium"
   },
+  "extraKnownMarketplaces": {
+    "thyrox-local": {
+      "source": {
+        "source": "directory",
+        "path": "./"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "thyrox@thyrox-local": true
+  },
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [
@@ -24,7 +35,11 @@
       "Bash(date *)",
       "Bash(mkdir *)",
       "Bash(ls *)",
-      "Bash(echo *)"
+      "Bash(echo *)",
+      "Bash(rm -rf build/*)",
+      "Bash(rm -rf build/html*)",
+      "Bash(make clean)",
+      "Bash(make html)"
     ],
     "ask": [
       "Edit(/.claude/scripts/*.sh)",

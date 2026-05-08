@@ -140,3 +140,13 @@ Registrar como hallazgo de Stage 1 DISCOVER con nota: "FASE N en documento exter
 PROHIBIDO: saltar Stage 4 porque el documento externo analizado menciona "FASE 4 completada"
 CORRECTO:  nota en discover/-analysis.md: "el documento usa FASE 4 con semántica propia, no aplica al WP"
 ```
+
+<!-- I-016 RELOCALIZADO. Era una regla de uso de Bash con run_in_background
+     (aplicable a <5% de las sesiones). Movido a:
+     .claude/skills/thyrox/references/bash-background-tasks.md
+     Ver decision en:
+     .thyrox/context/work/2026-04-29-05-51-27-methodology-recalibration/
+     plan/correction-plan.md (accion A1).
+     Razon: .claude/rules/ carga siempre (I-009); regla de tool especifico
+     no merece costo permanente de context budget. -->
+

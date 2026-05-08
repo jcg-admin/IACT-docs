@@ -31,7 +31,7 @@ extensions = [
     # Extensiones de interactividad y diseño
     'sphinx_design',
     'sphinx_copybutton',
-    'myst_parser',
+    'sphinx_tabs.tabs',
 
     # PlantUML para diagramas
     'sphinxcontrib.plantuml',
@@ -100,9 +100,25 @@ pygments_style = 'sphinx'
 smartquotes = True
 smartquotes_action = 'De'  # (D)ashes y (e)llipses
 
+# -- Configuración de Strictness --
+# nitpicky activa la deteccion de cross-references rotas como warnings.
+# Sin esto, Sphinx default solo valida sintaxis, no semantica de refs.
+#
+# Toggle por env var (WP build-performance 2026-04-29 14:28):
+# - Default (dev local): SPHINX_NITPICKY no seteado -> nitpicky=False
+#   build mas rapido para iteracion.
+# - CI / pre-merge: SPHINX_NITPICKY=1 make html -> nitpicky=True
+#   gate estricto antes de merge.
+nitpicky = os.environ.get('SPHINX_NITPICKY', '0') == '1'
+
 # -- Configuración de Lexers --
-# Ignorar warnings de lexers desconocidos (plantuml, mermaid, cql)
-suppress_warnings = ['misc.highlighting_failure']
+# Politica 0/0: NO suprimir warnings de lexers desconocidos.
+# Si plantuml/mermaid/cql u otro lexer falla, debe ser visible.
+# Si el lexer es legitimo pero no instalado, registrar la deuda en
+# technical-debt y resolver instalando el extension correspondiente.
+# Removida la directiva `suppress_warnings = ['misc.highlighting_failure']`
+# tras deep-review 2026-04-29 que la identifico como instancia del
+# anti-patron "calibracion del instrumento para que cumpla la metrica".
 
 # -- Configuración de Salida HTML (Tema FURO) --
 html_theme = 'furo'
@@ -184,7 +200,17 @@ epub_copyright = '2025, Equipo IACT'
 epub_exclude_files = ['search.html']
 
 # -- Configuración de PlantUML --
-plantuml = 'plantuml'
+# Resolución del binario:
+#   1. Si PLANTUML_BIN está en env (CI/override), usar eso.
+#   2. Si existe el wrapper bundled tools/bin/plantuml (descargado por
+#      scripts/setup.sh), usarlo — preferido porque garantiza versión.
+#   3. Fallback a 'plantuml' en PATH (paquete del sistema).
+import os as _os
+_repo_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_bundled_plantuml = _os.path.join(_repo_root, 'tools', 'bin', 'plantuml')
+plantuml = _os.environ.get('PLANTUML_BIN') or (
+    _bundled_plantuml if _os.path.isfile(_bundled_plantuml) else 'plantuml'
+)
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
 

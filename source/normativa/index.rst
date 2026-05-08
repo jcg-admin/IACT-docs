@@ -7,32 +7,39 @@ Normativa
 Propósito del Dominio
 =====================
 
-El dominio **Normativa** establece las reglas, estándares, procesos y políticas de gobierno 
-que rigen el desarrollo y mantenimiento del proyecto IACT.
+La **Normativa** del proyecto IACT agrupa los estándares,
+plantillas, procedimientos, restricciones y decisiones
+arquitectónicas internas. Define **cómo se trabaja** en el
+proyecto: qué reglas aplican, qué moldes se usan, qué está
+prohibido y por qué.
 
-Este dominio responde a la pregunta fundamental: **"¿Cómo debemos trabajar?"**
-
-Contenido
-=========
-
-La Normativa proporciona:
-
-* **Procedimientos:** Pasos auditables para ejecutar tareas de manera repetible
-* **Estándares:** Formatos, notación, plantillas y convenciones de documentación
-* **Gobernanza:** Políticas de control, procesos de aprobación y matriz de responsabilidades
-* **Restricciones:** Limitaciones técnicas y documentales del proyecto
+Pertenece a la **Capa 1 — Methodology / Governance** de la
+arquitectura documental v2.0
+(ver :doc:`/base-cognitiva/_metadata/meta-05-estructura-documental`).
 
 Subdominios
 ===========
 
 .. toctree::
-   :maxdepth: 2
+ :maxdepth: 2
+ :caption: Estándares y Plantillas
 
-   procedimientos/index
-   estandares/index
-   gobernanza/index
-   restricciones/index
+ estandares/index
 
-.. note::
-   Los procedimientos y estándares documentados en este dominio son de cumplimiento 
-   obligatorio para garantizar la calidad y consistencia de la documentación del proyecto.
+.. toctree::
+ :maxdepth: 2
+ :caption: Procedimientos
+
+ procedimientos/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Restricciones
+
+ restricciones/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Gobernanza
+
+ gobernanza/index

@@ -1,9 +1,9 @@
 [project]
 name = "iact-docs"
-version = "1.0.0"
+version = "1.1.0"
 description = "IACT - Sistema de Dashboard Analytics | Technical Documentation"
-readme = "README.md"
-requires-python = ">=3.11"
+readme = "readme.rst"
+requires-python = ">=3.11,<3.14"
 authors = [
     {name = "Equipo de Desarrollo IACT", email = "dev@iact.local"}
 ]
@@ -22,21 +22,32 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
+<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
 dependencies = [
     "Sphinx>=9,<10",                              # Core documentation engine
+=======
+# Core Sphinx documentation engine (8.2.x — pinned por compatibilidad con autodocsumm==0.2.14
+# que aún no soporta Sphinx 9.x. Si se sube a 9.x, hay que subir también autodocsumm.)
+dependencies = [
+    "Sphinx>=8.2.3,<9.0",                          # Core documentation engine
+>>>>>>> develop
 
     # Theme & UI
     "Furo==2025.12.19",                            # Professional documentation theme (supports Sphinx 9)
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
     "sphinx-design==0.7.0",                        # Card/grid layouts (supports Sphinx 9)
 
+<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
     # Markdown & Content Parsing
     "myst-parser==5.0.0",                          # Markdown support in Sphinx (supports Sphinx 9)
+=======
+    # Content Parsing (RST only — Markdown removed por decisión de
+    # rebuild de source/, ver F-NEW-5 en source-rebuild-strategy WP)
+>>>>>>> develop
     "PyYAML==6.0.3",                               # YAML parsing
 
     # Documentation Features
-    "sphinx-tabs==3.4.5",                          # Tabbed content sections
-    "sphinx-toolbox==4.1.0",                       # Extra tools
+    "sphinx-tabs==3.5.0",                          # Tabbed content sections (uso correcto en nuevo source/)
     "sphinx-prompt==1.10.2",                       # Formatted prompts
     "sphinx-jinja==2.0.2",                         # Jinja2 support
     "sphinx-notfound-page==1.1.0",                 # Custom 404 page
@@ -47,19 +58,22 @@ dependencies = [
     "sphinx-autodoc-typehints==3.6.0",             # Type hints support (Sphinx>=9.0.4, Python>=3.11)
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
-    "sphinxcontrib-spelling==8.0.0",               # Spell checker (added Phase A)
+    "sphinxcontrib-spelling==8.0.2",               # Spell checker (added Phase A)
 
     # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
     "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
     "docutils==0.21.2",
+<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
     "markdown-it-py==4.1.0",
     "mdit-py-plugins==0.5.0",
     "mdurl==0.1.2",
+=======
+>>>>>>> develop
     "sphinx-autobuild==2025.8.25",
     "h11==0.16.0",
     "html5lib==1.1",
     "beautifulsoup4==4.14.3",
-    "soupsieve==2.8",
+    "soupsieve==2.8.3",
     "cssutils==2.11.1",
     "dict2css==0.3.0.post1",
     "standard-imghdr==3.10.14",
@@ -75,11 +89,11 @@ dependencies = [
     "packaging==25.0",
     "platformdirs==4.5.1",
     "requests==2.32.5",
-    "urllib3==2.6.1",
+    "urllib3==2.6.3",
     "certifi==2025.11.12",
     "idna==3.11",
-    "charset-normalizer==3.4.4",
-    "click==8.3.1",
+    "charset-normalizer==3.4.7",
+    "click==8.3.3",
     "typing-extensions==4.15.0",
     "more-itertools==10.8.0",
     "natsort==8.4.0",
@@ -99,7 +113,7 @@ dependencies = [
     "referencing==0.37.0",
     "apeye==1.4.1",
     "apeye-core==1.1.5",
-    "msgpack==1.1.0",
+    "msgpack==1.1.2",
     "picobox==4.0.0",
     "colorama==0.4.6",
     "anyio==4.12.0",

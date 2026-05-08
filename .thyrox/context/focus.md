@@ -1,9 +1,9 @@
 ```yml
 type: Estado Operacional
 project: IACT-docs
-version: 1.0.0
+version: 2.0.0
 created_at: 2026-04-23 09:00:00
-updated_at: 2026-04-23 09:00:00
+updated_at: 2026-04-29 06:35:00
 ```
 
 # Focus — IACT-docs
@@ -14,168 +14,107 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 ## Iniciativa Actual
 
-**Proyecto:** IACT-docs — Documentación del Sistema IACT  
-**ÉPICA:** 2 — plantuml-java-integration-impl  
-**WP:** `.thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integration-impl/`  
-**Rama:** `feature/project-setup`  
-**Tipo:** Mediano-Grande (fases 1, 3, 5, 6, 8, 10, 11)
-
-### Estado Actual
-
-**Fase:** Phase 1 DISCOVER — ✓ COMPLETADA  
-**Fecha de inicio:** 2026-04-23 18:51:33  
-**Fecha de actualización:** 2026-04-24 03:15:00
-
-**Artefactos generados:**
-- `discover/plantuml-java-integration-impl-analysis.md` — Síntesis de Phase 1 (v1.9.0, 400+ líneas)
-- `discover/plantuml-reference-language-analysis.md` — Basics (pp. 1-15, 306 líneas)
-- `discover/plantuml-sequence-formatting-activation-analysis.md` — Advanced (pp. 16-22, 391 líneas)
-- `discover/plantuml-advanced-sequence-features-analysis.md` — Features (pp. 25-41, 409 líneas)
-- `discover/plantuml-use-case-diagrams-analysis.md` — UC Syntax (pp. 44-55, 520 líneas) ⭐ CRITICAL
-- `discover/plantuml-styling-strategy-integration-analysis.md` — Centralization (472 líneas)
-- `discover/plantuml-include-directive-implementation-analysis.md` — !include Viability (457 líneas) ⭐ CRITICAL
-- `discover/sphinxcontrib-plantuml-integration-analysis.md` — Sphinx Integration (530 líneas) ⭐ CRITICAL
-- `discover/plantuml-class-diagrams-analysis.md` — Class Diagrams (pp. 62-102, 782 líneas) — OPTIONAL
-- `discover/plantuml-object-diagrams-analysis.md` — Object Diagrams (pp. 99-102+, 274 líneas) — NOT RECOMMENDED
-- `discover/plantuml-map-diagrams-analysis.md` — Map/PERT Diagrams (pp. 101-104, 400+ líneas) — NOT RECOMMENDED
-- `discover/plantuml-json-display-analysis.md` — JSON Display (pp. 104-105, 300+ líneas) — NOT APPLICABLE
-- `discover/plantuml-activity-diagrams-analysis.md` — Activity Diagrams OLD SYNTAX (pp. 106-113, 600+ líneas) — DEPRECATED
-- `discover/plantuml-activity-diagrams-new-syntax-analysis.md` — Activity Diagrams NEW SYNTAX (pp. 116-150+, 830+ líneas) ⭐ RECOMMENDED
-- `discover/plantuml-component-diagrams-analysis.md` — Component Diagrams (pp. 145-164+, 586 líneas) — NOT APPLICABLE
-- `discover/plantuml-state-diagrams-analysis.md` — State Diagrams (pp. 210-230+, 600+ líneas) — MODERADA-BAJA
-- `discover/plantuml-timing-diagrams-analysis.md` — Timing Diagrams (pp. 232-272+, 700+ líneas) — NOT APPLICABLE
-- `discover/plantuml-json-yaml-display-analysis.md` — JSON/YAML Data Display (pp. 258-280+, 500+ líneas) — NOT APPLICABLE
-- `plantuml-java-integration-impl-risk-register.md` — Riesgos identificados
-- `plantuml-java-integration-impl-exit-conditions.md` — Gates por fase
-
-**Hallazgos principales:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam/`<style>` blocks (pp. 1-272+ analyzed)
-- skinparam context-dependent: UC ≠ Sequence ≠ Activity ≠ State ≠ Timing ≠ Class diagrams (all must be defined separately)
-- **Eleven diagram types evaluated:** UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — NEW SYNTAX v6), Class (OPTIONAL), State (MODERADA-BAJA), Component/Object/Map/JSON/Timing/Deployment (NOT APPLICABLE/NOT RECOMMENDED/PENDING)
-- Activity diagrams RECOMMENDED: modern NEW SYNTAX v6 (no Graphviz), swimlanes, `<style>` block styling for actor responsibility mapping
-- State diagrams: Useful for entity lifecycle (Users, Accesos, Reportes); limit to 3-5 máximo; postergar to Phase 7 DESIGN
-- Component/Deployment diagrams: NOT APPLICABLE (technical architecture level, out-of-scope for functional requirements)
-- ~20 arrow variants, advanced features (stereotypes, markers, boxes, synchronization) documented
-- Two-tier strategy: centralized styles via !include + documented guidelines for restrictions
-- !include as critical cornerstone (confidence 0.85; must validate working directory in Phase 1 Setup)
-- Clean Code naming principles applied (POSIX _prefix convention for private members)
-
-**Análisis completados:** 17 especializados + 1 síntesis = 7,400+ líneas de análisis PlantUML (pp. 1-280+)
+**Estado:** entre iniciativas. Última ÉPICA cerrada el 2026-04-29 06:00.
+**Branch:** `feature/solve-problem-docs`
+**Build status:** `make clean && make html` → `build succeeded` con 0 WARN / 0 ERR / 0 CRIT.
 
 ---
 
-## Próxima Fase — DECISIÓN REQUERIDA
+## Últimas ÉPICAs cerradas (orden cronológico inverso)
 
-**Phase 1 DISCOVER COMPLETADA ✅** — 14 análisis (6,500+ líneas), pp. 1-164+
+### ÉPICA 12 — methodology-recalibration (2026-04-29 06:00)
 
-**Entrada:** 14 análisis especializados de PlantUML 1.2025.0 + síntesis v1.6.0
+WP `2026-04-29-05-51-27-methodology-recalibration`. Meta-WP de
+validación adversarial vía deep-dive contra mi propia recalibración
+metodológica.
 
-**Hallazgos validados:**
-- ✅ PlantUML 1.2025.0 soporta centralización via !include + skinparam + `<style>` blocks
-- ✅ Nueve tipos de diagramas evaluados; cuatro aplicables a IACT (UC, Sequence, Activity, Class)
-- ✅ Activity diagrams NEW SYNTAX v6 RECOMENDADO (moderno, sin Graphviz, swimlanes)
-- ✅ Component/Object/Map/JSON/Deployment NO APLICABLES a documentación de requisitos
-- ✅ Estrategia de dos niveles viable: estilos centralizados + directrices documentadas
+**Resultado:**
+- I-016 (background tasks) **relocalizado** de `.claude/rules/` a
+  `.claude/skills/thyrox/references/bash-background-tasks.md`
+  (lazy-load on-demand).
+- I-017 (micro-ciclo metodológico) **descartado** — over-engineering
+  identificado por deep-review.
+- 2 references on-demand creadas: `mechanical-bulk-edits.md` +
+  `methodology-bias-watch.md`.
+- Sesgo "realismo performativo metodológico" documentado.
 
-**Decisión requerida — Próxima fase:**
+**Trazabilidad:** commits `79362fe`, `0a3161d`, `0a846af`.
 
-### Opción A: Phase 5 STRATEGY (validación formal de estrategia)
-- Confirmar 4-phase implementation strategy
-- Documentar arquitectura plantuml-styles.puml (13 secciones)
-- Validar decisiones sobre !include, centralization, guidelines
-- Crear ADR para decisiones arquitectónicas
-- **Duración:** 4-6 horas
-- **Artefactos:** strategy/plantuml-java-integration-strategy.md + ADRs
+### ÉPICA 11 — md-to-rst-saneamiento (2026-04-29 05:35)
 
-**Gate Phase 5→6:** Estrategia aprobada
+WP `2026-04-29-05-35-11-md-to-rst-saneamiento`. Saneamiento masivo
+del corpus `source/` post-rebuild.
 
-### Opción B: Phase 10 EXECUTE (fase 1 setup directo — acelerado)
-- Saltar Phase 5/6/8 (scope claro, análisis completo)
-- Comenzar Phase 1 Setup inmediatamente:
-  * Verify Java 8+
-  * Install PlantUML v1.2025.0
-  * Install sphinxcontrib.plantuml
-  * Create source/_static/plantuml-styles.puml
-  * Test !include with 1 sample UC
-  * Validate Sphinx build output
-- **Duración:** 2-3 horas (fase 1 setup only)
-- **Validación de riesgos críticos:** Working directory path resolution, !include support
+**Resultado:**
+- 19222 issues → 0 (-100%) en 11 batches commit.
+- 9 scripts archivados en `scripts/` del WP como canalización
+  post-conversion para reuso futuro.
+- 8 patrones de bug del conversor original catalogados con
+  before/after.
+- Causa raíz documentada: el conversor md→rst preservó indent
+  visual sin recalcular indent semántico que RST exige.
 
-**Gate Phase 10→11:** Phase 1 Setup complete, !include validated, 5 UC críticos testeados
+**Trazabilidad:** commits `e71a78d` → `0f884df` (11 commits) +
+`0a2549d` (post-mortem WP).
 
-**Recomendación:** Opción B (Phase 10 directo) — análisis está completo, scope es claro, implementación es directa
+### ÉPICA 8 — source-rebuild-strategy (2026-04-28)
 
----
+WP padre del rebuild documental. Spawneo de 16 hijos.
 
-## Proyección
+**Estado de hijos a 2026-04-29:**
+- **14 CERRADO v1**: base-cognitiva, normativa-* (4),
+  requisitos, arquitectura-tecnica, backend, frontend, databases,
+  onboarding, quality, risks-technical-debt, gestion.
+- **2 DIFERIDO**: infrastructure (205 inputs heavy),
+  operations (203 inputs).
 
-**Ruta crítica recomendada:**
-1. ✅ Phase 1 DISCOVER — análisis PlantUML completado
-2. Phase 5 STRATEGY (opcional) — validar enfoque
-3. Phase 6 PLAN — definir scope de expansión (5 UC vs. 100+)
-4. Phase 8 PLAN EXECUTION — crear task-plan (install, test, expand)
-5. Phase 10 EXECUTE — implementar Phase 1 Setup + validación
-6. Phase 11 TRACK — lecciones aprendidas, guidelines documentation
-
-**Alternativa acelerada:** Phase 1 Setup directo (skip 5/6/8) → Phase 10 EXECUTE
-
-**Tiempo estimado:** 1-2 semanas (scope es claro; ejecución es directa)
-
-**Éxito definido:** `make html` genera automáticamente 100+ diagrama con estilos corporativos
+Ver `2026-04-28-01-58-08-source-rebuild-strategy/track/children-status-summary.md`.
 
 ---
 
-## Histórico del Proyecto
+## Estado de la documentación
 
-**WP#1 (config-review-iact-docs):** Completado 2026-04-23 07:04:55 ✓
-- Phase 1 DISCOVER: análisis de configuración
-- Hallazgo: 711 → 0 warnings (fixed in follow-up)
-- Transitó a WP#2
-
-**WP#3 (github-actions-setup):** Completado 2026-04-26 00:45:00 ✓
-- Phase 1 DISCOVER → Phase 12 STANDARDIZE: Complete CI/CD automation setup
-- Artefactos: 6 files (.github/), 3 Phase 11 documents, 1 Phase 12 patterns document
-- Key learnings: Pre-specification eliminated 92% variance, constraints-first design works
-- Transitó a WP#2 (plantuml tracking)
-
-**WP#2 (plantuml-java-integration-impl):** En ejecución
-- Phase 1 DISCOVER: 7 análisis especializados (pp. 1-55)
-- Status: LISTO para aprobación y avance de fase
-
-### Decisiones tomadas
-
-1. ✅ Cerrar WP#1 (config-review) tras hallazgos
-2. ✅ Crear WP#2 (plantuml-java-integration) con scope claro
-3. ✅ Ejecutar Phase 1 DISCOVER vía análisis de guía PlantUML
-4. 📋 Próxima: Decisión Phase 5 vs. Phase 10 (strategy vs. exec directo)
+| Indicador | Valor |
+|-----------|-------|
+| `make clean && make html` | `build succeeded` |
+| WARNINGs | 0 |
+| ERRORs | 0 |
+| CRITICALs | 0 |
+| Cajones publicados en `source/` | 14 |
+| Cajones diferidos | 2 (infrastructure, operations) |
 
 ---
 
-## Blockers/Riesgos Críticos (WP#2)
+## Próxima decisión
 
-| Item | Severidad | Estado | Acción |
-|------|-----------|--------|--------|
-| **!include directive validation** | ALTA | ABIERTO | Debe testearse en Phase 1 Setup (working directory resolution) |
-| **Java 8+ installation** | MEDIA | ABIERTO | Verificar antes de Phase 10 EXECUTE |
-| **Working directory for !include** | ALTA | ABIERTO | Path resolution: `source/_static/...` vs. `_static/...` vs. absolute |
-| **skinparam context-dependency** | MEDIA | OPEN | Both UC + Sequence contexts must be in plantuml-styles.puml |
+Pendiente del ejecutor. Opciones identificadas:
 
----
-
-## Próximas Decisiones
-
-**Antes de Phase 5/10:**
-1. ¿Ejecutar Phase 5 STRATEGY (validar enfoque) o ir directo a Phase 10 (Phase 1 Setup)?
-2. ¿5 UC críticos primero o todo de una vez? (4-phase strategy suggests 5 first)
-3. ¿Crear ADRs para decisiones arquitectónicas? (adr-plantuml-centralization-strategy.md)
-
-**Durante Phase 10 (Phase 1 Setup):**
-1. Cómo resolver working directory: empirical testing with test UC
-2. Cómo validar !include: crear test-plantuml-styles.puml + test UC en discover/
-3. Confirmación de colores corporativos en rendered PNG
+| Opción | Descripción | Complejidad |
+|--------|-------------|-------------|
+| (a) Retomar WP #10 infrastructure | 205 inputs canónicos + 236 variantes en `temp-holding/`. Documentar topología de despliegue Ubuntu + Apache | Heavy |
+| (b) Retomar WP #12 operations | 203 inputs en `temp-holding/`. Documentar runbooks operativos | Heavy |
+| (c) Atacar DEBT items | DEBT-001..007 en `source/risks-technical-debt/deuda-tecnica-rebuild.rst`. DEBT-001 (vocabulario `Capacidad`→`Function`) requiere coordinación backend | Variable |
+| (d) Nueva dirección | Iniciativa fuera del rebuild documental | — |
 
 ---
 
-**Ubicación:** `.thyrox/context/focus.md`  
-**Scope:** Proyecto IACT-docs — ÉPICA 2: plantuml-java-integration-impl  
-**Última actualización:** 2026-04-24 00:20:00
+## Convenciones operativas activas
+
+- **Política 0/0**: el build debe quedar siempre limpio. Verificar
+  con `make clean && make html` antes de cualquier reporte de
+  completación.
+- **STD_007**: nombres de archivo kebab-case, sin tildes/eñes/espacios,
+  sin sufijos genéricos (`README`, `TODO`).
+- **Tim Pope commits**: subject ≤72 ch imperativo, body con QUÉ y
+  POR QUÉ.
+- **Changelog en dos niveles**: `track/{wp}-changelog.md` siempre,
+  `CHANGELOG.md` raíz solo en merge a `main` con bump.
+- **Antes de codificar invariante en `.claude/rules/`**: cargar
+  `references/methodology-bias-watch.md` y responder las 4
+  preguntas de diagnóstico.
+
+---
+
+**Ubicación:** `.thyrox/context/focus.md`
+**Scope:** Proyecto IACT-docs — historial reciente y próxima decisión
+**Última actualización:** 2026-04-29 06:35:00

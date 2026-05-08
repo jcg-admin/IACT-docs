@@ -1,47 +1,53 @@
-.. _requisitos:
+.. meta::
+ :artefacto: INDEX_REQUISITOS
+ :tipo: Indice
+ :dominio: requisitos
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ==========
 Requisitos
 ==========
 
-Propósito del Dominio
-=====================
-
-El dominio **Requisitos** define el producto funcional del sistema IACT, 
-especificando qué debe hacer el sistema para satisfacer las necesidades del negocio.
-
-Este dominio responde a la pregunta fundamental: **"¿Qué debe hacer el sistema?"**
-
-Contenido
-=========
-
-Los requisitos establecen:
-
-* **Reglas de Negocio:** Políticas, restricciones y principios que rigen el sistema
-* **Casos de Uso:** Interacciones entre actores y el sistema para lograr objetivos
-* **Requisitos Funcionales:** Funcionalidades específicas que debe implementar el sistema
-* **Requisitos No Funcionales:** Atributos de calidad (rendimiento, seguridad, usabilidad)
-* **Matriz de Trazabilidad:** Relaciones entre requisitos para garantizar coherencia
-
-Jerarquía de Requisitos
-=======================
-
-La trazabilidad sigue el modelo:
-
-**BR (Reglas de Negocio) → UC (Casos de Uso) → FR (Requisitos Funcionales) → RNF (Requisitos No Funcionales)**
-
-Subdominios
-===========
+Catalogo de requisitos del sistema IACT: casos de uso, reglas de
+negocio, requisitos funcionales y no-funcionales.
 
 .. toctree::
-   :maxdepth: 2
+ :maxdepth: 2
+ :caption: Business Requirements
 
-   reglas_negocio/index
-   casos_uso/index
-   requisitos_funcionales/index
-   requisitos_no_funcionales/index
-   rtm/index
+ business-requirements/index
 
-.. note::
-   Todos los requisitos deben estar vinculados en la Matriz de Trazabilidad (RTM) 
-   para garantizar la coherencia y facilitar el análisis de impacto de cambios.
+.. toctree::
+ :maxdepth: 2
+ :caption: Casos de Uso
+
+ casos-uso/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Reglas de Negocio
+
+ reglas-negocio/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Requisitos Funcionales
+
+ requisitos-funcionales/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Requisitos No Funcionales
+
+ requisitos-no-funcionales/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Metodología aplicada (cómo documentar)
+
+ _metodologia-aplicacion/index

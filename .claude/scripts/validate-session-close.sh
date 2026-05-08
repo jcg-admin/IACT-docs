@@ -118,9 +118,16 @@ if [ -n "$NOW_FILE" ]; then
   # now.md apunta a WP que no existe en disco
   if [ -n "$CURRENT_WORK" ] && [ "$CURRENT_WORK" != "null" ]; then
     if [ ! -d "$CURRENT_WORK" ]; then
-      echo "[BLOCK] INCONSISTENCIA: $NOW_FILE::current_work apunta a directorio inexistente:"
-      echo "  $CURRENT_WORK"
-      echo "  Corregir la ruta o actualizar current_work a null si el WP cerró."
+      # BLOCK messages a stderr para que el modelo los vea (exit 2 relaya stderr).
+      # Si fueran a stdout, el modelo solo ve "No stderr output" y entra en loop
+      # de respuestas vacias sin saber la causa. Ver WP
+      # 2026-04-29-06-43-02-stop-hook-loop-investigation.
+      {
+        echo "[BLOCK] INCONSISTENCIA: $NOW_FILE::current_work apunta a directorio inexistente:"
+        echo "  $CURRENT_WORK"
+        echo "  Corregir la ruta o actualizar current_work a null si el WP cerró."
+        echo "  Si no hay WP activo, es OK terminar la sesion explicitamente."
+      } >&2
       ERRORS=$((ERRORS + 1))
       BLOCK_COUNT=$((BLOCK_COUNT + 1))
     fi
