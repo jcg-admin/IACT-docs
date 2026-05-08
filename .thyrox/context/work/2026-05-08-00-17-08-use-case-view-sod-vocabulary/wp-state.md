@@ -2,8 +2,9 @@
 project: IACT-docs
 work_package: 2026-05-08-00-17-08-use-case-view-sod-vocabulary
 created_at: 2026-05-08 00:17:08
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-08 01:35:00
+current_phase: Phase 11 — TRACK
+status: Cerrado (TR-02 build diferido al final de la cola)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
