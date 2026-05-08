@@ -133,14 +133,14 @@ El sistema IACT se compone de:
  Ejecuta cada día a las 02:00 AM
  ↓
  ┌─────────────────────────────────────────────────┐
- │ PostgreSQL Analytics (Sistema Analítico) │
+ │ Almacén de Datos Analítico (Sistema IACT)   │
  │ - Base de datos del sistema IACT │
  │ - Acceso: READ/WRITE para IACT │
  │ - Optimizado para consultas analíticas │
  └─────────────────────────────────────────────────┘
  ↓
  ┌─────────────────────────────────────────────────┐
- │ Aplicación Web Django + React │
+ │ Aplicación Web (Backend + Interfaz UI)   │
  │ - Dashboards y reportes │
  │ - Sistema de alertas │
  │ - Gestión de usuarios y permisos │
@@ -148,7 +148,7 @@ El sistema IACT se compone de:
 
 **Restricciones arquitectónicas clave:**
 
-- **CNST_006:** Arquitectura BD Dual - MySQL IVR + PostgreSQL Analytics
+- **CNST_006:** Arquitectura BD Dual - MySQL IVR (externo) + Almacén Analítico IACT
 - **CNST_008:** Sincronizacion ETL en ventana de 6 a 12 horas (no real-time)
 - **CNST_001:** Solo notificaciones internas (NO email, SMS, webhook)
 
