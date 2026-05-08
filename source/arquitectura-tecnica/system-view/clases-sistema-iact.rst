@@ -121,4 +121,4 @@ escritura quede registrada como ``AuditEvent``.
  - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`
  - :doc:`/arquitectura-tecnica/domain-model/audit-service`
  - :doc:`/arquitectura-tecnica/domain-model/audit-event`
- - :doc:`/arquitectura-tecnica/design-view/state-pipeline-execution`
+ - :doc:`/arquitectura-tecnica/design-view/pipeline/state`

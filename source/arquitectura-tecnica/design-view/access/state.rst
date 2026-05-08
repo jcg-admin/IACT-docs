@@ -66,7 +66,7 @@ elimina, transita a un estado terminal (expired/revoked).
 
  - :doc:`/arquitectura-tecnica/design-view/access/sequence`
  - :doc:`/arquitectura-tecnica/design-view/access/activity`
- - :doc:`/arquitectura-tecnica/design-view/act-rbac-effective-set-eval`
+ - :doc:`/arquitectura-tecnica/design-view/permissions/activity`
  - :doc:`/arquitectura-tecnica/design-view/access/class`
  - :doc:`/arquitectura-tecnica/use-case-view/access/index`
  - :doc:`/arquitectura-tecnica/domain-model/assignment`
