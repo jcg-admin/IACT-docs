@@ -20,7 +20,7 @@ UC_ACC_01 — Asignar Funciones
 Asigna ``Function`` directas a un User (target_type=Function en
 Assignment). Validaciones: User destino existe + state ACTIVE,
 funciones existen + ACTIVE en catalogo, idempotencia (skip funciones
-ya asignadas), SoD write-time (BR-007 + CNST-005). Notificacion al
+ya asignadas), separation write-time (BR-007 + CNST-005). Notificacion al
 destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
 
 .. uml::
@@ -50,7 +50,7 @@ destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
    usecase "Validar User destino" as VALIDAR_USR
    usecase "Validar funciones\nactivas" as VALIDAR_FUNCION
    usecase "Filtrar idempotente\n(skip ya asignadas)" as IDEMP
-   usecase "Validar SoD\n(CNST-005)" as VALIDAR_SOD
+   usecase "Validar regla de separacion\n(CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir Assignments\n(target=Function)" as PERSISTIR
    usecase "Recompute effective_set" as RECALC
    usecase "Invalidar PermissionCache" as INVALIDAR
@@ -64,7 +64,7 @@ destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
  UC_ACC_01 ..> VALIDAR_USR : <<include>>
  UC_ACC_01 ..> VALIDAR_FUNCION : <<include>>
  UC_ACC_01 ..> IDEMP : <<include>>
- UC_ACC_01 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_01 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_01 ..> PERSISTIR : <<include>>
  UC_ACC_01 ..> RECALC : <<include>>
  UC_ACC_01 ..> INVALIDAR : <<include>>
@@ -75,7 +75,7 @@ destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
  VALIDAR_USR --> UserRepo
  VALIDAR_FUNCION --> FunctionRepo
  IDEMP --> IdempotencyPolicy
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> AssignmentRepo
  RECALC --> EffectivePermissionsAggregator
  INVALIDAR --> PermissionCache
@@ -84,8 +84,8 @@ destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
  AUDITAR --> AuditService
  AuditService --> view_audit_log
 
- note bottom of VALIDAR_SOD
-   BR-007 + CNST-005: SoD write-time
+ note bottom of VALIDAR_SEPARATION_RULES
+   BR-007 + CNST-005: separation write-time
    sobre conjunto efectivo (existing
    + new). All-or-nothing si viola.
  end note
@@ -107,9 +107,9 @@ destino + AuditEvent ``FUNCTIONS_ASSIGNED``.
  - :doc:`/arquitectura-tecnica/domain-model/user-repo` —
    verificacion.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD.
+   reglas de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta SoD.
+   ejecuta validacion de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/effective-permissions-aggregator` —
    recompute.
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
