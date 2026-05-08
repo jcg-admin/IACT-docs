@@ -21,7 +21,7 @@ implementacion).
    - Foco
  * - **Unitario**
    - ``AuthService``, ``LocalPasswordStrategy``,
-     ``LoginSerializer`` aislados con mocks de
+     ``LoginRequestContract`` aislados con mocks de
      BD y servicios externos
  * - **Integracion (Django TestCase)**
    - ``LoginView`` con BD real (sqlite test) +

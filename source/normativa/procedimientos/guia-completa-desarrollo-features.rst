@@ -716,7 +716,7 @@ manteniendo tests verdes
  from django.conf import settings
 
 
- class LoginSerializer(serializers.Serializer):
+ class LoginRequestContract(serializers.Serializer):
  """Serializer para login con username/password."""
 
  username = serializers.CharField(required=True)
@@ -748,7 +748,7 @@ manteniendo tests verdes
  return attrs
 
 
- class TokenSerializer(serializers.Serializer):
+ class TokenResponseContract(serializers.Serializer):
  """Serializer para generar tokens JWT."""
 
  @staticmethod
@@ -795,7 +795,7 @@ manteniendo tests verdes
  }
 
 
- class RefreshTokenSerializer(serializers.Serializer):
+ class RefreshTokenRequestContract(serializers.Serializer):
  """Serializer para refresh token."""
 
  refresh_token = serializers.CharField(required=True)
@@ -836,9 +836,9 @@ manteniendo tests verdes
  from rest_framework.response import Response
  from rest_framework import status
  from .serializers import (
- LoginSerializer,
- TokenSerializer,
- RefreshTokenSerializer
+ LoginRequestContract,
+ TokenResponseContract,
+ RefreshTokenRequestContract
  )
  import jwt
  from django.conf import settings
@@ -856,7 +856,7 @@ manteniendo tests verdes
 
  def post(self, request):
  """Procesar login y retornar tokens."""
- serializer = LoginSerializer(data=request.data)
+ serializer = LoginRequestContract(data=request.data)
 
  if not serializer.is_valid:
  return Response(
@@ -865,7 +865,7 @@ manteniendo tests verdes
  )
 
  user = serializer.validated_data['user']
- tokens = TokenSerializer.generate_tokens(user)
+ tokens = TokenResponseContract.generate_tokens(user)
 
  return Response(tokens, status=status.HTTP_200_OK)
 
@@ -881,7 +881,7 @@ manteniendo tests verdes
 
  def post(self, request):
  """Procesar refresh token y retornar nuevo access token."""
- serializer = RefreshTokenSerializer(data=request.data)
+ serializer = RefreshTokenRequestContract(data=request.data)
 
  if not serializer.is_valid:
  return Response(
@@ -1185,8 +1185,8 @@ Al hacer commit, se ejecutan automáticamente:
  git add tests/authentication/
  git commit -m "test: agregar tests para autenticación JWT
 
- - Tests unitarios para LoginSerializer
- - Tests unitarios para TokenSerializer
+ - Tests unitarios para LoginRequestContract
+ - Tests unitarios para TokenResponseContract
  - Tests de integración para LoginView
  - Tests de integración para RefreshTokenView
  - Tests de middleware JWT
@@ -1312,9 +1312,9 @@ Paso 8: Crear Pull Request
 Test Plan
 ---------
 
-- [x] Tests unitarios de LoginSerializer (4 casos)
-- [x] Tests unitarios de TokenSerializer (generación tokens)
-- [x] Tests unitarios de RefreshTokenSerializer (validación)
+- [x] Tests unitarios de LoginRequestContract (4 casos)
+- [x] Tests unitarios de TokenResponseContract (generación tokens)
+- [x] Tests unitarios de RefreshTokenRequestContract (validación)
 - [x] Tests de integración LoginView (success, invalid creds, missing
   fields, inactive user)
 - [x] Tests de integración RefreshTokenView (success, invalid token)

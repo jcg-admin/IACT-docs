@@ -126,7 +126,7 @@ Registrar mapeo en matriz de trazabilidad.
    - Funcion/Clase
  * - FR_UC001_01
    - auth/serializers.py
-   - LoginSerializer.validate_username
+   - LoginRequestContract.validate_username
  * - FR_UC001_02
    - auth/services.py
    - AuthService.verify_credentials

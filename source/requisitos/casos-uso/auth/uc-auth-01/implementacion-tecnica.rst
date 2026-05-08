@@ -94,7 +94,7 @@ estructura de directorios):
            ├── apps.py                       # AppConfig
            ├── urls.py                       # POST /api/auth/login/
            ├── views.py                      # LoginView, LogoutView, ...
-           ├── serializers.py                # LoginSerializer
+           ├── serializers.py                # LoginRequestContract
            ├── services.py                   # AuthService.authenticate()
            ├── strategies.py                 # AuthenticationStrategy +
            │                                 # LocalPasswordStrategy

@@ -27,7 +27,7 @@ Cubre ``Report`` con filtros por ``ReportScope``, ``ScheduledReport``,
 
  package "MOD_VisReports" {
    component "ReportView\nScheduledReportView\nSavedViewView\nMetricView" as ReportView <<api>>
-   component "ReportSerializer\nScheduledReportSerializer\nExportJobSerializer" as ReportSerializer <<serializer>>
+   component "ReportContract\nScheduledReportSerializer\nExportJobSerializer" as ReportContract <<serializer>>
    component "ReportService\nfiltrar Report por ReportScope\ngestionar ScheduledReport y SavedView\nencolar ExportJob" as ReportService <<service>>
    component "ReportRepository\nScheduledReportRepository\nSavedViewRepository\nMetricRepository\nExportJobRepository" as ReportRepo <<repository>>
    component "ReportORM\nScheduledReportORM\nSavedViewORM\nMetricORM\nExportJobORM" as ReportORM <<orm>>
@@ -35,7 +35,7 @@ Cubre ``Report`` con filtros por ``ReportScope``, ``ScheduledReport``,
 
  database "AlmacenDatos\n(PostgreSQL)" as AlmacenDatos
 
- ReportView --> ReportSerializer : valida
+ ReportView --> ReportContract : valida
  ReportView --> ReportService : invoca
  ReportService --> ReportRepo : consulta / persiste
  ReportRepo --> ReportORM : mapea

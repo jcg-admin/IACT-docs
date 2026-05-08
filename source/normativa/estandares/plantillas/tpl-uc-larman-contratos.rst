@@ -539,7 +539,7 @@ Una clase = una responsabilidad bien definida.
  def save(self, report): pass
  def find_by_id(self, id): pass
  
- class ReportSerializer:
+ class ReportContract:
  """Solo serialización"""
  def to_json(self, report): pass
  def to_xml(self, report): pass
