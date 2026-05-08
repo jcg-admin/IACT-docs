@@ -57,12 +57,12 @@ codename ``view_audit`` invoca con filtros libres.
 
  class AuditRepo
  class CursorEncoder
- class PiiScanner
+ class PIIScanner
  class AuditService
 
  GeneralAuditService --> AuditRepo : queries
  GeneralAuditService --> CursorEncoder : paginates
- GeneralAuditService --> PiiScanner : sanitizes
+ GeneralAuditService --> PIIScanner : sanitizes
  GeneralAuditService --> AuditService : emits meta-audit
  GeneralAuditService ..> AuditFilters
  GeneralAuditService ..> AuditQueryResult
@@ -77,7 +77,7 @@ Operaciones principales
   1. Decodifica el cursor para resumir desde la pagina
      correcta.
   2. Lee de ``AuditRepo`` con ``filters`` aplicados.
-  3. Sanitiza PII via ``PiiScanner`` antes de exponer.
+  3. Sanitiza PII via ``PIIScanner`` antes de exponer.
   4. Filtra por ``actor_scope`` (CNST-018).
   5. Genera el ``next_cursor``.
   6. Emite meta-audit (la consulta de audit es a su vez
@@ -104,7 +104,7 @@ Relaciones
 
 - Lee ``AuditRepo``.
 - Pagina via ``CursorEncoder``.
-- Sanitiza con ``PiiScanner``.
+- Sanitiza con ``PIIScanner``.
 - Emite meta-audit via ``AuditService``.
 
 .. seealso::

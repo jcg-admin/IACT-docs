@@ -11,7 +11,7 @@
  actor "view_audit_log" as view_audit_log
  participant "Servicio de Aplicacion" as SvcAplicacion
  database   "AuditRepo" as AuditRepo
- participant "PiiScanner" as PiiScanner
+ participant "PIIScanner" as PIIScanner
  participant "CursorEncoder" as CursorEncoder
  participant "AuditService" as AuditService
 
@@ -24,8 +24,8 @@
  SvcAplicacion -> AuditRepo: query(filters, state)
  AuditRepo --> SvcAplicacion: rows
 
- SvcAplicacion -> PiiScanner: sanitize(rows)
- PiiScanner --> SvcAplicacion: clean rows
+ SvcAplicacion -> PIIScanner: sanitize(rows)
+ PIIScanner --> SvcAplicacion: clean rows
 
  SvcAplicacion -> CursorEncoder: encode(next_state)
  CursorEncoder --> SvcAplicacion: next_cursor

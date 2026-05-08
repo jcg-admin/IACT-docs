@@ -11,7 +11,7 @@
  actor "search_audit_log" as search_audit_log
  participant "Servicio de Aplicacion" as SvcAplicacion
  participant "FTS Index" as FtsIndex
- participant "PiiScanner" as PiiScanner
+ participant "PIIScanner" as PIIScanner
  participant "AuditService" as AuditService
 
  search_audit_log -> SvcAplicacion: POST /api/v1/audit/search/
@@ -21,8 +21,8 @@
  SvcAplicacion -> FtsIndex: search(query, range, filters)
  FtsIndex --> SvcAplicacion: hits + ranking
 
- SvcAplicacion -> PiiScanner: sanitize(hits)
- PiiScanner --> SvcAplicacion: clean hits
+ SvcAplicacion -> PIIScanner: sanitize(hits)
+ PIIScanner --> SvcAplicacion: clean hits
 
  SvcAplicacion -> AuditService: emit AUDIT_SEARCH_QUERIED\n  (query, hits_count)
  SvcAplicacion --> search_audit_log: 200 + results

@@ -25,13 +25,13 @@
    + emit(event_type, payload) : AuditEvent
  }
 
- class PiiScanner {
+ class PIIScanner {
    + sanitize(rows) : List
  }
 
  GeneralAuditService --> AuditRepo : queries
  GeneralAuditService --> CursorEncoder : paginates
- GeneralAuditService --> PiiScanner : sanitizes
+ GeneralAuditService --> PIIScanner : sanitizes
  GeneralAuditService --> AuditService : emits meta-audit
 
  @enduml

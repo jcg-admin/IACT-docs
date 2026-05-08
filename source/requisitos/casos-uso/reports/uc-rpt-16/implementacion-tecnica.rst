@@ -22,7 +22,7 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract MenuIVRReportService:
+   contract IVRNavigationReportService:
      get(period, vista, segmentos,
          invoker, ctx)
        returns: ReporteMenuIVR
