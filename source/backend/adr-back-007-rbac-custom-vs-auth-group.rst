@@ -37,7 +37,7 @@ Estado y metadata
 
 - **Refs research (WP-5):** ``research/raw/Q1`` (auth.Group y
   auth.Permission), ``Q2`` (data migration bootstrap), ``Q5``
-  (custom vs extender), ``Q7`` (SoD).
+  (custom vs extender), ``Q7`` (separation of duties).
 
 ----
 
@@ -64,7 +64,7 @@ El proyecto IACT requiere:
    custom** creables por administradores en runtime
    (UC_PERM_05). El proyecto la modela con
    ``AccessGroup.is_system: BOOLEAN``.
-3. **Separation of Duties (SoD)** mediante 3 reglas
+3. **Separation of Duties** mediante 3 reglas
    declarativas que restringen pares de funciones mutuamente
    exclusivas (BR-007, ``FunctionSeparationRule``).
 4. **Metadata adicional por grupo**: descripción profesional
@@ -134,12 +134,12 @@ Hay tres consideraciones documentadas en la comunidad Django:
    - Descripción profesional larga.
    - Categoría operativa.
 
-(c) **SoD requiere modelo de relación adicional.**
+(c) **Separacion de funciones requiere modelo de relación adicional.**
 
-   Django no provee SoD nativo (Q7 del WP-5):
+   Django no provee separacion de funciones nativa (Q7 del WP-5):
 
    *"In RBAC, permissions are associated with roles... RBAC
-   uses mutual exclusion constraints to implement SoD policies."*
+   uses mutual exclusion constraints to implementar políticas de separacion."*
    — `On Mutually-Exclusive Roles and Separation of Duty
    (Purdue) <https://www.cs.purdue.edu/homes/ninghui/papers/sod-j.pdf>`_.
 
@@ -167,7 +167,7 @@ Y `How to provide initial data for models
    a migration."*
 
 **Decisión:** los 12 grupos AGR-001..012, las 64 funciones
-activas y las 3 reglas SoD se **bootstrap via data migrations
+activas y las 3 reglas de separacion se **bootstrap via data migrations
 con** ``RunPython``, no via fixtures ni management commands.
 
 El management command ``manage.py initialize_permissions`` se
@@ -185,7 +185,7 @@ canónica del estado inicial — la data migration sí lo es.
 
 - **Control total** sobre el modelo: campos como ``is_system``,
   audit fields, código estable AGR.
-- **SoD nativo** del modelo IACT — relación FK directa entre
+- **Separacion de funciones nativa** del modelo IACT — relación FK directa entre
   ``FunctionSeparationRule`` y ``AccessGroup``.
 - **Natural keys estables** (AGR-001..012) que sobreviven
   migraciones de DB.
@@ -215,7 +215,7 @@ canónica del estado inicial — la data migration sí lo es.
   ``ModelAdmin`` custom; el costo es bajo.
 
 - **Más código a mantener** vs solución nativa.
-  Mitigación: la complejidad va con el dominio (RBAC con SoD
+  Mitigación: la complejidad va con el dominio (RBAC con separacion de funciones
   no es trivial en ningún caso).
 
 4.3 Neutrales
@@ -280,7 +280,7 @@ Crear modelo ``Role`` con ``OneToOneField`` a
 6.1 Bootstrap canónico (data migration)
 ---------------------------------------
 
-Cada nuevo grupo, función o regla SoD se introduce en el
+Cada nuevo grupo, función o regla de separacion se introduce en el
 sistema vía data migration con ``RunPython``:
 
 ::
@@ -342,7 +342,7 @@ manual (e.g. tras un reset de DB en development). Internamente
 
 - Tras ``python manage.py migrate`` (incluyendo en setup de test
   database) se cargan automáticamente los 12 grupos, 64
-  funciones activas, 3 reglas SoD.
+  funciones activas, 3 reglas de separacion.
 - Test asserting que los AGR-001..012 existen y tienen los
   ``is_system=True`` esperados.
 
@@ -407,5 +407,5 @@ manual (e.g. tras un reset de DB en development). Internamente
 
 - `On Mutually-Exclusive Roles and Separation of Duty
   (Purdue) <https://www.cs.purdue.edu/homes/ninghui/papers/sod-j.pdf>`_
-  — fundamento académico SoD en RBAC.
+  — fundamento académico de separacion en RBAC.
 - NIST RBAC standard (referenciado en BR-006-rbac-flat-nist).

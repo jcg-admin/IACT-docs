@@ -42,7 +42,7 @@ Estructura de archivos del backend
    ├── models.py                          # Function, AccessGroup, FunctionSeparationRule, ...
    ├── managers.py                        # AccessGroupManager con queryset.system() / .custom()
    ├── permissions.py                     # FunctionAuthBackend + DRF FunctionPermission
-   ├── signals.py                         # SoD enforcement en pre_save
+   ├── signals.py                         # enforcement de separacion en pre_save
    ├── admin.py                           # ModelAdmin con is_system protection
    ├── migrations/
    │   ├── 0001_initial.py                # schema (AutoFields + indexes)
@@ -176,9 +176,9 @@ Q1 — Modelos: ``Function`` y ``AccessGroup`` custom
 
 
  class FunctionSeparationRule(models.Model):
-     """Regla SoD — pares de grupos mutuamente exclusivos.
+     """Regla de separacion — pares de grupos mutuamente exclusivos.
 
-     Custom porque Django no provee SoD nativo (Q7).
+     Custom porque Django no provee separacion de funciones nativa (Q7).
      """
 
      code = models.CharField(max_length=10, unique=True)  # SOD-001..
@@ -250,7 +250,7 @@ Q2 — Bootstrap: data migration con ``RunPython``
  ]
 
  # Tuplas: (code, name, description, group_a_codes, group_b_codes)
- SOD_RULES = [
+ SEPARATION_RULES = [
      ("SOD-001", "pipeline_audit_separation",
       "Pipeline admin no puede ser auditor",
       ["AGR-009"], ["AGR-008"]),
@@ -267,7 +267,7 @@ Q2 — Bootstrap: data migration con ``RunPython``
      """Idempotente: get_or_create no duplica."""
      Function    = apps.get_model("access", "Function")
      AccessGroup = apps.get_model("access", "AccessGroup")
-     SoDRule     = apps.get_model("access", "FunctionSeparationRule")
+     SeparationRule     = apps.get_model("access", "FunctionSeparationRule")
 
      # 1. Function (64 in-scope)
      for codename, name, module, desc in PREDEFINED_FUNCTIONS:
@@ -295,9 +295,9 @@ Q2 — Bootstrap: data migration con ``RunPython``
          )
          group.functions.set(functions)
 
-     # 3. SoD rules (3)
-     for code, name, desc, codes_a, codes_b in SOD_RULES:
-         rule, _ = SoDRule.objects.get_or_create(
+     # 3. reglas de separacion (3)
+     for code, name, desc, codes_a, codes_b in SEPARATION_RULES:
+         rule, _ = SeparationRule.objects.get_or_create(
              code=code,
              defaults={
                  "name": name,
@@ -314,16 +314,16 @@ Q2 — Bootstrap: data migration con ``RunPython``
 
 
  def reverse_bootstrap(apps, schema_editor):
-     """Reverse: borrar SoD + groups + functions creados aquí.
+     """Reverse: borrar reglas de separacion + groups + functions creados aquí.
 
      Solo borra is_system=True para preservar custom groups.
      """
-     SoDRule     = apps.get_model("access", "FunctionSeparationRule")
+     SeparationRule     = apps.get_model("access", "FunctionSeparationRule")
      AccessGroup = apps.get_model("access", "AccessGroup")
      Function    = apps.get_model("access", "Function")
 
-     SoDRule.objects.filter(
-         code__in=[code for code, *_ in SOD_RULES],
+     SeparationRule.objects.filter(
+         code__in=[code for code, *_ in SEPARATION_RULES],
      ).delete()
      AccessGroup.objects.filter(is_system=True).delete()
      Function.objects.filter(
@@ -559,15 +559,15 @@ IACT ya cumple esta convención. Validación automática:
 
 ----
 
-Q7 — SoD enforcement: signal en pre_save
+Q7 — enforcement de separacion: signal en pre_save
 =========================================
 
 **Finding (verbatim de Q7):**
 
    *"In RBAC, permissions are associated with roles, and users
    are granted membership in appropriate roles ... RBAC uses
-   mutual exclusion constraints to implement SoD policies."*
-   — `Purdue paper on SoD
+   mutual exclusion constraints to implementar políticas de separacion."*
+   — `Purdue paper on separation of duties
    <https://www.cs.purdue.edu/homes/ninghui/papers/sod-j.pdf>`_.
 
 **Decisión IACT:** ``FunctionSeparationRule`` validada en
@@ -589,8 +589,8 @@ Q7 — SoD enforcement: signal en pre_save
 
 
  @receiver(pre_save, sender=UserAccessGroupAssignment)
- def enforce_sod(sender, instance, **kwargs):
-     """Bloquea asignar grupo que viole una regla SoD."""
+ def enforce_separation(sender, instance, **kwargs):
+     """Bloquea asignar grupo que viole una regla de separacion."""
 
      candidate_group: AccessGroup = instance.access_group
 
@@ -599,7 +599,7 @@ Q7 — SoD enforcement: signal en pre_save
          useraccessgroupassignment__user=instance.user,
      ).exclude(pk=candidate_group.pk).distinct()
 
-     # Para cada SoD rule, ¿el candidato + existentes activan
+     # Para cada regla de separacion, ¿el candidato + existentes activan
      # la mutua exclusión?
      active_rules = FunctionSeparationRule.objects.filter(is_active=True)
 
@@ -615,7 +615,7 @@ Q7 — SoD enforcement: signal en pre_save
          if candidate_group.agr_code in a_codes and existing_codes & b_codes:
              conflict = (existing_codes & b_codes).pop()
              raise ValidationError(
-                 f"SoD violación ({rule.code}): "
+                 f"violacion de separacion ({rule.code}): "
                  f"{candidate_group.agr_code} no puede coexistir con "
                  f"{conflict} en el mismo usuario.",
              )
@@ -624,7 +624,7 @@ Q7 — SoD enforcement: signal en pre_save
          if candidate_group.agr_code in b_codes and existing_codes & a_codes:
              conflict = (existing_codes & a_codes).pop()
              raise ValidationError(
-                 f"SoD violación ({rule.code}): "
+                 f"violacion de separacion ({rule.code}): "
                  f"{candidate_group.agr_code} no puede coexistir con "
                  f"{conflict} en el mismo usuario.",
              )
@@ -758,7 +758,7 @@ Tests obligatorios
          user=user, access_group=pipeline, assigned_by=request_user,
      )
 
-     with pytest.raises(ValidationError, match="SoD violación"):
+     with pytest.raises(ValidationError, match="violacion de separacion"):
          UserAccessGroupAssignment.objects.create(
              user=user, access_group=auditor, assigned_by=request_user,
          )
@@ -814,7 +814,7 @@ Mapping completo Q1-Q8 → archivos
    - (ya cumplido)
    - ``test_models.py`` (regex)
  * - Q7
-   - SoD signal
+   - signal de separacion
    - ``apps/access/signals.py``
    - ``test_sod_enforcement.py``
  * - Q8
@@ -841,7 +841,7 @@ Settings.py — registro
      "apps.access.permissions.FunctionAuthBackend",
  ]
 
- # Conectar signal SoD al app config
+ # Conectar signal de separacion al app config
  # apps/access/apps.py:
  #   def ready(self):
  #       from . import signals  # noqa

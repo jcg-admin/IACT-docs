@@ -194,9 +194,9 @@ length):
  * - ``AuditoriaPermiso``
    - ``FunctionAccessAudit``
    - Especifico (audit de access, no audit generico)
- * - ``ReglaSoD``
+ * - ``ReglaSeparacion``
    - ``SeparationRule``
-   - Drop "SoD" prefix (es contexto del modelo, no nombre)
+   - Drop "separation" prefix (es contexto del modelo, no nombre)
 
 **Atributos en codigo:** todos en ingles snake_case
 (``user_id``, ``function_code``, ``granted_at``, ``expires_at``).
