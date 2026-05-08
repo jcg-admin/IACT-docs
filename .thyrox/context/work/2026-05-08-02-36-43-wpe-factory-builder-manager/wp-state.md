@@ -2,8 +2,9 @@
 project: IACT-docs
 work_package: 2026-05-08-02-36-43-wpe-factory-builder-manager
 created_at: 2026-05-08 02:36:43
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-08 03:35:00
+current_phase: Phase 11 — TRACK
+status: Cerrado (13/13 renames + 4 preservaciones)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
