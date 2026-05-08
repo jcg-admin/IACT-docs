@@ -23,7 +23,7 @@ Parte 11 — Implementacion tecnica
    - get / set / invalidate
  * - **FunctionRegistry**
    - listado + metadata
- * - **MenuBuilder**
+ * - **MenuAssembler**
    - construye arbol jerarquico
  * - **PermissionService**
    - delegacion a UC_PERM_07
@@ -36,7 +36,7 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract MenuBuilder:
+   contract MenuAssembler:
      build(user_id: int,
            locale: string)
        returns: Menu

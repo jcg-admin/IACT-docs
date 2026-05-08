@@ -22,7 +22,7 @@ jerarquía ``Menu > Domain > Section > Action``. Cada
 ``Action`` referencia a una ``Function`` del catálogo RBAC
 mediante ``function_code``: si el usuario tiene la función
 en su ``effective_set``, la acción se renderiza; si no, el
-``MenuBuilder`` la oculta.
+``MenuAssembler`` la oculta.
 
 Es entidad de configuración (catalog-driven): los códigos y
 labels se editan en almacén de configuración, no en código.
@@ -64,7 +64,7 @@ Operaciones principales
 
 - ``is_visible_for(user_function_codes)`` — devuelve true
   si ``function_code`` ∈ ``user_function_codes``. Usado
-  por ``MenuBuilder`` al filtrar.
+  por ``MenuAssembler`` al filtrar.
 - ``render_url(context)`` — substituye placeholders del
   ``url_template`` (e.g. ``/users/{user_id}/edit``) con
   valores de ``NavContext``.

@@ -4,7 +4,7 @@
 Parte 12 — Testing
 ==================
 
-UT-01: HeatmapBuilder construye matriz
+UT-01: HeatmapAssembler construye matriz
 desde las filas de
 ``sp_rpt_centros_xsegmento``.
 UT-02: Top reasons ordenado desde las

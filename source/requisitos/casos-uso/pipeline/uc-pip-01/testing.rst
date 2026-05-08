@@ -4,7 +4,7 @@
 Parte 12 — Testing
 ==================
 
-UT-01: SummaryBuilder agrega.
+UT-01: ResumenSaludAssembler agrega.
 UT-02: Stale detection.
 
 IT-01: Get summary.

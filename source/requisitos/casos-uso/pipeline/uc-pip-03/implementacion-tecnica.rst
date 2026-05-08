@@ -6,7 +6,7 @@ Parte 11 — Implementacion tecnica
 
 Componentes: ``DisponibilidadDatosView`` (DRF APIView),
 ``AuthorizationGuard``, ``PipelineExecutionRepo``,
-``DisponibilidadBuilder``.
+``DisponibilidadAssembler``.
 
 Contrato del servicio:
 
@@ -29,7 +29,7 @@ Pseudocodigo:
                estado_frescura='vencido',
                registros_disponibles=0
            )
-       return DisponibilidadBuilder.build(ultima)
+       return DisponibilidadAssembler.build(ultima)
 
 Implementacion de PipelineExecutionRepo.get_ultima_exitosa:
 
@@ -46,6 +46,6 @@ Implementacion de PipelineExecutionRepo.get_ultima_exitosa:
        ORDER BY finished_at DESC
        LIMIT 1
 
-DisponibilidadBuilder.build(ejecucion) calcula ``minutos_desde_etl``
+DisponibilidadAssembler.build(ejecucion) calcula ``minutos_desde_etl``
 como la diferencia entre ``now()`` y ``ejecucion.finished_at``,
 y asigna ``estado_frescura`` segun los umbrales configurados.

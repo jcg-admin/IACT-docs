@@ -22,14 +22,14 @@ Menu
 
    La clase ``Menu`` (proyeccion transient en arbol
    ``Domain > Section > Action``) corresponde al modelo
-   legacy basado en ``MenuBuilder`` y ``obtener_menu_usuario(user_id)``
+   legacy basado en ``MenuAssembler`` y ``obtener_menu_usuario(user_id)``
    (CNST-032 v1.0.0). En v5.6.x este modelo se reemplaza por:
 
    - :doc:`menu-item` — wrapper UX persistido 1:1 sobre Function.
    - :doc:`menu-item-repo` — repositorio + queryset.
    - :doc:`menu-lifecycle-service` — state machine.
    - :doc:`user-capability-resolver` — resolver canonico
-     (reemplaza ``MenuBuilder``).
+     (reemplaza ``MenuAssembler``).
 
    El nuevo endpoint ``GET /api/v1/menu/`` retorna shape **flat**
    ``{capabilities, menu_items}`` (no jerarquia transient).
@@ -42,7 +42,7 @@ Menu
    ``MenuItem`` y ``MenuItemRepo``.
 
 Proyección del menú de navegación generada para un usuario
-en un locale específico. Es el resultado de ``MenuBuilder``
+en un locale específico. Es el resultado de ``MenuAssembler``
 recorriendo el árbol ``Domain > Section > Action`` y
 filtrando por las funciones que el usuario tiene en su
 ``effective_set``.
@@ -76,7 +76,7 @@ al frontend para renderizar la barra de navegación.
  Menu "1" ..> "1" MenuViewModel : <<projects>>
 
  note right of Menu
-   Resultado de MenuBuilder.build(user, locale).
+   Resultado de MenuAssembler.build(user, locale).
    No es entidad persistida; se genera por demanda.
    cache=true cuando viene de cache TTL corto.
  end note
@@ -110,6 +110,6 @@ Relaciones
 **Migracion a v5.6.x:**
 
 - Codigo nuevo: usar :doc:`menu-item` y :doc:`menu-item-repo`.
-- Codigo legacy con ``MenuBuilder``: marcar para refactor
+- Codigo legacy con ``MenuAssembler``: marcar para refactor
   segun :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
   v2.0.0.

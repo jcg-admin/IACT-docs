@@ -7,7 +7,7 @@ Parte 12 — Testing
 12.1 Estrategia
 ===============
 
-- **Unit**: MenuBuilder, ordenamiento,
+- **Unit**: MenuAssembler, ordenamiento,
   filtrado, supresion de vacios.
 - **Integration**: bulk check + cache
   lifecycle.

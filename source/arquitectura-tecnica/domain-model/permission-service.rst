@@ -122,7 +122,7 @@ Trazabilidad a UCs
 - :doc:`/requisitos/casos-uso/permissions/uc-perm-07/index`
   — UC principal de verificación.
 - :doc:`/requisitos/casos-uso/permissions/uc-perm-08/index`
-  — usado por ``MenuBuilder`` para filtrar Action.
+  — usado por ``MenuAssembler`` para filtrar Action.
 - TODOS los UCs vía decoradores/middleware de
   autorización.
 

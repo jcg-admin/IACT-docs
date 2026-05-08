@@ -15,7 +15,7 @@
 
  package "Domain" {
    component "DisponibilidadDatosService" as DisponibilidadDatosService
-   component "DisponibilidadBuilder" as DisponibilidadBuilder
+   component "DisponibilidadAssembler" as DisponibilidadAssembler
  }
 
  package "Infrastructure" {
@@ -25,7 +25,7 @@
 
  SA --> DisponibilidadDatosService : query disponibilidad
  DisponibilidadDatosService --> PipelineExecutionRepo : query ultima exitosa
- DisponibilidadDatosService --> DisponibilidadBuilder : computa frescura
+ DisponibilidadDatosService --> DisponibilidadAssembler : computa frescura
  PipelineExecutionRepo --> AlmacenDatos : persists
 
  @enduml
