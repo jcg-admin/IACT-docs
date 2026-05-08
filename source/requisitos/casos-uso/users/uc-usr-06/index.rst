@@ -1,75 +1,98 @@
 .. meta::
  :artefacto: UC_USR_06
- :tipo: Caso de Uso (stub Reservado)
+ :tipo: Caso de Uso (Spec Completa)
  :dominio: requisitos
  :subdominio: casos_uso/users
- :estado: Reservado
- :version: 0.1.0
+ :estado: Aprobado
+ :version: 1.0.0
  :fecha_creacion: 2026-05-07
- :ultimo_cambio: 2026-05-07
+ :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
- :clasificacion: Interno
- :origen: incierto — referenciado en uc-auth-03/04/05
-          sin decision arquitectonica formal documentada
+ :clasificacion: Importante
+ :normativa: CNST-009, CNST-013, CNST-025, CNST-026
 
 .. _uc-usr-06:
 
-==============================================
-UC_USR_06 — Desbloquear Usuario (RESERVADO)
-==============================================
+================================
+UC_USR_06 — Desbloquear Usuario
+================================
 
-.. warning:: **UC en estado Reservado — sin spec completa**
+.. note::
 
-   Counterpart de UC_USR_05. Aparece referenciado en:
+ **Especificacion completa de 12 partes** — promocion del
+ placeholder Reservado a spec Aprobada por el WP
+ ``2026-05-08-04-10-27-uc-view-domain-alignment``.
 
-   - ``auth/uc-auth-03/flujos-alternos.rst:22`` —
-     "desbloquee via UC_USR_06".
-   - ``auth/uc-auth-04/flujos-alternos.rst:97`` —
-     "(UC_USR_06) el User ya tenga contrasena".
+Resumen
+=======
 
-   La investigacion del WP
-   ``2026-05-07-04-08-13-use-case-view-analysis`` confirma
-   que nunca existio commit de creacion de este UC.
+UC_USR_06 ejecuta el **desbloqueo administrativo** de un
+User previamente bloqueado. Transicion
+``User.state: BLOCKED → ACTIVE`` y emision de AuditEvent
+``USER_UNBLOCKED`` con referencia al evento de bloqueo
+original. La cuenta queda restaurada a operacion normal:
+puede iniciar sesion nuevamente; los Assignments y
+permisos preservados durante el bloqueo se reactivan.
 
-   Estado **Reservado** hasta que el ejecutor confirme su
-   alcance.
+Es la **operacion inversa** de UC_USR_05 y tambien aplica
+a desbloquear cuentas que fueron bloqueadas
+automaticamente por BR-015 (admin desbloquea tras
+verificar que el bloqueo automatico no fue por
+credencial comprometida).
 
-Resumen propuesto
-=================
+Distinto de:
 
-UC_USR_06 administraria la transicion inversa al bloqueo:
-``state: BLOCKED -> ACTIVE``. Implica:
-
-- Limpiar contador de intentos fallidos (BR-015).
-- Auditar el desbloqueo (actor admin que lo emite).
-- Notificar al usuario afectado (opcional).
-- Re-emitir credenciales si se requiere reset de
-  password.
-
-Trazabilidad
-============
+- **UC_USR_03 (modificar)** — modificacion de atributos
+  generales sin cambio de state.
+- **UC_USR_04 (eliminar)** — terminal, NO reversible.
+  ELIMINATED no se desbloquea.
 
 .. list-table::
- :widths: 30 70
+ :widths: 25 75
  :header-rows: 0
 
  * - **ID**
    - UC_USR_06
- * - **Nombre propuesto**
-   - Desbloquear Usuario
  * - **Modulo**
    - MOD_Users
- * - **Capability propuesta**
-   - ``unblock_users`` (no existe en catalogo) o
-     ``activate_users`` (no existe explicitamente; reverso
-     de ``deactivate_users``)
- * - **Estado**
-   - **Reservado**
- * - **Counterpart**
-   - UC_USR_05 (Bloquear Usuario)
+ * - **Criticidad**
+   - ALTA (restaura acceso al sistema)
+ * - **Complejidad**
+   - BAJA (1 dia)
+ * - **Actor Principal**
+   - User con funcion ``unblock_users``
+ * - **Funcion RBAC**
+   - ``unblock_users``
+ * - **BReq satisfecho**
+   - BReq-004 (Cumplimiento de Seguridad y Auditoria)
 
-Decision pendiente
-==================
+Documentos vinculados
+=====================
 
-Resolver junto con UC_USR_05 — ambos son symmetricos y
-deberian decidirse en el mismo ADR.
+- :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
+- :doc:`/requisitos/casos-uso/users/uc-usr-05/index`
+  (bloqueo manual — operacion inversa)
+- :doc:`/requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos`
+  (bloqueo automatico — UC_USR_06 tambien lo desbloquea)
+- :doc:`/requisitos/casos-uso/auth/uc-auth-01/index`
+  (login — recupera capacidad tras unblock)
+
+Estructura de la spec
+=====================
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Las 12 partes
+
+ informacion-general
+ actores-precondiciones
+ flujo-principal
+ flujos-alternos
+ excepciones
+ requisitos-no-funcionales
+ datos-involucrados
+ diagramas-uml/index
+ criterios-aceptacion
+ patrones-diseno
+ implementacion-tecnica
+ testing
