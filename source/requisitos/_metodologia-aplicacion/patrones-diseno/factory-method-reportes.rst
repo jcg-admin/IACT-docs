@@ -54,7 +54,7 @@ instancia. Por eso se llama ``ReportTypeRegistry``, no
  patron GoF (vocabulario disciplinar aceptado en
  ``_metodologia-aplicacion/`` por STD-010 §2.3); el nombre de
  la clase fue cambiado porque viola §1.4. Tambien se renombro
- ``SoDComplianceReport`` (nombre original del Sprint 1) →
+ ``Separation rule compliance report`` (nombre original) →
  ``SeparationComplianceReport`` por consistencia con la regla
  "no Sod en identificadores" (Sprint 2 cubrio el resto de
  identificadores).

@@ -227,7 +227,7 @@ Cuando un UC tiene un escenario complejo donde mostrar el
 estado concreto del sistema aporta claridad, agregar un
 ``escenario-*.rst`` con el diagrama de objetos. Casos típicos:
 
-- Violación de SoD ilustrada con instancias concretas.
+- Violación de regla de separacion ilustrada con instancias concretas.
 - Estado del sistema antes/después de un flujo crítico.
 - Fixtures de pruebas para reproducir un bug.
 

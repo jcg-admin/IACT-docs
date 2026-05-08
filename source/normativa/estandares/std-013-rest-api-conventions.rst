@@ -31,7 +31,7 @@ Regla principal
    ✅  POST   /api/access/separation-rules/validate   ← recurso + sub-acción
 
    ❌  POST   /api/access/functions/assign            ← verbo en path
-   ❌  POST   /api/access/validate-sod                ← verbo + acrónimo
+   ❌  POST   /api/access/validate-pii                ← verbo + acrónimo
    ❌  GET    /api/access/revoke-permissions          ← verbo en path
 
 Estructura de URL base (OAS3)
@@ -78,8 +78,8 @@ Las mismas reglas de naming que para identificadores de código
 ::
 
    ✅  /access/separation-rules/validate
-   ❌  /access/validate-sod
-   ❌  /access/sod-rules
+   ❌  /access/validate-pii
+   ❌  /access/etl-jobs
 
 Acciones no-CRUD: sub-recursos o verbo calificador
 ---------------------------------------------------
@@ -133,8 +133,8 @@ Mapa de URLs canónicas — módulo Access
    - URL anterior (incorrecta)
    - URL canónica (IACT-docs)
    - Estado
- * - Validar separación de funciones
-   - ``POST /access/validate-sod``
+ * - Validar identificador PII
+   - ``POST /access/validate-pii``
    - ``POST /access/separation-rules/validate``
    - Corregido
  * - Asignar funciones a usuario (bulk)
@@ -214,7 +214,7 @@ Esta convención es referenciada por:
 - :doc:`/normativa/estandares/std-008-naming-identificadores` —
   identifiers en código (mismas reglas de naming aplican a paths).
 - :doc:`/normativa/estandares/std-010-vocabulario-abstracto` —
-  prohibición de acrónimos de dominio (``sod``, ``etl``) en
+  prohibición de acrónimos de dominio (``etl``, ``pii``) en
   identifiers públicos.
 - :doc:`/backend/conventions` — convenciones backend específicas.
 

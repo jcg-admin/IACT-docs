@@ -82,7 +82,7 @@ Vocabulario unificado a "Funcion" (canonico) via CNST_033.
 
 PERM absorbe RBAC_CORE de Access. UC_ACC_01..04 se marcan
 ``deprecated`` con redirect a UC_PERM_*. MOD_Access queda reducido
-a SoD + Segmentos + Permisos Temporales (4 UCs).
+a separacion de deberes + Segmentos + Permisos Temporales (4 UCs).
 
 **Alternativa C — Evolucion total (Hipotesis 3)**
 

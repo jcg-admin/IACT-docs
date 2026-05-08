@@ -83,7 +83,7 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
  * - AGR-006
    - Admin Usuarios
    - Administracion completa de identidades.
-     **SoD:** NO puede tener funciones de AGR-008 (auditoria).
+     **Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoria).
  * - AGR-007
    - Admin Permisos
    - Administracion de RBAC.

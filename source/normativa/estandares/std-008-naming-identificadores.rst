@@ -112,8 +112,8 @@ Ejemplos:
 ---------------------------------------------------
 
 **Regla obligatoria:** las abreviaturas de dominio de negocio o
-de framework (``SoD``, ``RBAC``, ``ETL``, ``PII``, ``KPI``,
-``RTM``, etc.) **NO deben aparecer en identificadores técnicos**.
+de framework (``ETL``, ``PII``, ``KPI``, ``RTM``, ``SAML``,
+etc.) **NO deben aparecer en identificadores técnicos**.
 Las abreviaturas pueden usarse en narrativa (texto explicativo)
 **solo cuando estén definidas previamente en el glosario del
 proyecto**.
@@ -132,9 +132,9 @@ Ejemplos:
  * - Operación
    - Identificador correcto
    - Identificador incorrecto
- * - Validar conflicto entre roles RBAC
-   - ``validateRoleConflict(...)``
-   - ``validateSoD(...)`` (SoD es abreviatura de dominio)
+ * - Validar identificadores PII
+   - ``validatePersonalDataIdentifier(...)``
+   - ``validatePII(...)`` (PII es abreviatura de dominio)
  * - Procesar datos del pipeline ETL
    - ``processIncomingData(...)``
    - ``runETL(...)`` (ETL es jerga sin contexto en el

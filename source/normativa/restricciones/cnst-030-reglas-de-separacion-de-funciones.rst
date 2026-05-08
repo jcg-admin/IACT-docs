@@ -53,7 +53,7 @@ error explicito.
 
 
 Separacion de deberes previene fraude y errores por concentracion de poder. Las reglas
-SoD textuales (no atomicas) son ineficaces porque dependen del
+Separacion de deberes textuales (no atomicas) son ineficaces porque dependen del
 revisor humano.
 
 1.3 Origen

@@ -70,7 +70,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - Externo a los grupos AGR (rol de gobernanza tecnica)
  * - Equipo de Auditoria
    - **Aud**
-   - Consulta logs RBAC + reglas de separacion. Aplica restriccion SoD
+   - Consulta logs RBAC + reglas de separacion. Aplica restriccion de separacion
      declarada en v5.2.1 § 4.2 (NO puede tener funciones de
      otros admin groups).
    - "Auditor" -> AGR-008 (``auditor_group``)

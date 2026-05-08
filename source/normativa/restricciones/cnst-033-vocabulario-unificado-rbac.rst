@@ -118,9 +118,10 @@ Los codenames son los valores del campo ``name`` en el modelo
    - Ingles + sin acronimos
 
 **Regla sobre acronimos:** los acronimos tecnicos (``ETL``,
-``IVR``, ``SoD``) se expanden a terminos descriptivos en ingles
-cuando forman parte de un codename. ``ETL`` → ``pipeline``,
-``SoD`` → ``separation``.
+``IVR``, abreviaturas de dominio como separation of duties)
+se expanden a terminos descriptivos en ingles cuando forman
+parte de un codename. ``ETL`` → ``pipeline``,
+separation of duties → ``separation``.
 
 3.2 Identificadores de Funciones
 ---------------------------------
@@ -674,7 +675,8 @@ aplicados en la correccion de ``MODELO_RBAC_IACT_v5.2.0``.
    graficos            →  charts        (NO graphics)
    auditoria           →  audit_log     (log explicito)
    etl / estado_etl    →  pipeline      (sin acronimo)
-   sod                 →  separation    (sin acronimo)
+   separation of       →  separation    (forma corta inglesa)
+   duties (legacy)
    agrupador           →  function_group
 
 ----
@@ -692,7 +694,7 @@ nivel CRITICO:
 - Uso de ``function_id`` como identificador de autorizacion
   en runtime.
 - Prefijo redundante en nombre de grupo (``agr_``) o regla
-  SoD (``sod_``).
+  de separacion (``separation_``).
 - Prefijo de acronimo en nombre de modulo Python (``rbac_``).
 - Nombre de clase que describe mecanismo en lugar de dominio
   (``RBACBackend``, ``HasFunction``).
