@@ -116,7 +116,7 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
     para administracion ve reportes propios).
   - ``view_audit_log``: R = Aud unico porque AGR-008
     tiene SoD declarado contra otros admin groups
-    (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
+    (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`).
   - ``view_separation_rules``: R = AdmT, C = AdmNT/Aud
     porque modificar reglas SoD afecta directamente la
     administracion no-tech (y es auditable).

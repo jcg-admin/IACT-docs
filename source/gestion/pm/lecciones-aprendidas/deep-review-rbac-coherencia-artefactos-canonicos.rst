@@ -201,7 +201,7 @@ no fundamento de la decisión.
 - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
 - :doc:`/normativa/estandares/std-007-convencion-naming`
 - :doc:`/base-cognitiva/glosario`

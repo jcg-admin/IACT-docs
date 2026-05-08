@@ -271,6 +271,6 @@ explicitamente para evitar regresion.
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`

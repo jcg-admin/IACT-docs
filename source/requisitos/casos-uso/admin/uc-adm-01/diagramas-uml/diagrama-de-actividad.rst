@@ -61,6 +61,6 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
- - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+ - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule`.
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader`.

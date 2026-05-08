@@ -159,7 +159,7 @@ actualizados:
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
   enriquecido con catalogo de los 12 grupos AGR-001..012 +
   distincion system vs custom (D-RBAC-4).
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
   enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
   aplicabilidad a custom groups (D-RBAC-7).
 - :doc:`/base-cognitiva/glosario` § H "Vocabulario RBAC unificado"

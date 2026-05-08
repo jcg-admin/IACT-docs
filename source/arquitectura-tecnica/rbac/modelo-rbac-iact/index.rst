@@ -36,7 +36,7 @@ formaliza el plano de configuracion del modelo RBAC. Catalogo declara
 Las reglas operativas formales viven en:
 
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` — CNST_029
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod` — CNST_030
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones` — CNST_030
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses` — CNST_031
 
 Decisiones arquitectonicas relacionadas:

@@ -14,7 +14,7 @@ RACI RBAC IACT — Trazabilidad
   nota in-text de ADR-BACK-004 legacy).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` —
   CNST normativo del modelo plano.
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod` —
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones` —
   3 reglas SoD declarativas.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses` —
   permisos excepcionales.

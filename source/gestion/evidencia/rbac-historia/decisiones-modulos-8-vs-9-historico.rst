@@ -215,7 +215,7 @@ Mapeo aproximado para SEC_RULES enforcers:
 - ``CNST_001`` -> :doc:`/normativa/restricciones/cnst-001-prohibicion-de-email-y-smtp`
 - ``CNST_002`` -> :doc:`/normativa/restricciones/cnst-003-sesiones-persistidas-en-base-de-datos`
 - ``CNST_003`` -> :doc:`/normativa/restricciones/cnst-007-base-de-datos-ivr-es-solo-lectura`
-- ``CNST_005`` -> :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- ``CNST_005`` -> :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - ``CNST_007`` -> :doc:`/normativa/restricciones/cnst-011-throttling-obligatorio-en-endpoints-publicos`
 
 ----

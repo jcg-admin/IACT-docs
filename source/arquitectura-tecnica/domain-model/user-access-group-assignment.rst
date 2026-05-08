@@ -111,5 +111,5 @@ Relaciones
  - :doc:`/arquitectura-tecnica/domain-model/access-group`
  - :doc:`/arquitectura-tecnica/domain-model/function-group-membership`
  - :doc:`/arquitectura-tecnica/domain-model/user-capability-resolver`
- - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+ - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
  - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`

@@ -295,7 +295,7 @@ Reglas SoD (Separation of Duties)
 (AGR-008) de roles administrativos. Esto previene que un
 admin audite sus propias acciones — base teórica de SoD.
 
-Ver :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+Ver :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 para la formalización SBVR.
 
 Trazabilidad

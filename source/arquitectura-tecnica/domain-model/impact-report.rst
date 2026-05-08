@@ -97,4 +97,4 @@ Relaciones
 
  - :doc:`/arquitectura-tecnica/domain-model/access-group`
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader`
- - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+ - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`

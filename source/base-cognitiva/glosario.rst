@@ -431,7 +431,7 @@ toda documentación nueva del proyecto (formalizado en
      SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
      SOD-003 (access ⊕ audit). Aplican tanto a system como a
      custom groups (ver
-     :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
+     :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`).
  * - **Verificación de Permiso**
    - Función SQL nativa que evalúa en tiempo real si un usuario
      tiene una función específica. Implementación PostgreSQL:

@@ -396,7 +396,7 @@ Origen: ``MODELO_RBAC_IACT_v5_2_1`` § 5.
 **Enforcement:** signal ``pre_save`` de ``UserGroup`` valida en
 runtime y rechaza con ``ValidationError`` si la asignación crea
 conflicto. Vínculo a
-:doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+:doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 
 9. Permisos Temporales
 ======================

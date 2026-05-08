@@ -312,7 +312,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
       - Quien opera ETL no debe auditarlo Quien gestiona users no debe auditar Quien gestiona acceso no debe auditar
 
  Detalle SOD-001/SOD-002/SOD-003:
- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+ :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 
  PROPIEDAD:
  La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.

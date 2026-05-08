@@ -32,7 +32,7 @@ ADR-GOB-009: RBAC Modelo Conceptual (Supersede BACK-001/004)
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
   (decision de coexistencia ACC + PERM, sigue vigente)
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo v5.4.0)
@@ -95,7 +95,7 @@ El modelo RBAC del proyecto IACT es:
    (D-RBAC-4) — distincion entre **system groups** (inmutables)
    y **custom groups** (creables).
 6. **3 reglas SoD** declarativas (SOD-001/002/003) per
-   :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+   :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 7. **Permisos excepcionales temporales** con duracion maxima
    **6 meses** per
    :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.
@@ -312,7 +312,7 @@ Documentos historicos del subsistema RBAC en
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.4.0).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.
 - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`.
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.
