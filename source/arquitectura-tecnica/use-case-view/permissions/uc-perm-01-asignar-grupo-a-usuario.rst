@@ -50,7 +50,7 @@ compliance review).
    usecase "Verificar\nassign_function_groups" as VERIFICAR_AGR
    usecase "Validar AccessGroup\nexiste + ACTIVE" as VALIDAR_AGR_ENTITY
    usecase "Expandir funciones\ndel AccessGroup" as EXPANDIR
-   usecase "Validar SoD\n(set efectivo CNST-005)" as VALIDAR_SOD
+   usecase "Validar regla de separacion\n(set efectivo CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir Assignment\n(target=AccessGroup)" as PERSISTIR
    usecase "Recompute effective_set" as RECALC
    usecase "Invalidar PermissionCache" as INVALIDAR
@@ -63,7 +63,7 @@ compliance review).
  UC_ACC_04 ..> VERIFICAR_AGR : <<include>>
  UC_ACC_04 ..> VALIDAR_AGR_ENTITY : <<include>>
  UC_ACC_04 ..> EXPANDIR : <<include>>
- UC_ACC_04 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_04 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_04 ..> PERSISTIR : <<include>>
  UC_ACC_04 ..> RECALC : <<include>>
  UC_ACC_04 ..> INVALIDAR : <<include>>
@@ -71,7 +71,7 @@ compliance review).
 
  VERIFICAR_AGR --> AuthorizationGuard
  VALIDAR_AGR_ENTITY --> AccessGroupRepo
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> AssignmentRepo
  RECALC --> EffectivePermissionsAggregator
  INVALIDAR --> PermissionCache
@@ -88,8 +88,8 @@ compliance review).
    como su realizacion completa.
  end note
 
- note bottom of VALIDAR_SOD
-   BR-007 + CNST-005: SoD se evalua sobre
+ note bottom of VALIDAR_SEPARATION_RULES
+   BR-007 + CNST-005: separacion se evalua sobre
    FUNCIONES expandidas del AccessGroup,
    no sobre AccessGroup como entidad.
  end note
@@ -109,9 +109,9 @@ compliance review).
  - :doc:`/arquitectura-tecnica/domain-model/assignment-repo` —
    repositorio.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas (CNST-005).
+   reglas de separacion evaluadas (CNST-005).
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta validacion SoD.
+   ejecuta validacion de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/effective-permissions-aggregator` —
    recompute del User destino.
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
