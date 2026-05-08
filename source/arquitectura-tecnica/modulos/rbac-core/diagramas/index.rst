@@ -24,4 +24,4 @@ con su contexto de descripcion.
  :caption: Diagramas
 
  precedencia-permisos
- evaluacion-conflicto-sod
+ evaluacion-conflicto-separacion
