@@ -98,6 +98,7 @@ Sub-vistas del modulo
 
  bounded-context
  interaction-pattern
+ log-retention-flow
 
 ----
 

@@ -100,6 +100,7 @@ Sub-vistas del modulo
 
  bounded-context
  interaction-pattern
+ user-lifecycle
 
 ----
 

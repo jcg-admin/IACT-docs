@@ -105,6 +105,7 @@ Sub-vistas del modulo
 
  bounded-context
  interaction-pattern
+ menu-item-lifecycle
 
 ----
 
