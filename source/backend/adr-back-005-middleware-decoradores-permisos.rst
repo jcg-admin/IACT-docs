@@ -31,8 +31,8 @@ ADR-BACK-005: Middleware y Decoradores para Permisos Granulares
  implemente, sustituir ``capacidad`` -> ``function`` en toda la
  narrativa de este ADR.
 
- Clases renombradas (CIA-RBAC-002 DEC-005): ``GranularPermission``
- -> ``FunctionPermission``; ``GranularPermissionMixin`` ->
+ Clases renombradas (CIA-RBAC-002 DEC-005): ``GranularAccessPolicy``
+ -> ``FunctionAccessPolicy``; ``GranularPermissionMixin`` ->
  ``FunctionPermissionMixin``. Los ejemplos de codigo en este ADR
  conservan los nombres legacy por ser referencia historica
  preservada.
@@ -176,7 +176,7 @@ Componentes:
 
 2. **Permission Classes para DRF:**
 
-   - ``GranularPermission``  (permission class base)
+   - ``GranularAccessPolicy``  (permission class base)
    - ``GranularPermissionMixin``  (helpers para ViewSets)
 
 3. **Middleware Opcional:**
@@ -239,10 +239,10 @@ Contras:
 .. code-block:: python
 
    from rest_framework import viewsets
-   from callcentersite.apps.permissions.permissions import GranularPermission
+   from callcentersite.apps.permissions.permissions import GranularAccessPolicy
 
    class DashboardEndpoints(viewsets.ModelViewSet):
-       permission_classes = [GranularPermission]
+       permission_classes = [GranularAccessPolicy]
        required_permissions = ['sistema.vistas.dashboards.ver']
 
        def get_queryset(self):
@@ -354,13 +354,13 @@ Contras:
    from rest_framework.permissions import BasePermission
    from callcentersite.apps.permissions.services import PermisoService
 
-   class GranularPermission(BasePermission):
+   class GranularAccessPolicy(BasePermission):
        """
        Permission class para DRF ViewSets.
 
        Uso:
            class MyEndpoints(viewsets.ModelViewSet):
-               permission_classes = [GranularPermission]
+               permission_classes = [GranularAccessPolicy]
                required_permissions = ['sistema.recurso.accion']
        """
 
@@ -464,7 +464,7 @@ Trade-offs aceptados:
 
 3. **Fase 3: Permission Classes DRF** (2 dias)
 
-   - Implementar ``GranularPermission``.
+   - Implementar ``GranularAccessPolicy``.
    - Implementar ``GranularPermissionMixin``.
    - Tests de integracion con ViewSets.
 

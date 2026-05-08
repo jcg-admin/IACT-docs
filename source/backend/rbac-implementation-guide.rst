@@ -41,7 +41,7 @@ Estructura de archivos del backend
    ├── apps.py
    ├── models.py                          # Function, AccessGroup, FunctionSeparationRule, ...
    ├── managers.py                        # AccessGroupQueryRepository con queryset.system() / .custom()
-   ├── permissions.py                     # FunctionAuthBackend + DRF FunctionPermission
+   ├── permissions.py                     # FunctionAuthBackend + DRF FunctionAccessPolicy
    ├── signals.py                         # enforcement de separacion en pre_save
    ├── admin.py                           # ModelAdmin con is_system protection
    ├── migrations/
@@ -454,12 +454,12 @@ en lugar de ``auth.Permission``. Compatible con
          return perm in self.get_all_permissions(user_obj, obj)
 
 
- class FunctionPermission(BasePermission):
+ class FunctionAccessPolicy(BasePermission):
      """DRF permission class — usar en views.
 
      Uso:
          class MyEndpoint(APIView):
-             permission_classes = [FunctionPermission]
+             permission_classes = [FunctionAccessPolicy]
              required_function = 'view_reports'
      """
 
@@ -476,11 +476,11 @@ en lugar de ``auth.Permission``. Compatible con
  from rest_framework.views import APIView
  from rest_framework.response import Response
 
- from apps.access.permissions import FunctionPermission
+ from apps.access.permissions import FunctionAccessPolicy
 
 
  class ReportListEndpoint(APIView):
-     permission_classes = [FunctionPermission]
+     permission_classes = [FunctionAccessPolicy]
      required_function = "view_reports"   # ← Function codename
 
      def get(self, request):
@@ -648,7 +648,7 @@ queryset filter** (ver UC_INC_RPT_01).
 
 
  class ReportEndpoints(ReadOnlyModelViewSet):
-     permission_classes = [FunctionPermission]
+     permission_classes = [FunctionAccessPolicy]
      required_function = "view_reports"
 
      def get_queryset(self):

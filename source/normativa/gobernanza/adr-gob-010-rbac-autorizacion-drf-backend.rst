@@ -485,7 +485,7 @@ elimina ni se modifica.
  * - ``permissions/catalog.py``
    - ``class FunctionCatalog``
  * - ``permissions/enforcement.py``
-   - ``class FunctionPermission``
+   - ``class FunctionAccessPolicy``
  * - ``permissions/services.py``
    - ``def calculate_effective_functions()``
  * - ``permissions/apps.py``

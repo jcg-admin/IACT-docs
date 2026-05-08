@@ -304,10 +304,10 @@ lenguaje del dominio, no como lo hace ni donde vive.
  * - ``FunctionCatalog``
    - ``Permissions``
    - ``Permissions`` es plural de infraestructura, no dominio
- * - ``FunctionPermission``
+ * - ``FunctionAccessPolicy``
    - ``HasFunction``
    - ``Has`` es patron getter, no expresa el rol de la clase
- * - ``FunctionPermission``
+ * - ``FunctionAccessPolicy``
    - ``RBACPermission``
    - ``RBAC`` repite contexto del modulo
 

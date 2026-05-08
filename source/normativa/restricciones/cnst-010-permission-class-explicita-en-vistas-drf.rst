@@ -71,7 +71,7 @@ revisor.
 
 - ``DEFAULT_PERMISSION_CLASSES = [IsAuthenticated]`` como fallback.
 - Toda vista que opera sobre PII o catalogo RBAC declara una
-  permission class especifica (``FunctionPermission``,
+  permission class especifica (``FunctionAccessPolicy``,
   ``IsAdminUser``).
 - Esta prohibido ``permission_classes = [AllowAny]`` excepto en login.
 
@@ -84,7 +84,7 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Django REST Framework
-- permission_classes (FunctionPermission custom, ver CIA-RBAC-002 DEC-005)
+- permission_classes (FunctionAccessPolicy custom, ver CIA-RBAC-002 DEC-005)
 - django-guardian (object-level)
 
 3. Impacto en Sistema
@@ -220,5 +220,5 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  * - 2.0.1
    - 2026-05-04
    - NestorMonroy
-   - Actualizar nombre de clase: HasFunctionPermission -> FunctionPermission (CIA-RBAC-002 DEC-005)
+   - Actualizar nombre de clase: RequireFunctionPolicy -> FunctionAccessPolicy (CIA-RBAC-002 DEC-005)
 

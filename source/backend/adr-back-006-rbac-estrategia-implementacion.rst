@@ -268,8 +268,8 @@ permisos. Cuando el codigo se materialice:
 
 - Decoradores ``@verificar_permiso`` (legacy espanol) ->
   ``@require_function`` (canonico ingles, scope-appropriate).
-- ``GranularPermission`` DRF class (legacy) ->
-  ``FunctionPermission`` (CIA-RBAC-002 DEC-005), que delega en el
+- ``GranularAccessPolicy`` DRF class (legacy) ->
+  ``FunctionAccessPolicy`` (CIA-RBAC-002 DEC-005), que delega en el
   backend ``FunctionAuthorization`` (DEC-003) el cual usa
   ``calculate_effective_functions()`` via Python —
   **no** llama a ``user_has_function()`` SQL directamente.
