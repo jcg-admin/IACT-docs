@@ -7,7 +7,7 @@ Parte 9 — Criterios de aceptacion
 CA-01: Agregar funcion a AGR sistema → 201.
 CA-02: Funcion ya asignada → 409.
 CA-03: Funcion inexistente en catalogo → 400.
-CA-04: Conflicto SoD detectado → 400 + detalle.
+CA-04: Conflicto de separacion detectado → 400 + detalle.
 CA-05: AGR no de sistema → 403.
 CA-06: Remover funcion → effective_set
 recalculado para todos los usuarios del AGR.

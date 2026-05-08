@@ -9,7 +9,7 @@ UT-02: DisjointSetValidator — interseccion detectada.
 UT-03: FunctionValidator — funcion inexistente.
 UT-04: FunctionValidator — todas validas.
 
-IT-01: Crear SoDRule + audit + enforcement reload.
+IT-01: Crear SeparationRule + audit + enforcement reload.
 IT-02: Update incrementa version.
 IT-03: Disable → INACTIVE; enforcement recarga.
 IT-04: Reactivar → ACTIVE; enforcement recarga.

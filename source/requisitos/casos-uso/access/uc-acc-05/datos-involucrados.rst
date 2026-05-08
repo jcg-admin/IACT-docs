@@ -52,7 +52,7 @@ Query params:
      "previous": null,
      "results": [
        {
-         "id": "sod-001",
+         "id": "sr-001",
          "name": "Admin no auditor",
          "description": "modify_users no
                           coexiste con
@@ -87,7 +87,7 @@ Query params:
 .. code-block:: json
 
    {
-     "id": "sod-002",
+     "id": "sr-002",
      "name": "...",
      "function_ids": [1, 42],
      "state": "ACTIVE",
@@ -126,7 +126,7 @@ PATCH parcial. ``function_ids`` NO permitido
 7.8 Modelo de datos tocado
 ==========================
 
-7.8.1 SoDRule
+7.8.1 SeparationRule
 -------------
 
 .. list-table::
@@ -138,7 +138,7 @@ PATCH parcial. ``function_ids`` NO permitido
    - Notas
  * - id
    - VARCHAR (PK)
-   - generado: ``sod-NNN``
+   - generado: ``sr-NNN``
  * - name
    - VARCHAR
    - identificador legible
@@ -181,11 +181,11 @@ PATCH parcial. ``function_ids`` NO permitido
 
 ::
 
-   event_type ∈ {SOD_RULES_VIEWED,
-                 SOD_RULE_CREATED,
-                 SOD_RULE_MODIFIED,
-                 SOD_RULE_RETIRED,
-                 SOD_RULE_*_FAILED}
+   event_type ∈ {SEPARATION_RULES_VIEWED,
+                 SEPARATION_RULE_CREATED,
+                 SEPARATION_RULE_MODIFIED,
+                 SEPARATION_RULE_RETIRED,
+                 SEPARATION_RULE_*_FAILED}
    payload incluye:
      - rule_id
      - changes (en MODIFIED)
@@ -193,7 +193,7 @@ PATCH parcial. ``function_ids`` NO permitido
      - existing_violations_count (en CREATED)
      - residual_violations_count (en RETIRED)
 
-7.8.3 SoDRuleCache (post-COMMIT)
+7.8.3 SeparationRuleCache (post-COMMIT)
 --------------------------------
 
 ``invalidate_active_rules()`` notifica a
@@ -203,7 +203,7 @@ recargar.
 7.9 Volumetria estimada
 =======================
 
-- Reglas SoD totales: ~10-50 (catalogo
+- Reglas de Separacion totales: ~10-50 (catalogo
   pequeño).
 - Operaciones/dia: ~0-2 (cambio infrequente).
 - Lecturas/dia: ~50 (UC_ACC_01/04 cargan

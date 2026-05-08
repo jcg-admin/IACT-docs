@@ -23,7 +23,7 @@
  rectangle "MOD_Access" {
    usecase "UC_ACC_08\nPermiso Temporal" as UC_ACC_08
    usecase "Validar payload\n(justification + expires_at)" as VALIDAR_PAYLOAD
-   usecase "Validar SoD\nwrite-time (CNST-005)" as VALIDAR_SOD
+   usecase "Validar separacion\nwrite-time (CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir\nExceptionalPermission" as PERSISTIR
    usecase "Notificar via\nInternalMailbox (P-10)" as MAILBOX
    usecase "Emitir AuditEvent\nEXCEPTIONAL_*_GRANTED" as AUDIT
@@ -33,13 +33,13 @@
  INVOKER --> UC_PERM_03
  UC_PERM_03 ..> UC_ACC_08 : <<include>>
  UC_ACC_08 ..> VALIDAR_PAYLOAD : <<include>>
- UC_ACC_08 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_08 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_08 ..> PERSISTIR : <<include>>
  UC_ACC_08 ..> MAILBOX : <<include>>
  UC_ACC_08 ..> AUDIT : <<include>>
  EXPIRY ..> UC_ACC_08 : <<extend>>
 
- VALIDAR_SOD --> RV
+ VALIDAR_SEPARATION_RULES --> RV
  MAILBOX --> MB
  MB --> TARGET
  AUDIT --> AS
@@ -77,9 +77,9 @@
  - :doc:`/arquitectura-tecnica/domain-model/exceptional-permission-repo` —
    repositorio (find_active_grant, find_expiring_in para cron).
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas en VALIDAR_SOD (CNST-005).
+   reglas de separacion evaluadas en VALIDAR_SEPARATION_RULES (CNST-005).
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   componente que ejecuta validacion SoD write-time.
+   componente que ejecuta validacion de separacion write-time.
  - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
    MailboxService (P-10 mailbox-or-abort HARD).
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —

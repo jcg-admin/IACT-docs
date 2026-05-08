@@ -14,7 +14,7 @@ Parte 1 — Informacion general de UC_ACC_05
  * - **ID UC**
    - UC_ACC_05
  * - **Nombre**
-   - Gestionar Reglas SoD (Separation of Duties)
+   - Gestionar Reglas de Separacion (Separation of Duties)
  * - **Version spec**
    - 5.0.0
  * - **Modulo**
@@ -24,7 +24,7 @@ Parte 1 — Informacion general de UC_ACC_05
 =============
 
 UC_ACC_05 administra el catalogo de **reglas
-SoD** que el sistema usa para enforcement
+Separacion de deberes** que el sistema usa para enforcement
 write-time. BR-007 establece que ciertas
 funciones son mutuamente excluyentes para un
 mismo User (ej. ``modify_users`` y
@@ -45,14 +45,14 @@ donde se configuran.
 Sub-operacion de lectura
 (``view_separation_rules``):
 
-- Listar reglas SoD vigentes (state=ACTIVE) y
+- Listar reglas de separacion vigentes (state=ACTIVE) y
   retiradas (state=RETIRED) con paginacion.
 - Ver detalle de una regla.
 
 Sub-operacion de gestion
 (``view_separation_rules``):
 
-- **Crear** nueva regla SoD (con par o
+- **Crear** nueva regla de separacion (con par o
   conjunto de funciones en conflicto y
   metadata).
 - **Modificar** regla existente
@@ -63,7 +63,7 @@ Sub-operacion de gestion
 1.3.2 OUT
 ---------
 
-- Validacion SoD en write-time → UC_ACC_01,
+- Validacion de separacion en write-time → UC_ACC_01,
   UC_ACC_04, UC_PERM_03.
 - Investigacion de violaciones existentes →
   UC_ACC_03 (modo informativo).
@@ -93,10 +93,10 @@ critica**. Cambios deben:
  * - **BRQ legacy**
    - BRQ-ACC-005
  * - **Reglas**
-   - BR-007 Separacion de Funciones (SoD),
+   - BR-007 Separacion de Funciones (separation of duties),
      BR-010 Auditoria
  * - **CNST**
-   - CNST-005 SoD enforcement, CNST-009,
+   - CNST-005 enforcement de separacion, CNST-009,
      CNST-013, CNST-025, CNST-026
  * - **Funciones RBAC**
    - ``view_separation_rules`` (lectura),
@@ -114,7 +114,7 @@ critica**. Cambios deben:
      informativa de violaciones), UC_AUD_*
      (compliance).
  * - **Clase primaria**
-   - ``SoDRule``
+   - ``SeparationRule``
  * - **Clases secundarias**
    - ``Function`` (referenciada por la regla),
      ``AuditEvent``.

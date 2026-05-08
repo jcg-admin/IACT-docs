@@ -21,7 +21,7 @@ compliance.
 - **User destino**: receptor pasivo. Recibe
   capacidades temporales.
 - **Sistema**: validar User + funciones,
-  validar SoD, persistir
+  validar separacion, persistir
   ExceptionalPermission, notificar
   InternalMessage obligatorio.
 - **Cron de expiracion**: proceso externo
@@ -48,7 +48,7 @@ compliance.
   NOW()+30 dias por default).
 - ``justification`` provisto y no vacio
   (longitud minima recomendada 20 chars).
-- Conjunto efectivo resultante cumple SoD.
+- Conjunto efectivo resultante cumple separacion.
 
 2.4 Postcondiciones
 ===================

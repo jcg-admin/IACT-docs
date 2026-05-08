@@ -38,12 +38,12 @@
 
  :Filtrar idempotencia;
  :Calcular cascade_affected_user_count;
- :Validar SoD para cada User con AGR
+ :Validar separacion para cada User con AGR
   con set efectivo post-cambio;
 
- if (Cascade SoD violation?) then (si)
+ if (Cascade separacion violation?) then (si)
    if (politica strict?) then (si)
-     :409 CASCADE_SOD_VIOLATION;
+     :409 CASCADE_SEPARATION_VIOLATION;
      :Audit COMPOSITION_FAILED;
      stop
    else (permissive)

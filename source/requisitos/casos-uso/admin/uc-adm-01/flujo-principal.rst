@@ -4,7 +4,7 @@
 Parte 3 — Flujo principal
 ==========================
 
-3.1 Crear regla SoD
+3.1 Crear regla de separacion
 ===================
 
 PASO 1 — POST /api/admin/separation-rules/.
@@ -16,8 +16,8 @@ PASO 3 — Validar:
 - Funciones existen en catalogo activo (UC_ADM_02).
 - Nombre unico.
 
-PASO 4 — INSERT SoDRule (estado=ACTIVE).
-PASO 5 — Audit SOD_RULE_CREATED (alta criticidad).
+PASO 4 — INSERT SeparationRule (estado=ACTIVE).
+PASO 5 — Audit SEPARATION_RULE_CREATED (alta criticidad).
 PASO 6 — EnforcementEngine.reload().
 PASO 7 — 201.
 
@@ -32,7 +32,7 @@ Audit por cada cambio. EnforcementEngine.reload().
 
 Toggle ACTIVE → INACTIVE. Regla permanece en BD
 (no DELETE — BR-009 bajas logicas). Enforcement
-deja de aplicarla. Audit SOD_RULE_DISABLED.
+deja de aplicarla. Audit SEPARATION_RULE_DISABLED.
 
 3.4 Resumen
 ===========
@@ -53,7 +53,7 @@ deja de aplicarla. Audit SOD_RULE_DISABLED.
    - Validator
    - 030
  * - 4
-   - INSERT SoDRule
+   - INSERT SeparationRule
    - Repo
    - —
  * - 5

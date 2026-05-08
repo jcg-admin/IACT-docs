@@ -13,14 +13,14 @@
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_06\nComposicion AGR" as UC_PERM_06
-   usecase "Validar SoD\ncascade" as VALIDAR_SOD
+   usecase "Validar separacion\ncascade" as VALIDAR_SEPARATION_RULES
    usecase "registrar add" as RegistrarDatos
    usecase "DELETE remove" as EliminarRegistro
    usecase "Audit COMPOSITION_CHANGED" as AuditEmitter
  }
 
  assign_functions_to_group --> UC_PERM_06
- UC_PERM_06 ..> VALIDAR_SOD : <<include>>
+ UC_PERM_06 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_PERM_06 ..> INS : <<include>>
  UC_PERM_06 ..> DEL : <<include>>
  UC_PERM_06 ..> EMI : <<include>>

@@ -83,14 +83,14 @@ Parte 12 — Testing
    WHEN  grant
    THEN  raise SelfGrantForbidden
 
-12.2.6 SoD violation (CA-06)
+12.2.6 separacion violation (CA-06)
 ----------------------------
 
 ::
 
-   GIVEN funcion en conflicto SoD
+   GIVEN funcion en conflicto de separacion
    WHEN  grant
-   THEN  raise SoDViolation
+   THEN  raise SeparationRuleViolation
    AND   ningun ExceptionalPermission creado
 
 12.2.7 Mailbox-or-abort hard (CA-07)
@@ -210,14 +210,14 @@ Parte 12 — Testing
    WHEN  POST
    THEN  status == 400 VALIDATION_ERROR
 
-12.3.6 SoD 409
+12.3.6 separacion 409
 --------------
 
 ::
 
-   GIVEN conflicto SoD
+   GIVEN conflicto de separacion
    WHEN  POST
-   THEN  status == 409 SOD_VIOLATION
+   THEN  status == 409 SEPARATION_VIOLATION
 
 12.3.7 Mailbox fail 500 rollback (CA-07)
 ----------------------------------------
@@ -296,14 +296,14 @@ Parte 12 — Testing
    AND   target ve nuevas capacidades temporales
          + InternalMessage en buzon
 
-12.4.2 Modal de SoD bloquea
+12.4.2 Modal de separacion bloquea
 ---------------------------
 
 ::
 
    GIVEN funcion en conflicto
    WHEN  click Otorgar
-   THEN  modal con detalle SoD
+   THEN  modal con detalle de separacion
    AND   sin grant
 
 12.4.3 Boton oculto sin la funcion

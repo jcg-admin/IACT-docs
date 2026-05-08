@@ -26,8 +26,8 @@ Parte 11 — Implementacion tecnica
    - bulk_insert, bulk_delete
  * - **CascadeUsersFinder**
    - users_with_active_agr_assignment
- * - **CascadeSoDValidator**
-   - per User SoD validation
+ * - **CascadeSeparationRuleValidator**
+   - per User validacion de separacion
  * - **CascadePolicy**
    - strict vs permissive
  * - **PermissionCache**
@@ -58,7 +58,7 @@ Parte 11 — Implementacion tecnica
                FunctionNotFound,
                FunctionInactive,
                ValidationError,
-               CascadeSoDViolation,
+               CascadeSeparationRuleViolation,
                BDTimeout, AuditFalla
 
    data ChangeCompositionOutput:
@@ -73,11 +73,11 @@ Parte 11 — Implementacion tecnica
      change_reason: string
      changed_at: timestamp
 
-   contract CascadeSoDValidator:
+   contract CascadeSeparationRuleValidator:
      validate(agr_id, delta_added,
-              delta_removed, sod_rules)
+              delta_removed, separation_rules)
        returns: ValidationResult
-       throws: CascadeSoDViolation
+       throws: CascadeSeparationRuleViolation
                 (violating_users_sample)
 
 11.3 Pseudocodigo
@@ -119,7 +119,7 @@ Parte 11 — Implementacion tecnica
        skipped_remove =
          set(remove_ids) - current_function_ids
 
-       # Cascade users + SoD
+       # Cascade users + separacion
        users_with_agr =
          CascadeUsersFinder
            .users_with_active_agr_assignment(
@@ -127,13 +127,13 @@ Parte 11 — Implementacion tecnica
        cascade_count = len(users_with_agr)
 
        if to_add or to_remove:
-           sod_rules = SoDRuleRepository
+           separation_rules = SeparationRuleRepository
                          .list_active()
            try:
-               CascadeSoDValidator.validate(
+               CascadeSeparationRuleValidator.validate(
                  agr_id, to_add, to_remove,
-                 users_with_agr, sod_rules)
-           except CascadeSoDViolation as e:
+                 users_with_agr, separation_rules)
+           except CascadeSeparationRuleViolation as e:
                if cascade_policy == STRICT:
                    AuditLog.emit(
                      event_type=
@@ -212,16 +212,16 @@ Parte 11 — Implementacion tecnica
  * - ValidationError
    - 400
    - VALIDATION_ERROR
- * - CascadeSoDViolation (strict)
+ * - CascadeSeparationRuleViolation (strict)
    - 409
-   - CASCADE_SOD_VIOLATION
+   - CASCADE_SEPARATION_VIOLATION
 
 11.5 Restricciones cross-cutting
 ================================
 
 - Atomicidad PASOS 12-15.
 - Audit obligatorio (CNST-025).
-- Cascade SoD obligatoria (P-48).
+- Cascade separacion obligatoria (P-48).
 - Cache cascade post-COMMIT (P-29 escalado).
 - Predefined inmutable (P-46).
 - Sin PII en payload (CNST-026).

@@ -17,7 +17,7 @@ Parte 4 — Flujos alternos (rutas alternativas)
 **Activador**: GET con ``?rule_id=X``.
 
 **Diferencia**: AuditEvent
-``SOD_RULES_VIEWED`` con
+``SEPARATION_RULES_VIEWED`` con
 ``payload.target_rule_id``.
 
 4.3 FA-03: Crear regla con violaciones existentes
@@ -34,7 +34,7 @@ conflictivo.
   ``existing_violations_count`` y
   ``violating_user_ids`` (sample) — para
   visibilidad.
-- AuditEvent SOD_RULE_CREATED payload
+- AuditEvent SEPARATION_RULE_CREATED payload
   incluye ``existing_violations_count``.
 - Frontend muestra warning destacado y
   recomienda revisar UC_ACC_03 para resolver.

@@ -25,7 +25,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 10  Validar funciones (existen + ACTIVE)    (Backend → BD)
    PASO 11  Filtrar idempotencia (ya granted
             ACTIVE no expirado)                      (Backend → BD)
-   PASO 12  Validar SoD del set efectivo
+   PASO 12  Validar separacion del set efectivo
             resultante                               (Backend → BD)
    PASO 13  INSERT ExceptionalPermissions            (Backend → BD)
    PASO 14  Invalidar cache (post-COMMIT)            (Backend)
@@ -50,13 +50,13 @@ PASO 9 — Validacion payload
    require len(function_ids) <= 10
      # politica MAX_EXCEPTIONAL_FUNCTIONS
 
-PASO 12 — SoD validation
+PASO 12 — validacion de separacion
 ------------------------
 
 Identica a UC_ACC_01: construir
 ``effective_post_grant`` (current effective
 ∪ exceptional functions nuevas), evaluar
-SoDRules ACTIVE, all-or-nothing si viola.
+SeparationRules ACTIVE, all-or-nothing si viola.
 
 PASO 15 — InternalMessage OBLIGATORIO
 -------------------------------------

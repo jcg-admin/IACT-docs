@@ -1,8 +1,8 @@
-8.4 Diagrama de estados — SoDRule
+8.4 Diagrama de estados — SeparationRule
 =================================
 
 .. uml::
- :caption: Maquina de estados de SoDRule
+ :caption: Maquina de estados de SeparationRule
 
  @startuml
 

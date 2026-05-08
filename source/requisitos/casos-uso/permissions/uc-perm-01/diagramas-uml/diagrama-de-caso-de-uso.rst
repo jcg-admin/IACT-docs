@@ -23,7 +23,7 @@
    usecase "UC_ACC_04\nAsignar AGR" as UC_ACC_04
    usecase "Validar AccessGroup\nexiste + ACTIVE" as VALIDAR_AGRUPADOR
    usecase "Expandir funciones\ndel AccessGroup" as EXPANDIR
-   usecase "Validar SoD\n(set efectivo)" as VALIDAR_SOD
+   usecase "Validar separacion\n(set efectivo)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir Assignment\n(target=AccessGroup)" as PERSISTIR
    usecase "Invalidar PermissionCache" as CACHE_INV
    usecase "Emitir AuditEvent\nAGR_ASSIGNED" as AUDIT
@@ -33,12 +33,12 @@
  UC_PERM_01 ..> UC_ACC_04 : <<include>>
  UC_ACC_04 ..> VALIDAR_AGRUPADOR : <<include>>
  UC_ACC_04 ..> EXPANDIR : <<include>>
- UC_ACC_04 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_04 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_04 ..> PERSISTIR : <<include>>
  UC_ACC_04 ..> CACHE_INV : <<include>>
  UC_ACC_04 ..> AUDIT : <<include>>
 
- VALIDAR_SOD --> RV
+ VALIDAR_SEPARATION_RULES --> RV
  CACHE_INV --> PC
  AUDIT --> AS
  AS --> view_audit_log
@@ -53,8 +53,8 @@
    UC_ACC_04 como su realizacion completa.
  end note
 
- note bottom of VALIDAR_SOD
-   BR-007 + CNST-005: SoD se evalua
+ note bottom of VALIDAR_SEPARATION_RULES
+   BR-007 + CNST-005: separacion se evalua
    sobre FUNCIONES expandidas del AGR,
    no sobre AGR como entidad.
  end note
@@ -74,9 +74,9 @@
  - :doc:`/arquitectura-tecnica/domain-model/assignment-repo` —
    repositorio que persiste el Assignment.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas en VALIDAR_SOD (CNST-005).
+   reglas de separacion evaluadas en VALIDAR_SEPARATION_RULES (CNST-005).
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   componente que ejecuta validacion SoD.
+   componente que ejecuta validacion de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
    cache invalidada post-COMMIT.
  - :doc:`/arquitectura-tecnica/domain-model/audit-service` —

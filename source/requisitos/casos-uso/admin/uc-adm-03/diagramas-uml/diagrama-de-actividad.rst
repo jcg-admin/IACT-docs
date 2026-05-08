@@ -31,9 +31,9 @@
    stop
  endif
 
- :Validar SoD precheck (BR-007):
-   no debe violar ninguna regla SoD activa;
- if (Conflicto SoD?) then (si)
+ :Validar separacion precheck (BR-007):
+   no debe violar ninguna regla de separacion activa;
+ if (Conflicto de separacion?) then (si)
    :400 + detalle de regla violada;
    stop
  endif

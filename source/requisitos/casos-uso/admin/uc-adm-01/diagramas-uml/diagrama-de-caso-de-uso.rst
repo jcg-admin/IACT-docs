@@ -22,12 +22,12 @@
  actor "FunctionRepo" as FunctionRepo <<sistema>>
 
  rectangle "MOD_Admin" {
-   usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas SoD" as UC_ADM_01
+   usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas de Separacion" as UC_ADM_01
    usecase "Validar conjuntos\ndisjuntos (CNST-030)" as VALIDAR_CONJUNTOS
    usecase "Validar funciones\nen catalogo activo" as VALIDAR_FUNCIONES
    usecase "Validar nombre\nunico" as VALIDAR_NOMBRE
    usecase "Persistir SeparationRule\n(BR-009 baja logica)" as PERSISTIR
-   usecase "Emitir AuditEvent\nSOD_RULE_*" as AUDITAR
+   usecase "Emitir AuditEvent\nSEPARATION_RULE_*" as AUDITAR
    usecase "EvaluatorReloader\n.reload()" as RELOAD
  }
 
@@ -58,7 +58,7 @@
  end note
 
  note bottom of AUDITAR
-   SOD_RULE_CREATED / UPDATED /
+   SEPARATION_RULE_CREATED / UPDATED /
    DISABLED. CNST-025 alta
    criticidad — cambios al
    modelo RBAC.

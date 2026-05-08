@@ -45,7 +45,7 @@ Identicas a UC_ACC_04:
 - Backend respondiendo, BD accesible, HTTPS,
   invocante con
   ``assign_function_groups``, User destino
-  valido, AGR existe + ACTIVE, SoD compliance
+  valido, AGR existe + ACTIVE, compliance de separacion
   del set efectivo resultante.
 
 2.4 Postcondiciones

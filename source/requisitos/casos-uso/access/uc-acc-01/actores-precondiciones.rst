@@ -18,7 +18,7 @@ distinta de:
   poder revocar son privilegios distintos).
 - ``assign_access_group`` (UC_ACC_04 — masivo
   via AGR).
-- ``configure_sod`` (UC_ACC_05 — privilegio
+- ``configure_separation_rules`` (UC_ACC_05 — privilegio
   mas alto, solo admin de seguridad).
 
 En el catalogo predefinido, la funcion
@@ -68,10 +68,10 @@ Responsabilidades:
 - Validar User destino (estado y existencia).
 - Validar cada funcion a asignar (existencia,
   estado activo).
-- **Validar SoD** por cada funcion contra el
+- **Validar separacion** por cada funcion contra el
   conjunto actual del User
   (intersection de funciones asignadas +
-  pending → buscar conflictos en SoDRules
+  pending → buscar conflictos en SeparationRules
   ACTIVE).
 - Crear N Assignments atomicamente.
 - Invalidar cache de permisos del User.
@@ -87,14 +87,14 @@ Responsabilidades:
   duplicados.
 - Append-only en AuditEvent (CNST-025).
 
-2.2.4 SoDValidator (servicio interno)
+2.2.4 SeparationRuleValidator (servicio interno)
 -------------------------------------
 
-- Consume SoDRules vigentes (CNST-005).
+- Consume SeparationRules vigentes (CNST-005).
 - Determina si una nueva asignacion crearia
   conflicto.
 - Bloquea con mensaje especifico citando la
-  regla SoD violada.
+  regla de separacion violada.
 
 2.2.5 Interfaz de Usuario
 -------------------------
@@ -103,7 +103,7 @@ Responsabilidades:
   funciones (visible solo con
   ``assign_functions``).
 - Validacion client-side basica.
-- Feedback claro cuando SoD bloquea
+- Feedback claro cuando separacion bloquea
   (mostrando regla y conflicto).
 - Confirmacion antes de aplicar.
 
@@ -157,7 +157,7 @@ detectar:
 - Cada funcion esta en estado ``ACTIVE``.
 - El conjunto de funciones nuevas + las
   actuales del User no viola ninguna regla
-  SoD ``ACTIVE``.
+  Separacion de deberes ``ACTIVE``.
 
 2.4 Postcondiciones
 ===================

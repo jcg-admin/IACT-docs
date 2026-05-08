@@ -30,7 +30,7 @@
  :Iniciar transaccion atomica;
  :Aplicar operacion (registrar, actualizar, o
   actualizar state=RETIRED segun caso);
- :registrar AuditEvent SOD_RULE_X;
+ :registrar AuditEvent SEPARATION_RULE_X;
  :Commit transaccion;
 
  if (Transaccion OK?) then (no)
@@ -39,7 +39,7 @@
  else (si)
  endif
 
- :SoDRuleCache.invalidate (post-COMMIT);
+ :SeparationRuleCache.invalidate (post-COMMIT);
  :200 / 201;
 
  stop

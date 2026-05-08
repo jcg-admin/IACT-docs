@@ -27,7 +27,7 @@
    usecase "Verificar capability\n(AGR-010)" as VERIFICAR_CAP
    usecase "Verificar AccessGroup\nis_system=True" as VERIFICAR_SISTEMA
    usecase "Verificar Function\nen catalogo activo" as VERIFICAR_FN
-   usecase "Validar SoD precheck\n(BR-007)" as VALIDAR_SOD
+   usecase "Validar separacion precheck\n(BR-007)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir\nFunctionGroupMembership" as PERSISTIR
    usecase "Calcular impacto\n(preview)" as PREVIEW
    usecase "Invalidar PermissionCache" as INVALIDAR
@@ -41,7 +41,7 @@
  UC_ADM_03 ..> VERIFICAR_CAP : <<include>>
  UC_ADM_03 ..> VERIFICAR_SISTEMA : <<include>>
  UC_ADM_03 ..> VERIFICAR_FN : <<include>>
- UC_ADM_03 ..> VALIDAR_SOD : <<include>>
+ UC_ADM_03 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ADM_03 ..> PERSISTIR : <<include>>
  UC_ADM_03 ..> PREVIEW : <<extend>>
  UC_ADM_03 ..> INVALIDAR : <<include>>
@@ -51,7 +51,7 @@
  VERIFICAR_CAP --> AuthorizationGuard
  VERIFICAR_SISTEMA --> AccessGroupRepo
  VERIFICAR_FN --> FunctionRepo
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> FunctionGroupRepo
  INVALIDAR --> PermissionCache
  RELOAD --> EvaluatorReloader
@@ -65,9 +65,9 @@
    usar UC_PERM_06.
  end note
 
- note bottom of VALIDAR_SOD
+ note bottom of VALIDAR_SEPARATION_RULES
    BR-007: la nueva Function no
-   debe violar ninguna regla SoD
+   debe violar ninguna regla de separacion
    activa con las Functions ya
    asignadas al AGR.
  end note

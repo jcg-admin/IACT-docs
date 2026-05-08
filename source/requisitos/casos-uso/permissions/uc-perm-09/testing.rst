@@ -76,7 +76,7 @@ AGR_ASSIGNED visible en UC_PERM_10 query.
 E2E-02: UC_AUTH_01 fallido → LOGIN_FAILED con
 username_hash.
 E2E-03: UC_PERM_05 retire AGR → COMPOSITION
-events en cadena (FAILED si SoD bloquea, OK
+events en cadena (FAILED si separacion bloquea, OK
 si exito).
 E2E-04: AlertEngine recibe evento crítico
 en < 30s.

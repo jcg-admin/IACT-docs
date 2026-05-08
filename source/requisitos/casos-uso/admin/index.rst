@@ -24,7 +24,7 @@ MOD_Admin — Administracion del Modelo RBAC (UCs)
  Ver :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 Plano de configuracion del modelo RBAC: gestiona QUE funciones, grupos
-del sistema y reglas SoD EXISTEN. Actor principal: ``system_admin``
+del sistema y reglas de separacion EXISTEN. Actor principal: ``system_admin``
 (AGR-010 — ``system_admin_group``).
 Ver :doc:`/arquitectura-tecnica/use-case-view/admin/index`.
 

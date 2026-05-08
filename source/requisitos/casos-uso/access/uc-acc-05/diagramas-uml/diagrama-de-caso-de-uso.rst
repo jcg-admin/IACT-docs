@@ -13,7 +13,7 @@
  actor "Sistema (consumidores)" as SistemaConsumidores
 
  rectangle "MOD_Access" {
-   usecase "UC_ACC_05\nGestionar SoD" as UC_ACC_05
+   usecase "UC_ACC_05\nGestionar Separacion" as UC_ACC_05
    usecase "Listar reglas" as VistaListado
    usecase "Crear regla" as CREAR_AGRUPADOR
    usecase "Modificar regla" as MODIFICAR_AGRUPADOR
@@ -39,7 +39,7 @@
 
  note bottom of CACHE_PERMISOS
    UC_ACC_01/04/PERM_03 cargan reglas
-   ACTIVE en cache para SoD write-time
+   ACTIVE en cache para separacion write-time
  end note
 
  @enduml

@@ -10,7 +10,7 @@
  participant "Frontend" as Frontend
  participant "CompositionView" as Compositionview
  participant "PermService" as Permservice
- participant "SoDValidator" as Sodvalidator
+ participant "SeparationRuleValidator" as Sodvalidator
  participant "PermCache" as Permcache
  participant "AuditLog" as Auditlog
  database "Repo" as Repo
@@ -25,10 +25,10 @@
  Permservice -> Permservice: filtrar idempotencia
  Permservice -> Repo: Users con AGR + sus effective sets
  Permservice -> Sodvalidator: cascade_validate
- alt cascade SoD violation strict
+ alt cascade separacion violation strict
    Sodvalidator --> Permservice: violations
    Permservice -> Auditlog: emit COMPOSITION_FAILED
-   Permservice --> Compositionview: SoDViolation
+   Permservice --> Compositionview: SeparationRuleViolation
    Compositionview --> Frontend: 409
  else OK
    group Transaccion atomica

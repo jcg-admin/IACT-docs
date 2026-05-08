@@ -41,9 +41,9 @@ Parte 11 — Implementacion tecnica
  * - **AssignmentRepository**
    - list_active_for_user,
      bulk_insert
- * - **SoDRuleRepository**
+ * - **SeparationRuleRepository**
    - list_active_rules
- * - **SoDValidator**
+ * - **SeparationRuleValidator**
    - is_set_compliant(set, rules);
      find_first_violation
  * - **AntiSelfActionPolicy**
@@ -78,7 +78,7 @@ Parte 11 — Implementacion tecnica
                SelfAssignForbidden,
                FunctionNotFound,
                FunctionInactive,
-               SoDViolation, ValidationError,
+               SeparationRuleViolation, ValidationError,
                BDTimeout, AuditFalla
 
    data AssignFunctionsInput:
@@ -105,14 +105,14 @@ Parte 11 — Implementacion tecnica
      function_code: string
      reason: enum {already_active}
 
-   contract SoDValidator:
+   contract SeparationRuleValidator:
      validate(effective_set: set[int],
-              rules: list[SoDRule])
+              rules: list[SeparationRule])
        returns: ValidationResult
-       throws: SoDViolation
+       throws: SeparationRuleViolation
                 (rule_id, conflict_pair)
 
-   contract SoDRule:
+   contract SeparationRule:
      id: int
      name: string
      state: enum
@@ -195,16 +195,16 @@ Parte 11 — Implementacion tecnica
                       target, function_ids,
                       invoker)
 
-       # PASO 10 — SoD validation
+       # PASO 10 — validacion de separacion
        current_function_ids =
          {a.function_id for a in active_assignments}
        effective_set =
          current_function_ids | new_function_ids
-       sod_rules =
-         SoDRuleRepository.list_active_rules()
-       SoDValidator.validate(
-         effective_set, sod_rules)
-       # raise SoDViolation si viola
+       separation_rules =
+         SeparationRuleRepository.list_active_rules()
+       SeparationRuleValidator.validate(
+         effective_set, separation_rules)
+       # raise SeparationRuleViolation si viola
 
        # PASOS 11-13 atomico
        result =
@@ -234,7 +234,7 @@ Parte 11 — Implementacion tecnica
                  list(already_assigned_ids),
                expires_at: expires_at,
                sod_rules_evaluated_count:
-                 len(sod_rules),
+                 len(separation_rules),
                ip: ctx.ip,
                user_agent: ctx.user_agent})
 
@@ -258,7 +258,7 @@ Parte 11 — Implementacion tecnica
                    already_assigned_ids,
                    user_notified,
                    sod_rules_count:
-                     len(sod_rules)}
+                     len(separation_rules)}
        )
 
        # PASO 12 — post-COMMIT
@@ -319,9 +319,9 @@ Parte 11 — Implementacion tecnica
  * - FunctionInactive
    - 400
    - FUNCTION_INACTIVE
- * - SoDViolation
+ * - SeparationRuleViolation
    - 409
-   - SOD_VIOLATION
+   - SEPARATION_VIOLATION
  * - ValidationError
    - 400
    - VALIDATION_ERROR
@@ -348,8 +348,8 @@ Parte 11 — Implementacion tecnica
    - TransactionManager.atomic envuelve
      PASOS 11-13. Cache invalidate
      post-COMMIT (P-29).
- * - **All-or-nothing SoD (P-28)**
-   - SoDValidator.validate lanza ANTES de la
+ * - **All-or-nothing separacion (P-28)**
+   - SeparationRuleValidator.validate lanza ANTES de la
      transaccion (PASO 10). Si lanza,
      ROLLBACK no es necesario porque no se
      inicio la TX.
@@ -359,7 +359,7 @@ Parte 11 — Implementacion tecnica
  * - **PII fuera del payload (CNST-026)**
    - AuditEvent.payload contiene solo IDs y
      codigos. Validable por test.
- * - **SoD write-time (P-27, CNST-005)**
+ * - **separacion write-time (P-27, CNST-005)**
    - Validacion en PASO 10 — no diferido.
  * - **Cache post-COMMIT (P-29)**
    - PermissionCache.invalidate FUERA del

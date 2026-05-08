@@ -14,7 +14,7 @@
 
  Invoker -> UiPerm: Selecciona functions + User +\n  expires_at + justification + TKT
  UiPerm -> API: GET preview-exceptional
- API --> UiPerm: preview con SoD
+ API --> UiPerm: preview con separacion
  UiPerm -> UiPerm: Modal con preview + warning\n  "high-priority audit"
  Invoker -> UiPerm: Confirma
 

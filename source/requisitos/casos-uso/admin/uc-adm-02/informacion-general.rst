@@ -72,7 +72,7 @@ o verificacion (MOD_Permissions).
    - AGR-010 (system_admin — unico actor autorizado)
  * - **UCs relacionados**
    - UC_PERM_01 (effective_set — consume catalogo),
-     UC_ADM_01 (SoD referencia funciones del catalogo)
+     UC_ADM_01 (separacion referencia funciones del catalogo)
  * - **Clase primaria**
    - ``Function`` (modelo Django)
 

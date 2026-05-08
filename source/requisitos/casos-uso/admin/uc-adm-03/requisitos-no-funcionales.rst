@@ -15,5 +15,5 @@ Parte 6 — Requisitos no funcionales
   auditado con alta criticidad (CNST-025).
 - Impacto controlado: vista /impact/ disponible
   antes de confirmar cambio.
-- Consistencia: SoD verificado antes de persistir
+- Consistencia: separacion verificada antes de persistir
   (CNST-030).

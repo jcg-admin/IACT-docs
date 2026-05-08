@@ -10,7 +10,7 @@ Parte 11 — Implementacion tecnica
 - SystemGroupEndpoint (GET, POST function, DELETE function, GET impact)
 - AuthorizationGuard (requiere AGR-010)
 - SystemGroupGuard (verifica is_system=True)
-- SoDPreCheckValidator (valida contra reglas activas)
+- SeparationPreCheckValidator (valida contra reglas activas)
 - FunctionGroupRepo
 - PermissionsEngine.recalculate(agr_id)
 - AuditService
@@ -40,7 +40,7 @@ Parte 11 — Implementacion tecnica
        group = FunctionGroupRepo.get(group_id)
        require group.is_system == True
        fn = FunctionRepo.get_active(codename)
-       SoDPreCheckValidator.validate(
+       SeparationPreCheckValidator.validate(
          group, fn)
        FunctionGroupRepo.add_function(
          group, fn)

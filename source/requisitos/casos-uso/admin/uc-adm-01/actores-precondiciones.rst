@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **AGR-010** ``system_admin`` — unico actor autorizado
-- **SoDRuleRepo**
+- **SeparationRuleRepo**
 - **EnforcementEngine** (consume reglas activas)
 
 2.2 Precondiciones
@@ -19,9 +19,9 @@ Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 2.3 Postcondiciones
 ===================
 
-- SoDRule creada / actualizada / desactivada.
-- Audit ``SOD_RULE_CREATED`` / ``SOD_RULE_UPDATED`` /
-  ``SOD_RULE_DISABLED`` emitido.
+- SeparationRule creada / actualizada / desactivada.
+- Audit ``SEPARATION_RULE_CREATED`` / ``SEPARATION_RULE_UPDATED`` /
+  ``SEPARATION_RULE_DISABLED`` emitido.
 - EnforcementEngine recarga reglas activas.
 
 2.4 Datos de entrada
@@ -44,4 +44,4 @@ Auth + RBAC verificado. Actor tiene AGR-010 asignado.
 2.5 Datos de salida
 ===================
 
-SoDRule completa con estado y version.
+SeparationRule completa con estado y version.

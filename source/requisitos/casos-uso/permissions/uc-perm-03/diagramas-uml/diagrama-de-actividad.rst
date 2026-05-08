@@ -11,7 +11,7 @@
  :Selecciona functions + User +
   expires_at + justification + TKT;
  :GET preview-exceptional;
- :Modal con preview SoD + warning
+ :Modal con preview separacion + warning
   high-priority audit;
 
  if (Confirma?) then (no)

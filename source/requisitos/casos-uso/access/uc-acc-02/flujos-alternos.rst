@@ -38,7 +38,7 @@ AuditEvent informativo).
 
 **Activador**: PASO 11 — la revocacion incluye
 una funcion en ``CRITICAL_FUNCTIONS``
-(ej. ``configure_sod``,
+(ej. ``configure_separation_rules``,
 ``deactivate_users``).
 
 **Diferencia**: PASO 11 marca
@@ -81,7 +81,7 @@ sistema.
 
 **Justificacion**: defensa contra
 "bus factor" de privilegios. Si solo una
-persona tiene la funcion ``configure_sod``,
+persona tiene la funcion ``configure_separation_rules``,
 revocarsela deja al sistema sin admin de
 seguridad.
 
@@ -113,7 +113,7 @@ masivo se beneficia de indice en
 **Diferencia**: PASO 15 omitido. Util para
 casos donde el admin prefiere comunicarse
 directamente o cuando la revocacion es
-tecnica/preliminar (e.g. resolucion SoD
+tecnica/preliminar (e.g. resolucion de separacion
 seguida de re-asignacion).
 
 4.7 Resumen

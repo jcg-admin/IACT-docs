@@ -14,7 +14,7 @@
 MOD_Access — Acceso, Roles, Segmentos (vista funcional)
 =======================================================
 
-Vista funcional del RBAC: agrupadores predefinidos AGR-001..012, segmentos, SoD, permisos temporales.
+Vista funcional del RBAC: agrupadores predefinidos AGR-001..012, segmentos, separacion, permisos temporales.
 
 Casos de Uso
 ------------

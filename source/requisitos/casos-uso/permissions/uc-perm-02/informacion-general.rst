@@ -62,7 +62,7 @@ revoca AGRs de Users por:
 - Cambio de rol (revocar AGR previo).
 - Compliance review (revocar AGRs no
   utilizados).
-- Resolver conflictos SoD (UC_PERM_01 con
+- Resolver conflictos de separacion (UC_PERM_01 con
   AGR alternativo).
 
 1.4 Trazabilidad inicial

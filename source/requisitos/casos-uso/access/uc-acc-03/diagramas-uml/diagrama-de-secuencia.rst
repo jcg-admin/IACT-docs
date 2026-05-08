@@ -13,7 +13,7 @@
  participant "AssignmentRepo" as Assignmentrepo
  participant "AGRRepo" as Agrrepo
  participant "ExcPermRepo" as Excpermrepo
- participant "SoDValidator" as Sodvalidator
+ participant "SeparationRuleValidator" as Sodvalidator
  participant "AuditLog" as Auditlog
  database "Repo" as Repo
 

@@ -8,14 +8,14 @@ Parte 10 — Patrones de diseno
 ===========================
 
 GoF: Strategy (ExpirationPolicy),
-Repository, Specification (SoDRule),
+Repository, Specification (SeparationRule),
 Chain of Responsibility, Observer,
 Template Method.
 
 IACT: P-08 fail-closed, P-09 audit-or-abort,
 P-10 mailbox-or-abort HARD, P-11
 anti-self-action, P-15 RBAC granular, P-22
-idempotencia parcial, P-27 SoD write-time,
+idempotencia parcial, P-27 separacion write-time,
 P-28 all-or-nothing, P-29 cache post-COMMIT,
 P-32 reason-required, P-38 time-bounded
 grants, P-39 audit reforzado.

@@ -7,10 +7,10 @@ Parte 11 — Implementacion tecnica
 11.1 Componentes
 ================
 
-- SoDRuleEndpoint (CRUD + disable + reactivate)
+- SeparationRuleEndpoint (CRUD + disable + reactivate)
 - AuthorizationGuard (requiere AGR-010)
 - DisjointSetValidator
-- SoDRuleRepo
+- SeparationRuleRepo
 - EnforcementEngine.reload()
 - AuditService
 
@@ -19,14 +19,14 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract SoDRuleService:
+   contract SeparationRuleService:
      create(payload, invoker)
-       returns: SoDRule
+       returns: SeparationRule
      update(id, payload, invoker)
-       returns: SoDRule
+       returns: SeparationRule
      disable(id, invoker)
      reactivate(id, invoker)
-     list(filters) -> List[SoDRule]
+     list(filters) -> List[SeparationRule]
 
 11.3 Pseudocodigo
 =================
@@ -40,15 +40,15 @@ Parte 11 — Implementacion tecnica
          payload.group_a, payload.group_b)
        FunctionValidator.all_exist(
          payload.group_a + payload.group_b)
-       rule = SoDRule(
+       rule = SeparationRule(
          name=payload.name,
          group_a=payload.group_a,
          group_b=payload.group_b,
          rationale=payload.rationale,
          state=ACTIVE, version=1)
-       SoDRuleRepo.save(rule)
+       SeparationRuleRepo.save(rule)
        AuditService.emit(
-         'SOD_RULE_CREATED',
+         'SEPARATION_RULE_CREATED',
          criticality=HIGH)
        EnforcementEngine.reload()
        return rule
@@ -58,4 +58,4 @@ Parte 11 — Implementacion tecnica
 
 - EnforcementEngine puede ser in-process
   o servicio separado (pub/sub para reload).
-- SoDRule persiste en BD relacional.
+- SeparationRule persiste en BD relacional.

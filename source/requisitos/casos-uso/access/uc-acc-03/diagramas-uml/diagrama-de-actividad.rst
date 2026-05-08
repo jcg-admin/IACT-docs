@@ -36,7 +36,7 @@
   + metadata origen por funcion;
  :Detectar Assignments con expires_at < marca_tiempo_actual
   (expired_pending_purge);
- :Evaluar SoDRules informativamente
+ :Evaluar SeparationRules informativamente
   (sod_violations_detected);
 
  :Audit EFFECTIVE_PERMISSIONS_VIEWED (P-16);

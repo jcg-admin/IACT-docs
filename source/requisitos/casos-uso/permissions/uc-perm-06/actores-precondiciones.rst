@@ -34,7 +34,7 @@ duties dentro de governance).
   predefinido — predefinidos son inmutables).
 - Funciones a agregar / quitar existen +
   ACTIVE.
-- Conjunto resultante respeta SoD para
+- Conjunto resultante respeta separacion para
   TODOS los Users con el AGR (defensa
   cascade).
 - ``change_reason`` ≥ 20 chars (auditabilidad).

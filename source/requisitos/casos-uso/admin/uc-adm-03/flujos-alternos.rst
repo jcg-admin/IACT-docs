@@ -6,9 +6,9 @@ Parte 4 — Flujos alternos
 
 FA-01: Funcion no existe en catalogo: 400.
 FA-02: Funcion ya asignada al grupo: 409.
-FA-03: Funcion genera conflicto SoD con otras
+FA-03: Funcion genera conflicto de separacion con otras
 funciones del grupo: 400 + detalle de regla
-SoD violada.
+Separacion violada.
 FA-04: AGR objetivo no es de sistema
 (is_system=False): 403 (usar UC_PERM_06).
 FA-05: Ver impacto antes de cambiar: GET
@@ -33,7 +33,7 @@ Resumen
    - 409
    - idempotencia
  * - FA-03
-   - Conflicto SoD
+   - Conflicto de separacion
    - 400 + regla
    - UC_ADM_01
  * - FA-04

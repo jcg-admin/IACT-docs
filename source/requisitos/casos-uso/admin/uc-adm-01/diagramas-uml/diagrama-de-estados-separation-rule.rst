@@ -1,4 +1,4 @@
-.. _uc-adm-01-parte-08-diagrama-estados-sod-rule:
+.. _uc-adm-01-parte-08-diagrama-estados-separation-rule:
 
 8.3 Diagrama de estados — SeparationRule
 =========================================
@@ -35,6 +35,6 @@
 
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule`.
  - :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
-   (BR-007 SoD).
+   (BR-007 separacion de deberes).
  - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
    (semantica soft delete).

@@ -125,7 +125,7 @@ concesion del mismo periodo (mas restrictivo).
  * - CNST
    - Aplicacion
  * - **CNST-005**
-   - SoD: el servicio NO valida SoD —
+   - Separacion de deberes: el servicio NO valida separacion —
      asume que la asignacion paso ese
      check al crearse.
  * - **CNST-008**

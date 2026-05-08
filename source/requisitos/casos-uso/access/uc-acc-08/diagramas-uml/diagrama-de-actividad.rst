@@ -52,10 +52,10 @@
  endif
 
  :Construir effective_post_grant;
- :Evaluar SoDRules;
+ :Evaluar SeparationRules;
 
- if (SoD viola?) then (si)
-   :409 SOD_VIOLATION;
+ if (separacion viola?) then (si)
+   :409 SEPARATION_VIOLATION;
    :Audit GRANT_FAILED ALERTA;
    stop
  else (no)

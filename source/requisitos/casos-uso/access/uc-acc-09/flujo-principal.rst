@@ -33,7 +33,7 @@ Whitelist:
 
 - ``event_type`` ∈ catalogo conocido
   (FUNCTIONS_ASSIGNED, FUNCTIONS_REVOKED,
-  AGR_ASSIGNED, SOD_RULE_CREATED, etc.).
+  AGR_ASSIGNED, SEPARATION_RULE_CREATED, etc.).
 - ``ordering`` whitelist
   (occurred_at, -occurred_at, event_type).
 

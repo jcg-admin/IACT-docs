@@ -41,7 +41,7 @@ Diferencia con UC_ACC_01:
   rapido, asignacion de roles estandar.
 
 Ambas convergen en UC_ACC_03 (vista efectiva)
-y respetan SoD (UC_ACC_05).
+y respetan separacion (UC_ACC_05).
 
 1.3 Alcance
 ===========
@@ -50,7 +50,7 @@ y respetan SoD (UC_ACC_05).
 --------
 
 - Asignacion de un AGR a un User.
-- Validacion SoD considerando todas las
+- Validacion de separacion considerando todas las
   funciones del AGR contra el conjunto
   efectivo actual del User (write-time —
   CNST-005).
@@ -91,11 +91,11 @@ predefinido (e.g. ``basic_operator_group``).
  * - **BRQ legacy**
    - BRQ-ACC-004
  * - **Reglas**
-   - BR-006 RBAC Flat NIST, BR-007 SoD,
+   - BR-006 RBAC Flat NIST, BR-007 separacion de deberes,
      BR-008 Permisos con vencimiento, BR-010
      Auditoria
  * - **CNST**
-   - CNST-005 SoD enforcement, CNST-009,
+   - CNST-005 enforcement de separacion, CNST-009,
      CNST-013, CNST-025, CNST-026
  * - **Funcion RBAC**
    - ``assign_function_groups``
@@ -106,7 +106,7 @@ predefinido (e.g. ``basic_operator_group``).
      UC_ACC_02 (revocar — opera tambien
      sobre AGR Assignments),
      UC_ACC_03 (consultar efectivos),
-     UC_ACC_05 (configurar SoD que se
+     UC_ACC_05 (configurar separacion que se
      valida),
      UC_PERM_05/06 (administracion del
      catalogo de AGRs).
@@ -114,5 +114,5 @@ predefinido (e.g. ``basic_operator_group``).
    - ``Assignment`` (target_type=AGR)
  * - **Clases secundarias**
    - ``User``, ``AccessGroup``,
-     ``Function``, ``SoDRule``,
+     ``Function``, ``SeparationRule``,
      ``AuditEvent``

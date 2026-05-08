@@ -76,7 +76,7 @@ Parte 7 — Datos involucrados
        "critical_revoked": [],
        "last_holder": [
          {"function_id": 7,
-          "function_code": "configure_sod",
+          "function_code": "configure_separation_rules",
           "remaining_holders_after": 0}
        ]
      },

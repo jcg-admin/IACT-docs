@@ -10,7 +10,7 @@ Parte 10 — Patrones de diseno
 - Repository (AccessGroupFunction).
 - Strategy (CascadePolicy strict vs
   permissive).
-- Specification (SoDRule).
+- Specification (SeparationRule).
 - Visitor (cascade per User).
 - Chain of Responsibility (pipeline).
 - Observer (AuditLog).
@@ -25,7 +25,7 @@ Parte 10 — Patrones de diseno
   (assign_functions_to_group distinta
   de create_function_group).
 - P-22 Idempotencia parcial.
-- P-27 SoD write-time.
+- P-27 separacion write-time.
 - P-28 All-or-nothing escalado a cascade.
 - P-29 Cache post-COMMIT (cascade).
 - P-32 Reason-required (change_reason).
@@ -34,11 +34,11 @@ Parte 10 — Patrones de diseno
 10.3 Especificos
 ================
 
-10.3.1 P-48 Cascade SoD Validation
+10.3.1 P-48 Cascade separacion Validation
 ----------------------------------
 
 **Aplica a**: cuando un cambio en composicion
-de AGR afecta N Users con AGR ACTIVE, SoD
+de AGR afecta N Users con AGR ACTIVE, separacion
 debe validarse para cada User considerando
 su effective_set + delta. Defensa
 fundamental contra violaciones masivas
@@ -72,8 +72,8 @@ trazabilidad.
      P-32, P-46
  * - P-28 escalado a cascade
    - IACT
-   - rollback total ante cascade SoD
- * - P-48 Cascade SoD Validation
+   - rollback total ante cascade separacion
+ * - P-48 Cascade separacion Validation
    - IACT
    - validacion per User con AGR
  * - P-49 Composition-Affects-Cascade

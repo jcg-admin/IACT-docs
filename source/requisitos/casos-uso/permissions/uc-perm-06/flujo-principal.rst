@@ -12,7 +12,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 1   Invoker abre detalle de AGR custom    (Frontend)
    PASO 2   Selecciona functions a agregar +
             functions a quitar + change_reason     (Frontend)
-   PASO 3   Modal robusto + preview SoD cascade   (Frontend)
+   PASO 3   Modal robusto + preview separacion cascade   (Frontend)
    PASO 4   Confirma                                (Frontend)
    PASO 5   POST /api/access-groups/{id}/
             functions/ (con add_ids + remove_ids)  (FE → BE)
@@ -25,7 +25,7 @@ Parte 3 — Flujo principal (Camino feliz)
             presentes en add, no presentes en
             remove)                                  (Backend → BD)
    PASO 10  Calcular cascade_affected_user_count    (Backend → BD)
-   PASO 11  Validar SoD post-cambio para cada
+   PASO 11  Validar separacion post-cambio para cada
             User con AGR (defensa cascade)           (Backend → BD)
    PASO 12  INSERT AccessGroupFunction (add)         (Backend → BD)
    PASO 13  DELETE AccessGroupFunction (remove)      (Backend → BD)
@@ -37,7 +37,7 @@ Parte 3 — Flujo principal (Camino feliz)
 3.2 Detalle clave
 =================
 
-PASO 11 — SoD cascade validation
+PASO 11 — separacion cascade validation
 --------------------------------
 
 ::
@@ -46,14 +46,14 @@ PASO 11 — SoD cascade validation
        new_effective = (user.effective ∪
                        added_functions) -
                       removed_functions
-       SoDValidator.validate(new_effective,
+       SeparationRuleValidator.validate(new_effective,
                               rules)
        if violated:
-           raise CascadeSoDViolation(
+           raise CascadeSeparationRuleViolation(
              user_id, conflict)
 
 All-or-nothing: si CUALQUIER User violaria
-SoD, el cambio se bloquea.
+separacion, el cambio se bloquea.
 
 Decision politica:
 

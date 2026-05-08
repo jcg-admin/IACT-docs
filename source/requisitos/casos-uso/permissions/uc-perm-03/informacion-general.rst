@@ -44,7 +44,7 @@ UC_PERM_01 que asigna AGR completo
 - Otorgar 1..N funciones excepcionales con
   ``expires_at`` (1h-30d) y
   ``justification`` (≥ 20 chars) obligatorios.
-- Validacion SoD write-time (CNST-005).
+- Validacion separacion write-time (CNST-005).
 - Mailbox-or-abort HARD (P-10).
 - AuditEvent EXCEPTIONAL_PERMISSION_GRANTED.
 
@@ -75,7 +75,7 @@ compliance officer.
  * - **Origen legacy**
    - PRIORIDAD_01 + RNF-002
  * - **Reglas**
-   - BR-007 SoD, BR-008 Permisos con
+   - BR-007 separacion de deberes, BR-008 Permisos con
      vencimiento, BR-010 Auditoria
  * - **CNST**
    - CNST-005, CNST-009/013/025/026

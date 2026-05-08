@@ -68,10 +68,10 @@ function_id=1,
 - Body ``assigned == [{2, ...}]``,
   ``skipped == [{1, "already_active"}]``
 
-9.5 CA-05: SoD violation bloquea (EX-08)
+9.5 CA-05: separacion violation bloquea (EX-08)
 ========================================
 
-**DADO** SoDRule activa que prohibe coexistencia
+**DADO** SeparationRule activa que prohibe coexistencia
 de function_id=1 (modify_users) con
 function_id=42 (audit_users), y User ya tiene
 function_id=1 ACTIVE,
@@ -81,18 +81,18 @@ function_id=1 ACTIVE,
 **ENTONCES**:
 
 - Status = 409
-- Body ``error == 'SOD_VIOLATION'``
+- Body ``error == 'SEPARATION_VIOLATION'``
 - Body contiene ``rule_id``,
   ``conflict_pair``
 - ``Assignment`` no creado (rollback)
 - AuditEvent FUNCTIONS_ASSIGN_FAILED
   ``reason='sod_violation'``
 
-9.6 CA-06: SoD all-or-nothing
+9.6 CA-06: separacion all-or-nothing
 =============================
 
 **DADO** payload con 3 funciones donde la 2ª
-viola SoD,
+viola separacion,
 
 **ENTONCES**:
 
@@ -228,7 +228,7 @@ inmediatamente despues,
 9.19 CA-19: Performance P50 (1-3 funciones)
 ===========================================
 
-**DADO** payload con 1-3 funciones y SoDRules
+**DADO** payload con 1-3 funciones y SeparationRules
 < 50,
 
 **ENTONCES**:
@@ -290,7 +290,7 @@ UC_ACC_02 previo,
    - Idempotencia parcial / total
    - Funcional / FA-01, FA-03
  * - CA-05..06
-   - SoD violacion + all-or-nothing
+   - separacion violacion + all-or-nothing
    - Cumplimiento / CNST-005
  * - CA-07
    - Auto-asignacion prohibida (P-11)

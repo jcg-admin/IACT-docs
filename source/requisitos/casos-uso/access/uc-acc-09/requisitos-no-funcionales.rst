@@ -37,7 +37,7 @@ Parte 6 — Requisitos no funcionales
   cuando hay foco target_user_id.
 - ACCESS_EVENT_TYPES catalogo:
   FUNCTIONS_ASSIGNED, FUNCTIONS_REVOKED,
-  AGR_ASSIGNED, SOD_RULE_*,
+  AGR_ASSIGNED, SEPARATION_RULE_*,
   EXCEPTIONAL_PERMISSION_*,
   UNAUTHORIZED_ACCESS_ATTEMPT (subset),
   USER_ELIMINATED (subset que afecta

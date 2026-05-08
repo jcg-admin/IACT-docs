@@ -31,7 +31,7 @@ Resumen
 UC_ACC_09 expone una **vista especializada
 de auditoria** focalizada en eventos de
 MOD_Access: asignaciones, revocaciones,
-cambios SoD, permisos excepcionales. Es la
+cambios separacion, permisos excepcionales. Es la
 puerta de entrada de auditores y compliance
 officers al historial RBAC. Subset de
 UC_AUD_* (audit general) con filtros y

@@ -10,7 +10,7 @@
  [UC_ACC_01 (assign)] --> [AuditEvent]
  [UC_ACC_02 (revoke)] --> [AuditEvent]
  [UC_ACC_04 (AGR)] --> [AuditEvent]
- [UC_ACC_05 (SoD)] --> [AuditEvent]
+ [UC_ACC_05 (separation of duties)] --> [AuditEvent]
  [UC_ACC_08 (excepc)] --> [AuditEvent]
  [UC_USR_04 (eliminate)] --> [AuditEvent]
  [AuditEvent] --> [UC_ACC_09 (vista audit)]

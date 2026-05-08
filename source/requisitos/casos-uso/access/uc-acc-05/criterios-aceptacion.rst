@@ -36,8 +36,8 @@ ACTIVE,
 **ENTONCES**:
 
 - Status = 201
-- Nueva SoDRule con state=ACTIVE
-- AuditEvent SOD_RULE_CREATED
+- Nueva SeparationRule con state=ACTIVE
+- AuditEvent SEPARATION_RULE_CREATED
 - Cache invalidada post-COMMIT
 
 9.4 CA-04: Crear regla duplicada 409 (EX-06)
@@ -48,7 +48,7 @@ functions,
 
 **ENTONCES**:
 
-- Status = 409 SOD_RULE_DUPLICATE
+- Status = 409 SEPARATION_RULE_DUPLICATE
 - Body con ``existing_rule_id``
 
 9.5 CA-05: Crear con violaciones existentes (FA-03)
@@ -102,7 +102,7 @@ functions,
 - ``state == RETIRED``
 - ``retired_at``, ``retired_by_admin_id``,
   ``retire_reason`` registrados
-- AuditEvent SOD_RULE_RETIRED
+- AuditEvent SEPARATION_RULE_RETIRED
 - Cache invalidada
 
 9.10 CA-10: retire_reason obligatorio (EX-08)
@@ -123,7 +123,7 @@ functions,
 
 **ENTONCES**:
 
-- Status = 400 SOD_RULE_ALREADY_RETIRED
+- Status = 400 SEPARATION_RULE_ALREADY_RETIRED
 
 9.12 CA-12: Sin permiso lectura/CRUD (EX-02)
 ============================================
@@ -152,7 +152,7 @@ functions,
 
 **ENTONCES**:
 
-- AuditEvent SOD_RULES_VIEWED con
+- AuditEvent SEPARATION_RULES_VIEWED con
   ``payload.target_rule_id``
 
 9.15 CA-15: Audit listado amplio NO se emite
@@ -162,7 +162,7 @@ functions,
 
 **ENTONCES**:
 
-- ZERO AuditEvent SOD_RULES_VIEWED
+- ZERO AuditEvent SEPARATION_RULES_VIEWED
 
 9.16 CA-16: Atomicidad ante audit fail
 ======================================
@@ -172,7 +172,7 @@ functions,
 **ENTONCES**:
 
 - Status = 500
-- Sin cambios en SoDRule
+- Sin cambios en SeparationRule
 - Cache no invalidada
 
 9.17 CA-17: Audit inmutable (CNST-025)
@@ -187,7 +187,7 @@ functions,
 9.18 CA-18: Audit sin PII (CNST-026)
 ====================================
 
-**DADO** AuditEvent SOD_RULE_*,
+**DADO** AuditEvent SEPARATION_RULE_*,
 
 **ENTONCES**:
 

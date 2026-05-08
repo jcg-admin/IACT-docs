@@ -39,10 +39,10 @@ Parte 5 — Excepciones
 
 400 VALIDATION_ERROR.
 
-5.8 EX-08: Cascade SoD violation (default strict)
+5.8 EX-08: Cascade separacion violation (default strict)
 =================================================
 
-409 CASCADE_SOD_VIOLATION. Body lista
+409 CASCADE_SEPARATION_VIOLATION. Body lista
 ``violating_users`` (sample) + reglas
 afectadas. AuditEvent
 ACCESS_GROUP_COMPOSITION_FAILED.
@@ -102,7 +102,7 @@ ACCESS_GROUP_COMPOSITION_FAILED.
    - 400
    - validation
  * - EX-08
-   - Cascade SoD violation
+   - Cascade separacion violation
    - 409
    - COMPOSITION_FAILED ALERTA
  * - EX-09

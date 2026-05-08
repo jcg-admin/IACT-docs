@@ -21,7 +21,7 @@ Backend (heredados de UC_ACC_04):
   AuthorizationGuard, AccessGroupRepository,
   AssignmentRepository,
   EffectivePermissionsAggregator,
-  SoDValidator, PermissionCache, AuditLog,
+  SeparationRuleValidator, PermissionCache, AuditLog,
   TransactionManager.
 
 Componentes adicionales para vista PERM:
@@ -108,7 +108,7 @@ Componentes adicionales para vista PERM:
        already = agr_function_ids ∩ current_effective
 
        sod_violations =
-         SoDValidator
+         SeparationRuleValidator
            .find_violations_info_mode(
              current_effective | agr_function_ids)
 
@@ -135,7 +135,7 @@ Heredado de UC_ACC_04. Adicional:
 
 Backend: heredadas de UC_ACC_04
 (atomicidad, audit, sin PII, cache
-post-COMMIT, P-27 SoD write-time).
+post-COMMIT, P-27 separacion write-time).
 
 Vista PERM:
 

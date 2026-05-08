@@ -114,5 +114,5 @@ Para todos los Users con el AGR ACTIVE
 15 FR aprox: validar auth + RBAC +
 payload + AGR existe + custom + ACTIVE +
 functions validas + idempotencia + cascade
-SoD + atomic INSERT/DELETE + cache + audit
+Separacion de deberes + atomic INSERT/DELETE + cache + audit
 + response.

@@ -1,6 +1,6 @@
 .. _uc-adm-01-parte-08-diagrama-actividad:
 
-8.2 Diagrama de actividad — Crear regla SoD
+8.2 Diagrama de actividad — Crear regla de separacion
 ============================================
 
 .. uml::
@@ -41,12 +41,12 @@
 
  :BEGIN TRANSACTION;
  :INSERT SeparationRule (state=ACTIVE, version=1);
- :Audit SOD_RULE_CREATED
+ :Audit SEPARATION_RULE_CREATED
    (actor=invoker, snapshot del rule);
  :COMMIT;
 
  :EvaluatorReloader.reload()
-   (post-COMMIT, hot reload del catalogo SoD);
+   (post-COMMIT, hot reload del catalogo de reglas de separacion);
  if (Reload OK?) then (no)
    :Log + telemetria
    (degraded — operaciones siguen

@@ -1,8 +1,8 @@
-8.5 Diagrama de SoD validation
+8.5 Diagrama de validacion de separacion
 ==============================
 
 .. uml::
- :caption: Logica de validacion SoD (PASO 10)
+ :caption: Logica de validacion de separacion (PASO 10)
 
  @startuml
 
@@ -14,13 +14,13 @@
  :effective_set =
   current_function_ids ∪ new_function_ids;
 
- :consultar SoDRule WHERE state='ACTIVE';
+ :consultar SeparationRule WHERE state='ACTIVE';
 
  repeat
    :tomar siguiente rule;
    :rule define {function_a, function_b}\no relacion compleja;
    if (rule violada por effective_set?) then (si)
-     :raise SoDViolation\n(rule_id, conflict_pair);
+     :raise SeparationRuleViolation\n(rule_id, conflict_pair);
      stop
    else (no)
    endif

@@ -14,5 +14,5 @@ Parte 6 — Requisitos no funcionales
   immutable append-only en AuditEvent.
 - Consistencia: EnforcementEngine debe
   recargar antes de aceptar nuevas asignaciones.
-- Trazabilidad: cada SoDRule tiene version
+- Trazabilidad: cada SeparationRule tiene version
   e historial de cambios.

@@ -4,15 +4,15 @@
 Parte 12 — Testing
 ==================
 
-UT-01: SoDPreCheckValidator — sin conflicto OK.
-UT-02: SoDPreCheckValidator — conflicto detectado.
+UT-01: SeparationPreCheckValidator — sin conflicto OK.
+UT-02: SeparationPreCheckValidator — conflicto detectado.
 UT-03: SystemGroupGuard — is_system=True OK.
 UT-04: SystemGroupGuard — is_system=False → 403.
 
 IT-01: Agregar funcion → composicion actualizada + audit.
 IT-02: Remover funcion → composicion actualizada + audit.
 IT-03: Agregar funcion ya existente → 409.
-IT-04: Agregar funcion con conflicto SoD → 400.
+IT-04: Agregar funcion con conflicto de separacion → 400.
 IT-05: GET /impact/ retorna usuarios afectados.
 IT-06: PermissionsEngine recalcula tras cambio.
 

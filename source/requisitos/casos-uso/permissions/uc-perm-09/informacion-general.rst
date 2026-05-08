@@ -79,10 +79,10 @@ UC_PERM_09 audita estos tipos de evento:
  * - ``ACCESS_GROUP_COMPOSITION_CHANGED``
    - UC_PERM_06
  * - ``ACCESS_GROUP_COMPOSITION_FAILED``
-   - UC_PERM_06 (cascade SoD bloque)
+   - UC_PERM_06 (cascade separacion bloque)
  * - ``UNAUTHORIZED``
    - cualquier UC, 403
- * - ``SOD_VIOLATION``
+ * - ``SEPARATION_VIOLATION``
    - UC_ACC_*, UC_PERM_06
  * - ``CRITICAL_ACTION``
    - acciones marcadas con

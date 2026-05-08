@@ -20,7 +20,7 @@ Parte 6 — Requisitos no funcionales
   granular distinta de ``assign_functions``
   — privilegio mas restringido).
 - P-11 anti-self-grant obligatorio.
-- SoD write-time (CNST-005, P-27).
+- separacion write-time (CNST-005, P-27).
 - justification + expires_at obligatorios.
 - Throttling ESTRICTO 10/hora/invoker
   (vs 30/min en UC_ACC_01) — operaciones
@@ -56,7 +56,7 @@ Parte 6 — Requisitos no funcionales
   (textarea minima 20 chars).
 - Confirmacion ROBUSTA (operacion
   excepcional).
-- Preview de SoD impact antes de submit
+- Preview de separacion impact antes de submit
   (recomendado).
 - Recordatorio visual al admin: "esta
   operacion sera auditada con high
@@ -87,6 +87,6 @@ Parte 6 — Requisitos no funcionales
 
 - BR-008 Permisos con vencimiento (obligatorio
   expires_at).
-- BR-007 SoD.
+- BR-007 separacion.
 - BR-010 Auditoria.
 - CNST-005, CNST-009/013/025/026.
