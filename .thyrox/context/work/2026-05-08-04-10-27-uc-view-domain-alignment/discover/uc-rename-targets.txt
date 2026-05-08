@@ -1,0 +1,42 @@
+
+========== AccessGroup ==========
+   source/requisitos/casos-uso/access/uc-acc-04/diagramas-uml/diagrama-de-agr-como-agregacion.rst  has  +agr_code  → would rename to agr_id
+-- distinct files: 1
+
+========== AgentReportService ==========
+   source/requisitos/casos-uso/reports/uc-rpt-12/diagramas-uml/diagrama-de-clases.rst  has  +list  → would rename to get
+-- distinct files: 1
+
+========== AlertRule ==========
+   source/requisitos/casos-uso/alerts/uc-alr-01/diagramas-uml/diagrama-de-clases.rst  has  +id  → would rename to rule_id
+   source/requisitos/casos-uso/alerts/uc-alr-01/diagramas-uml/diagrama-de-clases.rst  has  +state  → would rename to status
+-- distinct files: 1
+
+========== AuditRepo ==========
+   source/requisitos/casos-uso/audit/uc-aud-01/diagramas-uml/diagrama-de-clases.rst  has  +query  → would rename to find
+-- distinct files: 1
+
+========== ErroresETLService ==========
+   source/requisitos/casos-uso/pipeline/uc-pip-02/diagramas-uml/diagrama-de-clases.rst  has  +listar  → would rename to query
+-- distinct files: 1
+
+========== EvaluatorReloader ==========
+   source/requisitos/casos-uso/alerts/uc-alr-01/diagramas-uml/diagrama-de-clases.rst  has  +reload  → would rename to reload_all
+-- distinct files: 1
+
+========== PipelineExecutionRepo ==========
+   source/requisitos/casos-uso/pipeline/uc-pip-01/diagramas-uml/diagrama-de-clases.rst  has  +ultima_ejecucion  → would rename to last_successful_by_dataset
+   source/requisitos/casos-uso/pipeline/uc-pip-02/diagramas-uml/diagrama-de-clases.rst  has  +por_estado  → would rename to find_by_state
+-- distinct files: 2
+
+========== SavedView ==========
+   source/requisitos/casos-uso/reports/uc-rpt-10/diagramas-uml/diagrama-de-clases.rst  has  +id  → would rename to view_id
+   source/requisitos/casos-uso/reports/uc-rpt-10/diagramas-uml/diagrama-de-clases.rst  has  +filters  → would rename to filters_snapshot
+   source/requisitos/casos-uso/reports/uc-rpt-10/diagramas-uml/diagrama-de-clases.rst  has  +owner  → would rename to owner_user_id
+-- distinct files: 1
+
+========== Subscription ==========
+   source/requisitos/casos-uso/alerts/uc-alr-05/diagramas-uml/diagrama-de-clases.rst  has  +id  → would rename to subscription_id
+   source/requisitos/casos-uso/alerts/uc-alr-05/diagramas-uml/diagrama-de-clases.rst  has  +user  → would rename to subscriber_user_id
+   source/requisitos/casos-uso/alerts/uc-alr-05/diagramas-uml/diagrama-de-clases.rst  has  +rule  → would rename to alert_id
+-- distinct files: 1
