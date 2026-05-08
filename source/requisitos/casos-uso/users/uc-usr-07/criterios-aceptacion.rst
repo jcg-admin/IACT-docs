@@ -9,9 +9,8 @@ CA-01: Edicion completa nominal
 
   | **Given** un User ACTIVE autenticado con
   |   ``edit_own_profile`` activa.
-  | **When** invoca ``PATCH /users/me`` con
-  |   ``{full_name: 'Nuevo Nombre',
-  |     email: 'nuevo@example.com'}``.
+  | **When** invoca ``PATCH /users/me`` con payload
+  |   ``{full_name: "Nuevo Nombre", email: "nuevo@example.com"}``.
   | **Then** ``200 OK``,
   |   ``User.full_name = 'Nuevo Nombre'``,
   |   ``User.email = 'nuevo@example.com'``,
@@ -104,9 +103,9 @@ CA-12: PII no en AuditEvent payload
 
   | **Given** un User edita ``email``.
   | **When** se emite ``PROFILE_UPDATED``.
-  | **Then** payload contiene ``fields_changed:
-  |   ['email']`` pero NO contiene los valores antes/
-  |   despues del email. CNST-026.
+  | **Then** payload contiene ``fields_changed: ['email']``
+  |   pero NO contiene los valores antes/despues del email.
+  |   CNST-026.
 
 CA-13: Atomicidad ante fallo
 =============================

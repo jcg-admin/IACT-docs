@@ -83,11 +83,11 @@ implementación.
 +----------------------------------------------+--------------------------+
 | source/base-cognitiva/_metadata/**           | No — exenta (§2.5.1)     |
 +----------------------------------------------+--------------------------+
-| source/requisitos/casos-uso/**/testing.rst   | No — exenta (§2.5.3)     |
+| ``casos-uso/**/testing.rst``                 | No — exenta (§2.5.3)     |
 +----------------------------------------------+--------------------------+
 | source/normativa/procedimientos/**           | No — exenta (§2.5.4)     |
 +----------------------------------------------+--------------------------+
-| source/normativa/gobernanza/adr-*            | No — exenta (§2.5.5)     |
+| source/normativa/gobernanza/adr-\*           | No — exenta (§2.5.5)     |
 +----------------------------------------------+--------------------------+
 | source/normativa/estandares/plantillas/**    | No — exenta (§2.5.6)     |
 +----------------------------------------------+--------------------------+
