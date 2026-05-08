@@ -241,7 +241,7 @@ Contras:
    from rest_framework import viewsets
    from callcentersite.apps.permissions.permissions import GranularPermission
 
-   class DashboardViewSet(viewsets.ModelViewSet):
+   class DashboardEndpoints(viewsets.ModelViewSet):
        permission_classes = [GranularPermission]
        required_permissions = ['sistema.vistas.dashboards.ver']
 
@@ -359,7 +359,7 @@ Contras:
        Permission class para DRF ViewSets.
 
        Uso:
-           class MyViewSet(viewsets.ModelViewSet):
+           class MyEndpoints(viewsets.ModelViewSet):
                permission_classes = [GranularPermission]
                required_permissions = ['sistema.recurso.accion']
        """

@@ -32,10 +32,10 @@
 
    # apps/access/urls.py
    from rest_framework.routers import DefaultRouter
-   from .views import MenuItemAdminViewSet, MenuItemBulkReorderView
+   from .views import MenuItemAdminEndpoints, MenuItemBulkReorderView
 
    router = DefaultRouter()
-   router.register(r"admin/menu-items", MenuItemAdminViewSet,
+   router.register(r"admin/menu-items", MenuItemAdminEndpoints,
                    basename="admin-menu-items")
 
    urlpatterns = router.urls + [
@@ -58,7 +58,7 @@
    from .permissions import HasCriticalCapability
 
 
-   class MenuItemAdminViewSet(ModelViewSet):
+   class MenuItemAdminEndpoints(ModelViewSet):
        queryset = MenuItem.objects.select_related("function", "parent")
        serializer_class = MenuItemAdminSerializer
        permission_classes = [IsAuthenticated,

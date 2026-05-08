@@ -647,7 +647,7 @@ queryset filter** (ver UC_INC_RPT_01).
  from rest_framework.viewsets import ReadOnlyModelViewSet
 
 
- class ReportViewSet(ReadOnlyModelViewSet):
+ class ReportEndpoints(ReadOnlyModelViewSet):
      permission_classes = [FunctionPermission]
      required_function = "view_reports"
 
