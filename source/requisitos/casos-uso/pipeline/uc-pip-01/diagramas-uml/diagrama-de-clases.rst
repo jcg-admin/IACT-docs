@@ -17,7 +17,7 @@
    + ejecuciones_recientes(n) : List
  }
 
- class ResumenSaludBuilder {
+ class ResumenSaludAssembler {
    + build(executions) : ResumenSalud
  }
 
@@ -29,8 +29,8 @@
  }
 
  SupervisionETLService --> PipelineExecutionRepo : reads
- SupervisionETLService --> ResumenSaludBuilder : delegates
- ResumenSaludBuilder --> ResumenSalud : produces
+ SupervisionETLService --> ResumenSaludAssembler : delegates
+ ResumenSaludAssembler --> ResumenSalud : produces
 
  @enduml
 

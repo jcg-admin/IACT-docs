@@ -6,7 +6,7 @@ Parte 11 — Implementacion tecnica
 
 Componentes: ``SupervisionETLView`` (DRF APIView),
 ``AuthorizationGuard``, ``PipelineExecutionRepo``,
-``ResumenSaludBuilder``.
+``ResumenSaludAssembler``.
 
 Contrato del servicio:
 
@@ -23,7 +23,7 @@ Pseudocodigo:
    procedure get(invoker, ctx):
        require AuthorizationGuard.has(invoker, 'view_pipeline_status')
        runs = PipelineExecutionRepo.get_recientes(limit=20)
-       return ResumenSaludBuilder.build(runs)
+       return ResumenSaludAssembler.build(runs)
 
 Implementacion de PipelineExecutionRepo:
 
@@ -40,7 +40,7 @@ Implementacion de PipelineExecutionRepo:
        ORDER BY started_at DESC
        LIMIT :limit
 
-ResumenSaludBuilder.build(runs) calcula el estado general:
+ResumenSaludAssembler.build(runs) calcula el estado general:
 
 - ``ok`` si la ultima ejecucion es ``exitoso`` y
   ``finished_at`` esta dentro de las ultimas 14 horas.

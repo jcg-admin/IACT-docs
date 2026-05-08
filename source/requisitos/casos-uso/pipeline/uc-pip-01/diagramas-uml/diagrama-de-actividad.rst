@@ -30,5 +30,5 @@
  - :doc:`diagrama-de-estados-ejecucion-etl`.
  - :doc:`/arquitectura-tecnica/domain-model/supervision-etl-service`.
  - :doc:`/arquitectura-tecnica/domain-model/resumen-salud`.
- - :doc:`/arquitectura-tecnica/domain-model/resumen-salud-builder`.
+ - :doc:`/arquitectura-tecnica/domain-model/resumen-salud-assembler`.
  - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`.

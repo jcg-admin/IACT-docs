@@ -24,7 +24,7 @@ discreto (verde/amarillo/rojo).
 
 Aplica vocabulario STD-010 — termino canonico "Resumen de
 Salud" en lugar de "Health Summary". Es producido por
-``ResumenSaludBuilder`` y consumido por ``uc-pip-01``.
+``ResumenSaludAssembler`` y consumido por ``uc-pip-01``.
 
 .. uml::
  :caption: ResumenSalud — DTO de estado de salud del
@@ -89,7 +89,7 @@ Trazabilidad a UCs
 Relaciones
 ==========
 
-- Producido por ``ResumenSaludBuilder.build``.
+- Producido por ``ResumenSaludAssembler.build``.
 - Devuelto por ``SupervisionETLService.supervisar``.
 - Consumido por la UI de uc-pip-01.
 

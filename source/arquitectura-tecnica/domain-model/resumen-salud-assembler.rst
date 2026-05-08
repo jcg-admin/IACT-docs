@@ -1,5 +1,5 @@
 .. meta::
- :artefacto: AT_DM_CLASS_RESUMEN_SALUD_BUILDER
+ :artefacto: AT_DM_CLASS_RESUMEN_SALUD_ASSEMBLER
  :tipo: Diagrama Arquitectonico — Domain Model — Clase
  :dominio: arquitectura_tecnica
  :subdominio: DomainModel
@@ -11,29 +11,40 @@
  :autor: NestorMonroy
  :clasificacion: Critico
 
-.. _dm_class_resumen_salud_builder:
+.. _dm_class_resumen_salud_assembler:
 
 ====================
-ResumenSaludBuilder
+ResumenSaludAssembler
 ====================
 
-Builder que ensambla un ``ResumenSalud`` consultando varias
-fuentes (``PipelineExecutionRepo`` para runs,
+Assembler que construye un ``ResumenSalud`` consultando
+varias fuentes (``PipelineExecutionRepo`` para runs,
 ``ErroresETLService`` para errores, runtime para lag) y
 aplicando reglas configurables para derivar el
 ``EstadoSalud`` discreto.
 
-Sigue el patron Builder (GoF) — la entidad ``ResumenSalud``
-es inmutable; el builder centraliza la logica de calculo
-para evitar dispersarla en consumidores.
+Patron Assembler (no Builder GoF) — la clase expone una
+sola operacion ``build`` que recibe todas las entradas y
+devuelve el ``ResumenSalud`` inmutable. No hay interfaz
+fluent encadenable. Centraliza la logica de calculo para
+evitar dispersarla en consumidores.
+
+.. note::
+
+   El sufijo ``Builder`` esta prohibido por
+   CLEAN_CODE_NAMING_PRINCIPLES §1.2 cuando no hay
+   interfaz fluent real. Esta clase fue renombrada de
+   ``ResumenSaludBuilder`` a ``ResumenSaludAssembler``
+   en WP ``naming-rules-resolution`` (D3 del audit
+   ``clean-code-naming``).
 
 .. uml::
- :caption: ResumenSaludBuilder — ensamble del DTO de salud
+ :caption: ResumenSaludAssembler — ensamble del DTO de salud
            con derivacion de estado_general por reglas.
 
  @startuml
 
- class ResumenSaludBuilder {
+ class ResumenSaludAssembler {
    - umbral_lag_amarillo : Integer
    - umbral_lag_rojo : Integer
    - umbral_errores_rojo : Integer
@@ -47,9 +58,9 @@ para evitar dispersarla en consumidores.
  class PipelineExecution
  class ETLError
 
- ResumenSaludBuilder ..> ResumenSalud : produces
- ResumenSaludBuilder --> PipelineExecution : reads
- ResumenSaludBuilder --> ETLError : reads
+ ResumenSaludAssembler ..> ResumenSalud : produces
+ ResumenSaludAssembler --> PipelineExecution : reads
+ ResumenSaludAssembler --> ETLError : reads
 
  @enduml
 

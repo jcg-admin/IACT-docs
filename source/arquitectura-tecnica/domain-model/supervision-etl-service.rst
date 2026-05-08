@@ -28,7 +28,7 @@ Pipeline para responder a dos casos de uso clave:
 
 Es el punto de entrada unico del bounded context Pipeline
 para invocadores externos (UI, API). Internamente delega a
-``ResumenSaludBuilder``, ``DisparadorETL``, y
+``ResumenSaludAssembler``, ``DisparadorETL``, y
 ``ErroresETLService``.
 
 .. uml::
@@ -41,7 +41,7 @@ para invocadores externos (UI, API). Internamente delega a
  class SupervisionETLService {
    - pipeline_repo : PipelineExecutionRepo
    - errores_service : ErroresETLService
-   - builder : ResumenSaludBuilder
+   - builder : ResumenSaludAssembler
    - disparador : DisparadorETL
    --
    + supervisar(actor_user_id : UUID) : ResumenSalud
@@ -52,7 +52,7 @@ para invocadores externos (UI, API). Internamente delega a
 
  class PipelineExecutionRepo
  class ErroresETLService
- class ResumenSaludBuilder
+ class ResumenSaludAssembler
  class DisparadorETL
  class ResumenSalud
  class ETLScope
@@ -61,7 +61,7 @@ para invocadores externos (UI, API). Internamente delega a
 
  SupervisionETLService --> PipelineExecutionRepo : reads
  SupervisionETLService --> ErroresETLService : reads
- SupervisionETLService --> ResumenSaludBuilder : delegates
+ SupervisionETLService --> ResumenSaludAssembler : delegates
  SupervisionETLService --> DisparadorETL : invokes
  SupervisionETLService ..> ResumenSalud : returns
 
@@ -74,7 +74,7 @@ Operaciones principales
 
   1. Lee runs recientes via ``PipelineExecutionRepo``.
   2. Lee errores recientes via ``ErroresETLService``.
-  3. Delega ensamble a ``ResumenSaludBuilder``.
+  3. Delega ensamble a ``ResumenSaludAssembler``.
   4. Devuelve ``ResumenSalud`` inmutable.
 
 - ``invocar_reproceso(actor, scope)`` — pipeline:
@@ -111,14 +111,14 @@ Relaciones
 
 - Punto de entrada unico del BC Pipeline.
 - Lee de ``PipelineExecutionRepo`` y ``ErroresETLService``.
-- Delega ensamble a ``ResumenSaludBuilder``.
+- Delega ensamble a ``ResumenSaludAssembler``.
 - Invoca ``DisparadorETL`` para reprocesos.
 - Emite via ``AuditService``.
 
 .. seealso::
 
  - :doc:`/arquitectura-tecnica/domain-model/resumen-salud`
- - :doc:`/arquitectura-tecnica/domain-model/resumen-salud-builder`
+ - :doc:`/arquitectura-tecnica/domain-model/resumen-salud-assembler`
  - :doc:`/arquitectura-tecnica/domain-model/disparador-etl`
  - :doc:`/arquitectura-tecnica/domain-model/errores-etl-service`
  - :doc:`/arquitectura-tecnica/domain-model/pipeline-execution-repo`
