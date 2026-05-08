@@ -325,7 +325,7 @@ Asignar a clase A la responsabilidad de crear instancias de clase B si:
  Opciones:
  A) User - tiene asociación con Report pero no lo agrega
  B) ReportService - contiene/agrega/registra Reports
- C) ReportFactory - solo crea, no contiene
+ C) ReportTypeRegistry - solo crea, no contiene
  
  Decisión: ReportService
  
