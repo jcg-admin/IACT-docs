@@ -527,7 +527,7 @@ Nombres corregidos::
            El modelo IACT es un sistema de control por vista, no por
            instancia. Si has_permission paso, el objeto es accesible.
 
-           Excepcion: verificaciones SoD sobre objetos especificos
+           Excepcion: verificaciones de separacion sobre objetos especificos
            se implementan en subclases dedicadas sobreescribiendo
            este metodo.
            """
@@ -569,7 +569,7 @@ Nombres corregidos::
    - Verificacion de funciones efectivas del usuario
  * - ``has_object_permission``
    - Control de acceso al objeto especifico
-   - Verificacion SoD (casos excepcionales unicamente)
+   - Verificacion de separacion (casos excepcionales unicamente)
 
 ----
 

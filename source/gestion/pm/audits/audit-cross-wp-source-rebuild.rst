@@ -51,7 +51,7 @@ cerrados + ``source/`` global.
  * - **B-2**
    - ALTO
    - glosario.rst NO contiene 7 términos canónicos del RBAC (Grupo
-     de Permisos, Agrupador, Permiso Excepcional, Regla SoD,
+     de Permisos, Agrupador, Permiso Excepcional, Regla de separacion,
      Verificación de Permiso, Menú Dinámico, AuditoriaPermiso)
    - #1 base-cognitiva
    - v3-pending-fixes
@@ -92,7 +92,7 @@ cerrados + ``source/`` global.
    - v3-pending-fixes
  * - **R-5**
    - ALTO
-   - CNST_030 NO declara las 3 reglas SoD atómicas (SOD-001/002/003)
+   - CNST_030 NO declara las 3 reglas de separacion atómicas (SOD-001/002/003)
    - #4 restricciones
    - v3-pending-fixes
  * - **G-1**

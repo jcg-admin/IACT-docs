@@ -41,7 +41,7 @@ Analisis Comparativo — Modelo RBAC v4.0 vs BR IACT (Genealogia)
 - ``Modelo_RBAC_Sin_Pretensiones_v4_0.txt`` (octubre 2025).
 - ``BR_005_Sesion_Unica.rst``
 - ``BR_006_RBAC_Flat_NIST.rst``
-- ``BR_007_Separacion_Funciones_SoD.rst``
+- ``BR_007_Separacion_Funciones.rst``
 - ``BR_008_Permisos_Vencimiento.rst``
 - ``BR_009_Bajas_Logicas.rst``
 - ``BR_012_Usuario_Segmento_Unico.rst``
@@ -73,7 +73,7 @@ Analisis Comparativo — Modelo RBAC v4.0 vs BR IACT (Genealogia)
    - Sin herencia (explicita)
    - Sin herencia (explicita)
    - CONSISTENTE
- * - SoD
+  * - Separacion de deberes
    - Estatico (SSD) con cardinalidad
    - Estatico simple
    - PARCIAL
@@ -130,7 +130,7 @@ el enfoque granular de v4.0. La evolucion ocurrio en cascada:
 - Falta de namespace (descartado en v5.x — modulos planos MOD_*
   son suficientes).
 - Granularidad insuficiente (resuelto: 18 roles -> 42 funciones).
-- SoD estatico sin cardinalidad (resuelto: 3 reglas declarativas
+- Separacion estatica sin cardinalidad (resuelto: 3 reglas declarativas
   SOD-001/002/003).
 
 ----
@@ -176,13 +176,13 @@ Resolucion vigente (v5.2.1):
 
    42 funciones atomicas + 10 grupos predefinidos AGR-001..010
 
-7.3 Restricciones SoD
+7.3 Restricciones de separacion
 ---------------------
 
 ::
 
    v4.0:    SSD con cardinalidad (de N permisos, max k al mismo usuario)
-   BR IACT: SoD simple (parejas incompatibles)
+   BR IACT: separacion simple (parejas incompatibles)
 
 Resolucion vigente:
 
@@ -209,7 +209,7 @@ Resolucion vigente:
    - Reescribir con funciones granulares
    - **Cerrado** — :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
  * - BR_007
-   - Reescribir SoD entre funciones
+   - Reescribir separacion entre funciones
    - **Cerrado** — :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
  * - BR_008
    - Cambiar terminologia rol -> funcion

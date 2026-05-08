@@ -108,8 +108,8 @@ Ventajas del enfoque correcto:
    - 18 roles tradicionales
    - Debe ser catalogo de funciones granulares
  * - BR_007
-   - SoD entre roles
-   - Debe ser SoD entre funciones
+   - separacion entre roles
+   - Debe ser separacion entre funciones
 
 3.2 BRs que requirieron AJUSTES MENORES
 ---------------------------------------
@@ -155,7 +155,7 @@ version vigente del corpus IACT-docs:
  * - :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
    - Reescrito con enfoque NIST RBAC Flat (Level 0)
  * - :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
-   - Reescrito con SoD entre funciones (3 reglas SOD-001/002/003)
+   - Reescrito con separacion entre funciones (3 reglas de separacion-001/002/003)
  * - :doc:`/requisitos/reglas-negocio/br-012-usuario-segmento-unico`
    - Sin cambios
 

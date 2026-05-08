@@ -166,7 +166,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
 - Es middleware/decoradores/policies.
 - Se ejecuta automaticamente en cada request.
 - Aplica restricciones: NO email, BD IVR readonly, limites
-  exportacion, SoD, throttling, etc.
+  exportacion, separacion de deberes, throttling, etc.
 
 ----
 
@@ -198,7 +198,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
  * - ThrottlingEnforcer
    - Rate limiting
    - CNST_007 / CNST-011 vigente
- * - SoDEnforcer
+ * - SeparationRuleEnforcer
    - Roles incompatibles
    - CNST_005 / **CNST-030 vigente**
 

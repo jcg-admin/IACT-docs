@@ -148,11 +148,11 @@ CNSTs: CNST_026 (no PII en logs), CNST_027 (clasificación datos).
 
 UC_ACC_01 Asignar Funciones (atómicas), UC_ACC_02 Revocar
 Funciones, UC_ACC_03 Consultar Permisos, UC_ACC_04 Asignar
-Agrupador (AGR-001..010), UC_ACC_05 Gestionar SoD, UC_ACC_06
+Agrupador (AGR-001..010), UC_ACC_05 Gestionar separacion de deberes, UC_ACC_06
 Gestionar Segmentos, UC_ACC_07 Asignar Segmento, UC_ACC_08 Permiso
 Temporal, UC_ACC_09 Auditar Cambios Acceso.
 
-CNSTs: CNST_029 (RBAC plano), CNST_030 (SoD), CNST_031 (permisos
+CNSTs: CNST_029 (RBAC plano), CNST_030 (separation of duties), CNST_031 (permisos
 temporales 6 meses).
 
 **Vocabulario:** Función (atomic capability), Agrupador (rol
