@@ -50,7 +50,7 @@ sin notificacion al destino el grant no se completa.
    usecase "UC_ACC_08\nPermiso Temporal\n.. extension points ..\nVencimientoAuto" as UC_ACC_08
    usecase "Verificar\ngrant_exceptional_permission" as VERIFICAR_AGR
    usecase "Validar payload\n(justification ≥20\n+ expires_at bounds)" as VALIDAR_PAYLOAD
-   usecase "Validar SoD write-time\n(CNST-005)" as VALIDAR_SOD
+   usecase "Validar separacion write-time\n(CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "Persistir\nExceptionalPermission" as PERSISTIR
    usecase "Recompute effective_set\n(source=EXCEPTIONAL)" as RECALC
    usecase "InternalMailbox\nOBLIGATORIO (P-10)" as MAILBOX
@@ -63,7 +63,7 @@ sin notificacion al destino el grant no se completa.
  UC_PERM_03 ..> UC_ACC_08 : <<include>>
  UC_ACC_08 ..> VERIFICAR_AGR : <<include>>
  UC_ACC_08 ..> VALIDAR_PAYLOAD : <<include>>
- UC_ACC_08 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_08 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_08 ..> PERSISTIR : <<include>>
  UC_ACC_08 ..> RECALC : <<include>>
  UC_ACC_08 ..> MAILBOX : <<include>>
@@ -72,7 +72,7 @@ sin notificacion al destino el grant no se completa.
 
  VERIFICAR_AGR --> AuthorizationGuard
  VALIDAR_PAYLOAD --> ExpirationPolicy
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> ExceptionalPermissionRepo
  RECALC --> EffectivePermissionsAggregator
  MAILBOX --> InternalMailbox
@@ -113,9 +113,9 @@ sin notificacion al destino el grant no se completa.
  - :doc:`/arquitectura-tecnica/domain-model/expiration-policy` —
    bounds + deteccion vencimiento.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas.
+   reglas de separacion evaluadas.
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta SoD write-time.
+   ejecuta validacion de separacion write-time.
  - :doc:`/arquitectura-tecnica/domain-model/internal-mailbox` —
    P-10 mailbox-or-abort HARD.
  - :doc:`/arquitectura-tecnica/domain-model/internal-message` —
