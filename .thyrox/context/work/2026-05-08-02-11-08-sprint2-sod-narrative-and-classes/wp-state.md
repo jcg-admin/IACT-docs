@@ -2,8 +2,9 @@
 project: IACT-docs
 work_package: 2026-05-08-02-11-08-sprint2-sod-narrative-and-classes
 created_at: 2026-05-08 02:11:08
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-08 03:05:00
+current_phase: Phase 11 — TRACK
+status: Cerrado (WP-B + WP-C completos; WP-E diferido)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
