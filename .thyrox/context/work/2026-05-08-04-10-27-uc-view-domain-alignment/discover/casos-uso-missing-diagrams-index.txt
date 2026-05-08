@@ -1,0 +1,3 @@
+source/requisitos/casos-uso/users/uc-usr-05
+source/requisitos/casos-uso/users/uc-usr-06
+source/requisitos/casos-uso/users/uc-usr-07
