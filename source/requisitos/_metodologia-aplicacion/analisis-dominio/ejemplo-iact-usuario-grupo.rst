@@ -14,7 +14,7 @@ base relacional se requiere una **tabla
 intermedia** ``Asignacion`` que materializa la
 relación con la información adicional que el
 dominio no captura (timestamp, quién hizo la
-asignación, fecha de revisión SoD).
+asignación, fecha de revisión de separacion).
 
 Schema correspondiente:
 

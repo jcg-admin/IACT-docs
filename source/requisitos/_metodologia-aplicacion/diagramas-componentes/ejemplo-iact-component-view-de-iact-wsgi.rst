@@ -15,7 +15,7 @@ de ``iact.wsgi`` en sus apps Django:
 
    package "iact.wsgi" {
      rectangle "auth_app\n[Django app]\nIdentificacion + sesion" as Auth <<c4_component>>
-     rectangle "perm_app\n[Django app]\nPermisos + SoD" as Perm <<c4_component>>
+     rectangle "perm_app\n[Django app]\nPermisos + separacion de funciones" as Perm <<c4_component>>
      rectangle "rpt_app\n[Django app]\nReportes" as Rpt <<c4_component>>
      rectangle "alr_app\n[Django app]\nAlertas" as Alr <<c4_component>>
      rectangle "pip_app\n[Django app]\nETL coordinator" as Pip <<c4_component>>
@@ -49,7 +49,7 @@ de ``iact.wsgi`` en sus apps Django:
    Pip --> BD_ANALYTICS : escribe agregados
    Pip ..> Aud : registra ejecucion ETL
 
-   Perm ..> Aud : registra denegado / SoD
+   Perm ..> Aud : registra denegado / separacion
    @enduml
 
 Lectura del diagrama

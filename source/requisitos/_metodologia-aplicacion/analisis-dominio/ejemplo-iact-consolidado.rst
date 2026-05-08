@@ -68,6 +68,6 @@ Lectura del schema:
   categoría con frecuencia.
 - ``adr_aprobacion`` en ``GrupoFuncion`` permite
   rastrear la decisión que aprobó la asignación
-  SoD (CNST_030 + auditoría a nivel del cluster).
+  de separacion de deberes (CNST-030 + auditoría a nivel del cluster).
 - ``fecha_alta`` indexada en ``Asignacion``
   facilita reportes de "asignaciones del periodo".

@@ -9,7 +9,7 @@ Ejemplo IACT — UC_RPT_04 (Exportar reporte)
    :Seleccionar reporte y rango (max 6 meses, CNST_031);
    :Solicitar exportacion;
    |Backend|
-   :Validar permiso (CNST_030 SoD);
+   :Validar permiso (CNST-030 separacion de funciones);
    if (permiso ok?) then ([si])
      :Verificar throttling export (CNST_020);
      if (cuota disponible?) then ([si])

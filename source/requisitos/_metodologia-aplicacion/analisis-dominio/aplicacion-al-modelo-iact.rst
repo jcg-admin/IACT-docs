@@ -22,7 +22,7 @@ reglas del dominio:
    class Group
    class Function
    class AuditEvent
-   class SoDRule
+   class SeparationRule
 
    Call "1..*" -- "1" Segment : belongs to
    ETLWindow "1" -- "0..*" ETLExecution : contains
@@ -35,5 +35,5 @@ reglas del dominio:
    User "0..*" o-- "0..*" Group : assigned to
    Group "1..*" o-- "0..*" Function : groups
    User "1" --> "0..*" AuditEvent : generates
-   SoDRule "0..*" -- "2..3" Function : restricts
+   SeparationRule "0..*" -- "2..3" Function : restricts
    @enduml

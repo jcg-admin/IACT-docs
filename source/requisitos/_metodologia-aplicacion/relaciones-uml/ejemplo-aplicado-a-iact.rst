@@ -10,10 +10,10 @@ Ejemplo aplicado a IACT
    }
    class VolumeReport
    class AbandonmentReport
-   class SoDComplianceReport
+   class SeparationComplianceReport
    Report <|-- VolumeReport
    Report <|-- AbandonmentReport
-   Report <|-- SoDComplianceReport
+   Report <|-- SeparationComplianceReport
    @enduml
 
 Cada subclase **mantiene** ``generar()`` y ``exportar()``

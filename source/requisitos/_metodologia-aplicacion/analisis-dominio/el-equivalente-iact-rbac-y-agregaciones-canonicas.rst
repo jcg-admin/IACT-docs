@@ -12,11 +12,11 @@ agregaciones, no composiciones:
    class Function
    class User
    class Permission
-   class SoDRule
+   class SeparationRule
 
    Group "1" o-- "*" Function : groups
    Group "1" o-- "*" User : assigns
-   SoDRule "1" -- "2..*" Function : restricts
+   SeparationRule "1" -- "2..*" Function : restricts
    Permission ..> Group : belongs
    @enduml
 
@@ -25,11 +25,11 @@ Lectura:
 - ``Grupo`` ◇ ``Funcion`` — **agregación**. Las
   funciones del catálogo RBAC existen
   independientemente de cualquier grupo. Eliminar un
-  grupo no elimina las funciones (CNST_030 SoD se
+  grupo no elimina las funciones (CNST-030 separacion de funciones se
   conserva a nivel de catálogo).
 - ``Grupo`` ◇ ``Usuario`` — **agregación**. Los
   usuarios existen sin grupos; pueden pertenecer a
   varios; eliminar un grupo no elimina los usuarios.
-- ``ReglaSoD`` ↔ ``Funcion`` — asociación: la regla
+- ``ReglaSeparacion`` ↔ ``Funcion`` — asociación: la regla
   referencia funciones del catálogo; ambas existen
   independientemente.

@@ -11,11 +11,11 @@ Aplicado al cluster de reportes IACT
    abstract class Report
    class VolumeReport
    class AbandonmentReport
-   class SoDComplianceReport
+   class SeparationComplianceReport
 
    VolumeReport --|> Report : implements
    AbandonmentReport --|> Report : implements
-   SoDComplianceReport --|> Report : implements
+   SeparationComplianceReport --|> Report : implements
    @enduml
 
 La etiqueta ``implements`` (o ``extends``) hace

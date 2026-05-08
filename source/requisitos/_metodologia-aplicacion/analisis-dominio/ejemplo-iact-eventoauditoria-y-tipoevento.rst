@@ -4,7 +4,7 @@ Ejemplo IACT — ``EventoAuditoria`` y ``TipoEvento``
 Aplicado al cluster de auditoría de IACT
 (CNST_025): cada ``EventoAuditoria`` pertenece a
 exactamente un ``TipoEvento`` (acceso, cambio
-RBAC, ejecución ETL, denegado SoD, etc.); un mismo
+RBAC, ejecución ETL, denegado por separacion, etc.); un mismo
 ``TipoEvento`` puede aparecer en muchos eventos.
 
 .. uml::

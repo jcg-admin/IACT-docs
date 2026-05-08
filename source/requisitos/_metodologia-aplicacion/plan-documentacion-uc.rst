@@ -440,7 +440,7 @@ Adoptar **5+1** si el SAD necesita aislar explícitamente:
 
 - Vocabulario y reglas del dominio del centro de
   contacto (segmento BR_012, ventana ETL CNST_006/008,
-  SoD CNST_030).
+  separacion CNST-030).
 - Aprendizajes consolidados de
   :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index` (sustantivos→clases, RDD,
   CRC) que justifiquen una vista propia.

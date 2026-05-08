@@ -34,7 +34,7 @@ diseño hacia los sistemas externos.
    rectangle "IVR-host\n[External System]" as SISTEMA_IVR
 
    Supervisor --> SISTEMA_IACT : consulta dashboards,\nreconoce alertas
-   Auditor --> SISTEMA_IACT : consulta auditoria,\nverifica SoD
+   Auditor --> SISTEMA_IACT : consulta auditoria,\nverifica separacion
    OPERADOR_ETL --> SISTEMA_IACT : monitorea ventana ETL
 
    SISTEMA_IACT --> LDAP_CORPORATIVO : autentica usuarios

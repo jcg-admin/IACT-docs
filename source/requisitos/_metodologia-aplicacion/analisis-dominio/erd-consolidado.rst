@@ -49,14 +49,14 @@ ERD consolidado
      adr_approval : varchar(100)
    }
 
-   entity SoDRule {
+   entity SeparationRule {
      * rule_id : int <<PK>>
      --
      * name : varchar(100) <<UQ>>
      description : varchar(300)
    }
 
-   entity SoDRuleFunction {
+   entity SeparationRuleFunction {
      * rule_id : int <<PK>> <<FK>>
      * function_id : varchar(100) <<PK>> <<FK>>
    }
@@ -150,8 +150,8 @@ ERD consolidado
    Group ||..o{ Assignment : contains
    Group ||--o{ GroupFunction : groups
    Function ||--o{ GroupFunction : "is in"
-   SoDRule ||--|{ SoDRuleFunction : restricts
-   Function ||--o{ SoDRuleFunction : "appears in"
+   SeparationRule ||--|{ SeparationRuleFunction : restricts
+   Function ||--o{ SeparationRuleFunction : "appears in"
 
    ' === Relaciones ETL ===
    ETLWindow ||..o{ ETLExecution : "contains (no-id)"

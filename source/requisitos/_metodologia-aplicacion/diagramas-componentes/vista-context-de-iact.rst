@@ -27,7 +27,7 @@ corporativos externos:
    rectangle "IVR-host" as SISTEMA_IVR <<externo>>
 
    Supervisor --> SISTEMA_IACT : consulta dashboards,\nreconoce alertas
-   Aud --> SISTEMA_IACT : consulta auditoria,\nverifica SoD
+   Aud --> SISTEMA_IACT : consulta auditoria,\nverifica separacion
    OPERADOR_ETL --> SISTEMA_IACT : monitorea ventana ETL
 
    SISTEMA_IACT --> LDAP_CORPORATIVO : autentica usuarios
