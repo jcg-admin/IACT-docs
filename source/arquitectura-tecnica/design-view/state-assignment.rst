@@ -65,7 +65,7 @@ elimina, transita a un estado terminal (expired/revoked).
 .. seealso::
 
  - :doc:`/arquitectura-tecnica/design-view/seq-access`
- - :doc:`/arquitectura-tecnica/design-view/act-sod-check`
+ - :doc:`/arquitectura-tecnica/design-view/act-validacion-separacion`
  - :doc:`/arquitectura-tecnica/design-view/act-rbac-effective-set-eval`
  - :doc:`/arquitectura-tecnica/design-view/class-access`
  - :doc:`/arquitectura-tecnica/use-case-view/access/index`

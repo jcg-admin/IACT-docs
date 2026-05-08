@@ -121,7 +121,7 @@ Activity diagrams (flujos cross-modulo)
 
  act-rbac-effective-set-eval
  act-jwt-auth
- act-sod-check
+ act-validacion-separacion
  act-etl-pipeline-execution
  act-alert-evaluation
  act-export-async
