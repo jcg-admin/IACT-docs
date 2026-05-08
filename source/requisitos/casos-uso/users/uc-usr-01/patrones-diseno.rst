@@ -26,7 +26,7 @@ mayor, formato distinto).
 10.1.2 Factory Method
 ---------------------
 
-**Aplica a**: ``UserFactory.create()`` encapsula
+**Aplica a**: ``UserOnboardingService.provision()`` encapsula
 la construccion del User con todos sus
 side-effects (Assignment, InternalMessage,
 AuditEvent).
@@ -156,7 +156,7 @@ InternalMailbox.
    - UsernameGen / PasswordGen
  * - Factory Method
    - GoF
-   - UserFactory.create
+   - UserOnboardingService.provision
  * - Template Method
    - GoF
    - Flujo rigido
