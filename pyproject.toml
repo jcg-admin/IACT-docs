@@ -28,7 +28,7 @@ dependencies = [
     # Theme & UI
     "Furo==2025.12.19",                            # Professional documentation theme (supports Sphinx 9)
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
-    "sphinx-design==0.6.1",                        # Card/grid layouts (Phase 6 design)
+    "sphinx-design==0.7.0",                        # Card/grid layouts (supports Sphinx 9)
 
     # Markdown & Content Parsing
     "myst-parser==5.0.0",                          # Markdown support in Sphinx (supports Sphinx 9)
@@ -44,7 +44,7 @@ dependencies = [
     "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
 
     # Python API Documentation (Tier 2: Recommended - Phase A enabled)
-    "sphinx-autodoc-typehints==3.10.2",            # Type hints support (requires Sphinx>=9)
+    "sphinx-autodoc-typehints==3.6.0",             # Type hints support (Sphinx>=9.0.4, Python>=3.11)
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
     "sphinxcontrib-spelling==8.0.0",               # Spell checker (added Phase A)
