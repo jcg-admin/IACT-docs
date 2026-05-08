@@ -167,7 +167,7 @@ Sin excepciones. El modelo Flat es absoluto.
  * - :ref:`cnst-029`
    - Modelo RBAC Flat consolidado: 67 funciones activas (v5.6.x current
      = 64 baseline v5.6.0 + 3 v5.6.x extension; catalogo declara 80 con
-     13 reservadas open-closed), 12 grupos, 3 reglas SoD, permisos
+     13 reservadas open-closed), 12 grupos, 3 reglas de separacion, permisos
      temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados

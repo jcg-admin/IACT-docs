@@ -13,7 +13,7 @@
 .. _br-007:
 
 ===================================
-BR_007: Separacion de Funciones SoD
+BR_007: Separacion de Funciones (separation of duties)
 ===================================
 
 
@@ -27,7 +27,7 @@ Resumen Ejecutivo
  * - **ID**
    - BR_007
  * - **Nombre**
-   - Separacion de Funciones SoD
+   - Separacion de Funciones (separation of duties)
  * - **Tipo**
    - Restriccion
  * - **Categoria**
@@ -47,7 +47,7 @@ Resumen Ejecutivo
 
 Ciertas combinaciones de funciones NO PUEDEN ser asignadas al mismo usuario
 para prevenir conflictos de interes y fraude. El sistema DEBE validar
-restricciones SoD antes de cualquier asignacion de funciones.
+restricciones de separacion antes de cualquier asignacion de funciones.
 
 1.2 Formulacion SBVR
 ^^^^^^^^^^^^^^^^^^^^
@@ -55,18 +55,18 @@ restricciones SoD antes de cualquier asignacion de funciones.
 ::
 
  VOCABULARIO:
- - SoD: Separation of Duties (Segregacion de Funciones)
- - Restriccion SoD: Par de funciones mutuamente excluyentes
- - Conflicto SoD: Usuario con funciones que violan restriccion
+ - Separation of Duties (Segregacion de Funciones)
+ - Restriccion de separacion: Par de funciones mutuamente excluyentes
+ - Conflicto de separacion: Usuario con funciones que violan restriccion
 
  REGLA:
- Es prohibido que un usuario tenga funciones que violen una restriccion SoD.
- Es obligatorio que el sistema valide SoD antes de asignar funciones.
+ Es prohibido que un usuario tenga funciones que violen una restriccion de separacion.
+ Es obligatorio que el sistema valide separacion antes de asignar funciones.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
 
-SoD es control fundamental de seguridad que previene fraude y errores.
+Separacion de deberes es control fundamental de seguridad que previene fraude y errores.
 Ej: quien crea usuarios no debe poder asignar permisos administrativos.
 Cumple con principios de auditoria y control interno.
 
@@ -113,7 +113,7 @@ Cumple con principios de auditoria y control interno.
 
 - **Responsable**: permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Configuracion via UC_ADM_01 (ciclo de vida de
-  reglas SoD) y vista operativa via UC_ACC_05
+  reglas de separacion) y vista operativa via UC_ACC_05
 - **Frecuencia de Revision**: Semestral
 
 ----
@@ -131,16 +131,16 @@ Cumple con principios de auditoria y control interno.
  * - Componente
    - Descripcion de Aplicacion
  * - MOD_Access
-   - Valida SoD en asignacion de funciones
+   - Valida separacion en asignacion de funciones
  * - Tabla sod_restrictions
    - Almacena pares de funciones incompatibles
  * - API asignacion
-   - Rechaza asignacion si viola SoD
+   - Rechaza asignacion si viola separacion
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: AGR-001 (asigna funciones), AGR-008 (configura SoD)
+- **Roles**: AGR-001 (asigna funciones), AGR-008 (configura separacion)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
@@ -163,7 +163,7 @@ documentada del sponsor y registro en auditoria.
  * - CNST
    - Relacion
  * - CNST_005
-   - Define requisitos de SoD
+   - Define requisitos de separacion
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -187,14 +187,14 @@ documentada del sponsor y registro en auditoria.
  * - UC
    - Donde Aplica
  * - UC-010
-   - Asignar Funciones - validacion SoD
+   - Asignar Funciones - validacion de separacion
  * - UC_ADM_01
-   - Gestionar Ciclo de Vida de Reglas SoD (crear, actualizar,
+   - Gestionar Ciclo de Vida de Reglas de Separacion (crear, actualizar,
      activar/desactivar)
  * - UC_ACC_05
-   - Vista operativa de reglas SoD vigentes
+   - Vista operativa de reglas de separacion vigentes
  * - UC_ACC_03
-   - Consultar Permisos Efectivos - muestra conflictos SoD
+   - Consultar Permisos Efectivos - muestra conflictos de separacion
 
 ----
 
@@ -204,9 +204,9 @@ documentada del sponsor y registro en auditoria.
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. No existen usuarios con funciones que violen SoD
+1. No existen usuarios con funciones que violen separacion
 2. Intentos de asignacion violatoria son rechazados
-3. Restricciones SoD documentadas y vigentes
+3. Restricciones de separacion documentadas y vigentes
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,18 +224,18 @@ documentada del sponsor y registro en auditoria.
 
 ----
 
-7. Restricciones SoD Definidas
+7. Restricciones de separacion Definidas
 ------------------------------
 
 ::
 
- SOD_001 (pipeline_audit_separation):
+ SOD-001 (pipeline_audit_separation):
    view_pipeline_status vs view_audit_log
 
- SOD_002 (user_audit_separation):
+ SOD-002 (user_audit_separation):
    create_users vs view_audit_log
 
- SOD_003 (access_audit_separation):
+ SOD-003 (access_audit_separation):
    assign_functions vs view_audit_log
 
 ----

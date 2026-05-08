@@ -52,7 +52,7 @@ para auditoría e integridad referencial.
 
 Esta regla aplica a **TODOS los módulos del sistema**, no solo a
 MOD_Users como en versiones previas. Cubre usuarios, alertas,
-reglas SoD, suscripciones, configuraciones, y cualquier otra
+reglas de separacion, suscripciones, configuraciones, y cualquier otra
 entidad persistente.
 
 1.2 Formulacion SBVR
@@ -67,7 +67,7 @@ entidad persistente.
  - Estados canónicos por entidad:
    * Usuario: ACTIVO, INACTIVO, BLOQUEADO
    * Alerta: ACTIVE, ACKNOWLEDGED, RESOLVED, DISABLED
-   * Regla SoD: ENABLED, DISABLED
+   * Regla de separacion: ENABLED, DISABLED
    * Suscripción: ACTIVE, INACTIVE
    * Otros: ACTIVE/INACTIVE como mínimo
 

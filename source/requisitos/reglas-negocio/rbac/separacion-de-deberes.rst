@@ -1,15 +1,15 @@
-.. _modelo-rbac-iact-sod:
+.. _modelo-rbac-iact-separacion-de-deberes:
 
 =============================================
 Modelo RBAC IACT — Separacion de Funciones
 =============================================
 
-5. SEPARACIÓN DE FUNCIONES (SoD)
+5. SEPARACIÓN DE FUNCIONES (separation of duties)
 ================================
 
 
 
-5.1 Las 3 Restricciones SoD
+5.1 Las 3 Restricciones de separacion
 ---------------------------
 
 

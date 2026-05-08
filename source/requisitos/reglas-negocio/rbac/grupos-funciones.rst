@@ -62,7 +62,7 @@ Modelo RBAC IACT — Grupos de Funciones
    - `auditor_group`
    - 4
    - Auditor
-   - Solo auditoría (SoD)
+   - Solo auditoría (separation of duties)
  * - **AGR-009**
    - `pipeline_admin_group`
    - 4
@@ -218,7 +218,7 @@ AGR-006 user_admin_group
 
 **Propósito:** Administración completa de identidades.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -239,7 +239,7 @@ AGR-007 permission_admin_group
 
 **Propósito:** Administración de RBAC.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -259,7 +259,7 @@ AGR-008 auditor_group
 
 **Propósito:** Auditoría y compliance.
 
-**SoD CRÍTICA:** NO puede combinarse con:
+**Separacion de deberes CRÍTICA:** NO puede combinarse con:
 - AGR-006 (user_admin_group)
 - AGR-007 (permission_admin_group)
 - AGR-009 (pipeline_admin_group)
@@ -282,7 +282,7 @@ AGR-009 pipeline_admin_group
 
 **Propósito:** Administración de ETL.
 
-**SoD:** NO puede tener funciones de AGR-008 (auditoría).
+**Separacion de deberes:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
 
@@ -303,7 +303,7 @@ AGR-010 system_admin_group
  export_logs
 
  # MOD_Admin v5.6.0 (3) — plano de configuracion RBAC
- create_separation_rule         (adm:create_sod)
+ create_separation_rule         (adm:create_separation_rule)
  manage_function_catalog        (adm:manage_catalog)
  assign_functions_to_group      (access:assign_to_group)
 
@@ -312,7 +312,7 @@ AGR-010 system_admin_group
 configuración RBAC. AGR-010 es el actor canónico de **MOD_Admin**
 (NUEVO v5.6.0, ver
 :doc:`/requisitos/casos-uso/admin/index`) — gestiona QUE
-funciones, grupos del sistema y reglas SoD EXISTEN.
+funciones, grupos del sistema y reglas de separacion EXISTEN.
 
 ----
 
@@ -371,7 +371,7 @@ AGR-012 call_center_supervisor_group (RESERVADO v5.6.0 — open-closed)
 
 **Propósito:** Supervisores con capacidad de intervención en tiempo real.
 
-**SoD:** Los supervisores NO deben tener funciones de AGR-008 (auditoría)
+**Separacion de deberes:** Los supervisores NO deben tener funciones de AGR-008 (auditoría)
 simultáneamente — aplica SOD-002 si también tienen funciones de gestión
 de usuarios.
 

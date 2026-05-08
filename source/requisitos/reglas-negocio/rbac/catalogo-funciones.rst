@@ -191,7 +191,7 @@ extension** (MOD_Admin §3.11 ampliado a 6 funciones).
  * - `view_separation_rules`
    - access:view_sod
    - UC_ADM_01
-   - Ve reglas SoD configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
+   - Ve reglas de separacion configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
  * - `create_function_group`
    - access:create_group
    - UC_PERM_05
@@ -215,16 +215,16 @@ extension** (MOD_Admin §3.11 ampliado a 6 funciones).
  * - `update_separation_rule`
    - access:update_sod
    - UC_ADM_01
-   - Actualiza parámetros de regla SoD existente (NUEVA v5.4.0 — split SRP de ACC-005)
+   - Actualiza parámetros de regla de separacion existente (NUEVA v5.4.0 — split SRP de ACC-005)
  * - `disable_separation_rule`
    - access:disable_sod
    - UC_ADM_01
-   - Desactiva regla SoD temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
+   - Desactiva regla de separacion temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
 
 
 **CAMBIO v5.4.0:**
 - ACC-005 RENAME ``manage_separation_rules`` → ``view_separation_rules``
-- ACC-011/012 NUEVAS (split SRP B2; gestión SoD ahora granular)
+- ACC-011/012 NUEVAS (split SRP B2; gestión de separacion ahora granular)
 
 **CAMBIO v5.2.1:**
 - ``assign_function_groups`` (completo, NO "assign_groupers")
@@ -237,7 +237,7 @@ extension** (MOD_Admin §3.11 ampliado a 6 funciones).
 
 **CNST aplicables:**
 - CNST-005: Flat RBAC (sin jerarquías)
-- CNST-005: SoD obligatorio
+- CNST-005: separacion de deberes obligatoria
 - CNST-005: Permisos temporales: justificación mín 20 chars, vencimiento máx 6 meses
 
 ----
@@ -693,7 +693,7 @@ Módulo nuevo derivado del análisis de UC_SUP_01..03.
 ----------------------------------------------------------------------
 
 Plano de configuracion del modelo RBAC: gestiona QUE funciones, grupos del
-sistema y reglas SoD EXISTEN. Diferenciado de MOD_Access (asignaciones) y
+sistema y reglas de separacion EXISTEN. Diferenciado de MOD_Access (asignaciones) y
 MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
 (AGR-010 — ``system_admin_group``; ver
 :doc:`/requisitos/reglas-negocio/rbac/grupos-funciones`).
@@ -708,10 +708,10 @@ MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
    - is_critical
    - Descripción
  * - `create_separation_rule`
-   - adm:create_sod
+   - adm:create_separation_rule
    - UC_ADM_01
    - False
-   - Crea nueva regla SoD declarando el par de conjuntos de funciones
+   - Crea nueva regla de separacion declarando el par de conjuntos de funciones
      mutuamente excluyentes. Complementa ``update_separation_rule`` y
      ``disable_separation_rule`` para el ciclo de vida completo.
      (NUEVA v5.6.0 — extend ACC module)
@@ -773,7 +773,7 @@ MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
 
 - CNST-029: Modelo RBAC Flat — toda modificacion al catalogo se audita
 - CNST-032 v2.0.0: MenuItem como wrapper UX sobre Function — afecta ADM-004, ADM-005
-- BR-007: SoD — ``create_separation_rule`` requiere par de conjuntos validos
+- BR-007: Separacion de deberes — ``create_separation_rule`` requiere par de conjuntos validos
 - MOD_Audit: Toda operacion ADM genera evento de alta criticidad
 
 **ADRs aplicables:**
