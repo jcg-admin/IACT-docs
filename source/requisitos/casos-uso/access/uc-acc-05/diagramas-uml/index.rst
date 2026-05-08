@@ -10,4 +10,4 @@ Parte 8 — Diagramas
    diagrama-de-caso-de-uso
    diagrama-de-secuencia-crear-regla
    diagrama-de-actividad-crud-comun
-   diagrama-de-estados-sodrule
+   diagrama-de-estados-separation-rule
