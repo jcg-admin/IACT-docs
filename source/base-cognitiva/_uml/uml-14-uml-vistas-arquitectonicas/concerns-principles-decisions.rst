@@ -258,8 +258,9 @@ restricciones reales que a menudo no están escritas:
      cumplirse antes de avanzar al siguiente stage.
  * - **Costo**
    - Restricciones presupuestarias que acotan tecnologías y
-     despliegue. *En IACT:* stack PostgreSQL + Node.js como
-     elección de costo-beneficio frente a alternativas enterprise.
+     despliegue. *En IACT:* el stack del Almacén de Datos y del
+     Servicio de Aplicación se eligió por costo-beneficio frente
+     a alternativas enterprise.
  * - **Habilidades**
    - Tecnologías nicho o enfoques inusuales pueden limitar la
      disponibilidad de personal. *En IACT:* el equipo conoce el
@@ -520,8 +521,8 @@ preguntas importantes sobre la arquitectura:
      arquitectura en capas con separación core/adaptadores.
  * - **Con qué** (*With What*)
    - ¿Qué tecnologías se usarán?
-   - PostgreSQL para audit_log y datos ciudadanos, Node.js para
-     API, PlantUML/Sphinx para la AD.
+   - el Almacén de Datos para audit_log y datos ciudadanos, el
+     Servicio de Aplicación para la API, PlantUML/Sphinx para la AD.
 
 Criterios para identificar una decisión arquitectónicamente significativa:
 
@@ -617,7 +618,7 @@ Ejemplo de trazabilidad en IACT
      *Rationale:* B-01.
  * - Decisión arquitectónica
    - D-01
-   - `audit_log` en PostgreSQL con constraints `NOT NULL` en
+   - `audit_log` en el Almacén de Datos con constraints `NOT NULL` en
      `actor_id`, `action_type`, `timestamp`, `record_before` y
      `record_after`. Las entradas no tienen operación `UPDATE` ni
      `DELETE` a nivel de aplicación.
