@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-04
- :ultimo_cambio: 2026-05-04
+ :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -43,31 +43,107 @@ implementación.
 2. Ámbito de Aplicación
 =======================
 
-+------------------------------------------+------------+
-| Archivos                                 | Aplica     |
-+==========================================+============+
-| flujo-principal.rst                      | Sí         |
-+------------------------------------------+------------+
-| actores-precondiciones.rst               | Sí         |
-+------------------------------------------+------------+
-| criterios-aceptacion.rst                 | Sí         |
-+------------------------------------------+------------+
-| datos-involucrados.rst                   | Sí         |
-+------------------------------------------+------------+
-| informacion-general.rst                  | Sí         |
-+------------------------------------------+------------+
-| patrones-diseno.rst                      | Sí         |
-+------------------------------------------+------------+
-| requisitos-no-funcionales.rst            | Sí         |
-+------------------------------------------+------------+
-| excepciones.rst                          | Sí         |
-+------------------------------------------+------------+
-| diagramas-uml.rst (participantes)        | Sí         |
-+------------------------------------------+------------+
-| implementacion-tecnica.rst               | No — libre |
-+------------------------------------------+------------+
-| source/arquitectura-tecnica/**           | No — libre |
-+------------------------------------------+------------+
+2.1 Tabla de archivos
+---------------------
+
++----------------------------------------------+--------------------------+
+| Archivos                                     | Aplica                   |
++==============================================+==========================+
+| flujo-principal.rst                          | Sí                       |
++----------------------------------------------+--------------------------+
+| actores-precondiciones.rst                   | Sí                       |
++----------------------------------------------+--------------------------+
+| criterios-aceptacion.rst                     | Sí                       |
++----------------------------------------------+--------------------------+
+| datos-involucrados.rst                       | Sí                       |
++----------------------------------------------+--------------------------+
+| informacion-general.rst                      | Sí                       |
++----------------------------------------------+--------------------------+
+| patrones-diseno.rst                          | Sí                       |
++----------------------------------------------+--------------------------+
+| requisitos-no-funcionales.rst                | Sí                       |
++----------------------------------------------+--------------------------+
+| excepciones.rst                              | Sí                       |
++----------------------------------------------+--------------------------+
+| diagramas-uml.rst (participantes)            | Sí                       |
++----------------------------------------------+--------------------------+
+| source/requisitos/reglas-negocio/**          | Sí                       |
++----------------------------------------------+--------------------------+
+| source/base-cognitiva/**                     | Sí (vocabulario)         |
++----------------------------------------------+--------------------------+
+| source/index.rst (raíz)                      | Por contenido (§2.2)     |
++----------------------------------------------+--------------------------+
+| implementacion-tecnica.rst                   | No — libre               |
++----------------------------------------------+--------------------------+
+| source/arquitectura-tecnica/**               | No — libre               |
++----------------------------------------------+--------------------------+
+| source/backend/**                            | No — libre               |
++----------------------------------------------+--------------------------+
+| source/requisitos/_metodologia-aplicacion/** | No — exenta (§2.3)       |
++----------------------------------------------+--------------------------+
+
+2.2 ``index.rst`` raíz — aplicación por contenido
+-------------------------------------------------
+
+El archivo ``source/index.rst`` puede contener tanto narrativa
+de presentación arquitectónica del sistema como navegación
+de índice. La aplicación de STD-010 a este archivo es **por
+contenido**, no por nombre:
+
+- Si una sección describe **comportamiento o capacidades del
+  sistema IACT** (vocabulario controlado por el proyecto):
+  aplica STD-010.
+- Si una sección describe **hechos arquitectónicos del
+  entorno del cliente** (ver §2.4) o es solo navegación de
+  toctree: exenta.
+
+Cuando se mezclan ambos casos en el mismo archivo, marcar
+explícitamente la sección exenta con un comentario RST.
+
+2.3 ``_metodologia-aplicacion/`` — exenta
+-----------------------------------------
+
+El directorio ``source/requisitos/_metodologia-aplicacion/``
+contiene documentación **de proceso de trabajo del proyecto**
+(plantillas, guías, patrones de aplicación de la metodología,
+ejemplos pedagógicos). No es especificación del sistema IACT.
+
+Aplicar STD-010 a documentación sobre cómo trabajar sería un
+error de categoría: el vocabulario canónico controla cómo
+describimos el sistema, no cómo describimos nuestro proceso.
+
+Esta exención queda formalmente establecida en v1.1.0 tras
+detección en WP ``clean-code-naming-audit``.
+
+2.4 Nombres propios de sistemas externos — exentos
+--------------------------------------------------
+
+Los sistemas externos del cliente del que IACT consume datos
+o con el que se integra (sistema IVR del cliente, sistemas
+operacionales heredados, brokers de mensajería del entorno)
+tienen **nombres propios reales**. Estos nombres no son
+reemplazables por vocabulario canónico porque la abstracción
+oculta información factual relevante para el lector.
+
+Ejemplo legítimo:
+
+  "El sistema IVR del cliente usa MySQL como base de datos
+  operacional, modo solo-lectura para IACT."
+
+El término ``MySQL`` aquí describe un hecho arquitectónico
+del sistema externo (no del comportamiento de IACT). Es
+informativo y no puede ser reemplazado por "el repositorio
+operacional" sin pérdida.
+
+**Criterio de aplicación:**
+
+- Si la tecnología describe comportamiento del sistema IACT
+  (lo que el proyecto controla): aplica STD-010 con
+  vocabulario canónico.
+- Si la tecnología describe un sistema externo factual del
+  entorno del cliente: exento.
+
+Esta exención queda formalmente establecida en v1.1.0.
 
 ----
 
@@ -290,7 +366,7 @@ del catálogo (D-DIAG-001). No son nombres institucionales.
 ============================
 
 Las siguientes situaciones permiten el uso de nombres tecnológicos
-en documentos de requisitos:
+o acronimos en documentos donde STD-010 aplica:
 
 5.1 ``implementacion-tecnica.rst``
 -----------------------------------
@@ -317,6 +393,71 @@ Cuando el criterio de rendimiento es específico al algoritmo (e.g.,
 el algoritmo en una nota técnica dentro de ``implementacion-tecnica.rst``,
 pero el criterio en ``requisitos-no-funcionales.rst`` usa el término
 canónico.
+
+5.4 Acronimos de disciplina aceptados en prosa
+-----------------------------------------------
+
+Algunos acrónimos son **vocabulario establecido de la disciplina**
+de seguridad informática y arquitectura, equivalentes a JWT
+(STD-010 §3.3) que ya estaba documentado como aceptable. Su
+uso en prosa explicativa es legítimo y no constituye
+violación.
+
+**Acrónimo aceptado: RBAC (Role-Based Access Control)**
+
+  RBAC como término disciplinar es aceptado en prosa
+  explicativa de documentos normativos y arquitectónicos
+  cuando se usa para referirse al modelo de control de
+  acceso basado en roles **como concepto de la disciplina**,
+  no como identificador técnico del proyecto.
+
+**Aplica a:**
+
+- Prosa explicativa: "el modelo RBAC del sistema",
+  "la matriz RBAC", "RBAC v5.6.x" como referencia a la
+  versión del modelo.
+- Cross-refs y nombres de directorios: ``rbac/``,
+  ``modelo-rbac-iact``.
+- Referencias en headers, títulos y captions cuando se
+  alude al concepto disciplinar.
+
+**NO aplica (sigue siendo violación):**
+
+- ``RBAC_check`` como nombre de método o variable —
+  reemplazar por ``permission_check``.
+- ``RBACBackend``, ``RBACPermission`` como nombre de clase
+  — viola CLEAN_CODE §6.2 (sufijos técnicos del framework)
+  además del uso de acrónimo. Reemplazar por
+  ``AuthProvider``, ``AccessPolicy``.
+- ``RBAC_id``, ``rbac_data`` como nombre de variable.
+- ``RBAC-gated`` como atributo de UC — preferir
+  "controlado por permisos" o "requiere capability".
+
+**Criterio de distinción:**
+
+- Si el lector entiende que se está hablando del concepto
+  disciplinar de control de acceso por roles: prosa
+  aceptable.
+- Si el lector tendría que mirar el código/clase para
+  saber qué identifica: violación, requiere expansión
+  o reemplazo.
+
+5.5 Identificadores opacos con dependencias externas
+----------------------------------------------------
+
+Por extensión del principio de §5.2 al dominio de RBAC:
+
+- Tokens de capability del backend: ``access:view_sod``,
+  ``access:update_sod``, ``access:disable_sod`` —
+  contrato de integración persistido en backend.
+- Códigos de regla en BD: ``SOD-001``, ``SOD-002``,
+  ``SOD-003``, ``AGR-001..010`` — IDs persistidos en
+  ``SeparationRule.code`` y catálogo RBAC.
+
+Cambiarlos requiere migración de datos coordinada con
+backend y BD. Hasta que esa migración ocurra, son
+referencias factuales al estado actual del sistema y se
+preservan tal cual.
 
 ----
 
@@ -365,3 +506,14 @@ Un resultado vacío indica que la narrativa está conforme al estándar.
    - 2026-05-04
    - NestorMonroy
    - Versión inicial — formaliza D-ETL-005 como estándar normativo
+ * - 1.1.0
+   - 2026-05-08
+   - NestorMonroy
+   - MINOR — amplia ámbito (§2.1 con metodología exenta,
+     §2.2 index.rst por contenido, §2.3 _metodologia-aplicacion
+     exenta, §2.4 sistemas externos exentos por nombre propio).
+     Agrega §5.4 RBAC como acrónimo disciplinar aceptado en
+     prosa con criterio explícito. Agrega §5.5 identificadores
+     opacos con dependencias externas (tokens RBAC backend +
+     códigos BD). Resoluciones D2 y D4 del WP
+     ``naming-rules-resolution``.
