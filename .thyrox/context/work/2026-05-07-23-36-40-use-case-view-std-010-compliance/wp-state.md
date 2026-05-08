@@ -2,8 +2,9 @@
 project: IACT-docs
 work_package: 2026-05-07-23-36-40-use-case-view-std-010-compliance
 created_at: 2026-05-07 23:36:40
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-08 00:10:00
+current_phase: Phase 11 — TRACK
+status: Cerrado (TR-01 build diferido al final de cola)
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
