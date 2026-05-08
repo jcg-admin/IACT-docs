@@ -18,7 +18,7 @@ UC_ACC_04 — Asignar Agrupador
 ==============================
 
 Asigna un ``AccessGroup`` (AGR-001..012 del sistema o custom) a un User
-via ``Assignment.target_type=AccessGroup``. Validacion SoD se evalua
+via ``Assignment.target_type=AccessGroup``. Validacion de separacion se evalua
 sobre las **funciones expandidas** del AGR (CNST-005). UC_PERM_01 es
 la vista PERM (governance) que incluye este UC.
 
@@ -46,7 +46,7 @@ la vista PERM (governance) que incluye este UC.
    usecase "Verificar\nassign_function_groups" as VERIFICAR_AGR
    usecase "Validar AccessGroup\nexiste + ACTIVE" as VALIDAR_AGR_ENTITY
    usecase "Expandir funciones\ndel AccessGroup" as EXPANDIR
-   usecase "Validar SoD\nsobre set efectivo" as VALIDAR_SOD
+   usecase "Validar regla de separacion\nsobre set efectivo" as VALIDAR_SEPARATION_RULES
    usecase "Persistir Assignment\n(target=AccessGroup)" as PERSISTIR
    usecase "Recompute effective_set" as RECALC
    usecase "Invalidar PermissionCache" as INVALIDAR
@@ -59,7 +59,7 @@ la vista PERM (governance) que incluye este UC.
  UC_ACC_04 ..> VERIFICAR_AGR : <<include>>
  UC_ACC_04 ..> VALIDAR_AGR_ENTITY : <<include>>
  UC_ACC_04 ..> EXPANDIR : <<include>>
- UC_ACC_04 ..> VALIDAR_SOD : <<include>>
+ UC_ACC_04 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ACC_04 ..> PERSISTIR : <<include>>
  UC_ACC_04 ..> RECALC : <<include>>
  UC_ACC_04 ..> INVALIDAR : <<include>>
@@ -68,7 +68,7 @@ la vista PERM (governance) que incluye este UC.
 
  VERIFICAR_AGR --> AuthorizationGuard
  VALIDAR_AGR_ENTITY --> AccessGroupRepo
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> AssignmentRepo
  RECALC --> EffectivePermissionsAggregator
  INVALIDAR --> PermissionCache
@@ -77,8 +77,8 @@ la vista PERM (governance) que incluye este UC.
  AUDITAR --> AuditService
  AuditService --> view_audit_log
 
- note bottom of VALIDAR_SOD
-   BR-007 + CNST-005: SoD sobre
+ note bottom of VALIDAR_SEPARATION_RULES
+   BR-007 + CNST-005: separacion sobre
    FUNCIONES expandidas del AGR,
    no sobre AGR como entidad.
  end note
@@ -98,9 +98,9 @@ la vista PERM (governance) que incluye este UC.
  - :doc:`/arquitectura-tecnica/domain-model/assignment-repo` —
    repositorio.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas.
+   reglas de separacion evaluadas.
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta SoD.
+   ejecuta validacion de separacion.
  - :doc:`/arquitectura-tecnica/domain-model/effective-permissions-aggregator` —
    recompute.
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
