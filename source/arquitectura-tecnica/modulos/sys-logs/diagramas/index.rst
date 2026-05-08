@@ -24,5 +24,5 @@ con su contexto de descripcion.
  :caption: Diagramas
 
  flujo-health-check
- secuencia-consulta-logs-sistema
- componentes-mod-logs
+ log-query-flow
+ layer-structure

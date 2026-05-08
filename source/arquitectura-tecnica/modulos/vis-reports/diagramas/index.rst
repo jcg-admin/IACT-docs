@@ -24,5 +24,5 @@ con su contexto de descripcion.
  :caption: Diagramas
 
  flujo-acceso-visualizaciones
- secuencia-sp-rpt-flujo-completo
- componentes-mod-reports
+ sp-rpt-execution-flow
+ layer-structure

@@ -268,7 +268,7 @@ Ver :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`
 para el caso de uso de creación de custom groups.
 
 Reglas de Separacion (Separation of Duties)
-=================================
+============================================
 
 .. list-table::
  :widths: 15 30 25 30
@@ -303,7 +303,7 @@ Trazabilidad
 
 - ADR de la decisión: :doc:`/backend/adr-back-007-rbac-custom-vs-auth-group`.
 - Modelo de datos: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/modelo-datos`.
-- Diagrama de clases entidades: :doc:`clases-entidades-rbac`.
+- Diagrama de clases entidades: :doc:`entity-model`.
 - Flujo enforcement runtime: :doc:`flujo-enforcement-rbac`.
 - Implementación detalle: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/implementacion`.
 - Catálogo funciones: :doc:`/requisitos/reglas-negocio/rbac/catalogo-funciones`.

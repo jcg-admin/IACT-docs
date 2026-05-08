@@ -35,8 +35,10 @@ capas.
  ``use-case-view/`` como vista de requisitos pero **NO entran
  en este ImplementationView modular**. Su contenido se
  preserva como referencia en archivos planos
- (``impl-operator.rst``, ``impl-supervision.rst``,
- ``impl-caller.rst``) hasta que se decida implementarlos.
+ (``operator-extension-point.rst``,
+ ``supervision-extension-point.rst``,
+ ``caller-ivr-adapter.rst``) hasta que se decida
+ implementarlos.
 
 .. note::
 
@@ -88,9 +90,9 @@ dependencias DesignView → ImplementationView del corpus.
  :maxdepth: 1
  :caption: Out-of-scope (referencia historica)
 
- impl-caller
- impl-operator
- impl-supervision
+ caller-ivr-adapter
+ operator-extension-point
+ supervision-extension-point
 
 ----
 

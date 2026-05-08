@@ -24,5 +24,5 @@ con su contexto de descripcion.
  :caption: Diagramas
 
  ciclo-vida-estado-agente
- secuencia-atencion-llamada-entrante
- componentes-mod-operator
+ inbound-call-flow
+ layer-structure

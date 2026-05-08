@@ -66,6 +66,12 @@ Catalogo
 --------
 
 .. toctree::
+ :maxdepth: 1
+ :caption: Decisiones transversales
+
+ coexistence-with-design-implementation-view
+
+.. toctree::
  :maxdepth: 2
 
  auth/index

@@ -25,7 +25,7 @@ con su contexto de descripcion. Las clases canonicas del modulo viven en
  :caption: Diagramas de comportamiento
 
  ciclo-vida-usuario
- secuencia-creacion-usuario
+ user-creation-flow
 
 .. seealso::
 
