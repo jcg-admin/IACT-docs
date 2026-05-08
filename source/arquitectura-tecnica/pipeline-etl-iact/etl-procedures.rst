@@ -218,8 +218,8 @@ Verifica invariantes del resultado:
 
 Si una validacion falla, marca el checkpoint del paso
 ``etl_validar`` como ``FAILED`` con el detalle del check
-fallido. No revierte los datos cargados — el operador
-diagnostica y decide si reintenta.
+fallido. No revierte los datos cargados — el ``PipelineAdmin``
+(AGR-009) diagnostica y decide si reintenta.
 
 ----
 

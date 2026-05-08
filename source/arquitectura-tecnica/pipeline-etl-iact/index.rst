@@ -32,6 +32,54 @@ SQL, y codigo Python verificados.
 
  La v2.1 fusiona ambos con la implementacion actual.
 
+Actores y scope funcional
+==========================
+
+El pipeline ETL es operado y supervisado por el rol
+``PipelineAdmin`` (AGR-009 ``pipeline_admin_group``). Este
+rol es distinto de otros dos roles que existen en el catalogo
+RBAC del corpus pero estan **fuera de scope** del proyecto
+IACT:
+
+.. list-table::
+ :widths: 24 32 24 20
+ :header-rows: 1
+
+ * - Rol
+   - AGR / funciones
+   - Dominio
+   - Scope
+ * - ``PipelineAdmin``
+   - AGR-009 ``pipeline_admin_group`` —
+     ``view_pipeline_status``, ``view_pipeline_errors``,
+     ``request_pipeline_retry``
+   - IT/ops — supervisa salud tecnica del ETL de datos IVR
+   - **In scope** — UC_PIP_01..04
+ * - ``Supervisor`` de agentes
+   - AGR-003 ``quality_supervisor_group`` /
+     AGR-012 ``call_center_supervisor_group`` —
+     ``monitor_live_calls``, ``barge_in_calls``,
+     ``broadcast_team_messages``
+   - Call center — supervisa agentes en tiempo real
+   - **Fuera de scope** (``MOD_Supervision``) —
+     UC_SUP_01..03
+ * - ``Operador`` / ``Agente``
+   - ``MOD_Operator`` —
+     ``manage_own_agent_state``, ``mailbox``, ...
+   - Call center — operacion del agente telefonico
+   - **Fuera de scope** (``MOD_Operator``) —
+     UC_OPR_01..10
+
+.. warning::
+
+ La palabra ``Supervisor`` aparece en dos contextos
+ incompatibles del corpus RBAC. **En este spec y en
+ UC_PIP_01..04 todo "supervisor" se refiere a
+ ``PipelineAdmin``** (IT/ops), nunca al ``Supervisor`` de
+ call center (AGR-003 / AGR-012). El rename global del
+ actor ``Supervisor`` a ``QualitySupervisor`` queda como
+ WP futuro cuando se active ``MOD_Supervision``.
+
 Cambios v1 → v2
 ================
 
