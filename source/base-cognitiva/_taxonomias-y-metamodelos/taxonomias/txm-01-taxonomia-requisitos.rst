@@ -27,7 +27,7 @@ TXM_01: Taxonomia de Requisitos
  "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
  atomicas activas (catalogo declara 77 con 13 reservadas
  open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
- predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -288,7 +288,7 @@ negocio, independientes del sistema de software.
    - Ejemplos
  * - **Validacion**
    - Verificar datos de entrada
-   - FR-10.6 Validar SoD, FR-40.6 Validar CAS
+   - FR-10.6 Validar separacion, FR-40.6 Validar CAS
  * - **Procesamiento**
    - Logica de negocio y calculos
    - FR-17.5 Calcular totales, FR-35.3 Agregar metricas

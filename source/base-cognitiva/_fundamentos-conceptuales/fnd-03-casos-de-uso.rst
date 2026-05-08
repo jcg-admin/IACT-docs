@@ -26,7 +26,7 @@ FND_03: Casos de Uso
  "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
  atomicas activas (catalogo declara 77 con 13 reservadas
  open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
- predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -112,8 +112,8 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    - Escenario end-to-end
    - Test unitario/aislado
  * - Ejemplo
-   - UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
-   - FR-ADM-01.1: Sistema DEBE mostrar lista SoD
+   - UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
+   - FR-ADM-01.1: Sistema DEBE mostrar lista de reglas de separacion
 
 **Analogia:**
 
@@ -172,27 +172,27 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 
 .. code-block:: text
 
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
 
  IDENTIFICACION:
  ID: UC_ADM_01
- Nombre: Gestionar Ciclo de Vida de Reglas SoD
+ Nombre: Gestionar Ciclo de Vida de Reglas de Separacion
  Actor Primario: AGR-010 (system_admin_group)
  Actores Secundarios: AGR-008 (auditor_group)
 
  CONTEXTO:
- Objetivo: Crear restricciones SoD para prevenir conflictos
+ Objetivo: Crear restricciones de separacion para prevenir conflictos
  Precondiciones:
  - Usuario autenticado con agrupador AGR-010 (system_admin_group)
  - Existen funciones definidas en catalogo RBAC
    Postcondiciones:
- - Restriccion SoD creada en sistema
+ - Restriccion de separacion creada en sistema
  - Evento registrado en auditoria
  - Administradores notificados
-   Trigger: Admin selecciona Gestionar SoD
+   Trigger: Admin selecciona Gestionar separacion de deberes
 
  FLUJO NORMAL:
- 1. system_admin (AGR-010) selecciona Gestionar SoD
+ 1. system_admin (AGR-010) selecciona Gestionar separacion de deberes
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
@@ -201,12 +201,12 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  7. Admin selecciona funciones para Grupo B
  8. Sistema valida que no hay conflictos existentes
  9. Admin confirma creacion
- 10. Sistema guarda restriccion SoD
+ 10. Sistema guarda restriccion de separacion
  11. Sistema registra en auditoria
  12. Sistema notifica a administradores
 
  FLUJO ALTERNO 8a: Conflicto con usuarios existentes
- 8a.1. Sistema detecta usuarios que violarian nueva SoD
+ 8a.1. Sistema detecta usuarios que violarian nueva regla de separacion
  8a.2. Sistema muestra lista de usuarios afectados
  8a.3. Sistema impide guardar hasta resolver
  8a.4. Retorna a paso 6
@@ -669,14 +669,14 @@ distribuidos en los 11 modulos funcionales declarados (9 activos + 2 reservados 
  UC-011: Gestionar Permisos por Agrupador
  UC-041: Asignar Segmento de Datos
  UC-042: Asignar Permiso Directo
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
  UC_ACC_03: Consultar Permisos Efectivos
  UC_ADM_03: Gestionar Catalogo de Agrupadores del Sistema
  UC_ADM_02: Gestionar Catalogo de Funciones
  UC_ACC_09: Auditar Cambios de Permisos
 
  Actor Primario: AGR-007 (permission_admin_group) para ACC; AGR-010 (system_admin_group) para ADM
- BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
+ BR Relacionadas: BR_006 (RBAC Flat), BR_007 (separation of duties), BR_012 (Usuario-Segmento)
 
 8.4 Pipeline ETL - MOD_Pipeline (4 UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

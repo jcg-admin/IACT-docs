@@ -27,7 +27,7 @@ TXM_03: Taxonomia de Reglas de Negocio
  "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
  atomicas activas (catalogo declara 77 con 13 reservadas
  open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
- predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -224,9 +224,9 @@ o no puede ocurrir en el sistema.
  BR_015: Separacion de Funciones (Prohibicion)
  "Un usuario NO DEBE tener simultaneamente roles R016 y R017"
 
- Subtipo: Prohibicion (SoD)
+ Subtipo: Prohibicion (separation of duties)
  Impacto: Validacion al asignar roles
- Genera: UC-010 (flujo alterno de validacion SoD)
+ Genera: UC-010 (flujo alterno de validacion de separacion)
 
  ---
 
@@ -637,7 +637,7 @@ en un resultado.
    - BR_011 (RBAC Flat), BR_HEC_001 (Unicidad)
  * - Restriccion
    - 3
-   - BR_001 (Inmutable), BR_015 (SoD), BR_RES_001
+   - BR_001 (Inmutable), BR_015 (separation of duties), BR_RES_001
  * - Desencadenador
    - 2
    - BR_002 (ETL), BR_TRG_001 (Alertas)

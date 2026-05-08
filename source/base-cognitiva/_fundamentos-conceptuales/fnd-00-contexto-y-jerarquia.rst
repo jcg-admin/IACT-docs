@@ -224,7 +224,7 @@ in-scope + 1 RBAC NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed
    - UC_ADM
    - 3
    - Activo (NUEVO v5.6.0)
-   - Catálogo RBAC, reglas SoD, asignaciones a grupos del sistema
+   - Catálogo RBAC, reglas de separacion, asignaciones a grupos del sistema
  * - MOD_Operator
    - Operación Agente
    - UC_OPR
@@ -308,7 +308,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  Funciones activas 64
  Funciones reservadas 13
  Total catalogo declarado 77
- Reglas SoD 3
+ Reglas de Separacion 3
 
 ----
 

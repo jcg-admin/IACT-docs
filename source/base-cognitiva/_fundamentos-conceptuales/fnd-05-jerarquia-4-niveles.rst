@@ -223,7 +223,7 @@ construyendo este sistema?
  metricas IVR en tiempo real
 
  BR_006 (RBAC Flat) ----+
- BR_007 (SoD) ----+---> BReq-004: Cumplimiento de
+ BR_007 (separation of duties) ----+---> BReq-004: Cumplimiento de
  BR_010 (Auditoria) ----+ seguridad y auditoria
 
 3.4 Ejemplo
@@ -314,29 +314,29 @@ especifican interacciones completas entre actores y sistema.
     BR_002 (ETL Nocturno) --genera--> UC-050 (Supervisar ETL)
 
  3. BR tipo Restriccion influye en UC:
-    BR_007 (SoD) --influye--> UC_ADM_01 (Gestionar Ciclo de Vida de Reglas SoD)
+    BR_007 (separation of duties) --influye--> UC_ADM_01 (Gestionar Ciclo de Vida de Reglas de Separacion)
 
 4.4 Ejemplo
 ^^^^^^^^^^^
 
 ::
 
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
 
  Actor Primario: AGR-010 (system_admin)
  Objetivo: Crear restricciones para prevenir conflictos de funciones
 
  Flujo Normal:
- 1. system_admin selecciona Gestionar Reglas SoD
+ 1. system_admin selecciona Gestionar Reglas de Separacion
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
  5. Admin define Grupo A y Grupo B de funciones
  6. Sistema valida que no hay conflictos existentes
- 7. Sistema guarda restriccion SoD
+ 7. Sistema guarda restriccion de separacion
  8. Sistema registra en auditoria
 
- Business Rules aplicadas: BR_007 (SoD)
+ Business Rules aplicadas: BR_007 (separation of duties)
  BReq relacionado: BReq-004 (Cumplimiento Seguridad)
 
 4.5 UC en IACT
@@ -396,7 +396,7 @@ los Casos de Uso.
 
  UC_ADM_01, Paso 2: Sistema muestra lista de restricciones actuales
  |
- +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
+ +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones de separacion
  +---> FR-ADM-01.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
  +---> FR-ADM-01.3: Lista DEBE estar ordenada por fecha de creacion
 
@@ -409,8 +409,8 @@ los Casos de Uso.
 
  Derivados de UC_ADM_01:
 
- FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD existentes
- FR-043.2: Sistema DEBE validar conflictos al crear nueva SoD
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones de separacion existentes
+ FR-043.2: Sistema DEBE validar conflictos al crear nueva regla de separacion
  FR-043.3: Sistema DEBE impedir asignacion que viole SoD
  FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
  FR-043.5: Sistema DEBE notificar al admin de seguridad
@@ -622,7 +622,7 @@ los Casos de Uso.
 
  NIVEL 0 - BR:
  BR_001: La BD MySQL operacional es de SOLO LECTURA para IACT
- BR_007: Las funciones criticas deben estar segregadas (SoD)
+ BR_007: Las funciones criticas deben estar segregadas (separation of duties)
 
  NIVEL 1 - BReq:
  BReq-001: Proporcionar visibilidad de metricas de llamadas IVR
@@ -630,12 +630,12 @@ los Casos de Uso.
 
  NIVEL 2 - UC:
  UC-025: Ver Dashboard Principal
- UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas de Separacion
  UC-050: Supervisar Estado ETL
 
  NIVEL 3 - FR:
  FR-025.1: Sistema DEBE mostrar grafico de llamadas por hora
- FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones de separacion
  FR-050.1: Sistema DEBE mostrar estado del ultimo job ETL
 
 ----

@@ -26,7 +26,7 @@ FND_06: Derivacion vs Transformacion
  "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
  atomicas activas (catalogo declara 77 con 13 reservadas
  open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
- predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -453,13 +453,13 @@ En proyectos con codigo existente, la direccion puede ser inversa
 
 .. code-block:: text
 
- BR_015: Separacion de Funciones (SoD)
+ BR_015: Separacion de Funciones (separation of duties)
  "Roles R016 y R017 son mutuamente excluyentes"
  |
  | genera
  v
  UC_010: Asignar Rol a Usuario
- Paso 6: "Sistema valida compatibilidad SoD"
+ Paso 6: "Sistema valida compatibilidad de separacion"
  |
  | deriva
  v
@@ -475,7 +475,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 
  CADENA COMPLETA DE DERIVACION:
 
- BR_015 (SoD)
+ BR_015 (separation of duties)
  |
  +---> UC_010 (Asignar Rol)
  |

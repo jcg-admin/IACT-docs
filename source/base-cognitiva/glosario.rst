@@ -85,7 +85,7 @@ A. Términos del Producto IACT
 
 **RBAC**
  Role-Based Access Control. Control de acceso basado en roles
- funcionales del sistema. En IACT se aplica con SoD (Separation
+ funcionales del sistema. En IACT se aplica con separacion de deberes (Separation
  of Duties).
 
 **React**
@@ -96,7 +96,7 @@ A. Términos del Producto IACT
  Capacidad técnica del sistema (ej: ``REPORTS_VIEWER``)
  independiente de puestos organizacionales.
 
-**Separation of Duties (SoD)**
+**Separation of Duties**
  Principio de seguridad por el que ciertas combinaciones de
  permisos no pueden coexistir en un mismo rol/usuario.
 
@@ -425,7 +425,7 @@ toda documentación nueva del proyecto (formalizado en
      con justificación obligatoria mínimo 20 caracteres y
      vencimiento máximo 6 meses (ver
      :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`).
- * - **Regla SoD**
+ * - **Regla de separacion**
    - Restricción de mutual exclusion entre dos grupos
      (Separation of Duties). El sistema declara 3 reglas:
      SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
@@ -548,7 +548,7 @@ I. Abreviaturas comunes
      - Semantics of Business Vocabulary and Business Rules
    * - **SLA**
      - Service Level Agreement
-   * - **SoD**
+   * - **Separacion de deberes**
      - Separation of Duties
    * - **SR**
      - Stakeholder Requirement (alias: ``RS``)

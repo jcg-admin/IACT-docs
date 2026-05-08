@@ -27,7 +27,7 @@ SBVR_03 · Vocabulario Controlado
  "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
  atomicas activas (catalogo declara 77 con 13 reservadas
  open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
- predefinidos AGR-001..AGR-012 + 3 reglas SoD.
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
