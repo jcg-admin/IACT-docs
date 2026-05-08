@@ -123,7 +123,7 @@ Lectura del panorama
 
 **Actores sistema/externos:**
 
-- ``Scheduler`` — cron / APScheduler dispara el
+- ``Scheduler`` — el Planificador de Tareas dispara el
   pipeline batch nocturno.
 - ``IvrSwitch`` — sistema PBX externo origen de las
   llamadas.
