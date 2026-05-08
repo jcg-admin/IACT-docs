@@ -678,6 +678,12 @@ Un resultado vacío indica que la narrativa está conforme al estándar.
 - **D-KRUCHTEN-004** (WP kruchten-view-diagram-types): aplicación del
   principio a participantes de diagramas de vistas Kruchten
 
+Véase también: :doc:`clean-code-naming-principles` y
+:doc:`clean-code-naming-principles-frontend` para la aplicación
+de este vocabulario en identificadores de código (mientras
+STD-010 rige la narrativa de requisitos, las normas Clean Code
+rigen los nombres de clase, método, atributo y variable).
+
 ----
 
 8. Historial de Cambios

@@ -70,6 +70,13 @@ Los estándares cubren:
 
 .. toctree::
  :maxdepth: 1
+ :caption: Normas autoritativas (Clean Code Naming)
+
+ clean-code-naming-principles
+ clean-code-naming-principles-frontend
+
+.. toctree::
+ :maxdepth: 1
  :caption: ADRs sobre STD-007 (historia de decisiones)
 
  adr-std-007-naming-heterogeneity-accepted
