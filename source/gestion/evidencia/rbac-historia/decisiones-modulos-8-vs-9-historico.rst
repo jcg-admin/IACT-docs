@@ -190,7 +190,7 @@ El modulo RBAC_CORE contiene DOS componentes documentados:
    - Sin WebSockets/SSE
    - CNST_003 vigente
  * - SessionDBEnforcer
-   - Sesiones en BD, no Redis
+   - Sesiones en BD, no en cache distribuido
    - CNST_002 / CNST-003 vigente
  * - ExportLimitEnforcer
    - Limites de registros por tipo

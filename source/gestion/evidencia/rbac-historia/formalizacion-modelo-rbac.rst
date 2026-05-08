@@ -28,7 +28,7 @@ Tras decisión arquitectónica aprobada (Hipótesis 1 —
 **formalizar el modelo RBAC IACT**: consolidar el modelo legacy
 ``MODELO_RBAC_IACT_v5_2_1`` (42 funciones, 10 grupos predefinidos,
 3 separacion de deberes, permisos temporales) con la **implementación PERM granular**
-del backend (8 modelos Django, 5 funciones SQL, menú dinámico) en
+del backend (8 modelos del backend, 5 funciones SQL, menú dinámico) en
 un solo modelo coherente con vocabulario unificado.
 
 2. Objetivo
@@ -216,7 +216,7 @@ integrar este vocabulario).
  * - ``function_separation_rule_details``
    - v5.2.1
    - Detalle separacion (grupos A vs B)
- * - ``Capacidad`` (Django model)
+ * - ``Capacidad`` (modelo del backend)
    - PERM backend
    - Vista granular de función
  * - ``PermisoExcepcional``
@@ -225,7 +225,7 @@ integrar este vocabulario).
  * - ``AuditoriaPermiso``
    - PERM backend
    - Audit log runtime de cada verificación
- * - ``UserFunctionAssignment`` (Django)
+ * - ``UserFunctionAssignment`` (modelo del backend)
    - v5.2.1 (UC_ACC_08)
    - Asignaciones temporales con vencimiento
 

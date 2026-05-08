@@ -598,7 +598,7 @@ CORRECTO (segun CIA-RBAC-002 DEC-001 — codename, no function_id):
 
 ----
 
-9. Errores en Modelos Django
+9. Errores en Modelos del Backend
 ============================
 
 9.1 help_text mezclados

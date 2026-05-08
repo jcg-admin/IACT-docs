@@ -173,7 +173,7 @@ CNSTs: CNST_029 (RBAC plano — mismo CNST que ACC), CNST_031
 **Vocabulario:** Capacidad (granular), GrupoPermiso (set creable),
 PermisoExcepcional (one-off override).
 
-**Implementación backend:** 8 modelos Django + 5 funciones SQL
+**Implementación backend:** 8 modelos del backend + 5 funciones SQL
 nativas + endpoint ``/menu/`` (estado documentado en GAP_ANALYSIS).
 
 4.6 MOD_Reports — Dashboards y Reportes (14 UCs)
