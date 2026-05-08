@@ -13,8 +13,8 @@
  }
 
  class PipelineExecutionRepo {
-   + ultima_ejecucion() : PipelineExecution
-   + ejecuciones_recientes(n) : List
+   + last_successful_by_dataset(dataset) : PipelineExecution
+   + find_recent(period) : List
  }
 
  class ResumenSaludAssembler {

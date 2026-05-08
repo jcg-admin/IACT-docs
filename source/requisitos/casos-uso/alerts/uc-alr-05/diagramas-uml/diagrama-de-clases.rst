@@ -9,9 +9,9 @@
  @startuml
 
  class Subscription {
-   + id : UUID
-   + user : User
-   + rule : AlertRule
+   + subscription_id : UUID
+   + subscriber_user_id : UUID
+   + alert_id : UUID
    + channel : NotificationChannel
    + scope : SegmentScope
    + state : SubscriptionState

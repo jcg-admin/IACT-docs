@@ -13,7 +13,7 @@
  }
 
  class AuditRepo {
-   + query(filters, cursor) : List
+   + find(filters, cursor) : List
  }
 
  class CursorEncoder {

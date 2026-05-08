@@ -9,11 +9,11 @@
  @startuml
 
  class ErroresETLService {
-   + listar(filters, period) : List
+   + query(filters, period) : List
  }
 
  class PipelineExecutionRepo {
-   + por_estado(state, filters) : List
+   + find_by_state(state, filters) : List
  }
 
  ErroresETLService --> PipelineExecutionRepo : reads

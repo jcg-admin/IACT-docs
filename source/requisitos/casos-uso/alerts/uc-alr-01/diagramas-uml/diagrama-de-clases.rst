@@ -9,7 +9,7 @@
  @startuml
 
  class AlertRule {
-   + id : UUID
+   + rule_id : UUID
    + name : String
    + metric : String
    + scope : String
@@ -18,7 +18,7 @@
    + severity : Severity
    + actions : List
    + cooldown : Duration
-   + state : AlertRuleState
+   + status : AlertRuleState
  }
 
  class RuleValidator {
@@ -26,7 +26,7 @@
  }
 
  class EvaluatorReloader {
-   + reload(rule_id) : void
+   + reload_rule(rule_id) : void
  }
 
  class AlertRuleRepo {

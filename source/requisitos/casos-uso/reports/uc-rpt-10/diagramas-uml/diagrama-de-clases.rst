@@ -9,14 +9,14 @@
  @startuml
 
  class SavedView {
-   + id : UUID
+   + view_id : UUID
    + name : String
    + report_type : String
-   + filters : Map
+   + filters_snapshot : Map
    + columns : List
    + chart_config : Map
    + state : SavedViewState
-   + owner : User
+   + owner_user_id : UUID
  }
 
  class ColumnCatalog {

@@ -27,7 +27,7 @@
 
  class AccessGroup {
    + id : UUID
-   + agr_code : String
+   + agr_id : String
    + name : String
    + is_system : Boolean
    + state : AccessGroupState

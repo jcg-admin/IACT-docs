@@ -9,7 +9,7 @@
  @startuml
 
  class AgentReportService {
-   + list(filters, period, page) : List
+   + get(filters, period, page) : List
    + detail(agent_id, period) : AgentDetail
  }
 
