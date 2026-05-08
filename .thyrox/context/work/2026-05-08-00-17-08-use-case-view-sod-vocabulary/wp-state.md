@@ -7,8 +7,8 @@ status: Activo
 author: NestorMonroy
 flow: rm
 methodology_step: rm-management
-size: mediano (~10 archivos a modificar, ~50 ediciones, ~1-2 h)
-target: Renombrar identificadores SOD/Sod controlados por el proyecto en `source/arquitectura-tecnica/use-case-view/` (plantuml aliases tipo `VALIDAR_SOD`, eventos backend `SOD_RULE_*`, codigos `SOD-001..003`) que NO son tokens opacos del backend RBAC. Preserva el termino "SoD" como vocabulario de dominio (Separation of Duties) en narrativa, pero canoniza los identificadores tecnicos a `SEPARATION_RULES` para alinear con backend post-A-001.
+size: mediano-grande (~12 archivos, ~60 ediciones, ~2-3 h)
+target: **Eliminar TODAS las apariciones de "Sod"/"SOD"/"sod" en cualquier forma controlada por el proyecto** en `source/arquitectura-tecnica/use-case-view/` (Cat-1 plantuml aliases, Cat-2 captions, Cat-3 narrativa, Cat-4 filenames+toctrees+anchors). Directiva del ejecutor (post Phase 1 inicial): "no queremos nada que diga Sod, porque puede confundir". Excepciones inmovibles: tokens opacos backend (`access:*_sod`), "Separation of Duties" en prosa explicativa larga, codigos BD `SOD-001..003`. Alcance ampliado documentado en `discover/rule-and-context.md`.
 predecessor_wp: 2026-05-07-23-30-26-use-case-view-users-alignment (cerrado)
 trigger: el ejecutor detecto refs `VALIDAR_SOD` en plantuml de use-case-view tras cierre del WP std-010-compliance — confirmacion de que el cleanup previo no cubrio todos los identificadores tecnicos
 ```
