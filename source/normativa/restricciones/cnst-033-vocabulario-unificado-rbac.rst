@@ -189,7 +189,7 @@ Los nombres son los valores del campo ``name`` en el modelo
    - ``agr_auditor``
    - Ingles + sin prefijo
 
-3.4 Nombres de Reglas SoD
+3.4 Nombres de Reglas de Separacion
 --------------------------
 
 Los nombres son los valores del campo ``name`` en el modelo
@@ -609,7 +609,7 @@ Catalogo completo de valores ``name`` del modelo
 
 ----
 
-7. Catalogo Canonico de Reglas SoD
+7. Catalogo Canonico de Reglas de Separacion
 =====================================
 
 Catalogo completo de valores ``name`` del modelo
@@ -717,7 +717,7 @@ nivel CRITICO:
    - 2026-01-13
    - Version inicial. Canoniza la regla fundamental
      (codigo en ingles, docs en espanol) y los catalogos
-     de codenames, grupos y reglas SoD corregidos en
+     de codenames, grupos y reglas de separacion corregidos en
      ``MODELO_RBAC_IACT_v5.2.1``.
  * - 2.0.0
    - 2026-05-04

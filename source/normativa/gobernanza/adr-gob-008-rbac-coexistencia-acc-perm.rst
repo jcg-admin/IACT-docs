@@ -33,7 +33,7 @@ formal:
 
 - Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index``.
 - Catalogo cerrado para set activo, abierto a extension: 64 funciones activas + 13 reservadas open-closed + 12 grupos predefinidos
-  AGR-001..AGR-012 + 3 reglas SoD.
+  AGR-001..AGR-012 + 3 reglas de separacion.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
 - Casos de uso: UC_ACC_01..UC_ACC_09 (admin no-tech asigna
   agrupadores predefinidos al usuario).
@@ -160,7 +160,7 @@ actualizados:
   enriquecido con catalogo de los 12 grupos AGR-001..012 +
   distincion system vs custom (D-RBAC-4).
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
-  enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
+  enriquecido con las 3 reglas de separacion declaradas (SOD-001/002/003) y
   aplicabilidad a custom groups (D-RBAC-7).
 - :doc:`/base-cognitiva/glosario` § H "Vocabulario RBAC unificado"
   agrega los 8 terminos canonicos.
@@ -206,7 +206,7 @@ Decisiones Relacionadas
  * - D-RBAC-6
    - Crear CNST_033 Vocabulario Unificado RBAC
  * - D-RBAC-7
-   - SoD aplica tambien a custom groups
+   - separacion aplica tambien a custom groups
  * - D-RBAC-8
    - Migracion Capacidad → Function: reemplazo total
 

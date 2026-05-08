@@ -17,7 +17,7 @@ puede haber dos roles distintos con A para la misma funcion.
 7.2 Cambios al catalogo
 -----------------------
 
-Cualquier cambio al catalogo de funciones, grupos o reglas SoD
+Cualquier cambio al catalogo de funciones, grupos o reglas de separacion
 requiere:
 
 1. Aprobacion del **TLB** (Accountable global del modelo).
@@ -43,7 +43,7 @@ Esta matriz se actualiza cuando:
 
 - Se agrega/elimina una funcion del catalogo.
 - Se agrega/elimina un grupo predefinido.
-- Se agrega/modifica una regla SoD.
+- Se agrega/modifica una regla de separacion.
 - Cambia un stakeholder canonico.
 
 **Owner del mantenimiento:** TLB (Tech Lead Backend).
@@ -115,10 +115,10 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
     "Supervisor" + AGR-004 "Data Analyst") y AdmNT (AGR-006 que
     para administracion ve reportes propios).
   - ``view_audit_log``: R = Aud unico porque AGR-008
-    tiene SoD declarado contra otros admin groups
+    tiene separacion declarada contra otros admin groups
     (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`).
   - ``view_separation_rules``: R = AdmT, C = AdmNT/Aud
-    porque modificar reglas SoD afecta directamente la
+    porque modificar reglas de separacion afecta directamente la
     administracion no-tech (y es auditable).
 
 **Trazabilidad a fuente legacy del catalogo de grupos:**

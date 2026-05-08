@@ -643,7 +643,7 @@ Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
  * - Nombres de grupos (system y custom)
    - Inglés con sufijo ``_group``
    - ``basic_operator_group``, ``auditor_group``
- * - Nombres de reglas SoD
+ * - Nombres de reglas de separacion
    - Inglés con sufijo ``_separation``
    - ``pipeline_audit_separation``
  * - Comentarios en código

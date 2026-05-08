@@ -153,7 +153,7 @@ El admin puede crear **custom groups** dinamicamente via
 asignando capabilities especificas via
 :doc:`/requisitos/casos-uso/permissions/uc-perm-06/index`.
 
-Las reglas SoD (:doc:`cnst-030-reglas-de-separacion-de-funciones`)
+Las reglas de separacion (:doc:`cnst-030-reglas-de-separacion-de-funciones`)
 aplican TANTO a system groups como a custom groups.
 
 2.2 Parametros

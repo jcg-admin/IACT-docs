@@ -62,7 +62,7 @@ TPL_DJANGO_APP: Plantilla de Django App
 - **CNST-007:** BD IVR es read-only desde Django.
 - **CNST-009:** PII enmascarada en logs/auditoría.
 - **CNST-019:** exportaciones >10K registros → asíncrono.
-- **CNST-029/030:** RBAC plano + SoD enforcement.
+- **CNST-029/030:** RBAC plano + enforcement de separacion.
 
 4. Checklist pre-deploy
 =======================

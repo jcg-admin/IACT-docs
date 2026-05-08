@@ -94,7 +94,7 @@ El modelo RBAC del proyecto IACT es:
 5. **Custom groups** creables por administradores tecnicos
    (D-RBAC-4) — distincion entre **system groups** (inmutables)
    y **custom groups** (creables).
-6. **3 reglas SoD** declarativas (SOD-001/002/003) per
+6. **3 reglas de separacion** declarativas (SOD-001/002/003) per
    :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`.
 7. **Permisos excepcionales temporales** con duracion maxima
    **6 meses** per
@@ -111,7 +111,7 @@ El modelo RBAC del proyecto IACT es:
 - **"FunctionGroup"** — agrupacion (system o custom).
 - **"UserFunctionAssignment"** — asignacion de funciones a
   usuarios via grupos.
-- **"FunctionSeparationRule"** — regla SoD entre funciones.
+- **"FunctionSeparationRule"** — regla de separacion entre funciones.
 
 PROHIBIDOS: "Capacidad", "Capacity" (D-RBAC-1).
 
@@ -171,7 +171,7 @@ El modelo v5.6.0 (vigente, en
   - Caller (sin RBAC, no es modulo del modelo).
 
 - **12 grupos** AGR-001..AGR-012.
-- **3 reglas SoD** SOD-001/002/003.
+- **3 reglas de separacion** SOD-001/002/003.
 
 Nota historica del bump v5.3.0 → v5.4.0:
 
@@ -181,7 +181,7 @@ Nota historica del bump v5.3.0 → v5.4.0:
   ``manage_separation_rules`` → ``view_separation_rules`` (ACC-005),
   ``delete_alerts`` → ``disable_alerts`` (ALR-005),
   ``view_technical_logs`` → ``view_application_logs`` (LOG-001).
-- **10 funciones nuevas:** ACC-011/012 (split SRP de SoD admin),
+- **10 funciones nuevas:** ACC-011/012 (split SRP de administracion de separacion),
   ALR-007 (acknowledge), ALR-008/009/010 (split SRP suscripciones),
   LOG-004/005/006/007 (split SRP logs ETL/infra + gaps health/metrics).
 - **0 eliminaciones:** principio "no eliminar nada" (BR-009 global).
@@ -270,7 +270,7 @@ La matriz RACI:
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
 - Cubre los 12 grupos predefinidos AGR-001..AGR-012.
-- Cubre las 3 reglas SoD SOD-001..003.
+- Cubre las 3 reglas de separacion SOD-001..003.
 - Cubre las operaciones de gobernanza del modelo
   (agregar/eliminar funcion, crear grupo custom, etc.).
 - Identifica 6 stakeholders: Admin no-tech, Admin tecnico,

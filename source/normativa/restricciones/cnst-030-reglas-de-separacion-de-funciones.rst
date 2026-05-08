@@ -13,7 +13,7 @@
 .. _cnst-030:
 
 ===============================================
-CNST-030: Reglas de Separacion de Funciones SoD
+CNST-030: Reglas de Separacion de Funciones (separation of duties)
 ===============================================
 
 Resumen Ejecutivo
@@ -43,16 +43,16 @@ Resumen Ejecutivo
 ^^^^^^^^^^^^^
 
 
-Las reglas de SoD (Separation of Duties) DEBEN declararse atomicamente
+Las reglas de separacion (Separation of Duties) DEBEN declararse atomicamente
 y enforzarse en tiempo de asignacion. La asignacion de un grupo que
-crea conflicto SoD con otro grupo del usuario DEBE rechazarse con
+crea conflicto de separacion con otro grupo del usuario DEBE rechazarse con
 error explicito.
 
 1.2 Justificacion
 ^^^^^^^^^^^^^^^^^
 
 
-SoD previene fraude y errores por concentracion de poder. Las reglas
+Separacion de deberes previene fraude y errores por concentracion de poder. Las reglas
 SoD textuales (no atomicas) son ineficaces porque dependen del
 revisor humano.
 
@@ -70,12 +70,12 @@ revisor humano.
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-- Modelo ``SoDRule`` con campos ``group_a``, ``group_b``, ``rationale``.
+- Modelo ``SeparationRule`` con campos ``group_a``, ``group_b``, ``rationale``.
 - Validacion en signal ``pre_save`` de ``UserGroup``: rechaza si la
   asignacion crea un par prohibido.
 - Reporte periodico de violaciones existentes (sanity check).
 
-**Catalogo de las 3 reglas SoD vigentes (modelo v5.2.1):**
+**Catalogo de las 3 reglas de separacion vigentes (modelo v5.2.1):**
 
 .. list-table::
  :widths: 15 30 25 20 10
@@ -119,11 +119,11 @@ revisor humano.
 
 **Aplicabilidad a custom groups (decision D-RBAC-7):**
 
-Las 3 reglas SoD aplican TANTO a system groups (AGR-001..012) como a
+Las 3 reglas de separacion aplican TANTO a system groups (AGR-001..012) como a
 **custom groups** creados via UC_PERM_05. La validacion runtime
 verifica las funciones contenidas en cualquier grupo, sin distincion
 de origen (predefinido o creable). Esto previene que admin tech
-cree un custom group que combine funciones prohibidas por SoD.
+cree un custom group que combine funciones prohibidas por separacion.
 
 2.2 Parametros
 ^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Ver subseccion 2.1.
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Modelo SoDRule
+- Modelo SeparationRule
 - Signal pre_save de UserGroup
 - Reporte periodico de violaciones
 
@@ -150,7 +150,7 @@ Ver subseccion 2.1.
  * - Modulo
    - Impacto
  * - MOD_Access
-   - Implementa SoDRule + signal de validacion
+   - Implementa SeparationRule + signal de validacion
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -162,15 +162,15 @@ Ver subseccion 2.1.
  * - UC
    - Impacto
  * - UC_004
-   - Asignar Rol — valida SoD
+   - Asignar Rol — valida separacion
  * - UC_005
-   - Auditoria de violaciones SoD
+   - Auditoria de violaciones de separacion
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Asignar grupos en conflicto SoD a un mismo usuario
-- Hacer permisos temporales que violen SoD
+- Asignar grupos en conflicto de separacion a un mismo usuario
+- Hacer permisos temporales que violen separacion
 - Bypassear la validacion en codigo
 
 4. Business Rules Derivadas
@@ -191,9 +191,9 @@ el WP de requisitos (deuda diferida).
 
  # signal handler
  def on_user_group_save(sender, instance, **kwargs):
- conflicting = SoDRule.find_conflict(instance.user, instance.group)
+ conflicting = SeparationRule.find_conflict(instance.user, instance.group)
  if conflicting:
- raise ValidationError(f"SoD: conflict with {conflicting}")
+ raise ValidationError(f"Separation rule: conflict with {conflicting}")
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -207,7 +207,7 @@ Ver seccion 5.1 (codigo de referencia es la validacion ejecutable).
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Excepciones SoD requieren ADR + aprobacion explicita del Compliance Officer
+- Excepciones de separacion requieren ADR + aprobacion explicita del Compliance Officer
 
 6.2 Proceso de Excepcion
 ^^^^^^^^^^^^^^^^^^^^^^^^
