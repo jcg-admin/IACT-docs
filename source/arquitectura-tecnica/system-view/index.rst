@@ -24,15 +24,15 @@ RBAC en ingles conforme al catalogo de funciones del sistema.
  :maxdepth: 1
  :caption: Diagramas del sistema
 
- casos-uso-sistema-iact
- clases-sistema-iact
- actividad-flujo-principal
- actividad-autenticacion
- maquina-estados-sistema-iact
- secuencia-sistema-iact
- comunicacion-sistema-iact
- componentes-sistema-iact
- despliegue-sistema-iact
- submaquina-etl
- submaquina-reporte
- despliegue-multicliente
+ system-functional-scope
+ domain-overview
+ main-rbac-flow
+ authentication-flow
+ system-session-lifecycle
+ system-interaction-overview
+ object-collaboration
+ component-overview
+ system-deployment
+ etl-execution-lifecycle
+ ivr-report-query-lifecycle
+ multi-tenant-topology

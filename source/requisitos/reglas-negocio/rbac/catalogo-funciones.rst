@@ -785,7 +785,7 @@ MOD_Permissions (verificacion runtime). Actor principal: ``system_admin``
 **Nota v5.6.0:**
 Modulo nuevo — formaliza el plano de configuracion RBAC que existia
 implicito en referencias de arquitectura (arquitectura-sistema.rst,
-despliegue-multicliente.rst) pero sin definicion formal de UCs ni
+multi-tenant-topology.rst) pero sin definicion formal de UCs ni
 funciones RBAC propias.
 
 **Nota v5.6.x extension:**
