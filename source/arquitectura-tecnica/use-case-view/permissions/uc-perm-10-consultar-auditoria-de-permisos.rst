@@ -68,7 +68,7 @@ Meta-audit P-44: toda consulta a la bitacora genera AuditEvent.
  note bottom of FORZAR_SCOPE
    Scope RBAC: filter event_type ∈
    {AGR_*, FUNCTION_*, EXCEPTIONAL_*,
-   SOD_RULE_*, USER_*, AUTH_*}.
+   SEPARATION_RULE_*, USER_*, AUTH_*}.
    UC_AUD_01 cubre TODO scope.
  end note
 
