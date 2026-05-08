@@ -709,7 +709,7 @@ Panel 3: Tiempo Desde Ultimo Exito
 
  time - last_success_timestamp
 
-**Alertas (AlertManager):**
+**Alertas (AlertOperationsCoordinator):**
 
 Alerta 1: Job No Ejecutado en 5 Minutos
 

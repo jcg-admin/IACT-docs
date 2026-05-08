@@ -40,7 +40,7 @@ Estructura de archivos del backend
    ├── __init__.py
    ├── apps.py
    ├── models.py                          # Function, AccessGroup, FunctionSeparationRule, ...
-   ├── managers.py                        # AccessGroupManager con queryset.system() / .custom()
+   ├── managers.py                        # AccessGroupQueryRepository con queryset.system() / .custom()
    ├── permissions.py                     # FunctionAuthBackend + DRF FunctionPermission
    ├── signals.py                         # enforcement de separacion en pre_save
    ├── admin.py                           # ModelAdmin con is_system protection
