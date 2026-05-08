@@ -1,95 +1,98 @@
 .. meta::
  :artefacto: UC_USR_07
- :tipo: Caso de Uso (stub Reservado)
+ :tipo: Caso de Uso (Spec Completa)
  :dominio: requisitos
  :subdominio: casos_uso/users
- :estado: Reservado
- :version: 0.1.0
+ :estado: Aprobado
+ :version: 1.0.0
  :fecha_creacion: 2026-05-07
- :ultimo_cambio: 2026-05-07
+ :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
- :clasificacion: Interno
- :origen: incierto — referenciado en users/uc-usr-02
-          sin decision arquitectonica formal documentada
+ :clasificacion: Importante
+ :normativa: CNST-009, CNST-013, CNST-025, CNST-026
 
 .. _uc-usr-07:
 
-==============================================
-UC_USR_07 — Editar Perfil Propio (RESERVADO)
-==============================================
+==================================
+UC_USR_07 — Editar Perfil Propio
+==================================
 
-.. warning:: **UC en estado Reservado — sin spec completa**
+.. note::
 
-   Aparece referenciado en:
+ **Especificacion completa de 12 partes** — promocion del
+ placeholder Reservado a spec Aprobada por el WP
+ ``2026-05-08-04-10-27-uc-view-domain-alignment``.
 
-   - ``users/uc-usr-02/informacion-general.rst:73`` —
-     "UC_USR_07 (perfil propio, separado)".
+Resumen
+=======
 
-   La referencia distingue entre:
+UC_USR_07 permite que un User autenticado edite **campos
+editables de su propio perfil**: ``full_name``, ``email``
+(opcionalmente). NO toca atributos sensibles como
+``primary_access_group_id``, ``segment_id`` o ``state`` —
+esos requieren UC_USR_03 (modificacion administrativa).
 
-   - UC_USR_02: edicion de usuarios por admin
-     (capability ``edit_users``).
-   - UC_USR_07: edicion del perfil propio del usuario
-     autenticado (capability self-served, sin RBAC
-     administrativo).
+UC_USR_07 es **self-service**: el actor es el propio
+User; no hay admin involucrado. La capability
+``edit_own_profile`` es asignacion default a TODOS los
+Users activos del sistema (todo User puede editarse a si
+mismo).
 
-   La investigacion del WP
-   ``2026-05-07-04-08-13-use-case-view-analysis`` confirma
-   que nunca existio commit de creacion de este UC.
+Distinto de:
 
-   Estado **Reservado** hasta que el ejecutor confirme su
-   alcance.
-
-Resumen propuesto
-=================
-
-UC_USR_07 permitiria al usuario autenticado editar su
-**propio perfil** (campos como nombre completo, email
-secundario, preferencias de UI, locale) sin requerir
-capability administrativa. La capability seria
-self-served (auto-otorgada al autenticarse, similar a
-``view_own_state``).
-
-**No incluye:**
-
-- Cambio de password (UC_AUTH_03 / UC_AUTH_04).
-- Cambio de username (potencial impacto en audit log;
-  decision separada).
-- Cambio de ``segment_id`` (BR-012 — permanente, no
-  switchable).
-- Cambio de AGRs / capabilities (UC_PERM_01..06).
-
-Trazabilidad
-============
+- **UC_USR_03**: modificacion **administrativa** por un
+  admin sobre **otro** User. Permite cambiar atributos
+  sensibles.
+- **UC_AUTH_03**: reset de password — credencial,
+  no perfil.
 
 .. list-table::
- :widths: 30 70
+ :widths: 25 75
  :header-rows: 0
 
  * - **ID**
    - UC_USR_07
- * - **Nombre propuesto**
-   - Editar Perfil Propio
  * - **Modulo**
    - MOD_Users
- * - **Capability propuesta**
-   - ``edit_own_profile`` (no existe en catalogo;
-     candidata a ser self-served como ``view_own_*``)
- * - **Estado**
-   - **Reservado**
- * - **Diferencia con UC_USR_02**
-   - UC_USR_02 = admin edita usuarios (RBAC
-     ``edit_users``). UC_USR_07 = usuario edita su
-     propio perfil (sin RBAC admin).
+ * - **Criticidad**
+   - MEDIA (afecta presentacion del User pero no
+     privilegios)
+ * - **Complejidad**
+   - BAJA (1 dia)
+ * - **Actor Principal**
+   - Cualquier User autenticado con funcion
+     ``edit_own_profile``
+ * - **Funcion RBAC**
+   - ``edit_own_profile`` (asignacion default a todos los
+     Users activos)
+ * - **BReq satisfecho**
+   - BReq-002 (Experiencia de Usuario) + BReq-004
+     (auditoria del cambio)
 
-Decision pendiente
-==================
+Documentos vinculados
+=====================
 
-Antes de promover, ADR debe definir:
+- :doc:`/requisitos/casos-uso/users/uc-usr-03/index`
+  (modificacion administrativa — campos sensibles)
+- :doc:`/requisitos/casos-uso/auth/uc-auth-04/index`
+  (cambiar password — credencial, scope distinto)
 
-1. ¿Que campos son editables por el propio usuario vs cuales
-   requieren admin?
-2. ¿La capability es self-served o requiere asignacion
-   explicita?
-3. Auditabilidad: ¿toda edicion del perfil propio genera
-   audit event?
+Estructura de la spec
+=====================
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Las 12 partes
+
+ informacion-general
+ actores-precondiciones
+ flujo-principal
+ flujos-alternos
+ excepciones
+ requisitos-no-funcionales
+ datos-involucrados
+ diagramas-uml/index
+ criterios-aceptacion
+ patrones-diseno
+ implementacion-tecnica
+ testing
