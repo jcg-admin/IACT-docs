@@ -8,7 +8,7 @@
 
  @startuml
 
- class IVRNavigationReportService {
+ class IvrNavigationReportService {
    + get(trimestre, vista, invoker) : ReporteMenuIVR
  }
 
@@ -16,7 +16,7 @@
    + resolve(user) : set of String
  }
 
- IVRNavigationReportService --> SegmentResolver : invokes
+ IvrNavigationReportService --> SegmentResolver : invokes
 
  @enduml
 

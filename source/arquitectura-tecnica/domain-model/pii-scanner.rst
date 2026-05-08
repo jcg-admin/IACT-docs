@@ -42,6 +42,7 @@ según la política.
    --
    + scan(payload : JSON) : ScanReport
    + scan_field(field_path : String, value : String) : List<Match>
+   + sanitize(payload : JSON) : SanitizedPayload
    + register_rule(rule : DetectionRule) : void
    + remove_rule(category : PIICategory) : void
  }
