@@ -29,7 +29,7 @@ Referencia al modelo conceptual: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-ia
  stakeholders
  raci-modulo
  raci-grupos
- raci-sod
+ raci-separacion-de-deberes
  raci-gobernanza
  trazabilidad
  convenciones
