@@ -11,17 +11,18 @@
  :autor: NestorMonroy
  :clasificacion: Critico
 
-.. _at_uc_adm_01_gestionar_ciclo_de_vida_de_reglas_sod:
+.. _at_uc_adm_01_gestionar_ciclo_de_vida_de_reglas_de_separacion:
 
-=================================================
-UC_ADM_01 — Gestionar Ciclo de Vida de Reglas SoD
-=================================================
+============================================================
+UC_ADM_01 — Gestionar Ciclo de Vida de Reglas de Separacion
+============================================================
 
-Administra el ciclo de vida completo de las **reglas SoD** (separation
-of duties): crear, actualizar parametros, activar/desactivar y
-consultar. Mecanismo formal para agregar reglas SoD desde la
-aplicacion (las 3 reglas estaticas SOD-001..003 fueron definidas en
-migraciones por CNST-030).
+Administra el ciclo de vida completo de las **reglas de separacion
+de deberes** (Separation of Duties): crear, actualizar parametros,
+activar/desactivar y consultar. Mecanismo formal para agregar reglas
+de separacion desde la aplicacion (las 3 reglas estaticas
+SOD-001..003 fueron definidas en migraciones por CNST-030; los
+codigos preservan la convencion historica del catalogo en BD).
 
 .. uml::
  :caption: UC_ADM_01 — actores y casos asociados.
@@ -42,13 +43,13 @@ migraciones por CNST-030).
  actor "AuditService" as AuditService <<sistema>>
 
  rectangle "MOD_Admin" {
-   usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas SoD\n.. extension points ..\nValidacionFunciones\nValidacionConjuntos" as UC_ADM_01
+   usecase "UC_ADM_01\nGestionar Ciclo de Vida\nde Reglas de Separacion\n.. extension points ..\nValidacionFunciones\nValidacionConjuntos" as UC_ADM_01
    usecase "Verificar AGR-010\n(autorizacion)" as VERIFICAR_AGR
    usecase "Validar conjuntos\ndisjuntos (CNST-030)" as VALIDAR_CONJUNTOS
    usecase "Validar funciones\nen catalogo activo" as VALIDAR_FUNCIONES
    usecase "Validar nombre\nunico" as VALIDAR_NOMBRE
    usecase "Persistir SeparationRule\n(BR-009 baja logica)" as PERSISTIR
-   usecase "Emitir AuditEvent\nSOD_RULE_*" as AUDITAR
+   usecase "Emitir AuditEvent\nSEPARATION_RULE_*" as AUDITAR
    usecase "Recargar reglas\nactivas" as RECARGAR
    usecase "Reactivar regla\ninactiva" as REACTIVAR
  }
@@ -82,7 +83,7 @@ migraciones por CNST-030).
  end note
 
  note bottom of AUDITAR
-   SOD_RULE_CREATED / UPDATED /
+   SEPARATION_RULE_CREATED / UPDATED /
    DISABLED. CNST-025 alta criticidad
    — cambios al modelo RBAC.
  end note
@@ -102,7 +103,7 @@ migraciones por CNST-030).
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
    SeparationRule entity persistida (CNST-030).
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule-repo` —
-   repositorio CRUD + queries SoD activas.
+   repositorio CRUD + queries de reglas de separacion activas.
  - :doc:`/arquitectura-tecnica/domain-model/function` —
    catalogo validado en VALIDAR_FUNCIONES.
  - :doc:`/arquitectura-tecnica/domain-model/function-repo` —
@@ -114,11 +115,11 @@ migraciones por CNST-030).
  - :doc:`/arquitectura-tecnica/domain-model/evaluator-reloader` —
    notificado en RECARGAR para refrescar reglas activas.
  - :doc:`/arquitectura-tecnica/domain-model/audit-service` —
-   emisor de AuditEvent SOD_RULE_*.
+   emisor de AuditEvent SEPARATION_RULE_*.
  - :doc:`/arquitectura-tecnica/domain-model/audit-event` —
    estructura del evento (CNST-025).
  - :doc:`/arquitectura-tecnica/domain-model/specification-pattern` —
-   SoDViolationSpec consumida por RuleValidator.
+   SeparationRuleViolationSpec consumida por RuleValidator.
 
  **Spec textual** del UC:
 

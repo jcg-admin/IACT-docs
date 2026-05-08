@@ -33,7 +33,7 @@ MOD_Admin — Administracion del Modelo RBAC
 ===========================================
 
 Plano de **configuracion del modelo RBAC**: gestiona QUE funciones,
-grupos del sistema y reglas SoD EXISTEN — anterior e independiente de
+grupos del sistema y reglas de separacion EXISTEN — anterior e independiente de
 a quien se asignan (:doc:`/arquitectura-tecnica/use-case-view/access/index`) o de como se verifican en runtime
 (:doc:`/arquitectura-tecnica/use-case-view/permissions/index`).
 
@@ -58,7 +58,7 @@ a quien se asignan (:doc:`/arquitectura-tecnica/use-case-view/access/index`) o d
  actor "Planificador\nde Tareas" as PlanificadorTareas
 
  rectangle "MOD_Admin" {
-   usecase "UC_ADM_01\nGestionar Ciclo\nde Vida de Reglas SoD" as ADM01
+   usecase "UC_ADM_01\nGestionar Ciclo\nde Vida de Reglas\nde Separacion" as ADM01
    usecase "UC_ADM_02\nGestionar Catalogo\nde Funciones" as ADM02
    usecase "UC_ADM_03\nGestionar Catalogo\nde Agrupadores del Sistema" as ADM03
    usecase "UC_ADM_04\nGestionar Catalogo\nde MenuItems\n(v5.6.x)" as ADM04
@@ -119,12 +119,12 @@ Casos de Uso
    - Funciones RBAC
    - Notas
  * - UC_ADM_01
-   - Gestionar Ciclo de Vida de Reglas SoD
+   - Gestionar Ciclo de Vida de Reglas de Separacion
    - ``view_separation_rules``,
      ``create_separation_rule``,
      ``update_separation_rule``,
      ``disable_separation_rule``
-   - Consolida las operaciones de configuracion de SoD:
+   - Consolida las operaciones de configuracion de reglas de separacion:
      crear nueva regla, actualizar parametros,
      activar/desactivar. Complementa UC_ACC_05 que
      cubre la vista operativa.
@@ -173,7 +173,7 @@ Relacion con otros modulos
  * - Modulo
    - Relacion
  * - :doc:`/arquitectura-tecnica/use-case-view/access/index`
-   - MOD_Access lee las reglas SoD configuradas por MOD_Admin.
+   - MOD_Access lee las reglas de separacion configuradas por MOD_Admin.
      UC_ACC_05 (ver reglas) consume lo que UC_ADM_01 configura.
  * - :doc:`/arquitectura-tecnica/use-case-view/permissions/index`
    - MOD_Permissions lee el catalogo de funciones para construir
@@ -201,7 +201,7 @@ catalogo v5.5.0 (2 v5.6.0 baseline + 3 v5.6.x extension):
  * - ``create_separation_rule``
    - ACC (extend)
    - False
-   - Crea nueva regla SoD declarando el par de conjuntos de
+   - Crea nueva regla de separacion declarando el par de conjuntos de
      funciones mutuamente excluyentes. Complementa
      ``update_separation_rule`` y ``disable_separation_rule``
      (existentes v5.4.0) para cubrir el ciclo de vida completo.
@@ -297,7 +297,7 @@ Diagramas standalone uml-07 por UC (auto-explicativos):
 .. toctree::
  :maxdepth: 1
 
- uc-adm-01-gestionar-ciclo-de-vida-de-reglas-sod
+ uc-adm-01-gestionar-ciclo-de-vida-de-reglas-de-separacion
  uc-adm-02-gestionar-catalogo-de-funciones
  uc-adm-03-gestionar-catalogo-de-agrupadores-del-sistema
  uc-adm-04-gestionar-catalogo-menuitems
