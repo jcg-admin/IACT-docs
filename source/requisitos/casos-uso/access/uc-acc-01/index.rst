@@ -77,7 +77,7 @@ Documentos vinculados
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/reglas-negocio/br-008-auditoria-accesos`
 - :doc:`/requisitos/casos-uso/access/uc-acc-02/index`
   (operacion inversa)

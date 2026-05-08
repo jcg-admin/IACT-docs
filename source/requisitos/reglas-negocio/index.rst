@@ -31,7 +31,7 @@ Catálogo
  br-004-comunicaciones-internas-only
  br-005-sesion-unica-por-usuario
  br-006-rbac-flat-nist
- br-007-separacion-funciones-sod
+ br-007-separacion-de-funciones
  br-008-auditoria-accesos
  br-009-bajas-logicas
  br-010-auditoria-inmutable

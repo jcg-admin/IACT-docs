@@ -72,7 +72,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
   (consume las reglas en write-time)
 - :doc:`/requisitos/casos-uso/access/uc-acc-04/index`

@@ -34,7 +34,7 @@
 .. seealso::
 
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule`.
- - :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+ - :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
    (BR-007 SoD).
  - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
    (semantica soft delete).

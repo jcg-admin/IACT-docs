@@ -210,7 +210,7 @@ Resolucion vigente:
    - **Cerrado** — :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
  * - BR_007
    - Reescribir SoD entre funciones
-   - **Cerrado** — :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+   - **Cerrado** — :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
  * - BR_008
    - Cambiar terminologia rol -> funcion
    - **Pendiente** — el corpus vigente conserva BR_008 con vocabulario actualizado

@@ -87,7 +87,7 @@ BReq-004 se considera satisfecho cuando:
 
 - :doc:`/requisitos/reglas-negocio/br-005-sesion-unica-por-usuario`
 - :doc:`/requisitos/reglas-negocio/br-006-rbac-flat-nist`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/reglas-negocio/br-008-auditoria-accesos`
 - :doc:`/requisitos/reglas-negocio/br-010-auditoria-inmutable`
 - :doc:`/requisitos/reglas-negocio/br-015-bloqueo-intentos-fallidos`

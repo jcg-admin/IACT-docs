@@ -60,6 +60,6 @@
 .. seealso::
 
  - :doc:`diagrama-de-caso-de-uso`.
- - :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`.
+ - :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`.
  - :doc:`/arquitectura-tecnica/domain-model/function-group`.
  - :doc:`/arquitectura-tecnica/domain-model/access-group`.
