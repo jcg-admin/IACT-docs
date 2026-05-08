@@ -130,7 +130,7 @@ una sola operacion.
    - 026
  * - 5
    - Construir event
-   - EventFactory
+   - AuditEventCreator
    - 025
  * - 6
    - INSERT en tx caller

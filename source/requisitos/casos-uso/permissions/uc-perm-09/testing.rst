@@ -32,9 +32,9 @@ UT-07: PII scanner detecta password.
 UT-08: PII scanner pass payload sanitizado.
 UT-09: Sanitizer hashea username.
 UT-10: Sanitizer normaliza tz a UTC.
-UT-11: EventFactory genera UUID v7
+UT-11: AuditEventCreator genera UUID v7
 ordenable.
-UT-12: EventFactory completa request_id si
+UT-12: AuditEventCreator completa request_id si
 falta (sintetico).
 
 12.3 Tests de integracion
