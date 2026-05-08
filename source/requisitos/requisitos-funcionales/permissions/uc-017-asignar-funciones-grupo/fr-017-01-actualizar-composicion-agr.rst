@@ -12,7 +12,7 @@
 .. _fr-017-01:
 
 =========================================================================
-FR-017.01: Actualizar composición del grupo con validación SoD en cascada
+FR-017.01: Actualizar composición del grupo con validación de separacion en cascada
 =========================================================================
 
 
@@ -25,7 +25,7 @@ FR-017.01: Actualizar composición del grupo con validación SoD en cascada
  * - **ID**
    - FR-017.01
  * - **Nombre**
-   - Actualizar composición del grupo con validación SoD en cascada
+   - Actualizar composición del grupo con validación de separacion en cascada
  * - **UC Origen**
    - UC_PERM_06: Asignar Funciones a Grupo (composición AGR)
  * - **Paso UC**
@@ -44,11 +44,11 @@ FR-017.01: Actualizar composición del grupo con validación SoD en cascada
 
 **Declaración:**
 
- El sistema DEBE actualizar las funciones de un grupo de permisos personalizado CUANDO se proporciona la lista de funciones a agregar y retirar, validando que el cambio no genere conflictos SoD para ningún usuario que tenga el grupo asignado.
+ El sistema DEBE actualizar las funciones de un grupo de permisos personalizado CUANDO se proporciona la lista de funciones a agregar y retirar, validando que el cambio no genere conflictos de separacion para ningún usuario que tenga el grupo asignado.
 
 **Descripción:**
 
- El backend valida assign_functions_to_group, que el AGR sea custom y ACTIVE, que las funciones existan y estén activas, aplica idempotencia, calcula el cascade_affected_user_count, valida SoD post-cambio para cada usuario afectado (defensa cascade), persiste INSERT/DELETE AccessGroupFunction y emite AuditEvent ACCESS_GROUP_COMPOSITION_CHANGED.
+ El backend valida assign_functions_to_group, que el AGR sea custom y ACTIVE, que las funciones existan y estén activas, aplica idempotencia, calcula el cascade_affected_user_count, valida separacion post-cambio para cada usuario afectado (defensa cascade), persiste INSERT/DELETE AccessGroupFunction y emite AuditEvent ACCESS_GROUP_COMPOSITION_CHANGED.
 
 ----
 
@@ -61,12 +61,12 @@ FR-017.01: Actualizar composición del grupo con validación SoD en cascada
  CUANDO se procesa el cambio de composición
  ENTONCES 200 OK con resumen y cascade_count
  
- Escenario 1: Sin conflicto SoD
- DADO cambio no genera SoD para ningún usuario
+ Escenario 1: Sin conflicto de separacion
+ DADO cambio no genera separacion para ningún usuario
  ENTONCES composición actualizada
  
- Escenario 2: Conflicto SoD cascade
- DADO el cambio genera SoD para 2 usuarios
+ Escenario 2: Conflicto de separacion cascade
+ DADO el cambio genera separacion para 2 usuarios
  ENTONCES 422 con detalle de usuarios en conflicto
  
  Escenario 3: Idempotencia

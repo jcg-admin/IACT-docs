@@ -12,7 +12,7 @@
 .. _fr-010-02:
 
 =======================================
-FR-010.02: Validar SoD antes de asignar
+FR-010.02: Validar separacion antes de asignar
 =======================================
 
 
@@ -25,7 +25,7 @@ FR-010.02: Validar SoD antes de asignar
  * - **ID**
    - FR-010.02
  * - **Nombre**
-   - Validar restricciones SoD antes de asignar funciones
+   - Validar restricciones de separacion antes de asignar funciones
  * - **UC Origen**
    - UC_010: Asignar Funciones a Usuario
  * - **Paso UC**
@@ -45,20 +45,20 @@ FR-010.02: Validar SoD antes de asignar
 **Declaración:**
 
  El sistema DEBE validar que las funciones seleccionadas no violen
- restricciones de Separación de Funciones (SoD) CUANDO el admin
+ restricciones de Separación de Funciones (separation of duties) CUANDO el admin
  intenta asignarlas (BR_007).
 
 **Descripción:**
 
- Proceso de validación SoD:
+ Proceso de validación de separacion:
  
  1. Obtiene funciones actuales del usuario
  2. Combina con funciones seleccionadas para asignar
- 3. Consulta tabla de restricciones SoD
+ 3. Consulta tabla de restricciones de separacion
  4. Verifica cada par de funciones contra restricciones
  5. Si hay conflicto, bloquea asignación y muestra detalle
  
- **Tabla de Restricciones SoD:**
+ **Tabla de Restricciones de Separacion:**
  
  - funcion_a: código de función
  - funcion_b: código de función incompatible
@@ -79,11 +79,11 @@ FR-010.02: Validar SoD antes de asignar
 
  DADO admin seleccionando funciones para asignar
  CUANDO confirma la selección
- ENTONCES el sistema valida SoD antes de proceder
+ ENTONCES el sistema valida separacion antes de proceder
  
- Escenario 1: Sin conflictos SoD
+ Escenario 1: Sin conflictos de separacion
  DADO funciones seleccionadas sin conflictos
- CUANDO se valida SoD
+ CUANDO se valida separacion
  ENTONCES validación pasa exitosamente
  Y se permite continuar con asignación
  
@@ -91,7 +91,7 @@ FR-010.02: Validar SoD antes de asignar
  DADO función assign_functions ya asignada
  Y se intenta asignar view_separation_rules
  CUANDO se valida
- ENTONCES se muestra "Conflicto SoD: assign_functions incompatible con view_separation_rules"
+ ENTONCES se muestra "Conflicto de separacion: assign_functions incompatible con view_separation_rules"
  Y se muestra motivo del conflicto
  Y se BLOQUEA la asignación
  
@@ -102,7 +102,7 @@ FR-010.02: Validar SoD antes de asignar
  Y se permite continuar con confirmación adicional
  
  Escenario 4: Múltiples conflictos
- DADO selección con 3 conflictos SoD
+ DADO selección con 3 conflictos de separacion
  CUANDO se valida
  ENTONCES se muestran los 3 conflictos en lista
  Y se indica cuáles son HARD y cuáles SOFT
@@ -113,14 +113,14 @@ FR-010.02: Validar SoD antes de asignar
 -------------------------
 
 - **BR aplicables:**
-  - BR_007: Separación de Funciones (SoD)
+  - BR_007: Separación de Funciones (separation of duties)
  
 - **CNST aplicables:**
   - CNST-010: Segregación de funciones
 
-**Configuración SoD:**
+**Configuración de separacion:**
 
-Las restricciones SoD se configuran en UC_ADM_01 y son mantenidas
+Las restricciones de separacion se configuran en UC_ADM_01 y son mantenidas
 por el administrador de seguridad.
 
 ----
@@ -136,7 +136,7 @@ por el administrador de seguridad.
  * - **UC**
    - UC_010: Asignar Funciones
  * - **Depende de**
-   - FR-010.01, UC_ADM_01 (configuración SoD)
+   - FR-010.01, UC_ADM_01 (configuración de separacion)
  * - **Requerido por**
    - FR-010.03
  * - **BR**

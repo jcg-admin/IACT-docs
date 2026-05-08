@@ -48,7 +48,7 @@ FR-014.02: Registrar permiso excepcional con notificación obligatoria
 
 **Descripción:**
 
- La notificación InternalMessage al supervisor del User es mandatoria (no opcional). El AuditEvent EXCEPTIONAL_PERMISSION_GRANTED se clasifica como high-priority. La respuesta incluye resumen del permiso concedido y warnings SoD si aplica.
+ La notificación InternalMessage al supervisor del User es mandatoria (no opcional). El AuditEvent EXCEPTIONAL_PERMISSION_GRANTED se clasifica como high-priority. La respuesta incluye resumen del permiso concedido y warnings de separacion si aplica.
 
 ----
 
