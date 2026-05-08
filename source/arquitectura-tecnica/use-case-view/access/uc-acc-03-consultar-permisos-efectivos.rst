@@ -21,7 +21,7 @@ Calcula el ``effective_set`` de funciones de un User combinando
 ``Assignment`` directos + ``Assignment`` AGR (expandidos) +
 ``ExceptionalPermission`` activos no vencidos. Read-only. ``view_assignments``
 para consulta sobre otros Users; consulta sobre si mismo no requiere
-RBAC adicional (auto al rol User).
+RBAC adicional (auto-otorgada a usuarios autenticados).
 
 .. uml::
  :caption: UC_ACC_03 — actores y casos asociados.
@@ -64,7 +64,7 @@ RBAC adicional (auto al rol User).
 
  note bottom of UC_ACC_03
    Self-query: sin RBAC adicional
-   (auto al rol User).
+   (auto-otorgada a usuarios autenticados).
    Cross-User query: requiere
    view_assignments.
  end note
