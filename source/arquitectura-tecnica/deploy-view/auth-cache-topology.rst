@@ -60,5 +60,5 @@ UC_AUTH_05 (gestionar sesiones).
 .. seealso::
 
  :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-estandar`
+ :doc:`/arquitectura-tecnica/deploy-view/standard-topology`
  :doc:`/arquitectura-tecnica/domain-model/session`

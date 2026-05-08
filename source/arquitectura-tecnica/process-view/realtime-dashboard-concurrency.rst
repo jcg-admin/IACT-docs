@@ -84,4 +84,4 @@ y timeouts de seguridad.
  :doc:`/arquitectura-tecnica/domain-model/call`
  :doc:`/arquitectura-tecnica/domain-model/metric`
  :doc:`/arquitectura-tecnica/domain-model/alert`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-estandar`
+ :doc:`/arquitectura-tecnica/deploy-view/standard-topology`

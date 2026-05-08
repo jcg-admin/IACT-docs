@@ -76,4 +76,4 @@ ejecuciones, workers paralelos, reintentos y registro de
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/domain-model/pipeline-execution`
  :doc:`/arquitectura-tecnica/domain-model/audit-event`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-etl`
+ :doc:`/arquitectura-tecnica/deploy-view/etl-pipeline-topology`

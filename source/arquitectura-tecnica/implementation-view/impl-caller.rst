@@ -67,4 +67,4 @@ lectura via el pipeline ETL — nunca directamente desde la aplicacion web
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/domain-model/call`
  :doc:`/arquitectura-tecnica/domain-model/campaign`
- :doc:`/arquitectura-tecnica/process-view/proc-etl-pipeline`
+ :doc:`/arquitectura-tecnica/process-view/etl-pipeline-concurrency`

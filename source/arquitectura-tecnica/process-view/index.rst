@@ -26,7 +26,7 @@ timeouts. No cubre flujos UC individuales — esos viven en
  :maxdepth: 1
  :caption: Patrones de concurrencia
 
- proc-etl-pipeline
- proc-alertas-paralelas
- proc-sesiones-jwt
- proc-dashboard-concurrencia
+ etl-pipeline-concurrency
+ alert-evaluation-concurrency
+ jwt-session-synchronization
+ realtime-dashboard-concurrency

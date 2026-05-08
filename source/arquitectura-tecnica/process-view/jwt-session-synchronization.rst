@@ -85,4 +85,4 @@ con invalidacion en cache (CNST-002, CNST-003).
  :doc:`/arquitectura-tecnica/vistas-kruchten`
  :doc:`/arquitectura-tecnica/domain-model/session`
  :doc:`/arquitectura-tecnica/domain-model/user`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-auth-cache`
+ :doc:`/arquitectura-tecnica/deploy-view/auth-cache-topology`

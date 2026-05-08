@@ -58,5 +58,5 @@ MOD_Supervision, MOD_Caller, MOD_Admin.
 .. seealso::
 
  :doc:`/arquitectura-tecnica/vistas-kruchten`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-auth-cache`
- :doc:`/arquitectura-tecnica/deploy-view/deploy-etl`
+ :doc:`/arquitectura-tecnica/deploy-view/auth-cache-topology`
+ :doc:`/arquitectura-tecnica/deploy-view/etl-pipeline-topology`
