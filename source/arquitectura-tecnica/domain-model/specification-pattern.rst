@@ -19,7 +19,7 @@ Patron Specification — Catalogo
 
 El patron **Specification** encapsula reglas de negocio que evaluan si
 una entidad cumple con un criterio. En IACT se usa para validaciones
-de elegibilidad, conflictos SoD, restricciones de borrado y otras
+de elegibilidad, conflictos de separacion, restricciones de borrado y otras
 condiciones que no son responsabilidad directa de las entities ni
 de los services.
 
@@ -82,7 +82,7 @@ aqui.
  * - ``ExpiredExceptionalSpec``
    - ExceptionalPermission
    - Detecta ExceptionalPermission con expires_at < now
- * - ``SoDViolationSpec``
+ * - ``SeparationRuleViolationSpec``
    - List<Function>
    - Evalua si un set de funciones viola alguna SeparationRule
      activa (CNST-005)
@@ -108,7 +108,7 @@ Trazabilidad a UCs
 
 Specifications consumidas por multiples UCs:
 
-- ``SoDViolationSpec`` — UC_ACC_01, UC_ACC_04, UC_ACC_08, UC_ADM_01,
+- ``SeparationRuleViolationSpec`` — UC_ACC_01, UC_ACC_04, UC_ACC_08, UC_ADM_01,
   UC_ADM_03 (toda escritura RBAC).
 - ``ValidJWTSpec`` — UC_AUTH_01, UC_AUTH_05 (auth flows).
 - ``LastHolderSpec`` — UC_ACC_02, UC_PERM_02 (revoke con safety).
@@ -122,4 +122,4 @@ Relaciones
 - :doc:`function` — entity evaluada por CriticalFunctionSpec.
 - :doc:`assignment` — entity evaluada por ActiveAssignmentSpec.
 - :doc:`exceptional-permission` — evaluada por ExpiredExceptionalSpec.
-- :doc:`separation-rule` — fuente de SoDViolationSpec.
+- :doc:`separation-rule` — fuente de SeparationRuleViolationSpec.

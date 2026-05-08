@@ -74,7 +74,7 @@ UCs que leen:
 - :doc:`/requisitos/casos-uso/admin/uc-adm-03/index` —
   validar funcion existe en catalogo: get_by_codename.
 - :doc:`/requisitos/casos-uso/admin/uc-adm-01/index` —
-  validar funciones de SoD existen en catalogo activo.
+  validar funciones de separacion existen en catalogo activo.
 
 Relaciones
 ==========

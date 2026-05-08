@@ -138,7 +138,7 @@ Restricciones aplicables
 
 - **BR-009** — bajas lógicas: ``archive()`` no borra, marca
   ``ARCHIVED``.
-- **CNST-030** — SoD: la edición y la habilitación de
+- **CNST-030** — Separacion de deberes: la edición y la habilitación de
   reglas son operaciones distintas (RBAC granular).
 - **P-32** — reason-required: ``disable()`` exige razón
   documentada para auditoría.

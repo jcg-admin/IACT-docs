@@ -17,7 +17,7 @@
 SeparationRuleRepo
 ==================
 
-Repositorio CRUD de ``SeparationRule`` (reglas SoD que declaran
+Repositorio CRUD de ``SeparationRule`` (reglas de separacion que declaran
 conjuntos de funciones mutuamente excluyentes). Las 3 reglas estaticas
 actuales (SOD-001..003 segun CNST-030) se persisten aqui; este repo
 permite agregar nuevas, actualizar parametros o desactivar.
@@ -25,10 +25,10 @@ permite agregar nuevas, actualizar parametros o desactivar.
 Provee queries especializadas para ``RuleValidator``: dado un set
 candidato de funciones, retorna todas las reglas activas que aplican
 a funciones del set, para que el validator decida si hay violacion
-SoD write-time (BR-007).
+separacion write-time (BR-007).
 
 .. uml::
- :caption: Clase SeparationRuleRepo — CRUD + queries SoD.
+ :caption: Clase SeparationRuleRepo — CRUD + queries de separacion.
 
  @startuml
 
@@ -65,20 +65,20 @@ Trazabilidad a UCs
 UCs que escriben:
 
 - :doc:`/requisitos/casos-uso/admin/uc-adm-01/index` —
-  gestionar ciclo de vida de reglas SoD: create, update, disable.
+  gestionar ciclo de vida de reglas de separacion: create, update, disable.
 
-UCs que leen (validan SoD):
+UCs que leen (validan separacion):
 
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index` —
   asignar funciones: find_applicable + RuleValidator.evaluate.
 - :doc:`/requisitos/casos-uso/access/uc-acc-04/index` —
-  asignar AGR: validar SoD sobre funciones expandidas del AGR.
+  asignar AGR: validar separacion sobre funciones expandidas del AGR.
 - :doc:`/requisitos/casos-uso/access/uc-acc-08/index` —
-  permiso temporal: validar SoD write-time.
+  permiso temporal: validar separacion write-time.
 - :doc:`/requisitos/casos-uso/admin/uc-adm-03/index` —
-  modificar AGR composition: validar nueva composicion no rompe SoD.
+  modificar AGR composition: validar nueva composicion no rompe separacion.
 - :doc:`/requisitos/casos-uso/access/uc-acc-05/index` —
-  ver reglas SoD: find_active (vista operativa, read-only).
+  ver reglas de separacion: find_active (vista operativa, read-only).
 
 Relaciones
 ==========
@@ -86,4 +86,4 @@ Relaciones
 - :doc:`separation-rule` — entity gestionada.
 - :doc:`rule-validator` — consumidor principal de find_applicable.
 - :doc:`evaluator-reloader` — recarga reglas activas tras cambio.
-- :doc:`audit-service` — emite SOD_RULE_CREATED / UPDATED / DISABLED.
+- :doc:`audit-service` — emite SEPARATION_RULE_CREATED / UPDATED / DISABLED.

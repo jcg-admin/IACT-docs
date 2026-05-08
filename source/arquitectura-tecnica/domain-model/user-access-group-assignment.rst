@@ -80,7 +80,7 @@ Atributos
 Restricciones aplicables
 ========================
 
-- **CNST-030** — separacion de funciones (SoD) — al asignar
+- **CNST-030** — separacion de funciones (separation of duties) — al asignar
   un AGR, ``RuleValidator`` verifica que no genere conflicto
   con AGRs ya asignadas al usuario.
 - **CNST-032** — el menu dinamico del usuario se construye
@@ -95,7 +95,7 @@ Trazabilidad a UCs
 - :doc:`/requisitos/casos-uso/access/uc-acc-04/index` —
   asignacion creada por UC_ACC_04.
 - :doc:`/requisitos/casos-uso/admin/uc-adm-01/index` —
-  validacion SoD al asignar.
+  validacion de separacion al asignar.
 
 Relaciones
 ==========

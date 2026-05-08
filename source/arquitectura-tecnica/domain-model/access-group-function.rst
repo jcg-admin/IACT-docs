@@ -59,7 +59,7 @@ Restricciones aplicables
 
 - PK compuesta ``(access_group_id, function_id)`` evita
   duplicados; un par solo puede aparecer una vez.
-- **CNST-030** SoD — la composición debe respetar reglas
+- **CNST-030** Separacion de deberes — la composición debe respetar reglas
   de separación de funciones (validado en el servicio
   invocante, no en la entidad).
 - **CNST-025** — cambios de composición auditados en
