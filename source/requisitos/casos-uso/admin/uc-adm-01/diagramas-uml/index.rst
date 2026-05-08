@@ -9,4 +9,4 @@ Parte 8 — Diagramas
 
    diagrama-de-caso-de-uso
    diagrama-de-actividad
-   diagrama-de-estados-sod-rule
+   diagrama-de-estados-separation-rule
