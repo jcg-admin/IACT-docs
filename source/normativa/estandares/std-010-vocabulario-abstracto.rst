@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-05-04
  :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
@@ -81,6 +81,10 @@ implementación.
 +----------------------------------------------+--------------------------+
 | source/requisitos/_metodologia-aplicacion/** | No — exenta (§2.3)       |
 +----------------------------------------------+--------------------------+
+| source/base-cognitiva/_metadata/**           | No — exenta (§2.5.1)     |
++----------------------------------------------+--------------------------+
+| source/requisitos/casos-uso/**/testing.rst   | No — exenta (§2.5.3)     |
++----------------------------------------------+--------------------------+
 
 2.2 ``index.rst`` raíz — aplicación por contenido
 -------------------------------------------------
@@ -144,6 +148,89 @@ operacional" sin pérdida.
   entorno del cliente: exento.
 
 Esta exención queda formalmente establecida en v1.1.0.
+
+2.5 Archivos de identidad y técnicos análogos a §5.1
+----------------------------------------------------
+
+Tres categorías adicionales de archivos quedan exentas porque
+aplicar STD-010 sobre ellos genera **circularidad semántica**:
+el archivo existe precisamente para comunicar la información
+que el vocabulario canónico abstrae.
+
+2.5.1 Identity files — declaración del stack del proyecto
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Archivos cuyo propósito documental es **declarar la identidad
+tecnológica del proyecto** — qué tecnologías concretas se
+adoptan como Backend, Frontend, Base de Datos, Cache,
+Mensajería, etc. Aplicar STD-010 a estos archivos produce
+absurdo: el archivo declara qué tecnología ES el rol abstracto.
+
+::
+
+   ✓ EXENTO:  "Backend: Django REST Framework (Python 3.11+)"
+   ✗ ABSURDO: "Backend: el Framework de Aplicación"
+
+Archivos exentos:
+
+- ``source/base-cognitiva/_metadata/meta-01-identidad-proyecto.rst``
+- ``source/base-cognitiva/_metadata/meta-05-estructura-documental.rst``
+
+**Criterio de aplicación:**
+
+Cualquier archivo cuyo propósito documental sea **identidad
+del proyecto** (no narrativa de requisitos, no diseño
+operacional, no análisis de proceso, no decisión arquitectónica
+de un caso de uso). En la práctica, todo el directorio
+``source/base-cognitiva/_metadata/`` cae bajo este criterio.
+
+2.5.2 Landing page arquitectónica — ``source/index.rst``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``source/index.rst`` raíz ya tenía tratamiento "por contenido"
+en §2.2. Esta cláusula clarifica que la **sección de presentación
+arquitectónica** (párrafos de bienvenida que contextualizan el
+sistema con su stack tecnológico para nuevos lectores) opera
+bajo el mismo criterio que identity files: declarar el stack
+es el propósito documental, no abstraerlo.
+
+Aplica a:
+
+- Párrafos introductorios de ``source/index.rst`` que presentan
+  el sistema y nombran su stack tecnológico para orientación
+  inicial del lector.
+- Bullet lists de stack en la sección "Características" o
+  análoga.
+
+NO aplica a:
+
+- Toctree y navegación (ya cubierto por §2.2).
+- Cualquier prosa de requisitos, decisiones o análisis dentro
+  del mismo archivo que no sea la presentación arquitectónica
+  de aterrizaje.
+
+2.5.3 Testing files — paralelo de §5.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Los archivos ``casos-uso/**/testing.rst`` documentan
+infraestructura de tests: configuración de fixtures,
+``factory_boy``, ``pytest``, herramientas de coverage. Son
+análogos a ``implementacion-tecnica.rst`` (§5.1 ya exento)
+pero la tabla §2.1 v1.0.0 no los listaba explícitamente.
+
+Esta cláusula clarifica que ``testing.rst`` es **explícitamente
+exento por la misma razón** que ``implementacion-tecnica.rst``:
+el archivo es técnico por propósito documental — describe cómo
+se prueba el sistema, no qué hace el sistema desde la
+perspectiva del requisito.
+
+Archivos exentos:
+
+- ``source/requisitos/casos-uso/**/testing.rst``
+
+Esta exención queda formalmente establecida en v1.2.0 tras
+detección en WP ``2026-05-08-03-08-21-wpg-std010-cleanup``
+(WP-G).
 
 ----
 
@@ -517,3 +604,13 @@ Un resultado vacío indica que la narrativa está conforme al estándar.
      opacos con dependencias externas (tokens RBAC backend +
      códigos BD). Resoluciones D2 y D4 del WP
      ``naming-rules-resolution``.
+ * - 1.2.0
+   - 2026-05-08
+   - NestorMonroy
+   - MINOR — agrega §2.5 con tres exenciones por circularidad
+     semántica: §2.5.1 identity files (``_metadata/meta-01``,
+     ``meta-05``), §2.5.2 landing arquitectónica de
+     ``source/index.rst``, §2.5.3 testing files paralelos a
+     §5.1. Tabla §2.1 actualizada con dos filas adicionales.
+     Cubre 21 referencias diferidas en WP-G
+     ``2026-05-08-03-08-21-wpg-std010-cleanup``. TD-D5.
