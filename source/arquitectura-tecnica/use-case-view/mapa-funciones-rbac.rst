@@ -173,7 +173,7 @@ Implementación en domain-model
 - :doc:`/arquitectura-tecnica/domain-model/rbac-repo`
   — repositorio de consultas agregadas.
 - :doc:`/arquitectura-tecnica/domain-model/separation-rule`
-  — reglas SoD (CNST-005).
+  — reglas de separacion (CNST-005).
 
 .. seealso::
 
