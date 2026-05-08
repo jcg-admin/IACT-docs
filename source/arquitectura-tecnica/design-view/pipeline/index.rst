@@ -32,7 +32,7 @@ Vista panoramica del modulo
 .. uml::
  :caption: MOD_Pipeline — PipelineExecution + ETL flow.
            Detalle de Disparador, ErroresETLService en
-           :doc:`class`.
+           :doc:`bounded-context`.
 
  @startuml
 
@@ -55,8 +55,8 @@ Vista panoramica del modulo
 
  note bottom of PipelineExecution
    FSM (idle → running → completed |
-   failed) en :doc:`state`.
-   Flujo ETL completo en :doc:`activity`.
+   failed) en :doc:`pipeline-execution-lifecycle`.
+   Flujo ETL completo en :doc:`etl-execution-flow`.
  end note
 
  @enduml
@@ -74,8 +74,8 @@ Lectura del diagrama
 - **Metric** producido por la pipeline se publica
   incrementalmente al ``MetricsCache`` para consumo de
   dashboards y alerts.
-- FSM de PipelineExecution en :doc:`state`; flujo ETL
-  completo en :doc:`activity`.
+- FSM de PipelineExecution en :doc:`pipeline-execution-lifecycle`; flujo ETL
+  completo en :doc:`etl-execution-flow`.
 
 Clases canonicas que materializan el modulo
 ============================================
@@ -101,10 +101,10 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Pipeline
 
- class
- sequence
- state
- activity
+ bounded-context
+ interaction-pattern
+ pipeline-execution-lifecycle
+ etl-execution-flow
 
 ----
 

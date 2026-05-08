@@ -32,7 +32,7 @@ Vista panoramica del modulo
  :caption: MOD_Audit — entidad central (AuditEvent),
            servicios productor (AuditService) y consumidor
            (AuditQueryService). Detalle interno en
-           :doc:`class`.
+           :doc:`bounded-context`.
 
  @startuml
 
@@ -54,7 +54,7 @@ Vista panoramica del modulo
  note bottom of AuditEvent
    Inmutable per CNST-025.
    Sin PII en payload (CNST-026).
-   Repos y validators internos en :doc:`class`.
+   Repos y validators internos en :doc:`bounded-context`.
  end note
 
  @enduml
@@ -71,7 +71,7 @@ Lectura del diagrama
 - **Consumidor:** ``AuditQueryService`` provee consulta
   paginada con filtros y genera reportes de compliance.
 - Repositories, validators y encoders internos viven en
-  :doc:`class`; aqui solo se muestran los puntos de
+  :doc:`bounded-context`; aqui solo se muestran los puntos de
   contacto inter-modulo.
 
 Clases canonicas que materializan el modulo
@@ -101,8 +101,8 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Audit
 
- class
- sequence
+ bounded-context
+ interaction-pattern
 
 ----
 

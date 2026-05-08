@@ -31,7 +31,7 @@ Vista panoramica del modulo
 .. uml::
  :caption: MOD_Permissions — agregador de effective_set
            (regulares + excepcionales). Detalle de cache y
-           repos en :doc:`class`.
+           repos en :doc:`bounded-context`.
 
  @startuml
 
@@ -57,7 +57,7 @@ Vista panoramica del modulo
    + ExceptionalPermission ad-hoc.
    El cache evita re-calculo en
    gateway checks. Detalle en
-   :doc:`class`.
+   :doc:`bounded-context`.
  end note
 
  @enduml
@@ -79,7 +79,7 @@ Lectura del diagrama
   conceder o revocar capabilities ad-hoc fuera del catalogo
   AGR (UC_PERM_03/04); cada cambio se audita.
 
-Ver el flujo de calculo completo en :doc:`activity`.
+Ver el flujo de calculo completo en :doc:`effective-set-evaluation-flow`.
 
 Clases canonicas que materializan el modulo
 ============================================
@@ -107,9 +107,9 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Permissions
 
- class
- sequence
- activity
+ bounded-context
+ interaction-pattern
+ effective-set-evaluation-flow
 
 ----
 

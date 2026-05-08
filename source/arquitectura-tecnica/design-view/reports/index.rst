@@ -34,7 +34,7 @@ Vista panoramica del modulo
 
 .. uml::
  :caption: MOD_Reports — Report + ServiciosEspecializados +
-           SavedView + ExportJob. Detalle en :doc:`class`.
+           SavedView + ExportJob. Detalle en :doc:`bounded-context`.
 
  @startuml
 
@@ -61,9 +61,9 @@ Vista panoramica del modulo
 
  note bottom of Report
    FSM ExportJob (pending → ready |
-   failed) en :doc:`state`.
+   failed) en :doc:`export-job-lifecycle`.
    Flujo export async en
-   :doc:`activity`.
+   :doc:`async-export-flow`.
  end note
 
  @enduml
@@ -84,7 +84,7 @@ Lectura del diagrama
 - **Scope:** ``SegmentResolver`` aplica el segmento del
   usuario (BR-012) para limitar las filas visibles.
 - **Export async:** ``ExportJob`` orquesta exportes
-  pesados; FSM en :doc:`state`, flujo en :doc:`activity`.
+  pesados; FSM en :doc:`export-job-lifecycle`, flujo en :doc:`async-export-flow`.
 
 Clases canonicas que materializan el modulo
 ============================================
@@ -122,10 +122,10 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Reports
 
- class
- sequence
- state
- activity
+ bounded-context
+ interaction-pattern
+ export-job-lifecycle
+ async-export-flow
 
 ----
 

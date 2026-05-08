@@ -30,7 +30,7 @@ Vista panoramica del modulo
 
 .. uml::
  :caption: MOD_Users — entidad central User y servicios de
-           ciclo de vida. Detalle interno en :doc:`class`.
+           ciclo de vida. Detalle interno en :doc:`bounded-context`.
 
  @startuml
 
@@ -55,7 +55,7 @@ Vista panoramica del modulo
    UserOnboardingService orquesta
    provisioning completo
    (UC_USR_01). UserRepo y
-   PasswordGenerator en :doc:`class`.
+   PasswordGenerator en :doc:`bounded-context`.
  end note
 
  @enduml
@@ -98,8 +98,8 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Users
 
- class
- sequence
+ bounded-context
+ interaction-pattern
 
 ----
 

@@ -32,7 +32,7 @@ Vista panoramica del modulo
 
 .. uml::
  :caption: MOD_Alerts — AlertRule + Alert + Subscription.
-           Detalle de Threshold, Hook, repos en :doc:`class`.
+           Detalle de Threshold, Hook, repos en :doc:`bounded-context`.
 
  @startuml
 
@@ -57,9 +57,9 @@ Vista panoramica del modulo
 
  note bottom of AlertRule
    FSM Alert (raised → ack →
-   resolved) en :doc:`state`.
+   resolved) en :doc:`alert-event-lifecycle`.
    Flujo de evaluacion en
-   :doc:`activity`.
+   :doc:`alert-evaluation-flow`.
  end note
 
  @enduml
@@ -109,10 +109,10 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Alerts
 
- class
- sequence
- state
- activity
+ bounded-context
+ interaction-pattern
+ alert-event-lifecycle
+ alert-evaluation-flow
 
 ----
 

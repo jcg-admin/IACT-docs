@@ -31,7 +31,7 @@ Vista panoramica del modulo
 
 .. uml::
  :caption: MOD_Auth — Session como entidad central + Guard
-           runtime. Detalle de policies en :doc:`class`.
+           runtime. Detalle de policies en :doc:`bounded-context`.
 
  @startuml
 
@@ -54,8 +54,8 @@ Vista panoramica del modulo
 
  note bottom of Session
    Estado: ACTIVE / CLOSED.
-   FSM canonica en :doc:`state`.
-   Flujo JWT verify en :doc:`activity`.
+   FSM canonica en :doc:`session-lifecycle`.
+   Flujo JWT verify en :doc:`jwt-authentication-flow`.
  end note
 
  @enduml
@@ -65,7 +65,7 @@ Lectura del diagrama
 
 - **Entidad central:** ``Session`` representa la sesion
   vigente de un usuario. FSM ``ACTIVE → CLOSED`` (con
-  ``close_reason``) en :doc:`state`.
+  ``close_reason``) en :doc:`session-lifecycle`.
 - **AuthorizationGuard** es el gateway runtime: en cada
   request verifica que la sesion sigue vigente, que el
   refresh token no esta blacklisteado, y que el usuario
@@ -104,10 +104,10 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Auth
 
- class
- sequence
- state
- activity
+ bounded-context
+ interaction-pattern
+ session-lifecycle
+ jwt-authentication-flow
 
 ----
 

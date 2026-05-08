@@ -31,7 +31,7 @@ Vista panoramica del modulo
 .. uml::
  :caption: MOD_Admin — entidades del catalogo y puntos de
            contacto inter-modulo. Subset curado; detalle de
-           repositories en :doc:`class`.
+           repositories en :doc:`bounded-context`.
 
  @startuml
 
@@ -54,7 +54,7 @@ Vista panoramica del modulo
 
  note bottom of Function
    3 entidades del catalogo RBAC.
-   Repositories y detalles en :doc:`class`.
+   Repositories y detalles en :doc:`bounded-context`.
  end note
 
  @enduml
@@ -103,8 +103,8 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Admin
 
- class
- sequence
+ bounded-context
+ interaction-pattern
 
 ----
 

@@ -33,7 +33,7 @@ Vista panoramica del modulo
            puntos de contacto inter-modulo. Subset curado
            para vista de modulo; el detalle de repositories
            y relaciones internas vive en
-           :doc:`class`.
+           :doc:`bounded-context`.
 
  @startuml
 
@@ -59,7 +59,7 @@ Vista panoramica del modulo
  note bottom of Assignment
    3 entidades RBAC del bounded
    context. Repositories y detalles
-   de implementacion en :doc:`class`.
+   de implementacion en :doc:`bounded-context`.
  end note
 
  @enduml
@@ -111,10 +111,10 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Access
 
- class
- sequence
- state
- activity
+ bounded-context
+ interaction-pattern
+ assignment-lifecycle
+ separation-check-flow
 
 ----
 

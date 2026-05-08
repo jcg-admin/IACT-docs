@@ -31,7 +31,7 @@ Vista panoramica del modulo
 .. uml::
  :caption: MOD_Logs — entidades de log y servicios de
            consulta agregada. Detalle interno en
-           :doc:`class`.
+           :doc:`bounded-context`.
 
  @startuml
 
@@ -51,7 +51,7 @@ Vista panoramica del modulo
  note bottom of ApplicationLog
    3 entidades de log/metric.
    ColumnCatalog y validators
-   en :doc:`class`.
+   en :doc:`bounded-context`.
  end note
 
  @enduml
@@ -66,7 +66,7 @@ Lectura del diagrama
   la maquinaria de query con filtros + paginacion.
 - ``KpiCalculator`` agrega ``TechnicalMetric`` a percentiles
   (p50, p95, p99) usados en dashboards de salud del sistema.
-- ``ColumnCatalog`` (en :doc:`class`) describe los campos
+- ``ColumnCatalog`` (en :doc:`bounded-context`) describe los campos
   consultables de cada tipo de log.
 
 Clases canonicas que materializan el modulo
@@ -96,8 +96,8 @@ Sub-vistas del modulo
  :maxdepth: 1
  :caption: Diagramas del modulo MOD_Logs
 
- class
- sequence
+ bounded-context
+ interaction-pattern
 
 ----
 
