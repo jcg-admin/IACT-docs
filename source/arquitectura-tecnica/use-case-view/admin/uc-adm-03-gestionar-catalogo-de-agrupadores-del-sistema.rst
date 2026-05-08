@@ -48,7 +48,7 @@ asignado.
    usecase "Verificar AGR-010" as VERIFICAR_AGR
    usecase "Verificar\nis_system=True" as VERIFICAR_SYS
    usecase "Validar funcion en\ncatalogo (UC_ADM_02)" as VALIDAR_FUNCION
-   usecase "Validar SoD sobre\nUsers con AGR (CNST-005)" as VALIDAR_SOD
+   usecase "Validar separacion sobre\nUsers con AGR (CNST-005)" as VALIDAR_SEPARATION_RULES
    usecase "Validar idempotencia\n(funcion no asignada)" as IDEMP
    usecase "Persistir\nAccessGroupFunction" as PERSISTIR
    usecase "Recompute effective_set\nen cascada" as RECALC
@@ -63,7 +63,7 @@ asignado.
  UC_ADM_03 ..> VERIFICAR_AGR : <<include>>
  UC_ADM_03 ..> VERIFICAR_SYS : <<include>>
  UC_ADM_03 ..> VALIDAR_FUNCION : <<include>>
- UC_ADM_03 ..> VALIDAR_SOD : <<include>>
+ UC_ADM_03 ..> VALIDAR_SEPARATION_RULES : <<include>>
  UC_ADM_03 ..> IDEMP : <<include>>
  UC_ADM_03 ..> PERSISTIR : <<include>>
  UC_ADM_03 ..> RECALC : <<include>>
@@ -74,7 +74,7 @@ asignado.
  VERIFICAR_AGR --> AuthorizationGuard
  VERIFICAR_SYS --> FunctionGroupRepo
  VALIDAR_FUNCION --> FunctionRepo
- VALIDAR_SOD --> RuleValidator
+ VALIDAR_SEPARATION_RULES --> RuleValidator
  PERSISTIR --> FunctionGroupRepo
  RECALC --> EffectivePermissionsAggregator
  INVALIDAR --> PermissionCache
@@ -88,9 +88,9 @@ asignado.
    UC_PERM_05 gestiona AGRs custom.
  end note
 
- note bottom of VALIDAR_SOD
+ note bottom of VALIDAR_SEPARATION_RULES
    BR-007 + CNST-005: agregar funcion
-   no debe romper SoD de Users que ya
+   no debe romper separacion de Users que ya
    tienen el AGR asignado. Bloqueo
    write-time.
  end note
@@ -115,9 +115,9 @@ asignado.
  - :doc:`/arquitectura-tecnica/domain-model/function-group-repo` —
    repositorio que gestiona la composicion.
  - :doc:`/arquitectura-tecnica/domain-model/separation-rule` —
-   reglas SoD evaluadas en VALIDAR_SOD.
+   reglas de separacion evaluadas en VALIDAR_SEPARATION_RULES.
  - :doc:`/arquitectura-tecnica/domain-model/rule-validator` —
-   ejecuta validacion SoD write-time.
+   ejecuta validacion de separacion write-time.
  - :doc:`/arquitectura-tecnica/domain-model/effective-permissions-aggregator` —
    recompute cascada de Users afectados.
  - :doc:`/arquitectura-tecnica/domain-model/permission-cache` —
