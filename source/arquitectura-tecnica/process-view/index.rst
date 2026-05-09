@@ -24,9 +24,16 @@ timeouts. No cubre flujos UC individuales — esos viven en
 
 .. toctree::
  :maxdepth: 1
- :caption: Patrones de concurrencia
+ :caption: Patrones de concurrencia (secuencia)
 
  etl-pipeline-concurrency
  alert-evaluation-concurrency
  jwt-session-synchronization
  realtime-dashboard-concurrency
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Flujo de control (actividades)
+
+ etl-pipeline-activity
+ alert-evaluation-activity
