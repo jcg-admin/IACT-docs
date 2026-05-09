@@ -116,8 +116,8 @@ Verificar instalación:
 
  ./scripts/install-hooks.sh --verify
 
-Para más información sobre hooks: `Git Hooks
-README <../.github/hooks/README>`__
+Para más información sobre hooks: ver ``.github/hooks/README``
+en el repositorio.
 
 5. Ejecutar Servidor de Desarrollo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
