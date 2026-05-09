@@ -12,9 +12,9 @@
 
 .. _arq_mod_003_evaluacion_conflicto_separacion:
 
-===========================
+===============================================
 Evaluacion de Conflicto separacion de deberes
-===========================
+===============================================
 
 .. uml::
  :caption: Evaluación de conflicto de separacion — antes de activar cualquier asignación.

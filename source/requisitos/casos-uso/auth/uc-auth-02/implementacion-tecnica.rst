@@ -41,7 +41,7 @@ Parte 11 — Implementacion tecnica
    └── urls.py                       # path('logout/', ...)
 
 11.3 LogoutEndpoint (esqueleto)
-===========================
+=================================
 
 .. note::
 

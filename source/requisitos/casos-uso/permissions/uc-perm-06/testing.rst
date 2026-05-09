@@ -60,7 +60,7 @@ Stack-agnostico: los tests describen
 **ENTONCES** FunctionInactive raised.
 
 12.2.6 UT-06: Cascade separacion detecta violacion
--------------------------------------------
+----------------------------------------------------
 
 **DADO** User U con AGRs que con delta
 crearia conflicto de separacion,
@@ -69,7 +69,7 @@ crearia conflicto de separacion,
 con violating_users = [U].
 
 12.2.7 UT-07: Cascade separacion pasa cuando no hay conflicto
-------------------------------------------------------
+---------------------------------------------------------------
 
 **DADO** delta no introduce conflicto,
 
@@ -182,7 +182,7 @@ POST con function_id inexistente.
 **ENTONCES**: 400 FUNCTION_NOT_FOUND.
 
 12.3.8 IT-08: Cascade separacion strict bloquea
-----------------------------------------
+-------------------------------------------------
 
 Setup: User U con AGR + delta crea separacion violation
 violation. Politica strict.
@@ -195,7 +195,7 @@ violation. Politica strict.
 - cero cambios en BD
 
 12.3.9 IT-09: Cascade separacion permissive 200
-----------------------------------------
+-------------------------------------------------
 
 Mismo setup, politica permissive.
 
@@ -265,7 +265,7 @@ incluye nuevas functions.
 **ENTONCES**: effective_set actualizado.
 
 12.4.3 E2E-03: Cascade separacion bloqueado
-------------------------------------
+---------------------------------------------
 
 User U con AGR_A (sensible) + admin agrega
 function que crea separacion violation con AGR_B.

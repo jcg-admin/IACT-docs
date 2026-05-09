@@ -1,7 +1,7 @@
 .. _uc-adm-01-parte-08-diagrama-actividad:
 
 8.2 Diagrama de actividad — Crear regla de separacion
-============================================
+=======================================================
 
 .. uml::
  :caption: UC_ADM_01 — flujo de creacion de SeparationRule.

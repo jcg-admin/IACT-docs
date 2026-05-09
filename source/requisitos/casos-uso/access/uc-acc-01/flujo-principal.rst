@@ -110,7 +110,7 @@ PASO 9 — Filtrar idempotente
      skip).
 
 PASO 10 — Validar separacion
----------------------
+------------------------------
 
 .. list-table::
  :widths: 20 80

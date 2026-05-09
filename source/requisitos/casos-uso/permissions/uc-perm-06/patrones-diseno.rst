@@ -35,7 +35,7 @@ Parte 10 — Patrones de diseno
 ================
 
 10.3.1 P-48 Cascade separacion Validation
-----------------------------------
+-------------------------------------------
 
 **Aplica a**: cuando un cambio en composicion
 de AGR afecta N Users con AGR ACTIVE, separacion

@@ -13,9 +13,9 @@
 
 .. _dm_class_resumen_salud_assembler:
 
-====================
+=======================
 ResumenSaludAssembler
-====================
+=======================
 
 Assembler que construye un ``ResumenSalud`` consultando
 varias fuentes (``PipelineExecutionRepo`` para runs,

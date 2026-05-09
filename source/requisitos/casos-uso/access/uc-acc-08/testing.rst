@@ -84,7 +84,7 @@ Parte 12 — Testing
    THEN  raise SelfGrantForbidden
 
 12.2.6 separacion violation (CA-06)
-----------------------------
+-------------------------------------
 
 ::
 
@@ -211,7 +211,7 @@ Parte 12 — Testing
    THEN  status == 400 VALIDATION_ERROR
 
 12.3.6 separacion 409
---------------
+-----------------------
 
 ::
 
@@ -297,7 +297,7 @@ Parte 12 — Testing
          + InternalMessage en buzon
 
 12.4.2 Modal de separacion bloquea
----------------------------
+------------------------------------
 
 ::
 

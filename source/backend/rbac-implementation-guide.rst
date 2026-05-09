@@ -560,7 +560,7 @@ IACT ya cumple esta convención. Validación automática:
 ----
 
 Q7 — enforcement de separacion: signal en pre_save
-=========================================
+====================================================
 
 **Finding (verbatim de Q7):**
 

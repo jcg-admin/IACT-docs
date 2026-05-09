@@ -305,7 +305,7 @@ enmascarada; JSON estructurado; retención 30–90 días).
 fuente principal (mayor volumen).
 
 3. Reglas de Separacion definidas (3)
-===========================
+=======================================
 
 Fuente: ANL-RBAC § 6.
 

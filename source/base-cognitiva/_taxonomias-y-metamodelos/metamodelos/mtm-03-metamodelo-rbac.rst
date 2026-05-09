@@ -55,7 +55,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  - Auditoria completa
 
 1.2 IACT: Flat RBAC + separacion de deberes
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -292,7 +292,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  Rol debe tener al menos 1 permiso.
 
 4.3 Rol_Conflicto (separation of duties)
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -404,7 +404,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  );
 
 6.2 Validar separacion
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

@@ -191,7 +191,7 @@ Los nombres son los valores del campo ``name`` en el modelo
    - Ingles + sin prefijo
 
 3.4 Nombres de Reglas de Separacion
---------------------------
+-------------------------------------
 
 Los nombres son los valores del campo ``name`` en el modelo
 ``SeparationRule``.
@@ -611,7 +611,7 @@ Catalogo completo de valores ``name`` del modelo
 ----
 
 7. Catalogo Canonico de Reglas de Separacion
-=====================================
+==============================================
 
 Catalogo completo de valores ``name`` del modelo
 ``SeparationRule``.

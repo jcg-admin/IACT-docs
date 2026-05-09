@@ -60,7 +60,7 @@ chars,
 - AuditEvent ALERTA CRITICA
 
 9.6 CA-06: separacion violation (EX-09)
-================================
+=========================================
 
 **DADO** funcion en conflicto con permisos
 actuales del target,

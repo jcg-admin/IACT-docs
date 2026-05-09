@@ -69,7 +69,7 @@ function_id=1,
   ``skipped == [{1, "already_active"}]``
 
 9.5 CA-05: separacion violation bloquea (EX-08)
-========================================
+=================================================
 
 **DADO** SeparationRule activa que prohibe coexistencia
 de function_id=1 (modify_users) con
@@ -89,7 +89,7 @@ function_id=1 ACTIVE,
   ``reason='sod_violation'``
 
 9.6 CA-06: separacion all-or-nothing
-=============================
+======================================
 
 **DADO** payload con 3 funciones donde la 2ª
 viola separacion,

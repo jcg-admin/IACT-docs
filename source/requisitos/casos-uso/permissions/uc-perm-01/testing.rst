@@ -75,7 +75,7 @@ Parte 12 — Testing
    AND   ZERO AuditEvent
 
 12.2.5 Preview detecta violaciones de separacion
--------------------------------------
+--------------------------------------------------
 
 ::
 

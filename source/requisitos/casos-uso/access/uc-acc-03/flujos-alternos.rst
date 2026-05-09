@@ -48,7 +48,7 @@ query con join. Indices recomendados.
 muestra warning visual.
 
 4.5 FA-05: Inconsistencia de separacion detectada
-=======================================
+===================================================
 
 **Activador**: el User tiene un par
 conflictivo segun SeparationRule activa (caso raro

@@ -5,12 +5,12 @@ Modelo RBAC IACT — Separacion de Funciones
 =============================================
 
 5. SEPARACIÓN DE FUNCIONES (separation of duties)
-================================
+===================================================
 
 
 
 5.1 Las 3 Restricciones de separacion
----------------------------
+---------------------------------------
 
 
 

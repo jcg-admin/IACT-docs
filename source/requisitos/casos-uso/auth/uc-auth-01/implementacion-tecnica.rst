@@ -130,7 +130,7 @@ Archivos en otras apps que UC_AUTH_01 toca:
  comportamiento esperado, no la implementacion concreta.
 
 11.5 LoginEndpoint (esqueleto)
-==========================
+================================
 
 .. note::
 

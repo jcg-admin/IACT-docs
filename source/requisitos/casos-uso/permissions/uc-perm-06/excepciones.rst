@@ -40,7 +40,7 @@ Parte 5 — Excepciones
 400 VALIDATION_ERROR.
 
 5.8 EX-08: Cascade separacion violation (default strict)
-=================================================
+==========================================================
 
 409 CASCADE_SEPARATION_VIOLATION. Body lista
 ``violating_users`` (sample) + reglas

@@ -82,7 +82,7 @@ Parte 12 — Testing
    AND   warnings calculadas
 
 12.2.6 violaciones de separacion resolved tracking
----------------------------------------
+----------------------------------------------------
 
 ::
 

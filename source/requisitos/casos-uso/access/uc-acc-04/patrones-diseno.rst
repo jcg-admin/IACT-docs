@@ -76,12 +76,12 @@ EX-05 configurable.
 FA-01 NOOP.
 
 10.2.6 P-27 separacion write-time
---------------------------
+-----------------------------------
 
 CNST-005.
 
 10.2.7 P-28 All-or-nothing separacion
-------------------------------
+---------------------------------------
 
 Si CUALQUIER funcion del AGR viola separacion, el
 AGR no se asigna (rollback total). NO se

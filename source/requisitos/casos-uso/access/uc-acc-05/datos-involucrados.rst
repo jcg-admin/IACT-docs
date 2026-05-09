@@ -127,7 +127,7 @@ PATCH parcial. ``function_ids`` NO permitido
 ==========================
 
 7.8.1 SeparationRule
--------------
+----------------------
 
 .. list-table::
  :widths: 30 25 45
@@ -194,7 +194,7 @@ PATCH parcial. ``function_ids`` NO permitido
      - residual_violations_count (en RETIRED)
 
 7.8.3 SeparationRuleCache (post-COMMIT)
---------------------------------
+-----------------------------------------
 
 ``invalidate_active_rules()`` notifica a
 consumidores (UC_ACC_01/04/PERM_03) para

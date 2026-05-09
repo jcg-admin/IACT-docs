@@ -121,7 +121,7 @@ PASO 11 — Expirados pendientes purga
      transicion.
 
 PASO 12 — separacion detection (informativa)
--------------------------------------
+----------------------------------------------
 
 .. list-table::
  :widths: 20 80

@@ -33,7 +33,7 @@ Parte 12 — Testing
 ====================
 
 12.2.1 SeparationRuleValidator detecta violacion
--------------------------------------
+--------------------------------------------------
 
 ::
 
@@ -46,7 +46,7 @@ Parte 12 — Testing
            conflict_pair=(1, 42))
 
 12.2.2 SeparationRuleValidator pasa cuando no hay conflict
------------------------------------------------
+------------------------------------------------------------
 
 ::
 
@@ -123,7 +123,7 @@ Parte 12 — Testing
    AND   skipped contiene function_id=1
 
 12.2.9 separacion bloquea total (CA-05, CA-06)
----------------------------------------
+------------------------------------------------
 
 ::
 
@@ -283,7 +283,7 @@ Parte 12 — Testing
    THEN  status == 400 FUNCTION_INACTIVE
 
 12.3.8 separacion violation 409 (CA-05)
---------------------------------
+-----------------------------------------
 
 ::
 
@@ -295,7 +295,7 @@ Parte 12 — Testing
    AND   ningun Assignment creado
 
 12.3.9 separacion all-or-nothing (CA-06)
----------------------------------
+------------------------------------------
 
 ::
 
@@ -373,7 +373,7 @@ Parte 12 — Testing
          funciones
 
 12.4.2 separacion bloquea con detalle visual
--------------------------------------
+----------------------------------------------
 
 ::
 

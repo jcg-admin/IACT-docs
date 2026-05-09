@@ -13,7 +13,7 @@
 .. _uc-adm-01:
 
 UC_ADM_01 — Gestionar Ciclo de Vida de Reglas de Separacion
-==================================================
+=============================================================
 
 .. toctree::
  :maxdepth: 1

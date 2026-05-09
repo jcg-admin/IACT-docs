@@ -96,7 +96,7 @@ vacios,
 - Status = 400 VALIDATION_ERROR
 
 9.10 CA-10: Cascade separacion strict (EX-08)
-======================================
+===============================================
 
 **DADO** politica strict + cambio crearia
 separacion violation para algun User,
@@ -107,7 +107,7 @@ separacion violation para algun User,
 - Body lista violating_users sample
 
 9.11 CA-11: Cascade separacion permissive (FA-04)
-==========================================
+===================================================
 
 **DADO** politica permissive + violacion,
 

@@ -1,5 +1,5 @@
 8.4 Diagrama de estados — SeparationRule
-=================================
+==========================================
 
 .. uml::
  :caption: Maquina de estados de SeparationRule

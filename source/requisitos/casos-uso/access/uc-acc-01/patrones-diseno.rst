@@ -122,7 +122,7 @@ Permite retries seguros (red intermitente,
 doble click) sin duplicados.
 
 10.2.6 P-27 enforcement de separacion en write-time
------------------------------------------
+-----------------------------------------------------
 
 CNST-005: separacion se evalua en el momento de
 asignar (no diferido / post-hoc). Una
@@ -133,7 +133,7 @@ de separacion (asumiendo que UC_ACC_01 + UC_ACC_04
 asignacion — todas validan separacion).
 
 10.2.7 P-28 All-or-nothing en separacion violation
--------------------------------------------
+----------------------------------------------------
 
 Cuando un payload con N funciones genera separacion violation
 violation, ninguna se asigna (rollback total).
@@ -170,7 +170,7 @@ funcion del payload viola separacion, NINGUNA se
 asigna.
 
 10.3.2 separacion diferido (post-hoc)
-------------------------------
+---------------------------------------
 
 **No aplica**: CNST-005 + P-27 — separacion se valida
 en write-time. Algunos sistemas validan separacion

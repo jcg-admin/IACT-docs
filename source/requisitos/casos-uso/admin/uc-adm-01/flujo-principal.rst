@@ -5,7 +5,7 @@ Parte 3 — Flujo principal
 ==========================
 
 3.1 Crear regla de separacion
-===================
+===============================
 
 PASO 1 — POST /api/admin/separation-rules/.
 PASO 2 — JWT + verificar AGR-010.

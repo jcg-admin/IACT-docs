@@ -5,7 +5,7 @@ Parte 7 — Datos involucrados
 ================================
 
 7.1 SeparationRule
-===========
+====================
 
 .. list-table::
  :widths: 25 25 50

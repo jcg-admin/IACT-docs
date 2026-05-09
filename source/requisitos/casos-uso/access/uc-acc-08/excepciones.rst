@@ -50,7 +50,7 @@ NOW()+1h ≤ x ≤ NOW()+30d.
 400 FUNCTION_NOT_FOUND / FUNCTION_INACTIVE.
 
 5.9 EX-09: separacion violation
-========================
+=================================
 
 409 SEPARATION_VIOLATION. All-or-nothing.
 

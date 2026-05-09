@@ -38,7 +38,7 @@ Parte 3 — Flujo principal (Camino feliz)
 =================
 
 PASO 11 — separacion cascade validation
---------------------------------
+-----------------------------------------
 
 ::
 

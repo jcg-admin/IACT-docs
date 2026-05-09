@@ -56,7 +56,7 @@ Parte 12 — Testing
    AND   AuditEvent AGR_ASSIGN_NOOP
 
 12.2.3 separacion bloquea (CA-03)
---------------------------
+-----------------------------------
 
 ::
 
@@ -178,7 +178,7 @@ Parte 12 — Testing
    AND   body.already_assigned == true
 
 12.3.3 separacion 409 (CA-03)
-----------------------
+-------------------------------
 
 ::
 
@@ -277,7 +277,7 @@ Parte 12 — Testing
    THEN  toast confirma con resumen
 
 12.4.2 separacion bloquea con detalle
-------------------------------
+---------------------------------------
 
 ::
 
