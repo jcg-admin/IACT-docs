@@ -291,5 +291,5 @@ para rangos de un quarter (max 92 dias).
  - :doc:`orchestration` — ``sp_etl_maestro`` que coordina
    los SPs.
  - :doc:`etl-procedures` — SPs ETL que usan estas funciones.
- - :doc:`/arquitectura-tecnica/modulos/etl-monitoring/index` —
+ - :doc:`/arquitectura-tecnica/modulos/pipeline/index` —
    ARQ_MOD_004 perspectiva de monitoreo.

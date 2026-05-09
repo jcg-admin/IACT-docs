@@ -28,39 +28,45 @@ Mapeo modulo ↔ casos de uso:
  * - Modulo arquitectonico
    - UCs en requisitos
    - # UCs
- * - :ref:`arq-mod-001` AUTH
-   - :doc:`/requisitos/casos-uso/auth/index`
-   - 5
- * - :ref:`arq-mod-002` USER_IDENTITY
-   - :doc:`/requisitos/casos-uso/users/index`
-   - 4
- * - :ref:`arq-mod-003` RBAC_CORE
-   - :doc:`/requisitos/casos-uso/access/index` + :doc:`/requisitos/casos-uso/permissions/index`
-   - 19 (9 ACC + 10 PERM)
- * - :ref:`arq-mod-004` ETL_MONITORING
-   - :doc:`/requisitos/casos-uso/pipeline/index`
-   - 4
- * - :ref:`arq-mod-005` VIS_REPORTS
-   - :doc:`/requisitos/casos-uso/reports/index`
-   - 14
+ * - :ref:`arq_mod_access` ACCESS
+   - :doc:`/requisitos/casos-uso/access/index`
+   - 9
+ * - :ref:`arq_mod_admin` ADMIN
+   - (futuros UC_ADM_*)
+   - en construccion
  * - :ref:`arq-mod-006` ALERTS
    - :doc:`/requisitos/casos-uso/alerts/index`
    - 5
  * - :ref:`arq-mod-007` AUDIT
    - :doc:`/requisitos/casos-uso/audit/index`
    - 4
- * - :ref:`arq-mod-008` SYS_LOGS
+ * - :ref:`arq-mod-001` AUTH
+   - :doc:`/requisitos/casos-uso/auth/index`
+   - 5
+ * - :ref:`arq-mod-011` CALLER
+   - :doc:`/requisitos/casos-uso/caller/index`
+   - 5
+ * - :ref:`arq-mod-008` LOGS (antes SYS_LOGS)
    - :doc:`/requisitos/casos-uso/logs/index`
    - 7
  * - :ref:`arq-mod-009` OPERATOR
    - :doc:`/requisitos/casos-uso/operator/index`
    - 10
+ * - :ref:`arq-mod-003` PERMISSIONS (antes RBAC_CORE)
+   - :doc:`/requisitos/casos-uso/permissions/index`
+   - 10
+ * - :ref:`arq-mod-004` PIPELINE (antes ETL_MONITORING)
+   - :doc:`/requisitos/casos-uso/pipeline/index`
+   - 4
+ * - :ref:`arq-mod-005` REPORTS (antes VIS_REPORTS)
+   - :doc:`/requisitos/casos-uso/reports/index`
+   - 14
  * - :ref:`arq-mod-010` SUPERVISION
    - :doc:`/requisitos/casos-uso/supervision/index`
    - 3
- * - :ref:`arq-mod-011` CALLER
-   - :doc:`/requisitos/casos-uso/caller/index`
-   - 5
+ * - :ref:`arq-mod-002` USERS (antes USER_IDENTITY)
+   - :doc:`/requisitos/casos-uso/users/index`
+   - 4
 
 Catalogo
 --------
@@ -74,14 +80,16 @@ Catalogo
 .. toctree::
  :maxdepth: 2
 
- auth/index
- user-identity/index
- rbac-core/index
- etl-monitoring/index
- vis-reports/index
+ access/index
+ admin/index
  alerts/index
  audit/index
- sys-logs/index
- operator/index
- supervision/index
+ auth/index
  caller/index
+ logs/index
+ operator/index
+ permissions/index
+ pipeline/index
+ reports/index
+ supervision/index
+ users/index

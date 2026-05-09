@@ -311,7 +311,7 @@ Orden de implementacion
    estructura de diseño del modulo pipeline.
  - :doc:`/arquitectura-tecnica/implementation-view/pipeline/index` —
    capas API/service/repository/ORM del pipeline.
- - :doc:`/arquitectura-tecnica/modulos/etl-monitoring/index` —
+ - :doc:`/arquitectura-tecnica/modulos/pipeline/index` —
    ARQ_MOD_004 perspectiva de monitoreo (no ejecucion).
  - :doc:`/arquitectura-tecnica/system-view/etl-execution-lifecycle` —
    FSM de ejecucion ETL.
