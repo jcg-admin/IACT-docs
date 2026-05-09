@@ -228,6 +228,12 @@ Antes de construir la documentación, asegúrese de tener instalado:
 Instalación de Dependencias
 ----------------------------
 
+**Nota de compatibilidad (Sphinx 9):**
+
+Este repositorio usa ``Sphinx>=9,<10``. La migración fue posible al eliminar
+``autodocsumm==0.2.14`` (incompatible con Sphinx 9), sustituyéndolo por el
+``sphinx.ext.autosummary`` nativo que ya estaba configurado en ``conf.py``.
+
 Para Windows (Git Bash):
 
 .. code-block:: bash
