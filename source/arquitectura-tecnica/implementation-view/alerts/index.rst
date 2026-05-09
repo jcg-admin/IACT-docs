@@ -80,6 +80,8 @@ Sub-vistas del modulo
  :caption: Diagramas del modulo
 
  layer-structure
+ interaction-pattern
+ evaluator-scheduler-binding
 
 ----
 
