@@ -453,8 +453,8 @@ Referencias
 Documentación Interna
 ~~~~~~~~~~~~~~~~~~~~~
 
--  `Sistema de Permisos
-   Granular </backend/arquitectura/permisos-granular.rst>`__
+-  :doc:`Sistema de Permisos
+   Granular </backend/arquitectura/permisos-granular>`
 -  ``prioridad_01_estructura_base_datos.rst`` (documento histórico)
 -  ``rnf002_almacenamiento_sesiones.rst`` (documento histórico)
 

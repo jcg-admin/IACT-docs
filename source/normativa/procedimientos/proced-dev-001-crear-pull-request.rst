@@ -331,8 +331,8 @@ Referencias
 
 - :doc:`PROC-DEV-001: Pipeline de Trabajo
   IACT </normativa/procedimientos/proc-dev-001-pipeline-trabajo-iact>`
-- `GUIA-GOB-002: Convenciones de
-  Nomenclatura </normativa/guias/guia-gob-002-convenciones-nomenclatura.rst>`__
+- :doc:`GUIA-GOB-002: Convenciones de
+  Nomenclatura </normativa/guias/guia-gob-002-convenciones-nomenclatura>`
 - `Git Workflow
   Documentation <https://docs.github.com/en/pull-requests>`__
 

@@ -762,8 +762,8 @@ proceso según aprendizajes
 REFERENCIAS
 -----------
 
-- `Guía: Procesos vs
-  Procedimientos </normativa/guias/diferencia-procesos-procedimientos.rst>`__
+- :doc:`Guía: Procesos vs
+  Procedimientos </normativa/guias/diferencia-procesos-procedimientos>`
 - *ADR-002: Estrategia de
   Branching* (no migrado)
 - *ADR-056: Agentic Design

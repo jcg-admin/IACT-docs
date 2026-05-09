@@ -253,8 +253,8 @@ Referencias
 -  *Vagrantfile*
 -  *Script de aprovisionamiento*
 -  *Script de verificación*
--  `Guía de
-   verificación </devops/runbooks/verificar_servicios.rst>`__
+-  :doc:`Guía de
+   verificación </devops/runbooks/verificar_servicios>`
 -  `README principal del repo IACT-docs <https://github.com/jcg-admin/iact-docs>`__
 
 Notas Adicionales

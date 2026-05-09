@@ -425,10 +425,10 @@ Referencias
 
 - `Google Engineering Practices - Code
   Review <https://google.github.io/eng-practices/review/>`__
-- `PROC-QA-001: Actividades de Garantía
-  Documental </normativa/procedimientos/proc-qa-001-actividades-garantia-documental.rst>`__
-- `PROC-QA-002: Estrategia
-  QA </normativa/procedimientos/proc-qa-002-estrategia-qa.rst>`__
+- :doc:`PROC-QA-001: Actividades de Garantía
+  Documental </normativa/procedimientos/proc-qa-001-actividades-garantia-documental>`
+- :doc:`PROC-QA-002: Estrategia
+  QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 
 Historial de Cambios
 --------------------

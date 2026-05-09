@@ -272,12 +272,12 @@ schema enforcement - Historial complejo de implementar
 Referencias
 -----------
 
--  `Documentación app
-   configuration </backend/arquitectura/configuration.rst>`__
+-  :doc:`Documentación app
+   configuration </backend/arquitectura/configuration>`
 -  ``PLAN_MAESTRO_PRIORIDAD_02.rst`` (documento histórico, ver temp-holding)
    (Tareas 33-41)
--  `ADR-005: Grupos Funcionales Sin
-   Jerarquía </backend/adr-back-001-grupos-funcionales-sin-jerarquia.rst>`__
+-  :doc:`ADR-005: Grupos Funcionales Sin
+   Jerarquía </backend/adr-back-001-grupos-funcionales-sin-jerarquia>`
 -  `ISO 27001 Audit Trail
    Requirements <https://www.iso.org/standard/27001>`__
 -  `Django Best Practices for

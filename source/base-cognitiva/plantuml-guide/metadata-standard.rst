@@ -221,4 +221,4 @@ Referencias
 - `PlantUML Language Reference <http://plantuml.com/guide>`_
 - `sphinxcontrib.plantuml docs <https://pypi.org/project/sphinxcontrib-plantuml/>`_
 - `IACT Color Palette <color-palette.rst>`_
-- `IACT PlantUML Styling Guidelines </base-cognitiva/plantuml-guide/guidelines.rst>`_
+- :doc:`IACT PlantUML Styling Guidelines </base-cognitiva/plantuml-guide/guidelines>`
