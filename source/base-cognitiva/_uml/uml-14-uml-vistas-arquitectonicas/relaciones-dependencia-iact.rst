@@ -4,9 +4,9 @@
  :dominio: base_cognitiva
  :subdominio: _uml
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-05-08
- :ultimo_cambio: 2026-05-08
+ :ultimo_cambio: 2026-05-09
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -355,7 +355,116 @@ la cadena de lectura es:
 
 ----
 
-8. Historial
+8. Diagrama de cajas — vistas y tipos de diagrama
+==================================================
+
+Esta seccion muestra cada vista como una caja que contiene
+los tipos de diagrama UML que la componen, con las relaciones
+de dependencia entre vistas. Complementa el diagrama de
+componentes de las secciones anteriores con el patron de
+cajas usado en ``use-case-view``.
+
+.. uml::
+ :caption: Vistas IACT — cajas con tipos de diagrama y dependencias.
+
+ @startuml
+ left to right direction
+
+ rectangle "DomainModel" as PDM {
+   rectangle "Diagrama de clases" as DM_CLS
+   rectangle "Diagrama de objetos" as DM_OBJ
+   rectangle "Diagrama de estados" as DM_EST
+ }
+
+ rectangle "UseCaseView" as PUC {
+   rectangle "Diagrama de casos de uso" as UC_UCX
+ }
+
+ rectangle "DesignView" as PDV {
+   rectangle "Diagrama de clases\n(bounded-context)" as DV_CLS
+   rectangle "Diagrama de secuencias\n(interaction-pattern)" as DV_SEQ
+   rectangle "Diagrama de actividades\n(*-flow)" as DV_ACT
+   rectangle "Diagrama de estados\n(*-lifecycle)" as DV_EST
+ }
+
+ rectangle "ImplementationView" as PIV {
+   rectangle "Diagrama de componentes\n(layer-structure)" as IV_CMP
+   rectangle "Diagrama de secuencias\n(interaction-pattern)" as IV_SEQ
+ }
+
+ rectangle "ProcessView" as PPV {
+   rectangle "Diagrama de actividades\n(concurrencia)" as PV_ACT
+   rectangle "Diagrama de secuencias\n(sincronizacion)" as PV_SEQ
+ }
+
+ rectangle "DeployView" as PDEV {
+   rectangle "Diagrama de despliegue\n(topologia)" as DEPV_DEP
+ }
+
+ rectangle "ContextView" as PCV {
+   rectangle "Diagrama de componentes\n(context-diagram)" as CV_CMP
+ }
+
+ PUC    ..> PDM  : usa vocabulario
+ PDV    ..> PUC  : satisface UCs
+ PDV    ..> PDM  : referencia clases
+ PIV    ..> PDV  : sigue estructura
+ PIV    ..> PUC  : satisface UCs
+ PPV    ..> PUC  : alinea con UCs
+ PPV    ..> PDV  : usa estructura
+ PPV    ..> PDEV : considera distribucion
+ PDEV   ..> PUC  : satisface UCs
+ PDEV   ..> PIV  : distribuye componentes
+ PCV    ..> PUC  : enmarca alcance
+
+ @enduml
+
+Los tipos de diagrama dentro de cada caja son los archivos
+reales del corpus, nombrados por contenido segun CLEAN_CODE
+§6.2:
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 1
+
+ * - Tipo de diagrama
+   - Archivos representativos
+ * - bounded-context (DesignView)
+   - ``design-view/{modulo}/bounded-context.rst``
+ * - interaction-pattern (DesignView, ImplementationView)
+   - ``{view}/{modulo}/interaction-pattern.rst``
+ * - ``*-lifecycle`` (DesignView)
+   - ``user-lifecycle.rst``,
+     ``menu-item-lifecycle.rst``,
+     ``audit-event-lifecycle.rst``,
+     ``alert-event-lifecycle.rst``,
+     ``session-lifecycle.rst``,
+     ``pipeline-execution-lifecycle.rst``,
+     ``export-job-lifecycle.rst``,
+     ``assignment-lifecycle.rst``
+ * - ``*-flow`` (DesignView)
+   - ``log-retention-flow.rst``,
+     ``alert-evaluation-flow.rst``,
+     ``etl-execution-flow.rst``,
+     ``async-export-flow.rst``,
+     ``separation-check-flow.rst``,
+     ``effective-set-evaluation-flow.rst``,
+     ``jwt-authentication-flow.rst``
+ * - layer-structure (ImplementationView)
+   - ``implementation-view/{modulo}/layer-structure.rst``
+ * - concurrencia (ProcessView)
+   - ``alert-evaluation-concurrency.rst``,
+     ``etl-pipeline-concurrency.rst``,
+     ``jwt-session-synchronization.rst``,
+     ``realtime-dashboard-concurrency.rst``
+ * - topologia (DeployView)
+   - ``standard-topology.rst``,
+     ``auth-cache-topology.rst``,
+     ``etl-pipeline-topology.rst``
+
+----
+
+9. Historial
 =============
 
 .. list-table::
@@ -371,3 +480,10 @@ la cadena de lectura es:
      entre vistas arquitectonicas IACT y el orden optimo
      de lectura del corpus. Adapta el framework Rozanski
      al subset de vistas materializadas en el proyecto.
+ * - 1.1.0
+   - 2026-05-09
+   - Agregada seccion 8 con diagrama de cajas (rectangles)
+     mostrando cada vista con sus tipos de diagrama UML
+     y las dependencias entre vistas, alineado al patron
+     usado en ``use-case-view``. Tabla de tipos de diagrama
+     y archivos representativos del corpus.
