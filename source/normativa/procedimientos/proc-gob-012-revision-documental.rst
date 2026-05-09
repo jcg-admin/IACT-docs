@@ -75,7 +75,7 @@ Procedimiento de Revisión
 ^^^^^^^^^^^^^^^^^
 
 - [ ] Seguir `Estándares de
-  Documentación <../gobernanza/documentacion_corporativa.rst>`__
+  Documentación </normativa/gobernanza/documentacion-corporativa.rst>`__
 
 - [ ] Mantener formato markdown consistente
 
@@ -315,7 +315,7 @@ Recursos Relacionados
 ---------------------
 
 - `Documentación
-  Corporativa <../gobernanza/documentacion_corporativa.rst>`__
+  Corporativa </normativa/gobernanza/documentacion-corporativa.rst>`__
 - :doc:`Checklist de Cambios
   Documentales </gestion/pm/checklists/checklist-cambios-documentales>`
 - :doc:`Plantilla de ADR </gestion/plantilla-adr>`

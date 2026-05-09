@@ -286,7 +286,7 @@ Parte 11 — Implementacion tecnica
  * - BLOCKED → INACTIVE
    - SI
    - (ninguno)
- * -* → ELIMINATED
+ * - ``*`` → ELIMINATED
    - NO
    - (UC_USR_04 lo realiza)
  * - ELIMINATED →*

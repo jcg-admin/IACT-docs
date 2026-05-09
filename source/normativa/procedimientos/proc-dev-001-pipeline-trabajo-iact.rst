@@ -763,11 +763,11 @@ REFERENCIAS
 -----------
 
 - `Guía: Procesos vs
-  Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.rst>`__
-- `ADR-002: Estrategia de
-  Branching <../adr/ADR-002-branching-strategy.rst>`__
-- `ADR-056: Agentic Design
-  Principles <../adr/ADR-056-agentic-design-principles.rst>`__
+  Procedimientos </normativa/guias/diferencia-procesos-procedimientos.rst>`__
+- *ADR-002: Estrategia de
+  Branching* (no migrado)
+- *ADR-056: Agentic Design
+  Principles* (no migrado)
 - ``GUIA_ESTILO.rst`` (guía histórica, no migrada)
 - `Conventional Commits <https://www.conventionalcommits.org/>`__
 

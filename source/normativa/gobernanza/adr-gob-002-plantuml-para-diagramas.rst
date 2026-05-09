@@ -435,7 +435,7 @@ Referencias
 - :doc:`PROCED-GOB-002: Actualizar
   Documentación </normativa/procedimientos/proced-gob-002-actualizar-documentacion>`
 - `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
+  Nomenclatura </normativa/guias/guia-gob-002-convenciones-nomenclatura.rst>`__
 
 Ejemplos de Uso
 ---------------

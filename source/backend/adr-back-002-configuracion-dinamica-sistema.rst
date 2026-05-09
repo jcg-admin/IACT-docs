@@ -273,11 +273,11 @@ Referencias
 -----------
 
 -  `Documentación app
-   configuration <../../backend/arquitectura/configuration.rst>`__
+   configuration </backend/arquitectura/configuration.rst>`__
 -  ``PLAN_MAESTRO_PRIORIDAD_02.rst`` (documento histórico, ver temp-holding)
    (Tareas 33-41)
 -  `ADR-005: Grupos Funcionales Sin
-   Jerarquía <ADR-005-grupos-funcionales-sin-jerarquia.rst>`__
+   Jerarquía </backend/adr-back-001-grupos-funcionales-sin-jerarquia.rst>`__
 -  `ISO 27001 Audit Trail
    Requirements <https://www.iso.org/standard/27001>`__
 -  `Django Best Practices for

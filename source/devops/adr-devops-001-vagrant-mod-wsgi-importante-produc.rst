@@ -254,7 +254,7 @@ Referencias
 -  *Script de aprovisionamiento*
 -  *Script de verificación*
 -  `Guía de
-   verificación <../../devops/runbooks/verificar_servicios.rst>`__
+   verificación </devops/runbooks/verificar_servicios.rst>`__
 -  `README principal del repo IACT-docs <https://github.com/jcg-admin/iact-docs>`__
 
 Notas Adicionales

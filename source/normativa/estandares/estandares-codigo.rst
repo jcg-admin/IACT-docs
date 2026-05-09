@@ -37,8 +37,8 @@ Documentación Relacionada
 
 **Para scripts de shell**, consultar también: - :doc:`Shell Scripting Guide
 Completa </normativa/estandares/shell-scripting-guide>` - Guía exhaustiva de shell
-scripting - `Plantillas de
-Scripts <../../scripts/templates/README>`__ - Templates
+scripting - ``Plantillas de
+Scripts`` - Templates
 estandarizados
 
 Tabla de Contenidos

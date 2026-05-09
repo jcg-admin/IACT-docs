@@ -326,7 +326,7 @@ Estándares de Salida
 
 **IMPORTANTE**: Esta sección implementa la “Regla Fundamental” definida
 en `Estándares de
-Código </normativa/estandares/estandares-codigo.rst#regla-fundamental-output-profesional>`__.
+Código </normativa/estandares/estandares-codigo.rst>`__.
 
 Regla Fundamental
 ~~~~~~~~~~~~~~~~~
@@ -368,7 +368,7 @@ Tabla de Referencia Completa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ver `Estándares de Código - Tabla de Referencia
-Rápida </normativa/estandares/estandares-codigo.rst#tabla-de-referencia-rápida>`__ para mapeo
+Rápida </normativa/estandares/estandares-codigo.rst>`__ para mapeo
 completo de símbolos prohibidos a alternativas permitidas.
 
 --------------
@@ -1007,9 +1007,9 @@ Documentos Relacionados
 -----------------------
 
 - `Estándares de Código - Regla
-  Fundamental </normativa/estandares/estandares-codigo.rst#regla-fundamental-output-profesional>`__
-- `Scripts de Requisitos -
-  README <../../scripts/requisitos/README>`__
+  Fundamental </normativa/estandares/estandares-codigo.rst>`__
+- ``Scripts de Requisitos -
+  README``
 - ``scripts/README.rst`` (vive en scripts/, no en source)
 
 --------------

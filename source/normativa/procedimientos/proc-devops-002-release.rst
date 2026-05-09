@@ -327,7 +327,7 @@ Recursos Relacionados
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - :doc:`Procedimiento: Gestión de
   Cambios </normativa/procedimientos/proc-gob-011-gestion-cambios>`
-- `Runbooks DevOps <../devops/runbooks/>`__
+- *Runbooks DevOps*
 
 Changelog
 ---------

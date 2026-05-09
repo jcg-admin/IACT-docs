@@ -610,7 +610,7 @@ Referencias
 - `pytest Documentation <https://docs.pytest.org/>`__
 - `Jest Documentation <https://jestjs.io/>`__
 - `PROC-QA-002: Estrategia
-  QA <../procesos/PROC-QA-002-estrategia_qa.rst>`__
+  QA </normativa/procedimientos/proc-qa-002-estrategia-qa.rst>`__
 
 Historial de Cambios
 --------------------

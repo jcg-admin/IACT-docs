@@ -239,8 +239,8 @@ Migraciones de DB - Cambios de configuración
 5.2 Como Reviewer
 ^^^^^^^^^^^^^^^^^
 
-Verificar (ver `Checklist de
-Review <../checklists/readme#checklist-de-code-review>`__):
+Verificar (ver *Checklist de
+Review*):
 
 **Funcionalidad:** - [ ] El código hace lo que dice - [ ] Edge cases
 considerados - [ ] Manejo de errores apropiado

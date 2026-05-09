@@ -715,7 +715,7 @@ Referencias
 - :doc:`PROC-GOB-001: Mapeo de Procesos y
   Templates </normativa/procedimientos/proc-gob-001-mapeo-procesos-templates>`
 - `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
+  Nomenclatura </normativa/guias/guia-gob-002-convenciones-nomenclatura.rst>`__
 - :doc:`PROC_Generacion_ADR: Generación de Decisiones Arquitectónicas </normativa/procedimientos/proc-doc-002-generacion-adr>`
 - `Write the Docs - Documentation
   Guide <https://www.writethedocs.org/guide/>`__
