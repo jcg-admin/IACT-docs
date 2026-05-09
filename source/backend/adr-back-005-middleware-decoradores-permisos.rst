@@ -289,7 +289,7 @@ Contras:
        """
        def decorator(view_func):
            @wraps(view_func)
-           def wrapper(request, *args, **kwargs):
+           def wrapper(request, *args,**kwargs):
                # Verificar autenticacion
                if not request.user.is_authenticated:
                    return JsonResponse(
@@ -341,7 +341,7 @@ Contras:
                    )
 
                # Permitir acceso
-               return view_func(request, *args, **kwargs)
+               return view_func(request, *args,**kwargs)
 
            return wrapper
        return decorator

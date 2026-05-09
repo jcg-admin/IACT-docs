@@ -11,8 +11,8 @@ secuencia:
 - *Representación de la acción del usuario*
 
 La acción del usuario desencadena la transición a partir de
-*A la espera* hacia *Registro*. Las actividades dentro del
-*Registro* trascienden hacia *Representación*. Después del
+*A la espera* hacia*Registro*. Las actividades dentro del
+*Registro* trascienden hacia*Representación*. Después del
 tercer estado, la GUI vuelve a iniciar *A la espera*.
 
 .. uml::

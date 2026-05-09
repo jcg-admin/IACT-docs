@@ -1263,7 +1263,7 @@ pytest para Python, con fixtures y mocks
  """Test that query times out after 30 seconds."""
  # Arrange
  # Mock a slow query that takes > 30 seconds
- def slow_query(*args, **kwargs):
+ def slow_query(*args,**kwargs):
  import time
  time.sleep(31) # Simulate timeout
  

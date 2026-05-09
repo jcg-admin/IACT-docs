@@ -14,7 +14,7 @@
 Lecciones Aprendidas
 ======================
 
-Esta sección consolida **deep-reviews** y **lecciones aprendidas**
+Esta sección consolida **deep-reviews** y**lecciones aprendidas**
 del proyecto IACT — análisis retrospectivos sobre la calidad de
 remediaciones, refactors y entregables.
 

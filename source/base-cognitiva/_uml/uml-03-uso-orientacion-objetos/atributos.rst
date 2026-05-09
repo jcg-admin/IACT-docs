@@ -7,7 +7,7 @@ los objetos (instancias) de la clase. Una clase podrá contener
 varios o ningún atributo.
 
 Si el atributo consta de **una sola palabra** se escribe en
-**minúsculas**. Si el nombre contiene **más de una palabra**,
+**minúsculas**. Si el nombre contiene**más de una palabra**,
 cada palabra será unida a la anterior y comenzará con mayúscula,
 **a excepción de la primera** que comenzará en minúscula
 (``camelCase``).

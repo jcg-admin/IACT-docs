@@ -114,7 +114,7 @@ Restricciones de implementacion
   este patron se reemplaza por un scheduler externo o por
   Celery beat — documentado como deuda en
   ``technical-debt.md``.
-- **R-EVAL-05:** el evaluator job es **read-heavy**: lee de
+- **R-EVAL-05:** el evaluator job es**read-heavy**: lee de
   ``alert_rule`` (cache-able) y de la fuente de metrica
   (Prometheus o BD). Las inserciones a ``alert`` son
   esporadicas — el costo dominante es la lectura de

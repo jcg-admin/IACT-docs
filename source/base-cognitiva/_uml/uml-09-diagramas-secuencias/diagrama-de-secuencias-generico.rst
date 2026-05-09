@@ -11,7 +11,7 @@ exacto.
  escenarios** de un caso de uso.
 
 Para representar cada condición en la secuencia, tal condición
-se coloca en un *si condicional* entre **corchetes**:
+se coloca en un *si condicional* entre**corchetes**:
 
 ::
 

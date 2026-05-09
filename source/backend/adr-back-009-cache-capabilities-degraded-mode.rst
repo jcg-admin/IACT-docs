@@ -261,7 +261,7 @@ invalidacion.
 Escribir directamente al cache en cada UC (en vez de invalidar).
 
 - **Pros:** sin window de stale tras invalidacion exitosa.
-- **Contras:** requiere que cada UC sepa **calcular** las
+- **Contras:** requiere que cada UC sepa**calcular** las
   capabilities resultantes (no solo invalidar). Acopla logica
   de RBAC a cada UC mutating. Mas codigo, mas posibilidad de
   bugs.

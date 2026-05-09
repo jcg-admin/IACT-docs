@@ -129,7 +129,7 @@ Politica de invalidacion
 Restricciones de implementacion
 ================================
 
-- **R-PERM-CACHE-01:** el cache es **per-process**. En un
+- **R-PERM-CACHE-01:** el cache es**per-process**. En un
   setup con N workers Gunicorn, hay N caches independientes.
   La signal Django se entrega **a todos los receivers en
   el mismo proceso** que la disparo — los otros workers

@@ -7,8 +7,8 @@ como un conjunto de tareas.
 
 La clase **Lavadora** tiene atributos como son la marca, el
 modelo, el número de serie y la capacidad. Entre las acciones de
-las cosas de esta clase se encuentran: *agregar ropa*, *agregar
-detergente*, *activarse* y *sacar ropa*.
+las cosas de esta clase se encuentran: *agregar ropa*,*agregar
+detergente*,*activarse* y*sacar ropa*.
 
 .. uml::
 

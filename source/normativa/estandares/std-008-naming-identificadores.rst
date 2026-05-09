@@ -146,7 +146,7 @@ Ejemplos:
    - ``buildTraceabilityMatrix(...)``
    - ``buildRTM(...)``
 
-**Excepción:** los identificadores que **son** el nombre canónico
+**Excepción:** los identificadores que**son** el nombre canónico
 de un concepto del lenguaje o framework (no del dominio del
 producto) sí pueden usar abreviaturas estándar de la industria.
 Ejemplos válidos: ``URL``, ``HTTP``, ``HTML``, ``JSON``, ``SQL``,

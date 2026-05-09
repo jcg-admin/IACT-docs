@@ -443,4 +443,4 @@ Aprobacion
 
 --------------
 
-**Version:** 1.0 **Estado:** ACEPTADO e IMPLEMENTADO (Prioridad 1)
+**Version:** 1.0**Estado:** ACEPTADO e IMPLEMENTADO (Prioridad 1)

@@ -53,7 +53,7 @@ en relaciones de **dependencia** con un nodo:
    SW <.. PHP : <<deploys>>
    @enduml
 
-Una **línea** que asocie a dos cubos representa una **conexión**
+Una **línea** que asocie a dos cubos representa una**conexión**
 entre ellos. No necesariamente un cable: también puede ser una
 conexión inalámbrica (infrarroja, satelital, etc.).
 
@@ -76,5 +76,5 @@ conexión:
    @enduml
 
 La conexión es el tipo común de asociación entre dos nodos, pero
-es posible utilizar otros (como **agregación** o **dependencia**)
+es posible utilizar otros (como **agregación** o**dependencia**)
 y representarlos de las formas ya conocidas.

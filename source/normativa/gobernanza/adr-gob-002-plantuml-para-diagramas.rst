@@ -432,8 +432,8 @@ Referencias
 - `Real World PlantUML <https://real-world-plantuml.com/>`__
 - `C4 Model with
   PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
-- `PROCED-GOB-002: Actualizar
-  Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.rst>`__
+- :doc:`PROCED-GOB-002: Actualizar
+  Documentación </normativa/procedimientos/proced-gob-002-actualizar-documentacion>`
 - `GUIA-GOB-002: Convenciones de
   Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 

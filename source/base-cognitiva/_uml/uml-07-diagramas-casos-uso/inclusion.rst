@@ -1,11 +1,11 @@
 Inclusión
 ---------
 
-En los casos de uso *"Reabastecer"* y *"Recolectar dinero"*,
+En los casos de uso *"Reabastecer"* y*"Recolectar dinero"*,
 ambos se inician mediante la apertura de la máquina y finalizan
 con el cierre y sellado de la misma. El caso de uso *"Exhibir el
 interior"* se creó para capturar el primer par de pasos, y
-*"Cubrir el interior"* para el segundo. Tanto *"Reabastecer"*
+*"Cubrir el interior"* para el segundo. Tanto*"Reabastecer"*
 como *"Recolectar dinero"* incluyen este par de casos de uso.
 
 Para representar la inclusión utilizará el símbolo que usó para

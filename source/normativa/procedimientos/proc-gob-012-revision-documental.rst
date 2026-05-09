@@ -109,8 +109,8 @@ Procedimiento de Revisión
 2. Checklist de Auto-Revisión
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ver: `Checklist de Cambios
-Documentales <../checklists/checklist_cambios_documentales.rst>`__
+Ver: :doc:`Checklist de Cambios
+Documentales </gestion/pm/checklists/checklist-cambios-documentales>`
 
 Contenido
 ^^^^^^^^^
@@ -182,7 +182,7 @@ Calidad
  ## Impacto
  - **Quién lo usa**: Equipo QA, desarrolladores
  - **Breaking changes**: No
- - **Documentos relacionados**: procedimiento_desarrollo_local.rst
+ - **Documentos relacionados**: /normativa/procedimientos/proc-dev-003-desarrollo-local.rst
 
  ## Checklist
  - [x] Front matter actualizado
@@ -316,8 +316,8 @@ Recursos Relacionados
 
 - `Documentación
   Corporativa <../gobernanza/documentacion_corporativa.rst>`__
-- `Checklist de Cambios
-  Documentales <../checklists/checklist_cambios_documentales.rst>`__
+- :doc:`Checklist de Cambios
+  Documentales </gestion/pm/checklists/checklist-cambios-documentales>`
 - :doc:`Plantilla de ADR </gestion/plantilla-adr>`
 
 Changelog

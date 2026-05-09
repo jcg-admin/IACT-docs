@@ -21,7 +21,7 @@ Relaciones de dependencia entre vistas — aplicacion al dominio IACT
  Este documento aplica el framework Rozanski de viewpoints
  (UML_14) al modelo Kruchten 4+1 adaptado al dominio
  documental del sistema IACT. Establece el **DAG de
- dependencias entre paquetes de vistas** y el **orden
+ dependencias entre paquetes de vistas** y el**orden
  optimo de lectura/comprension** de los diferentes
  conjuntos de diagramas del corpus arquitectonico.
 
@@ -291,7 +291,7 @@ de la solucion** (como). Las ultimas dos son de
 
 Los modulos ``operator``, ``supervision`` y ``caller``
 estan documentados en UseCaseView como vista de
-**requisitos** pero **NO entran** en DesignView,
+**requisitos** pero**NO entran** en DesignView,
 ImplementationView, ProcessView ni DeployView. Razones:
 
 - ``caller``: representa al actor externo (sistema IVR del

@@ -28,7 +28,7 @@ Lectura:
   ``GET /login`` y espera respuesta.
 - **Respuesta** (``-->``) — ``auth_app`` retorna el
   HTML; línea punteada para distinguir del request.
-- **Mensaje del actor al sistema** y **del sistema al
+- **Mensaje del actor al sistema** y**del sistema al
   actor** — capturados con sintaxis idéntica.
 
 El render muestra mensajes con flechas distintas

@@ -701,7 +701,7 @@ Métricas de Calidad de Documentación
 
 Monitorear: - **Freshness**: % de docs actualizadas en últimos 6 meses -
 **Accuracy**: # de issues reportados por docs incorrectos -
-**Coverage**: % de funcionalidades documentadas - **Usability**:
+**Coverage**: % de funcionalidades documentadas -**Usability**:
 Feedback de usuarios (surveys)
 
 **Targets**: - Freshness: >= 80% - Accuracy issues: < 5/mes - Coverage:
@@ -712,8 +712,8 @@ Feedback de usuarios (surveys)
 Referencias
 -----------
 
-- `PROC-GOB-001: Mapeo de Procesos y
-  Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.rst>`__
+- :doc:`PROC-GOB-001: Mapeo de Procesos y
+  Templates </normativa/procedimientos/proc-gob-001-mapeo-procesos-templates>`
 - `GUIA-GOB-002: Convenciones de
   Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 - :doc:`PROC_Generacion_ADR: Generación de Decisiones Arquitectónicas </normativa/procedimientos/proc-doc-002-generacion-adr>`

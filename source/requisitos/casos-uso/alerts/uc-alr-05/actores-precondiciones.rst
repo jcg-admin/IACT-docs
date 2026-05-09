@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User** o **Admin User** con funcion
+- **User** o**Admin User** con funcion
   apropiada
 - **SubscriptionRepo**
 

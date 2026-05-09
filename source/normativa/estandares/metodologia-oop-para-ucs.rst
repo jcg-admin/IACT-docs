@@ -46,7 +46,7 @@ Metodología OOP para Casos de Uso (UCs)
 ============
 
 Cada UC documentado en el proyecto debe analizarse con seis
-**dimensiones OOP**. Esto produce documentación de **mayor
+**dimensiones OOP**. Esto produce documentación de**mayor
 calidad arquitectónica**: separa lo que el usuario percibe (UC
 abstracto) de cómo se implementa (clases, mensajes,
 componentes), y obliga a explicitar reutilización y

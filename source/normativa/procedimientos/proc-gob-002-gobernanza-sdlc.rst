@@ -55,7 +55,7 @@ Patron de Diseno
  STOP
 
 Cada fase puede retornar: - **GO**: Continuar a siguiente fase -
-**NO-GO**: Detener pipeline, resolver blockers - **REVIEW**: Requiere
+**NO-GO**: Detener pipeline, resolver blockers -**REVIEW**: Requiere
 revision manual
 
 Flujo de Datos
@@ -189,7 +189,7 @@ duplicados - Formato GitHub issue completo
 **Artefactos Generados**: -
 ``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_YYYYMMDD_HHMMSS.rst``
 
-**Go/No-Go Criteria**: - **NO-GO** si: - Viola RNF-002 (Redis, Email) -
+**Go/No-Go Criteria**: -**NO-GO** si: - Viola RNF-002 (Redis, Email) -
 Blockers criticos sin mitigacion - Esfuerzo > 3x estimado - **REVIEW**
 si: - Riesgos HIGH no mitigados - Dependencias externas complejas -
 **GO** si: - Tecnicamente viable - Riesgos mitigables - Dentro de
@@ -763,4 +763,4 @@ Referencias
 
 --------------
 
-**Version**: 1.0 **Fecha**: 2025-11-06 **Autor**: SDLCOrchestratorAgent
+**Version**: 1.0**Fecha**: 2025-11-06**Autor**: SDLCOrchestratorAgent

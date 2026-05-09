@@ -102,7 +102,7 @@ Mapeo a archivos del repo
 Invariantes de implementacion
 ==============================
 
-- **I-IMPL-ADM-01:** la tabla de transiciones es **dato**,
+- **I-IMPL-ADM-01:** la tabla de transiciones es**dato**,
   no codigo: ``VALID_TRANSITIONS = {("DRAFT", "publish"):
   ("ACTIVE", _on_publish), ...}``. Permite agregar
   transiciones nuevas sin reescribir el service.

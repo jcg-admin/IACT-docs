@@ -78,7 +78,7 @@
 - **Function** (UC_ADM_03): catalogo RBAC v5.6.0. UC_ADM_04
   consume registros existentes via FK.
 - **AuditEvent**: cada operacion genera entrada (BR-AUDIT-01).
-- **AccessGroup** + **FunctionGroupMembership**: lectura
+- **AccessGroup** +**FunctionGroupMembership**: lectura
   para identificar users afectados al invalidar cache.
 
 7.3 Origen de los datos

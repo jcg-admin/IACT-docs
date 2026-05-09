@@ -86,7 +86,7 @@ Patrón General
 
  TIPO-DOMINIO-###
 
-Donde: - **TIPO**: RN, RNEG, UC, RF, RNF (o BR, AC) - **DOMINIO**: BACK,
+Donde: - **TIPO**: RN, RNEG, UC, RF, RNF (o BR, AC) -**DOMINIO**: BACK,
 FRONT, DEVOPS, QA, AI, GOB - **###**: Número secuencial 001-999
 
 IDs por Tipo de Artefacto
@@ -114,8 +114,8 @@ IDs por Tipo de Artefacto
      - OMINIO-### RNF-BA
      - CK-005
 
-**Reglas**: - **Únicos globalmente**: No reutilizar IDs - **Secuenciales
-por dominio**: RN-BACK-001, RN-BACK-002, … - **No cambiar**: Una vez
+**Reglas**: -**Únicos globalmente**: No reutilizar IDs -**Secuenciales
+por dominio**: RN-BACK-001, RN-BACK-002, … -**No cambiar**: Una vez
 asignado, el ID no cambia aunque cambie el contenido - **Gaps
 permitidos**: Si RN-BACK-003 se elimina, NO reutilizar, continuar con
 RN-BACK-004
@@ -713,12 +713,12 @@ Referencias
 
 - `IEEE 29148-2018: Requirements
   Traceability <https://standards.ieee.org/standard/29148-2018.html>`__
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-006: Clasificación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-006: Clasificación de Reglas de
+  Negocio </normativa/gobernanza/adr-gob-004-clasificacion-reglas-negocio>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
 
 Historial de Cambios
 --------------------

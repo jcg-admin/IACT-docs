@@ -29,7 +29,7 @@ Este estándar define **qué tipo de diagrama UML va en qué
 artefacto** del proyecto IACT, evitando ambigüedad y duplicación
 entre artefactos arquitectónicos y de requisitos.
 
-**Confusión más común:** distinguir un *diagrama de clases*
+**Confusión más común:** distinguir un*diagrama de clases*
 (``class``) de un *diagrama de objetos* (``object``). Ambos
 viven en UML pero responden a preguntas distintas y van en
 ubicaciones distintas del proyecto.

@@ -92,12 +92,12 @@ O crear en GitHub: - Título descriptivo - Descripción clara del problema
 2.2 Implementar Cambio
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- [ ] Seguir `Lineamientos de
-  Código <../arquitectura/lineamientos_codigo.rst>`__
+- [ ] Seguir :doc:`Lineamientos de
+  Código </normativa/estandares/estandares-codigo>`
 - [ ] Escribir tests (TDD cuando sea posible)
 - [ ] Actualizar documentación relevante
-- [ ] Seguir `Checklist de
-  Desarrollo <../checklists/checklist_desarrollo.rst>`__
+- [ ] Seguir :doc:`Checklist de
+  Desarrollo </gestion/pm/checklists/checklist-desarrollo>`
 
 2.3 Commits
 ^^^^^^^^^^^
@@ -325,8 +325,8 @@ Para cambios solo de documentación:
 
 Para reestructuraciones o ADRs, seguir flujo completo con review.
 
-Ver: `Procedimiento de Revisión
-Documental <procedimiento_revision_documental.rst>`__
+Ver: :doc:`Procedimiento de Revisión
+Documental </normativa/procedimientos/proc-gob-012-revision-documental>`
 
 Cambios de Emergencia (Hotfix)
 ------------------------------

@@ -5,7 +5,7 @@ En lugar de sólo reabastecer la máquina de gaseosas para que
 todas las marcas tengan la misma cantidad de latas, el
 representante podría anotar aquellas que se venden mejor y
 reabastecer acorde con ello. Podemos decir que el nuevo caso de
-uso **extiende** al original dado que *agrega otros pasos* a la
+uso **extiende** al original dado que*agrega otros pasos* a la
 secuencia del caso de uso original, que se conoce como **el caso
 de uso base**.
 
@@ -14,7 +14,7 @@ específica dentro de la secuencia del caso de uso base. A estos
 puntos se les conoce como **puntos de extensión**.
 
 En el caso de uso *"Reabastecer"*, los nuevos pasos (*anotar las
-ventas* y *abastecer de manera acorde*) se darían luego que el
+ventas* y*abastecer de manera acorde*) se darían luego que el
 representante haya abierto la máquina y esté listo para llenar
 los compartimientos de las marcas. En este ejemplo, *el punto de
 extensión es* **"Llenar los compartimientos"**.

@@ -25,7 +25,7 @@ ARQ_MOD_008: Bitacoras Tecnicas (SYS_LOGS)
 1. Proposito
 ============
 
-El modulo SYS_LOGS gestiona los **logs tecnicos** y el **estado de salud**
+El modulo SYS_LOGS gestiona los **logs tecnicos** y el**estado de salud**
 del sistema. Orientado a soporte, NOC y devops.
 
 **Pregunta clave que responde:**

@@ -329,8 +329,8 @@ Problema 3: Merge conflicts
 Referencias
 -----------
 
-- `PROC-DEV-001: Pipeline de Trabajo
-  IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.rst>`__
+- :doc:`PROC-DEV-001: Pipeline de Trabajo
+  IACT </normativa/procedimientos/proc-dev-001-pipeline-trabajo-iact>`
 - `GUIA-GOB-002: Convenciones de
   Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 - `Git Workflow

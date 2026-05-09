@@ -15,8 +15,8 @@ han probado ser más populares.
 
 Si agregamos estos pasos a *"Reabastecer"*, tendremos un nuevo
 caso de uso que llamaríamos **"Reabastecer de acuerdo a las
-ventas"**. Este nuevo caso de uso es una *extensión del
-original*, acción a la que se le conoce como **extensión de un
+ventas"**. Este nuevo caso de uso es una*extensión del
+original*, acción a la que se le conoce como**extensión de un
 caso de uso**.
 
 .. uml::

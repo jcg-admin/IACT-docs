@@ -115,7 +115,7 @@ Mapa de Funciones RBAC IACT
 Modelo conceptual
 =================
 
-Per **BR-006 NIST RBAC Flat** y **CNST-005**:
+Per **BR-006 NIST RBAC Flat** y**CNST-005**:
 
 1. **Funciones** son las unidades atómicas de
    autorización. Tienen ``codename`` (snake_case en

@@ -74,7 +74,7 @@ grupo), UC_PERM_03 (conceder permiso excepcional).
 Notas de diseno
 ================
 
-- **CNST-005**: separacion se evalua sobre **funciones**, no sobre
+- **CNST-005**: separacion se evalua sobre**funciones**, no sobre
   grupos. Dos grupos distintos pueden compartir funciones — la
   union es lo que cuenta.
 - **Assignments + Exceptional Grants**: ambos se consideran en

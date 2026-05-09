@@ -43,7 +43,7 @@ Modelo conceptual completo — Figura 5-3
 =========================================
 
 Esta figura extiende el modelo de Figura 4-3 (Perspectivas en contexto)
-añadiendo el **Arquitecto** y el **Proceso de Definición Arquitectónica**:
+añadiendo el **Arquitecto** y el**Proceso de Definición Arquitectónica**:
 
 .. uml::
  :caption: Figura 5-3 — Definición de arquitectura y el Arquitecto en contexto

@@ -40,7 +40,7 @@ mismo).
 
 Distinto de:
 
-- **UC_USR_03**: modificacion **administrativa** por un
+- **UC_USR_03**: modificacion**administrativa** por un
   admin sobre **otro** User. Permite cambiar atributos
   sensibles.
 - **UC_AUTH_03**: reset de password — credencial,

@@ -28,7 +28,7 @@ STD_010: Vocabulario Abstracto en Narrativa de Requisitos
 Este estándar define el vocabulario canónico para la narrativa de
 requisitos del proyecto IACT. Los documentos de requisitos
 (``source/requisitos/``) deben describir el sistema en términos de
-**rol** y **responsabilidad**, no en términos de tecnología de
+**rol** y**responsabilidad**, no en términos de tecnología de
 implementación.
 
 **Regla central:**

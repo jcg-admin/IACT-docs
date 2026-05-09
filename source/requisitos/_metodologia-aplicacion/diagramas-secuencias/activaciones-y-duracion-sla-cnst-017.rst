@@ -1,7 +1,7 @@
 6. Activaciones y duración — SLA CNST_017
 =========================================
 
-La **altura** de la activación representa la **duración**.
+La **altura** de la activación representa la**duración**.
 Útil para visualizar SLAs (CNST_017 — latencia ≤ 10 s).
 
 .. uml::

@@ -283,7 +283,7 @@ Ejecutar tests críticos:
 4.4 Verificar UI manualmente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Abrir en navegador: - [OK] https://staging.iact-project.com - [OK] Login
+Abrir en navegador: - [OK] ``https://staging.iact-project.com`` (broken) - [OK] Login
 exitoso - [OK] Navegar páginas principales - [OK] Verificar nueva
 funcionalidad deployada
 
@@ -435,8 +435,8 @@ Repetir health checks y smoke tests del PASO 4.
 Métricas de Deployment
 ----------------------
 
-Monitorear: - **Deployment frequency**: Cuántos deploys/semana - **Lead
-time**: Tiempo desde commit hasta staging - **Change failure rate**: %
+Monitorear: - **Deployment frequency**: Cuántos deploys/semana -**Lead
+time**: Tiempo desde commit hasta staging -**Change failure rate**: %
 de deploys que requieren rollback - **Mean time to recovery**: Tiempo
 promedio de rollback
 
@@ -534,10 +534,10 @@ Checklist de Deployment
 Referencias
 -----------
 
-- `PROC-DEVOPS-001: DevOps
-  Automation <../procesos/PROC-DEVOPS-001-devops_automation.rst>`__
-- `ADR-DEVOPS-001: Vagrant
-  mod_wsgi <../adr/ADR-DEVOPS-001-vagrant-mod-wsgi.rst>`__
+- :doc:`PROC-DEVOPS-001: DevOps
+  Automation </normativa/procedimientos/proc-devops-001-devops-automation>`
+- :doc:`ADR-DEVOPS-001: Vagrant
+  mod_wsgi </devops/adr-devops-001-vagrant-mod-wsgi-importante-produc>`
 - `Twelve-Factor App: Deployment <https://12factor.net/>`__
 
 Historial de Cambios

@@ -393,10 +393,10 @@ Checklist de Verificación
 Recursos Relacionados
 ---------------------
 
-- `ADR_2025_001: Vagrant +
-  mod_wsgi <../arquitectura/adr/ADR_2025_001-vagrant-mod-wsgi.rst>`__
-- `Procedimiento: Desarrollo
-  Local <procedimiento_desarrollo_local.rst>`__
+- :doc:`ADR_2025_001: Vagrant +
+  mod_wsgi </devops/adr-devops-001-vagrant-mod-wsgi-importante-produc>`
+- :doc:`Procedimiento: Desarrollo
+  Local </normativa/procedimientos/proc-dev-003-desarrollo-local>`
 - ``contenedores_devcontainer.rst`` (DevContainers — documento futuro, no migrado)
 
 Tiempo Estimado

@@ -132,7 +132,7 @@ Restricciones de implementacion
   blacklist es para ``jti`` de refresh tokens y de access
   tokens revocados explicitamente (e.g. por bloqueo de
   usuario en :doc:`/arquitectura-tecnica/design-view/users/user-lifecycle`).
-- **R-JWT-02:** la blacklist cache tiene **TTL = JWT.exp**.
+- **R-JWT-02:** la blacklist cache tiene**TTL = JWT.exp**.
   Una vez expira, el jti se purga automaticamente (no hay
   garbage collection separado).
 - **R-JWT-03:** sin Redis (ADR-BACK-012). El cache es

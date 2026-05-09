@@ -786,6 +786,6 @@ v1.0.0 (2025-11-17)
 
 --------------
 
-**Próxima revisión**: 2025-12-17 (1 mes) **Responsable**: Tech Lead +
+**Próxima revisión**: 2025-12-17 (1 mes)**Responsable**: Tech Lead +
 Equipo de Desarrollo **Aprobación pendiente**: Product Owner, Tech Lead,
 DevOps Lead

@@ -666,10 +666,10 @@ Referencias
 
 - `Git Documentation - Basic Merge
   Conflicts <https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>`__
-- `PROC-DEV-001: Pipeline de Trabajo
-  IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.rst>`__
-- `PROCED-DEV-001: Crear Pull
-  Request <PROCED-DEV-001-crear_pull_request.rst>`__
+- :doc:`PROC-DEV-001: Pipeline de Trabajo
+  IACT </normativa/procedimientos/proc-dev-001-pipeline-trabajo-iact>`
+- :doc:`PROCED-DEV-001: Crear Pull
+  Request </normativa/procedimientos/proced-dev-001-crear-pull-request>`
 
 Historial de Cambios
 --------------------

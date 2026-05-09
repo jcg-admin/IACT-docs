@@ -2,7 +2,7 @@ Una red token-ring
 ------------------
 
 En una red **token-ring**, las computadoras equipadas con una
-**NIC** (tarjeta de interfaz de red) se conectan a una **MSAU**
+**NIC** (tarjeta de interfaz de red) se conectan a una**MSAU**
 (unidad central de acceso a multi estaciones). Se conectan
 varias MSAU en serie que forma un anillo.
 

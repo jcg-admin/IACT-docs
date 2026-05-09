@@ -92,7 +92,7 @@ Mapeo a archivos del repo
 Invariantes de implementacion
 ==============================
 
-- **I-IMPL-PERM-01:** ``PermissionsService.has`` es **read-only**
+- **I-IMPL-PERM-01:** ``PermissionsService.has`` es**read-only**
   — no escribe a BD. Toda mutacion ocurre en MOD_Access.
 - **I-IMPL-PERM-02:** la consulta a ``Assignment`` filtra
   por ``valid_to`` server-side; el cache no incluye

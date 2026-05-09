@@ -95,14 +95,14 @@ mismo proyecto. Migrar módulo por módulo según prioridad. Configurar
 TypeScript en modo permisivo inicialmente, aumentar strictness
 gradualmente.
 
-**Estrategia:** 1. **Fase 1:** Configurar TypeScript con
+**Estrategia:** 1.**Fase 1:** Configurar TypeScript con
 ``allowJs: true``, ``checkJs: false`` 2. **Fase 2:** Migrar módulos
 nuevos a ``.ts`` desde el inicio 3. **Fase 3:** Migrar módulos críticos
 existentes (types, config, lib) 4. **Fase 4:** Migrar componentes y
 services gradualmente 5. **Fase 5:** Aumentar strictness
 (``strict: true``) cuando cobertura sea >80%
 
-**Pros:** - **Sin Bloqueo:** Desarrollo de features continúa sin pausa -
+**Pros:** -**Sin Bloqueo:** Desarrollo de features continúa sin pausa -
 **Riesgo Minimizado:** Migración incremental, fácil rollback si hay
 problemas - **Curva de Aprendizaje Gradual:** Equipo aprende TypeScript
 mientras desarrolla - **Priorización:** Migramos primero lo más crítico
@@ -112,7 +112,7 @@ safety desde día 1 - **Strictness Incremental:** Podemos aumentar
 strictness gradualmente - **IDE Support Parcial:** Archivos ``.ts``
 tienen full support, ``.js`` tienen basic support
 
-**Contras:** - **Codebase Mixto:** Durante transición, algunos archivos
+**Contras:** -**Codebase Mixto:** Durante transición, algunos archivos
 son ``.js``, otros ``.ts`` - **Type Coverage Parcial:** No tenemos 100%
 type safety durante transición - **Configuración Dual:** Necesitamos
 ``allowJs: true`` que no es ideal a largo plazo - **Confusión
@@ -160,12 +160,12 @@ Opción 2: Big Bang Migration
 **Descripción:** Pausar desarrollo de features por 2-4 semanas y migrar
 todo el codebase a TypeScript de una vez.
 
-**Pros:** - **100% TypeScript Rápido:** Todo el codebase en TypeScript
+**Pros:** -**100% TypeScript Rápido:** Todo el codebase en TypeScript
 en pocas semanas - **No Mixto:** No hay confusión sobre qué usar -
 **Strict Mode Inmediato:** Podemos habilitar ``strict: true`` desde el
 inicio - **Type Coverage Completo:** 100% type safety una vez completado
 
-**Contras:** - **Bloqueo de Features:** 2-4 semanas sin nuevas features
+**Contras:** -**Bloqueo de Features:** 2-4 semanas sin nuevas features
 es inaceptable - **Riesgo Alto:** Migrar todo de una vez aumenta
 probabilidad de bugs - **Rollback Difícil:** Si algo falla, rollback es
 muy complejo - **Curva de Aprendizaje Abrupta:** Equipo debe dominar
@@ -185,14 +185,14 @@ Opción 3: TypeScript Solo para Nuevos Módulos
 **Descripción:** Mantener código existente en JavaScript. Solo usar
 TypeScript para módulos nuevos. No migrar código legacy.
 
-**Pros:** - **Cero Fricción:** No afecta código existente - **Sin
-Riesgo:** No hay chance de romper código que funciona - **Fácil
+**Pros:** -**Cero Fricción:** No afecta código existente -**Sin
+Riesgo:** No hay chance de romper código que funciona -**Fácil
 Adopción:** Equipo solo aprende TypeScript para código nuevo
 
-**Contras:** - **Legacy Crece:** Código JavaScript legacy nunca se
+**Contras:** -**Legacy Crece:** Código JavaScript legacy nunca se
 mejora - **Inconsistencia Permanente:** Codebase permanentemente mixto -
-**Type Safety Limitado:** Módulos críticos siguen sin types - **Deuda
-Técnica:** Acumula deuda técnica en código legacy - **Refactoring
+**Type Safety Limitado:** Módulos críticos siguen sin types -**Deuda
+Técnica:** Acumula deuda técnica en código legacy -**Refactoring
 Difícil:** Refactoring cross-módulos requiere manejar .js y .ts
 
 **Razón del rechazo:** Código legacy más crítico (types, shared libs)
@@ -207,11 +207,11 @@ Opción 4: JSDoc Comments en JavaScript
 **Descripción:** Mantener JavaScript pero agregar type annotations con
 JSDoc comments. TypeScript puede validar JSDoc.
 
-**Pros:** - **Sin Migración:** Código sigue siendo JavaScript - **Type
-Checking:** TypeScript puede validar JSDoc comments - **Gradual:**
+**Pros:** -**Sin Migración:** Código sigue siendo JavaScript -**Type
+Checking:** TypeScript puede validar JSDoc comments -**Gradual:**
 Podemos agregar JSDoc gradualmente
 
-**Contras:** - **Sintaxis Verbose:** JSDoc es mucho más verboso que
+**Contras:** -**Sintaxis Verbose:** JSDoc es mucho más verboso que
 TypeScript - **IDE Support Limitado:** No tan bueno como TypeScript
 nativo - **No es TypeScript Real:** Seguimos con JavaScript, no migramos
 - **Mantenimiento Dual:** Código + comments tipo documentation -
@@ -260,10 +260,10 @@ meses estimado) - Type coverage parcial durante migración -
 ``allowJs: true`` en tsconfig (temporal) - Necesitamos disciplina para
 migrar gradualmente
 
-**Plan de Migración:** 1. **Crítico primero:** types, lib, hooks, config
+**Plan de Migración:** 1.**Crítico primero:** types, lib, hooks, config
 (COMPLETADO) 2. **Services:** Migrar services y API clients (EN
 PROGRESO) 3. **Components:** Migrar componentes React gradualmente 4.
-**State:** Migrar Redux slices 5. **Tests:** Migrar tests a ``.test.ts``
+**State:** Migrar Redux slices 5.**Tests:** Migrar tests a ``.test.ts``
 
 --------------
 
@@ -580,7 +580,7 @@ React components: ``.tsx`` (eg: ``UserTable.tsx``) - Other modules:
 Configurado en tsconfig: ``"paths": {"@/*": ["./src/*"]}`` - Vite config
 también necesita alias
 
-**Strict Mode Strategy:** - **Fase 1-3:** ``strict: false`` (actual) -
+**Strict Mode Strategy:** -**Fase 1-3:** ``strict: false`` (actual) -
 **Fase 4:** Cuando cobertura >50%, habilitar checks individuales: -
 ``noImplicitAny: true`` - ``strictNullChecks: true`` - **Fase 5:**
 Cuando cobertura >80%, habilitar ``strict: true`` completo
@@ -625,5 +625,5 @@ Changelog
 
 --------------
 
-**Documento:** ADR-FRONT-010 **Fecha:** 17 de Enero, 2025 **Estado:**
+**Documento:** ADR-FRONT-010**Fecha:** 17 de Enero, 2025**Estado:**
 Aprobado **Próxima revisión:** 2025-07-17 (semestral durante migración)

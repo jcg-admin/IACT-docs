@@ -247,8 +247,8 @@ creado (si decisión arquitectónica)
 - [ ] Primer commit realizado
 - [ ] Primer PR creado (pequeño cambio)
 - [ ] Lectura de ``arquitectura/readme.rst`` (índice no migrado)
-- [ ] Lectura de `Lineamientos de
-  Código <../arquitectura/lineamientos_codigo.rst>`__
+- [ ] Lectura de :doc:`Lineamientos de
+  Código </normativa/estandares/estandares-codigo>`
 
 **Primer Mes:**
 

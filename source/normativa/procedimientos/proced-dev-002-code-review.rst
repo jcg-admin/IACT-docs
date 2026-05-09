@@ -415,7 +415,7 @@ Métricas de Calidad de Reviews
 ------------------------------
 
 Medir periódicamente: - **Tiempo promedio de review**: < 4 horas ideal -
-**Número de iteraciones**: < 3 ideal - **Bugs encontrados en review**:
+**Número de iteraciones**: < 3 ideal -**Bugs encontrados en review**:
 Más es mejor - **Bugs escapados a producción**: Menos es mejor
 
 --------------

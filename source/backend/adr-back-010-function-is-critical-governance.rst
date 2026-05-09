@@ -383,7 +383,7 @@ Lista hardcoded en el modulo de auth:
 - **Contras:** cambios requieren modificar codigo y desplegar;
   no auditable como cambio de catalogo; no migrable entre
   entornos como dato.
-- **Veredicto:** rechazada. ``is_critical`` debe ser **dato del
+- **Veredicto:** rechazada. ``is_critical`` debe ser**dato del
   catalogo**, no codigo.
 
 5.3 Alternativa C — TTL distinto por capability

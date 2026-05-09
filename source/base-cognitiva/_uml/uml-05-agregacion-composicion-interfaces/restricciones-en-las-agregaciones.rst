@@ -2,7 +2,7 @@ Restricciones en las agregaciones
 ---------------------------------
 
 El conjunto de componentes posibles en una agregación se
-establece dentro de una **relación O**: el componente *u otro*
+establece dentro de una **relación O**: el componente*u otro*
 es parte del todo.
 
 Por ejemplo: una comida consta de **sopa o ensalada**, el plato

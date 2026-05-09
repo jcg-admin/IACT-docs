@@ -222,8 +222,8 @@ Patrón de Nomenclatura de Archivo
 
  UC-DOMINIO-###-verbo-objeto.rst
 
-Donde: - **UC**: Use Case - **DOMINIO**: BACK \| FRONT \| DEVOPS \| QA
-\| AI \| GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
+Donde: - **UC**: Use Case -**DOMINIO**: BACK \| FRONT \| DEVOPS \| QA
+\| AI \| GOB - **###**: Número secuencial 001-999 -**verbo-objeto**: En
 snake_case (minúsculas con guiones)
 
 Acciones
@@ -1390,22 +1390,22 @@ Problema 4: Estoy describiendo CÓMO en lugar de QUÉ
 **Solución**: Reformular cada paso respondiendo “¿Qué se logra?” en
 lugar de “¿Cómo se hace?”.
 
-**Incorrecto**: “El sistema ejecuta SHA256(password)” **Correcto**: “El
+**Incorrecto**: “El sistema ejecuta SHA256(password)”**Correcto**: “El
 sistema valida la contraseña”
 
 Referencias
 -----------
 
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.rst>`__
-- `ADR-GOB-008: Diagramas UML de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
-- `PROCED-GOB-003: Documentar Regla de
-  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
+- :doc:`ADR-GOB-008: Diagramas UML de Casos de
+  Uso </normativa/gobernanza/adr-gob-006-diagramas-uml-casos-uso>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
+- :doc:`PROCED-GOB-003: Documentar Regla de
+  Negocio </normativa/procedimientos/proced-gob-003-documentar-regla-negocio>`
 
 Historial de Cambios
 --------------------

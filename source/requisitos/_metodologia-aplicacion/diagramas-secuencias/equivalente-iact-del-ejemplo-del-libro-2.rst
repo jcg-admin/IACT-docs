@@ -28,8 +28,8 @@ Aplicado a UC_AUTH_01 con ``autonumber``:
    Browser --> Supervisor : muestra panel
    @enduml
 
-Referirse al diagrama es directo: *"el paso 4 es la
-autenticación contra LDAP"*, *"el paso 7 es donde
-disparamos audit"*. Esa precisión vale especialmente
+Referirse al diagrama es directo: "el paso 4 es la
+autenticación contra LDAP", "el paso 7 es donde
+disparamos audit". Esa precisión vale especialmente
 en revisiones de PR, en sesiones de design review y
 en aprobaciones arquitectónicas.

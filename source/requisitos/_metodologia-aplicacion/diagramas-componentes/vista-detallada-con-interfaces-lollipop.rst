@@ -26,7 +26,7 @@ Ejemplo: flujo de exportación de reporte UC_RPT_04.
    SERVICIO_REPORTES ..> INotificacion : usa (buzon CNST_001)
    @enduml
 
-Lectura: ``rpt_app`` *realiza* ``IReporte`` e *importa*
+Lectura: ``rpt_app`` *realiza* ``IReporte`` e*importa*
 ``ISecurity``, ``IDatosAnalytics``, ``IAuditLog`` e
 ``INotificacion``. Cualquier cambio interno en ``perm_app``
 es transparente para ``rpt_app`` mientras ``ISecurity`` se

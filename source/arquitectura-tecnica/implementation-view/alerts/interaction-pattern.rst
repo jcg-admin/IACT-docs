@@ -98,7 +98,7 @@ Invariantes de implementacion
   en ``ARepo.get_active`` ANTES del INSERT — evita crear
   ``Alert`` duplicadas para una rule en estado
   ``raised|ack|silenced``.
-- **I-IMPL-ALR-02:** ``Notify.send`` es **best-effort** —
+- **I-IMPL-ALR-02:** ``Notify.send`` es**best-effort** —
   un fallo en notificacion NO revierte el INSERT del Alert.
   El operador siempre puede ver el alert en la consola.
 

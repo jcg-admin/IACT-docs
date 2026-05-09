@@ -41,7 +41,7 @@ implementado (ADR-005) - Requisitos de auditoría (ISO 27001) - NO usar
 variables de entorno para configuración dinámica (solo para
 infraestructura) - Necesidad de historial inmutable de cambios
 
-**Impacto:** - **Operaciones**: Reduce time-to-fix para ajustes
+**Impacto:** -**Operaciones**: Reduce time-to-fix para ajustes
 operativos - **Seguridad**: Permite ajustar parámetros de seguridad sin
 downtime - **Compliance**: Trazabilidad completa para auditorías -
 **DevOps**: Desacopla configuración de código
@@ -302,5 +302,5 @@ valores por defecto
 
 --------------
 
-**Estado**: Implementado y en producción **Próxima revisión**:
+**Estado**: Implementado y en producción**Próxima revisión**:
 2025-12-09

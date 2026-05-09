@@ -23,8 +23,8 @@ discontinua y una punta de flecha de triángulo sin rellenar**
    Ed ..|> IEditable
    @enduml
 
-**Segunda forma** — la interfaz como un **pequeño círculo**
-(*lollipop*) conectado al componente por una **línea continua**.
+**Segunda forma** — la interfaz como un**pequeño círculo**
+(*lollipop*) conectado al componente por una**línea continua**.
 Aquí la línea representa la realización:
 
 .. uml::

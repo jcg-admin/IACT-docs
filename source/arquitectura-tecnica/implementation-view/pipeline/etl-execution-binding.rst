@@ -107,7 +107,7 @@ Mecanismo B — Django mgmt command
 
    # apps/pipeline/management/commands/run_etl.py
    class Command(BaseCommand):
-       def handle(self, *args, **options):
+       def handle(self, *args,**options):
            run_id = self._create_etl_run()
 
            # Heartbeat thread

@@ -10,7 +10,7 @@ RACI RBAC IACT — Convenciones y Mantenimiento
 7.1 Conflictos R/A
 ------------------
 
-Si la misma persona/rol aparece como **R** y **A** para una funcion,
+Si la misma persona/rol aparece como **R** y**A** para una funcion,
 es valido (ejecuta + es accountable). Pero **A es unico**: no
 puede haber dos roles distintos con A para la misma funcion.
 
@@ -32,7 +32,7 @@ y :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 -------------------------------------
 
 Maximo **6 meses** de duracion. Renovacion requiere nueva
-aprobacion **AdmT** + **TLB** + auditoria.
+aprobacion **AdmT** +**TLB** + auditoria.
 
 ----
 

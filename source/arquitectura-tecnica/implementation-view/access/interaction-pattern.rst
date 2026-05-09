@@ -126,7 +126,7 @@ Mapeo a archivos del repo
 Invariantes de implementacion
 ==============================
 
-- **I-IMPL-ACC-01:** la verificacion SoD ejecuta **antes** de
+- **I-IMPL-ACC-01:** la verificacion SoD ejecuta**antes** de
   ``ARepo.create``. Si la verificacion falla, no hay write a
   ``assignment`` ni a ``audit_event``.
 - **I-IMPL-ACC-02:** ``AccessService.assign`` se ejecuta dentro

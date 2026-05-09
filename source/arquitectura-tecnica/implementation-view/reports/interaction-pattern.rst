@@ -89,7 +89,7 @@ Mapeo a archivos del repo
 Invariantes de implementacion
 ==============================
 
-- **I-IMPL-RPT-01:** las views de reporte son **read-only**.
+- **I-IMPL-RPT-01:** las views de reporte son**read-only**.
   Sin ``POST/PUT/DELETE``.
 - **I-IMPL-RPT-02:** ningun endpoint de reporte hace scan a
   ``tbl_historico_*``. Todos consumen ``base_ivr_*`` via

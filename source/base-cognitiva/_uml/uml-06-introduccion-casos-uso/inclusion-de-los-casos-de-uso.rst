@@ -7,8 +7,8 @@ secuencia de pasos en común y conformar un **caso de uso
 adicional** a partir de ellos.
 
 Combinemos los pasos necesarios para *"quitar el seguro"* y
-*"abrir la máquina"* y llamémoslos **"Exhibir el interior"**, y
-los pasos *"cerrar la máquina"* y *"asegurarla"* en otro caso de
+*"abrir la máquina"* y llamémoslos**"Exhibir el interior"**, y
+los pasos *"cerrar la máquina"* y*"asegurarla"* en otro caso de
 uso llamado **"Cubrir el interior"**.
 
 - El caso de uso **"Reabastecer"** iniciaría con el caso de uso
@@ -20,7 +20,7 @@ uso llamado **"Cubrir el interior"**.
   indicó, y finalizaría con el caso de uso *"Cubrir el
   interior"*.
 
-De tal manera que *"Reabastecer"* y *"Recolectar dinero"*
+De tal manera que *"Reabastecer"* y*"Recolectar dinero"*
 **incluyen** los nuevos casos de uso. Esta técnica de
 **aprovechamiento de un caso de uso** se le conoce como
 **inclusión de un caso de uso**.
@@ -48,7 +48,7 @@ De tal manera que *"Reabastecer"* y *"Recolectar dinero"*
    @enduml
 
 La inclusión de un caso de uso también se conoce como **"usar"
-un caso de uso**. El término *incluir* tiene dos ventajas:
+un caso de uso**. El término*incluir* tiene dos ventajas:
 
 1. Es más claro: los pasos en un caso de uso **incluyen** los
    de otro.

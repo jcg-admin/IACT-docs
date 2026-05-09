@@ -34,7 +34,7 @@ Reproducción del modelo cerrado del libro:
 
 Cada cardinalidad refleja una decisión de modelado
 explícita: un título tiene **al menos un** género, puede
-tener **0 a muchas** temporadas, **al menos un** actor;
+tener **0 a muchas** temporadas,**al menos un** actor;
 una temporada tiene **al menos un** episodio (no existe
 temporada vacía); los espectadores y títulos se
 relacionan **muchos a muchos**.

@@ -12,7 +12,7 @@ Con los clientes, preste atención a los **sustantivos** que
 utilizan para describir las entidades de sus negocios; dichos
 sustantivos se convertirán en las **clases** de su modelo. Y
 preste atención a los **verbos** que escuche, dado que
-constituirán las **operaciones** y los **atributos** de sus
+constituirán las **operaciones** y los**atributos** de sus
 clases.
 
 Imagine que generará un modelo del juego de baloncesto, y que
@@ -22,17 +22,17 @@ entrevista a un entrenador para comprender el juego.
 
  **Analista:** "Entrenador, ¿de qué se trata el juego?"
 
- **Entrenador:** "Consiste en arrojar el *balón* a través de un
- aro, conocido como *cesto*, y hacer una mayor *puntuación* que
- el oponente. Cada *equipo* consta de cinco *jugadores*: dos
- *defensas*, dos *delanteros* y un *central*. Cada equipo lleva
+ **Entrenador:** "Consiste en arrojar el*balón* a través de un
+ aro, conocido como *cesto*, y hacer una mayor*puntuación* que
+ el oponente. Cada *equipo* consta de cinco*jugadores*: dos
+ *defensas*, dos*delanteros* y un*central*. Cada equipo lleva
  el balón al cesto del equipo oponente con el objetivo de hacer
  que el balón sea encestado."
 
  **Analista:** "¿Cómo se hace para llevar el balón al otro
  cesto?"
 
- **Entrenador:** "Mediante *pases* y *dribles*. Pero el equipo
+ **Entrenador:** "Mediante*pases* y*dribles*. Pero el equipo
  tendrá que encestar antes de que termine el *lapso para tirar*."
 
  **Analista:** "¿El lapso para tirar?"
@@ -43,7 +43,7 @@ entrevista a un entrenador para comprender el juego.
 
  **Analista:** "¿Cómo funciona el puntaje?"
 
- **Entrenador:** "Cada *canasta* vale dos puntos, a menos que el
+ **Entrenador:** "Cada*canasta* vale dos puntos, a menos que el
  tiro haya sido hecho detrás de la *línea de los tres puntos*.
  En tal caso, serán tres puntos. Un *tiro libre* contará como
  un punto. A propósito, un tiro libre es la penalización que
@@ -64,7 +64,7 @@ entrevista a un entrenador para comprender el juego.
  central se mantiene cerca del cesto y dispara desde un alcance
  corto."
 
- **Analista:** "¿Qué hay de las dimensiones de la *cancha*? Y
+ **Analista:** "¿Qué hay de las dimensiones de la*cancha*? Y
  ya que estamos en eso, ¿cuánto dura el juego?"
 
  **Entrenador:** "En un juego internacional, la cancha mide 28
@@ -75,14 +75,14 @@ entrevista a un entrenador para comprender el juego.
  divididos en dos mitades de 20 minutos. Un *cronómetro del
  juego* lleva un control del tiempo restante."
 
-Sustantivos descubiertos: **balón**, **cesto**, **equipo**,
-**jugadores**, **defensas**, **delanteros**, **central** (o
-**poste**), **tiro**, **lapso para tirar**, **línea de los tres
-puntos**, **tiro libre**, **infracción**, **línea de tiro libre**,
-**cancha**, **cronómetro del juego**.
+Sustantivos descubiertos: **balón**,**cesto**,**equipo**,
+**jugadores**,**defensas**,**delanteros**,**central** (o
+**poste**),**tiro**,**lapso para tirar**,**línea de los tres
+puntos**,**tiro libre**,**infracción**,**línea de tiro libre**,
+**cancha**,**cronómetro del juego**.
 
-Verbos descubiertos: **tirar**, **avanzar**, **driblar** (o
-burlar), **pasar**, **infraccionar**, **rebotar**.
+Verbos descubiertos: **tirar**,**avanzar**,**driblar** (o
+burlar), **pasar**,**infraccionar**,**rebotar**.
 
 También cuenta con cierta **información adicional** respecto a
 algunos de los sustantivos (como las estaturas relativas de los

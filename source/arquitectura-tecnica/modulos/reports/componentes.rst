@@ -81,7 +81,7 @@ principal de todos es ``quarter_name`` (ej: ``'Q3_25'``).
 APIs Expuestas
 ==============
 
-**API_005_Dashboard_Endpoints** · **API_006_Reports_Endpoints**
+**API_005_Dashboard_Endpoints** ·**API_006_Reports_Endpoints**
 
 .. list-table::
  :widths: 15 40 45

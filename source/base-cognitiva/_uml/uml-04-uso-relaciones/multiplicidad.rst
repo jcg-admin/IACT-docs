@@ -20,7 +20,7 @@ a uno o más, uno a ninguno o uno, uno a un intervalo definido
 (por ejemplo: uno a cinco hasta diez), uno a exactamente n, o uno
 a un conjunto de opciones (por ejemplo, uno a nueve o diez).
 
-Se utiliza un **asterisco** (``*``) para representar *muchos*.
+Se utiliza un **asterisco** (``*``) para representar*muchos*.
 
 En un contexto OR se representa por dos puntos, como en
 ``"1..*"`` (*uno o más*); en otro contexto, OR se representa por
@@ -40,7 +40,7 @@ una coma (``,``), como en ``"5, 10"`` (*5 o 10*).
    - Significado
  * - ``1 → 1``
    - uno a uno
- * - ``1 → *``
+ * - ``1 →*``
    - uno a muchos
  * - ``1 → 1..*``
    - uno a uno o más (muchos)

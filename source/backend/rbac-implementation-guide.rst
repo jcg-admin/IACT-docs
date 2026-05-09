@@ -635,7 +635,7 @@ Q8 — django-guardian: NO incluido en v5.6.0
 ============================================
 
 **Finding (Q8):** IACT no requiere object-level permissions.
-Las decisiones de acceso son **model-level** + **segment-bound
+Las decisiones de acceso son **model-level** +**segment-bound
 queryset filter** (ver UC_INC_RPT_01).
 
 **Implementación — segment-bound filter (sin django-guardian):**

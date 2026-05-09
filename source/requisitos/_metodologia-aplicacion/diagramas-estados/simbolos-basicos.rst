@@ -2,7 +2,7 @@
 --------------------
 
 Cuatro elementos canónicos: **punto inicial** (círculo
-relleno), **estado** (rectángulo redondeado), **transición**
+relleno), **estado** (rectángulo redondeado),**transición**
 (flecha etiquetada) y **punto final** (diana).
 
 .. uml::

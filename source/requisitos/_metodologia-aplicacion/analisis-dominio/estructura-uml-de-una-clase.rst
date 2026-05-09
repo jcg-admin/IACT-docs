@@ -1,8 +1,8 @@
 2. Estructura UML de una clase
 ==============================
 
-Una clase tiene 4 áreas: **nombre**, **atributos**,
-**operaciones** y **responsabilidades**.
+Una clase tiene 4 áreas: **nombre**,**atributos**,
+**operaciones** y**responsabilidades**.
 
 .. uml::
 

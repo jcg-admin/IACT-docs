@@ -733,8 +733,8 @@ O alternativamente:
 
  BR-DOMINIO-###-descripcion.rst
 
-Donde: - **RN** o **BR**: Regla de Negocio (Business Rule) -
-**DOMINIO**: BACK, FRONT, DEVOPS, QA, AI, GOB - **###**: Número
+Donde: - **RN** o**BR**: Regla de Negocio (Business Rule) -
+**DOMINIO**: BACK, FRONT, DEVOPS, QA, AI, GOB -**###**: Número
 secuencial 001-999 - **descripcion**: Descripción en snake_case
 
 Ejemplos de Nomenclatura
@@ -970,10 +970,10 @@ Referencias
   Rules <http://www.businessrulesgroup.org/>`__
 - `OMG Business Motivation Model
   (BMM) <https://www.omg.org/spec/BMM/>`__
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
 
 Historial de Cambios
 --------------------

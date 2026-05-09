@@ -48,7 +48,7 @@ BReq-003: Decisiones Operacionales Basadas en Datos
 ====================================
 
 El sistema IACT DEBE proveer **reportería analítica
-históricamente verificable** y **métricas operacionales
+históricamente verificable** y**métricas operacionales
 calculadas con definiciones canónicas** para que el 100%
 de las decisiones de gestión del call center se sustenten
 en datos trazables, no en juicios subjetivos.

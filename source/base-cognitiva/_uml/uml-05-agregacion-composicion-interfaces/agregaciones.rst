@@ -2,16 +2,16 @@ Agregaciones
 ============
 
 Una clase que consta de otras clases es un tipo especial de
-relación conocida como **agregación** o **acumulación**.
+relación conocida como **agregación** o**acumulación**.
 
 .. note::
 
- La **agregación** o **acumulación** es un tipo de asociación,
+ La **agregación** o**acumulación** es un tipo de asociación,
  en donde participan el componente y el todo. En agregación, el
  componente **no necesariamente corresponde a un solo todo**.
 
 Puede representar una agregación como una jerarquía con la
-**clase completa en la parte superior** y los **componentes por
+**clase completa en la parte superior** y los**componentes por
 debajo** de ella.
 
 Una línea conectará el todo con un componente mediante un
@@ -50,7 +50,7 @@ Restricciones en las agregaciones
 ---------------------------------
 
 El conjunto de componentes posibles en una agregación se
-establece dentro de una **relación O**: el componente *u otro*
+establece dentro de una **relación O**: el componente*u otro*
 es parte del todo.
 
 Por ejemplo: una comida consta de **sopa o ensalada**, el plato

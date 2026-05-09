@@ -5,7 +5,7 @@ El diagrama de secuencias UML muestra la mecánica de la
 **interacción con base en tiempos**.
 
 Entre los componentes de la lavadora se encuentran: una
-**manguera de agua** (para obtener agua fresca), un **tambor**
+**manguera de agua** (para obtener agua fresca), un**tambor**
 (donde se coloca la ropa) y un **sistema de drenaje**. Por
 supuesto, estos también son objetos (un objeto puede estar
 conformado por otros objetos).
@@ -13,7 +13,7 @@ conformado por otros objetos).
 ¿Qué sucederá cuando invoque al caso de uso *Lavar ropa*?
 
 Si damos por hecho que están completas las operaciones *agregar
-ropa*, *agregar detergente* y *activar*, la secuencia sería más
+ropa*,*agregar detergente* y*activar*, la secuencia sería más
 o menos así:
 
 1. El agua empezará a llenar el tambor mediante una manguera.

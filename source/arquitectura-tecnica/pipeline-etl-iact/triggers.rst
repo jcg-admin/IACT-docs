@@ -88,7 +88,7 @@ heartbeat.
            parser.add_argument('--quarter', type=str, default=None)
            parser.add_argument('--force',   action='store_true')
 
-       def handle(self, *args, **options):
+       def handle(self, *args,**options):
            quarter = options.get('quarter') or self._calcular_quarter_actual()
 
            # 1. Registrar inicio con timeout_at

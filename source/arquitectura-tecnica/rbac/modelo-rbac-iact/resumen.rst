@@ -79,7 +79,7 @@ Modelo RBAC IACT — Resumen
    - 77
  * - **Grupos**
    - 12
-  * - **Restricciones de Separacion**
+ * - **Restricciones de Separacion**
    - 3
  * - **Segmentos de datos**
    - 0

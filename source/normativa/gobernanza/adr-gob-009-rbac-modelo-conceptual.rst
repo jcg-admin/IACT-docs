@@ -77,7 +77,7 @@ El modelo RBAC del proyecto IACT es:
 
 1. **Plano** — sin jerarquia de roles ni herencia ABAC
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
-2. **Granular** — la unidad asignable es la **Funcion atomica**
+2. **Granular** — la unidad asignable es la**Funcion atomica**
    (1 verbo + 1 sustantivo).
 3. **Catalogo cerrado al set activo, abierto a extension** —
    **64 funciones atomicas activas** in-scope (modelo v5.6.0)
@@ -106,7 +106,7 @@ El modelo RBAC del proyecto IACT es:
 2.2 Vocabulario canonico (CNST-033)
 -----------------------------------
 
-- **"Funcion"** (docs en espanol) / **"Function"** (codigo en
+- **"Funcion"** (docs en espanol) /**"Function"** (codigo en
   ingles) — termino canonico para la unidad atomica.
 - **"FunctionGroup"** — agrupacion (system o custom).
 - **"UserFunctionAssignment"** — asignacion de funciones a

@@ -199,8 +199,8 @@ Ejemplo Visual Completo
 
  @enduml
 
-**Interpretación**: - **Solicitante** es quien **ejecuta** “Solicitar
-Producto Químico” - **Comprador** e **Inventario** son **apoyo** dentro
+**Interpretación**: -**Solicitante** es quien**ejecuta** “Solicitar
+Producto Químico” - **Comprador** e**Inventario** son**apoyo** dentro
 del caso de uso - Dentro de la especificación textual (ADR-GOB-007), en
 algunos pasos hay interacción con Comprador e Inventario
 
@@ -380,8 +380,8 @@ Diagramas de Casos de Uso
 
  UCD-DOMINIO-###-descripcion.puml
 
-Donde: - **UCD**: Use Case Diagram - **DOMINIO**: BACK, FRONT, DEVOPS,
-etc. - **###**: Número secuencial - **descripcion**: En snake_case
+Donde: - **UCD**: Use Case Diagram -**DOMINIO**: BACK, FRONT, DEVOPS,
+etc. - **###**: Número secuencial -**descripcion**: En snake_case
 
 **Ejemplos**:
 
@@ -744,10 +744,10 @@ Referencias
   Documentation <https://plantuml.com/use-case-diagram>`__
 - `PlantUML Activity Diagram
   Documentation <https://plantuml.com/activity-diagram-beta>`__
-- `ADR-GOB-004: PlantUML para
-  Diagramas <ADR-GOB-004-plantuml-para-diagramas.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
+- :doc:`ADR-GOB-004: PlantUML para
+  Diagramas </normativa/gobernanza/adr-gob-002-plantuml-para-diagramas>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
 
 Historial de Cambios
 --------------------

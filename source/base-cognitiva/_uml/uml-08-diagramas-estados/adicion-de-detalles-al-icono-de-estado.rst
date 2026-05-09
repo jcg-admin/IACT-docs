@@ -7,9 +7,9 @@ símbolo de clase: nombre, atributos y operaciones).
 
 - El **área superior** contendrá el nombre del estado (que tiene
   que establecerse exista o no la subdivisión).
-- El **área central** contendrá las **variables de estado**
+- El **área central** contendrá las**variables de estado**
   (cronómetros, contadores).
-- El **área inferior** las **actividades**.
+- El **área inferior** las**actividades**.
 
 Las actividades constan de **sucesos y acciones**. Tres de las
 más utilizadas son:

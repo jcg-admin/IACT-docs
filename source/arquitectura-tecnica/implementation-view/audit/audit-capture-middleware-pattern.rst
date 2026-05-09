@@ -131,9 +131,9 @@ Decorator @audited
    def audited(event_type: str):
        def decorator(view_func):
            @wraps(view_func)
-           def wrapper(request, *args, **kwargs):
+           def wrapper(request, *args,**kwargs):
                request._audit_view_func = view_func
-               return view_func(request, *args, **kwargs)
+               return view_func(request, *args,**kwargs)
            wrapper._audited = SimpleNamespace(event_type=event_type)
            return wrapper
        return decorator
@@ -154,7 +154,7 @@ Restricciones de implementacion
   ``apps.audit.middleware.AuditMiddleware`` **DESPUES** de
   ``AuthenticationMiddleware`` — el actor solo es conocible
   tras autenticacion.
-- **R-AUD-02:** la persistencia es **best-effort** desde el
+- **R-AUD-02:** la persistencia es**best-effort** desde el
   punto de vista del request — un fallo en
   ``audit_service.record`` NO aborta el response, pero emite
   alerta operativa (``audit_gap``) que dispara investigacion.

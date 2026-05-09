@@ -33,7 +33,7 @@ es un consultor.
 Ciertos pasos se repetirán de un caso de uso a otro, y ello le
 llevará a otros casos de uso (posiblemente incluidos):
 
-- *Iniciar una sesión* y *ser verificado* son dos pasos que
+- *Iniciar una sesión* y*ser verificado* son dos pasos que
   pueden incluir varios casos de uso → creará un caso de uso
   ``"Verificar usuario"`` que incluye ``"Crear una propuesta"``.
 - Otro par de casos de uso son ``"Utilizar software de oficina"``

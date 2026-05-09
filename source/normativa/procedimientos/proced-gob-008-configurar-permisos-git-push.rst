@@ -13,7 +13,7 @@
 PROCED-GOB-008: Configurar Permisos Git para Push de Tags y Branches
 ====================================================================
 
-**ID:** PROCED-GOB-008 **Version:** 1.0.0 **Fecha:** 2025-11-17
+**ID:** PROCED-GOB-008**Version:** 1.0.0**Fecha:** 2025-11-17
 **Categoria:** Infraestructura / Git / Permisos
 
 --------------
@@ -80,7 +80,7 @@ Error recibido:
 - Entorno: Desarrollo local con proxy
 - Repositorio: 2-Coatl/IACT—project
 - URL remoto:
-  http://local_proxy@127.0.0.1:61479/git/2-Coatl/IACT—project
+  ``http://local_proxy@127.0.0.1:61479/git/2-Coatl/IACT`` (broken)—project
 
 --------------
 
@@ -568,6 +568,6 @@ Troubleshooting
 
 --------------
 
-**Procedimiento creado:** 2025-11-17 **Ultima revision:** 2025-11-17
-**Próxima revisión:** Post-aplicación **Estado:** ACTIVO **Version:**
+**Procedimiento creado:** 2025-11-17**Ultima revision:** 2025-11-17
+**Próxima revisión:** Post-aplicación**Estado:** ACTIVO**Version:**
 1.0.0

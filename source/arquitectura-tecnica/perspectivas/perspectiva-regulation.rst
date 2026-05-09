@@ -42,7 +42,7 @@ y como deben registrarse.
  * - **Auditoria de toda operacion**
    - CNST-025: toda operacion de escritura o acceso a datos sensibles
      genera un ``AuditEvent`` inmutable (append-only). Sin excepciones.
-  * - **Separacion institucional**
+ * - **Separacion institucional**
    - CNST-030: separacion de funciones aplicada en tiempo de asignacion.
      Los pares de funciones en conflicto (p. ej. crear + aprobar) no
      pueden coexistir en el mismo usuario.

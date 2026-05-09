@@ -125,7 +125,7 @@ Mapeo a archivos del repo
 Invariantes de implementacion
 ==============================
 
-- **I-IMPL-LOG-01:** ``DBLogHandler.emit`` es **fail-safe**:
+- **I-IMPL-LOG-01:** ``DBLogHandler.emit`` es**fail-safe**:
   cualquier excepcion durante el INSERT se atrapa y se
   emite a stderr (formato fallback). Un bug en el handler
   NUNCA debe propagarse a la app que llamo ``logger.info``.

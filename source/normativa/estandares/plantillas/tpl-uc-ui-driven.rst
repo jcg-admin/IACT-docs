@@ -126,7 +126,7 @@ Describir las secciones logicas:
 
 **Referencia a Diseño:**
 
-- Link Figma: https://figma.com/file/abc123/IACT-Reportes
+- Link Figma: ``https://figma.com/file/abc123/IACT-Reportes`` (broken)
 - Archivo: IACT_Reportes_Trimestrales_v2.1.fig
 - Version: v2.1
 - Fecha: 2024-10-15

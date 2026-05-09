@@ -122,7 +122,7 @@ Ejemplo: Módulo Dashboard
 
    function DashboardModule() {
      const { widgets } = useDashboardData();
-     return <div>{/* render widgets */}</div>;
+     return <div>{/* render widgets*/}</div>;
    }
 
    export default DashboardModule;
@@ -133,7 +133,7 @@ Ejemplo: Módulo Dashboard
    const dashboardSlice = createSlice({
      name: 'dashboard',
      initialState: { widgets: [] },
-     reducers: { /* ... */ },
+     reducers: { /* ...*/ },
    });
 
    // src/pages/DashboardPage.jsx
@@ -273,5 +273,5 @@ v1.0)
 
 --------------
 
-**Decidido por**: Tech Lead Frontend, Arquitecto de Software **Fecha**:
+**Decidido por**: Tech Lead Frontend, Arquitecto de Software**Fecha**:
 2025-11-06 **Estado**: Aceptado

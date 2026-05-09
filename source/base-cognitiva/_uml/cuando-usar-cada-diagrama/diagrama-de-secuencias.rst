@@ -5,7 +5,7 @@
 tiempo. Participantes (rectángulos arriba) + mensajes (flechas)
 + tiempo (vertical, arriba→abajo).
 
-**Cuándo usarlo:** cuando necesitas mostrar el **flujo
+**Cuándo usarlo:** cuando necesitas mostrar el**flujo
 temporal** de interacciones (quién habla con quién, en qué
 orden, qué se intercambian).
 

@@ -59,7 +59,7 @@ Opción 1: Context API (React built-in)
 **Pros**: - Sin dependencias externas - Simple para casos básicos -
 Integrado en React - Curva de aprendizaje baja
 
-**Contras**: - **Performance**: Re-renders innecesarios con Context
+**Contras**: -**Performance**: Re-renders innecesarios con Context
 grande - **No dev tools**: Sin Redux DevTools (crítico para debugging) -
 **No middleware**: Sin side effects management (thunks, sagas) -
 **Boilerplate custom**: Necesita abstracciones custom para
@@ -87,12 +87,12 @@ tooling (persist, dev tools menos maduro) - Equipo menos familiarizado
 Opción 3: Redux Toolkit (SELECCIONADA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Pros**: - **Redux DevTools**: Time-travel debugging, inspección de
+**Pros**: -**Redux DevTools**: Time-travel debugging, inspección de
 estado - **Performance óptimo**: Selector memoization, re-renders
 precisos - **Middleware robusto**: RTK Query para caching, thunks para
 async - **Testing simple**: Reducers son funciones puras -
-**Persistencia**: Redux-persist maduro y confiable - **Boilerplate
-mínimo**: RTK elimina boilerplate de Redux clásico - **Ecosistema
+**Persistencia**: Redux-persist maduro y confiable -**Boilerplate
+mínimo**: RTK elimina boilerplate de Redux clásico -**Ecosistema
 maduro**: Amplia documentación, librerías, comunidad
 
 **Contras**: - Dependencia externa (62KB gzipped) - Curva de aprendizaje
@@ -164,7 +164,7 @@ Store Global
      },
      middleware: (getDefaultMiddleware) =>
        getDefaultMiddleware({
-         serializableCheck: { /* ... */ },
+         serializableCheck: { /* ...*/ },
        }),
      devTools: process.env.NODE_ENV !== 'production',
    });
@@ -337,5 +337,5 @@ Notas
 
 --------------
 
-**Decidido por**: Tech Lead Frontend, Arquitecto de Software **Fecha**:
+**Decidido por**: Tech Lead Frontend, Arquitecto de Software**Fecha**:
 2025-11-06 **Estado**: Aceptado
