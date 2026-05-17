@@ -18,17 +18,18 @@ Modelo conceptual completo del control de acceso basado en roles
 (RBAC) del sistema IACT.
 
 Este cajon documenta el modelo arquitectonico (filosofia,
-catalogo de funciones, grupos predefinidos, reglas SoD,
-permisos temporales, modelo de datos, implementacion SQL/Django).
+catalogo de funciones, grupos predefinidos, reglas de separacion,
+permisos temporales, modelo de datos, implementacion en base de datos y backend).
 
 Las reglas operativas formales viven en
 :doc:`/normativa/restricciones/index` (CNST_029 RBAC Modelo Plano,
-CNST_030 Reglas SoD, CNST_031 Permisos Temporales, CNST_032 Menu
+CNST_030 Reglas de Separacion, CNST_031 Permisos Temporales, CNST_032 Menu
 Dinamico, CNST_033 Vocabulario Unificado).
 
 .. toctree::
  :maxdepth: 1
  :caption: Modelo RBAC
 
- modelo-rbac-iact
- raci-rbac-iact
+ modelo-rbac-iact/index
+
+Ver tambien: :doc:`/normativa/gobernanza/raci-rbac/index` (matrices RACI — movidas a normativa/gobernanza/).

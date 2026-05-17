@@ -6,7 +6,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — POST query.
 PASO 2 — JWT.
-PASO 3 — RBAC search_audit.
+PASO 3 — RBAC search_audit_log.
 PASO 4 — Validar (query no vacio,
 date range obligatorio ≤ 90 dias).
 PASO 5 — Throttle (search es caro).

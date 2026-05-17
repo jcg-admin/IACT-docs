@@ -48,7 +48,7 @@ ve preview con:
 
 - Funciones que aporta (que no tiene el User).
 - Funciones que ya tiene directas (skip).
-- Posibles conflictos SoD detectables
+- Posibles conflictos de separacion detectables
   client-side.
 
 **Implementacion**: GET preview-only que NO

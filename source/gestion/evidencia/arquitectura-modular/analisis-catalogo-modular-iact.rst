@@ -137,7 +137,7 @@ pendiente_configuración), preguntas de seguridad, password
 temporal, notificar vía buzón interno.
 
 **NO PUEDE:** Asignar roles/permisos directos (MOD_Access),
-calcular permisos efectivos, validar SoD, enviar emails.
+calcular permisos efectivos, validar separacion, enviar emails.
 
 **UCs:** UC-006 Crear, UC-007 Modificar, UC-008 Baja lógica,
 UC-009 Listar.
@@ -159,15 +159,15 @@ REF-GLOBAL):
 1. **RBAC_CORE (Administración) — visible:** pantallas admin de
    roles, CRUD roles/permisos/segmentos, asignación, gestión
    segmentos (DataSegment), permisos directos con justificación +
-   vencimiento, configuración SoD.
+   vencimiento, configuración de separacion.
 2. **SEC_RULES (Enforcement) — automático:** middleware de
    validación, decoradores DRF, cálculo de permisos efectivos,
-   precedencia (Directo > Rol > Segmento), validación SoD en
+   precedencia (Directo > Rol > Segmento), validación de separacion en
    tiempo real, enforcement de restricciones globales.
 
 **PUEDE:** Administrar catálogo de roles (R001–R018), asignar/
 quitar roles, gestionar DataSegment + DirectPermission, aplicar
-SoD, calcular permisos efectivos, bloquear acciones violatorias.
+Separacion de deberes, calcular permisos efectivos, bloquear acciones violatorias.
 
 **NO PUEDE:** Mostrar UI funcional de negocio, crear/modificar
 datos de usuario, autenticar, ejecutar lógica de negocio de otros
@@ -175,11 +175,11 @@ dominios.
 
 **UCs:** UC-010 Asignar roles, UC-011 Permisos por rol, UC-041
 Segmentos, UC-042 Permisos directos, UC-045 Catálogo roles, UC-046
-Catálogo permisos, UC-047 Auditar cambios; UC-043 SoD, UC-044
+Catálogo permisos, UC-047 Auditar cambios; UC-043 separacion de deberes, UC-044
 Permisos efectivos.
 
 **Restricciones:** CNST_005 (Flat RBAC NIST sin jerarquías; máx 18
-roles; precedencia Directo > Rol > Segmento; SoD obligatorio;
+roles; precedencia Directo > Rol > Segmento; separacion de deberes obligatoria;
 permisos directos con justificación ≥ 20 chars y vencimiento ≤ 6
 meses).
 
@@ -192,10 +192,10 @@ Produce a MOD_Audit. TODOS los módulos consumen vía SEC_RULES.
 **Propósito:** Supervisar, monitorear y validar estado del ETL y
 disponibilidad de datos.
 
-**PUEDE:** Consultar histórico ETLExecution + ETLError, ver última/
-próxima ejecución, consultar disponibilidad por período,
-identificar desfasajes (>48h), indicadores de calidad, solicitar
-reintento controlado.
+**PUEDE:** Consultar historico de PipelineExecution (exitosas y fallidas),
+ver ultima ejecucion y estado de salud del Servicio ETL, consultar
+disponibilidad por trimestre, identificar desfasajes (>12h-24h),
+indicadores de calidad, solicitar reintento controlado.
 
 **NO PUEDE:** Ejecutar ETL directamente, modificar configuración,
 hacer reportes de negocio, consultar BD IVR directamente.
@@ -277,7 +277,7 @@ registrar logs técnicos (MOD_Logs), definir reglas de acceso.
 UC-063 Exportar.
 
 **Restricciones:** CNST_008 (inmutables append-only; retención 2+
-años; SoD auditores ≠ administradores; sin PII innecesaria).
+años; separacion de deberes auditores ≠ administradores; sin PII innecesaria).
 
 **Dependencias:** TODOS los módulos producen eventos a MOD_Audit.
 Consume MOD_Access.
@@ -304,8 +304,8 @@ enmascarada; JSON estructurado; retención 30–90 días).
 **Dependencias:** TODOS los módulos envían logs. MOD_Pipeline es
 fuente principal (mayor volumen).
 
-3. Reglas SoD definidas (3)
-===========================
+3. Reglas de Separacion definidas (3)
+=======================================
 
 Fuente: ANL-RBAC § 6.
 
@@ -334,10 +334,10 @@ Fuente: ANL-RBAC § 6.
    - Auditoría (2 func)
    - Quien gestiona acceso NO debe auditar cambios
 
-Base normativa: CNST_005 (Flat RBAC NIST + SoD obligatorio).
+Base normativa: CNST_005 (Flat RBAC NIST + separacion de deberes obligatoria).
 
 Enforcement: SEC_RULES valida en tiempo real, bloquea asignación
-si viola SoD, registra intento en MOD_Audit (ANL-RBAC L454–457).
+si viola separacion de deberes, registra intento en MOD_Audit (ANL-RBAC L454–457).
 
 4. Sistema PERM — Evolución
 ===========================
@@ -404,9 +404,9 @@ MOD_Access/RBAC_CORE.
 3. ``AuditoriaPermiso`` duplica responsabilidad del MOD_Audit
    canónico (UC-047 "Auditar cambios de permisos").
 4. PERM no menciona los 18 roles funcionales (R001–R018) ni las 3
-   reglas SoD; usa "GrupoPermiso" en su lugar.
+   reglas de separacion; usa "GrupoPermiso" en su lugar.
 
-**Conclusión INFERRED:** PERM parece ser una **evolución/reemplazo
+**Conclusión INFERRED:** PERM parece ser una**evolución/reemplazo
 parcial** del subcomponente RBAC_CORE de MOD_Access. Decisión
 canonificada en
 :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
@@ -473,7 +473,7 @@ de arquitectura.
    - | :doc:`/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm`
      | :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo conceptual vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Origen documental**
    - | § 1, § 2: REF-GLOBAL líneas 11–658
      | § 3: ANL-RBAC § 6 líneas 421–502

@@ -44,15 +44,15 @@ o timing).
 
 **Justificacion**: la generacion no es atomica
 con el INSERT. Otro request paralelo puede haber
-creado el mismo username entre el SELECT COUNT
+creado el mismo username entre el consultar conteo
 y el INSERT.
 
 **Pasos:**
 
 ::
 
-   PASO 10A (FA-02)  INSERT falla con
-                     IntegrityError (UNIQUE
+   PASO 10A (FA-02)  INSERT falla con error de
+                     integridad de datos (UNIQUE
                      violation en username).
 
    PASO 7B           Backend reintenta:
@@ -70,12 +70,12 @@ y el INSERT.
 - Username final con sufijo > 1.
 - Limite de retries: 5. Si excedido, EX-08.
 
-4.3 FA-03: AGR no AGR-001..010 (custom)
+4.3 FA-03: AGR no AGR-001..012 (custom)
 =======================================
 
 **Activador**: PASO 11 — el ``access_group_id``
 provisto NO esta en el catalogo de AGR
-predefinidos (AGR-001..010) sino es un AGR
+predefinidos (AGR-001..012) sino es un AGR
 custom creado via UC_PERM_05.
 
 **Justificacion**: el sistema permite AGRs

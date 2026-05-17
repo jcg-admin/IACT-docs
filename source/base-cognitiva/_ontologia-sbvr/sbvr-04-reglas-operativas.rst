@@ -23,8 +23,10 @@ SBVR_04: Reglas Operativas (Deonticas)
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
+ atomicas activas (catalogo declara 77 con 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -40,14 +42,14 @@ Proposito
 
 Este documento define las **reglas operativas** (deonticas) del dominio
 IACT siguiendo el estandar SBVR. Las reglas deonticas describen lo que
-**DEBE SER**, **NO DEBE SER** o **PUEDE SER** - obligaciones, prohibiciones
+**DEBE SER**,**NO DEBE SER** o**PUEDE SER** - obligaciones, prohibiciones
 y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 
 .. note::
 
  **Modalidad Deontica (del griego deon = deber):**
 
- - Describe **obligaciones** y **prohibiciones**
+ - Describe **obligaciones** y**prohibiciones**
  - Define lo que DEBE SER (no lo que ES)
  - Puede violarse (el sistema debe prevenirlo)
  - Keywords: DEBE, NO DEBE, PUEDE, SOLO, UNICAMENTE
@@ -250,7 +252,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 
  ENUNCIADO:
  Un Usuario NO DEBE tener simultaneamente roles que esten
- en conflicto por Separacion de Funciones (SoD).
+ en conflicto por Separacion de Funciones (separation of duties).
 
  TIPO: Prohibicion
 
@@ -271,7 +273,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
       - Operador NO debe auditar Gestor usuarios NO debe auditar
 
  VALIDACION:
- - Al asignar rol: verificar conflictos SoD
+ - Al asignar rol: verificar conflictos de separacion
  - Si existe conflicto: bloquear asignacion
 
  MENSAJE ERROR:
@@ -838,7 +840,7 @@ Business Rules Referenciadas
 - BR_001: Fuente Operacional Inmutable
 - BR_002: Sincronizacion ETL Nocturna
 - BR_003: Usuario Inactivo por Tiempo
-- BR_015: Separacion de Funciones (SoD)
+- BR_015: Separacion de Funciones (separation of duties)
 - CNST_001: Sin Correo Electronico Externo
 
 ----

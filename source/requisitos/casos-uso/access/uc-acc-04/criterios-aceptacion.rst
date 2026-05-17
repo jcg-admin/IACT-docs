@@ -34,15 +34,15 @@ target ACTIVE, AGR con 8 funciones,
 - Body ``already_assigned == true``
 - AuditEvent AGR_ASSIGN_NOOP
 
-9.3 CA-03: SoD violation 409 (EX-08)
-====================================
+9.3 CA-03: separacion violation 409 (EX-08)
+=============================================
 
-**DADO** AGR contiene funcion que viola SoD
+**DADO** AGR contiene funcion que viola separacion
 con functions actuales del User,
 
 **ENTONCES**:
 
-- Status = 409 SOD_VIOLATION
+- Status = 409 SEPARATION_VIOLATION
 - Sin Assignment creado
 
 9.4 CA-04: Subset ya directo (FA-05)
@@ -183,7 +183,7 @@ de ellas directas,
    - Idempotencia
    - Funcional
  * - CA-03
-   - SoD violation
+   - separacion violation
    - Cumplimiento
  * - CA-04
    - Subset ya directo

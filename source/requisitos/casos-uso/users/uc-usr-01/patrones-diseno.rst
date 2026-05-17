@@ -26,7 +26,7 @@ mayor, formato distinto).
 10.1.2 Factory Method
 ---------------------
 
-**Aplica a**: ``UserFactory.create()`` encapsula
+**Aplica a**: ``UserOnboardingService.provision()`` encapsula
 la construccion del User con todos sus
 side-effects (Assignment, InternalMessage,
 AuditEvent).
@@ -42,7 +42,7 @@ FA-02) sobrescriben pasos especificos.
 10.1.4 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: pipeline DRF
+**Aplica a**: pipeline plataforma de API
 authentication → permission(create_users)
 → throttle → serializer validation → view.
 
@@ -156,13 +156,13 @@ InternalMailbox.
    - UsernameGen / PasswordGen
  * - Factory Method
    - GoF
-   - UserFactory.create
+   - UserOnboardingService.provision
  * - Template Method
    - GoF
    - Flujo rigido
  * - Chain of Responsibility
    - GoF
-   - DRF middleware
+   - plataforma de API middleware
  * - Observer
    - GoF
    - AuditEvent

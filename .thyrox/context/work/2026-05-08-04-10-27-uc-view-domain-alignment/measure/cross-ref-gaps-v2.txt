@@ -1,0 +1,54 @@
+== UC ↔ DOMAIN-MODEL ANALYSIS ==
+Classes used in UCs (in class-diagram blocks): 40
+Classes in DM (any file): 189
+
+Classes used in UCs but NOT defined in DM (real gap): 1
+  - MenuIVRReportService
+
+Classes with case mismatch (UC name vs DM name): 1
+  - UC: PiiScanner  ↔  DM: PIIScanner
+
+Classes IN DM but with members missing vs UC: 12
+Total missing members: 29
+
+## AccessGroup  (canonical: access-group.rst)
+  + agr_code  used in: uc-acc-04
+  + id  used in: uc-acc-04
+  + is_system  used in: uc-acc-04
+  + state  used in: uc-acc-04
+## AgentReportService  (canonical: agent-report-service.rst)
+  + list  used in: uc-rpt-12
+## AlertRule  (canonical: alert-rule.rst)
+  + id  used in: uc-alr-01
+  + state  used in: uc-alr-01
+## AuditRepo  (canonical: audit-repo.rst)
+  + query  used in: uc-aud-01
+## ErroresETLService  (canonical: errores-etl-service.rst (non-canonical))
+  + listar  used in: uc-pip-02
+## EvaluatorReloader  (canonical: evaluator-reloader.rst)
+  + reload  used in: uc-alr-01
+## PipelineExecutionRepo  (canonical: pipeline-execution-repo.rst)
+  + ejecuciones_recientes  used in: uc-pip-01
+  + por_estado  used in: uc-pip-02
+  + ultima_ejecucion  used in: uc-pip-01
+## RBACRepo  (canonical: rbac-repo.rst (non-canonical))
+  + get_user_segments  used in: uc-inc-rpt-01
+  + has_global_capability  used in: uc-inc-rpt-01
+## SavedView  (canonical: saved-view.rst)
+  + chart_config  used in: uc-rpt-10
+  + columns  used in: uc-rpt-10
+  + filters  used in: uc-rpt-10
+  + id  used in: uc-rpt-10
+  + owner  used in: uc-rpt-10
+  + report_type  used in: uc-rpt-10
+## SegmentResolver  (canonical: segment-resolver.rst)
+  + invalidate_cache  used in: uc-inc-rpt-01
+  + is_global  used in: uc-inc-rpt-01
+## Subscription  (canonical: subscription.rst)
+  + channel  used in: uc-alr-05
+  + id  used in: uc-alr-05
+  + rule  used in: uc-alr-05
+  + scope  used in: uc-alr-05
+  + user  used in: uc-alr-05
+## User  (canonical: user.rst)
+  + segment_id  used in: uc-acc-04

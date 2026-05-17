@@ -89,7 +89,7 @@ La unicidad de segmento por usuario garantiza:
 - **Aislamiento de datos**: cada usuario sólo accede a su scope.
 - **Auditoría clara**: cada consulta queda atada a un segmento.
 - **Performance**: el filtrado por segmento es indexable.
-- **Compliance**: SoD entre operadores de distintas campañas.
+- **Compliance**: separacion de deberes entre operadores de distintas campañas.
 - **Simplicidad operativa**: una asignación por usuario evita
   ambigüedad de scope.
 

@@ -7,24 +7,27 @@ Parte 12 — Testing
 12.1 Estrategia
 ===============
 
-- **Unit**: KPICalculator, TrendBuilder,
-  PeriodValidator, StalenessChecker.
-- **Integration**: query agregada con
-  datos sembrados, cache lifecycle.
+- **Unit**: PeriodValidator,
+  StalenessChecker, SegmentResolver,
+  parser de filas del SP.
+- **Integration**: callproc a
+  ``sp_rpt_centros_xsegmento`` con datos
+  sembrados en BD_IVR, cache lifecycle.
 - **E2E**: User login → dashboard render.
 - **Security**: enforcement segmento.
 
 12.2 Tests unitarios
 ====================
 
-UT-01: TMO = sum/count correcto.
-UT-02: Service Level con threshold.
-UT-03: Abandon rate.
-UT-04: KPIs con 0 rows → 0.
-UT-05: TrendBuilder buckets de hora para
-period=today.
-UT-06: TrendBuilder buckets de dia para
-period=last_7d.
+UT-01: parser mapea ``rows.tmo`` desde el
+SP correctamente.
+UT-02: parser mapea ``rows.service_level``.
+UT-03: parser mapea ``rows.abandon_rate``.
+UT-04: SP retorna 0 rows → KPIs en 0.
+UT-05: trend con buckets de hora para
+period=today (entregado por el SP).
+UT-06: trend con buckets de dia para
+period=last_7d (entregado por el SP).
 UT-07: Periodo invalido rechazado.
 UT-08: Staleness > threshold reporta
 minutos.
@@ -39,7 +42,7 @@ no incluyen seg_b.
 IT-03: User sin segmento → 400.
 IT-04: cache hit segunda llamada.
 IT-05: cache invalidate manual → miss.
-IT-06: BD timeout → 503.
+IT-06: callproc timeout (BD_IVR) → 503.
 IT-07: ETL desfasado → staleness reportado.
 IT-08: multi-segmento → union.
 

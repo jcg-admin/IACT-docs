@@ -14,7 +14,7 @@ Parte 11 — Implementacion tecnica
 - **MetricsCache** (TTL adaptativo)
 - **AnalyticsRepo**
 - **KPICalculator**
-- **ComparativeBuilder**
+- **ComparativeAssembler**
 
 11.2 Contratos
 ==============
@@ -54,7 +54,7 @@ Parte 11 — Implementacion tecnica
                               invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'view_historical_reports')
+                 'view_reports')
        segments = SegmentResolver.for(
                     invoker.id)
        if not segments:
@@ -93,7 +93,7 @@ Parte 11 — Implementacion tecnica
          for b in current_rows]
 
        comparative =
-         ComparativeBuilder.build(
+         ComparativeAssembler.build(
            current_rows, prior_rows)
 
        report = HistoricalReport(

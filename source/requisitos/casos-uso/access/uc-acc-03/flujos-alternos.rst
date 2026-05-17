@@ -47,11 +47,11 @@ query con join. Indices recomendados.
 ``expired_pending_purge`` no vacio. Frontend
 muestra warning visual.
 
-4.5 FA-05: Inconsistencia SoD detectada
-=======================================
+4.5 FA-05: Inconsistencia de separacion detectada
+===================================================
 
 **Activador**: el User tiene un par
-conflictivo segun SoDRule activa (caso raro
+conflictivo segun SeparationRule activa (caso raro
 post-modificacion retroactiva de reglas).
 
 **Diferencia**: response incluye
@@ -99,7 +99,7 @@ amplia per P-16). Fuera de scope de este UC.
    - expired_pending_purge no vacio
    - 200 OK + warning
  * - FA-05
-   - SoD inconsistencia detectada
+   - separacion inconsistencia detectada
    - sod_violations_detected
    - 200 OK + warning
  * - FA-06

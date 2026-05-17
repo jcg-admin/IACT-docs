@@ -23,8 +23,9 @@ UC_AUTH_01 — Iniciar Sesion
  Producida por el WP
  ``2026-05-01-07-00-34-uc-auth-01-spec-completa``
  en cumplimiento de la directiva del ejecutor
- (2026-05-01) — los 61 UCs adoptan estructura
- de 12 partes en archivos separados.
+ (2026-05-01) — los 61 UCs base adoptan estructura
+ de 12 partes en archivos separados (+ 19 OPR/SUP/CLI
+ incorporados en v5.5.0 con la misma estructura).
 
  Reemplaza al monolitico ``uc-auth-01/index.rst``
  v4.0.0 (eliminado).
@@ -57,7 +58,7 @@ dependen de esta sesion via T-01).
  * - **Actor Principal**
    - Usuario (cualquier registrado)
  * - **Funcion RBAC**
-   - publica (post-login establece AUTH-001 ``view_own_sessions``)
+   - publica (post-login establece view_own_sessions ``view_own_sessions``)
  * - **Clase de Dominio primaria**
    - ``Session``
  * - **Clases secundarias**
@@ -69,8 +70,8 @@ Documentos vinculados
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
   v1.0.0 — clases ``User``, ``Session``,
   ``InternalMailbox``, ``AuditEvent``.
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
-  v5.4.0 — funciones AUTH-001..004.
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
+  v5.5.0 — funciones view_own_sessions..004.
 - :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`
   v1.0.0 — criticidad, transversales T-01/02/03,
   patrones de diseno aplicables.
@@ -89,7 +90,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

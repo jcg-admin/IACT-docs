@@ -23,7 +23,7 @@ Vista PERM agrega:
 
 Heredada. Boton "Revocar" en vista PERM
 visible solo con
-``revoke_function_groups``.
+``revoke_function_group``.
 
 6.3 Confiabilidad
 =================

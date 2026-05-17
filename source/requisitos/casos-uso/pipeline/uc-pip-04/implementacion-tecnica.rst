@@ -4,48 +4,57 @@
 Parte 11 — Implementacion tecnica
 =================================
 
-Componentes: PipelineRetryEndpoint,
-AuthorizationGuard, PipelineRunRepo,
-PipelineExecutor, AuditService.
+Componentes: ``ReintentarETLView`` (DRF APIView),
+``AuthorizationGuard``, ``PipelineExecutionRepo``,
+``DisparadorETL``, ``AuditService``.
+
+Contrato del servicio:
 
 ::
 
-   contract PipelineRetryService:
-     retry(pipeline_id, run_id?,
-           reason, priority,
-           invoker, ctx)
-       returns: PipelineRunRef
+   contract ReintentarETLService:
+     retry(trimestre, motivo, invoker, ctx)
+       returns: PipelineExecutionRef
 
 Pseudocodigo:
 
 ::
 
-   procedure retry(pipeline_id, run_id,
-                    reason, priority,
-                    invoker, ctx):
-       require AuthorizationGuard.has(
-                 invoker,
-                 'request_pipeline_retry')
-       if len(reason) < 20:
-           raise ValidationError
-       pipeline = PipelineRepo.get(pipeline_id)
-       if pipeline is null:
-           raise NotFound
-       if pipeline.is_running:
-           raise AlreadyRunning
-       new_run = PipelineRunRepo.create(
-         pipeline_id, triggered_by='manual',
-         retry_of_run_id=run_id,
-         actor_id=invoker.id,
-         reason, priority)
-       PipelineExecutor.enqueue(new_run.id,
-                                  priority)
+   procedure retry(trimestre, motivo, invoker, ctx):
+       require AuthorizationGuard.has(invoker, 'request_pipeline_retry')
+       if len(motivo) < 20:
+           raise ValidationError('motivo_muy_corto')
+       ejecucion_activa = PipelineExecutionRepo.get_activa()
+       if ejecucion_activa is not null:
+           raise ConflictoEjecucion(ejecucion_activa.id)
+       nueva = PipelineExecutionRepo.crear_manual(
+           trimestre=trimestre,
+           executed_by='manual'
+       )
+       DisparadorETL.ejecutar_historico(
+           trimestre=trimestre,
+           etl_run_id=nueva.id
+       )
        AuditService.emit(
-         'PIPELINE_RETRY_REQUESTED',
-         actor_id=invoker.id,
-         payload={pipeline_id, run_id,
-                   reason, priority,
-                   new_run_id: new_run.id})
-       return new_run
+           'ETL_REINTENTO_SOLICITADO',
+           actor_id=invoker.id,
+           payload={trimestre, motivo, etl_run_id: nueva.id}
+       )
+       return PipelineExecutionRef(id=nueva.id)
 
-Stack-agnostico.
+Implementacion de DisparadorETL.ejecutar_historico:
+
+::
+
+   DisparadorETL.ejecutar_historico(trimestre, etl_run_id):
+       # Parsea trimestre: Q3_25 -> year=2025, quarter=3
+       year, quarter = parse_trimestre(trimestre)
+       # Llama sp_etl_historico via management command asincronico
+       # o directamente via cursor si es sincrono:
+       CALL sp_etl_historico(:year, :quarter_num)
+       # Al finalizar actualiza pipeline_runs con estado y base_records
+
+El reintento usa ``sp_etl_historico(year, quarter_num)`` que
+reprocesa el trimestre completo via TRUNCATE + INSERT desde
+``tbl_historico_*``. Garantiza idempotencia: ejecutar dos veces
+produce el mismo resultado que ejecutar una vez.

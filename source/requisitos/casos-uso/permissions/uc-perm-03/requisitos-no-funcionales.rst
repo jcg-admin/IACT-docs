@@ -15,7 +15,7 @@ UC_ACC_08.
   Users con permiso excepcional vigente):
   cached.
 - Counter ``perm.exceptional.{success,
-  forbidden, sod, mailbox_failed,
+  forbidden, separation, mailbox_failed,
   rate_limited}``.
 
 6.2 Performance / Seguridad / Auditabilidad / Cumplimiento

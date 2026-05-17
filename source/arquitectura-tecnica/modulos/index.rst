@@ -14,7 +14,7 @@
 Modulos Arquitectonicos
 =======================
 
-Definicion arquitectonica de los **8 modulos funcionales** del sistema
+Definicion arquitectonica de los **13 modulos UC del sistema** (9 RBAC activos + ADM nuevo v5.6.0 + 2 reservados open-closed + Caller sin RBAC)
 IACT. Cada ``ARQ_MOD_NNN`` documenta el proposito, responsabilidades,
 componentes internos, interfaces, dependencias y consideraciones
 tecnicas del modulo correspondiente.
@@ -28,29 +28,44 @@ Mapeo modulo ↔ casos de uso:
  * - Modulo arquitectonico
    - UCs en requisitos
    - # UCs
- * - ARQ_MOD_001 AUTH
-   - :doc:`/requisitos/casos-uso/auth/index`
-   - 5
- * - ARQ_MOD_002 USER_IDENTITY
-   - :doc:`/requisitos/casos-uso/users/index`
-   - 4
- * - ARQ_MOD_003 RBAC_CORE
-   - :doc:`/requisitos/casos-uso/access/index` + :doc:`/requisitos/casos-uso/permissions/index`
-   - 19 (9 ACC + 10 PERM)
- * - ARQ_MOD_004 ETL_MONITORING
-   - :doc:`/requisitos/casos-uso/pipeline/index`
-   - 4
- * - ARQ_MOD_005 VIS_REPORTS
-   - :doc:`/requisitos/casos-uso/reports/index`
-   - 14
- * - ARQ_MOD_006 ALERTS
+ * - :ref:`arq_mod_access` ACCESS
+   - :doc:`/requisitos/casos-uso/access/index`
+   - 9
+ * - :ref:`arq_mod_admin` ADMIN
+   - (futuros UC_ADM_*)
+   - en construccion
+ * - :ref:`arq-mod-006` ALERTS
    - :doc:`/requisitos/casos-uso/alerts/index`
    - 5
- * - ARQ_MOD_007 AUDIT
+ * - :ref:`arq-mod-007` AUDIT
    - :doc:`/requisitos/casos-uso/audit/index`
    - 4
- * - ARQ_MOD_008 SYS_LOGS
+ * - :ref:`arq-mod-001` AUTH
+   - :doc:`/requisitos/casos-uso/auth/index`
+   - 5
+ * - :ref:`arq-mod-011` CALLER
+   - :doc:`/requisitos/casos-uso/caller/index`
+   - 5
+ * - :ref:`arq-mod-008` LOGS (antes SYS_LOGS)
    - :doc:`/requisitos/casos-uso/logs/index`
+   - 7
+ * - :ref:`arq-mod-009` OPERATOR
+   - :doc:`/requisitos/casos-uso/operator/index`
+   - 10
+ * - :ref:`arq-mod-003` PERMISSIONS (antes RBAC_CORE)
+   - :doc:`/requisitos/casos-uso/permissions/index`
+   - 10
+ * - :ref:`arq-mod-004` PIPELINE (antes ETL_MONITORING)
+   - :doc:`/requisitos/casos-uso/pipeline/index`
+   - 4
+ * - :ref:`arq-mod-005` REPORTS (antes VIS_REPORTS)
+   - :doc:`/requisitos/casos-uso/reports/index`
+   - 14
+ * - :ref:`arq-mod-010` SUPERVISION
+   - :doc:`/requisitos/casos-uso/supervision/index`
+   - 3
+ * - :ref:`arq-mod-002` USERS (antes USER_IDENTITY)
+   - :doc:`/requisitos/casos-uso/users/index`
    - 4
 
 Catalogo
@@ -58,12 +73,23 @@ Catalogo
 
 .. toctree::
  :maxdepth: 1
+ :caption: Decisiones transversales
 
- arq-mod-001-auth
- arq-mod-002-user-identity
- arq-mod-003-rbac-core
- arq-mod-004-etl-monitoring
- arq-mod-005-vis-reports
- arq-mod-006-alerts
- arq-mod-007-audit
- arq-mod-008-sys-logs
+ coexistence-with-design-implementation-view
+
+.. toctree::
+ :maxdepth: 2
+
+ access/index
+ admin/index
+ alerts/index
+ audit/index
+ auth/index
+ caller/index
+ logs/index
+ operator/index
+ permissions/index
+ pipeline/index
+ reports/index
+ supervision/index
+ users/index

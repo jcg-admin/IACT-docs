@@ -4,14 +4,19 @@
 Parte 12 — Testing
 ==================
 
-UT-01: HeatmapBuilder construye matriz.
-UT-02: Top reasons ordenado.
-UT-03: Top agents.
+UT-01: HeatmapAssembler construye matriz
+desde las filas de
+``sp_rpt_centros_xsegmento``.
+UT-02: Top reasons ordenado desde las
+filas del SP.
+UT-03: Top agents desde las filas de
+``sp_rpt_centros_transferencia``.
 
 IT-01: Totales correctos.
 IT-02: Filtro direction.
 IT-03: Cross-segmento → 403.
-IT-04: BD timeout.
+IT-04: callproc BD_IVR timeout (cualquiera
+de los 2 SPs) → 503.
 
 E2E-01: Supervisor identifica loop.
 

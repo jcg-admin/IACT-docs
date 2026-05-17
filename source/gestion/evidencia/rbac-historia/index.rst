@@ -29,7 +29,7 @@ Historia del modelo RBAC IACT
 
  Para spec vigente del modelo RBAC consultar:
 
- - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo
+ - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo
    conceptual v5.2.1).
  - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
    (CNST normativo).
@@ -133,4 +133,4 @@ Linea temporal
    Reconciliacion ACC + PERM (vista funcional + vista tecnica)
      -> /normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm
      -> /normativa/restricciones/cnst-033-vocabulario-unificado-rbac
-     -> Spec vigente: /arquitectura-tecnica/rbac/modelo-rbac-iact (v5.2.1)
+     -> Spec vigente: /arquitectura-tecnica/rbac/modelo-rbac-iact/index (v5.2.1)

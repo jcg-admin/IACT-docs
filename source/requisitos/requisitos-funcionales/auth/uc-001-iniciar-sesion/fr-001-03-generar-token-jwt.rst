@@ -107,7 +107,7 @@ FR-001.03: Generar token JWT
  
 - **CNST aplicables:**
   - CNST-002: Gestión de sesiones en BD (registro obligatorio)
-  - CNST-005: Seguridad DRF
+  - CNST-005: Seguridad plataforma de API
 
 **Parámetros de Configuración:**
 

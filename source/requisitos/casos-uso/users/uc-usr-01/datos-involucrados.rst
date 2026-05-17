@@ -100,7 +100,7 @@ Excepciones).
    - input
  * - password_hash
    - VARCHAR(60)
-   - bcrypt(temp)
+   - hash(temp)
  * - state
    - VARCHAR
    - ``ACTIVE``
@@ -262,7 +262,7 @@ preliminar:
    - Generar password temporal seguro
  * - FR-USR-01-07
    - 9
-   - Hashear bcrypt cost 12
+   - Hashear costo de hash configurado
  * - FR-USR-01-08
    - 10
    - INSERT User

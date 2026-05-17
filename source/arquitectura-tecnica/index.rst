@@ -18,6 +18,15 @@ high-level, vistas, modelos de datos y diagramas.
 
 .. toctree::
  :maxdepth: 2
+ :caption: Vista general del sistema
+
+ arquitectura-sistema
+ diagramas-uml-sistema
+ diagramas-uc-por-modulo
+ vistas-kruchten
+
+.. toctree::
+ :maxdepth: 2
  :caption: Modelos arquitectonicos
 
  rbac/index
@@ -28,6 +37,8 @@ high-level, vistas, modelos de datos y diagramas.
  :caption: Analisis arquitectonicos
 
  matriz-dependencias-uc-iact
+ cache-strategy
+ scheduled-tasks
 
 .. toctree::
  :maxdepth: 2
@@ -37,9 +48,9 @@ high-level, vistas, modelos de datos y diagramas.
 
 .. toctree::
  :maxdepth: 2
- :caption: Catálogos del sistema
+ :caption: Especificaciones de implementacion
 
- catalogos/index
+ pipeline-etl-iact/index
 
 .. note::
 

@@ -36,8 +36,8 @@ incluye:
 - ``skipped_add``: ya presentes.
 - ``skipped_remove``: no presentes.
 
-4.4 FA-04: Cascade SoD violations (permissive)
-==============================================
+4.4 FA-04: Cascade separacion violations (permissive)
+=======================================================
 
 **Activador**: politica permissive +
 violacion para algunos Users.

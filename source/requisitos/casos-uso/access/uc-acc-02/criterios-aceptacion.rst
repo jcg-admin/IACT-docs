@@ -148,7 +148,7 @@ con ``revoke_functions``,
 ===============================================
 
 **DADO** target es el ultimo holder de
-``configure_sod`` y politica default
+``configure_separation_rules`` y politica default
 (warn-only),
 
 **ENTONCES**:

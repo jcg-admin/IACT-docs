@@ -12,16 +12,16 @@ Parte 6 — Requisitos no funcionales
  :header-rows: 0
 
  * - **Latencia P50 (1-3 funciones)**
-   - ≤ 200 ms (validacion + SoD + INSERT N)
+   - ≤ 200 ms (validacion + separacion + INSERT N)
  * - **Latencia P50 (10 funciones)**
    - ≤ 350 ms
  * - **Latencia P99**
    - ≤ 700 ms
  * - **Throughput**
    - ≥ 5 POST/seg sostenido
- * - **Costo SoD validation**
+ * - **Costo validacion de separacion**
    - O(rules × funciones del User) — debe ser
-     < 100 ms con 50 SoDRules y 20 funciones
+     < 100 ms con 50 SeparationRules y 20 funciones
      activas/User. Indices recomendados.
 
 6.2 Seguridad
@@ -39,12 +39,12 @@ Parte 6 — Requisitos no funcionales
    - funcion ``assign_functions`` (atomica;
      P-15 RBAC granular distinta de
      ``revoke_functions`` y de
-     ``configure_sod``)
+     ``configure_separation_rules``)
  * - **Anti-self-assignment (P-11)**
    - opcional configurable. Default: bloquea
      auto-asignacion para defender contra
      escalada en cascada.
- * - **SoD enforcement (CNST-005, BR-007)**
+ * - **Separacion enforcement (CNST-005, BR-007)**
    - en tiempo de asignacion. NO se permite
      asignacion parcial — all-or-nothing.
  * - **Atomicidad ante violacion**
@@ -92,7 +92,7 @@ Parte 6 — Requisitos no funcionales
      ``function_ids_skipped`` (las que ya
      estaban — idempotencia trazable).
  * - **Trazabilidad de violaciones**
-   - EX-08 (SoD) genera audit con
+   - EX-08 (separation of duties) genera audit con
      ``rule_id`` y ``conflict_pair`` —
      correlacionable con UC_ACC_05
      (configuracion de la regla).
@@ -107,18 +107,18 @@ Parte 6 — Requisitos no funcionales
  * - **Multi-select de funciones**
    - UI con search + categoria. Visible solo
      con ``assign_functions``.
- * - **SoD preview (recomendado)**
+ * - **Separacion preview (recomendado)**
    - antes de submit, frontend puede
-     ``GET /api/users/{id}/functions/sod-preview``
+     ``GET /api/users/{id}/functions/separation-preview``
      para mostrar violaciones potenciales.
      (Endpoint no es parte de UC_ACC_01;
      opcional UX.)
  * - **Confirmacion robusta**
    - modal con resumen de funciones a
      asignar y expires_at si aplica.
- * - **Feedback claro en SoD**
+ * - **Feedback claro en separacion**
    - cuando bloquea (EX-08), mostrar la regla
-     SoD violada con su nombre legible y el
+     Separacion violada con su nombre legible y el
      par conflictivo, sugiriendo revocar
      primero la otra funcion (UC_ACC_02).
  * - **Resumen post-operacion**
@@ -147,10 +147,10 @@ Parte 6 — Requisitos no funcionales
  * - **Alertas**
    - EX-02 (UNAUTHORIZED) → alerta media;
      EX-05 (auto-assign) → alerta alta;
-     EX-08 (SoD) > 5/dia mismo invoker →
+     EX-08 (separation of duties) > 5/dia mismo invoker →
      alerta investigacion;
      asignacion de funcion altamente
-     privilegiada (configure_sod, etc.) →
+     privilegiada (configure_separation_rules, etc.) →
      alerta media.
 
 6.7 Cumplimiento
@@ -158,12 +158,12 @@ Parte 6 — Requisitos no funcionales
 
 - BR-006 RBAC Flat NIST: funciones atomicas,
   no jerarquicas.
-- BR-007 SoD: enforcement obligatorio.
+- BR-007 separacion de deberes: enforcement obligatorio.
 - BR-008 Permisos con Vencimiento: opcional
   via ``expires_at``.
 - BR-010 Auditoria Inmutable: AuditEvent
   obligatorio.
-- CNST-005 enforcement SoD en tiempo de
+- CNST-005 enforcement de separacion en tiempo de
   asignacion.
 - CNST-009/013/025/026.
 

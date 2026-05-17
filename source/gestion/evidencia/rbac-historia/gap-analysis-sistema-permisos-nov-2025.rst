@@ -23,7 +23,7 @@ Gap Analysis — Sistema de Permisos Granular (Noviembre 2025)
  Resumen del gap analysis formal del Sistema de Permisos Granular
  realizado en noviembre 2025. Estado reportado: 75% completado.
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1) +
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1) +
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 
 ----
@@ -52,7 +52,7 @@ recalibracion completa del catalogo (42 funciones + 10 grupos).
 2.1 Base de Datos (100%)
 ------------------------
 
-- 8 modelos Django (``models_permisos_granular.py``):
+- 8 modelos del backend (``models_permisos_granular.py``):
 
   - ``Funcion``, ``Capacidad``, ``FuncionCapacidad``
   - ``GrupoPermiso``, ``GrupoCapacidad``
@@ -64,7 +64,7 @@ recalibracion completa del catalogo (42 funciones + 10 grupos).
   - ``vista_capacidades_usuario``
   - ``vista_grupos_usuario``
 
-- 5 funciones SQL nativas (PostgreSQL):
+- 5 funciones SQL nativas (Almacén de Datos analítico):
 
   - ``usuario_tiene_permiso()``
   - ``obtener_capacidades_usuario()``
@@ -72,7 +72,7 @@ recalibracion completa del catalogo (42 funciones + 10 grupos).
   - ``verificar_permiso_y_auditar()``
   - ``obtener_menu_usuario()``
 
-- 3 migraciones Django:
+- 3 migraciones del backend:
 
   - ``0001_initial_permisos_granular.py``
   - ``0002_create_permission_views.py``
@@ -139,7 +139,7 @@ ADRs basicos + docstrings. Faltaban UCs formales y diagramas UML.
    - ALTA
    - Diferido (ver ADR-BACK-005 middleware preservado)
  * - 2.5
-   - Django Management Commands
+   - Comandos de gestión del backend
    - MEDIA
    - Diferido (codigo no implementado)
  * - 2.6
@@ -155,7 +155,7 @@ ADRs basicos + docstrings. Faltaban UCs formales y diagramas UML.
    - MEDIA
    - Diferido
  * - 2.9
-   - Django Admin Integration
+   - Integración con panel administrativo del backend
    - MEDIA
    - Diferido
  * - 2.10
@@ -170,7 +170,7 @@ ADRs basicos + docstrings. Faltaban UCs formales y diagramas UML.
 
 El gap analysis usa el vocabulario legacy:
 
-- "Capacidad" / ``Capacidad`` (modelo Django).
+- "Capacidad" / ``Capacidad`` (modelo del backend).
 - "GrupoPermiso" / ``GrupoPermiso``.
 - "UsuarioGrupo" / ``UsuarioGrupo``.
 
@@ -200,7 +200,7 @@ Sprint 2 (Semana 2) — ALTA PRIORIDAD:
 
 Sprint 3 (Semana 3) — MEDIA/BAJA:
 
-- Tests adicionales, Django Admin, monitoring.
+- Tests adicionales, panel administrativo del backend, monitoring.
 
 **Estado real:** plan parcialmente ejecutado; el corpus IACT-docs
 posterior (enero 2026 -> abril 2026) recalibro el modelo y la
@@ -223,7 +223,7 @@ implementacion.
 
 **Documentos vigentes que reemplazan al gap analysis:**
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo).
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo).
 - :doc:`/requisitos/casos-uso/permissions/index` (UCs).
 - :doc:`/requisitos/casos-uso/access/index` (UCs ACC).
 - :doc:`/requisitos/casos-uso/audit/index` (UCs AUD).

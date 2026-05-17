@@ -1,0 +1,182 @@
+## AGR
+  method-or-attr:functions  (diagrama-de-clases-fuentes-de-permisos.rst)
+## AbandonmentReportService
+  method:get  (diagrama-de-clases.rst)
+## AccessGroup
+  attribute:agr_code  (diagrama-de-agr-como-agregacion.rst)
+  attribute:id  (diagrama-de-agr-como-agregacion.rst)
+  attribute:is_system  (diagrama-de-agr-como-agregacion.rst)
+  attribute:name  (diagrama-de-agr-como-agregacion.rst)
+  attribute:state  (diagrama-de-agr-como-agregacion.rst)
+## AgentDailyStatRepo
+  method:aggregate_by_agent  (diagrama-de-clases.rst)
+  method:stream_by_agent  (diagrama-de-clases.rst)
+## AgentReportService
+  method:detail  (diagrama-de-clases.rst)
+  method:list  (diagrama-de-clases.rst)
+## AlertHistoryService
+  method:query  (diagrama-de-clases.rst)
+## AlertHistorySummary
+  attribute:by_severity  (diagrama-de-clases.rst)
+  attribute:rows  (diagrama-de-clases.rst)
+  attribute:total_alerts  (diagrama-de-clases.rst)
+  attribute:ttak_p50  (diagrama-de-clases.rst)
+  attribute:ttar_p50  (diagrama-de-clases.rst)
+## AlertRepo
+  method:query_history  (diagrama-de-clases.rst)
+## AlertRule
+  attribute:actions  (diagrama-de-clases.rst)
+  attribute:condition  (diagrama-de-clases.rst)
+  attribute:cooldown  (diagrama-de-clases.rst)
+  attribute:id  (diagrama-de-clases.rst)
+  attribute:metric  (diagrama-de-clases.rst)
+  attribute:name  (diagrama-de-clases.rst)
+  attribute:scope  (diagrama-de-clases.rst)
+  attribute:severity  (diagrama-de-clases.rst)
+  attribute:state  (diagrama-de-clases.rst)
+  attribute:window  (diagrama-de-clases.rst)
+## AlertRuleRepo
+  method:by_id  (diagrama-de-clases.rst)
+  method:create  (diagrama-de-clases.rst)
+  method:update  (diagrama-de-clases.rst)
+## Assignment
+  method-or-attr:state  (diagrama-de-transicion-assignment-state.rst)
+## AuditRepo
+  method:query  (diagrama-de-clases.rst)
+## AuditService
+  method:emit  (diagrama-de-clases.rst)
+## CallerReportService
+  method:get  (diagrama-de-clases.rst)
+## CampaignDailyStatRepo
+  method:aggregate  (diagrama-de-clases.rst)
+## CampaignReportService
+  method:detail  (diagrama-de-clases.rst)
+  method:list  (diagrama-de-clases.rst)
+## ColumnCatalog
+  method:exists  (diagrama-de-clases.rst)
+  method:list_for  (diagrama-de-clases.rst)
+## CursorEncoder
+  method:decode  (diagrama-de-clases.rst)
+  method:encode  (diagrama-de-clases.rst)
+## ErroresETLService
+  method:listar  (diagrama-de-clases.rst)
+## EvaluatorReloader
+  method:reload  (diagrama-de-clases.rst)
+  method-or-attr:recalculate  (diagrama-de-actividad.rst)
+  method-or-attr:reload  (diagrama-de-actividad.rst)
+  method-or-attr:reload_catalog  (diagrama-de-actividad.rst)
+## Function
+  attribute:codename  (diagrama-de-agr-como-agregacion.rst)
+  attribute:id  (diagrama-de-agr-como-agregacion.rst)
+  attribute:is_active  (diagrama-de-agr-como-agregacion.rst)
+  attribute:is_critical  (diagrama-de-agr-como-agregacion.rst)
+  attribute:module  (diagrama-de-agr-como-agregacion.rst)
+## FunctionGroupMembership
+  attribute:added_at  (diagrama-de-agr-como-agregacion.rst)
+  attribute:function  (diagrama-de-agr-como-agregacion.rst)
+  attribute:group  (diagrama-de-agr-como-agregacion.rst)
+  attribute:id  (diagrama-de-agr-como-agregacion.rst)
+## GeneralAuditService
+  method:query  (diagrama-de-clases.rst)
+## KPICalculator
+  method:derive_agent_kpis  (diagrama-de-clases.rst)
+  method:derive_campaign_kpis  (diagrama-de-clases.rst)
+## MenuIVRReportService
+  method:get  (diagrama-de-clases.rst)
+## PermCache
+  method-or-attr:invalidate  (diagrama-de-actividad.rst)
+## PermissionCache
+  method-or-attr:invalidate  (diagrama-de-actividad.rst)
+  method-or-attr:invalidate  (diagrama-de-secuencia.rst)
+## PermissionService
+  method-or-attr:check_bulk  (diagrama-de-actividad.rst)
+## PiiScanner
+  method:sanitize  (diagrama-de-clases.rst)
+## PipelineExecution
+  method-or-attr:error_message  (diagrama-de-estados-ejecucion-etl.rst)
+## PipelineExecutionRepo
+  method:ejecuciones_recientes  (diagrama-de-clases.rst)
+  method:por_estado  (diagrama-de-clases.rst)
+  method:ultima_ejecucion  (diagrama-de-clases.rst)
+## RBACRepo
+  method:get_user_segments  (diagrama-de-clases.rst)
+  method:has_global_capability  (diagrama-de-clases.rst)
+## Reloader
+  method-or-attr:reload  (diagrama-de-caso-de-uso.rst)
+## ResumenSalud
+  attribute:estado_general  (diagrama-de-clases.rst)
+  attribute:total_exitosas  (diagrama-de-clases.rst)
+  attribute:total_fallidas  (diagrama-de-clases.rst)
+  attribute:ultima_ejecucion  (diagrama-de-clases.rst)
+## ResumenSaludAssembler
+  method:build  (diagrama-de-clases.rst)
+## RuleValidator
+  method:validate  (diagrama-de-clases.rst)
+## SavedView
+  attribute:chart_config  (diagrama-de-clases.rst)
+  attribute:columns  (diagrama-de-clases.rst)
+  attribute:filters  (diagrama-de-clases.rst)
+  attribute:id  (diagrama-de-clases.rst)
+  attribute:name  (diagrama-de-clases.rst)
+  attribute:owner  (diagrama-de-clases.rst)
+  attribute:report_type  (diagrama-de-clases.rst)
+  attribute:state  (diagrama-de-clases.rst)
+  method-or-attr:shared_with  (diagrama-de-caso-de-uso.rst)
+## SegmentChangeListener
+  method:on_segment_change  (diagrama-de-clases.rst)
+## SegmentResolver
+  method:invalidate_cache  (diagrama-de-clases.rst)
+  method:is_global  (diagrama-de-clases.rst)
+  method:resolve  (diagrama-de-clases.rst)
+## SegmentScope
+  attribute:es_global  (diagrama-de-clases.rst)
+  attribute:segments  (diagrama-de-clases.rst)
+## SeparationRuleCache
+  method-or-attr:invalidate  (diagrama-de-actividad-crud-comun.rst)
+## Serializer
+  method-or-attr:validate  (diagrama-de-secuencia.rst)
+## Session
+  method-or-attr:state  (diagrama-de-actividad.rst)
+## Subscription
+  attribute:channel  (diagrama-de-clases.rst)
+  attribute:id  (diagrama-de-clases.rst)
+  attribute:rule  (diagrama-de-clases.rst)
+  attribute:scope  (diagrama-de-clases.rst)
+  attribute:state  (diagrama-de-clases.rst)
+  attribute:user  (diagrama-de-clases.rst)
+## SubscriptionRepo
+  method:by_user  (diagrama-de-clases.rst)
+  method:create  (diagrama-de-clases.rst)
+## SupervisionETLService
+  method:supervisar  (diagrama-de-clases.rst)
+## Telephony
+  method-or-attr:hold  (actividad.rst)
+## TimingCalculator
+  method:compute_ttak  (diagrama-de-clases.rst)
+  method:compute_ttar  (diagrama-de-clases.rst)
+  method-or-attr:compute_ttak  (diagrama-de-actividad.rst)
+  method-or-attr:compute_ttar  (diagrama-de-actividad.rst)
+## TransferReportService
+  method:get  (diagrama-de-clases.rst)
+## User
+  attribute:id  (diagrama-de-agr-como-agregacion.rst)
+  attribute:username  (diagrama-de-agr-como-agregacion.rst)
+  method:segment_id  (diagrama-de-agr-como-agregacion.rst)
+  method-or-attr:first_login  (diagrama-de-actividad.rst)
+  method-or-attr:first_login  (diagrama-de-estados-user-first-login-scope.rst)
+  method-or-attr:first_login  (diagrama-de-estados-user-first-login.rst)
+  method-or-attr:last_login_at  (diagrama-de-actividad.rst)
+  method-or-attr:state  (diagrama-de-actividad-side-effects-post-eliminacion.rst)
+  method-or-attr:state  (diagrama-de-actividad.rst)
+  method-or-attr:state  (diagrama-de-estados-user-state.rst)
+  method-or-attr:state  (diagrama-de-secuencia.rst)
+## UserAccessGroupAssignment
+  attribute:expires_at  (diagrama-de-agr-como-agregacion.rst)
+  attribute:granted_at  (diagrama-de-agr-como-agregacion.rst)
+  attribute:granted_by  (diagrama-de-agr-como-agregacion.rst)
+  attribute:group  (diagrama-de-agr-como-agregacion.rst)
+  attribute:id  (diagrama-de-agr-como-agregacion.rst)
+  attribute:state  (diagrama-de-agr-como-agregacion.rst)
+  attribute:user  (diagrama-de-agr-como-agregacion.rst)
+
+=== Total: 51 classes used by UCs across 440 UML files ===

@@ -46,7 +46,7 @@ Algunas funciones tienen
 ``audit_priority=critical``.
 
 Ejemplo: ``manage_users``,
-``manage_access_groups``,
+``create_function_group``,
 ``view_audit_log``.
 
 P-39 (audit reforzado): adicionalmente al

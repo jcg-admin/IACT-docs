@@ -16,7 +16,7 @@
 ADR-GOB-008: RBAC Coexistencia Vista Funcional ↔ Vista Tecnica
 ==============================================================
 
-**Estado:** Aceptada **Fecha:** 2026-04-29 **Decisor:** Equipo
+**Estado:** Aceptada**Fecha:** 2026-04-29**Decisor:** Equipo
 Arquitectura **Relacionado:** Hipotesis 1 del WP #6 requisitos,
 decisiones D-RBAC-1..8, CNST_029, CNST_032, CNST_033
 
@@ -31,9 +31,9 @@ formal:
 
 **Vista funcional (MOD_Access — modelo conceptual v5.2.1):**
 
-- Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact``.
-- Catalogo cerrado: 42 funciones atomicas + 10 grupos predefinidos
-  AGR-001..AGR-010 + 3 reglas SoD.
+- Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index``.
+- Catalogo cerrado para set activo, abierto a extension: 64 funciones activas + 13 reservadas open-closed + 12 grupos predefinidos
+  AGR-001..AGR-012 + 3 reglas de separacion.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
 - Casos de uso: UC_ACC_01..UC_ACC_09 (admin no-tech asigna
   agrupadores predefinidos al usuario).
@@ -82,7 +82,7 @@ Vocabulario unificado a "Funcion" (canonico) via CNST_033.
 
 PERM absorbe RBAC_CORE de Access. UC_ACC_01..04 se marcan
 ``deprecated`` con redirect a UC_PERM_*. MOD_Access queda reducido
-a SoD + Segmentos + Permisos Temporales (4 UCs).
+a separacion de deberes + Segmentos + Permisos Temporales (4 UCs).
 
 **Alternativa C — Evolucion total (Hipotesis 3)**
 
@@ -96,7 +96,7 @@ Decision
 
 Justificacion:
 
-1. Los 49 UCs canonicos del backup (8 modulos) son **fuente de verdad
+1. Los 80 UCs canonicos del catalogo (13 modulos UC: 10 RBAC activos in-scope v5.6.0 + 2 reservados open-closed + Caller sin RBAC) son **fuente de verdad
    confirmada** con metadata ``:version: 4.0.0`` declarada. No hay
    ADR previo que los invalide.
 2. Los 10 UC_PERM tienen contenido sustantivo (1 894 lineas en
@@ -157,10 +157,10 @@ actualizados:
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
   — fija vocabulario canonico "Funcion" (D-RBAC-1, D-RBAC-6).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
-  enriquecido con catalogo de los 10 grupos AGR-001..010 +
+  enriquecido con catalogo de los 12 grupos AGR-001..012 +
   distincion system vs custom (D-RBAC-4).
-- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
-  enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`
+  enriquecido con las 3 reglas de separacion declaradas (SOD-001/002/003) y
   aplicabilidad a custom groups (D-RBAC-7).
 - :doc:`/base-cognitiva/glosario` § H "Vocabulario RBAC unificado"
   agrega los 8 terminos canonicos.
@@ -179,7 +179,7 @@ Implementacion
 3. **iteracion correspondiente** (este ADR): ADR-GOB-008 oficializa la coexistencia.
 4. **iteracion correspondiente** (en curso): cross-refs UC_ACC ↔ UC_PERM + mapeo refs
    CNST en bodies + Capacidad → Funcion.
-5. **WP #7** (pendiente): migrar `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`` a
+5. **WP #7** (pendiente): migrar `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`` a
    ``source/arquitectura_tecnica/rbac/`` para que sea consultable.
 6. **Codigo backend**: migracion ``Capacidad`` → ``Function``
    (D-RBAC-2 + D-RBAC-8) — fuera de scope del rebuild documental.
@@ -200,13 +200,13 @@ Decisiones Relacionadas
  * - D-RBAC-3
    - AuditoriaPermiso vs AuditLog — tablas separadas
  * - D-RBAC-4
-   - Grupos: system inmutables (AGR-001..010) + custom creables
+   - Grupos: system inmutables (AGR-001..012) + custom creables
  * - D-RBAC-5
    - Crear CNST_032 Menu Dinamico Obligatorio
  * - D-RBAC-6
    - Crear CNST_033 Vocabulario Unificado RBAC
  * - D-RBAC-7
-   - SoD aplica tambien a custom groups
+   - separacion aplica tambien a custom groups
  * - D-RBAC-8
    - Migracion Capacidad → Function: reemplazo total
 

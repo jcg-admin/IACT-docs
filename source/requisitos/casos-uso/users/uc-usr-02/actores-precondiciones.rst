@@ -43,7 +43,7 @@ tipicamente AGR-006 (admin) o AGR-008 (auditor).
 ==================
 
 - Backend respondiendo en ``/api/users/`` (GET).
-- BD MySQL accesible con indices recomendados
+- BD Base de Datos accesible con indices recomendados
   (``state, created_at``, ``email``,
   ``username``).
 - Invocante autenticado y con al menos una de

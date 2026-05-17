@@ -24,8 +24,10 @@ MTM_01: Metamodelo de Requisitos
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
+ atomicas activas (catalogo declara 77 con 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -362,8 +364,8 @@ UML y especifica cardinalidades, herencia y restricciones.
  - BR tipo HECHO: Define estructura de datos del UC
 
  EJEMPLO:
- BR_015 (SoD) --influye--> UC_010 (Asignar Rol)
- La restriccion SoD aparece como validacion en paso 6
+ BR_015 (separation of duties) --influye--> UC_010 (Asignar Rol)
+ La restriccion de separacion aparece como validacion en paso 6
 
 5.2 UC deriva FR
 ^^^^^^^^^^^^^^^^
@@ -558,7 +560,7 @@ UML y especifica cardinalidades, herencia y restricciones.
  ucOrigen = UC_010
  pasoOrigen = 6
  categoria = VALIDACION
- descripcion = "Sistema DEBE validar compatibilidad SoD"
+ descripcion = "Sistema DEBE validar compatibilidad de separacion"
 
 ----
 

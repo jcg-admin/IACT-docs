@@ -16,13 +16,13 @@ Parte 7 — Datos involucrados
    - RBAC
  * - ``/api/access/audit/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - ``/api/access/audit/{event_id}/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - ``/api/access/audit/aggregations/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
 
 7.2 Listado — Query params
 ==========================
@@ -128,10 +128,10 @@ Solo lectura sobre ``AuditEvent``.
      'AGR_ASSIGN_NOOP',
      'AGR_ASSIGN_FAILED',
      'EFFECTIVE_PERMISSIONS_VIEWED',
-     'SOD_RULE_CREATED',
-     'SOD_RULE_MODIFIED',
-     'SOD_RULE_RETIRED',
-     'SOD_RULES_VIEWED',
+     'SEPARATION_RULE_CREATED',
+     'SEPARATION_RULE_MODIFIED',
+     'SEPARATION_RULE_RETIRED',
+     'SEPARATION_RULES_VIEWED',
      'EXCEPTIONAL_PERMISSION_GRANTED',
      'EXCEPTIONAL_PERMISSION_EXPIRED',
      'EXCEPTIONAL_PERMISSION_REVOKED',

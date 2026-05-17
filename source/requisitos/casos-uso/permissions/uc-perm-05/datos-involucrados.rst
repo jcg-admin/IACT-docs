@@ -16,13 +16,13 @@ Parte 7 — Datos involucrados
    - RBAC
  * - ``/api/access-groups/``
    - POST
-   - ``manage_access_groups``
+   - ``create_function_group``
  * - ``/api/access-groups/{id}/``
    - PATCH
-   - ``manage_access_groups``
+   - ``create_function_group``
  * - ``/api/access-groups/{id}/``
    - DELETE
-   - ``manage_access_groups``
+   - ``create_function_group``
 
 (Lectura: ``GET`` cubierto por UC_PERM_01
 catalogo y otros UCs de vista; no es scope

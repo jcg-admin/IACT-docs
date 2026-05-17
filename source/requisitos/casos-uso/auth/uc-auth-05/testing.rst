@@ -149,11 +149,11 @@ Parte 12 — Testing
        call_count = [0]
        original_create = AuditEvent.objects.create
 
-       def fail_on_third(*args, **kwargs):
+       def fail_on_third(*args,**kwargs):
            call_count[0] += 1
            if call_count[0] == 3:
                raise Exception('audit down')
-           return original_create(*args, **kwargs)
+           return original_create(*args,**kwargs)
 
        with patch.object(AuditEvent.objects, 'create',
                          side_effect=fail_on_third):

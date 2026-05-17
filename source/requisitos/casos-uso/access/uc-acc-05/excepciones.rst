@@ -14,13 +14,13 @@ Parte 5 — Excepciones
 
 403 FORBIDDEN. Si lectura: sin
 ``view_separation_rules``. Si CRUD: sin
-``manage_separation_rules``. AuditEvent
+``view_separation_rules``. AuditEvent
 UNAUTHORIZED_ACCESS_ATTEMPT.
 
 5.3 EX-03: Regla no existe (lectura/PATCH/DELETE)
 =================================================
 
-404 SOD_RULE_NOT_FOUND.
+404 SEPARATION_RULE_NOT_FOUND.
 
 5.4 EX-04: Funcion referenciada no existe (CREATE)
 ==================================================
@@ -36,13 +36,13 @@ UNAUTHORIZED_ACCESS_ATTEMPT.
 5.6 EX-06: Regla duplicada (CREATE)
 ===================================
 
-409 SOD_RULE_DUPLICATE. Body con
+409 SEPARATION_RULE_DUPLICATE. Body con
 ``existing_rule_id``.
 
 5.7 EX-07: Regla ya RETIRED (PATCH/DELETE)
 ==========================================
 
-400 SOD_RULE_ALREADY_RETIRED. Solo se opera
+400 SEPARATION_RULE_ALREADY_RETIRED. Solo se opera
 sobre reglas ACTIVE.
 
 5.8 EX-08: retire_reason ausente (DELETE)
@@ -99,15 +99,15 @@ Migracion via RETIRE + CREATE.
  * - EX-04
    - Funcion no existe
    - 400
-   - SOD_RULE_CREATE_FAILED
+   - SEPARATION_RULE_CREATE_FAILED
  * - EX-05
    - Funcion inactiva
    - 400
-   - SOD_RULE_CREATE_FAILED
+   - SEPARATION_RULE_CREATE_FAILED
  * - EX-06
    - Regla duplicada
    - 409
-   - SOD_RULE_CREATE_FAILED
+   - SEPARATION_RULE_CREATE_FAILED
  * - EX-07
    - Ya RETIRED
    - 400
@@ -123,7 +123,7 @@ Migracion via RETIRE + CREATE.
  * - EX-10
    - BD timeout
    - 503
-   - SOD_RULE_*_FAILED
+   - SEPARATION_RULE_*_FAILED
  * - EX-11
    - Audit fail
    - 500

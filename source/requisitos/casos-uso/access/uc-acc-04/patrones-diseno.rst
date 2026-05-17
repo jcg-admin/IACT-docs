@@ -12,7 +12,7 @@ Parte 10 — Patrones de diseno
 
 AGR contiene N funciones via tabla pivote
 ``AccessGroupFunction``. UC_ACC_04 asigna el
-AGR como un todo, pero la evaluacion SoD se
+AGR como un todo, pero la evaluacion de separacion se
 hace sobre el conjunto de funciones
 expandido.
 
@@ -75,15 +75,15 @@ EX-05 configurable.
 
 FA-01 NOOP.
 
-10.2.6 P-27 SoD write-time
---------------------------
+10.2.6 P-27 separacion write-time
+-----------------------------------
 
 CNST-005.
 
-10.2.7 P-28 All-or-nothing SoD
-------------------------------
+10.2.7 P-28 All-or-nothing separacion
+---------------------------------------
 
-Si CUALQUIER funcion del AGR viola SoD, el
+Si CUALQUIER funcion del AGR viola separacion, el
 AGR no se asigna (rollback total). NO se
 asignan parcialmente las funciones que no
 violan.
@@ -97,7 +97,7 @@ PermissionCache.invalidate post-COMMIT.
 -------------------------------------------
 
 **Aplica a**: el UC trabaja sobre AGR como
-unidad. La SoD se evalua sobre las funciones
+unidad. La separacion se evalua sobre las funciones
 expandidas (no sobre el AGR como entidad).
 La trazabilidad de origen de cada funcion en
 UC_ACC_03 distingue ``via_agr:{agr_id}``,
@@ -109,7 +109,7 @@ AGR origen.
 
 - DELETE fisico (BR-009 / P-23).
 - Asignacion parcial silenciosa (P-28).
-- AGR como unidad de SoD (la SoD es entre
+- AGR como unidad de separacion (la separacion es entre
   funciones, no entre AGRs).
 - Auto-asignacion permitida sin politica.
 
@@ -156,12 +156,12 @@ AGR origen.
  * - P-22 Idempotencia
    - IACT
    - FA-01
- * - P-27 SoD write-time
+ * - P-27 separacion write-time
    - IACT
    - PASO 12
  * - P-28 All-or-nothing
    - IACT
-   - rollback ante SoD
+   - rollback ante violacion de separacion
  * - P-29 Cache post-COMMIT
    - IACT
    - PermissionCache.invalidate

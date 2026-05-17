@@ -253,19 +253,19 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
 
  Direccion: Origen → Implementacion
 
- BR_015 (SoD)
+ BR_015 (separation of duties)
  |
  v
  UC_010 (Asignar Rol)
  |
  v
- FR-10.6 (Validar SoD)
+ FR-10.6 (Validar separacion)
  |
  v
- RoleService.validateSoD
+ RoleService.validateSeparation
  |
  v
- TEST_010_06 (Test SoD)
+ TEST_010_06 (Test separacion)
 
  PREGUNTA QUE RESPONDE:
  "¿Donde se implementa esta regla de negocio?"
@@ -284,7 +284,7 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  TEST_010_06
  |
  v
- RoleService.validateSoD
+ RoleService.validateSeparation
  |
  v
  FR-10.6
@@ -345,7 +345,7 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
       - Role Svc.
       - T_010 _06
       - IMPL
-      - SoD valid.
+      - Separacion valid.
     * - BR_001
       - --
       - --
@@ -531,7 +531,7 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
     * - BR_015
       - UC-010
       - FR-10.6
-      - RoleService. validateSoD
+      - RoleService. validateSeparation
       - T_010_06
       - VERIF
     * - BR_015

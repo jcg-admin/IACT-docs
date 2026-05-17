@@ -23,7 +23,7 @@ permite asignacion via AGRs predefinidos
 - **User destino**: receptor pasivo. Recibe
   capacidades del AGR.
 - **Sistema**: validar AGR existe ACTIVE,
-  expandir funciones, validar SoD del set
+  expandir funciones, validar separacion del set
   resultante (write-time), persistir
   Assignment con target_type=AGR, invalidar
   cache.
@@ -42,7 +42,7 @@ permite asignacion via AGRs predefinidos
   INACTIVE}, NO ELIMINATED/BLOCKED.
 - AGR a asignar existe y state=ACTIVE.
 - Conjunto efectivo resultante (current +
-  funciones del AGR) cumple SoD.
+  funciones del AGR) cumple separacion.
 
 2.4 Postcondiciones
 ===================

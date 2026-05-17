@@ -36,7 +36,7 @@ tengan ese AGR ACTIVE (cascade documentada).
  * - **Modulo**
    - MOD_Permissions
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
  * - **BReq satisfecho**
    - BReq-004
 
@@ -61,7 +61,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

@@ -32,9 +32,9 @@ UT-07: PII scanner detecta password.
 UT-08: PII scanner pass payload sanitizado.
 UT-09: Sanitizer hashea username.
 UT-10: Sanitizer normaliza tz a UTC.
-UT-11: EventFactory genera UUID v7
+UT-11: AuditEventCreator genera UUID v7
 ordenable.
-UT-12: EventFactory completa request_id si
+UT-12: AuditEventCreator completa request_id si
 falta (sintetico).
 
 12.3 Tests de integracion
@@ -76,7 +76,7 @@ AGR_ASSIGNED visible en UC_PERM_10 query.
 E2E-02: UC_AUTH_01 fallido → LOGIN_FAILED con
 username_hash.
 E2E-03: UC_PERM_05 retire AGR → COMPOSITION
-events en cadena (FAILED si SoD bloquea, OK
+events en cadena (FAILED si separacion bloquea, OK
 si exito).
 E2E-04: AlertEngine recibe evento crítico
 en < 30s.

@@ -64,7 +64,7 @@ Tres modos de invocacion:
 - Verificacion de historial: la nueva no debe
   coincidir con las ultimas N (N=5 por
   default).
-- Hash bcrypt cost 12 y persistencia.
+- Hash costo de hash configurado y persistencia.
 - Actualizacion de ``first_login=false``
   (cuando aplica).
 - Almacenamiento de la nueva entrada en
@@ -114,7 +114,7 @@ UC_AUTH_04 es **convergencia** de varios flujos:
      BR-AUTH-34 (first_login=false).
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-003 sesiones persistidas en BD;
-     CNST-009 autenticacion DRF; CNST-013
+     CNST-009 autenticacion plataforma de API; CNST-013
      manejo estandarizado; CNST-025 auditoria
      inmutable; CNST-026 sin PII en payload.
  * - **Funcion RBAC**

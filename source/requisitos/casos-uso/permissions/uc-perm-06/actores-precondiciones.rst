@@ -8,8 +8,8 @@ Parte 2 — Actores, precondiciones y postcondiciones
 ===================
 
 **User con funcion**
-``manage_access_group_composition``. P-15
-distinta de ``manage_access_groups``
+``assign_functions_to_group``. P-15
+distinta de ``create_function_group``
 (UC_PERM_05): un admin puede crear AGRs sin
 poder modificar composicion (separacion de
 duties dentro de governance).
@@ -29,12 +29,12 @@ duties dentro de governance).
   ``/api/access-groups/{id}/functions/``
   (POST, DELETE).
 - Invocante con
-  ``manage_access_group_composition``.
+  ``assign_functions_to_group``.
 - AGR existe + ACTIVE + custom (NO
   predefinido — predefinidos son inmutables).
 - Funciones a agregar / quitar existen +
   ACTIVE.
-- Conjunto resultante respeta SoD para
+- Conjunto resultante respeta separacion para
   TODOS los Users con el AGR (defensa
   cascade).
 - ``change_reason`` ≥ 20 chars (auditabilidad).

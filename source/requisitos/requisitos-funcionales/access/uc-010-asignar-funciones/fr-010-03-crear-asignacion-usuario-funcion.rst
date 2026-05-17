@@ -45,7 +45,7 @@ FR-010.03: Crear asignación usuario-función
 **Declaración:**
 
  El sistema DEBE crear registros de asignación en la tabla
- user_functions CUANDO la validación SoD ha sido exitosa y el
+ user_functions CUANDO la validación de separacion ha sido exitosa y el
  admin confirma la asignación.
 
 **Descripción:**
@@ -98,14 +98,14 @@ FR-010.03: Crear asignación usuario-función
 
 ::
 
- DADO validación SoD exitosa y confirmación del admin
+ DADO validación de separacion exitosa y confirmación del admin
  CUANDO se crea la asignación
  ENTONCES se registran las funciones en BD y auditoría
  
  Escenario 1: Asignación directa de función
- DADO función ACC-003 seleccionada directamente
+ DADO función view_assignments seleccionada directamente
  CUANDO se confirma asignación
- ENTONCES existe registro con function_code = 'ACC-003'
+ ENTONCES existe registro con function_code = 'view_assignments'
  Y grouper_code = NULL
  Y assigned_by = ID del admin actual
  

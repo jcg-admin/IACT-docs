@@ -85,7 +85,7 @@ A. Términos del Producto IACT
 
 **RBAC**
  Role-Based Access Control. Control de acceso basado en roles
- funcionales del sistema. En IACT se aplica con SoD (Separation
+ funcionales del sistema. En IACT se aplica con separacion de deberes (Separation
  of Duties).
 
 **React**
@@ -96,7 +96,7 @@ A. Términos del Producto IACT
  Capacidad técnica del sistema (ej: ``REPORTS_VIEWER``)
  independiente de puestos organizacionales.
 
-**Separation of Duties (SoD)**
+**Separation of Duties**
  Principio de seguridad por el que ciertas combinaciones de
  permisos no pueden coexistir en un mismo rol/usuario.
 
@@ -409,35 +409,35 @@ toda documentación nueva del proyecto (formalizado en
  * - **Función**
    - Capacidad atómica del sistema RBAC: una acción concreta
      verificable expresada como verbo+recurso (``view_audit_log``,
-     ``manage_sessions``, ``export_csv``). En código: ``Function``
+     ``view_own_sessions``, ``export_csv``). En código: ``Function``
      (modelo Django, en inglés). Sustituye al término "Capacidad"
      del sistema PERM granular (D-RBAC-1).
  * - **Grupo de Permisos**
    - Set de funciones asignables como bloque. Puede ser
-     **predefinido** (system group AGR-001..010, inmutable) o
+     **predefinido** (system group AGR-001..012, inmutable) o
      **creable** dinámicamente por admin via
      :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  * - **Agrupador**
-   - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
+   - Sinónimo de "Grupo predefinido AGR-001..012" (terminología
      del modelo legacy v5.2.1). Equivalente a system group.
  * - **Permiso Excepcional**
    - Asignación directa de funciones a un usuario fuera de grupos,
      con justificación obligatoria mínimo 20 caracteres y
      vencimiento máximo 6 meses (ver
      :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`).
- * - **Regla SoD**
+ * - **Regla de separacion**
    - Restricción de mutual exclusion entre dos grupos
      (Separation of Duties). El sistema declara 3 reglas:
      SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
      SOD-003 (access ⊕ audit). Aplican tanto a system como a
      custom groups (ver
-     :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
+     :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones`).
  * - **Verificación de Permiso**
    - Función SQL nativa que evalúa en tiempo real si un usuario
      tiene una función específica. Implementación PostgreSQL:
-     ``usuario_tiene_permiso(user_id, function_code)`` y la
-     variante ``verificar_permiso_y_auditar`` que registra cada
-     verificación.
+     ``user_has_function(p_user_id, p_function_code)`` y la
+     variante ``check_function_and_audit`` que registra cada
+     verificación (adr-back-006 §2.3).
  * - **Menú Dinámico**
    - Estructura de navegación jerárquica calculada en runtime
      según las funciones del usuario. Implementación PostgreSQL:
@@ -463,8 +463,8 @@ toda documentación nueva del proyecto (formalizado en
      ETL); (b) la visibilidad funcional ya queda cubierta por
      la combinación **AGR (perfil operativo) + MOD (categoría
      de información) + Función (acción específica)**. Las dos
-     funciones que operaban sobre segmentos (USR-010
-     ``asigna_segmento`` y ACC-006 ``gestiona_segmentos``) se
+     funciones que operaban sobre segmentos (manage_user_segments
+     ``asigna_segmento`` y create_function_group ``gestiona_segmentos``) se
      eliminaron en la transición v5.1.1 → v5.2.0 (44 → 42
      funciones). NO usar este término en docs nuevas.
 
@@ -548,7 +548,7 @@ I. Abreviaturas comunes
      - Semantics of Business Vocabulary and Business Rules
    * - **SLA**
      - Service Level Agreement
-   * - **SoD**
+   * - **Separacion de deberes**
      - Separation of Duties
    * - **SR**
      - Stakeholder Requirement (alias: ``RS``)

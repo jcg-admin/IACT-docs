@@ -37,7 +37,7 @@ mínimal sólo se migró **1** (``MODELO_RBAC_IACT_v5_2_1.md``).
 -------------------------
 
 - ``MODELO_RBAC_IACT_v5_2_1.md`` →
-  ``source/arquitectura-tecnica/rbac/modelo-rbac-iact.rst``
+  ``source/arquitectura-tecnica/rbac/modelo-rbac-iact/index.rst``
 - ``ARQ_MOD_001..008.rst`` (8 archivos) →
   ``source/arquitectura-tecnica/modulos/`` (agregado en v1.1)
 
@@ -177,7 +177,7 @@ Estado real de v1 (post-fix):
 
 2. **Migración de** ``plantuml-guide/`` (8 archivos absorbidos del
    cajón original — F-04 declarado en wp-state original)
-3. **etl-pipeline.rst** y **sistema-completo.rst** (vistas del
+3. **etl-pipeline.rst** y**sistema-completo.rst** (vistas del
    sistema)
 4. ``ANALISIS_PROFUNDO_RBAC_MODULOS_IACT.md`` convertido a ``.rst``
 5. ``ANALISIS_PROFUNDO_TAXONOMIAS_METAMODELOS_IACT.md`` → migrar

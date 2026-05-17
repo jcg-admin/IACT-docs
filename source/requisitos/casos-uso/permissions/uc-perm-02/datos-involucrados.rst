@@ -16,10 +16,10 @@ Parte 7 — Datos involucrados
    - RBAC
  * - ``/api/users/{id}/access-groups/{agr_id}/``
    - DELETE
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
  * - ``/api/users/{id}/access-groups/{agr_id}/preview-revoke/``
    - GET
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
 
 7.2 Request DELETE
 ==================
@@ -76,7 +76,7 @@ Parte 7 — Datos involucrados
        "critical_revoked": [],
        "last_holder": [
          {"function_id": 7,
-          "function_code": "configure_sod",
+          "function_code": "configure_separation_rules",
           "remaining_holders_after": 0}
        ]
      },

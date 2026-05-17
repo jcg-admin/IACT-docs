@@ -19,7 +19,7 @@ Parte 10 — Patrones
    - view_reports
  * - **P-25**
    - Read replicas
-   - BD Analytics
+   - BD_IVR (legacy)
  * - **P-29**
    - Cache invalidate
    - TTL corto
@@ -44,11 +44,13 @@ multi-segmento pueden filtrar visible UI
 pero query original retorna todo →
 performance issue + risk de filtracion.
 
-**Solucion**: el filtro por segmento se
-aplica en el WHERE de la query, no en el
-post-procesado. Aprovechado por indices.
-Conditions adicionales en JWT del User
-declaran scope.
+**Solucion**: la lista de segmentos del
+User se pasa como parametro al SP
+``sp_rpt_centros_xsegmento``; el SP
+aplica el filtro en el WHERE interno
+(BD_IVR), no en el post-procesado del
+backend. Conditions adicionales en JWT
+del User declaran scope.
 
 10.3 P-59: ETL freshness banner
 ===============================

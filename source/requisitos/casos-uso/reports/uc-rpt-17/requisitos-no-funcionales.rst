@@ -8,7 +8,7 @@ Parte 6 — Requisitos no funcionales
   alto); ≤ 500 ms con COUNT DISTINCT
   exacto (volumen bajo).
 - Confiabilidad: ≥ 99.5%.
-- Seguridad: view_unique_clients_reports;
+- Seguridad: view_reports;
   segment-bound; sin PII (CNST-026).
 - Auditabilidad: P-51.
 - Cumplimiento: hash con salt por tenant

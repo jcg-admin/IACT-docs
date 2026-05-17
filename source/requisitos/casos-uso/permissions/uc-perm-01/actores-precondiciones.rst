@@ -27,7 +27,7 @@ Identicos a UC_ACC_04:
 
 - User destino (receptor pasivo).
 - Sistema (validar, persistir, notificar).
-- BD MySQL (atomicidad).
+- BD Base de Datos (atomicidad).
 - Auditor (consume AuditEvent AGR_ASSIGNED).
 
 Actor adicional especifico de la vista PERM:
@@ -45,7 +45,7 @@ Identicas a UC_ACC_04:
 - Backend respondiendo, BD accesible, HTTPS,
   invocante con
   ``assign_function_groups``, User destino
-  valido, AGR existe + ACTIVE, SoD compliance
+  valido, AGR existe + ACTIVE, compliance de separacion
   del set efectivo resultante.
 
 2.4 Postcondiciones

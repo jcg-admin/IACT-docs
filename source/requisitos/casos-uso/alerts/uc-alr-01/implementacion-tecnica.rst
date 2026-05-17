@@ -36,7 +36,7 @@ Parte 11 — Implementacion tecnica
    procedure create(payload, invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'manage_alert_thresholds')
+                 'configure_team_alerts')
        segments = SegmentResolver.for(
                     invoker.id)
        RuleValidator.validate(

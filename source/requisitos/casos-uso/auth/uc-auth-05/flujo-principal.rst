@@ -75,16 +75,14 @@ necesite mas detalle puede pedir UC_USR_*.
 ::
 
    BEGIN
-     UPDATE session SET state='CLOSED',
+     actualizar session: state='CLOSED',
        close_reason='ADMIN_REVOKED',
        closed_at=NOW(),
        closed_by_admin_id=admin.id
        WHERE session_id=X AND state='ACTIVE';
-     INSERT INTO blacklisted_token (jti, ...);
-     INSERT INTO audit_event (
-       event_type='SESSION_CLOSED', actor=admin,
-       payload={target_user_id, target_session_id});
-     [opcional] INSERT INTO internal_message (...);
+     registrar en blacklisted_token (...);
+     registrar en audit_event (...);
+     [opcional] registrar en internal_message;
    COMMIT
 
 3.C Sub-flujo: Cerrar todas las Sessions del User
@@ -104,7 +102,7 @@ necesite mas detalle puede pedir UC_USR_*.
    PASO 5   Frontend POST /api/users/{id}/
             close-all-sessions/                    (FE → BE)
    PASO 6   Backend valida JWT + RBAC             (Backend)
-   PASO 7   Backend SELECT Sessions ACTIVE        (Backend → BD)
+   PASO 7   Backend consultar Sessions ACTIVE        (Backend → BD)
    PASO 8   Backend cierra cada Session           (Backend → BD)
    PASO 9   Backend blacklistea tokens (N)        (Backend → BD)
    PASO 10  Backend N AuditEvent SESSION_CLOSED

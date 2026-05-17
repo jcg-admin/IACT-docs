@@ -57,7 +57,7 @@ Casos tipicos:
   ``expires_at`` y ``justification``.
 - Validacion de funciones existentes y
   ACTIVE.
-- Validacion SoD (CNST-005) sobre el set
+- Validacion de separacion (CNST-005) sobre el set
   efectivo resultante.
 - Notificacion obligatoria al User
   (InternalMessage explicando funciones,
@@ -72,7 +72,7 @@ Casos tipicos:
 - Revocacion antes del vencimiento → UC_ACC_02
   o UC equivalente sobre
   ExceptionalPermission.
-- Configuracion SoD → UC_ACC_05.
+- Configuracion de separacion → UC_ACC_05.
 
 1.3.3 Posicion en el flujo
 --------------------------
@@ -96,7 +96,7 @@ Caso especial. Tipicamente disparado por:
  * - **BRQ legacy**
    - BRQ-ACC-008
  * - **Reglas**
-   - BR-007 SoD, BR-008 Permisos con
+   - BR-007 separacion de deberes, BR-008 Permisos con
      Vencimiento, BR-010 Auditoria
  * - **CNST**
    - CNST-005, CNST-009/013/025/026
@@ -111,5 +111,5 @@ Caso especial. Tipicamente disparado por:
  * - **Clase primaria**
    - ``ExceptionalPermission``
  * - **Clases secundarias**
-   - ``User``, ``Function``, ``SoDRule``,
+   - ``User``, ``Function``, ``SeparationRule``,
      ``InternalMessage``, ``AuditEvent``

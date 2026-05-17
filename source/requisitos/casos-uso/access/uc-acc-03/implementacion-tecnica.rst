@@ -37,7 +37,7 @@ Parte 11 — Implementacion tecnica
      con metadata
  * - **ExpiredPendingDetector**
    - filtra Assignments con expired_at < NOW()
- * - **SoDValidator (info mode)**
+ * - **SeparationRuleValidator (info mode)**
    - detecta violaciones sin bloquear
  * - **AuditLog**
    - emit P-16
@@ -65,7 +65,7 @@ Parte 11 — Implementacion tecnica
      via_exceptional_count: int
      effective_total_count: int
      expired_pending_purge: list[ExpiredItem]
-     sod_violations_detected: list[SoDViolation]
+     sod_violations_detected: list[SeparationRuleViolation]
 
    data FunctionWithSources:
      function_id: int
@@ -145,11 +145,11 @@ Parte 11 — Implementacion tecnica
        # PASO 12
        effective_function_ids =
          {f.function_id for f in effective}
-       sod_rules = SoDRuleRepository.list_active()
+       separation_rules = SeparationRuleRepository.list_active()
        sod_violations =
-         SoDValidator
+         SeparationRuleValidator
            .find_violations_info_mode(
-             effective_function_ids, sod_rules)
+             effective_function_ids, separation_rules)
 
        # PASO 13 — audit P-16
        AuditLog.emit(

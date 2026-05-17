@@ -7,42 +7,45 @@ Parte 7 — Datos involucrados
 7.1 Entidades leidas
 ====================
 
-- **CallSummary** (Analytics) — buckets
-  por hora / dia.
-- **AgentDailyStat** — agregados por
-  agente.
-- **CampaignSummary** — agregados por
-  campana.
-- **QueueSummary** — agregados por cola.
-- **SegmentDimension** — filtro CNST-008.
+- **Base Analitica IVR** — datos historicos de llamadas,
+  centros de transferencia y menus IVR por trimestre,
+  consultados via Servicio de Reportes.
+- **SegmentoUsuario** — filtro de segmento aplicado por
+  ``<<include>>`` UC_INC_RPT_01.
 
-7.2 Indices criticos
-====================
+7.2 Datos del reporte historico
+================================
 
-- ``CallSummary(segment_code,
-  time_bucket DESC)``.
-- ``CampaignSummary(campaign_id,
-  time_bucket DESC)``.
-- Particionamiento trimestral.
+El reporte historico cruza informacion de multiples Servicios
+de Reportes. Los datos disponibles son los generados por
+el ETL en la Base Analitica IVR:
+
+::
+
+   ReporteHistorico:
+     trimestre            : codigo del trimestre
+     segmento             : codigo de segmento
+     total_llamadas       : total de llamadas del trimestre
+     tasa_abandono        : calculada con los tres tipos de abandono
+     centros_principales  : distribucion por centro de transferencia
+     menus_frecuentes     : distribucion por menu IVR
+
+Comparacion entre trimestres disponible cuando existan multiples
+tablas fuente ``tbl_historico_tN_YYYY`` (estado futuro; actualmente
+solo existe Q3 2025 — ver D-ETL-009).
 
 7.3 Cache
 =========
 
-- key incluye filters_hash.
-- TTL adaptativo segun rango.
-- Invalidate on ETL completion (UC_PIP_*
-  emite evento).
+- key incluye ``trimestre`` + ``segments_hash``.
+- TTL: 300s (datos historicos son inmutables post-ETL).
+- No requiere invalidacion (datos de trimestres pasados
+  no cambian tras el ETL).
 
-7.4 Particionamiento online vs archive
-======================================
+7.4 Datos NO involucrados
+==========================
 
-- Online: ultimos 2 anos.
-- Archive: > 2 anos (acceso via UC_RPT_04
-  export only).
-
-7.5 Datos NO involucrados
-=========================
-
-- BD operativa.
-- PII.
+- BD operativa (repositorio operacional — tablas de usuarios, RBAC).
+- PII: numeros de telefono individuales.
 - Audio / transcripciones.
+- Datos de agentes o colas de call center.

@@ -342,7 +342,7 @@ Decisiones Complementarias
 Features en Raíz
 ~~~~~~~~~~~~~~~~
 
-**Decisión**: ``features/`` permanece en raíz **Razón**: Convención de
+**Decisión**: ``features/`` permanece en raíz**Razón**: Convención de
 DevContainers Specification - DevContainers espera features en
 ``./features/`` o ``.devcontainer/features/`` - Mantener convención
 facilita adopción e integración
@@ -406,7 +406,7 @@ Final):
  ├── logs/ # Logs de compilación
  └── README
 
-**Ventajas del subdomain simplificado (Fase 4)**: 1. **Máxima
+**Ventajas del subdomain simplificado (Fase 4)**: 1.**Máxima
 simplicidad**: TODO CPython directamente en ``cpython/`` - sin niveles
 extra 2. **YAGNI aplicado**: Eliminado ``builder/`` innecesario (no
 había otros componentes fuera) 3. **Escalabilidad**: Permite agregar
@@ -415,7 +415,7 @@ directa**: “Trabajar en CPython” = “cd infrastructure/cpython/” y listo
 5. **Modularización**: Cada subdomain puede tener su propia
 documentación y README 6. **Boundaries claros**: Separación completa
 entre subsistemas de infraestructura 7. **Eliminación total de
-dispersión**: Todo unificado en un solo lugar 8. **Convención
+dispersión**: Todo unificado en un solo lugar 8.**Convención
 DevContainer respetada**: Symlink installer/install.sh mantiene
 compatibilidad 9. **Nomenclatura descriptiva**: ``installer/`` describe
 claramente su función (instalar CPython en DevContainer) 10.
@@ -507,5 +507,5 @@ Estado de Implementación
 
 --------------
 
-**Mantenido por**: Equipo Desarrollo IACT **Última revisión**:
+**Mantenido por**: Equipo Desarrollo IACT**Última revisión**:
 2025-11-06

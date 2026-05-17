@@ -22,7 +22,7 @@ Parte 3 — Flujo principal (Camino feliz)
             ACTIVE                                (Backend → BD)
    PASO 10  Consolidar (deduplicar + metadata)    (Backend)
    PASO 11  Detectar expirados pendientes purga   (Backend)
-   PASO 12  Detectar SoD violations informativas  (Backend → BD)
+   PASO 12  Detectar violaciones de separacion informativas  (Backend → BD)
    PASO 13  Audit selectivo P-16                  (Backend → BD)
    PASO 14  200 OK con vista consolidada          (BE → FE)
    PASO 15  Frontend renderiza tabla              (Frontend)
@@ -120,23 +120,23 @@ PASO 11 — Expirados pendientes purga
      puede mostrarlos en gris para indicar
      transicion.
 
-PASO 12 — SoD detection (informativa)
--------------------------------------
+PASO 12 — separacion detection (informativa)
+----------------------------------------------
 
 .. list-table::
  :widths: 20 80
  :header-rows: 0
 
  * - **Accion**
-   - evaluar SoDRules ACTIVE contra el set
+   - evaluar SeparationRules ACTIVE contra el set
      efectivo. Si hay violaciones, listarlas
      en ``sod_violations_detected``.
  * - **Naturaleza**
    - INFORMATIVA, no bloqueo. UC_ACC_01 ya
-     valida SoD en write-time; UC_ACC_03
+     valida separacion en write-time; UC_ACC_03
      muestra inconsistencias si las hubiera
      (defensa en profundidad — pueden surgir
-     si se modifican SoDRules
+     si se modifican SeparationRules
      retroactivamente).
 
 PASO 13 — Audit selectivo (P-16)
@@ -171,5 +171,5 @@ PASO 15 — Frontend render
 
 Tabla con columnas: function_code,
 display_name, sources (badges), expires_at
-si aplica, indicador SoD si la funcion
+si aplica, indicador separacion si la funcion
 participa en violacion detectada.

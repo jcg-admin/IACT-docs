@@ -9,7 +9,7 @@ Parte 5 — Excepciones
 
 401.
 
-5.2 EX-02: Sin view_access_audit
+5.2 EX-02: Sin view_audit_log
 ================================
 
 403 FORBIDDEN. AuditEvent

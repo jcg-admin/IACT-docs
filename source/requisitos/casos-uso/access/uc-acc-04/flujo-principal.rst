@@ -24,7 +24,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 10  Verificar idempotencia
             (AGR ya asignado ACTIVE?)            (Backend → BD)
    PASO 11  Expandir funciones del AGR          (Backend → BD)
-   PASO 12  Validar SoD del conjunto
+   PASO 12  Validar separacion del conjunto
             efectivo resultante                  (Backend → BD)
    PASO 13  INSERT Assignment AGR                (Backend → BD)
    PASO 14  Invalidar cache de permisos         (post-COMMIT)
@@ -72,19 +72,19 @@ PASO 11 — Expandir funciones
 
 ``AGRRepository.list_functions(agr_id)``.
 
-PASO 12 — Validar SoD
----------------------
+PASO 12 — Validar separacion
+------------------------------
 
 ``current_effective`` = funciones efectivas
 actuales del User (UC_ACC_03 internamente).
 ``effective_post_assign`` =
 ``current_effective ∪ agr_functions``.
-``SoDValidator.validate(effective_post_assign,
-sod_rules)``. Si viola, EX-08.
+``SeparationRuleValidator.validate(effective_post_assign,
+separation_rules)``. Si viola, EX-08.
 
-**Important**: el SoD se evalua sobre el
+**Important**: la separacion se evalua sobre el
 **conjunto efectivo de funciones**, no sobre
-el AGR como entidad (porque el conflicto SoD
+el AGR como entidad (porque el conflicto de separacion
 es entre funciones).
 
 PASO 13 — INSERT Assignment AGR

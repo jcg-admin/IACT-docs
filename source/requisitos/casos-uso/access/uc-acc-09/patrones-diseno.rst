@@ -18,9 +18,9 @@ Parte 10 — Patrones de diseno
 10.2 Patrones IACT
 ==================
 
-- P-15 RBAC granular: ``view_access_audit``
+- P-15 RBAC granular: ``view_audit_log``
   (lectura) distinta de
-  ``manage_separation_rules``,
+  ``view_separation_rules``,
   ``view_assignments``.
 - P-16 Audit selectivo: solo se audita
   consultas focalizadas (target_user_id).
@@ -70,7 +70,7 @@ Parte 10 — Patrones de diseno
    - Pipeline
  * - P-15 RBAC granular
    - IACT
-   - view_access_audit
+   - view_audit_log
  * - P-16 Audit selectivo
    - IACT
    - filter target_user_id

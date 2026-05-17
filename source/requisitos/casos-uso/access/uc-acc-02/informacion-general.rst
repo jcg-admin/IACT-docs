@@ -39,7 +39,7 @@ tipicos:
   obsoletos).
 - Compliance review (revocar permisos no
   utilizados).
-- Resolucion de conflicto SoD (revocar una de
+- Resolucion de conflicto de separacion (revocar una de
   las funciones en conflicto).
 - Reduccion de privilegios temporal.
 
@@ -81,7 +81,7 @@ continua**. Tipicamente se invoca:
 
 - Despues de UC_USR_03 (cambio de rol del User)
   para limpiar permisos previos.
-- Antes de UC_ACC_01 cuando hay conflicto SoD
+- Antes de UC_ACC_01 cuando hay conflicto de separacion
   (revocar primero una funcion, luego asignar
   la nueva).
 - Como parte de UC_USR_04 (eliminacion del User)

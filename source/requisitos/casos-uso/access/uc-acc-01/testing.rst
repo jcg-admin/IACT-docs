@@ -32,27 +32,27 @@ Parte 12 — Testing
 12.2 Tests unitarios
 ====================
 
-12.2.1 SoDValidator detecta violacion
--------------------------------------
+12.2.1 SeparationRuleValidator detecta violacion
+--------------------------------------------------
 
 ::
 
-   GIVEN SoDRule(name='Admin no auditor',
+   GIVEN SeparationRule(name='Admin no auditor',
                  functions={1, 42})
      AND effective_set = {1, 42, 7}
-   WHEN  SoDValidator.validate(set, [rule])
-   THEN  raise SoDViolation(
+   WHEN  SeparationRuleValidator.validate(set, [rule])
+   THEN  raise SeparationRuleViolation(
            rule_id=rule.id,
            conflict_pair=(1, 42))
 
-12.2.2 SoDValidator pasa cuando no hay conflict
------------------------------------------------
+12.2.2 SeparationRuleValidator pasa cuando no hay conflict
+------------------------------------------------------------
 
 ::
 
-   GIVEN SoDRule(functions={1, 42})
+   GIVEN SeparationRule(functions={1, 42})
      AND effective_set = {1, 7, 8}  # sin 42
-   WHEN  SoDValidator.validate
+   WHEN  SeparationRuleValidator.validate
    THEN  no lanza (set permitido)
 
 12.2.3 AntiSelfAction bloquea (CA-07)
@@ -105,7 +105,7 @@ Parte 12 — Testing
    GIVEN invoker con assign_functions
      AND target ACTIVE sin funciones previas
      AND payload {function_ids:[1,2,3]}
-     AND SoDRules vigentes no afectan
+     AND SeparationRules vigentes no afectan
    WHEN  assign_functions
    THEN  3 Assignment ACTIVE creados
    AND   AuditEvent FUNCTIONS_ASSIGNED
@@ -122,16 +122,16 @@ Parte 12 — Testing
    THEN  1 Assignment nuevo (function_id=2)
    AND   skipped contiene function_id=1
 
-12.2.9 SoD bloquea total (CA-05, CA-06)
----------------------------------------
+12.2.9 separacion bloquea total (CA-05, CA-06)
+------------------------------------------------
 
 ::
 
-   GIVEN SoDRule(functions={1, 42})
+   GIVEN SeparationRule(functions={1, 42})
      AND target tiene function_id=1 ACTIVE
      AND payload {function_ids:[42, 7, 8]}
    WHEN  assign_functions
-   THEN  raise SoDViolation
+   THEN  raise SeparationRuleViolation
    AND   ningun Assignment creado (rollback)
    AND   AuditEvent FUNCTIONS_ASSIGN_FAILED
 
@@ -282,24 +282,24 @@ Parte 12 — Testing
    WHEN  POST con [15]
    THEN  status == 400 FUNCTION_INACTIVE
 
-12.3.8 SoD violation 409 (CA-05)
---------------------------------
+12.3.8 separacion violation 409 (CA-05)
+-----------------------------------------
 
 ::
 
-   GIVEN SoDRule en BD
+   GIVEN SeparationRule en BD
      AND target con function 1
    WHEN  POST con [42] (en conflicto con 1)
-   THEN  status == 409 SOD_VIOLATION
+   THEN  status == 409 SEPARATION_VIOLATION
    AND   body contiene rule_id, conflict_pair
    AND   ningun Assignment creado
 
-12.3.9 SoD all-or-nothing (CA-06)
----------------------------------
+12.3.9 separacion all-or-nothing (CA-06)
+------------------------------------------
 
 ::
 
-   GIVEN payload con 3 funciones, 1 viola SoD
+   GIVEN payload con 3 funciones, 1 viola separacion
    WHEN  POST
    THEN  status == 409
    AND   las otras 2 NO se asignan
@@ -372,8 +372,8 @@ Parte 12 — Testing
    AND   detalle del User muestra las nuevas
          funciones
 
-12.4.2 SoD bloquea con detalle visual
--------------------------------------
+12.4.2 separacion bloquea con detalle visual
+----------------------------------------------
 
 ::
 
@@ -381,7 +381,7 @@ Parte 12 — Testing
          conflictua con una activa del User
    WHEN  click "Asignar"
    THEN  modal de error muestra:
-         - nombre de la regla SoD
+         - nombre de la regla de separacion
          - par conflictivo
          - sugerencia "revoca primero la otra"
 
@@ -420,7 +420,7 @@ Parte 12 — Testing
  * - AccessService.assign_functions
    - ≥ 95%
    - ≥ 90%
- * - SoDValidator
+ * - SeparationRuleValidator
    - 100%
    - 100%
  * - AntiSelfActionPolicy
@@ -450,7 +450,7 @@ Parte 12 — Testing
    - Test
    - CA cubierto
  * - Unit
-   - SoDValidator viola / pasa
+   - SeparationRuleValidator viola / pasa
    - CA-05 / CNST-005
  * - Unit
    - AntiSelfAction bloquea
@@ -468,7 +468,7 @@ Parte 12 — Testing
    - idempotencia parcial
    - CA-04
  * - Unit
-   - SoD bloquea total
+   - separacion bloquea total
    - CA-05, CA-06
  * - Unit
    - re-asignacion post-revoke
@@ -507,7 +507,7 @@ Parte 12 — Testing
    - funcion no existe / inactiva
    - CA-11, CA-12
  * - Integration
-   - SoD 409 + all-or-nothing
+   - separacion 409 + all-or-nothing
    - CA-05, CA-06
  * - Integration
    - idempotencia parcial / total
@@ -525,7 +525,7 @@ Parte 12 — Testing
    - admin asigna via UI
    - flujo completo
  * - E2E
-   - SoD bloquea con detalle UI
+   - separacion bloquea con detalle UI
    - CA-05 visual
  * - E2E
    - boton oculto

@@ -136,8 +136,8 @@ functions (display_names — NO IDs).
   contenidas.
 - ``Assignment`` actual del User
   (incluyendo otros AGRs y funciones
-  directas — para SoD evaluation).
-- ``SoDRule`` ACTIVE.
+  directas — para separacion de deberes evaluation).
+- ``SeparationRule`` ACTIVE.
 
 7.7 FR derivados (Nivel 4) — preliminar
 =======================================
@@ -172,7 +172,7 @@ functions (display_names — NO IDs).
    - Expandir AGR funciones
  * - FR-ACC-04-08
    - 12
-   - SoD validate write-time
+   - Separacion validate write-time
  * - FR-ACC-04-09
    - 13
    - INSERT Assignment AGR

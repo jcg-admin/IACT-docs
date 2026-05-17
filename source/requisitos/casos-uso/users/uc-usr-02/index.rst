@@ -66,7 +66,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
 - :doc:`/requisitos/casos-uso/users/uc-usr-01/index`
   (UC creador)
@@ -88,7 +88,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

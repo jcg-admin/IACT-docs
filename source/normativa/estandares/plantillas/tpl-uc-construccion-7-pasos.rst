@@ -235,10 +235,10 @@ Verificacion:
  AND last_activity_at > NOW - INTERVAL '15 minutes'
  -- Debe retornar 1 fila
 
-PC-2: Usuario tiene Permiso RPT-001
+PC-2: Usuario tiene Permiso view_reports
 
 Descripcion:
-El usuario debe tener asignado el permiso RPT-001 que autoriza consultar
+El usuario debe tener asignado el permiso view_reports que autoriza consultar
 reportes operacionales.
 
 Verificacion:
@@ -247,7 +247,7 @@ Verificacion:
 
  SELECT COUNT(*) FROM user_permissions
  WHERE user_id = :user_id
- AND permission_code = 'RPT-001'
+ AND permission_code = 'view_reports'
  AND revoked_at IS NULL
  -- Debe retornar 1
 
@@ -842,7 +842,7 @@ Metrica:
 
 **RNF-Seguridad-1: Autorizacion Basada en Permisos**
 
-Solo usuarios con permiso RPT-001 pueden ejecutar reportes.
+Solo usuarios con permiso view_reports pueden ejecutar reportes.
 Sistema valida permisos en cada request.
 
 Metrica:
@@ -853,7 +853,7 @@ Verificacion:
 
 .. code-block:: python
 
- @require_permission('RPT-001')
+ @require_permission('view_reports')
  def generate_report(request):
  # Implementation
 

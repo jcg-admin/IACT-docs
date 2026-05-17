@@ -316,7 +316,7 @@ ubicaciones y relaciones entre artefactos.
 
 **Formato:** Actor + Objetivo + Precondiciones + Flujos + Postcondiciones
 
-**Cantidad IACT:** 61 casos de uso identificados (post-rebuild 2026-04, ver inventory en sub-WP md-references-audit)
+**Cantidad IACT:** 80 casos de uso (13 módulos UC: 9 RBAC activos + 1 NUEVO ADM v5.6.0 + 2 RBAC reservados open-closed (OPR, SUP) + 1 sin RBAC (CLI); catálogo v5.6.0 — ver :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`)
 
 4.3 Requisito Funcional (FR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -327,7 +327,7 @@ ubicaciones y relaciones entre artefactos.
 
 **Formato:** FR-UC.SEQ: Enunciado + Criterio + Origen
 
-**Cantidad IACT:** 45 FRs derivados al 2026-04-30 (cobertura parcial — sólo 11 de 61 UCs tienen FRs derivados)
+**Cantidad IACT:** 45 FRs derivados al 2026-04-30 (cobertura parcial — sólo 11 de 80 UCs tienen FRs derivados)
 
 4.4 Requisito No Funcional (NFR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

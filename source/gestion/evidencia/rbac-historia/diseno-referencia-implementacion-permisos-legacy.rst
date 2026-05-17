@@ -28,7 +28,7 @@ Diseno de Referencia — Implementacion Permisos Legacy (Code)
  **referencia para la implementacion futura**.
 
  Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` y
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` y
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.
 
 ----
@@ -46,7 +46,7 @@ al rebuild documental de IACT-docs.
 **Estado:** legacy preservado para trazabilidad. NO es codigo
 del proyecto IACT vigente. La spec vigente para implementacion
 futura esta en
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 ----
 
@@ -62,7 +62,7 @@ futura esta en
    - Proposito
  * - ``call_center_privilege_models.py``
    - ~12 KB
-   - Modelos Django de privilegios call center (Campaign, User extendido)
+   - Modelos del backend de privilegios call center (Campaign, User extendido)
  * - ``call_center_privilege_service.py``
    - ~13 KB
    - Service layer para verificacion de privilegios
@@ -74,10 +74,10 @@ futura esta en
    - Datos seed iniciales (modulos, capacidades, grupos)
  * - ``module_system_admin.py``
    - ~12 KB
-   - Django Admin integration para el sistema de modulos
+   - integración con el panel administrativo del backend para el sistema de modulos
  * - ``module_system_models.py``
    - ~15 KB
-   - Modelos Django nucleares (Module, Capability, Group)
+   - Modelos del backend nucleares (Module, Capability, Group)
  * - ``module_system_permissions.py``
    - ~9 KB
    - DRF permission classes
@@ -118,7 +118,7 @@ El codigo usa vocabulario legacy que **NO cumple CNST-033 vigente**:
    - ``Funcion``, ``Function``
    - 1:1
  * - ``CallCenterUser``
-   - ``User`` (Django builtin)
+   - ``User`` (builtin del Servicio de Aplicación)
    - Eliminar extensiones
  * - ``Campaign``
    - (no aplica)
@@ -279,9 +279,9 @@ Para el implementador futuro:
 
 **Spec vigente para implementacion futura:**
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` — modelo
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo
   conceptual.
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-003-rbac-core` —
+- :doc:`/arquitectura-tecnica/modulos/permissions/index` —
   modulo arquitectonico RBAC_CORE.
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` —
   modelo plano.

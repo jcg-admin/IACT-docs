@@ -69,7 +69,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
 - :doc:`/requisitos/casos-uso/auth/uc-auth-01/index`
   (login que detectara first_login)
@@ -92,7 +92,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

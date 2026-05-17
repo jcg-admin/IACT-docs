@@ -41,7 +41,7 @@ implementado (ADR-005) - Requisitos de auditoría (ISO 27001) - NO usar
 variables de entorno para configuración dinámica (solo para
 infraestructura) - Necesidad de historial inmutable de cambios
 
-**Impacto:** - **Operaciones**: Reduce time-to-fix para ajustes
+**Impacto:** -**Operaciones**: Reduce time-to-fix para ajustes
 operativos - **Seguridad**: Permite ajustar parámetros de seguridad sin
 downtime - **Compliance**: Trazabilidad completa para auditorías -
 **DevOps**: Desacopla configuración de código
@@ -272,12 +272,12 @@ schema enforcement - Historial complejo de implementar
 Referencias
 -----------
 
--  `Documentación app
-   configuration <../../backend/arquitectura/configuration.rst>`__
+-  :doc:`Documentación app
+   configuration </backend/arquitectura/configuration>`
 -  ``PLAN_MAESTRO_PRIORIDAD_02.rst`` (documento histórico, ver temp-holding)
    (Tareas 33-41)
--  `ADR-005: Grupos Funcionales Sin
-   Jerarquía <ADR-005-grupos-funcionales-sin-jerarquia.rst>`__
+-  :doc:`ADR-005: Grupos Funcionales Sin
+   Jerarquía </backend/adr-back-001-grupos-funcionales-sin-jerarquia>`
 -  `ISO 27001 Audit Trail
    Requirements <https://www.iso.org/standard/27001>`__
 -  `Django Best Practices for
@@ -302,5 +302,5 @@ valores por defecto
 
 --------------
 
-**Estado**: Implementado y en producción **Próxima revisión**:
+**Estado**: Implementado y en producción**Próxima revisión**:
 2025-12-09

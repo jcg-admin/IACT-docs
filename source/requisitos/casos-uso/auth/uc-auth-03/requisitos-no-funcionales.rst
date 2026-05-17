@@ -12,7 +12,7 @@ Parte 6 — Requisitos no funcionales
  :header-rows: 0
 
  * - **Latencia P50**
-   - ≤ 250 ms (bcrypt cost 12 ~150 ms)
+   - ≤ 250 ms (costo de hash configurado ~150 ms)
  * - **Latencia P99**
    - ≤ 500 ms
  * - **Throughput**
@@ -20,7 +20,7 @@ Parte 6 — Requisitos no funcionales
      frecuente)
  * - **Concurrencia**
    - Lock pesimista en User; concurrencia con
-     UC_USR_03 maneja via SELECT FOR UPDATE
+     UC_USR_03 maneja via consultar con bloqueo
 
 6.2 Seguridad
 =============
@@ -39,7 +39,7 @@ Parte 6 — Requisitos no funcionales
    - ``secrets.SystemRandom``; entropia minima
      72 bits; charset mixto
  * - **Hashing**
-   - bcrypt cost 12 (resistencia 2^12 rounds)
+   - costo de hash configurado (resistencia 2^12 rounds)
  * - **No-leak**
    - La contrasena temporal NO aparece en:
      logs, response, UI del admin, AuditEvent

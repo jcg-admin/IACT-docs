@@ -148,7 +148,7 @@ Cada 1 minuto, 24/7, todo el ano
 
 .. code-block:: text
 
- */1 * * * *
+ */1* * * *
  
  Explicacion:
  - */1: Cada 1 minuto
@@ -162,7 +162,7 @@ Cada 1 minuto, 24/7, todo el ano
 .. code-block:: bash
 
  # Crontab entry
- */1 * * * * cd /app/iact && /usr/bin/python manage.py mark_expired_sessions >> /var/log/iact/cron_sessions.log 2>&1
+ */1* * * * cd /app/iact && /usr/bin/python manage.py mark_expired_sessions >> /var/log/iact/cron_sessions.log 2>&1
 
 **Desglose del Comando:**
 
@@ -455,7 +455,7 @@ Genera integer hash consistente del string
  class Command(BaseCommand):
  help = 'Mark expired sessions'
  
- def handle(self, *args, **options):
+ def handle(self, *args,**options):
  lock_acquired = acquire_lock(
  connection.connection,
  'mark_expired_sessions'
@@ -509,7 +509,7 @@ Codigo funcional completo del job/command.
  python manage.py mark_expired_sessions
  
  Cron:
- */1 * * * * cd /app && python manage.py mark_expired_sessions
+ */1* * * * cd /app && python manage.py mark_expired_sessions
  """
  
  import logging
@@ -538,7 +538,7 @@ Codigo funcional completo del job/command.
  INACTIVITY_TIMEOUT_MINUTES = 15
  LOCK_NAME = 'mark_expired_sessions'
  
- def handle(self, *args, **options):
+ def handle(self, *args,**options):
  start_time = time.time
  
  # Try to acquire lock
@@ -709,7 +709,7 @@ Panel 3: Tiempo Desde Ultimo Exito
 
  time - last_success_timestamp
 
-**Alertas (AlertManager):**
+**Alertas (AlertOperationsCoordinator):**
 
 Alerta 1: Job No Ejecutado en 5 Minutos
 

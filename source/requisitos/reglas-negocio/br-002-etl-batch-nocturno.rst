@@ -113,7 +113,7 @@ por recursos con operaciones diurnas del call center.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: admin_sistema (AGR-009)
+- **Responsable**: pipeline_admin (AGR-009 — ``pipeline_admin_group``)
 - **Proceso de Cambio**: Solicitud de cambio con justificacion operacional
 - **Frecuencia de Revision**: Anual
 
@@ -133,7 +133,7 @@ por recursos con operaciones diurnas del call center.
    - Descripcion de Aplicacion
  * - MOD_Pipeline
    - Ejecuta jobs ETL programados
- * - Celery Beat
+ * - Scheduler de tareas
    - Scheduler que dispara proceso a medianoche
  * - Base Analytics
    - Recibe datos sincronizados
@@ -141,7 +141,7 @@ por recursos con operaciones diurnas del call center.
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: AGR-009 (admin_sistema), AGR-010 (operador_etl)
+- **Roles**: AGR-009 (``pipeline_admin_group`` — supervisión ETL), AGR-010 (``system_admin_group`` — escala operativa global)
 - **Sistemas Externos**: Sistema IVR, Scheduler del sistema
 
 4.3 Excepciones

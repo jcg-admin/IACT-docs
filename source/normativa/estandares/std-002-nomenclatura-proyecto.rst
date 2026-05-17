@@ -288,7 +288,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  
  Donde:
  UC = Prefijo estándar
- [MOD] = Código módulo (AUTH, USR, ACC, PIP, RPT, ALR, AUD, LOG)
+ [MOD] = Código módulo (AUTH, USR, ACC, PERM, PIP, RPT, ALR, AUD, LOG, OPR, SUP, CLI)
  [NN] = Secuencial de 2 dígitos dentro del módulo (01, 02, 03, ...)
 
 **Nombre de Archivo:**
@@ -304,12 +304,12 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  UC_USR_01_Crear_Usuario_4_0_0.rst
  UC_ACC_01_Asignar_Funciones_4_0_0.rst
  UC_PIP_01_Supervisar_ETL_4_0_0.rst
- UC_RPT_06_Exportar_CSV_4_0_0.rst
+ UC_RPT_04_Exportar_Reporte_4_0_0.rst
  UC_ALR_01_Configurar_Alerta_4_0_0.rst
  UC_AUD_01_Consultar_Auditoria_4_0_0.rst
  UC_LOG_01_Consultar_Logs_4_0_0.rst
 
-**Códigos de Módulo (8):**
+**Códigos de Módulo (12):**
 
 .. list-table::
  :widths: 15 25 60
@@ -326,7 +326,10 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
    - Gestión de usuarios e identidades
  * - ACC
    - MOD_Access
-   - Control de acceso RBAC
+   - Control de acceso RBAC (vista funcional)
+ * - PERM
+   - MOD_Permissions
+   - Gestión granular de permisos (vista técnica)
  * - PIP
    - MOD_Pipeline
    - Supervisión del proceso ETL
@@ -342,6 +345,15 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  * - LOG
    - MOD_Logs
    - Bitácoras técnicas del sistema
+ * - OPR
+   - MOD_Operator
+   - Acciones de agentes call center
+ * - SUP
+   - MOD_Supervision
+   - Supervisión en tiempo real
+ * - CLI
+   - MOD_Caller
+   - Experiencia del cliente IVR (sin RBAC)
 
 4.3 Reglas de Negocio (BR)
 ---------------------------
@@ -363,7 +375,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 
  BR_001_Cliente_Debe_Autenticarse_1_0_0.rst
  BR_007_Separacion_Funciones_1_0_0.rst
- BR_015_Restriccion_SoD_1_0_0.rst
+ BR_015_Restriccion_Separacion_1_0_0.rst
  BR_020_Clasificacion_Datos_1_0_0.rst
 
 4.4 Requisitos Funcionales (FR)
@@ -383,14 +395,14 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 
 .. important::
 
- **Separador especial:** FR usa **guión bajo + punto** (``_[NNN].[NN]_``)
+ **Separador especial:** FR usa**guión bajo + punto** (``_[NNN].[NN]_``)
 
 **Ejemplos:**
 
 .. code-block:: text
 
  FR_001.01_Validar_Credenciales_1_0_0.rst
- FR_010.06_Verificar_SoD_1_0_0.rst
+ FR_010.06_Verificar_Separacion_1_0_0.rst
  FR_060.03_Generar_CSV_1_0_0.rst
 
 **Nota:** En v4.0 de UC también se acepta el formato expandido:
@@ -398,7 +410,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 .. code-block:: text
 
  FR_UCAUTH_01.01_Validar_Username_1_0_0.rst
- FR_UCACC_05.02_Verificar_SoD_1_0_0.rst
+ FR_UCACC_05.02_Verificar_Separacion_1_0_0.rst
 
 4.5 Restricciones de Arquitectura (CNST)
 ----------------------------------------
@@ -1025,17 +1037,17 @@ Al crear o renombrar un artefacto, verificar:
  │ └── BReq_001_Objetivos_IACT_1_0_0.rst
  ├── reglas_negocio/
  │ ├── BR_001_Cliente_Debe_Autenticarse_1_0_0.rst
- │ └── BR_015_Restriccion_SoD_1_0_0.rst
+ │ └── BR_015_Restriccion_Separacion_1_0_0.rst
  ├── casos_uso/
  │ ├── auth/
  │ │ ├── UC_AUTH_01_Iniciar_Sesion_4_0_0.rst
  │ │ └── UC_AUTH_02_Cerrar_Sesion_4_0_0.rst
  │ └── access/
  │ ├── UC_ACC_01_Asignar_Funciones_4_0_0.rst
- │ └── UC_ACC_05_Gestionar_SoD_4_0_0.rst
+ │ └── UC_ACC_05_Gestionar_Separacion_4_0_0.rst
  ├── funcionales/
  │ ├── FR_001.01_Validar_Credenciales_1_0_0.rst
- │ └── FR_010.06_Verificar_SoD_1_0_0.rst
+ │ └── FR_010.06_Verificar_Separacion_1_0_0.rst
  └── no_funcionales/
  └── NFR_SEC_001_Autenticacion_2FA_1_0_0.rst
 

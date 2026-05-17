@@ -691,8 +691,8 @@ StRS cumple estructura Clause 9.4 - [ ] SyRS cumple estructura Clause
 9.5 - [ ] SRS cumple estructura Clause 9.6 - [ ] RTM bidireccional
 completa
 
-**Métricas:** - [ ] % de requisitos con trazabilidad upward: **Target
-100%** - [ ] % de requisitos con trazabilidad downward: **Target ≥95%**
+**Métricas:** - [ ] % de requisitos con trazabilidad upward:**Target
+100%** - [ ] % de requisitos con trazabilidad downward:**Target ≥95%**
 - [ ] % de tests que trazan a requisitos: **Target ≥90%** - [ ] Tiempo
 promedio de regeneración de índices: **Target <30 seg**
 
@@ -762,7 +762,7 @@ Ejemplo 1: Trazabilidad de Autenticación
  ├─ RS-001: Usuario gerente necesita acceso 24/7
  │ └─ RF-005: Login con username/password
  │ ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.rst#2.1
- │ ├─ CODE: apps/authentication/views.py#LoginView
+ │ ├─ CODE: apps/authentication/views.py#LoginEndpoint
  │ └─ TEST: tests/test_auth_login.py::test_login_success
  │
  └─ RNF-001: Tiempo de autenticación < 500ms

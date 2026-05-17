@@ -54,7 +54,7 @@ Parte 11 — Implementacion tecnica
 
    procedure queue(payload, invoker, ctx):
        require AuthorizationGuard.has(
-                 invoker, 'export_reports')
+                 invoker, 'export_csv')
        PayloadValidator.validate(payload)
        estimated_rows =
          AnalyticsRepo.estimate(
@@ -99,7 +99,7 @@ Parte 11 — Implementacion tecnica
        user =
          UserRepo.load(job.actor_id)
        if not user.has_function(
-                'export_reports'):
+                'export_csv'):
            fail(job, 'PERMISSION_REVOKED')
            return
 

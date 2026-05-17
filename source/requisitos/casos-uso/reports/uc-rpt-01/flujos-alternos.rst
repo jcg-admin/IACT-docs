@@ -7,7 +7,7 @@ Parte 4 — Flujos alternos
 4.1 FA-01: Sin datos para el periodo
 ====================================
 
-Query retorna 0 rows. Response con todos
+SP retorna 0 rows. Response con todos
 los KPIs en 0 / null. Frontend muestra
 mensaje "Sin datos para hoy".
 
@@ -34,7 +34,7 @@ suspende polling si esta en background.
 4.5 FA-05: ETL ventana cerrada
 ==============================
 
-Si Analytics no se ha actualizado por > X
+Si BD_IVR no se ha refrescado por > X
 min (ETL desfasado), response incluye
 ``staleness_minutes``. Frontend muestra
 banner "Datos atrasados X min".
@@ -42,10 +42,13 @@ banner "Datos atrasados X min".
 4.6 FA-06: User multi-segmento
 ==============================
 
-Segmentos = [seg_a, seg_b]. Query incluye
-ambos via WHERE / IN. Resultado: union de
-KPIs de los segmentos. ``segments_applied``
-en response indica cuales se aplicaron.
+Segmentos = [seg_a, seg_b]. Se pasan ambos
+como parametro al SP
+``sp_rpt_centros_xsegmento``; el SP
+agrega filtrando por la lista de segmentos.
+Resultado: union de KPIs de los segmentos.
+``segments_applied`` en response indica
+cuales se aplicaron.
 
 4.7 FA-07: Periodo last_7d
 ==========================

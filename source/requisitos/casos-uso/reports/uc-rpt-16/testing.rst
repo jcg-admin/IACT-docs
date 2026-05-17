@@ -4,14 +4,21 @@
 Parte 12 — Testing
 ==================
 
-UT-01: PathMiner extrae secuencia.
-UT-02: Top-N counter.
-UT-03: Drop-off rate por nodo.
+UT-01: parser de filas de
+``sp_rpt_menu_redirigidos`` mapea
+correctamente cada opcion / nodo.
+UT-02: parser de filas de
+``sp_rpt_menu_centro`` arma la
+distribucion menu x centro.
+UT-03: parser de filas de
+``sp_rpt_cMENU_ERROR`` arma drop-off /
+errores por nodo (sin recalculo).
 
 IT-01: Totales correctos.
 IT-02: Filtro ivr_id.
 IT-03: Cross-segmento → 403.
-IT-04: BD timeout.
+IT-04: callproc BD_IVR timeout (cualquiera
+de los 3 SPs) → 503.
 
 E2E-01: Optimizar IVR via reporte.
 

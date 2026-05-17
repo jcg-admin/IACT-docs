@@ -19,7 +19,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 8   Validar cada funcion (existe + ACTIVE)  (Backend → BD)
    PASO 9   Filtrar idempotente (excluir las
             ya asignadas activamente)               (Backend → BD)
-   PASO 10  Validar SoD del conjunto resultante     (Backend → BD)
+   PASO 10  Validar separacion del conjunto resultante     (Backend → BD)
    PASO 11  INSERT N Assignments                    (Backend → BD)
    PASO 12  Invalidar cache de permisos del User    (Backend)
    PASO 13  Emitir AuditEvent FUNCTIONS_ASSIGNED    (Backend → BD)
@@ -109,8 +109,8 @@ PASO 9 — Filtrar idempotente
      ``already_assigned_ids`` (idempotente —
      skip).
 
-PASO 10 — Validar SoD
----------------------
+PASO 10 — Validar separacion
+------------------------------
 
 .. list-table::
  :widths: 20 80
@@ -122,21 +122,21 @@ PASO 10 — Validar SoD
      operacion (funciones actuales +
      ``new_function_ids``);
      consultar
-     ``SoDRule.objects.filter(state='ACTIVE')``;
+     ``SeparationRule.objects.filter(state='ACTIVE')``;
      por cada regla, verificar que NO se
      cumple la condicion de conflicto.
  * - **Implementacion (pseudocodigo)**
    - ::
 
-      sod_rules = SoDRuleRepo.list_active()
-      for rule in sod_rules:
+      separation_rules = SeparationRuleRepo.list_active()
+      for rule in separation_rules:
         if rule.is_violated_by(effective_set):
-          raise SoDViolation(
+          raise SeparationRuleViolation(
             rule_id=rule.id,
             conflicting_pair=
               rule.find_conflict(effective_set))
  * - **Errores**
-   - EX-07 (409 SOD_VIOLATION) — bloquea con
+   - EX-07 (409 SEPARATION_VIOLATION) — bloquea con
      detalle de la regla y par de funciones
      en conflicto.
  * - **CNST**
@@ -255,13 +255,12 @@ PASOS 11-13 dentro de transaccion atomica:
 ::
 
    BEGIN
-     # PASO 10 ya valido SoD (lectura)
-     INSERT INTO assignment ...; -- N filas
+     # PASO 10 ya valido separacion (lectura)
+     registrar en assignment ...; -- N filas
      -- (cache invalidation en PASO 12 fuera
      --  de la tx para evitar lock)
-     INSERT INTO audit_event (
-       event_type='FUNCTIONS_ASSIGNED', ...);
-     [opcional] INSERT INTO internal_message;
+     registrar en audit_event (...);
+     [opcional] registrar en internal_message;
    COMMIT
 
    -- PASO 12 cache invalidation post-COMMIT

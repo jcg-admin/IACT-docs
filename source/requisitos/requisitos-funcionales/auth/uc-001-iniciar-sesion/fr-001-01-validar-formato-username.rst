@@ -90,7 +90,7 @@ FR-001.01: Validar formato username
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-- **CNST aplicables:** CNST-005 (Seguridad DRF)
+- **CNST aplicables:** CNST-005 (Seguridad plataforma de API)
 
 **Notas de Seguridad:**
 

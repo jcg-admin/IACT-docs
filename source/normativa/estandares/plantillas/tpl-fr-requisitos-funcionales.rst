@@ -72,7 +72,7 @@ Nomenclatura
 
  Donde:
  - FR: Prefijo fijo (Functional Requirement)
- - UC[MOD]: Caso de Uso padre (AUTH, USR, ACC, PIP, RPT, ALR, AUD, LOG)
+ - UC[MOD]: Caso de Uso padre (AUTH, USR, ACC, PERM, PIP, RPT, ALR, AUD, LOG, OPR, SUP, CLI)
  - [NN]: Número del UC (01-99)
  - [NN]: Número secuencial del FR dentro del UC (01-99)
 

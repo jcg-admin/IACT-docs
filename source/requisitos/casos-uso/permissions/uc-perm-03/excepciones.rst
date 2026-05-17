@@ -11,7 +11,7 @@ EX-01..EX-14 identicas (token, sin permiso
 ALERTA ALTA, user no existe, user state,
 auto-grant ALERTA CRITICA, justification
 corta, expires_at bounds, funcion invalida,
-SoD violation, ticket_reference, mailbox HARD,
+separacion violation, ticket_reference, mailbox HARD,
 BD timeout, audit fail, throttling).
 
 5.2 Resumen

@@ -110,7 +110,7 @@ auditoria y posible desactivacion preventiva.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: admin_seguridad (AGR-008)
+- **Responsable**: permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Revision de politica de seguridad
 - **Frecuencia de Revision**: Anual
 
@@ -139,7 +139,7 @@ auditoria y posible desactivacion preventiva.
 ^^^^^^^^^^^^^^^^^^^^^
 
 - **Roles**: Todos los usuarios del sistema
-- **Notificados**: AGR-008 (admin_seguridad), AGR-007 (auditor)
+- **Notificados**: AGR-007 (permission_admin_group), AGR-007 (auditor)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
@@ -213,7 +213,7 @@ auditoria y posible desactivacion preventiva.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Cuenta marcada como inactiva en sistema
-- Notificacion a admin_seguridad para revision
+- Notificacion a ``permission_admin_group`` (AGR-007) para revision
 - Registro en log de auditoria
 
 ----

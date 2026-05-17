@@ -6,7 +6,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — GET con filtros + period.
 PASO 2 — JWT.
-PASO 3 — RBAC view_campaign_reports.
+PASO 3 — RBAC view_reports.
 PASO 4 — Resolver segmento.
 PASO 5 — Validar.
 PASO 6 — Cache lookup.

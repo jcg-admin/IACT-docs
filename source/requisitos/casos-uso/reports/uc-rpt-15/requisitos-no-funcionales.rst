@@ -6,7 +6,7 @@ Parte 6 — Requisitos no funcionales
 
 - Performance: P50 ≤ 800 ms (heatmap).
 - Confiabilidad: ≥ 99.5%.
-- Seguridad: view_transfer_reports;
+- Seguridad: view_reports;
   segment-bound; sin PII.
 - Auditabilidad: P-51.
 - Usabilidad: heatmap visual.

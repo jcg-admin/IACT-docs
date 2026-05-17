@@ -45,7 +45,7 @@ Matrices relacionadas (en otras ubicaciones)
 ============================================
 
 - **Matriz RACI RBAC:** vive en
-  :doc:`/arquitectura-tecnica/rbac/raci-rbac-iact` (matriz
+  :doc:`/normativa/gobernanza/raci-rbac/index` (matriz
   específica del modelo RBAC).
 - **Matrices de trazabilidad por UC:** viven en
   ``source/requisitos/requisitos-funcionales/{módulo}/{uc-id}/``

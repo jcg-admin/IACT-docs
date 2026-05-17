@@ -81,7 +81,7 @@ PASO 4 — POST /api/auth/change-password/
 PASO 5 — Validar JWT
 --------------------
 
-DRF middleware valida firma, expiracion,
+plataforma de API middleware valida firma, expiracion,
 blacklist. Extrae ``user_id``, ``session_id``.
 Si invalido, EX-01 (401).
 
@@ -109,7 +109,7 @@ PASO 7 — Validar password actual
  :header-rows: 0
 
  * - **Accion**
-   - ``bcrypt.checkpw(current_password,
+   - ``verificarHash(current_password,
      user.password_hash)``
  * - **Sistema**
    - Si OK, sigue. Si no, EX-02 (400). Aplicar
@@ -144,12 +144,12 @@ PASO 9 — Validar no-reuso
      PasswordHistory.objects.filter(
      user=user).order_by('-changed_at')[:5]``;
      para cada hash en recent:
-     ``bcrypt.checkpw(new_password, hash)``
+     ``verificarHash(new_password, hash)``
  * - **Sistema**
    - Si alguna coincide, EX-04 (400).
  * - **Tambien**
    - Verifica que la nueva no coincide con la
-     actual: ``bcrypt.checkpw(new_password,
+     actual: ``verificarHash(new_password,
      user.password_hash) == False``. Si
      coincide → EX-05 (400).
 
@@ -161,7 +161,7 @@ PASO 10 — Hashear y UPDATE User
  :header-rows: 0
 
  * - **Accion**
-   - ``user.password_hash = bcrypt.hashpw(
+   - ``user.password_hash = generarHash(
      new_password, gensalt(12))``;
      ``user.first_login = False``;
      ``user.password_changed_at = NOW()``;
@@ -266,16 +266,16 @@ Pasos 10-13 dentro de transaccion atomica:
 ::
 
    BEGIN
-     UPDATE user SET password_hash=?,
+     actualizar user: password_hash=?,
        first_login=false, password_changed_at=NOW()
        WHERE id=user_id;
-     INSERT INTO password_history (...);
-     UPDATE session SET state='CLOSED',
+     registrar en password_history (...);
+     actualizar session: state='CLOSED',
        close_reason='PASSWORD_CHANGED'
        WHERE user_id=? AND state='ACTIVE'
        AND session_id != current;
-     INSERT INTO blacklisted_token (N rows);
-     INSERT INTO audit_event (PASSWORD_CHANGED);
+     registrar en blacklisted_token (N filas);
+     registrar en audit_event (PASSWORD_CHANGED);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. La purga de

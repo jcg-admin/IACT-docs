@@ -26,7 +26,7 @@ Analisis de Errores — Modelo RBAC IACT v5.2.0 (Change Impact)
  tarde se formalizo en :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.
 
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 ----
 
@@ -62,7 +62,7 @@ CNST-033 Vocabulario Unificado RBAC.
  * - Nombres de grupos
    - 10
    - CRITICA
- * - Nombres de reglas SoD
+ * - Nombres de reglas de separacion
    - 3
    - CRITICA
  * - Campos SQL mezclados
@@ -241,7 +241,7 @@ Patron correcto:
    - ``assign_function_groups``
    - Ingles + completo
  * - ACC-005
-   - ``gestiona_sod``
+   - ``gestiona_separation``
    - ``manage_separation_rules``
    - Ingles + sin acronimo
 
@@ -488,8 +488,8 @@ Patron correcto:
 
 ----
 
-6. Errores en Nombres de Reglas SoD (3 reglas)
-==============================================
+6. Errores en Nombres de Reglas de Separacion (3 reglas)
+==========================================================
 
 .. list-table::
  :header-rows: 1
@@ -580,19 +580,26 @@ INCORRECTO (en el documento):
        """Listado de reportes."""
        pass
 
-CORRECTO (con nombre legible para claridad):
+CORRECTO (segun CIA-RBAC-002 DEC-001 — codename, no function_id):
 
 .. code-block:: python
 
-   @require_function('RPT-001')  # view_reports
+   @require_function('view_reports')
    def list_reports(request):
        """Listado de reportes."""
        pass
 
+.. note::
+
+   El ejemplo anterior que usaba ``@require_function('RPT-001')  # view_reports``
+   era incorrecto: pasaba el ``function_id`` en lugar del codename.
+   Ver :doc:`/gestion/evidencia/rbac-arquitectura/cia-rbac-002-arquitectura-permisos-drf`
+   (DEC-001) para la especificacion vigente.
+
 ----
 
-9. Errores en Modelos Django
-============================
+9. Errores en Modelos del Backend
+===================================
 
 9.1 help_text mezclados
 -----------------------
@@ -751,7 +758,7 @@ Categorias:
 
 - Nombres de funciones: 42 (CRITICA).
 - Nombres de grupos: 10 (CRITICA).
-- Nombres de reglas SoD: 3 (CRITICA).
+- Nombres de reglas de separacion: 3 (CRITICA).
 - Campos SQL: 15+ (ALTA).
 - Ejemplos y comentarios: 20+ (ALTA).
 
@@ -770,7 +777,7 @@ Accion materializada:
 (no publicado).
 
 **Documento de respuesta vigente:**
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
 **Restriccion normativa que canonizo el aprendizaje:**
 :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.

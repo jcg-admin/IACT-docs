@@ -257,7 +257,7 @@ FASE 2: Documentar Arquitectura y Diagramas
  ```mermaid
  sequenceDiagram
  actor U as Usuario
- participant V as LoginView
+ participant V as LoginEndpoint
  participant AS as AuthenticationService
  participant UM as User Model
  participant DB as PostgreSQL
@@ -486,7 +486,7 @@ FASE 2: Documentar Arquitectura y Diagramas
     * - RN-001
       - Negocio
       - Sistema de login con credenciales locales
-      - LoginView, TokenService
+      - LoginEndpoint, TokenService
     * - RF-005
       - Funcional
       - Login con credenciales locales

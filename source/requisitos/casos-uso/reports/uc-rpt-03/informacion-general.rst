@@ -20,7 +20,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-001, BReq-003
  * - **Funcion RBAC**
-   - ``view_historical_reports``
+   - ``view_reports``
 
 1.2 Proposito
 =============

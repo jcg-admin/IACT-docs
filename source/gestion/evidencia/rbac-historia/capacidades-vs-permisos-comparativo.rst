@@ -233,7 +233,7 @@ Resultado en v5.2.1 vigente:
 - **42 funciones atomicas** (en ingles canonico per CNST-033).
 - **10 grupos predefinidos** (AGR-001..010) que agrupan funciones
   comunes para casos de uso tipicos.
-- **3 reglas SoD** (SOD-001/002/003) que declaran funciones
+- **3 reglas de separacion** (SOD-001/002/003) que declaran funciones
   incompatibles.
 - Sin roles jerarquicos.
 
@@ -275,5 +275,5 @@ inviolable.
   formaliza vocabulario "Funcion" / "Function".
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm` —
   documenta D-RBAC-1.
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` —
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` —
   catalogo vigente (42 funciones + 10 grupos AGR).

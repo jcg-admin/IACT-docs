@@ -5,7 +5,7 @@ Parte 5 — Excepciones
 ==========================
 
 5.1 EX-01: JWT — 401.
-5.2 EX-02: Sin view_agent_reports — 403.
+5.2 EX-02: Sin view_reports — 403.
 5.3 EX-03: Sin view_agent_detail (en detalle) — 403.
 5.4 EX-04: agent_id no existe — 404.
 5.5 EX-05: agent_id cross-segmento — 403.

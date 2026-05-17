@@ -9,7 +9,7 @@ Parte 9 — Criterios de aceptacion
 
 CA-01..15 (grant happy, justification
 obligatoria, expires_at bounds, auto-grant
-prohibido, SoD violation, mailbox HARD,
+prohibido, separacion violation, mailbox HARD,
 sin permiso, idempotencia parcial,
 re-grant post EXPIRED, ticket_reference,
 audit reforzado, cache post-COMMIT,

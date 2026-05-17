@@ -22,7 +22,7 @@ UC_USR_02 tiene **2 sub-flujos**:
    PASO 3   GET /api/users/                       (FE → BE)
    PASO 4   Validar JWT + RBAC list_users         (Backend)
    PASO 5   Construir query (filtros + sort)      (Backend)
-   PASO 6   SELECT paginado                       (Backend → BD)
+   PASO 6   consultar paginado                       (Backend → BD)
    PASO 7   Aplicar restriccion de campos
             (CNST-026 sin PII directa)            (Backend)
    PASO 8   Audit selectivo P-16

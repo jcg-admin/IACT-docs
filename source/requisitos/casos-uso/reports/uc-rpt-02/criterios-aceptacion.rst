@@ -38,7 +38,7 @@ Stream a 100/s → max 1/5s al frontend.
 ==========================
 
 User sin
-``view_realtime_metrics`` → 403 + audit.
+``view_kpis`` → 403 + audit.
 
 9.8 CA-08: Sin segmento 400
 ===========================

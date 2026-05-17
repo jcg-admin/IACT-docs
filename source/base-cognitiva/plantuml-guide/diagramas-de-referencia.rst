@@ -64,10 +64,10 @@ Diagramas RBAC
    - Aplicación
  * - DGM-RBAC-001
    - Modelo RBAC plano IACT
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - DGM-RBAC-002
    - Matriz RACI funciones
-   - :doc:`/arquitectura-tecnica/rbac/raci-rbac-iact`
+   - :doc:`/normativa/gobernanza/raci-rbac/index`
  * - DGM-RBAC-003
    - Coexistencia ACC + PERM
    - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`

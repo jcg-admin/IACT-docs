@@ -110,7 +110,7 @@ de la Session.
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-003 sesiones persistidas en BD;
      CNST-004 sesion unica; CNST-009
-     autenticacion DRF; CNST-013 manejo
+     autenticacion plataforma de API; CNST-013 manejo
      estandarizado; CNST-025 auditoria
      inmutable.
  * - **Funcion RBAC**

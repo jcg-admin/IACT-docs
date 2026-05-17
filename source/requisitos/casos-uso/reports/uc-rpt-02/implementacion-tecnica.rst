@@ -16,7 +16,7 @@ Parte 11 — Implementacion tecnica
  * - **StreamGateway**
    - endpoint de conexion (SSE / WS)
  * - **AuthorizationGuard**
-   - JWT + view_realtime_metrics
+   - JWT + view_kpis
  * - **SegmentResolver**
    - segmento del User
  * - **StreamSubscriber**
@@ -62,7 +62,7 @@ Parte 11 — Implementacion tecnica
        user = AuthorizationGuard.validate(
                 request.jwt)
        require user.has_function(
-                 'view_realtime_metrics')
+                 'view_kpis')
        segments =
          SegmentResolver.for(user.id)
        if not segments: raise USERLESS

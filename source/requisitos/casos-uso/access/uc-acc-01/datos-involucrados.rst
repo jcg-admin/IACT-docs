@@ -101,7 +101,7 @@ via UC_USR_04).
    - USER_NOT_FOUND
    - target inexistente
  * - 409
-   - SOD_VIOLATION
+   - SEPARATION_VIOLATION
    - con detalle rule_id + conflict_pair
  * - 429
    - RATE_LIMIT
@@ -165,7 +165,7 @@ Permite multiples REVOKED historicos.
 7.5.2 PermissionCache (escritura — DELETE/INVALIDATE)
 -----------------------------------------------------
 
-Implementacion-dependiente (Redis, Memcached,
+Implementacion-dependiente (cache distribuido,
 in-memory). El UC delega a
 ``PermissionCache.invalidate(user_id)``.
 
@@ -215,11 +215,11 @@ Si politica ``NOTIFY_USER_ON_ASSIGN=true``:
 - ``User`` (target): para validar estado.
 - ``Function``: para validar existencia y
   estado activo.
-- ``SoDRule`` (state=ACTIVE): para validacion
+- ``SeparationRule`` (state=ACTIVE): para validacion
   PASO 10.
 - ``Assignment`` actuales del User: para
   filtrado idempotente (PASO 9) y evaluacion
-  del conjunto efectivo SoD (PASO 10).
+  del conjunto efectivo separacion (PASO 10).
 
 7.6 Volumetria estimada
 =======================
@@ -299,10 +299,10 @@ Si politica ``NOTIFY_USER_ON_ASSIGN=true``:
    - Construir effective_function_set
  * - FR-ACC-01-09
    - 10
-   - Evaluar SoDRules contra effective_set
+   - Evaluar SeparationRules contra effective_set
  * - FR-ACC-01-10
    - 10
-   - Bloquear con detalle si SoD viola
+   - Bloquear con detalle si separacion viola
  * - FR-ACC-01-11
    - 11
    - INSERT N Assignments con metadata

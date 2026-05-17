@@ -10,13 +10,13 @@ Parte 10 — Patrones de diseno
 10.1.1 Specification
 --------------------
 
-``SoDRule`` es una Specification que evalua
+``SeparationRule`` es una Specification que evalua
 si un set de funciones la viola.
 
 10.1.2 Repository
 -----------------
 
-``SoDRuleRepository``,
+``SeparationRuleRepository``,
 ``FunctionRepository``.
 
 10.1.3 Strategy
@@ -34,7 +34,7 @@ Pipeline middleware estandar.
 10.1.5 Observer
 ---------------
 
-AuditLog + SoDRuleCache observers que se
+AuditLog + SeparationRuleCache observers que se
 notifican post-CRUD.
 
 10.1.6 Template Method
@@ -61,7 +61,7 @@ Sin AuditEvent no se acepta el cambio
 -------------------------
 
 ``view_separation_rules`` (lectura) distinta
-de ``manage_separation_rules`` (CRUD). El
+de ``view_separation_rules`` (CRUD). El
 auditor puede tener solo lectura.
 
 10.2.4 P-16 Audit selectivo
@@ -78,7 +78,7 @@ DELETE → ``state=RETIRED`` (no DELETE fisico).
 10.2.6 P-29 Cache post-COMMIT
 -----------------------------
 
-SoDRuleCache.invalidate post-COMMIT para
+SeparationRuleCache.invalidate post-COMMIT para
 notificar a UC_ACC_01/04/PERM_03.
 
 10.2.7 P-32 Reason-required
@@ -89,7 +89,7 @@ notificar a UC_ACC_01/04/PERM_03.
 10.2.8 P-36 Immutable critical fields
 -------------------------------------
 
-``function_ids`` de SoDRule es inmutable
+``function_ids`` de SeparationRule es inmutable
 post-create. Modificacion de la composicion
 de la regla requiere migracion explicita
 (RETIRE old + CREATE new). Defensa contra
@@ -142,10 +142,10 @@ resuelven aparte (UC_ACC_02).
    - Donde
  * - Specification
    - GoF
-   - SoDRule.is_violated_by
+   - SeparationRule.is_violated_by
  * - Repository
    - GoF
-   - SoDRule / Function
+   - SeparationRule / Function
  * - Strategy
    - GoF
    - ImmutabilityPolicy
@@ -175,7 +175,7 @@ resuelven aparte (UC_ACC_02).
    - state=RETIRED
  * - P-29 Cache post-COMMIT
    - IACT
-   - SoDRuleCache.invalidate
+   - SeparationRuleCache.invalidate
  * - P-32 Reason-required
    - IACT
    - retire_reason

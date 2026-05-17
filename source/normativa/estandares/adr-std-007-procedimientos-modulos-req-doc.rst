@@ -58,7 +58,7 @@ universal:
 =======================================================
 
 El commitment de v2.0.0 § 8.2 es: *"30 días sin nuevas
-modificaciones a STD-007"* — refiriéndose al **patrón
+modificaciones a STD-007"* — refiriéndose al**patrón
 universal**, que NO cambia con esta decisión.
 
 Lo que se agrega es una **tabla de módulos canónicos** dentro de
@@ -85,7 +85,7 @@ Ningún módulo existente aplica:
 - ``qa`` es calidad/testing.
 - ``gob`` es lifecycle documental (aprobación, publicación, etc.).
 
-**Decisión:** crear módulo **REQ**.
+**Decisión:** crear módulo**REQ**.
 
 3.2 Bucket 2: Documentation Engineering (14 archivos)
 -----------------------------------------------------
@@ -94,7 +94,7 @@ Procedimientos que generan artefactos documentales que NO son
 requisitos: STD, ADR, POL, MOD, FD, VIEW, RTM, API, TST, INDEX,
 + revisión de templates y tooling Sphinx.
 
-**Decisión:** crear módulo **DOC**.
+**Decisión:** crear módulo**DOC**.
 
 3.3 Bucket 3: Lifecycle documental (7 archivos)
 -----------------------------------------------
@@ -102,14 +102,14 @@ requisitos: STD, ADR, POL, MOD, FD, VIEW, RTM, API, TST, INDEX,
 Aprobación, publicación, congelamiento, descongelamiento,
 auditoría, actualización de modelo, versionado.
 
-**Encaja perfectamente en módulo** ``gob`` **existente**
+**Encaja perfectamente en modulo** ``gob`` **existente**
 (gobernanza). Numeración existente: 001, 002, 008. Llenar gaps
 003-007, 009, 010.
 
 4. Decisión
 ===========
 
-1. Crear módulos **REQ** y **DOC**.
+1. Crear módulos **REQ** y**DOC**.
 2. Asignar 18 + 14 + 7 = 39 archivos a los buckets correspondientes.
 3. Bump STD-007 v2.0.0 → **v2.0.1** documentando módulos canónicos
    en § 4.

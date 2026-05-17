@@ -86,7 +86,7 @@ Mitigacion contra ataques contra password actual
 10.2.5 P-14 Constant-time + delay aleatorio
 -------------------------------------------
 
-bcrypt.checkpw es constant-time por diseno; el
+verificarHash es constant-time por diseno; el
 delay aleatorio adicional 100-200ms evita
 inferir validez de current_password por timing.
 
@@ -109,7 +109,7 @@ demostrar conocimiento de la actual.
 10.3.3 Almacenar contrasena en plain
 ------------------------------------
 
-**No aplica**: bcrypt cost 12 obligatorio. Solo
+**No aplica**: costo de hash configurado obligatorio. Solo
 se almacenan hashes.
 
 10.3.4 Listar la politica completa al frontend

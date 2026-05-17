@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``view_general_audit``
+- **User con funcion** ``view_audit_log``
 - **AuditRepo** (read replica)
 
 Auth + RBAC.

@@ -12,7 +12,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-005, BReq-006
  * - **Funcion RBAC**
-   - ``view_etl_errors``
+   - ``view_pipeline_errors``
 
 1.1 Proposito
 =============

@@ -222,8 +222,8 @@ Patrón de Nomenclatura de Archivo
 
  UC-DOMINIO-###-verbo-objeto.rst
 
-Donde: - **UC**: Use Case - **DOMINIO**: BACK \| FRONT \| DEVOPS \| QA
-\| AI \| GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
+Donde: - **UC**: Use Case -**DOMINIO**: BACK \| FRONT \| DEVOPS \| QA
+\| AI \| GOB - **###**: Número secuencial 001-999 -**verbo-objeto**: En
 snake_case (minúsculas con guiones)
 
 Acciones
@@ -896,7 +896,7 @@ Template PlantUML
 
  ' Definir actores
  actor "Auditor" as auditor
- actor "Sistema de Base de Datos" as db
+ actor "Sistema de Base de Datos" as SistemaDeBaseDeDatos
 
  ' Definir sistema
  rectangle "Sistema IACT - Módulo de Auditoría" {
@@ -912,8 +912,8 @@ Template PlantUML
  auditor --> UC022
 
  ' Actor secundario (flecha de UC a actor)
- UC020 --> db
- UC021 --> db
+ UC020 --> SistemaDeBaseDeDatos
+ UC021 --> SistemaDeBaseDeDatos
 
  ' Notas explicativas
  note right of UC020
@@ -942,7 +942,7 @@ Ejemplo: UC-BACK-020
  skinparam packageStyle rectangle
 
  actor "Auditor" as auditor
- actor "Sistema de Base de Datos" as db
+ actor "Sistema de Base de Datos" as SistemaDeBaseDeDatos
  actor "Sistema de Reportes" as reportes
 
  rectangle "Sistema IACT - Módulo de Auditoría" {
@@ -953,7 +953,7 @@ Ejemplo: UC-BACK-020
  auditor --> UC020
 
  ' Actores secundarios
- UC020 --> db
+ UC020 --> SistemaDeBaseDeDatos
  UC020 --> reportes
 
  note right of UC020
@@ -1276,7 +1276,7 @@ PASO 10: Diagrama UML
 
  actor "Administrador de Usuarios" as admin
  actor "Sistema de Autenticación" as auth
- actor "Base de Datos de Usuarios" as db
+ actor "Base de Datos de Usuarios" as BaseDeDatosDeUsuarios
  actor "Sistema de Email" as email
 
  rectangle "Sistema IACT - Módulo de Gestión de Usuarios" {
@@ -1294,12 +1294,12 @@ PASO 10: Diagrama UML
 
  ' Actores secundarios
  UC010 --> auth
- UC010 --> db
+ UC010 --> BaseDeDatosDeUsuarios
  UC010 --> email
 
- UC011 --> db
- UC012 --> db
- UC013 --> db
+ UC011 --> BaseDeDatosDeUsuarios
+ UC012 --> BaseDeDatosDeUsuarios
+ UC013 --> BaseDeDatosDeUsuarios
 
  note right of UC010
  Genera contraseña temporal
@@ -1390,22 +1390,22 @@ Problema 4: Estoy describiendo CÓMO en lugar de QUÉ
 **Solución**: Reformular cada paso respondiendo “¿Qué se logra?” en
 lugar de “¿Cómo se hace?”.
 
-**Incorrecto**: “El sistema ejecuta SHA256(password)” **Correcto**: “El
+**Incorrecto**: “El sistema ejecuta SHA256(password)”**Correcto**: “El
 sistema valida la contraseña”
 
 Referencias
 -----------
 
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.rst>`__
-- `ADR-GOB-008: Diagramas UML de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
-- `PROCED-GOB-003: Documentar Regla de
-  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
+- :doc:`ADR-GOB-008: Diagramas UML de Casos de
+  Uso </normativa/gobernanza/adr-gob-006-diagramas-uml-casos-uso>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
+- :doc:`PROCED-GOB-003: Documentar Regla de
+  Negocio </normativa/procedimientos/proced-gob-003-documentar-regla-negocio>`
 
 Historial de Cambios
 --------------------

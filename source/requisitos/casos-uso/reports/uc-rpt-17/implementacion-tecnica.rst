@@ -4,68 +4,72 @@
 Parte 11 — Implementacion tecnica
 =================================
 
-Componentes:
+11.1 Componentes
+================
 
-- UniqueClientsEndpoint
-- AuthorizationGuard
-- DistinctCounter (exact + HLL)
-- RecurrenceCalculator
-- ComparativeCalculator (new vs returning)
-- MetricsCache
+- ``ClientesReportView`` (DRF APIView)
+- ``AuthorizationGuard``
+- ``SegmentResolver`` (``<<include>>`` UC_INC_RPT_01)
+- ``ReportingService`` —
+  ``cursor.callproc('sp_rpt_clientes',
+  [period, segments])`` sobre BD_IVR
+  (lee solo ``telefono_hashed``)
+- ``MetricsCache``
 
-Contrato:
-
-::
-
-   contract UniqueClientsService:
-     get(filters, period, invoker, ctx)
-       returns: UniqueClientsReport
-
-Pseudocodigo:
+11.2 Contrato
+=============
 
 ::
 
-   procedure get(filters, period,
-                  invoker, ctx):
+   contract CallerReportService:
+     get(period, segmentos, invoker, ctx)
+       returns: ReporteClientes
+       throws: SinPermiso, UserWithoutSegment,
+               ValidationError, BDTimeout
+
+11.3 Pseudocodigo
+=================
+
+::
+
+   procedure get(period, invoker, ctx):
        require AuthorizationGuard.has(
-                 invoker,
-                 'view_unique_clients_reports')
-       segments = SegmentResolver.for(
-                    invoker.id)
-       cached = cache_get(...)
+                 invoker, 'view_reports')
+       segmentos = SegmentResolver.resolve(
+                     invoker.id)
+       if not segmentos:
+           raise UserWithoutSegment
+
+       key = ('clientes', period,
+              hash(segmentos))
+       cached = MetricsCache.get(key)
        if cached: return cached
 
-       if estimated_volume(period) > 10M:
-           distinct_count =
-             HLL.estimate(segments, period)
-           method = 'hll'
-       else:
-           distinct_count =
-             SQLDistinct.count(
-               segments, period)
-           method = 'exact'
+       try:
+           rows = ReportingService.callproc(
+             'sp_rpt_clientes',
+             [period, segmentos])
+       except BDTimeout:
+           raise
 
-       recurrence =
-         RecurrenceCalculator.compute(
-           segments, period)
-       comparative =
-         ComparativeCalculator.new_vs_returning(
-           segments, period, prior(period))
-       top = TopNAnonymized.compute(
-         segments, period, n=10)
+       # El SP entrega filas pre-agregadas
+       # con telefono_hashed (NO PII raw),
+       # distinct counts, recurrence, new
+       # vs returning. Backend solo parsea.
+       reporte = ClientReportOutput.from_rows(rows)
+       MetricsCache.set(key, reporte, ttl=300)
+       return reporte
 
-       result = UniqueClientsReport(
-         period,
-         distinct_clients_count=distinct_count,
-         method=method,
-         recurrencia_distribution=recurrence,
-         new_vs_returning=comparative,
-         top_volume_anonymized=top)
-       cache_set(...)
-       return result
+11.4 Restricciones cross-cutting
+================================
 
-Stack-agnostico:
+- Read-only sobre BD_IVR (CNST-007).
+- Backend NUNCA ve telefono raw —
+  el hash lo aplica el ETL upstream
+  (``sp_etl_base_clientes``) antes de
+  poblar ``base_ivr_clientes`` (CNST-026).
+- Filtro por segmento (CNST-008) aplicado
+  por el SP al recibir la lista.
+- Top N expone solo prefix de hash
+  (no full hash, no reidentificable).
 
-- Exact distinct: cualquier RDBMS.
-- HLL: nativo en PostgreSQL,
-  Redis, ClickHouse, BigQuery.

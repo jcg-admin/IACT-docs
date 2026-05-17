@@ -181,7 +181,7 @@ User con la funcion via AGR → 200.
 ------------------------------------------
 
 User sin AGR para F → 403.
-Admin emite GRANT (UC_ACC_06).
+Admin emite GRANT (UC_PERM_03).
 User intenta accion → 200 (allowed via
 GRANTED_EXCEPTIONAL).
 

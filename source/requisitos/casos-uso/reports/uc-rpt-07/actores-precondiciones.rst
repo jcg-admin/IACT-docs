@@ -7,7 +7,7 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **User con funcion** ``schedule_reports``
+- **User con funcion** ``schedule_report``
 - **Scheduler** (cron-like)
 - **ExportWorker** (UC_RPT_04)
 - **MailboxService**
@@ -16,8 +16,8 @@ Parte 2 — Actores y precondiciones
 ==================
 
 - User autenticado.
-- ``schedule_reports`` activa.
-- Funcion ``export_reports`` tambien
+- ``schedule_report`` activa.
+- Funcion ``export_csv`` tambien
   (porque cada ejecucion genera export).
 
 2.3 Postcondiciones (creacion)

@@ -41,7 +41,7 @@ Similar a UC_ACC_01 pero:
                ValidationError,
                FunctionNotFound,
                FunctionInactive,
-               SoDViolation,
+               SeparationRuleViolation,
                MailboxFailure,
                TicketReferenceRequired,
                BDTimeout, AuditFalla

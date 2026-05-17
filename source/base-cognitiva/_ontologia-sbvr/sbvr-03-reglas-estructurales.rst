@@ -23,8 +23,10 @@ SBVR_03: Reglas Estructurales (Aleticas)
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
+ atomicas activas (catalogo declara 77 con 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`

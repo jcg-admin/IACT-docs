@@ -4,10 +4,20 @@
 Parte 3 — Flujo principal
 ==========================
 
-PASO 1 — GET con filtros + period.
-PASO 2 — JWT + RBAC.
-PASO 3 — Validar.
-PASO 4 — Query ETLError filtrado.
-PASO 5 — Sanitize stack traces (eliminar
-PII detectable).
-PASO 6 — 200.
+PASO 1 — El PipelineAdmin envia GET a
+          ``/api/v1/etl/errores/`` con filtros opcionales
+          (period, trimestre, pagina).
+
+PASO 2 — El sistema valida el JWT y verifica que el usuario
+          tiene el permiso ``view_pipeline_errors`` (RBAC).
+
+PASO 3 — El sistema valida los filtros recibidos (period
+          dentro de rango permitido por CNST_018, trimestre
+          en formato valido si se indica).
+
+PASO 4 — El sistema consulta el Registro de Ejecuciones
+          filtrando por ``estado = 'fallido'``, period y
+          trimestre, con paginacion.
+
+PASO 5 — El sistema retorna 200 con la lista de ejecuciones
+          fallidas, incluyendo ``error_message`` de cada una.

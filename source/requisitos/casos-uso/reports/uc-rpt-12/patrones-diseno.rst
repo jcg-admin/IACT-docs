@@ -49,7 +49,7 @@ sensitivo (HR-like).
 
 **Solucion**: dos funciones distintas:
 
-- ``view_agent_reports``: list / aggregates.
+- ``view_reports``: list / aggregates.
 - ``view_agent_detail``: drill-down a 1
   agente, audit reforzado.
 

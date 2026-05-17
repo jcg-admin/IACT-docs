@@ -153,7 +153,8 @@ en la ventana,
 
 - ``localStorage.access_token`` removido
 - ``localStorage.refresh_token`` removido
-- Redux ``state.auth.isAuthenticated == false``
+- Gestor de Estado refleja sesion no autenticada
+  (``state.auth.isAuthenticated == false``)
 - Navegacion a ``/login`` ejecutada
 - Mensaje "Tu sesion fue cerrada" visible
 
@@ -168,7 +169,7 @@ token contra cualquier endpoint protegido,
 **ENTONCES**:
 
 - Status response = 401
-- DRF middleware detecta blacklist y rechaza
+- plataforma de API middleware detecta blacklist y rechaza
 
 9.11 CA-11: Performance P50
 ===========================
@@ -227,7 +228,7 @@ token contra cualquier endpoint protegido,
 
 **ENTONCES**:
 
-- Apache redirige a HTTPS o devuelve 403
+- Servidor Web redirige a HTTPS o devuelve 403
 
 9.16 CA-16: AGR no requerido
 ============================

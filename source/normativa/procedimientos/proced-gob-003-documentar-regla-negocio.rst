@@ -198,7 +198,7 @@ Patrón de Nomenclatura
 
  RN-DOMINIO-###-descripcion.rst
 
-Donde: - **RN**: Regla de Negocio (o BR: Business Rule) - **DOMINIO**:
+Donde: - **RN**: Regla de Negocio (o BR: Business Rule) -**DOMINIO**:
 BACK \| FRONT \| DEVOPS \| QA \| AI \| GOB - **###**: Número secuencial
 001-999 - **descripcion**: En snake_case (minúsculas con guiones)
 
@@ -1020,12 +1020,12 @@ Problema 4: La regla parece ser de 2 tipos a la vez
 Referencias
 -----------
 
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-006: Clasificación y Documentación de Reglas de
+  Negocio </normativa/gobernanza/adr-gob-004-clasificacion-reglas-negocio>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
 
 Historial de Cambios
 --------------------

@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``acknowledge_alerts``
+  ``acknowledge_alert``
 - **AlertRepo**
 
 2.2 Precondiciones

@@ -8,18 +8,26 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``view_transfer_reports``
-- **AnalyticsRepo**
+  ``view_reports``
+- **ReportingService** —
+  ``cursor.callproc('sp_rpt_centros_
+  transferencia', [period, segments])``
+  + ``cursor.callproc('sp_rpt_centros_
+  xsegmento', [period, segments])`` sobre
+  BD_IVR.
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC + segmento.
+Auth + RBAC + segmento. BD_IVR accesible
+y SPs ``sp_rpt_centros_transferencia`` y
+``sp_rpt_centros_xsegmento`` instalados.
 
 2.3 Postcondiciones
 ===================
 
-Sin escrituras.
+Sin escrituras (read-only sobre BD_IVR
+y BD operativa, CNST-007).
 
 2.4 Datos de entrada
 ====================

@@ -27,7 +27,7 @@ Para data engineers analizando pipelines.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_etl_logs``
+   - ``view_pipeline_logs``
 
 Estructura: las 12 partes (similar a
 UC_LOG_01 con scope etl).
@@ -42,7 +42,7 @@ UC_LOG_01 con scope etl).
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

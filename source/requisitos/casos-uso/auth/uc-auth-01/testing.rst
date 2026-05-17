@@ -21,10 +21,10 @@ implementacion).
    - Foco
  * - **Unitario**
    - ``AuthService``, ``LocalPasswordStrategy``,
-     ``LoginSerializer`` aislados con mocks de
+     ``LoginRequestContract`` aislados con mocks de
      BD y servicios externos
  * - **Integracion (Django TestCase)**
-   - ``LoginView`` con BD real (sqlite test) +
+   - ``LoginEndpoint`` con BD real (sqlite test) +
      transacciones reales
  * - **API contract**
    - request/response JSON shape verificada
@@ -323,7 +323,7 @@ de respuesta:
  * - Cobertura de lineas (``AuthService``)
    - >= 95%
    - Codigo critico de seguridad
- * - Cobertura de lineas (``LoginView``)
+ * - Cobertura de lineas (``LoginEndpoint``)
    - >= 90%
    - Wrapping del service; alta cobertura sin
      ser absoluta
@@ -349,7 +349,7 @@ Helpers que viven en
 
 .. code-block:: python
 
-   class UserFactory(factory.django.DjangoModelFactory):
+   class UserTestData(factory.django.DjangoModelFactory):
        class Meta:
            model = User
        user_id     = factory.LazyFunction(uuid.uuid4)
@@ -363,7 +363,7 @@ Helpers que viven en
                          state='ACTIVE',
                          first_login=False,
                          password_expires_at=None):
-       user = UserFactory(username=username,
+       user = UserTestData(username=username,
                           state=state,
                           first_login=first_login)
        user.set_password(password)

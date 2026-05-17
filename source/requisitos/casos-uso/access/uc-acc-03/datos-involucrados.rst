@@ -79,7 +79,7 @@ Query params opcionales:
      ],
      "sod_violations_detected": [
        {
-         "rule_id": "sod-001",
+         "rule_id": "sr-001",
          "rule_name": "Admin no auditor",
          "conflict_pair": [
            {"function_id":1,"code":"modify_users"},
@@ -113,8 +113,8 @@ Filtro: ``user_id=target``,
 ``state='ACTIVE'``,
 ``expires_at > NOW() OR expires_at IS NULL``.
 
-7.4.4 SoDRule (lectura — para violations check)
------------------------------------------------
+7.4.4 SeparationRule (lectura — para violations check)
+--------------------------------------------------------
 
 Filtro: ``state='ACTIVE'``.
 
@@ -194,7 +194,7 @@ Filtro: ``state='ACTIVE'``.
    - Detectar expirados pendientes purga
  * - FR-ACC-03-09
    - 12
-   - Detectar SoD violations informativas
+   - Detectar violaciones de separacion informativas
  * - FR-ACC-03-10
    - 13
    - Audit selectivo (P-16)

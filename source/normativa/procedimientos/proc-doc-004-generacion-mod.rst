@@ -46,7 +46,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 2. Alcance
 ----------
 
-**Aplica A:** Los 8 modulos IACT.
+**Aplica A:** Los 13 modulos UC del sistema IACT v5.6.0 (10 RBAC activos in-scope + 2 reservados open-closed + Caller sin RBAC).
 
 **No Aplica A:** Componentes transversales (documentar en arquitectura).
 
@@ -135,7 +135,7 @@ Casos de uso que implementa.
  ├── Responsabilidad
  ├── Componentes
  │ ├── Models: User, Session
- │ ├── Views: LoginView, LogoutView
+ │ ├── Views: LoginEndpoint, LogoutEndpoint
  │ └── Services: AuthService, JWTService
  ├── Dependencias
  │ ├── Usa: MOD_Audit

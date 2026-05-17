@@ -52,7 +52,7 @@ para auditoría e integridad referencial.
 
 Esta regla aplica a **TODOS los módulos del sistema**, no solo a
 MOD_Users como en versiones previas. Cubre usuarios, alertas,
-reglas SoD, suscripciones, configuraciones, y cualquier otra
+reglas de separacion, suscripciones, configuraciones, y cualquier otra
 entidad persistente.
 
 1.2 Formulacion SBVR
@@ -67,7 +67,7 @@ entidad persistente.
  - Estados canónicos por entidad:
    * Usuario: ACTIVO, INACTIVO, BLOQUEADO
    * Alerta: ACTIVE, ACKNOWLEDGED, RESOLVED, DISABLED
-   * Regla SoD: ENABLED, DISABLED
+   * Regla de separacion: ENABLED, DISABLED
    * Suscripción: ACTIVE, INACTIVE
    * Otros: ACTIVE/INACTIVE como mínimo
 
@@ -110,7 +110,7 @@ los módulos.
 ^^^^^^^^^^^^^^
 
 - **Estatica/Dinamica**: Estática
-- **Automatizable**: Sí — modelo Django sin operación delete
+- **Automatizable**: Sí — modelo de datos sin operación delete
   física; middleware de DB con permisos restringidos.
 - **Alcance**: TODOS los módulos del sistema (MOD_Users,
   MOD_Alerts, MOD_Access, MOD_Audit, MOD_Logs, MOD_Reports,
@@ -152,25 +152,25 @@ los módulos.
    - Función "eliminar"
    - Implementación correcta
  * - MOD_Users
-   - USR-003 ``deactivate_users``
+   - ``deactivate_users``
    - estado = INACTIVO; preservar usuario para audit log
  * - MOD_Alerts
-   - ALR-005 ``disable_alerts``
+   - ``disable_alerts``
    - estado = DISABLED; preservar histórico de la alerta
  * - MOD_Access
-   - ACC-002 ``revoke_functions``
+   - ``revoke_functions``
    - end_date en assignment; registro persiste
  * - MOD_Access
-   - ACC-009 ``revoke_exceptional_permission``
+   - ``revoke_exceptional_permission``
    - end_date acelerado; registro persiste
  * - MOD_Access
-   - ACC-010 ``revoke_function_group``
+   - ``revoke_function_group``
    - end_date en assignment de grupo; registro persiste
  * - MOD_Access
-   - ACC-012 ``disable_separation_rule``
+   - ``disable_separation_rule``
    - estado = DISABLED; regla persiste para historia
  * - MOD_Alerts
-   - ALR-009 ``unsubscribe_from_alert``
+   - ``unsubscribe_from_alert``
    - estado de subscription = INACTIVE; persiste
  * - MOD_Audit
    - (sin operación de delete)
@@ -215,14 +215,16 @@ documentado.
 - BReq-004: Cumplimiento de Seguridad
 - BReq de Auditoría (preservación de evidencia)
 
-5.3 Cambios al modelo RBAC v5.4.0 motivados por esta BR
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.3 Cambios al modelo RBAC motivados por esta BR (v5.4.0+)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- USR-003 RENAME ``delete_users`` → ``deactivate_users``
-- ALR-005 RENAME ``delete_alerts`` → ``disable_alerts``
-- ACC-012 NUEVA ``disable_separation_rule`` (toggle, no delete)
+Introducidos en v5.4.0; vigentes en v5.6.0 (modelo actual).
 
-Funciones con verbo ``revoke_*`` (ACC-002, ACC-009, ACC-010) son
+- RENAME ``delete_users`` → ``deactivate_users``
+- RENAME ``delete_alerts`` → ``disable_alerts``
+- NUEVA ``disable_separation_rule`` (toggle, no delete)
+
+Funciones con verbo ``revoke_*`` (``revoke_functions``, ``revoke_exceptional_permission``, ``revoke_function_group``) son
 compatibles con esta BR: revocar = end_date en el assignment, NO
 delete del registro.
 
@@ -234,7 +236,7 @@ delete del registro.
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Modelos Django de TODOS los módulos implementan soft delete
+1. Modelos de datos de TODOS los módulos implementan soft delete
    (campo ``status`` o ``end_date`` según entidad).
 2. NO existe operación DELETE en API pública para registros de
    negocio.

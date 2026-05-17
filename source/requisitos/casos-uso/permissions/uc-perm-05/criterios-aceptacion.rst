@@ -7,7 +7,7 @@ Parte 9 — Criterios de aceptacion
 9.1 CA-01: Crear AGR
 ====================
 
-**DADO** invoker con manage_access_groups +
+**DADO** invoker con create_function_group +
 payload valido,
 
 **ENTONCES**:
@@ -128,7 +128,7 @@ predefinido,
 9.13 CA-13: Sin permiso 403
 ===========================
 
-**DADO** invoker sin manage_access_groups,
+**DADO** invoker sin create_function_group,
 
 **ENTONCES**:
 

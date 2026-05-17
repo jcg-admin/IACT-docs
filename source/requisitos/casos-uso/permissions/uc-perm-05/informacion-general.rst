@@ -16,13 +16,13 @@ Parte 1 — Informacion general de UC_PERM_05
  * - **Nombre**
    - Crear/Modificar/Retirar Grupo de Permisos
  * - **Funcion RBAC**
-   - ``manage_access_groups``
+   - ``create_function_group``
 
 1.2 Proposito
 =============
 
 CRUD del catalogo de AGRs custom (codigo
-distinto de ``AGR-001..010`` predefinidos).
+distinto de ``AGR-001..012`` predefinidos).
 Casos:
 
 - Onboarding de un nuevo perfil
@@ -50,7 +50,7 @@ funciones contiene).
   (display_name, description).
 - Retirar AGR (state RETIRED, soft).
 - Validacion: code unico, no colisiona con
-  predefinidos AGR-001..010.
+  predefinidos AGR-001..012.
 
 1.3.2 OUT
 ---------
@@ -84,7 +84,7 @@ nuevo perfil organizacional.
  * - **CNST**
    - CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``manage_access_groups`` (P-15
+   - ``create_function_group`` (P-15
      distinta de assign / revoke / view)
  * - **AGR de conveniencia**
    - AGR de seguridad / governance

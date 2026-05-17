@@ -1,23 +1,79 @@
 ```yml
 type: Estado de Sesión
-version: 3.5
-updated_at: 2026-05-01 23:20:47
+version: 3.8
+updated_at: 2026-05-08 23:55:22
 cold_boot: false
-current_epic: 14
-epic_name: std007-spec-gaps-cleanup (cerrada)
-current_work: .thyrox/context/work/2026-05-01-23-20-25-new-ucs-from-uml06
-stage: idle
-stage_number: —
-current_phase: —
+current_epic: 28
+epic_name: alias-fix-uc-numericos
+current_work: .thyrox/context/work/2026-05-08-23-51-53-design-view-fill
+stage: discover
+stage_number: 1
+current_phase: Phase 1 — DISCOVER
 flow: thyrox
-methodology_step: cerrado
+methodology_step: thyrox:discover
 blockers: []
-last_completed_phase: ÉPICA 14 cerrada (std007-spec-gaps-cleanup v2.0.2) — 2026-04-29 17:35
-next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion. Commitment STD_007 vigente hasta 2026-05-29."
+last_completed_phase: "alias-fix-abrev-corta — ABREV_CORTA (97 files), F_FUNCIONES+PREFIX_ABBREV+UC_PREFIX (9 files). Build: EXIT:0, 0 warnings."
+next_decision_required: "Ejecutar implementación WP alias-fix-uc-numericos: AC01-AC09 (5 files) + UC01-UC09 por módulo (49 files). Scope analysis aprobado."
 stage_sync_required: true
 ```
 
 # IACT-docs — Estado de Sesión
+
+## Resumen 2026-05-04 (ÉPICA 18 — arq-tecnica-deep-audit)
+
+Análisis profundo de los 214 archivos RST de `source/arquitectura-tecnica/`
+ejecutado en 6 capas adversariales. 7 hallazgos documentados. Correcciones
+F-01..F-06 aplicadas y pusheadas en commit `297dc0a`.
+
+`.thyrox/context/work/2026-05-04-16-14-59-arq-tecnica-deep-audit/discover/arq-tecnica-deep-audit-analysis.md`
+
+### Hallazgos — estado final
+
+| ID | Severidad | Descripción | Estado |
+|---|---|---|---|
+| F-01 | CRÍTICA | Naming inconsistente: 5 módulos en design-view/implementation-view | ✓ CORREGIDO |
+| F-02 | ALTA | mod-caller ausente en design-view e implementation-view | ✓ CORREGIDO |
+| F-03 | ALTA | "Django" sin "REST Framework" en 6 archivos | ✓ CORREGIDO |
+| F-04 | ALTA | BC count incorrecto: 7→8, 25→26 clases | ✓ CORREGIDO |
+| F-05 | MEDIA | Aliases cortos en perspectiva-regulation.rst | ✓ CORREGIDO |
+| F-06 | MEDIA | Doble título en pipeline-datos-ivr-caller.rst | ✓ CORREGIDO |
+| F-07 | BAJA | system-view/ sin toctree principal (pre-existing) | PENDIENTE decisión ejecutor |
+
+### WPs anteriores completados (ÉPICA 17)
+
+- WP-1 `2026-05-04-14-59-45-uml-coverage-context-view` — ✓ context-view/ creado
+- WP-2 `2026-05-04-15-00-30-uml-coverage-operational-view` — ✓ operational-view/ creado
+- WP-3 `2026-05-04-15-00-00-uml-coverage-housekeeping` — ✓ housekeeping completado
+- WP-4 `2026-05-04-15-01-00-uml-coverage-perspectivas` — ✓ perspectivas/ creado
+
+## Repositorio
+
+- **Branch:** `claude/review-ucs-work-state-phwmj`
+- **HEAD:** `297dc0a` (sincronizado con origin)
+- **Working tree:** clean
+
+# IACT-docs — Estado de Sesión
+
+## Resumen 2026-05-04
+
+ÉPICA 16 (uml-arq-coverage-audit) completada — Stage 1 DISCOVER.
+
+Análisis de cobertura `base-cognitiva/_uml` vs `arquitectura-tecnica/` completado.
+6 gaps identificados, 4 WPs correctivos definidos:
+
+- **WP-1** `2026-05-04-14-59-45-uml-coverage-context-view` — ALTA — Crear viewpoint Context
+- **WP-2** `2026-05-04-15-00-30-uml-coverage-operational-view` — ALTA — Crear viewpoint Operational
+- **WP-3** `2026-05-04-15-00-00-uml-coverage-housekeeping` — BAJA — Cleanup: rm stub, fix títulos, fix PlantUML
+- **WP-4** `2026-05-04-15-01-00-uml-coverage-perspectivas` — MEDIA — Perspectivas arquitectónicas
+
+Secuencia recomendada: WP-3 → WP-1 → WP-2 → WP-4
+
+Activo: WP-3 (housekeeping — menor riesgo, cambios localizados)
+
+## Repositorio
+
+- **Branch:** `claude/review-ucs-work-state-phwmj`
+- **Working tree:** con cambios pendientes de commit
 
 ## Resumen 2026-04-29
 

@@ -12,7 +12,7 @@ Parte 6 — Requisitos no funcionales
  :header-rows: 0
 
  * - **P50**
-   - ≤ 250 ms (incluye expansion AGR + SoD
+   - ≤ 250 ms (incluye expansion AGR + separacion
      evaluation)
  * - **P99**
    - ≤ 600 ms
@@ -26,7 +26,7 @@ Parte 6 — Requisitos no funcionales
 - ``assign_function_groups`` (P-15 distinta
   de ``assign_functions``).
 - P-11 anti-self-assign configurable.
-- SoD enforcement write-time (CNST-005,
+- Enforcement de separacion write-time (CNST-005,
   P-27).
 - Throttling 30/min/invoker (CNST-011).
 
@@ -50,8 +50,8 @@ Parte 6 — Requisitos no funcionales
 
 - Selector de AGR con descripcion +
   funciones contenidas (preview).
-- SoD preview opcional (cliente puede llamar
-  ``GET /api/users/{id}/access-groups/{agr_id}/sod-preview``
+- Preview de separacion opcional (cliente puede llamar
+  ``GET /api/users/{id}/access-groups/{agr_id}/separation-preview``
   antes — no parte del UC pero recomendado).
 - Confirmacion robusta (operacion masiva).
 

@@ -19,7 +19,7 @@ Parte 11 — Implementacion tecnica
  * - Componente
    - Responsabilidad
  * - **HTTPListEndpoint**
-   - GET ``/api/access/sod-rules/``
+   - GET ``/api/access/separation-rules/``
  * - **HTTPDetailEndpoint**
    - GET por id
  * - **HTTPCreateEndpoint**
@@ -31,16 +31,16 @@ Parte 11 — Implementacion tecnica
  * - **AuthorizationGuard**
    - Verificar
      ``view_separation_rules`` (read) o
-     ``manage_separation_rules`` (CRUD)
- * - **SoDRuleRepository**
-   - CRUD de SoDRule
+     ``view_separation_rules`` (CRUD)
+ * - **SeparationRuleRepository**
+   - CRUD de SeparationRule
  * - **FunctionRepository**
    - validate_functions
  * - **DuplicateChecker**
    - find_active_with_same_functions
  * - **ViolationsImpactCalculator**
    - count_existing_violations
- * - **SoDRuleCache**
+ * - **SeparationRuleCache**
    - invalidate post-COMMIT
  * - **AuditLog**
    - emit por operacion
@@ -52,37 +52,37 @@ Parte 11 — Implementacion tecnica
 
 ::
 
-   contract SoDRuleService:
+   contract SeparationRuleService:
      list(filters, pagination, invoker)
-       returns: PaginatedResult<SoDRule>
+       returns: PaginatedResult<SeparationRule>
        throws: SinPermiso (sin
                 view_separation_rules)
 
      get(rule_id, invoker)
-       returns: SoDRule
-       throws: SinPermiso, SoDRuleNotFound
+       returns: SeparationRule
+       throws: SinPermiso, SeparationRuleNotFound
 
      create(payload, invoker)
-       returns: CreateSoDRuleOutput
+       returns: CreateSeparationRuleOutput
        throws: SinPermiso, ValidationError,
                FunctionNotFound,
                FunctionInactive,
-               SoDRuleDuplicate, AuditFalla
+               SeparationRuleDuplicate, AuditFalla
 
      modify(rule_id, patch, invoker)
-       returns: SoDRule
-       throws: SinPermiso, SoDRuleNotFound,
-               SoDRuleAlreadyRetired,
+       returns: SeparationRule
+       throws: SinPermiso, SeparationRuleNotFound,
+               SeparationRuleAlreadyRetired,
                FunctionIdsImmutable
 
      retire(rule_id, retire_reason, invoker)
-       returns: SoDRule
-       throws: SinPermiso, SoDRuleNotFound,
-               SoDRuleAlreadyRetired,
+       returns: SeparationRule
+       throws: SinPermiso, SeparationRuleNotFound,
+               SeparationRuleAlreadyRetired,
                ValidationError
 
-   data CreateSoDRuleOutput:
-     rule: SoDRule
+   data CreateSeparationRuleOutput:
+     rule: SeparationRule
      existing_violations_count: int
      violating_user_ids_sample: list[int]
 
@@ -95,7 +95,7 @@ Parte 11 — Implementacion tecnica
 
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'manage_separation_rules')
+                 invoker, 'view_separation_rules')
        require ThrottlePolicy.is_allowed(invoker)
 
        PayloadValidator.validate(payload)
@@ -104,11 +104,11 @@ Parte 11 — Implementacion tecnica
          .validate_functions_active(
            payload.function_ids)
 
-       existing = SoDRuleRepository
+       existing = SeparationRuleRepository
                     .find_active_with_same_functions(
                       payload.function_ids)
        if existing is not None:
-           raise SoDRuleDuplicate(existing.id)
+           raise SeparationRuleDuplicate(existing.id)
 
        # Calcular impact retroactivo
        (violations_count,
@@ -120,7 +120,7 @@ Parte 11 — Implementacion tecnica
 
        # Atomico
        result = TransactionManager.atomic(():
-         rule = SoDRuleRepository.insert(
+         rule = SeparationRuleRepository.insert(
            name=payload.name,
            description=payload.description,
            function_ids=payload.function_ids,
@@ -130,7 +130,7 @@ Parte 11 — Implementacion tecnica
            created_by_admin_id=invoker.id)
 
          AuditLog.emit(
-           event_type='SOD_RULE_CREATED',
+           event_type='SEPARATION_RULE_CREATED',
            actor_id=invoker.id,
            payload={
              rule_id: rule.id,
@@ -145,9 +145,9 @@ Parte 11 — Implementacion tecnica
          return rule
        )
 
-       SoDRuleCache.invalidate()  # post-COMMIT
+       SeparationRuleCache.invalidate()  # post-COMMIT
 
-       return CreateSoDRuleOutput(
+       return CreateSeparationRuleOutput(
          rule=result,
          existing_violations_count=violations_count,
          violating_user_ids_sample=
@@ -164,18 +164,18 @@ Parte 11 — Implementacion tecnica
 
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard.has_function(
-                 invoker, 'manage_separation_rules')
+                 invoker, 'view_separation_rules')
 
        if not retire_reason:
            raise ValidationError(
              'retire_reason required')
 
-       rule = SoDRuleRepository
+       rule = SeparationRuleRepository
                 .get_by_id_for_update(rule_id)
        if rule is None:
-           raise SoDRuleNotFound
+           raise SeparationRuleNotFound
        if rule.state == RETIRED:
-           raise SoDRuleAlreadyRetired
+           raise SeparationRuleAlreadyRetired
 
        (residual_violations_count, _) =
          ViolationsImpactCalculator
@@ -184,7 +184,7 @@ Parte 11 — Implementacion tecnica
              sample_size=0)
 
        result = TransactionManager.atomic(():
-         SoDRuleRepository.update(
+         SeparationRuleRepository.update(
            rule_id,
            state=RETIRED,
            retired_at=now(),
@@ -192,7 +192,7 @@ Parte 11 — Implementacion tecnica
            retire_reason=retire_reason)
 
          AuditLog.emit(
-           event_type='SOD_RULE_RETIRED',
+           event_type='SEPARATION_RULE_RETIRED',
            actor_id=invoker.id,
            payload={
              rule_id: rule.id,
@@ -205,7 +205,7 @@ Parte 11 — Implementacion tecnica
          return rule
        )
 
-       SoDRuleCache.invalidate()  # post-COMMIT
+       SeparationRuleCache.invalidate()  # post-COMMIT
 
        return result
 
@@ -225,21 +225,21 @@ Parte 11 — Implementacion tecnica
  * - SinPermiso
    - 403
    - FORBIDDEN
- * - SoDRuleNotFound
+ * - SeparationRuleNotFound
    - 404
-   - SOD_RULE_NOT_FOUND
+   - SEPARATION_RULE_NOT_FOUND
  * - FunctionNotFound
    - 400
    - FUNCTION_NOT_FOUND
  * - FunctionInactive
    - 400
    - FUNCTION_INACTIVE
- * - SoDRuleDuplicate
+ * - SeparationRuleDuplicate
    - 409
-   - SOD_RULE_DUPLICATE
- * - SoDRuleAlreadyRetired
+   - SEPARATION_RULE_DUPLICATE
+ * - SeparationRuleAlreadyRetired
    - 400
-   - SOD_RULE_ALREADY_RETIRED
+   - SEPARATION_RULE_ALREADY_RETIRED
  * - FunctionIdsImmutable
    - 400
    - FUNCTION_IDS_IMMUTABLE

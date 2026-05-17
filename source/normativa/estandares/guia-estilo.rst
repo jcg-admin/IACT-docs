@@ -667,7 +667,7 @@ Formato OpenAPI/Swagger
 
 .. code:: python
 
- class LoginView(APIView):
+ class LoginEndpoint(APIView):
  
  Vista para autenticación de usuarios.
 
@@ -889,7 +889,7 @@ Contacto
 --------
 
 Para preguntas sobre esta guía: - **Guía General**: Equipo Gobernanza -
-**Código Python**: Tech Lead - **Documentación**: BA Lead -
+**Código Python**: Tech Lead -**Documentación**: BA Lead -
 **Seguridad**: Security Lead
 
 --------------

@@ -12,7 +12,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-004
  * - **Funcion RBAC**
-   - ``view_general_audit``
+   - ``view_audit_log``
 
 1.1 Proposito
 =============

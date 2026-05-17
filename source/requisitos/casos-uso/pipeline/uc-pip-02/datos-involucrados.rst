@@ -4,26 +4,38 @@
 Parte 7 — Datos involucrados
 ================================
 
-7.1 ETLError
-============
+7.1 Entidades
+=============
+
+- **PipelineExecution** — registro de una ejecucion del Servicio ETL.
+  Solo los registros con ``estado = 'fallido'`` son relevantes
+  para este UC.
+
+7.2 Modelo PipelineExecution (subset relevante)
+===============================================
 
 ::
 
-   ETLError:
-     id, pipeline_run_id, occurred_at,
-     error_type, error_message,
-     stack_trace_sanitized,
-     correlation_id,
-     payload_sample_sanitized
+   PipelineExecution:
+     id               : identificador unico de la ejecucion
+     source_table     : nombre de la tabla fuente procesada
+     trimestre        : codigo del trimestre (ej: Q3_25)
+     started_at      : timestamp de inicio de la ejecucion
+     finished_at    : timestamp de finalizacion
+     estado           : fallido  (filtro de este UC)
+     error_message    : descripcion del error capturado
+     executed_by    : 'scheduler' | 'manual'
 
-7.2 Indices
-===========
+7.3 Indices de consulta
+=======================
 
-- ``ETLError(pipeline_run_id)``.
-- ``ETLError(error_type, occurred_at)``.
+- ``PipelineExecution(estado, started_at DESC)`` — para listar
+  ejecuciones fallidas ordenadas por fecha descendente.
+- ``PipelineExecution(trimestre)`` — para filtrar por trimestre.
 
-7.3 Sanitization
-================
+7.4 Notas de contenido
+=======================
 
-PIIScanner aplicado a stack y payload
-antes de retornar.
+El campo ``error_message`` contiene el mensaje de excepcion o
+el codigo de error retornado por el Servicio ETL. No contiene
+stack traces del sistema interno ni datos de clientes.

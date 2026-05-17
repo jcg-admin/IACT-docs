@@ -13,9 +13,9 @@
 
 .. _uc-acc-05:
 
-==================================
-UC_ACC_05 — Gestionar Reglas SoD
-==================================
+============================================
+UC_ACC_05 — Gestionar Reglas de Separacion
+============================================
 
 .. note::
 
@@ -29,19 +29,19 @@ Resumen
 =======
 
 UC_ACC_05 expone la **gestion del catalogo de
-reglas SoD** (Separation of Duties) per
+reglas de separacion** (Separation of Duties) per
 BR-007 + CNST-005. Cubre dos sub-operaciones
 con RBAC granular distinto (P-15):
 
 - **Lectura** con ``view_separation_rules``:
-  listar y ver detalle de reglas SoD.
-- **Gestion** con ``manage_separation_rules``:
+  listar y ver detalle de reglas de separacion.
+- **Gestion** con ``view_separation_rules``:
   crear, modificar, retirar reglas (CRUD).
 
 Las reglas configuradas por este UC son
 consumidas por UC_ACC_01 (asignar funciones),
 UC_ACC_04 (asignar AGR) y UC_PERM_03 (permisos
-excepcionales) al validar SoD write-time.
+excepcionales) al validar separacion write-time.
 
 .. list-table::
  :widths: 25 75
@@ -52,17 +52,17 @@ excepcionales) al validar SoD write-time.
  * - **Modulo**
    - MOD_Access
  * - **Criticidad**
-   - CRITICA (afecta enforcement de SoD en
+   - CRITICA (afecta enforcement de separacion en
      todo el sistema)
  * - **Complejidad**
    - ALTA
  * - **Actor Principal**
    - User con funcion
      ``view_separation_rules`` (lectura) y/o
-     ``manage_separation_rules`` (CRUD)
+     ``view_separation_rules`` (CRUD)
  * - **Funciones RBAC**
    - ``view_separation_rules``,
-     ``manage_separation_rules``
+     ``view_separation_rules``
  * - **BReq satisfecho**
    - BReq-004
  * - **BRQ legacy**
@@ -72,7 +72,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
-- :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
+- :doc:`/requisitos/reglas-negocio/br-007-separacion-de-funciones`
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
   (consume las reglas en write-time)
 - :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
@@ -92,7 +92,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

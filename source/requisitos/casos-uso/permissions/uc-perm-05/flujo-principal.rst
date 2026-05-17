@@ -12,7 +12,7 @@ Parte 3 — Flujo principal (Camino feliz)
 ::
 
    PASO 1   POST /api/access-groups/
-   PASO 2   Validar JWT + manage_access_groups
+   PASO 2   Validar JWT + create_function_group
    PASO 3   Validar payload (code formato +
             unique + no colision predefinidos)
    PASO 4   INSERT AccessGroup
@@ -25,7 +25,7 @@ Parte 3 — Flujo principal (Camino feliz)
 ::
 
    PASO 1   PATCH /api/access-groups/{id}/
-   PASO 2   Validar JWT + manage_access_groups
+   PASO 2   Validar JWT + create_function_group
    PASO 3   Validar AGR existe + ACTIVE +
             es custom (no predefinido)
    PASO 4   Validar payload (campos
@@ -47,7 +47,7 @@ Campos NO modificables (post-create):
 ::
 
    PASO 1   DELETE /api/access-groups/{id}/
-   PASO 2   Validar JWT + manage_access_groups
+   PASO 2   Validar JWT + create_function_group
    PASO 3   Validar AGR existe + ACTIVE + custom
    PASO 4   Validar retire_reason ≥ 20 chars
    PASO 5   Calcular users_with_agr_count

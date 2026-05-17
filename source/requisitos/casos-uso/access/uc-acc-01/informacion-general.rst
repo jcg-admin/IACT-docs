@@ -41,12 +41,12 @@ toda asignacion respeta:
 - **BR-006 (RBAC Flat NIST)**: las funciones
   son atomicas, no jerarquicas.
 - **BR-007 (Separacion de Funciones)**:
-  ninguna asignacion crea conflicto SoD per
+  ninguna asignacion crea conflicto de separacion per
   las reglas vigentes.
 - **BR-008 (Permisos con Vencimiento)**:
   permite asignacion temporal con
   ``expires_at``.
-- **CNST-005**: enforcement de SoD en tiempo
+- **CNST-005**: enforcement de separacion en tiempo
   de asignacion.
 
 A diferencia de UC_ACC_04 (asignar AGR
@@ -66,7 +66,7 @@ individual — granularidad maxima.
 - Validacion de existencia y estado del User
   destino (ACTIVE/INACTIVE permitido,
   ELIMINATED/BLOCKED no).
-- Validacion SoD por cada funcion contra el
+- Validacion de separacion por cada funcion contra el
   conjunto actual de funciones del User.
 - Asignacion temporal opcional (``expires_at``).
 - Idempotencia: re-asignar funcion ya activa
@@ -85,7 +85,7 @@ individual — granularidad maxima.
   estandar → UC_PERM_03.
 - Creacion de funciones nuevas → UC_PERM_05
   (custom AGRs / functions).
-- Configuracion de reglas SoD → UC_ACC_05.
+- Configuracion de reglas de separacion → UC_ACC_05.
 
 1.3.3 Posicion en el flujo
 --------------------------
@@ -114,15 +114,15 @@ continua**. Disparadores tipicos:
  * - **BRQ legacy**
    - BRQ-ACC-001 → BReq-004 (mapping)
  * - **Reglas de Negocio**
-   - BR-006 (RBAC Flat NIST), BR-007 (SoD),
+   - BR-006 (RBAC Flat NIST), BR-007 (separation of duties),
      BR-008 (Permisos con Vencimiento),
      BR-010 (Auditoria Inmutable), BR-USR-* y
      BR-ACC-* legacy del monolitico —
      formalizar en WP futuro.
  * - **Restricciones (CNST canonicas vigentes)**
-   - CNST-005 enforcement SoD en tiempo de
+   - CNST-005 enforcement de separacion en tiempo de
      asignacion;
-     CNST-009 autenticacion DRF;
+     CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado;
      CNST-025 auditoria inmutable;
      CNST-026 sin PII en payload.
@@ -139,7 +139,7 @@ continua**. Disparadores tipicos:
    - UC_ACC_02 (revocar — operacion inversa),
      UC_ACC_03 (consultar permisos efectivos),
      UC_ACC_04 (asignar AGR — masivo via
-     agrupador), UC_ACC_05 (configurar SoD —
+     agrupador), UC_ACC_05 (configurar separacion —
      reglas que este UC valida),
      UC_ACC_08 (permiso temporal especifico),
      UC_ACC_09 (auditar cambios).
@@ -148,5 +148,5 @@ continua**. Disparadores tipicos:
  * - **Clases secundarias**
    - ``User`` (lectura),
      ``Function`` (lectura),
-     ``SoDRule`` (lectura — validacion),
+     ``SeparationRule`` (lectura — validacion),
      ``AuditEvent`` (escritura).

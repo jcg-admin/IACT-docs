@@ -62,7 +62,7 @@ Parte 6 — Requisitos no funcionales
   exceptional), por funcion.
 - Indicador visual de expirados pendientes
   purge.
-- Indicador visual de violaciones SoD
+- Indicador visual de violaciones de separacion
   detectadas (informativas).
 
 6.6 Mantenibilidad

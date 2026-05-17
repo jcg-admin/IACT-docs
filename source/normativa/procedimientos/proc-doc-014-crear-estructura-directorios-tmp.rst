@@ -246,17 +246,17 @@ Antes de iniciar este procedimiento, verificar:
 **Paso 3: Crear Subcarpetas por Modulo (si aplica)**
 
 - **Responsable**: Generador
-- **Accion**: Crear los 8 modulos IACT
+- **Accion**: Crear los modulos IACT (13 modulos UC v5.6.0)
 
  .. code-block:: bash
 
-    # Los 8 modulos IACT
-    for mod in auth users access pipeline reports alerts audit logs; do
+    # Los modulos IACT (13 modulos UC v5.6.0)
+    for mod in auth users access permissions pipeline reports alerts audit logs operator supervision caller; do
     mkdir -p /tmp/[dominio]/$mod
     done
 
-- **Resultado**: 8 subcarpetas de modulo creadas
-- **Verificacion**: ``ls /tmp/[dominio]/`` muestra 8 carpetas
+- **Resultado**: 12 subcarpetas de modulo creadas
+- **Verificacion**: ``ls /tmp/[dominio]/`` muestra 12 carpetas
 
 **Paso 4: Crear Subcarpetas por UC (solo para FR)**
 

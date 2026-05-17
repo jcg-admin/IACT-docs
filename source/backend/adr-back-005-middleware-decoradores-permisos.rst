@@ -31,6 +31,12 @@ ADR-BACK-005: Middleware y Decoradores para Permisos Granulares
  implemente, sustituir ``capacidad`` -> ``function`` en toda la
  narrativa de este ADR.
 
+ Clases renombradas (CIA-RBAC-002 DEC-005): ``GranularAccessPolicy``
+ -> ``FunctionAccessPolicy``; ``GranularPermissionMixin`` ->
+ ``FunctionPermissionMixin``. Los ejemplos de codigo en este ADR
+ conservan los nombres legacy por ser referencia historica
+ preservada.
+
 ----
 
 Estado y metadata
@@ -76,7 +82,7 @@ un mecanismo para:
 **Restricciones (al momento del ADR original):**
 
 - Sistema de permisos granulares con 130+ capacidades (vocabulario
-  legacy; hoy = 42 funciones del modelo v5.2.1).
+  legacy; hoy = 64 funciones activas del modelo v5.6.0 (77 declaradas, 13 reservadas open-closed)).
 - Django 5.x + Django REST Framework 3.x.
 - Necesidad de auditoria automatica (ISO 27001).
 - Performance: overhead < 5ms por request.
@@ -170,7 +176,7 @@ Componentes:
 
 2. **Permission Classes para DRF:**
 
-   - ``GranularPermission``  (permission class base)
+   - ``GranularAccessPolicy``  (permission class base)
    - ``GranularPermissionMixin``  (helpers para ViewSets)
 
 3. **Middleware Opcional:**
@@ -224,7 +230,7 @@ Contras:
        verificar_permiso('sistema.vistas.dashboards.ver'),
        name='dispatch'
    )
-   class DashboardView(TemplateView):
+   class DashboardEndpoint(TemplateView):
        template_name = 'dashboard.html'
 
 4.3 Permission Class para DRF
@@ -233,10 +239,10 @@ Contras:
 .. code-block:: python
 
    from rest_framework import viewsets
-   from callcentersite.apps.permissions.permissions import GranularPermission
+   from callcentersite.apps.permissions.permissions import GranularAccessPolicy
 
-   class DashboardViewSet(viewsets.ModelViewSet):
-       permission_classes = [GranularPermission]
+   class DashboardEndpoints(viewsets.ModelViewSet):
+       permission_classes = [GranularAccessPolicy]
        required_permissions = ['sistema.vistas.dashboards.ver']
 
        def get_queryset(self):
@@ -272,18 +278,18 @@ Contras:
    from django.http import JsonResponse
    from callcentersite.apps.permissions.services import PermisoService
 
-   def verificar_permiso(capacidad_requerida, auditar=False, mensaje_error=None):
+   def verificar_permiso(capacidad_requerida, auditar=False, error_message=None):
        """
        Decorator para verificar permisos granulares.
 
        Args:
            capacidad_requerida: str o list[str] - Capacidad(es) requerida(s)
            auditar: bool - Si registrar el acceso en auditoria
-           mensaje_error: str - Mensaje custom de error
+           error_message: str - Mensaje custom de error
        """
        def decorator(view_func):
            @wraps(view_func)
-           def wrapper(request, *args, **kwargs):
+           def wrapper(request, *args,**kwargs):
                # Verificar autenticacion
                if not request.user.is_authenticated:
                    return JsonResponse(
@@ -318,7 +324,7 @@ Contras:
                            user_agent=request.META.get('HTTP_USER_AGENT')
                        )
 
-                   error_msg = mensaje_error or f'Permission denied: {capacidad_requerida}'
+                   error_msg = error_message or f'Permission denied: {capacidad_requerida}'
                    return JsonResponse(
                        {'error': error_msg},
                        status=403
@@ -335,7 +341,7 @@ Contras:
                    )
 
                # Permitir acceso
-               return view_func(request, *args, **kwargs)
+               return view_func(request, *args,**kwargs)
 
            return wrapper
        return decorator
@@ -348,13 +354,13 @@ Contras:
    from rest_framework.permissions import BasePermission
    from callcentersite.apps.permissions.services import PermisoService
 
-   class GranularPermission(BasePermission):
+   class GranularAccessPolicy(BasePermission):
        """
        Permission class para DRF ViewSets.
 
        Uso:
-           class MyViewSet(viewsets.ModelViewSet):
-               permission_classes = [GranularPermission]
+           class MyEndpoints(viewsets.ModelViewSet):
+               permission_classes = [GranularAccessPolicy]
                required_permissions = ['sistema.recurso.accion']
        """
 
@@ -458,7 +464,7 @@ Trade-offs aceptados:
 
 3. **Fase 3: Permission Classes DRF** (2 dias)
 
-   - Implementar ``GranularPermission``.
+   - Implementar ``GranularAccessPolicy``.
    - Implementar ``GranularPermissionMixin``.
    - Tests de integracion con ViewSets.
 
@@ -548,7 +554,7 @@ Por que se descarto:
   materialice la implementacion, aplicar:
 
   - Vocabulario CNST-033: ``capacidad`` -> ``function``.
-  - Modelo v5.2.1: 42 funciones + 10 grupos AGR (no "130+
+  - Modelo v5.6.0: 64 funciones activas (77 declaradas, 13 reservadas open-closed) + 12 grupos AGR (no "130+
     capacidades").
   - Estrategia tecnica del adr-back-006 nuevo (supersede
     adr-back-003).

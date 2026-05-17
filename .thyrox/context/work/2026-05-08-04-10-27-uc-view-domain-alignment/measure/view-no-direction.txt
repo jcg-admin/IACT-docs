@@ -1,0 +1,3 @@
+source/arquitectura-tecnica/use-case-view/users/uc-usr-05-bloquear-usuario.rst
+source/arquitectura-tecnica/use-case-view/users/uc-usr-06-desbloquear-usuario.rst
+source/arquitectura-tecnica/use-case-view/users/uc-usr-07-editar-perfil-propio.rst

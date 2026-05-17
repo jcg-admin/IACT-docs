@@ -19,7 +19,7 @@ ADR-005: Sistema de Permisos con Grupos Funcionales Sin Jerarquía
    (2026-04-29).
 
    Este ADR contiene cifras divergentes del modelo v5.2.1 vigente
-   ("19 funciones / 130+ capacidades" vs "42 funciones / 10
+   ("19 funciones / 130+ capacidades" vs "64 funciones activas / 12
    grupos AGR") y vocabulario "Capacidad" que CNST-033 vigente
    prohibe. Preservado por trazabilidad historica.
 
@@ -159,7 +159,7 @@ Opción 3: Grupos Funcionales Sin Jerarquía (ELEGIDA)
 pueden combinar libremente. No hay jerarquía entre grupos. Un usuario
 puede tener múltiples grupos simultáneamente.
 
-**Conceptos clave:** - **Funciones:** Recursos del sistema (dashboards,
+**Conceptos clave:** -**Funciones:** Recursos del sistema (dashboards,
 usuarios, tickets, etc.) - **Capacidades:** Acciones sobre recursos
 (ver, crear, editar, eliminar) - **Grupos:** Colecciones de capacidades
 con nombres descriptivos - **Usuarios:** Pueden tener N grupos
@@ -415,5 +415,5 @@ Notas Adicionales
 
 --------------
 
-**Documento:** ADR-005 **Fecha:** 07 de Noviembre, 2025 **Estado:**
+**Documento:** ADR-005**Fecha:** 07 de Noviembre, 2025**Estado:**
 Aceptada **Próxima revisión:** 2026-02-07

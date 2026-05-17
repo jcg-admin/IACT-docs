@@ -19,7 +19,7 @@ Parte 6 — Requisitos no funcionales
    - mayoritario
  * - P50 (cache miss)
    - ≤ 200 ms
-   - query agregada
+   - callproc(sp_rpt_centros_xsegmento)
  * - P95
    - ≤ 500 ms
    -
@@ -37,8 +37,8 @@ Parte 6 — Requisitos no funcionales
 =================
 
 - Disponibilidad ≥ 99.5%.
-- Read replicas Analytics.
-- Degradacion: si Analytics caido,
+- Read replicas BD_IVR.
+- Degradacion: si BD_IVR / SP caido,
   mostrar banner explicito (no datos
   vacios).
 
@@ -72,15 +72,17 @@ Parte 6 — Requisitos no funcionales
 6.6 Mantenibilidad
 ==================
 
-- KPIs definidos en codigo, no en query
-  hardcoded.
-- Nuevos KPIs: extender KPICalculator,
-  cero cambios en frontend.
+- KPIs definidos en el SP
+  ``sp_rpt_centros_xsegmento`` (BD_IVR).
+- Nuevos KPIs: modificar el SP en BD_IVR
+  y extender el parser; cero cambios en
+  frontend si el contrato JSON se preserva.
 
 6.7 Cumplimiento
 ================
 
-- Sin BD operativa (CNST-007).
+- Solo BD_IVR read-only (CNST-007). Sin
+  acceso a BD operativa.
 - Sin email externo en notificaciones
   (CNST-001).
 

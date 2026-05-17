@@ -23,7 +23,7 @@ Modelo RBAC v4.0 — Resumen historico (predecesor de v5.x)
  Resumen narrativo del documento legacy ``Modelo RBAC Sin
  Pretensiones v4.0`` (~99 KB, octubre 2025). NO es spec
  vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
  Documento original NO publicado en el corpus para evitar
  confusion con la spec vigente; este resumen preserva los
@@ -63,7 +63,7 @@ Principio central preservado en v5.x:
 Razones del enfoque granular:
 
 1. Seguridad maxima (principio de menor privilegio).
-2. SoD posible (separar funciones conflictivas).
+2. Separacion posible (separar funciones conflictivas).
 3. Auditoria precisa (saber exactamente que puede hacer cada quien).
 4. Escalabilidad (crece sin refactorizar).
 5. Cumplimiento (SOX, ISO 27001).
@@ -204,9 +204,9 @@ preservo el principio y simplifico el catalogo a 42 funciones +
  * - Namespaces
    - Si (``identity:``, ``epm:``, ``base``)
    - **No** (modulos flat)
- * - SoD
+ * - Separacion de deberes
    - SSD con cardinalidad
-   - **3 reglas SOD-001/002/003**
+   - **3 reglas de separacion-001/002/003**
  * - Vocabulario
    - "Personas, Funciones, Capacidades"
    - **"Funcion / Function"** unico canonico (CNST-033)
@@ -218,7 +218,7 @@ preservo el principio y simplifico el catalogo a 42 funciones +
 
 - Principio "Sin Pretensiones" (sin etiquetas jerarquicas).
 - Granularidad funcional.
-- SoD declarativo.
+- Separacion declarativa.
 - Bundles -> AGR-001..010.
 - Auditoria explicita por funcion.
 
@@ -243,7 +243,7 @@ preservo el principio y simplifico el catalogo a 42 funciones +
 (~99 KB, no publicado).
 
 **Documento sucesor publicado:**
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
 **Decision arquitectonica que reconcilio las vistas (v4.0 ->
 v5.x):**

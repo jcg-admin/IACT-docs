@@ -6,6 +6,10 @@ import os
 # Permite importar módulos del proyecto para generar documentación automática
 # sys.path.insert(0, os.path.abspath('../../backend'))  # Descomenta cuando tengas el backend
 
+# Permite cargar extensiones locales en source/_ext/
+# WP plantuml-svg-prerender: plantuml_cached override del directive uml
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '_ext')))
+
 # -- Información General del Proyecto IACT --
 project = 'IACT - Sistema de Dashboard Analytics'
 copyright = '2025, Equipo IACT'
@@ -33,8 +37,11 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_tabs.tabs',
 
-    # PlantUML para diagramas
+    # PlantUML para diagramas — plantuml_cached debe cargarse DESPUES
+    # de sphinxcontrib.plantuml para que el override del directive
+    # `uml` quede activo (last registration wins en docutils).
     'sphinxcontrib.plantuml',
+    'plantuml_cached',
 
     # Extensiones recomendadas (adicionales)
     'sphinx_autodoc_typehints',  # Type hints support
@@ -213,6 +220,13 @@ plantuml = _os.environ.get('PLANTUML_BIN') or (
 )
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
+
+# Global styles: sphinxcontrib-plantuml escribe diagramas a archivos temp en /tmp/,
+# por lo que !include con paths relativos en RST falla. plantuml_cfg_file prepend
+# los estilos a cada diagrama usando path absoluto, evitando la necesidad de !include.
+_styles_puml = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '_static', 'plantuml-styles.puml')
+if _os.path.isfile(_styles_puml):
+    plantuml_cfg_file = _styles_puml
 
 # Usar ubicación estándar de sphinxcontrib.plantuml (_images/)
 # El hook post-build reorganiza metadatos pero mantiene referencias HTML válidas

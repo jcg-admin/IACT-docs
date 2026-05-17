@@ -42,7 +42,7 @@ Strategy`` injectable.
 10.1.5 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: pipeline DRF
+**Aplica a**: pipeline plataforma de API
 authentication → permission(view_all)
 → permission(close) por endpoint, → throttle.
 
@@ -155,7 +155,7 @@ degradado.
    - AuditEvent
  * - Chain of Responsibility
    - GoF
-   - DRF middleware
+   - plataforma de API middleware
  * - P-02 Idempotencia
    - IACT
    - FA-02

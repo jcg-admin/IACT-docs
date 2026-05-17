@@ -4,73 +4,57 @@
 Parte 7 — Datos involucrados
 ================================
 
-7.1 Entidades leidas (BD Analytics)
-===================================
+7.1 Entidades leidas
+====================
 
-.. list-table::
- :widths: 30 70
- :header-rows: 1
+- **BD_IVR (Base Analitica IVR legacy)** — esquema con
+  ``base_ivr_detalle`` poblado por el ETL. Se accede
+  exclusivamente via ``cursor.callproc('sp_rpt_centros_
+  xsegmento', [period, segments])``; el SP entrega filas
+  pre-agregadas por segmento, trimestre y centro de
+  transferencia.
+- **SegmentoUsuario** — filtro de segmento aplicado por
+  ``<<include>>`` UC_INC_RPT_01; los segmentos se pasan
+  como parametro al SP.
 
- * - Entidad
-   - Uso
- * - **CallEvent / CallSummary**
-   - aggregations de llamadas
- * - **SegmentDimension**
-   - filtro por segmento del User
- * - **TimeBucket**
-   - granularidad de trend (hora /
-     dia)
+7.2 Datos del dashboard IVR
+============================
 
-7.2 Entidades NO leidas (CNST-007)
-==================================
-
-Operativa:
-
-- ``Call`` (BD operativa) — UC_RPT_01 NO
-  toca. Operacionales son responsabilidad
-  del IVR.
-- ``Conversation`` — idem.
-
-7.3 Modelo conceptual del summary
-=================================
+El dashboard IVR consume las filas pre-agregadas que retorna
+``sp_rpt_centros_xsegmento`` desde BD_IVR. Los KPIs
+principales (calculados por el SP, no por el backend) son:
 
 ::
 
-   CallSummary (analytics):
-     time_bucket: timestamp (hora o min)
-     segment_code: string
-     count_total: int
-     count_answered: int
-     count_abandoned: int
-     sum_duration_seconds: bigint
-     sum_wait_seconds: bigint
-     count_within_sl: int (umbral SL)
+   DashboardIVR:
+     segmentos_activos   : lista de segmentos del usuario
+     trimestre_activo    : codigo del trimestre con datos
+     total_llamadas      : suma de llamadas recibidas
+     total_abandonadas   : suma de los tres tipos de abandono
+     tasa_abandono       : (total_abandonadas / total) * 100
+     centros_principales : top N centros de transferencia
 
-ETL pobla por hora desde BD operativa
-(UC_PIP_*). UC_RPT_01 lee de aqui.
+Todos los valores los calcula el SP en BD_IVR para el
+trimestre y segmento activos del usuario; el backend solo
+parsea las filas y arma el JSON de respuesta.
 
-7.4 Cache
+7.3 Cache
 =========
 
 ::
 
    key = "dashboard:" + user_id + ":"
-                      + period + ":"
+                      + trimestre + ":"
                       + segments_hash
-   ttl: 30s (today) | 60s (yesterday)
-        | 300s (last_7d)
+   ttl: 30s
 
-7.5 Indices criticos
-====================
+El cache se invalida al completar una ejecucion ETL exitosa
+(``pipeline_runs.estado = 'exitoso'``).
 
-- ``CallSummary(segment_code,
-  time_bucket DESC)``
-- Particionamiento por dia (Analytics).
+7.4 Datos NO involucrados
+==========================
 
-7.6 Datos NO involucrados
-=========================
-
-- PII: telefonos de llamadas individuales.
+- PII: numeros de telefono de callers individuales.
 - Audio / transcripciones.
-- Datos personales del cliente.
-- AuditEvents (uso de UC_PERM_10 separado).
+- Datos de agentes (el IVR no tiene datos de atencion humana
+  directa — solo transferencias al centro).

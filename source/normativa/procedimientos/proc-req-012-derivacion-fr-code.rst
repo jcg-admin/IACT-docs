@@ -88,7 +88,7 @@ Mapear FR a componentes de codigo:
  
  Componentes:
  - apps/auth/services.py::JWTService.generate_token
- - apps/auth/views.py::LoginView.post
+ - apps/auth/views.py::LoginEndpoint.post
 
 **Paso 3: Implementar Codigo**
 
@@ -126,7 +126,7 @@ Registrar mapeo en matriz de trazabilidad.
    - Funcion/Clase
  * - FR_UC001_01
    - auth/serializers.py
-   - LoginSerializer.validate_username
+   - LoginRequestContract.validate_username
  * - FR_UC001_02
    - auth/services.py
    - AuthService.verify_credentials

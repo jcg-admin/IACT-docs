@@ -116,8 +116,8 @@ FR-005.01: Listar sesiones activas
 
 **Permisos Requeridos:**
 
-- Agrupador: AGR-008 (admin_seguridad)
-- Función: AUT-004 (gestionar_sesiones)
+- Agrupador: AGR-007 (permission_admin_group)
+- Función: view_all_active_sessions
 
 ----
 

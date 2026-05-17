@@ -1,0 +1,377 @@
+{
+  "canonical_count": 67,
+  "canonical_pascal_to_file": {
+    "AbandonmentReportService": "abandonment-report-service",
+    "AccessGroup": "access-group",
+    "AccessGroupFunction": "access-group-function",
+    "Action": "action",
+    "AgentDailyStatRepo": "agent-daily-stat-repo",
+    "AgentReportService": "agent-report-service",
+    "Alert": "alert",
+    "AlertHook": "alert-hook",
+    "AlertRepo": "alert-repo",
+    "AlertRule": "alert-rule",
+    "ApplicationLog": "application-log",
+    "Assignment": "assignment",
+    "AssignmentRepo": "assignment-repo",
+    "AuditEvent": "audit-event",
+    "AuditQueryService": "audit-query-service",
+    "AuditRepo": "audit-repo",
+    "AuditService": "audit-service",
+    "AuditValidator": "audit-validator",
+    "BaseReportService": "base-report-service",
+    "Bucket": "bucket",
+    "Call": "call",
+    "CallerReportService": "caller-report-service",
+    "Campaign": "campaign",
+    "ColumnCatalog": "column-catalog",
+    "Comparative": "comparative",
+    "CursorEncoder": "cursor-encoder",
+    "EvaluatorReloader": "evaluator-reloader",
+    "ExceptionalPermission": "exceptional-permission",
+    "ExceptionalPermissionRepo": "exceptional-permission-repo",
+    "ExportJob": "export-job",
+    "ExportWorker": "export-worker",
+    "FilterValidator": "filter-validator",
+    "Function": "function",
+    "FunctionGroup": "function-group",
+    "HistoricalReport": "historical-report",
+    "InfrastructureLog": "infrastructure-log",
+    "InternalMailbox": "internal-mailbox",
+    "IvrNavigationReportService": "ivr-navigation-report-service",
+    "KpiCalculator": "kpi-calculator",
+    "Menu": "menu",
+    "Metric": "metric",
+    "NavDomain": "nav-domain",
+    "PermissionCache": "permission-cache",
+    "PermissionService": "permission-service",
+    "PiiScanner": "pii-scanner",
+    "PipelineExecution": "pipeline-execution",
+    "PipelineLog": "pipeline-log",
+    "RbacRepo": "rbac-repo",
+    "Report": "report",
+    "RuleValidator": "rule-validator",
+    "Sanitizer": "sanitizer",
+    "SavedFilter": "saved-filter",
+    "SavedView": "saved-view",
+    "ScheduledReport": "scheduled-report",
+    "ScheduledReportListService": "scheduled-report-list-service",
+    "ScheduledReportRepo": "scheduled-report-repo",
+    "Section": "section",
+    "SegmentResolver": "segment-resolver",
+    "SeparationRule": "separation-rule",
+    "Session": "session",
+    "Subscription": "subscription",
+    "SystemHealth": "system-health",
+    "TechnicalMetric": "technical-metric",
+    "Threshold": "threshold",
+    "TimingCalculator": "timing-calculator",
+    "TransferReportService": "transfer-report-service",
+    "User": "user"
+  },
+  "existing_class_refs_count": 12,
+  "method_refs_existing_classes": {
+    "Assignment": [
+      "state"
+    ],
+    "Session": [
+      "id",
+      "state"
+    ],
+    "User": [
+      "password_hash",
+      "state"
+    ]
+  },
+  "method_refs_missing_classes": {},
+  "missing_classes": {
+    "ACTIVE": [
+      "users/uc-usr-01",
+      "users/uc-usr-03"
+    ],
+    "AGRExpansionStrategy": [
+      "access/uc-acc-04"
+    ],
+    "AGRRepository": [
+      "access/uc-acc-03"
+    ],
+    "AbandonoReportView": [
+      "reports/uc-rpt-13"
+    ],
+    "Accept": [
+      "reports/uc-rpt-02"
+    ],
+    "AccessGroupRepository": [
+      "access/uc-acc-04"
+    ],
+    "AgentDailyStat": [
+      "reports/uc-rpt-12"
+    ],
+    "AnonRateThrottle": [
+      "auth/uc-auth-01"
+    ],
+    "AssignmentRepository": [
+      "access/uc-acc-04",
+      "users/uc-usr-02",
+      "access/uc-acc-01",
+      "access/uc-acc-03",
+      "access/uc-acc-02"
+    ],
+    "Assignments": [
+      "users/uc-usr-03"
+    ],
+    "AuditLog": [
+      "access/uc-acc-01",
+      "users/uc-usr-02"
+    ],
+    "AuditPIIDetected": [
+      "permissions/uc-perm-09"
+    ],
+    "AuditValidationError": [
+      "permissions/uc-perm-09"
+    ],
+    "AuthFlowTemplate": [
+      "auth/uc-auth-01"
+    ],
+    "AuthenticationStrategy": [
+      "auth/uc-auth-01"
+    ],
+    "AuthorizationGuard": [
+      "pipeline/uc-pip-02",
+      "pipeline/uc-pip-04",
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-16",
+      "users/uc-usr-04",
+      "reports/uc-rpt-17",
+      "access/uc-acc-01",
+      "pipeline/uc-pip-03",
+      "pipeline/uc-pip-01",
+      "reports/uc-rpt-15"
+    ],
+    "BLOCKED": [
+      "users/uc-usr-03"
+    ],
+    "BlacklistedToken": [
+      "users/uc-usr-04",
+      "auth/uc-auth-04",
+      "auth/uc-auth-05",
+      "auth/uc-auth-02",
+      "auth/uc-auth-03"
+    ],
+    "CLOSED": [
+      "auth/uc-auth-02"
+    ],
+    "CacheInvalidationStrategy": [
+      "access/uc-acc-05"
+    ],
+    "CheckPermissionOutput": [
+      "permissions/uc-perm-07"
+    ],
+    "ClientesReportView": [
+      "reports/uc-rpt-17"
+    ],
+    "CriticalFunctionSpec": [
+      "access/uc-acc-02"
+    ],
+    "DeduplicationStrategy": [
+      "access/uc-acc-03"
+    ],
+    "DisparadorETL": [
+      "pipeline/uc-pip-04"
+    ],
+    "DisponibilidadBuilder": [
+      "pipeline/uc-pip-03"
+    ],
+    "DisponibilidadDatosView": [
+      "pipeline/uc-pip-03"
+    ],
+    "ELIMINATED": [
+      "users/uc-usr-04",
+      "users/uc-usr-03"
+    ],
+    "EXPIRED": [
+      "access/uc-acc-09"
+    ],
+    "EffectivePermissionsAggregator": [
+      "access/uc-acc-03"
+    ],
+    "Eliminar": [
+      "users/uc-usr-04"
+    ],
+    "EliminateUserCommand": [
+      "users/uc-usr-04"
+    ],
+    "ErroresETLView": [
+      "pipeline/uc-pip-02"
+    ],
+    "ExceptionalPermissionRepository": [
+      "access/uc-acc-08",
+      "access/uc-acc-03"
+    ],
+    "ExpirationPolicy": [
+      "access/uc-acc-01",
+      "access/uc-acc-08"
+    ],
+    "FunctionRepository": [
+      "access/uc-acc-01",
+      "access/uc-acc-05"
+    ],
+    "HasCreateUsers": [
+      "users/uc-usr-01"
+    ],
+    "HasResetPasswordFunction": [
+      "auth/uc-auth-03"
+    ],
+    "INACTIVE": [
+      "users/uc-usr-03"
+    ],
+    "IdempotencyPolicy": [
+      "access/uc-acc-01",
+      "users/uc-usr-04",
+      "access/uc-acc-04"
+    ],
+    "ImmutabilityPolicy": [
+      "access/uc-acc-05"
+    ],
+    "InternalMessage": [
+      "access/uc-acc-08",
+      "users/uc-usr-04",
+      "users/uc-usr-01",
+      "auth/uc-auth-03"
+    ],
+    "JustificationValidator": [
+      "access/uc-acc-08"
+    ],
+    "LDAPStrategy": [
+      "auth/uc-auth-01"
+    ],
+    "LOGIN": [
+      "auth/uc-auth-01"
+    ],
+    "LOGOUT": [
+      "permissions/uc-perm-09"
+    ],
+    "LastHolderPolicy": [
+      "access/uc-acc-02"
+    ],
+    "LastHolderSpec": [
+      "access/uc-acc-02"
+    ],
+    "LocalPasswordStrategy": [
+      "auth/uc-auth-01"
+    ],
+    "MailboxFailurePolicy": [
+      "users/uc-usr-04"
+    ],
+    "MaskingStrategy": [
+      "users/uc-usr-02"
+    ],
+    "MenuIVRReportView": [
+      "reports/uc-rpt-16"
+    ],
+    "MetricsCache": [
+      "reports/uc-rpt-13",
+      "reports/uc-rpt-15",
+      "reports/uc-rpt-16",
+      "reports/uc-rpt-17"
+    ],
+    "NotifyOnAssignAGRStrategy": [
+      "access/uc-acc-04"
+    ],
+    "NotifyOnAssignStrategy": [
+      "access/uc-acc-01"
+    ],
+    "NotifyOnEliminationStrategy": [
+      "users/uc-usr-04"
+    ],
+    "NotifyOnModifyStrategy": [
+      "users/uc-usr-03"
+    ],
+    "NotifyOnRevokeStrategy": [
+      "access/uc-acc-02"
+    ],
+    "PasswordGenerator": [
+      "users/uc-usr-01",
+      "auth/uc-auth-03"
+    ],
+    "PasswordHistory": [
+      "auth/uc-auth-04"
+    ],
+    "PasswordHistoryChecker": [
+      "auth/uc-auth-04"
+    ],
+    "PasswordPolicyValidator": [
+      "auth/uc-auth-04"
+    ],
+    "PipelineExecutionRepo": [
+      "pipeline/uc-pip-01",
+      "pipeline/uc-pip-02",
+      "pipeline/uc-pip-03",
+      "pipeline/uc-pip-04"
+    ],
+    "Puebla": [
+      "reports/uc-inc-rpt-01"
+    ],
+    "QueryBuilder": [
+      "users/uc-usr-02"
+    ],
+    "ReintentarETLView": [
+      "pipeline/uc-pip-04"
+    ],
+    "RestoreUser": [
+      "users/uc-usr-04"
+    ],
+    "ResumenSaludBuilder": [
+      "pipeline/uc-pip-01"
+    ],
+    "SSOStrategy": [
+      "auth/uc-auth-01"
+    ],
+    "SelfViewPolicy": [
+      "access/uc-acc-03"
+    ],
+    "SessionRepository": [
+      "auth/uc-auth-05"
+    ],
+    "SoDRule": [
+      "access/uc-acc-08",
+      "access/uc-acc-04",
+      "access/uc-acc-01",
+      "access/uc-acc-05",
+      "admin/uc-adm-01"
+    ],
+    "SoDRuleRepository": [
+      "access/uc-acc-01",
+      "access/uc-acc-05",
+      "access/uc-acc-03"
+    ],
+    "Specification": [
+      "access/uc-acc-01",
+      "users/uc-usr-02",
+      "auth/uc-auth-04"
+    ],
+    "SupervisionETLView": [
+      "pipeline/uc-pip-01"
+    ],
+    "TokenInvalidator": [
+      "auth/uc-auth-02"
+    ],
+    "TransferenciasReportView": [
+      "reports/uc-rpt-15"
+    ],
+    "UNAUTHORIZED": [
+      "permissions/uc-perm-09"
+    ],
+    "UserRateThrottle": [
+      "auth/uc-auth-01"
+    ],
+    "UserRepository": [
+      "access/uc-acc-02",
+      "users/uc-usr-02"
+    ],
+    "UsernameGenerator": [
+      "users/uc-usr-01"
+    ]
+  },
+  "missing_classes_count": 81
+}

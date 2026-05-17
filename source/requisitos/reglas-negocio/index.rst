@@ -31,7 +31,7 @@ Catálogo
  br-004-comunicaciones-internas-only
  br-005-sesion-unica-por-usuario
  br-006-rbac-flat-nist
- br-007-separacion-funciones-sod
+ br-007-separacion-de-funciones
  br-008-auditoria-accesos
  br-009-bajas-logicas
  br-010-auditoria-inmutable
@@ -45,3 +45,11 @@ Catálogo
  br-018-indice-eficiencia
  br-019-retencion-2-anios
  br-020-clasificacion-datos
+
+Especificacion RBAC
+-------------------
+
+.. toctree::
+ :maxdepth: 1
+
+ rbac/index

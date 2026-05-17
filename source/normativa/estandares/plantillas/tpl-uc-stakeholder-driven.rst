@@ -607,7 +607,7 @@ Entrevista con Maria Rodriguez (Gerente Operaciones) - 2024-11-15
 
 PC-1: Usuario autenticado en el sistema
 
-PC-2: Usuario tiene permiso RPT-001
+PC-2: Usuario tiene permiso view_reports
 
 PC-3: Segmento valido existe en catalogo
 

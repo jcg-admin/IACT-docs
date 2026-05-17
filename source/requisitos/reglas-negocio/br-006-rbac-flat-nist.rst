@@ -58,7 +58,7 @@ administrativa.
  VOCABULARIO:
  - RBAC: Role-Based Access Control
  - Flat: Sin jerarquia de herencia entre roles
- - Funcion atomica: Permiso indivisible (ej: USR-001)
+ - Funcion atomica: Permiso indivisible (ej: create_users)
  - Agrupador: Conjunto de funciones para asignacion conveniente
 
  REGLA:
@@ -113,7 +113,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Responsable**: Arquitecto de Seguridad, admin_seguridad (AGR-008)
+- **Responsable**: Arquitecto de Seguridad, permission_admin (AGR-007 — ``permission_admin_group``)
 - **Proceso de Cambio**: Revision arquitectonica formal
 - **Frecuencia de Revision**: Solo ante cambio de arquitectura
 
@@ -132,8 +132,8 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  * - Componente
    - Descripcion de Aplicacion
  * - MOD_Access
-   - Implementa modelo RBAC con 42 funciones atomicas
- * - Middleware DRF
+   - Implementa modelo RBAC con 67 funciones atomicas activas (v5.6.x current = 64 baseline v5.6.0 + 3 v5.6.x extension; catalogo declara 80, 13 reservadas open-closed)
+ * - Middleware de API
    - Valida permisos por funcion, no por rol
  * - Base Analytics
    - Tablas: funciones, agrupadores, user_funciones
@@ -141,7 +141,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
 
-- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-010)
+- **Roles**: Todos los agrupadores RBAC (AGR-001 a AGR-012)
 
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
@@ -163,10 +163,12 @@ Sin excepciones. El modelo Flat es absoluto.
  * - CNST
    - Relacion
  * - CNST-005
-   - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
- * - :ref:`cnst-012`
-   - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
-     permisos temporales con vencimiento. Implementa esta BR.
+   - Estandar de seguridad plataforma de API (autenticacion, autorizacion en APIs)
+ * - :ref:`cnst-029`
+   - Modelo RBAC Flat consolidado: 67 funciones activas (v5.6.x current
+     = 64 baseline v5.6.0 + 3 v5.6.x extension; catalogo declara 80 con
+     13 reservadas open-closed), 12 grupos, 3 reglas de separacion, permisos
+     temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -193,12 +195,16 @@ Sin excepciones. El modelo Flat es absoluto.
    - Asignar Funciones a Usuario
  * - UC-011
    - Gestionar Permisos por Agrupador
- * - UC-044
+ * - UC_ACC_03
    - Consultar Permisos Efectivos
- * - UC-045
-   - Gestionar Catalogo de Agrupadores
- * - UC-046
+ * - UC_ADM_03
+   - Gestionar Catalogo de Agrupadores del Sistema
+ * - UC_ADM_02
    - Gestionar Catalogo de Funciones
+ * - UC_ADM_04
+   - Gestionar Catalogo de MenuItems (v5.6.x extension)
+ * - UC_ADM_05
+   - Gestionar Lifecycle de MenuItem (v5.6.x extension)
 
 ----
 
@@ -210,14 +216,14 @@ Sin excepciones. El modelo Flat es absoluto.
 
 1. No existe tabla de herencia de roles
 2. Permisos se resuelven por union de funciones asignadas
-3. 42 funciones atomicas definidas en catalogo
+3. 67 funciones atomicas activas definidas en catalogo (80 declaradas, 13 reservadas open-closed) — 64 baseline v5.6.0 + 3 v5.6.x extension (MOD_Admin)
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **Tipo**: Automatizado + Manual
 - **Frecuencia**: Por release (estructura), continua (permisos)
-- **Responsable**: QA, admin_seguridad
+- **Responsable**: QA, permission_admin
 
 6.3 Consecuencias de Incumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -7,7 +7,7 @@ Parte 9 — Criterios de aceptacion
 9.1 CA-01: Listado paginado
 ===========================
 
-**DADO** invoker con view_access_audit y N
+**DADO** invoker con view_audit_log y N
 eventos en BD,
 
 **ENTONCES**:
@@ -49,7 +49,7 @@ MOD_Access + MOD_Auth + MOD_Reports,
 9.5 CA-05: Sin permiso 403 (EX-02)
 ==================================
 
-**DADO** invoker sin view_access_audit,
+**DADO** invoker sin view_audit_log,
 
 **ENTONCES**:
 

@@ -16,7 +16,7 @@ short-lived).
 
 **Justificacion**: la implementacion concreta de
 "invalidar token" depende del despliegue
-(self-hosted MySQL vs Redis vs ambos). El UC no
+(self-hosted Base de Datos vs cache vs ambos). El UC no
 prescribe — define la interfaz
 ``TokenInvalidator``.
 
@@ -27,7 +27,7 @@ prescribe — define la interfaz
                       expires_at: datetime) -> None: ...
 
    class DBBlacklistStrategy(TokenInvalidator): ...
-   class RedisBlacklistStrategy(TokenInvalidator): ...
+   class CacheBlacklistStrategy(TokenInvalidator): ...
 
 10.1.2 Template Method
 ----------------------
@@ -60,7 +60,7 @@ UC_AUTH_02 los conozca.
 10.1.4 Chain of Responsibility
 ------------------------------
 
-**Aplica a**: cadena de validacion DRF —
+**Aplica a**: cadena de validacion plataforma de API —
 authentication classes → permission classes →
 throttle classes → view. Cada eslabon decide
 rechazar o pasar al siguiente.
@@ -141,7 +141,7 @@ state.
    - AuditEvent → consumers
  * - Chain of Responsibility
    - GoF
-   - DRF middleware pipeline
+   - plataforma de API middleware pipeline
  * - P-02 Idempotencia
    - IACT
    - FA-02

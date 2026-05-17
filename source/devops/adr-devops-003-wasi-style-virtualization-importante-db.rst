@@ -12,7 +12,7 @@
 ADR-011: WASI-style Virtualization for Database Environments
 ============================================================
 
-**Status**: Accepted **Date**: 2025-11-12 **Decision Makers**:
+**Status**: Accepted**Date**: 2025-11-12**Decision Makers**:
 Development Team **Tags**: #infrastructure #virtualization #wasi
 #containers #security
 
@@ -419,7 +419,7 @@ Similar Projects
 ~~~~~~~~~~~~~~~~
 
 -  systemd-nspawn:
-   https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html
+   ``https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html`` (broken)
 -  Flatpak sandboxing:
    https://docs.flatpak.org/en/latest/sandbox-permissions.html
 -  Bubblewrap: https://github.com/containers/bubblewrap

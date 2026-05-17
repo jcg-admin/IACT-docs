@@ -95,19 +95,19 @@ vacios,
 
 - Status = 400 VALIDATION_ERROR
 
-9.10 CA-10: Cascade SoD strict (EX-08)
-======================================
+9.10 CA-10: Cascade separacion strict (EX-08)
+===============================================
 
 **DADO** politica strict + cambio crearia
-SoD violation para algun User,
+separacion violation para algun User,
 
 **ENTONCES**:
 
-- Status = 409 CASCADE_SOD_VIOLATION
+- Status = 409 CASCADE_SEPARATION_VIOLATION
 - Body lista violating_users sample
 
-9.11 CA-11: Cascade SoD permissive (FA-04)
-==========================================
+9.11 CA-11: Cascade separacion permissive (FA-04)
+===================================================
 
 **DADO** politica permissive + violacion,
 
@@ -130,7 +130,7 @@ SoD violation para algun User,
 ===========================
 
 **DADO** invoker sin
-``manage_access_group_composition``,
+``assign_functions_to_group``,
 
 **ENTONCES**:
 
@@ -180,7 +180,7 @@ SoD violation para algun User,
    - change_reason obligatoria
    - Auditabilidad
  * - CA-10..11
-   - Cascade SoD strict / permissive
+   - Cascade separacion strict / permissive
    - Cumplimiento
  * - CA-12
    - Cascade audit count

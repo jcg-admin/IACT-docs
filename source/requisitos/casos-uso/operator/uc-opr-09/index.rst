@@ -3,10 +3,10 @@
  :tipo: Caso de Uso (Spec Completa)
  :dominio: requisitos
  :subdominio: casos_uso/operator
- :estado: Vigente
+ :estado: Fuera del scope
  :version: 5.0.0
  :fecha_creacion: 2026-05-01
- :ultimo_cambio: 2026-05-01
+ :ultimo_cambio: 2026-05-06
  :autor: NestorMonroy
  :clasificacion: Importante
  :normativa: CNST-007, CNST-008, CNST-009, CNST-026
@@ -30,7 +30,7 @@ recientes (ultimos 7 dias).
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

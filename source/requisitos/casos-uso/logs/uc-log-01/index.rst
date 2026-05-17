@@ -29,7 +29,7 @@ debugging.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_system_logs``
+   - ``view_application_logs``
 
 Estructura de la spec
 =====================
@@ -45,7 +45,7 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica

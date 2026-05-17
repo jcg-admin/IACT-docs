@@ -49,10 +49,10 @@ NOW()+1h ≤ x ≤ NOW()+30d.
 
 400 FUNCTION_NOT_FOUND / FUNCTION_INACTIVE.
 
-5.9 EX-09: SoD violation
-========================
+5.9 EX-09: separacion violation
+=================================
 
-409 SOD_VIOLATION. All-or-nothing.
+409 SEPARATION_VIOLATION. All-or-nothing.
 
 5.10 EX-10: ticket_reference required (FA-04)
 =============================================
@@ -125,7 +125,7 @@ total (P-10).
    - 400
    - GRANT_FAILED
  * - EX-09
-   - SoD violation
+   - separacion violation
    - 409
    - GRANT_FAILED ALERTA
  * - EX-10

@@ -1,0 +1,61 @@
+.venv/bin/sphinx-build -b html -d build/doctrees  -j auto source build/html
+Running Sphinx v8.2.3
+loading translations [es]... done
+Initializing Spelling Checker 8.0.2
+Converting `source_suffix = '.rst'` to `source_suffix = {'.rst': 'restructuredtext'}`.
+loading pickled environment... The configuration has changed (4 options: 'html_css_files', 'html_js_files', 'html_static_path', 'pygments_dark_style')
+done
+[autosummary] generating autosummary for: arquitectura-tecnica/arquitectura-sistema.rst, arquitectura-tecnica/arquitectura-sistema/arquitectura-general.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-0-contexto.rst, arquitectura-tecnica/arquitectura-sistema/dfd-nivel-1-subprocesos.rst, arquitectura-tecnica/context-view/context-diagram.rst, arquitectura-tecnica/context-view/external-interfaces.rst, arquitectura-tecnica/context-view/index.rst, arquitectura-tecnica/context-view/stakeholders.rst, arquitectura-tecnica/deploy-view/deploy-auth-cache.rst, arquitectura-tecnica/deploy-view/deploy-estandar.rst, ..., requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-01-obtener-lista-paginada.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-02-aplicar-filtros.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-03-ordenar-resultados.rst, requisitos/requisitos-funcionales/users/uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad.rst, requisitos/requisitos-no-funcionales/index.rst, requisitos/requisitos-no-funcionales/rnf-proc-001-proceso-sdlc.rst, requisitos/requisitos-no-funcionales/rnf-proc-002-metricas-proceso.rst, risks-technical-debt/deuda-tecnica-rebuild.rst, risks-technical-debt/index.rst, risks-technical-debt/riesgos-conocidos.rst
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 9 source files that are out of date
+updating environment: 0 added, 9 changed, 0 removed
+reading sources... [ 20%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline .. arquitectura-tecnica/modulos/sys-logs/diagramas/componentes-mod-logs
+reading sources... [ 40%] arquitectura-tecnica/rbac/rbac-funciones-por-modulo .. arquitectura-tecnica/system-view/casos-uso-sistema-iact
+reading sources... [ 60%] arquitectura-tecnica/system-view/componentes-sistema-iact .. arquitectura-tecnica/system-view/despliegue-multicliente
+reading sources... [ 80%] arquitectura-tecnica/system-view/despliegue-sistema-iact .. arquitectura-tecnica/system-view/submaquina-etl
+reading sources... [100%] arquitectura-tecnica/system-view/submaquina-reporte
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... /home/user/IACT-docs/source/arquitectura-tecnica/domain-model/overview.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/domain-model/index', 'arquitectura-tecnica/modelo-dominio-iact'], selecting: arquitectura-tecnica/modelo-dominio-iact <- arquitectura-tecnica/domain-model/overview
+/home/user/IACT-docs/source/arquitectura-tecnica/domain-model/rule-validator.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/domain-model/index', 'arquitectura-tecnica/domain-model/index'], selecting: arquitectura-tecnica/domain-model/index <- arquitectura-tecnica/domain-model/rule-validator
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-access.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-access
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-admin.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-admin
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-alerts.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-alerts
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-audit.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-audit
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-auth.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-auth
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-caller.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-caller
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-logs.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-logs
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-operator.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-operator
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-permissions.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-permissions
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-pipeline.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-pipeline
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-reports.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-reports
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-supervision.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-supervision
+/home/user/IACT-docs/source/arquitectura-tecnica/use-case-view/uc-users.rst: document is referenced in multiple toctrees: ['arquitectura-tecnica/diagramas-uc-por-modulo', 'arquitectura-tecnica/use-case-view/index'], selecting: arquitectura-tecnica/use-case-view/index <- arquitectura-tecnica/use-case-view/uc-users
+done
+preparing documents... done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/basic.css
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/documentation_options.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/language_data.js
+Writing evaluated template result to /home/user/IACT-docs/build/html/_static/copybutton.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [ 33%] arquitectura-tecnica/modulos/etl-monitoring/diagramas/componentes-mod-pipeline .. arquitectura-tecnica/modulos/sys-logs/diagramas/index
+writing output... [ 67%] arquitectura-tecnica/rbac/rbac-funciones-por-modulo .. arquitectura-tecnica/system-view/despliegue-multicliente
+writing output... [100%] arquitectura-tecnica/system-view/despliegue-sistema-iact .. arquitectura-tecnica/system-view/submaquina-reporte
+
+generating indices... genindex done
+highlighting module code... 
+writing additional pages... search done
+dumping search index in Spanish (code: es)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in build/html.
+
+Construcción finalizada. Los archivos HTML están en build/html.

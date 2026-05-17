@@ -167,7 +167,7 @@ Parte 6 — Requisitos no funcionales
 
 - CNST-008: cambio de segmento mantiene
   consistencia de visibilidad de datos.
-- CNST-009: autenticacion DRF.
+- CNST-009: autenticacion plataforma de API.
 - CNST-013: manejo estandarizado de
   excepciones con mapping a status HTTP.
 - CNST-025: AuditEvent inmutable obligatorio.

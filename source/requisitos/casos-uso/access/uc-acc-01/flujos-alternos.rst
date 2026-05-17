@@ -11,7 +11,7 @@ Parte 4 — Flujos alternos (rutas alternativas)
 payload ya estan asignadas activamente al User.
 
 **Diferencia**: ``new_function_ids`` queda
-vacio. PASO 10 (SoD) skipped (no hay cambios).
+vacio. PASO 10 (separation of duties) skipped (no hay cambios).
 PASO 11 ejecuta cero INSERTs.
 
 **Pasos:**
@@ -64,7 +64,7 @@ algunas ya estan asignadas.
 
 **Diferencia**: PASO 9 separa en
 ``new_function_ids`` y
-``already_assigned_ids``. PASO 10 SoD valida
+``already_assigned_ids``. PASO 10 separacion valida
 solo el estado resultante (ya considerando
 activas + nuevas). PASO 11 inserta solo
 las nuevas. Response 201 incluye ambas listas
@@ -97,7 +97,7 @@ INACTIVE (suspension temporal).
 - PASO 4: validacion adicional de tamano
   payload (max 50 por request — politica
   CNST-011).
-- PASO 10: SoD validation puede ser costosa —
+- PASO 10: validacion de separacion puede ser costosa —
   recomendar al frontend confirmacion robusta
   antes del POST.
 
@@ -148,7 +148,7 @@ como historial. Se inserta nuevo con
    - 201 / 400 segun politica
  * - FA-05
    - >10 funciones
-   - Validacion tamano + SoD costosa
+   - Validacion tamano + separacion costosa
    - 201 / 400 si > 50
  * - FA-06
    - Re-asignacion post-revoke

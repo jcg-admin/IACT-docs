@@ -19,7 +19,7 @@ agr_id:6}``,
 - ``User.username == 'ana.gomez.0001'``
 - ``User.first_login == true``
 - ``User.state == 'ACTIVE'``
-- ``User.password_hash`` no vacio (bcrypt valido)
+- ``User.password_hash`` no vacio (hash valido)
 - 1 ``Assignment`` activo con AGR-006
 - 1 ``InternalMessage`` en buzon del nuevo User
 - 1 ``AuditEvent USER_CREATED``

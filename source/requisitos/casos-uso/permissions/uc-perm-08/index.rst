@@ -73,8 +73,14 @@ Estructura de la spec
  excepciones
  requisitos-no-funcionales
  datos-involucrados
- diagramas-uml
+ diagramas-uml/index
  criterios-aceptacion
  patrones-diseno
  implementacion-tecnica
  testing
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Extensiones
+
+ extension-v560-menu-item-wrapper

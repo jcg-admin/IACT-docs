@@ -762,12 +762,12 @@ proceso según aprendizajes
 REFERENCIAS
 -----------
 
-- `Guía: Procesos vs
-  Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.rst>`__
-- `ADR-002: Estrategia de
-  Branching <../adr/ADR-002-branching-strategy.rst>`__
-- `ADR-056: Agentic Design
-  Principles <../adr/ADR-056-agentic-design-principles.rst>`__
+- :doc:`Guía: Procesos vs
+  Procedimientos </normativa/guias/diferencia-procesos-procedimientos>`
+- *ADR-002: Estrategia de
+  Branching* (no migrado)
+- *ADR-056: Agentic Design
+  Principles* (no migrado)
 - ``GUIA_ESTILO.rst`` (guía histórica, no migrada)
 - `Conventional Commits <https://www.conventionalcommits.org/>`__
 
@@ -786,6 +786,6 @@ v1.0.0 (2025-11-17)
 
 --------------
 
-**Próxima revisión**: 2025-12-17 (1 mes) **Responsable**: Tech Lead +
+**Próxima revisión**: 2025-12-17 (1 mes)**Responsable**: Tech Lead +
 Equipo de Desarrollo **Aprobación pendiente**: Product Owner, Tech Lead,
 DevOps Lead

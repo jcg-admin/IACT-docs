@@ -5,8 +5,8 @@ Parte 5 — Excepciones
 ==========================
 
 5.1 EX-01: JWT — 401.
-5.2 EX-02: Sin schedule_reports — 403.
-5.3 EX-03: Sin export_reports — 403.
+5.2 EX-02: Sin schedule_report — 403.
+5.3 EX-03: Sin export_csv — 403.
 5.4 EX-04: Cron invalido — 400.
 5.5 EX-05: Frecuencia < 1h — 400.
 5.6 EX-06: > 10 schedules — 429.
@@ -30,11 +30,11 @@ Parte 5 — Excepciones
    - 401
    - middleware
  * - EX-02
-   - Sin schedule_reports
+   - Sin schedule_report
    - 403
    - UNAUTHORIZED
  * - EX-03
-   - Sin export_reports
+   - Sin export_csv
    - 403
    - UNAUTHORIZED
  * - EX-04

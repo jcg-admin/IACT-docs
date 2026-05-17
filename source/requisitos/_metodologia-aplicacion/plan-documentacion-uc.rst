@@ -30,7 +30,7 @@ Plan de documentación de UCs con diagramas UML (PlantUML)
 1. Objetivo
 ===========
 
-Crear **13 documentos** que especifiquen los **97 casos de uso**
+Crear **13 documentos** que especifiquen los**97 casos de uso**
 del proyecto IACT con diagramas UML completos en PlantUML, usando
 los estilos centralizados del proyecto.
 
@@ -334,7 +334,7 @@ Por qué un SAD además del SRS
    arquitectónicas, patrones de diseño y detalles de
    implementación que no corresponden al SRS pero son
    esenciales para el desarrollo.
-2. **Complemento natural al SRS** — el SRS define **qué**
+2. **Complemento natural al SRS** — el SRS define**qué**
    hace el sistema; el SAD define **cómo** se construye.
    Es el puente entre requisitos e implementación.
 3. **Audiencia técnica** — el SAD se orienta al equipo de
@@ -355,19 +355,19 @@ En IACT el SAD es el lugar adecuado para detallar:
 
 - **Patrones de diseño específicos** — Factory, Strategy,
   Adapter, Decorator, Observer, Facade aplicados a las
-  apps Django (ver :doc:`patrones-diseno`).
+  apps Django (ver :doc:`/requisitos/_metodologia-aplicacion/patrones-diseno/index`).
 - **Mecanismos internos** — bus de eventos para audit,
   política de sesiones en Redis, throttling con ventana
   deslizante, ventana ETL.
 - **Diagramas de secuencia y flujos de interacción** —
-  ver :doc:`diagramas-secuencias`,
-  :doc:`diagramas-colaboraciones`,
-  :doc:`diagramas-actividades`.
+  ver :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index`,
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/index`,
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-actividades/index`.
 - **Decisiones técnicas específicas** — registradas como
   ADRs en ``.thyrox/context/decisions/`` y agrupadas en
   el SAD.
-- **Vista física** — :doc:`diagramas-componentes`,
-  :doc:`diagramas-distribucion`.
+- **Vista física** — :doc:`/requisitos/_metodologia-aplicacion/diagramas-componentes/index`,
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-distribucion/index`.
 - **Restricciones técnicas y de negocio** — CNST_* / BR_*
   y su impacto arquitectónico.
 
@@ -407,8 +407,8 @@ El modelo original **4+1** de Philippe Kruchten (1995):
 - **Vista de desarrollo** *(development view)* — apps
   Django, packaging, versionado.
 - **Vista física** *(physical view)* —
-  :doc:`diagramas-componentes` +
-  :doc:`diagramas-distribucion`.
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-componentes/index` +
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-distribucion/index`.
 - **+1: Escenarios / Casos de uso** — UCs críticos que
   ejercitan las cuatro vistas (UC_AUTH_01, UC_RPT_04,
   UC_PIP_01, UC_ALR_03).
@@ -440,9 +440,9 @@ Adoptar **5+1** si el SAD necesita aislar explícitamente:
 
 - Vocabulario y reglas del dominio del centro de
   contacto (segmento BR_012, ventana ETL CNST_006/008,
-  SoD CNST_030).
+  separacion CNST-030).
 - Aprendizajes consolidados de
-  :doc:`analisis-dominio` (sustantivos→clases, RDD,
+  :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index` (sustantivos→clases, RDD,
   CRC) que justifiquen una vista propia.
 
 En la práctica, este cajón ``_metodologia-aplicacion/``
@@ -474,49 +474,49 @@ porque muestran aspectos distintos del mismo sistema.
    - Funcionalidad para usuarios finales; abstracciones y
      mecanismos del dominio.
    - Clases (conceptual), objetos, estados.
-   - :doc:`analisis-dominio`,
-     :doc:`orientacion-objetos`,
-     :doc:`relaciones-uml`,
-     :doc:`diagramas-estados`
+   - :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/orientacion-objetos/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/relaciones-uml/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-estados/index`
  * - **Design View**
    - Cómo el sistema resuelve los requisitos
      técnicamente; componentes y subsistemas.
    - Clases (con detalles de diseño), secuencia,
      colaboración, estados.
-   - :doc:`agregacion-interfaces`,
-     :doc:`diagramas-secuencias`,
-     :doc:`diagramas-colaboraciones`,
-     :doc:`patrones-diseno`
+   - :doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/patrones-diseno/index`
  * - **Implementation View**
    - Organización real del código; reutilización,
      restricciones, gestión.
    - Componentes, paquetes.
-   - :doc:`diagramas-componentes`
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-componentes/index`
  * - **Use Case View**
    - Comportamiento del sistema; une todas las otras
      vistas.
    - Casos de uso, actividades.
-   - :doc:`casos-uso-especificacion`,
-     :doc:`casos-uso-diagramas`,
-     :doc:`diagramas-actividades`
+   - :doc:`/requisitos/_metodologia-aplicacion/casos-uso-especificacion/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/casos-uso-diagramas/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-actividades/index`
  * - **Process View**
    - Concurrencia, sincronización, rendimiento,
      escalabilidad, throughput.
    - Actividades, secuencia, tiempo (cuando aplique).
-   - :doc:`diagramas-actividades`,
-     :doc:`diagramas-secuencias`,
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-actividades/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index`,
      :doc:`diagramas-tiempo` (preliminar)
  * - **Deployment View** (a veces parte de Physical)
    - Distribución física, comunicación, provisión.
    - Despliegue.
-   - :doc:`diagramas-distribucion`
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-distribucion/index`
 
 Lectura: el SAD que se construya tras los 97 UCs no debe
 generar diagramas nuevos para cada vista; debe **integrar**
 los diagramas ya producidos en este cajón asignando cada
 uno a la vista que corresponda. Eso asegura coherencia y
 evita duplicación (DRY, ver § 13 de
-:doc:`orientacion-objetos`).
+:doc:`/requisitos/_metodologia-aplicacion/orientacion-objetos/index`).
 
 Este SAD no es objeto de este plan; queda registrado como
 trabajo futuro recomendado tras el cierre de los 97 UCs.
@@ -562,7 +562,7 @@ codifica**:
    erróneos o condiciones que cambian.
 8. El diseño temprano tiende a agregar funcionalidades
    que luego resultan innecesarias (de ahí el principio
-   ágil **YAGNI** — *You Aren't Gonna Need It*).
+   ágil **YAGNI** —*You Aren't Gonna Need It*).
 9. Los desarrolladores se involucran más cuando tienen
    autonomía para tomar algunas decisiones de diseño.
 10. Si el diseño crece sin que ningún elemento se valide
@@ -600,14 +600,17 @@ detalle:
    En IACT: ``Usuario``, ``Sesion``, ``Permiso``,
    ``Llamada``, ``EjecucionETL``, ``Reporte``,
    ``Alerta``, ``EventoAuditoria`` (ver
-   :doc:`analisis-dominio`).
+   :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index`).
 2. **Funcional** — ¿qué funciones de negocio realiza el
    sistema, cómo se relacionan entre sí y cómo conectan
    con funciones externas al alcance?
 
-   En IACT: 9 módulos UC (AUTH, USR, ACC, PERM, RPT,
-   ALR, PIP, AUD, LOG) con sus 42 funciones atómicas y
-   los enganches con LDAP, BD operativa e IVR.
+   En IACT: 13 módulos UC (AUTH, USR, ACC, PERM, RPT,
+   ALR, PIP, AUD, LOG, **ADM** (NUEVO v5.6.0), OPR
+   (reservado), SUP (reservado), CLI) con sus 64 funciones
+   activas atómicas (catálogo declara 77 con 13 reservadas
+   open-closed para OPR y SUP) y los enganches con LDAP,
+   BD operativa e IVR.
 3. **Interfaz de usuario** — ¿cómo navegará el usuario,
    cómo se verá el sistema, qué controles especiales
    pueden ser necesarios?
@@ -629,7 +632,7 @@ detalle:
    En IACT: las apps Django ``auth_app``, ``perm_app``,
    ``rpt_app``, ``alr_app``, ``pip_app``, ``aud_app``,
    ``log_app`` y los contratos entre ellas
-   (:doc:`diagramas-componentes`).
+   (:doc:`/requisitos/_metodologia-aplicacion/diagramas-componentes/index`).
 
 Cada área se aborda **al nivel suficiente para arrancar**,
 no al nivel definitivo.
@@ -666,7 +669,7 @@ Cuándo extender la pista
 Señales en este proyecto:
 
 - Un nuevo cluster de UCs (ver § 11 de
-  :doc:`agregacion-interfaces`) requiere una interfaz
+  :doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`) requiere una interfaz
   que no existe → trabajo arquitectónico antes de
   redactar los UCs.
 - Una restricción nueva entra en el alcance (regulación,
@@ -741,7 +744,7 @@ son documentación de diseño valiosa por sí mismos — pero
 la observación es relevante: la documentación que **no se
 mantiene en sincronía con el código** pierde valor con
 el tiempo y se convierte en lava (ver § 13 de
-:doc:`orientacion-objetos`).
+:doc:`/requisitos/_metodologia-aplicacion/orientacion-objetos/index`).
 
 ----
 
@@ -759,17 +762,17 @@ el tiempo y se convierte en lava (ver § 13 de
      interna en Mermaid), reescrito para PlantUML por política
      del proyecto.
  * - **Ejemplos UML aplicados al dominio IACT**
-   - :doc:`diagramas-uml`
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-uml/index`
  * - **Ejemplos OOP aplicados al dominio IACT**
-   - :doc:`orientacion-objetos`
+   - :doc:`/requisitos/_metodologia-aplicacion/orientacion-objetos/index`
  * - **Ejemplos análisis de dominio aplicados al dominio IACT**
-   - :doc:`analisis-dominio`
+   - :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio/index`
  * - **Ejemplos relaciones UML aplicadas al dominio IACT**
-   - :doc:`relaciones-uml`
+   - :doc:`/requisitos/_metodologia-aplicacion/relaciones-uml/index`
  * - **Ejemplos agregación / interfaces / visibilidad — IACT**
-   - :doc:`agregacion-interfaces`
+   - :doc:`/requisitos/_metodologia-aplicacion/agregacion-interfaces/index`
  * - **Ejemplos análisis y especificación de UCs — IACT**
-   - :doc:`casos-uso-especificacion`
+   - :doc:`/requisitos/_metodologia-aplicacion/casos-uso-especificacion/index`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Metodología de análisis de dominio aplicable**

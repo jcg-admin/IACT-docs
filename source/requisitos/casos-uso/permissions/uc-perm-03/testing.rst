@@ -48,15 +48,15 @@ Parte 12 — Testing
    WHEN  inspecciono BD
    THEN  ZERO Permission, ZERO Audit
 
-12.2.3 Preview detecta SoD violations
--------------------------------------
+12.2.3 Preview detecta violaciones de separacion
+--------------------------------------------------
 
 ::
 
    GIVEN funcion en conflicto
    WHEN  preview
    THEN  estimated_sod_violations > 0
-   AND   warnings con regla SoD
+   AND   warnings con regla de separacion
 
 12.2.4 Cache catalogo invalidate post-grant
 -------------------------------------------
@@ -157,15 +157,15 @@ audit".
    THEN  banner "esta operacion sera
          auditada con visibilidad alta"
 
-12.4.3 Preview muestra SoD warnings
------------------------------------
+12.4.3 Preview muestra warnings de separacion
+-----------------------------------------------
 
 ::
 
-   GIVEN invoker selecciona funcion con SoD
+   GIVEN invoker selecciona funcion con conflicto de separacion
          conflict
    WHEN  abre preview
-   THEN  modal muestra regla SoD afectada
+   THEN  modal muestra regla de separacion afectada
 
 12.5 Cobertura objetivo
 =======================

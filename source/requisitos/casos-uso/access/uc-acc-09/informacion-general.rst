@@ -42,7 +42,7 @@ Eventos auditables consumidos:
 - ``FUNCTIONS_ASSIGNED`` (UC_ACC_01)
 - ``FUNCTIONS_REVOKED`` (UC_ACC_02)
 - ``AGR_ASSIGNED`` (UC_ACC_04)
-- ``SOD_RULE_*`` (UC_ACC_05)
+- ``SEPARATION_RULE_*`` (UC_ACC_05)
 - ``EXCEPTIONAL_PERMISSION_GRANTED`` /
   ``EXPIRED`` (UC_ACC_08)
 - ``UNAUTHORIZED_ACCESS_ATTEMPT`` (todos)
@@ -101,7 +101,7 @@ auditiva continua**. Disparado por:
  * - **CNST**
    - CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - **AGR de conveniencia**
    - AGR-008 auditor_group
  * - **UCs relacionados**

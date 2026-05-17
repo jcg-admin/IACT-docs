@@ -9,7 +9,7 @@ Parte 12 — Testing
 
 Cobertura por tipo:
 
-- **Unit**: lógica pura — cascade SoD validator,
+- **Unit**: lógica pura — cascade separation validator,
   filtrado idempotente, validacion predefinido.
 - **Integration**: flujo completo contra repos
   reales (in-memory o test DB).
@@ -59,17 +59,17 @@ Stack-agnostico: los tests describen
 
 **ENTONCES** FunctionInactive raised.
 
-12.2.6 UT-06: Cascade SoD detecta violacion
--------------------------------------------
+12.2.6 UT-06: Cascade separacion detecta violacion
+----------------------------------------------------
 
 **DADO** User U con AGRs que con delta
-crearia conflicto SoD,
+crearia conflicto de separacion,
 
 **ENTONCES** validator retorna violacion
 con violating_users = [U].
 
-12.2.7 UT-07: Cascade SoD pasa cuando no hay conflicto
-------------------------------------------------------
+12.2.7 UT-07: Cascade separacion pasa cuando no hay conflicto
+---------------------------------------------------------------
 
 **DADO** delta no introduce conflicto,
 
@@ -80,7 +80,7 @@ con violating_users = [U].
 
 **DADO** cascade_policy = STRICT + violacion,
 
-**ENTONCES** CascadeSoDViolation raised.
+**ENTONCES** CascadeSeparationRuleViolation raised.
 
 12.2.9 UT-09: Politica permissive continua
 ------------------------------------------
@@ -181,21 +181,21 @@ POST con function_id inexistente.
 
 **ENTONCES**: 400 FUNCTION_NOT_FOUND.
 
-12.3.8 IT-08: Cascade SoD strict bloquea
-----------------------------------------
+12.3.8 IT-08: Cascade separacion strict bloquea
+-------------------------------------------------
 
-Setup: User U con AGR + delta crea SoD
+Setup: User U con AGR + delta crea separacion violation
 violation. Politica strict.
 
 **ENTONCES**:
 
-- 409 CASCADE_SOD_VIOLATION
+- 409 CASCADE_SEPARATION_VIOLATION
 - violating_users sample en body
 - audit event COMPOSITION_FAILED
 - cero cambios en BD
 
-12.3.9 IT-09: Cascade SoD permissive 200
-----------------------------------------
+12.3.9 IT-09: Cascade separacion permissive 200
+-------------------------------------------------
 
 Mismo setup, politica permissive.
 
@@ -228,7 +228,7 @@ Cambio exitoso con N Users.
 ------------------------------
 
 Invoker sin
-``manage_access_group_composition``.
+``assign_functions_to_group``.
 
 **ENTONCES**: 403 + audit UNAUTHORIZED.
 
@@ -264,11 +264,11 @@ incluye nuevas functions.
 
 **ENTONCES**: effective_set actualizado.
 
-12.4.3 E2E-03: Cascade SoD bloqueado
-------------------------------------
+12.4.3 E2E-03: Cascade separacion bloqueado
+---------------------------------------------
 
 User U con AGR_A (sensible) + admin agrega
-function que crea SoD con AGR_B.
+function que crea separacion violation con AGR_B.
 
 **ENTONCES**: 409, ningun cambio.
 
@@ -319,10 +319,10 @@ violations para revision posterior.
    - reason obligatoria
    - UT-10, UT-11
  * - CA-10
-   - Cascade SoD strict
+   - Cascade separacion strict
    - UT-06, UT-08, IT-08, E2E-03
  * - CA-11
-   - Cascade SoD permissive
+   - Cascade separacion permissive
    - UT-09, IT-09, E2E-04
  * - CA-12
    - Cascade audit count
@@ -344,5 +344,5 @@ violations para revision posterior.
 - 13 integration tests
 - 4 E2E tests
 - 100% de los 15 CAs cubiertos
-- Cascade SoD cubierto en 3 niveles
+- Cascade separacion cubierto en 3 niveles
   (UT, IT, E2E)

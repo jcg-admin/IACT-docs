@@ -16,7 +16,7 @@ Parte 1 — Informacion general de UC_PERM_06
  * - **Nombre**
    - Asignar Funciones a Grupo (composicion AGR)
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
 
 1.2 Proposito
 =============
@@ -34,7 +34,7 @@ critica:
 
 Cambios en composicion son CASCADE — afectan
 inmediatamente el effective set de todos los
-Users con el AGR. Defensa: validacion SoD
+Users con el AGR. Defensa: validacion de separacion
 write-time considerando el delta.
 
 1.3 Alcance
@@ -46,7 +46,7 @@ write-time considerando el delta.
 - ``add_function_ids``: lista a agregar al
   AGR (idempotente — skip ya presentes).
 - ``remove_function_ids``: lista a quitar.
-- Validacion SoD para Users con el AGR
+- Validacion de separacion para Users con el AGR
   (puede crear/resolver conflictos).
 - AuditEvent
   ``ACCESS_GROUP_COMPOSITION_CHANGED``
@@ -56,7 +56,7 @@ write-time considerando el delta.
 ---------
 
 - Crear AGR → UC_PERM_05.
-- Modificar predefinidos AGR-001..010 →
+- Modificar predefinidos AGR-001..012 →
   prohibido.
 - Asignar AGR a User → UC_PERM_01.
 
@@ -83,13 +83,13 @@ Operacion de governance. Disparada por:
  * - **Origen legacy**
    - PRIORIDAD_01 + RNF-002
  * - **Reglas**
-   - BR-006 RBAC Flat NIST, BR-007 SoD,
+   - BR-006 RBAC Flat NIST, BR-007 separacion de deberes,
      BR-010 Auditoria
  * - **CNST**
-   - CNST-005 SoD enforcement,
+   - CNST-005 enforcement de separacion,
      CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
  * - **AGR de conveniencia**
    - AGR de seguridad / governance
  * - **UCs relacionados**

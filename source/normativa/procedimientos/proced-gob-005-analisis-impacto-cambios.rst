@@ -1408,14 +1408,14 @@ cambios
 Referencias
 -----------
 
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
-- `PROCED-GOB-003: Documentar Regla de
-  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.rst>`__
-- `PROCED-GOB-004: Crear Caso de
-  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
+- :doc:`PROCED-GOB-003: Documentar Regla de
+  Negocio </normativa/procedimientos/proced-gob-003-documentar-regla-negocio>`
+- :doc:`PROCED-GOB-004: Crear Caso de
+  Uso </normativa/procedimientos/proced-gob-004-crear-caso-uso>`
 
 Historial de Cambios
 --------------------

@@ -42,10 +42,10 @@ activa. AuditEvent AGR_ASSIGN_FAILED ALERTA.
 
 400 ACCESS_GROUP_INACTIVE (PASO 9).
 
-5.8 EX-08: SoD violation
-========================
+5.8 EX-08: separacion violation
+=================================
 
-409 SOD_VIOLATION (PASO 12). All-or-nothing.
+409 SEPARATION_VIOLATION (PASO 12). All-or-nothing.
 AuditEvent AGR_ASSIGN_FAILED.
 
 5.9 EX-09: Payload invalido
@@ -109,7 +109,7 @@ out of bounds.
    - 400
    - AGR_ASSIGN_FAILED
  * - EX-08
-   - SoD violation
+   - separacion violation
    - 409
    - AGR_ASSIGN_FAILED ALERTA
  * - EX-09

@@ -43,47 +43,43 @@ last_7d}. Default: today.
 
 Si hit < 30s, retornar.
 
-**PASO 7 — Query AnalyticsRepo (read-only)**
-
-Una sola query agregada que retorna:
-
-- counts (total, answered, abandoned)
-- sums / averages (durations)
-- trend buckets (por hora / minuto segun
-  periodo)
-
-CNST-007: SOLO Analytics. Sin tocar BD
-operativa.
-
-**PASO 8 — Calcular derivados**
+**PASO 7 — ReportingService.callproc(sp_rpt_centros_xsegmento)**
 
 ::
 
-   tmo = sum(answered_duration)
-                / count(answered)
-   service_level =
-     count(answered_<= threshold)
-       / count(total) × 100
-   abandon_rate =
-     count(abandoned)
-       / count(total) × 100
+   cursor.callproc(
+     'sp_rpt_centros_xsegmento',
+     [period, segments]
+   )
 
-3 KPIs derivados, computados in-memory para
-no acoplar al motor de BD.
+Stored procedure del IVR legacy que retorna
+**filas pre-agregadas** desde
+``BD_IVR.base_ivr_detalle``:
 
-**PASO 9 — Construir response**
+- counts (total, answered, abandoned)
+- sums / averages (durations)
+- trend buckets (por hora / minuto)
+- top centros por segmento
+
+CNST-007: SOLO Base Analitica IVR (read-only).
+Sin tocar BD operativa. La agregacion la
+realiza el SP en BD_IVR; el backend NO
+re-agrega ni re-calcula KPIs.
+
+**PASO 8 — Construir response**
 
 JSON con kpis, trend, segments_applied,
-cache=false.
+cache=false. Mapping directo de las filas
+del SP a la estructura DashboardOutput.
 
-**PASO 10 — Cache write**
+**PASO 9 — Cache write**
 
 ::
 
    MetricsCache.set(key, response,
                     ttl=30s)
 
-**PASO 11 — Respuesta 200**
+**PASO 10 — Respuesta 200**
 
 Sin audit por invocacion (P-51 — read no
 critical).
@@ -124,22 +120,18 @@ critical).
    - MetricsCache
    - —
  * - 7
-   - Query AnalyticsRepo
-   - Repo
+   - callproc(sp_rpt_centros_xsegmento)
+   - ReportingService
    - 007
  * - 8
-   - Calcular derivados
-   - KPICalculator
-   - —
- * - 9
    - Construir response
    - View
    - —
- * - 10
+ * - 9
    - Cache write
    - MetricsCache
    - —
- * - 11
+ * - 10
    - 200 OK
    - View
    - —

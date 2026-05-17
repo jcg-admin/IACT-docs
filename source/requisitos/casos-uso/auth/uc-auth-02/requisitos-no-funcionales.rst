@@ -22,7 +22,7 @@ Parte 6 — Requisitos no funcionales
      garantiza)
 
 UC_AUTH_02 es mas rapido que UC_AUTH_01 porque no
-hay verificacion de password (bcrypt cost 12 es
+hay verificacion de password (costo de hash configurado es
 el cuello de botella en login).
 
 6.2 Seguridad
@@ -129,4 +129,4 @@ el cuello de botella en login).
  * - **Dispositivos**
    - Desktop + tablet (no mobile native)
  * - **Backend API**
-   - DRF 3.14+, Django 4.2+
+   - Framework de API REST, la plataforma 4.2+

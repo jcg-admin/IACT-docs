@@ -45,11 +45,11 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker con manage_separation_rules
+   GIVEN invoker con view_separation_rules
      AND payload valido
    WHEN  create
-   THEN  SoDRule ACTIVE creada
-   AND   AuditEvent SOD_RULE_CREATED
+   THEN  SeparationRule ACTIVE creada
+   AND   AuditEvent SEPARATION_RULE_CREATED
    AND   Cache.invalidate llamado
 
 12.2.3 create duplicada (CA-04)
@@ -57,10 +57,10 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN existe SoDRule ACTIVE con mismas
+   GIVEN existe SeparationRule ACTIVE con mismas
          functions
    WHEN  create con esas mismas functions
-   THEN  raise SoDRuleDuplicate
+   THEN  raise SeparationRuleDuplicate
 
 12.2.4 create con violations existentes (CA-05)
 -----------------------------------------------
@@ -112,7 +112,7 @@ Parte 12 — Testing
    THEN  state == RETIRED
    AND   retired_by_admin_id, retire_reason
          registrados
-   AND   AuditEvent SOD_RULE_RETIRED
+   AND   AuditEvent SEPARATION_RULE_RETIRED
    AND   Cache.invalidate
 
 12.2.9 retire sin reason (CA-10)
@@ -131,7 +131,7 @@ Parte 12 — Testing
 
    GIVEN regla con state=RETIRED
    WHEN  retire
-   THEN  raise SoDRuleAlreadyRetired
+   THEN  raise SeparationRuleAlreadyRetired
 
 12.2.11 sin permiso lectura
 ---------------------------
@@ -147,7 +147,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin manage_separation_rules
+   GIVEN invoker sin view_separation_rules
    WHEN  create / modify / retire
    THEN  raise SinPermiso
 
@@ -158,7 +158,7 @@ Parte 12 — Testing
 
    GIVEN flujo CRUD exitoso
    WHEN  TransactionManager.atomic retorna
-   THEN  SoDRuleCache.invalidate llamado
+   THEN  SeparationRuleCache.invalidate llamado
          DESPUES
 
 12.2.14 audit sin PII (CA-18)
@@ -166,7 +166,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN AuditEvent SOD_RULE_*
+   GIVEN AuditEvent SEPARATION_RULE_*
    THEN  payload sin email/full_name del
          invoker
 
@@ -179,7 +179,7 @@ Parte 12 — Testing
 ::
 
    GIVEN invoker con view_separation_rules
-   WHEN  GET /api/access/sod-rules/
+   WHEN  GET /api/access/separation-rules/
    THEN  status == 200
 
 12.3.2 GET filter rule_id audita
@@ -188,7 +188,7 @@ Parte 12 — Testing
 ::
 
    GIVEN GET con ?rule_id=X
-   THEN  AuditEvent SOD_RULES_VIEWED con
+   THEN  AuditEvent SEPARATION_RULES_VIEWED con
          target_rule_id
 
 12.3.3 GET listado amplio NO audita (CA-15)
@@ -197,7 +197,7 @@ Parte 12 — Testing
 ::
 
    GIVEN GET sin rule_id
-   THEN  ZERO AuditEvent SOD_RULES_VIEWED
+   THEN  ZERO AuditEvent SEPARATION_RULES_VIEWED
 
 12.3.4 POST create 201
 ----------------------
@@ -215,7 +215,7 @@ Parte 12 — Testing
 
    GIVEN regla ACTIVE con mismas functions
    WHEN  POST con mismas functions
-   THEN  status == 409 SOD_RULE_DUPLICATE
+   THEN  status == 409 SEPARATION_RULE_DUPLICATE
 
 12.3.6 POST funcion no existe 400
 ---------------------------------
@@ -271,7 +271,7 @@ Parte 12 — Testing
    GIVEN regla RETIRED
    WHEN  DELETE
    THEN  status == 400
-         SOD_RULE_ALREADY_RETIRED
+         SEPARATION_RULE_ALREADY_RETIRED
 
 12.3.12 Sin permiso 403
 -----------------------
@@ -301,7 +301,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN admin con manage_separation_rules
+   GIVEN admin con view_separation_rules
    WHEN  define functions, descripcion,
          severity, click Crear
    THEN  toast confirma con violations_count
@@ -336,7 +336,7 @@ Parte 12 — Testing
    GIVEN admin retira regla
    WHEN  UC_ACC_01 intenta asignacion antes
          conflictiva
-   THEN  asignacion procede (SoD ya no
+   THEN  asignacion procede (separacion ya no
          bloquea — cache actualizado)
 
 12.5 Cobertura
@@ -349,7 +349,7 @@ Parte 12 — Testing
  * - Componente
    - Lineas
    - Branches
- * - SoDRuleService.{create,modify,retire}
+ * - SeparationRuleService.{create,modify,retire}
    - ≥ 95%
    - ≥ 90%
  * - DuplicateChecker

@@ -55,7 +55,7 @@ Parte 11 — Implementacion tecnica
            # P-64: re-check
            user = UserRepo.load(sched.actor_id)
            if not user.has_function(
-                    'export_reports'):
+                    'export_csv'):
                AuditService.emit(
                  'SCHEDULED_REPORT_PERMISSION_LOST',
                  actor_id=user.id,

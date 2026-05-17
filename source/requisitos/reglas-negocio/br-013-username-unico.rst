@@ -250,63 +250,23 @@ La regla se considera cumplida cuando:
 7. Implementación Técnica
 -------------------------
 
-7.1 Modelo Django
-^^^^^^^^^^^^^^^^^
+7.1 Modelo de datos
+^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/users/models.py
- 
- class User(AbstractBaseUser, PermissionsMixin):
- 
- Modelo de usuario que implementa BR_013.
- 
- username = models.CharField(
- max_length=150,
- unique=True, # BR_013: Username único
- validators=[username_validator],
- error_messages={
- 'unique': 'Ya existe un usuario con este username.',
- },
- )
- email = models.EmailField(blank=True)
- estado = models.CharField(
- max_length=10,
- choices=[('ACTIVO', 'Activo'), ('INACTIVO', 'Inactivo')],
- default='ACTIVO'
- )
- 
- USERNAME_FIELD = 'username'
- 
- class Meta:
- db_table = 'users'
- indexes = [
- models.Index(fields=['username'], name='idx_users_username'),
- ]
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 7.2 Validación en Serializer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/users/serializers.py
- 
- class UserCreateSerializer(serializers.ModelSerializer):
- 
- Serializer para creación de usuario.
- Implementa validación BR_013.
- 
- 
- def validate_username(self, value):
- 
- Valida unicidad de username (BR_013).
- 
- if User.objects.filter(username__iexact=value).exists:
- raise serializers.ValidationError(
- "BR_013: Ya existe un usuario con este username. "
- "El username debe ser único en todo el sistema."
- )
- return value.lower # Normalizar a minúsculas
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 ----
 
@@ -333,7 +293,7 @@ Referencias
 
 - FND_02: Reglas de Negocio
 - UC_USR_01: Crear Usuario
-- CNST_005: Seguridad DRF Checklist
+- CNST_005: Seguridad plataforma de API Checklist
 
 ----
 

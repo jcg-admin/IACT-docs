@@ -47,8 +47,7 @@ interno del usuario (``InternalMailbox``).
 Desde el sistema, el proposito es:
 
 - Sobrescribir ``User.password_hash`` con la
-  contrasena temporal hasheada con bcrypt cost
-  12.
+  contrasena temporal hasheada con costo de hash configurado.
 - Marcar ``User.first_login = true`` para
   forzar UC_AUTH_04 (cambiar contrasena) en el
   proximo login.
@@ -72,7 +71,7 @@ Desde el sistema, el proposito es:
   no esta ELIMINADO.
 - Generacion de contrasena temporal segura (12+
   caracteres, mixta, no diccionario).
-- Hash bcrypt cost 12 y persistencia.
+- Hash costo de hash configurado y persistencia.
 - Cierre forzado de Sessions activas del User
   destino.
 - Emision de InternalMessage al User destino con
@@ -119,7 +118,7 @@ no es el actor principal — es beneficiario.
  * - **Restricciones (CNST canonicas vigentes)**
    - CNST-001 prohibicion email/SMTP/canal
      externo; CNST-002 buzon interno
-     obligatorio; CNST-009 autenticacion DRF;
+     obligatorio; CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado; CNST-025
      auditoria inmutable.
  * - **Funcion RBAC**

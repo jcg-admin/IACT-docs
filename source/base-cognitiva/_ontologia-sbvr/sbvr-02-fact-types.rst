@@ -23,8 +23,10 @@ SBVR_02: Fact Types (Tipos de Hechos)
  nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
  ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
  Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
- "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
- atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ "Sin Pretensiones" del modelo vigente v5.6.0: 64 funciones
+ atomicas activas (catalogo declara 77 con 13 reservadas
+ open-closed para MOD_Operator y MOD_Supervision) + 12 grupos
+ predefinidos AGR-001..AGR-012 + 3 reglas de separacion.
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
@@ -47,7 +49,7 @@ conectan los conceptos nucleares definidos en :ref:`sbvr-01`.
  **Notacion SBVR:**
 
  - **Conceptos** (sustantivos) se muestran subrayados: Usuario
- - **Verbos** se muestran en italica: *tiene*
+ - **Verbos** se muestran en italica:*tiene*
  - **Fact Type** = Concepto + Verbo + Concepto
  - Ejemplo: Usuario *tiene* Rol
 
@@ -264,7 +266,7 @@ Cada Fact Type se documenta con:
  FACT TYPE: Rol excluye Rol
 
  LECTURA DIRECTA:
- "Rol excluye Rol" (Separacion de Funciones - SoD)
+ "Rol excluye Rol" (Separacion de Funciones (Separation of Duties))
 
  LECTURA INVERSA:
  "Rol es excluido por Rol"
@@ -278,7 +280,7 @@ Cada Fact Type se documenta con:
  La relacion es simetrica: si A excluye B, entonces B excluye A.
 
  OBLIGATORIEDAD:
- Opcional (solo aplica a roles con conflicto SoD)
+ Opcional (solo aplica a roles con conflicto de separacion)
 
  PARES CONOCIDOS:
  .. list-table::

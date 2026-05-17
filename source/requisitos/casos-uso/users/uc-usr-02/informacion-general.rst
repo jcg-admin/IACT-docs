@@ -100,7 +100,7 @@ administrativa continua**, sustenta:
    - BR-USR-10..13 (legacy del monolitico —
      formalizar en WP futuro)
  * - **Restricciones (CNST canonicas)**
-   - CNST-009 autenticacion DRF;
+   - CNST-009 autenticacion plataforma de API;
      CNST-013 manejo estandarizado;
      CNST-025 auditoria (lecturas privilegiadas
      se auditan selectivamente — patron P-16);

@@ -7,7 +7,7 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **User con funcion** ``export_reports``
+- **User con funcion** ``export_csv``
 - **ExportWorker** (background)
 - **Storage** (object storage)
 - **MailboxService** (notify)
@@ -17,7 +17,7 @@ Parte 2 — Actores y precondiciones
 ==================
 
 - User autenticado.
-- ``export_reports`` activa.
+- ``export_csv`` activa.
 - Segmento del User definido.
 - ExportWorker disponible.
 - Storage operativo.

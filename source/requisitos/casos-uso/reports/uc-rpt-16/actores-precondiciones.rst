@@ -7,18 +7,28 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **User con funcion** ``view_ivr_reports``
-- **AnalyticsRepo**
+- **User con funcion** ``view_reports``
+- **ReportingService** —
+  ``cursor.callproc('sp_rpt_menu_
+  redirigidos', ...)`` +
+  ``cursor.callproc('sp_rpt_menu_centro',
+  ...)`` + ``cursor.callproc('sp_rpt_
+  cMENU_ERROR', ...)`` sobre BD_IVR
+  (TRIPLE SP, una sub-vista cada uno).
 
 2.2 Precondiciones
 ==================
 
-Auth + RBAC + segmento.
+Auth + RBAC + segmento. BD_IVR accesible
+y los SPs ``sp_rpt_menu_redirigidos``,
+``sp_rpt_menu_centro`` y
+``sp_rpt_cMENU_ERROR`` instalados.
 
 2.3 Postcondiciones
 ===================
 
-Sin escrituras.
+Sin escrituras (read-only sobre BD_IVR
+y BD operativa, CNST-007).
 
 2.4 Datos de entrada
 ====================

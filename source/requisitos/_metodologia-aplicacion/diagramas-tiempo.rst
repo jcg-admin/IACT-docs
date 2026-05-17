@@ -76,32 +76,31 @@ responder en ≤ 10 s (CNST_017). Tres objetos relevantes:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
-   robust "Navegador" as N
-   robust "Backend"  as B
-   robust "BD analytics" as DB
+   robust "Navegador" as Navegador
+   robust "Backend"  as Backend
+   robust "BD analytics" as BdAnalytics
 
    @0
-   N is ocioso
-   B is ocioso
-   DB is ocioso
+   Navegador is ocioso
+   Backend is ocioso
+   BdAnalytics is ocioso
 
    @1
-   N is esperando
-   B is consulta
-   DB is query
+   Navegador is esperando
+   Backend is consulta
+   BdAnalytics is query
 
    @5
-   DB is ocioso
-   B is serializa
+   BdAnalytics is ocioso
+   Backend is serializa
 
    @7
-   B is ocioso
-   N is renderizando
+   Backend is ocioso
+   Navegador is renderizando
 
    @9
-   N is ocioso
+   Navegador is ocioso
 
    highlight 0 to 10 #LightYellow : SLA CNST_017
 
@@ -124,7 +123,7 @@ Limitaciones de este ejemplo
   diagrama solo cubre el camino feliz.
 - No se establece convención IACT canónica para colores,
   resolución temporal, ni interacción con
-  :doc:`diagramas-secuencias` y :doc:`diagramas-estados`.
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index` y :doc:`/requisitos/_metodologia-aplicacion/diagramas-estados/index`.
   Eso pertenece al WP.
 
 .. _wp-diagramas-tiempo:
@@ -161,10 +160,10 @@ Trazabilidad (preliminar)
    - Borrador (versión 0.1.0). No usar como referencia
      normativa.
  * - **Diagramas hermanos**
-   - :doc:`diagramas-estados`,
-     :doc:`diagramas-secuencias`,
-     :doc:`diagramas-colaboraciones`,
-     :doc:`diagramas-actividades`
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-estados/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-actividades/index`
  * - **Restricciones potencialmente relevantes**
    - CNST_002, CNST_006, CNST_008, CNST_011, CNST_017
  * - **Política de diagramación**

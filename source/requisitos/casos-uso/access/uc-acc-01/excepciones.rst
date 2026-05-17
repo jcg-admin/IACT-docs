@@ -123,8 +123,8 @@ Parte 5 — Excepciones
    - ``{"error":"FUNCTION_INACTIVE",
      "inactive_ids":[15]}``
 
-5.8 EX-08: Violacion SoD (CNST-005, BR-007)
-===========================================
+5.8 EX-08: Violacion de separacion (CNST-005, BR-007)
+=======================================================
 
 .. list-table::
  :widths: 25 75
@@ -134,14 +134,14 @@ Parte 5 — Excepciones
    - PASO 10
  * - **Condicion**
    - el conjunto efectivo (actuales + nuevas)
-     viola al menos una SoDRule activa
+     viola al menos una SeparationRule activa
  * - **Accion sistema**
    - rechazo total (no asignacion parcial —
      all-or-nothing)
  * - **Response**
    - 409 CONFLICT
  * - **Body**
-   - JSON con campos ``error="SOD_VIOLATION"``,
+   - JSON con campos ``error="SEPARATION_VIOLATION"``,
      ``rule_id``, ``rule_name``,
      ``conflict_pair`` (lista de objetos
      ``{function_id, code}``), y ``message``
@@ -253,7 +253,7 @@ Parte 5 — Excepciones
    - 400
    - (validacion)
  * - EX-08
-   - SoD violacion
+   - separacion violacion
    - 409
    - FUNCTIONS_ASSIGN_FAILED — ALERTA
  * - EX-09

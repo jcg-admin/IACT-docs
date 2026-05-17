@@ -249,8 +249,8 @@ PASO 4: Generar Reporte de Coverage
  ---------------------------------------------
  TOTAL 167 13 92%
 
-**Criterios de calidad**: - [OK] **Excelente**: >= 90% coverage - [ALERTA]️
-**Aceptable**: >= 80% coverage - [NO] **Insuficiente**: < 80% coverage
+**Criterios de calidad**: - [OK]**Excelente**: >= 90% coverage - [ALERTA]️
+**Aceptable**: >= 80% coverage - [NO]**Insuficiente**: < 80% coverage
 
 4.3 Revisar reporte HTML detallado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,7 +263,7 @@ PASO 4: Generar Reporte de Coverage
  start htmlcov/index.html # Windows
 
 En el reporte HTML, identificar: - [CRITICO] **Líneas no cubiertas** (rojo) -
-[MEDIO] **Líneas parcialmente cubiertas** (amarillo) - [OK] **Líneas
+[MEDIO] **Líneas parcialmente cubiertas** (amarillo) - [OK]**Líneas
 cubiertas** (verde)
 
 --------------
@@ -597,9 +597,9 @@ Comandos Rápidos de Referencia
 Métricas de Calidad
 -------------------
 
-Monitorear: - **Total de tests**: Debe crecer con el proyecto - **Tiempo
-de ejecución**: Idealmente < 2 minutos - **Coverage**: >= 80% mínimo -
-**Flaky tests**: Identificar tests intermitentes - **Tasa de fallos**: <
+Monitorear: - **Total de tests**: Debe crecer con el proyecto -**Tiempo
+de ejecución**: Idealmente < 2 minutos -**Coverage**: >= 80% mínimo -
+**Flaky tests**: Identificar tests intermitentes -**Tasa de fallos**: <
 5% aceptable
 
 --------------
@@ -609,8 +609,8 @@ Referencias
 
 - `pytest Documentation <https://docs.pytest.org/>`__
 - `Jest Documentation <https://jestjs.io/>`__
-- `PROC-QA-002: Estrategia
-  QA <../procesos/PROC-QA-002-estrategia_qa.rst>`__
+- :doc:`PROC-QA-002: Estrategia
+  QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 
 Historial de Cambios
 --------------------

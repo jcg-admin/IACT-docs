@@ -266,7 +266,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin manage_access_groups
+   GIVEN invoker sin create_function_group
    WHEN  cualquier endpoint
    THEN  status == 403
 
@@ -287,7 +287,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN admin con manage_access_groups
+   GIVEN admin con create_function_group
    WHEN  define code, display_name,
          description, severity, click Crear
    THEN  AGR aparece en catalogo

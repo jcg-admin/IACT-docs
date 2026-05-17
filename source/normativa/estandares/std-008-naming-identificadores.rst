@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.3.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-06
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -112,8 +112,8 @@ Ejemplos:
 ---------------------------------------------------
 
 **Regla obligatoria:** las abreviaturas de dominio de negocio o
-de framework (``SoD``, ``RBAC``, ``ETL``, ``PII``, ``KPI``,
-``RTM``, etc.) **NO deben aparecer en identificadores técnicos**.
+de framework (``ETL``, ``PII``, ``KPI``, ``RTM``, ``SAML``,
+etc.) **NO deben aparecer en identificadores técnicos**.
 Las abreviaturas pueden usarse en narrativa (texto explicativo)
 **solo cuando estén definidas previamente en el glosario del
 proyecto**.
@@ -132,9 +132,9 @@ Ejemplos:
  * - Operación
    - Identificador correcto
    - Identificador incorrecto
- * - Validar conflicto entre roles RBAC
-   - ``validateRoleConflict(...)``
-   - ``validateSoD(...)`` (SoD es abreviatura de dominio)
+ * - Validar identificadores PII
+   - ``validatePersonalDataIdentifier(...)``
+   - ``validatePII(...)`` (PII es abreviatura de dominio)
  * - Procesar datos del pipeline ETL
    - ``processIncomingData(...)``
    - ``runETL(...)`` (ETL es jerga sin contexto en el
@@ -146,7 +146,7 @@ Ejemplos:
    - ``buildTraceabilityMatrix(...)``
    - ``buildRTM(...)``
 
-**Excepción:** los identificadores que **son** el nombre canónico
+**Excepción:** los identificadores que**son** el nombre canónico
 de un concepto del lenguaje o framework (no del dominio del
 producto) sí pueden usar abreviaturas estándar de la industria.
 Ejemplos válidos: ``URL``, ``HTTP``, ``HTML``, ``JSON``, ``SQL``,
@@ -167,19 +167,76 @@ Ejemplo:
 - ``hasIACTPermission(permission)`` NO (acoplamiento al producto en
   el nombre).
 
-3.5 Coherencia de Idioma
-------------------------
+3.5 Coherencia de Idioma — Identifiers SIEMPRE en Inglés
+---------------------------------------------------------
 
 Los identificadores técnicos del proyecto IACT se escriben en
-**inglés**. Esto incluye:
+**inglés**, sin excepción. Esto incluye:
 
 - Funciones, métodos, clases, atributos, variables, constantes.
 - Nombres de tablas y columnas en PostgreSQL (modelos Django).
 - Endpoints REST.
 - Eventos, mensajes y nombres de logs estructurados.
+- **Ejemplos de código en cualquier artefacto** (lecciones,
+  tutoriales, ADRs, ERDs, diagramas de clase), incluyendo
+  zonas didácticas y normativa metodológica.
 
-La narrativa de la documentación puede ser en español; los
-identificadores que aparecen citados en ella mantienen el inglés.
+La narrativa de la documentación puede ser en español
+(títulos, párrafos explicativos, notas, captions); los
+identificadores citados en ella mantienen el inglés.
+
+3.5.1 Sin excepciones por zona
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Esta regla aplica universalmente. **NO existen excepciones**
+por zona, prefijo de path o naturaleza del artefacto:
+
+- Lecciones siguiendo Schmuller u otros libros con ejemplos
+  en español → traducir los identifiers al inglés. La narrativa
+  puede mantenerse en español.
+- ADRs descriptivos de código legacy → si el legacy usa
+  identifiers en español, el ADR debe documentar
+  explícitamente que ese naming **viola** este estándar y
+  proponer plan de migración. NO se cita como modelo a seguir.
+- Diagramas ERD, UML class, sequence, state, activity →
+  identifiers en inglés en TODOS los archivos, incluso
+  ejemplos pedagógicos.
+
+3.5.2 Justificación
+~~~~~~~~~~~~~~~~~~~
+
+Permitir identifiers en español en zonas didácticas envía un
+mensaje implícito incorrecto al lector: "es aceptable nombrar
+clases/atributos/funciones en español". Esa interpretación
+contradice STD-008 §3.1 (Clean Code obligatorio) y degrada
+la consistencia del corpus.
+
+Mantener la narrativa en español preserva el valor pedagógico
+para lectores hispanohablantes; traducir identifiers al inglés
+preserva el modelo correcto del estándar.
+
+3.5.3 Comentarios y narrativa — español permitido
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los siguientes elementos **pueden** estar en español:
+
+- Comentarios de código (``# explicacion``, ``// nota``,
+  ``-- descripcion``).
+- Strings de UI (mensajes al usuario final).
+- Captions de figuras y diagramas.
+- Texto narrativo de la documentación (RST prosa).
+- Nombres de archivos y directorios cuando STD-007 lo
+  permite (e.g. paths de capítulos didácticos).
+- Texto dentro de notas PlantUML (``note bottom of``,
+  ``note over``).
+
+3.5.4 Validación automática
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``scripts/validate-naming-corpus.sh`` (check C-07) audita
+TODO el corpus sin exclusiones por zona, detectando
+identifiers en español en declaraciones ``class X``,
+``entity X``, atributos y métodos.
 
 ----
 

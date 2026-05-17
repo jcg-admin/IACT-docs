@@ -7,14 +7,14 @@ Parte 6 — Requisitos no funcionales
 6.1 Performance
 ===============
 
-- P50 ≤ 300 ms (incluye SoD cascade
+- P50 ≤ 300 ms (incluye separacion cascade
   validation O(users_with_agr × rules)).
 - P99 ≤ 800 ms con 100+ Users con AGR.
 - Throughput ≥ 2 POST/seg sostenido.
 
-Costo SoD cascade: O(N × M × R) donde
+Costo separacion cascade: O(N × M × R) donde
 N=users_with_agr, M=delta functions,
-R=sod_rules. Mitigado con cache de SoDRules
+R=separation_rules. Mitigado con cache de SeparationRules
 y limites en payload size (max 20 functions
 delta).
 
@@ -22,9 +22,9 @@ delta).
 =============
 
 - HTTPS, JWT (CNST-009).
-- ``manage_access_group_composition``
-  (P-15 separable de manage_access_groups).
-- Cascade SoD enforcement obligatorio (P-27
+- ``assign_functions_to_group``
+  (P-15 separable de create_function_group).
+- Cascade separacion enforcement obligatorio (P-27
   + P-28 escalado).
 - Throttling 30/hora (operacion poco
   frecuente).
@@ -34,7 +34,7 @@ delta).
 
 - Atomicidad PASOS 12-15.
 - Cache invalidate post-COMMIT.
-- All-or-nothing si cascade SoD violation.
+- All-or-nothing si cascade separacion violation.
 
 6.4 Auditabilidad
 =================
@@ -53,7 +53,7 @@ delta).
 
 - Editor con multi-select de functions
   disponibles.
-- Preview SoD cascade obligatorio antes de
+- Preview separacion cascade obligatorio antes de
   submit.
 - Modal robusto con count de Users
   afectados.

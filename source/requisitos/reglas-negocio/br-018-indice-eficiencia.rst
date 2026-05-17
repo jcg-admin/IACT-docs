@@ -169,56 +169,20 @@ El Índice de Eficiencia es importante porque:
 4.1 SQL de Cálculo
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: sql
+.. note::
 
- -- BR_018: Cálculo de Índice de Eficiencia
- SELECT 
- fecha,
- centro_id,
- ROUND(
- (SUM(CASE WHEN estado = 'ATENDIDA' THEN 1 ELSE 0 END)::DECIMAL / 
- COUNT(*)::DECIMAL) * 100, 
- 2
- ) AS indice_eficiencia
- FROM llamadas
- WHERE fecha BETWEEN :fecha_inicio AND :fecha_fin
- GROUP BY fecha, centro_id;
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
-4.2 Modelo Django
-^^^^^^^^^^^^^^^^^
+4.2 Modelo de datos
+^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/reports/services/kpi_calculator.py
- 
- class KPICalculator:
- 
- Calculador de KPIs que implementa BR_018.
- 
- 
- @staticmethod
- def calcular_indice_eficiencia(fecha_inicio, fecha_fin, centro_id=None):
- 
- BR_018: Calcula índice de eficiencia.
- 
- Returns:
- Decimal: Porcentaje con 2 decimales
- 
- queryset = Llamada.objects.filter(
- fecha__range=(fecha_inicio, fecha_fin)
- )
- 
- if centro_id:
- queryset = queryset.filter(centro_id=centro_id)
- 
- total = queryset.count
- if total == 0:
- return Decimal('0.00')
- 
- atendidas = queryset.filter(estado='ATENDIDA').count
- 
- indice = (Decimal(atendidas) / Decimal(total)) * 100
- return indice.quantize(Decimal('0.01'))
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 ----
 
@@ -226,7 +190,7 @@ El Índice de Eficiencia es importante porque:
 ---------------
 
 - **Origen**: BReq_RPT_Reporteria
-- **UC Relacionados**: UC_RPT_01, UC_RPT_06, UC_RPT_07
+- **UC Relacionados**: UC_RPT_01, UC_RPT_04, UC_RPT_07
 - **BR Relacionadas**: BR_016 (complementario)
 
 ----

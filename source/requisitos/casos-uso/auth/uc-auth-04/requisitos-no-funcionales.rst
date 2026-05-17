@@ -12,7 +12,7 @@ Parte 6 — Requisitos no funcionales
  :header-rows: 0
 
  * - **Latencia P50**
-   - ≤ 350 ms (2x bcrypt cost 12: validar actual
+   - ≤ 350 ms (2x costo de hash configurado: validar actual
      + hash nueva, ~150 ms cada uno + I/O)
  * - **Latencia P99**
    - ≤ 700 ms
@@ -37,7 +37,7 @@ Parte 6 — Requisitos no funcionales
    - EX-08 lockout 5min tras 5 fallos
      consecutivos; delay aleatorio en EX-02
  * - **Hashing**
-   - bcrypt cost 12
+   - costo de hash configurado
  * - **No-reuso**
    - history N=5 obligatorio (BR-AUTH-32)
  * - **Politica de complejidad**
@@ -49,11 +49,11 @@ Parte 6 — Requisitos no funcionales
      aparece en logs, response, AuditEvent
      payload, o stacktrace
  * - **Constant-time check**
-   - bcrypt.checkpw es constant-time por
+   - verificarHash es constant-time por
      diseno; el delay defensivo aleatorio
      adiciona resistencia a timing
  * - **CSRF**
-   - DRF con SessionAuthentication: CSRF
+   - plataforma de API con SessionAuthentication: CSRF
      token; con JWT-only: opt-out documentado
 
 6.3 Confiabilidad
@@ -140,7 +140,7 @@ Parte 6 — Requisitos no funcionales
 
 - CNST-003 sesiones persistidas: PASO 12 hace
   UPDATE en BD (no solo invalidacion en cache)
-- CNST-009 autenticacion DRF
+- CNST-009 autenticacion plataforma de API
 - CNST-013 manejo estandarizado de excepciones
 - CNST-025 auditoria inmutable
 - CNST-026 sin PII en payload

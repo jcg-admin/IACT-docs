@@ -10,7 +10,7 @@ PASO 3 — RBAC:
 
 - Self: implícita
   ``manage_own_subscriptions``.
-- Otros: ``manage_user_subscriptions``.
+- Otros: ``subscribe_to_alert``.
 
 PASO 4 — Validar:
 

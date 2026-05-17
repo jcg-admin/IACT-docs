@@ -188,71 +188,29 @@ La política de retención de 2 años:
 5.1 Comando de Limpieza
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/core/management/commands/cleanup_old_data.py
- 
- class Command(BaseCommand):
- 
- Comando que implementa BR_019: Retención 2 años.
- 
- help = 'Limpia datos con más de 2 años de antigüedad'
- 
- RETENTION_DAYS = 730 # BR_019: 2 años
- 
- def handle(self, *args, **options):
- cutoff_date = timezone.now - timedelta(days=self.RETENTION_DAYS)
- 
- self.stdout.write(f"BR_019: Limpiando datos anteriores a {cutoff_date}")
- 
- # Archivar antes de eliminar
- self.archive_audit_logs(cutoff_date)
- self.archive_call_data(cutoff_date)
- 
- # Eliminar datos archivados
- deleted_calls = Llamada.objects.filter(
- fecha__lt=cutoff_date
- ).delete
- 
- deleted_metrics = MetricaDiaria.objects.filter(
- fecha__lt=cutoff_date
- ).delete
- 
- self.stdout.write(
- self.style.SUCCESS(
- f"BR_019: Eliminados {deleted_calls[0]} llamadas, "
- f"{deleted_metrics[0]} métricas"
- )
- )
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
-5.2 Tarea Celery Programada
+5.2 Tarea Programada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # apps/core/tasks.py
- 
- @shared_task
- def cleanup_old_data_task:
- 
- BR_019: Tarea semanal de limpieza de datos antiguos.
- Ejecuta domingos a las 3:00 AM.
- 
- call_command('cleanup_old_data')
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
-5.3 Configuración Celery Beat
+5.3 Scheduler de tareas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. note::
 
- # config/celery.py
- 
- CELERY_BEAT_SCHEDULE = {
- 'cleanup-old-data-weekly': {
- 'task': 'apps.core.tasks.cleanup_old_data_task',
- 'schedule': crontab(hour=3, minute=0, day_of_week=0), # Domingo 3AM
- },
- }
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 
 ----
 

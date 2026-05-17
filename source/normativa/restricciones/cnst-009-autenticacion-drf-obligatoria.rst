@@ -138,7 +138,7 @@ el WP de requisitos (deuda diferida).
 .. code-block:: python
 
  for view in get_all_drf_views:
- if view.__name__ != "LoginView":
+ if view.__name__ != "LoginEndpoint":
  assert view.authentication_classes
 
 5.2 Validacion de Cumplimiento

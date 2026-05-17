@@ -53,7 +53,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
  
  1. Identifica todas las sesiones activas del usuario
  2. Actualiza status a 'USER_DEACTIVATED' en user_sessions
- 3. Agrega todos los tokens a blacklist de Redis
+ 3. Agrega todos los tokens a lista de revocacion de tokens
  4. El usuario recibe 401 en cualquier request posterior
  5. Se muestra mensaje "Su cuenta ha sido desactivada"
  
