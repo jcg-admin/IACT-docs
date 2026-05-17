@@ -30,7 +30,7 @@ Dicha línea indicará la dirección de la relación con un
 Puede representar los papeles en el diagrama escribiéndolos
 cerca de la línea de asociación, junto a la clase que juega el
 papel correspondiente. Si el equipo es profesional, éste es un
-**empleador** y el jugador es un **empleado**.
+**empleador** y el jugador es un**empleado**.
 
 En el ejemplo, el equipo tiene jugadores a los que contrata para
 jugar: el ``Equipo`` juega el rol de **empleador** porque es

@@ -1,7 +1,7 @@
 Vínculos
 ========
 
-Un **vínculo** es la **instancia de una asociación**. Conecta a
+Un **vínculo** es la**instancia de una asociación**. Conecta a
 los **objetos** en lugar de las clases.
 
 Así como un objeto es una instancia de una clase, una asociación

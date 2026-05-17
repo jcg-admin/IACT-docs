@@ -22,8 +22,8 @@ RACI RBAC IACT — Stakeholders
  * - **I**
    - **Informed** — notificado tras cambios o ejecucion
 
-**Regla unica per funcion:** una sola **A** (accountable). Multiples
-**R**, **C**, **I** permitidos.
+**Regla unica per funcion:** una sola**A** (accountable). Multiples
+**R**,**C**,**I** permitidos.
 
 ----
 

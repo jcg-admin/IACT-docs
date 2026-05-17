@@ -42,14 +42,14 @@ Proposito
 
 Este documento define las **reglas operativas** (deonticas) del dominio
 IACT siguiendo el estandar SBVR. Las reglas deonticas describen lo que
-**DEBE SER**, **NO DEBE SER** o **PUEDE SER** - obligaciones, prohibiciones
+**DEBE SER**,**NO DEBE SER** o**PUEDE SER** - obligaciones, prohibiciones
 y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 
 .. note::
 
  **Modalidad Deontica (del griego deon = deber):**
 
- - Describe **obligaciones** y **prohibiciones**
+ - Describe **obligaciones** y**prohibiciones**
  - Define lo que DEBE SER (no lo que ES)
  - Puede violarse (el sistema debe prevenirlo)
  - Keywords: DEBE, NO DEBE, PUEDE, SOLO, UNICAMENTE

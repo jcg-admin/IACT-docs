@@ -22,15 +22,16 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
-# Core Sphinx documentation engine (8.2.x — pinned por compatibilidad con autodocsumm==0.2.14
-# que aún no soporta Sphinx 9.x. Si se sube a 9.x, hay que subir también autodocsumm.)
+# Core Sphinx documentation engine (9.x — autodocsumm eliminado por ser
+# dependencia muerta; su función la cubre sphinx.ext.autosummary nativo
+# ya configurado en conf.py. Política RST-only: sin myst-parser/Markdown.)
 dependencies = [
-    "Sphinx>=8.2.3,<9.0",                          # Core documentation engine
+    "Sphinx>=9,<10",                               # Core documentation engine
 
     # Theme & UI
-    "Furo==2025.9.25",                             # Professional documentation theme
+    "Furo==2025.12.19",                            # Professional documentation theme (supports Sphinx 9)
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
-    "sphinx-design==0.6.1",                        # Card/grid layouts (Phase 6 design)
+    "sphinx-design==0.7.0",                        # Card/grid layouts (supports Sphinx 9)
 
     # Content Parsing (RST only — Markdown removed por decisión de
     # rebuild de source/, ver F-NEW-5 en source-rebuild-strategy WP)
@@ -45,8 +46,7 @@ dependencies = [
     "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
 
     # Python API Documentation (Tier 2: Recommended - Phase A enabled)
-    "sphinx-autodoc-typehints==3.5.2",             # Type hints support (added Phase A)
-    "autodocsumm==0.2.14",                         # Auto-generate summaries
+    "sphinx-autodoc-typehints==3.6.0",             # Type hints support (Sphinx>=9.0.4, Python>=3.11)
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
     "sphinxcontrib-spelling==8.0.2",               # Spell checker (added Phase A)
@@ -141,4 +141,3 @@ skip_gitignore = true
 [tool.black]
 line-length = 100
 target-version = ["py311", "py312"]
-

@@ -114,7 +114,7 @@ Filtro: ``user_id=target``,
 ``expires_at > NOW() OR expires_at IS NULL``.
 
 7.4.4 SeparationRule (lectura — para violations check)
------------------------------------------------
+--------------------------------------------------------
 
 Filtro: ``state='ACTIVE'``.
 

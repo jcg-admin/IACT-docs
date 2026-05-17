@@ -347,5 +347,5 @@ backend del proyecto:
 
 Cualquiera satisface el UC siempre y cuando
 honre los **contratos** (§ 11.2),
-**pseudocodigo** (§ 11.3) y **restricciones
+**pseudocodigo** (§ 11.3) y**restricciones
 cross-cutting** (§ 11.5).

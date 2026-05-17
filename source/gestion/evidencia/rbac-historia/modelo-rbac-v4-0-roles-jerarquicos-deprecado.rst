@@ -204,7 +204,7 @@ preservo el principio y simplifico el catalogo a 42 funciones +
  * - Namespaces
    - Si (``identity:``, ``epm:``, ``base``)
    - **No** (modulos flat)
-  * - Separacion de deberes
+ * - Separacion de deberes
    - SSD con cardinalidad
    - **3 reglas de separacion-001/002/003**
  * - Vocabulario

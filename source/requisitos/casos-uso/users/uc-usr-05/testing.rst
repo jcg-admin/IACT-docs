@@ -143,7 +143,7 @@ T-USR-05-06: Atomicidad de fallo
       target = UserTestData.create(state='ACTIVE')
       monkeypatch.setattr(
           AuditService, 'emit',
-          lambda *a, **kw: raise_audit_failure()
+          lambda *a,**kw: raise_audit_failure()
       )
       response = client.post(...)
       assert response.status_code == 500

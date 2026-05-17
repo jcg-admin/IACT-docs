@@ -261,10 +261,10 @@ Integraci?n con SDLC
 .. code:: text
 
  # Limpiar sesiones cada 6 horas
- 0 */6 * * * /path/to/scripts/cleanup_sessions.sh >> /var/log/iact/cleanup.log 2>&1
+ 0 */6* * * /path/to/scripts/cleanup_sessions.sh >> /var/log/iact/cleanup.log 2>&1
 
  # Health check cada 5 minutos
- */5 * * * * /path/to/scripts/health_check.sh >> /var/log/iact/health.log 2>&1
+ */5* * * * /path/to/scripts/health_check.sh >> /var/log/iact/health.log 2>&1
 
 6. M?tricas DORA
 ~~~~~~~~~~~~~~~~
@@ -615,6 +615,6 @@ Referencias
 
 --------------
 
-**?ltima actualizaci?n**: 2025-11-06 **Versi?n**: 2.0 **Mantenedor**:
+**?ltima actualizaci?n**: 2025-11-06**Versi?n**: 2.0**Mantenedor**:
 @devops-lead **Cambios v2.0**: Enfoque en shell scripts, eliminado
 Redis, agregado Analytics Service Management

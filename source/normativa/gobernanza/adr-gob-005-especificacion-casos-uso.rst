@@ -30,7 +30,7 @@ Existe una confusión generalizada en la industria:
 **INCORRECTO**: “Voy a dibujar casos de uso” o “Voy a ilustrar casos de
 uso”
 
-**CORRECTO**: “Voy a **especificar** casos de uso” (escribir documentos
+**CORRECTO**: “Voy a**especificar** casos de uso” (escribir documentos
 de texto)
 
 Los casos de uso son **documentos de texto**, NO son diagramas. Los
@@ -180,8 +180,8 @@ Nomenclatura de Archivos
 
  UC-DOMINIO-###-verbo-objeto.rst
 
-Donde: - **UC**: Use Case - **DOMINIO**: BACK, FRONT, DEVOPS, QA, AI,
-GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
+Donde: - **UC**: Use Case -**DOMINIO**: BACK, FRONT, DEVOPS, QA, AI,
+GOB - **###**: Número secuencial 001-999 -**verbo-objeto**: En
 snake_case (minúsculas con guiones)
 
 **Ejemplos**:
@@ -203,7 +203,7 @@ Existen tres grados de formalidad para casos de uso:
 3. **Completos**: Todos los pasos y variaciones escritos en detalle, con
    secciones de apoyo
 
-**Decisión**: Usar **formato completo** para el proyecto IACT.
+**Decisión**: Usar**formato completo** para el proyecto IACT.
 
 **Razón**: Proyectos con múltiples stakeholders, requisitos regulatorios
 y necesidad de trazabilidad completa requieren documentación detallada.
@@ -315,9 +315,9 @@ Elementos Obligatorios de la Especificación
 
  **Actores Secundarios**: [Actores de apoyo: otros usuarios, sistemas externos, bases de datos]
 
-**Reglas**: - **Actores Primarios**: Quiénes ejecutan el caso de uso (1
+**Reglas**: -**Actores Primarios**: Quiénes ejecutan el caso de uso (1
 o más) - **Actores Secundarios**: Quiénes proporcionan soporte (0 o más)
-- **Capitalizar nombres** de actores en la especificación - **Actores NO
+- **Capitalizar nombres** de actores en la especificación -**Actores NO
 son roles técnicos**: “Usuario Administrador”, “Cliente”, “Gerente de
 Laboratorio” (NO “Base de Datos MySQL”)
 
@@ -354,7 +354,7 @@ alcanzada”
  - [Condición 2]
  - [...]
 
-**Importante**: Pueden haber **0 o más precondiciones**. No es
+**Importante**: Pueden haber**0 o más precondiciones**. No es
 obligatorio tenerlas.
 
 **Ejemplos**: - El usuario debe estar autenticado en el sistema - Debe
@@ -372,7 +372,7 @@ actualizado
  - [Estado 2]
  - [...]
 
-**Importante**: Describe el estado al finalizar **con éxito** (happy
+**Importante**: Describe el estado al finalizar**con éxito** (happy
 path o caminos alternos exitosos).
 
 **Ejemplos**: - La venta ha sido registrada en el sistema - El
@@ -456,7 +456,7 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
 
  **Resultado**: [El caso de uso termina | Regresa a paso #]
 
-**Diferencia con Flujos Alternos**: - **Flujos Alternos**: Caminos
+**Diferencia con Flujos Alternos**: -**Flujos Alternos**: Caminos
 válidos que llevan a éxito (puede haber postcondición ligeramente
 diferente) - **Excepciones**: Situaciones de error que típicamente
 terminan el caso de uso sin éxito completo
@@ -476,7 +476,7 @@ terminan el caso de uso sin éxito completo
  - [Restricción técnica específica]
  - [...]
 
-**Nota**: Solo listar RNF y restricciones **específicos** de este caso
+**Nota**: Solo listar RNF y restricciones**específicos** de este caso
 de uso, no todos los del sistema.
 
 11. Reglas de Negocio Relacionadas
@@ -516,15 +516,15 @@ Términos Clave
 Escenario
 ^^^^^^^^^
 
-Un **escenario** (también llamado **flujo** o **curso**) es una
+Un **escenario** (también llamado**flujo** o**curso**) es una
 secuencia específica de acciones entre actores y el sistema.
 
 Características: - Es una **historia particular** al usar el sistema -
-Es un **camino a través del caso de uso** - También llamado **instancia
+Es un **camino a través del caso de uso** - También llamado**instancia
 de caso de uso**
 
 Tipos: - **Flujo Normal (Happy Path)**: Camino típico de éxito -
-**Flujos Alternos**: Otros caminos válidos de éxito - **Excepciones**:
+**Flujos Alternos**: Otros caminos válidos de éxito -**Excepciones**:
 Caminos de error o fallo
 
 Actor
@@ -533,7 +533,7 @@ Actor
 **Definición**: Ente (persona, sistema externo, dispositivo) que
 interactúa con el sistema para ejecutar un caso de uso.
 
-**Tipos**: - **Actor Primario**: Tiene objetivos que se cumplen mediante
+**Tipos**: -**Actor Primario**: Tiene objetivos que se cumplen mediante
 el caso de uso. Ejecuta/dispara el caso de uso. - **Actor Secundario**:
 Proporciona servicio o información al sistema. Soporte.
 
@@ -818,14 +818,14 @@ Referencias
   (2011) <https://www.ivarjacobson.com/publications/white-papers/use-case-ebook>`__
 - `Alistair Cockburn: Writing Effective Use Cases
   (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
-- `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
-- `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
-- `ADR-GOB-008: Diagramas UML de Casos de
-  Uso <ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
+- :doc:`ADR-GOB-005: Jerarquía de Requerimientos en 5
+  Niveles </normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles>`
+- :doc:`ADR-GOB-006: Clasificación y Documentación de Reglas de
+  Negocio </normativa/gobernanza/adr-gob-004-clasificacion-reglas-negocio>`
+- :doc:`ADR-GOB-008: Diagramas UML de Casos de
+  Uso </normativa/gobernanza/adr-gob-006-diagramas-uml-casos-uso>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
 
 Historial de Cambios
 --------------------

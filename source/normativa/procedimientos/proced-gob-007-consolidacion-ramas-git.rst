@@ -13,7 +13,7 @@
 PROCED-GOB-007: Consolidacion de Ramas Git
 ==========================================
 
-**ID:** PROCED-GOB-007 **Version:** 1.0.0 **Fecha:** 2025-11-17
+**ID:** PROCED-GOB-007**Version:** 1.0.0**Fecha:** 2025-11-17
 **Categoria:** Control de Version / Git / Mantenimiento
 
 --------------
@@ -217,8 +217,8 @@ Paso 1.4: Clasificar Ramas
 
 Clasificar cada rama en: - **INTEGRADAS:** 0 commits unicos, 0 archivos
 modificados - **CON CAMBIOS P1:** Cambios criticos (codigo funcional) -
-**CON CAMBIOS P2:** Cambios importantes (documentacion, tests) - **CON
-CAMBIOS P3:** Cambios menores (typos, README) - **EVALUAR:** Requiere
+**CON CAMBIOS P2:** Cambios importantes (documentacion, tests) -**CON
+CAMBIOS P3:** Cambios menores (typos, README) -**EVALUAR:** Requiere
 revision manual
 
 Paso 1.5: Generar Reporte de Analisis
@@ -261,8 +261,8 @@ Paso 2.3: Definir Fases de Ejecucion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Organizar en fases: - **Fase 1:** Preparacion (backup, validacion) -
-**Fase 2:** Integraciones criticas (P1) - **Fase 3:** Integraciones
-secundarias (P2) - **Fase 4:** Integraciones menores (P3) - **Fase 5:**
+**Fase 2:** Integraciones criticas (P1) -**Fase 3:** Integraciones
+secundarias (P2) - **Fase 4:** Integraciones menores (P3) -**Fase 5:**
 Limpieza de ramas - **Fase 6:** Validacion final
 
 Paso 2.4: Estimar Esfuerzo
@@ -780,6 +780,6 @@ Equipo notificado - [ ] Proxima consolidacion programada
 
 --------------
 
-**Procedimiento creado:** 2025-11-17 **Ultima revision:** 2025-11-17
-**Proxima revision programada:** 2026-02-17 (3 meses) **Estado:** ACTIVO
+**Procedimiento creado:** 2025-11-17**Ultima revision:** 2025-11-17
+**Proxima revision programada:** 2026-02-17 (3 meses)**Estado:** ACTIVO
 **Version:** 1.0.0

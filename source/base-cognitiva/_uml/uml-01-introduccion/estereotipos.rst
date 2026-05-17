@@ -2,7 +2,7 @@ Estereotipos
 ------------
 
 De vez en cuando se diseña un sistema que requiere algunos
-elementos hechos a la medida. Los **estereotipos** o *clics* le
+elementos hechos a la medida. Los **estereotipos** o*clics* le
 permiten tomar elementos propios del UML y convertirlos en otros.
 
 Imagine a un estereotipo como una alteración. Se representa como

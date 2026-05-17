@@ -56,19 +56,19 @@ Opción 2: Mocha + Chai + Enzyme
 
 **Pros**: - Flexible - Maduro - Enzyme para React
 
-**Contras**: - **Enzyme desactualizado**: No soporta React 18 bien -
+**Contras**: -**Enzyme desactualizado**: No soporta React 18 bien -
 Configuración compleja (múltiples librerías) - Assertions verbosas
 (Chai) - Ecosystem fragmentado
 
 Opción 3: Jest + React Testing Library (SELECCIONADA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Pros**: - **Ecosystem maduro**: Jest estándar de industria - **Testing
-Library filosofía**: “Test como usuario” (no implementación) - **Zero
-config**: Con Babel funciona out-of-the-box - **Mocking robusto**:
+**Pros**: -**Ecosystem maduro**: Jest estándar de industria -**Testing
+Library filosofía**: “Test como usuario” (no implementación) -**Zero
+config**: Con Babel funciona out-of-the-box -**Mocking robusto**:
 Jest.mock() simple y potente - **Coverage built-in**: –coverage sin
 configuración extra - **Snapshots**: Para componentes UI complejos -
-**Comunidad grande**: Cualquier problema tiene solución - **CI/CD
+**Comunidad grande**: Cualquier problema tiene solución -**CI/CD
 standard**: GitHub Actions, GitLab CI, etc. tienen ejemplos
 
 **Contras**: - Más lento que Vitest (~10-20% más) - jsdom no es browser
@@ -196,7 +196,7 @@ Estrategia de Testing por Capa
 
    describe('App Component', () => {
      it('renders without crashing', () => {
-       const store = configureStore({ /* ... */ });
+       const store = configureStore({ /* ...*/ });
        render(
          <Provider store={store}>
            <App />
@@ -260,11 +260,11 @@ Convenciones
 
    describe('ComponentName', () => {
      // Setup común
-     beforeEach(() => { /* ... */ });
+     beforeEach(() => { /* ...*/ });
 
      it('does something specific', () => {
        // Arrange
-       const props = { /* ... */ };
+       const props = { /* ...*/ };
 
        // Act
        render(<Component {...props} />);
@@ -320,8 +320,8 @@ Coverage Report
    # Ver reporte HTML
    open coverage/lcov-report/index.html
 
-**Targets de coverage**: - **Statements**: 80% - **Branches**: 75% -
-**Functions**: 80% - **Lines**: 80%
+**Targets de coverage**: -**Statements**: 80% -**Branches**: 75% -
+**Functions**: 80% -**Lines**: 80%
 
 Consecuencias
 -------------
@@ -445,5 +445,5 @@ Notas
 
 --------------
 
-**Decidido por**: Tech Lead Frontend, QA Lead **Fecha**: 2025-11-06
+**Decidido por**: Tech Lead Frontend, QA Lead**Fecha**: 2025-11-06
 **Estado**: Aceptado

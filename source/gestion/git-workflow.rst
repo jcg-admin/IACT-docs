@@ -214,7 +214,7 @@ The commit body is optional but **highly recommended** for non-trivial changes. 
 
 - Separate body from subject line with **exactly one blank line**
 - Each paragraph should be logically distinct and wrapped at **72 characters**
-- Use clear, concise language explaining the **why**, not the **what** (the diff shows the what)
+- Use clear, concise language explaining the **why**, not the**what** (the diff shows the what)
 - Structure body in 2–3 paragraphs:
 
   1. **Problem statement** — What issue or gap does this commit address?
@@ -611,7 +611,7 @@ All feature branches must follow these naming rules for consistency and automati
 **Rules:**
 
 - **Prefix**: Always start with ``feature/`` (not ``feat/``, not ``feature-``)
-- **Case**: Use **kebab-case** (lowercase with hyphens)
+- **Case**: Use**kebab-case** (lowercase with hyphens)
 - **Descriptive**: Branch name should describe the feature, not be overly generic
 - **Source**: Create from ``develop`` branch, NEVER from ``main``
 
@@ -1540,9 +1540,9 @@ Then configure these settings:
 6. **Restrict who can push to matching branches** — OK Check this box
    - ``Restrict who can push to matching branches`` — Add your team or leave for all maintainers
 
-7. **Allow force pushes** — OK **Do NOT check** (prevent rewriting history)
+7. **Allow force pushes** — OK**Do NOT check** (prevent rewriting history)
 
-8. **Allow deletions** — OK **Do NOT check** (prevent accidental branch deletion)
+8. **Allow deletions** — OK**Do NOT check** (prevent accidental branch deletion)
 
 9. **Require linear history** — Optional but recommended
    (Ensures commits can't have multiple parents)
@@ -1575,9 +1575,9 @@ Configure with **stricter** settings:
 4. **Restrict who can push to matching branches** — OK Check this box
    - Add **only administrators** (repository owners)
 
-5. **Allow force pushes** — OK **Do NOT check**
+5. **Allow force pushes** — OK**Do NOT check**
 
-6. **Allow deletions** — OK **Do NOT check**
+6. **Allow deletions** — OK**Do NOT check**
 
 7. **Require linear history** — OK Check this box
 
@@ -2245,7 +2245,7 @@ Click the failed check to see the full log.
 
 To see CI logs for a specific commit:
 
-1. Go to commit page: https://github.com/jcg-admin/IACT-docs/commit/abc1234
+1. Go to commit page: ``https://github.com/jcg-admin/IACT-docs/commit/abc1234`` (broken)
 2. Scroll to "Status checks" section
 3. Click the failed check to view detailed logs
 

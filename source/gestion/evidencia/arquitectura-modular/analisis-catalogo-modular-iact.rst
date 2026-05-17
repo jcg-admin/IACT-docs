@@ -305,7 +305,7 @@ enmascarada; JSON estructurado; retención 30–90 días).
 fuente principal (mayor volumen).
 
 3. Reglas de Separacion definidas (3)
-===========================
+=======================================
 
 Fuente: ANL-RBAC § 6.
 
@@ -406,7 +406,7 @@ MOD_Access/RBAC_CORE.
 4. PERM no menciona los 18 roles funcionales (R001–R018) ni las 3
    reglas de separacion; usa "GrupoPermiso" en su lugar.
 
-**Conclusión INFERRED:** PERM parece ser una **evolución/reemplazo
+**Conclusión INFERRED:** PERM parece ser una**evolución/reemplazo
 parcial** del subcomponente RBAC_CORE de MOD_Access. Decisión
 canonificada en
 :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`

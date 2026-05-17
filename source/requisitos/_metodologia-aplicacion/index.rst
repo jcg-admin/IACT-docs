@@ -17,7 +17,7 @@ Metodología aplicada — cómo documentar requisitos en IACT
 Propósito
 =========
 
-Sub-cajón con el **plan operativo** y los **ejemplos
+Sub-cajón con el **plan operativo** y los**ejemplos
 aplicados al dominio IACT** que guían la generación de los
 artefactos de requisitos (BReq, BR, UC, FR, NFR).
 

@@ -7,7 +7,7 @@ que desea adquirir una lata de gaseosa.
 El cliente inicia el escenario mediante la inserción de dinero
 en la máquina y luego hace una selección. Asumamos que en la
 máquina hay tres objetos: la **fachada** (interfaz al usuario),
-el **registrador de dinero** y el **dispensador**.
+el **registrador de dinero** y el**dispensador**.
 
 Daremos por hecho que el registrador controla al dispensador.
 Secuencia:

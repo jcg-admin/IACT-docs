@@ -55,7 +55,7 @@ palabras — que podría etiquetar como **"Comprar gaseosa"**.
  - ¿Qué sucede con los datos o el estado del sistema si el caso
    de uso se interrumpe?
 
-En el caso de uso *"Comprar gaseosa"*, el actor es un **cliente
+En el caso de uso *"Comprar gaseosa"*, el actor es un**cliente
 que desea** comprar una lata de gaseosa.
 
 El escenario iniciará cuando el cliente inserte dinero,
@@ -90,7 +90,7 @@ marca que la máquina entregará (siempre y cuando cuente con
 provisiones de esta marca), o devolverá el dinero.
 
 - **Condición previa:** un cliente sediento.
-- **Resultado:** una lata de gaseosa **o** la (alternativa)
+- **Resultado:** una lata de gaseosa**o** la (alternativa)
   devolución del dinero.
 
 Claro que el escenario de quedarse sin gaseosa sería posible: el

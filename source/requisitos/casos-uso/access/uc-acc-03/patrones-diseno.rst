@@ -93,7 +93,7 @@ Implementacion: en pre-check, si
 check.
 
 10.2.5 P-34 separacion detection informativa post-hoc
-----------------------------------------------
+-------------------------------------------------------
 
 **Aplica a**: PASO 12. UC_ACC_03 detecta
 violaciones de separacion pero NO bloquea (eso es

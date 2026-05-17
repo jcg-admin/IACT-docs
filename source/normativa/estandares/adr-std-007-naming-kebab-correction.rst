@@ -65,7 +65,7 @@ primeras 24-48h, antes de que la deuda se consolide.
 ------------------------------------------------------------
 
 El análisis del deep-dive original midió **incidentes de
-runtime**. El observable correcto es **inconsistencia
+runtime**. El observable correcto es**inconsistencia
 estructural**:
 
 ::
@@ -168,8 +168,8 @@ heterogeneidad). No es mitigación, es perpetuación.
 
 - **315 archivos** renombrados vía ``git mv`` (preserva historial).
 - **18 directorios** renombrados (los ``_*`` Sphinx se preservan).
-- **242 ocurrencias** ``:doc:`` + **128 ocurrencias** ``:ref:`` +
-  **123 toctrees** + **~10 labels** actualizados.
+- **242 ocurrencias** ``:doc:`` +**128 ocurrencias** ``:ref:`` +
+  **123 toctrees** +**~10 labels** actualizados.
 - **Build verde 0/0/0** mantenido en cada batch.
 
   Cifras verificadas 2026-04-29 con

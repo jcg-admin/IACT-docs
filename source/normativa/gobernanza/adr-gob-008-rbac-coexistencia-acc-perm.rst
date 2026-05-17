@@ -16,7 +16,7 @@
 ADR-GOB-008: RBAC Coexistencia Vista Funcional ↔ Vista Tecnica
 ==============================================================
 
-**Estado:** Aceptada **Fecha:** 2026-04-29 **Decisor:** Equipo
+**Estado:** Aceptada**Fecha:** 2026-04-29**Decisor:** Equipo
 Arquitectura **Relacionado:** Hipotesis 1 del WP #6 requisitos,
 decisiones D-RBAC-1..8, CNST_029, CNST_032, CNST_033
 

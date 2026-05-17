@@ -46,7 +46,7 @@ o desde detalle del User en vista PERM.
 Audiencia conoce el catalogo de funciones.
 
 PASO 3 — Preview separacion
---------------------
+-----------------------------
 
 Modal muestra:
 

@@ -21,7 +21,7 @@ existentes para validar que el sistema exhibe propiedades de calidad
 requeridas. Fuente: Rozanski & Woods, *Software Systems Architecture* — Cap. 4.
 
 A diferencia de los viewpoints, una perspectiva no produce vistas nuevas:
-produce **insights**, **mejoras** y **artefactos** que moldean las vistas
+produce **insights**,**mejoras** y**artefactos** que moldean las vistas
 ya definidas. Una perspectiva se aplica a cada vista donde tiene impacto.
 
 Perspectivas implementadas

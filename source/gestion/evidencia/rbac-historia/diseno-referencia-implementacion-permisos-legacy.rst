@@ -281,7 +281,7 @@ Para el implementador futuro:
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo
   conceptual.
-- :doc:`/arquitectura-tecnica/modulos/rbac-core/index` —
+- :doc:`/arquitectura-tecnica/modulos/permissions/index` —
   modulo arquitectonico RBAC_CORE.
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` —
   modelo plano.

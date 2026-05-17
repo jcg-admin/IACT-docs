@@ -47,12 +47,12 @@ Opciones Evaluadas
 Opción 1: Vite
 ^^^^^^^^^^^^^^
 
-**Pros**: - **Dev server ultra rápido**: ESM nativo, sin bundling en dev
-- **HMR instantáneo**: <100ms rebuild - **Configuración mínima**:
+**Pros**: -**Dev server ultra rápido**: ESM nativo, sin bundling en dev
+- **HMR instantáneo**: <100ms rebuild -**Configuración mínima**:
 Out-of-the-box funciona - **Plugins modernos**: Ecosystem creciendo
 rápido - **Build rápido**: Usa esbuild (Go) para pre-bundling
 
-**Contras**: - **Ecosystem menos maduro**: Menos plugins vs Webpack (ej:
+**Contras**: -**Ecosystem menos maduro**: Menos plugins vs Webpack (ej:
 alias complejos) - **Configuración avanzada limitada**: Para casos edge,
 menos flexible - **Producción usa Rollup**: Dos bundlers diferentes
 (dev: esbuild, prod: rollup) - **Compatibilidad legacy**: Requiere
@@ -70,14 +70,14 @@ adopción que Webpack/Vite
 Opción 3: Webpack (SELECCIONADA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Pros**: - **Ecosystem maduro**: Miles de loaders y plugins -
-**Configuración explícita**: Control total sobre build - **Code
-splitting avanzado**: SplitChunksPlugin robusto - **Compatibilidad
-probada**: Años de producción en empresas - **Docs extensas**: Cualquier
+**Pros**: -**Ecosystem maduro**: Miles de loaders y plugins -
+**Configuración explícita**: Control total sobre build -**Code
+splitting avanzado**: SplitChunksPlugin robusto -**Compatibilidad
+probada**: Años de producción en empresas -**Docs extensas**: Cualquier
 problema tiene solución documentada - **Consistencia**: Mismo bundler
 dev y prod - **Path aliases**: Configuración simple y predecible
 
-**Contras**: - **Dev server más lento**: ~2-3s rebuild vs <100ms de Vite
+**Contras**: -**Dev server más lento**: ~2-3s rebuild vs <100ms de Vite
 - **Configuración verbosa**: Requiere webpack.config.cjs explícito -
 **Curva de aprendizaje**: Conceptos: loaders, plugins, chunks
 
@@ -332,5 +332,5 @@ Notas
 
 --------------
 
-**Decidido por**: Tech Lead Frontend **Fecha**: 2025-11-06 **Estado**:
+**Decidido por**: Tech Lead Frontend**Fecha**: 2025-11-06**Estado**:
 Aceptado

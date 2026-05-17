@@ -49,7 +49,7 @@ Parte 12 — Testing
    THEN  ZERO Permission, ZERO Audit
 
 12.2.3 Preview detecta violaciones de separacion
--------------------------------------
+--------------------------------------------------
 
 ::
 
@@ -158,7 +158,7 @@ audit".
          auditada con visibilidad alta"
 
 12.4.3 Preview muestra warnings de separacion
------------------------------------
+-----------------------------------------------
 
 ::
 

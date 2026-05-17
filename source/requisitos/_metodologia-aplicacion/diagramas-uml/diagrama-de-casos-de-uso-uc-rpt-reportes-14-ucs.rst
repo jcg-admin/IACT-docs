@@ -47,5 +47,5 @@
 **Aplicación:** DOC-20 (UC_RPT + UC_NOT) usa este diagrama como
 vista global de su dominio.
 
-**Perspectiva:** DINÁMICA (POV usuario). **Audiencia:** Product
+**Perspectiva:** DINÁMICA (POV usuario).**Audiencia:** Product
 Owners / Analistas.

@@ -7,9 +7,16 @@ Parte 2 — Actores y precondiciones
 Actores
 -------
 
-- **Supervisor de Operaciones** — usuario con permiso
-  ``view_pipeline_errors``. Inicia el caso de uso consultando el
-  detalle de ejecuciones fallidas del Servicio ETL.
+- **PipelineAdmin** — usuario con permiso
+  ``view_pipeline_errors`` (AGR-009 ``pipeline_admin_group``).
+  Inicia el caso de uso consultando el detalle de ejecuciones
+  fallidas del Servicio ETL.
+
+  .. note::
+
+     ``PipelineAdmin`` es un rol IT/ops, distinto del actor
+     ``Supervisor`` de call center (AGR-003 / AGR-012, fuera de
+     scope). Ver UC_PIP_01 para la nota completa.
 - **Registro de Ejecuciones** — sistema secundario que
   provee los registros con ``estado = 'fallido'``.
 

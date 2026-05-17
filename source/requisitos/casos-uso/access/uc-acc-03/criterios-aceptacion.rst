@@ -90,7 +90,7 @@ es self-view,
   (no purgada por cron aun)
 
 9.8 CA-08: separacion inconsistencia detectada (FA-05)
-===============================================
+========================================================
 
 **DADO** target con par conflictivo segun
 SeparationRule activa,

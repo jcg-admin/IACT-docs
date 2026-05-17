@@ -38,8 +38,8 @@ las descripciones precisas refuerzan la legibilidad:
 
 Notar:
 
-- **``pertenece a``**, **``contiene``**, **``carga``**,
-  **``agrega``**, **``aplica``**, **``es reconocida por``**
+- **``pertenece a``**,**``contiene``**,**``carga``**,
+  **``agrega``**,**``aplica``**,**``es reconocida por``**
   — verbos precisos del dominio en lugar de ``has``
   genérico.
 - **``Usuario --> EventoAuditoria : genera``** —

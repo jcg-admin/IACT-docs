@@ -1256,7 +1256,7 @@ Detalle:
 
 .. code-block:: text
 
- Cron expression: */1 * * * * (cada 1 minuto)
+ Cron expression: */1* * * * (cada 1 minuto)
  
  Comando: python manage.py mark_expired_sessions
  

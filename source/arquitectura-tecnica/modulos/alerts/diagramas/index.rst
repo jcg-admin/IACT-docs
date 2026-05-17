@@ -24,5 +24,5 @@ con su contexto de descripcion.
  :caption: Diagramas
 
  ciclo-vida-alerta
- secuencia-disparo-alerta-br016
- componentes-mod-alerts
+ alert-trigger-flow
+ layer-structure

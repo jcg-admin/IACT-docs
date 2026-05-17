@@ -37,7 +37,7 @@ entre las regiones concurrentes.
    @enduml
 
 Cuando **cada componente sea parte de un "todo"**, tratará con
-una *composición*. Las partes concurrentes del estado *Operación*
+una *composición*. Las partes concurrentes del estado*Operación*
 tienen el mismo tipo de relación con él. Por ello, *Operación*
 es un **estado compuesto**. Un estado que consta sólo de
 subestados secuenciales también es un estado compuesto.

@@ -682,10 +682,10 @@ Antes de marcar ADR como completo:
 Referencias
 -----------
 
-- `ADR-GOB-002: Organización de Proyecto por
-  Dominio <../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.rst>`__
-- `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
+- :doc:`ADR-GOB-002: Organización de Proyecto por
+  Dominio </normativa/gobernanza/adr-gob-001-organizacion-proyecto-por-dominio>`
+- :doc:`GUIA-GOB-002: Convenciones de
+  Nomenclatura </normativa/guias/guia-gob-002-convenciones-nomenclatura>`
 - `Architecture Decision Records - Michael
   Nygard <https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions>`__
 

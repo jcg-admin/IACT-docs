@@ -5,7 +5,7 @@ Un objeto es una **instancia de clase** (una entidad que tiene
 valores específicos de los atributos y acciones).
 
 Su lavadora, por ejemplo, podría tener la marca *Laundatorium*,
-el modelo *Washmeister*, el número de serie *GL57774* y una
+el modelo *Washmeister*, el número de serie*GL57774* y una
 capacidad de 7 Kg.
 
 El nombre de la instancia específica se encuentra a la izquierda

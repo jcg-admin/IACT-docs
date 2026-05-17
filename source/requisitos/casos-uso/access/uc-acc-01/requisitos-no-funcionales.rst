@@ -44,7 +44,7 @@ Parte 6 — Requisitos no funcionales
    - opcional configurable. Default: bloquea
      auto-asignacion para defender contra
      escalada en cascada.
-  * - **Separacion enforcement (CNST-005, BR-007)**
+ * - **Separacion enforcement (CNST-005, BR-007)**
    - en tiempo de asignacion. NO se permite
      asignacion parcial — all-or-nothing.
  * - **Atomicidad ante violacion**
@@ -107,7 +107,7 @@ Parte 6 — Requisitos no funcionales
  * - **Multi-select de funciones**
    - UI con search + categoria. Visible solo
      con ``assign_functions``.
-  * - **Separacion preview (recomendado)**
+ * - **Separacion preview (recomendado)**
    - antes de submit, frontend puede
      ``GET /api/users/{id}/functions/separation-preview``
      para mostrar violaciones potenciales.
@@ -116,7 +116,7 @@ Parte 6 — Requisitos no funcionales
  * - **Confirmacion robusta**
    - modal con resumen de funciones a
      asignar y expires_at si aplica.
-  * - **Feedback claro en separacion**
+ * - **Feedback claro en separacion**
    - cuando bloquea (EX-08), mostrar la regla
      Separacion violada con su nombre legible y el
      par conflictivo, sugiriendo revocar

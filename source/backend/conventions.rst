@@ -32,7 +32,7 @@ Python
 ------
 
 - **Modulos / paquetes:** snake_case (``users``, ``auth_module``).
-- **Clases:** PascalCase, nombre de **rol en el dominio**.
+- **Clases:** PascalCase, nombre de**rol en el dominio**.
   El nombre debe permanecer valido si el framework cambia
   (CLEAN_CODE §6.1). Ejemplos:
   ``UserCapabilityResolver``, ``MenuItemRepresentation``,
@@ -51,18 +51,43 @@ Los siguientes sufijos describen mecanismo tecnico del
 framework, no rol en el dominio. Estan **prohibidos** en
 clases de produccion y de tests:
 
-| Sufijo prohibido | Origen | Reemplazo de dominio |
-|---|---|---|
-| ``Serializer`` | DRF | ``Representation`` |
-| ``ViewSet`` | DRF | ``Endpoint`` |
-| ``View`` (cuando viene de DRF) | DRF | ``Endpoint`` |
-| ``Permission`` (cuando viene de DRF) | DRF | ``AccessPolicy`` |
-| ``Backend`` (auth) | Django auth | ``AuthProvider`` |
-| ``Manager`` | Django ORM | ``Query`` o ``Repository`` |
-| ``Middleware`` | Django/WSGI | nombre de rol descriptivo |
-| ``Factory`` | GoF | ``TestData`` (tests) o rol del dominio |
-| ``Builder`` (sin interfaz fluent real) | GoF | ``Assembler`` o rol del dominio |
-| ``Helper`` / ``Utils`` | generico | nombre especifico del rol |
+.. list-table::
+ :widths: 35 25 40
+ :header-rows: 1
+
+ * - Sufijo prohibido
+   - Origen
+   - Reemplazo de dominio
+ * - ``Serializer``
+   - DRF
+   - ``Representation``
+ * - ``ViewSet``
+   - DRF
+   - ``Endpoint``
+ * - ``View`` (cuando viene de DRF)
+   - DRF
+   - ``Endpoint``
+ * - ``Permission`` (cuando viene de DRF)
+   - DRF
+   - ``AccessPolicy``
+ * - ``Backend`` (auth)
+   - Django auth
+   - ``AuthProvider``
+ * - ``Manager``
+   - Django ORM
+   - ``Query`` o ``Repository``
+ * - ``Middleware``
+   - Django/WSGI
+   - nombre de rol descriptivo
+ * - ``Factory``
+   - GoF
+   - ``TestData`` (tests) o rol del dominio
+ * - ``Builder`` (sin interfaz fluent real)
+   - GoF
+   - ``Assembler`` o rol del dominio
+ * - ``Helper`` / ``Utils``
+   - generico
+   - nombre especifico del rol
 
 Ejemplos correctos (DRF + clean code):
 

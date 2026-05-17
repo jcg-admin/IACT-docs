@@ -151,7 +151,7 @@ FASE 0: Preparación y Análisis Inicial
 FASE 1: Preparación (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Duración estimada:** 1 semana **Tareas:** 5-10
+**Duración estimada:** 1 semana**Tareas:** 5-10
 
 **Entregables:** - [ ] Backup completo creado (git tag) - [ ] 13
 carpetas nuevas creadas - [ ] READMEs en carpetas nuevas - [ ] .gitkeep
@@ -166,14 +166,14 @@ inicial presente - Mapeo validado
 FASE 2: Reorganización Crítica (Semanas 2-3)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Duración estimada:** 2 semanas **Tareas:** 25-35
+**Duración estimada:** 2 semanas**Tareas:** 25-35
 
 **Entregables:** - [ ] 5+ ADRs formales creados en ``gobernanza/adr/`` -
 [ ] Carpeta ``diseno/`` consolidada (api, arquitectura, database,
 detallado, permisos) - [ ] Carpeta ``planificacion/`` consolidada - [ ]
 Carpeta ``sesiones/`` reorganizada - [ ] Carpeta ``qa/`` expandida
 
-**Actividades clave:** 1. **Crear ADRs formales (TASK-006 a TASK-010)**
+**Actividades clave:** 1.**Crear ADRs formales (TASK-006 a TASK-010)**
 - Identificar decisiones arquitectónicas documentadas - Crear ADRs con
 formato estándar - Agregar metadatos YAML - Crear INDICE_ADRs -
 Validar ADRs creados
@@ -198,7 +198,7 @@ formales creados - Contenido legacy migrado
 FASE 3: Contenido Nuevo (Semanas 4-5)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Duración estimada:** 2 semanas **Tareas:** 25-30
+**Duración estimada:** 2 semanas**Tareas:** 25-30
 
 **Entregables:** - [ ] 4-5 catálogos técnicos creados - [ ] 5+ procesos
 (PROC-{DOMINIO}-XXX) creados - [ ] 4-6 procedimientos
@@ -265,7 +265,7 @@ estratégico creado
 FASE 4: Validación y Limpieza (Semana 6)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Duración estimada:** 1 semana **Tareas:** 10-15
+**Duración estimada:** 1 semana**Tareas:** 10-15
 
 **Entregables:** - [ ] Validación de integridad de enlaces (TASK-055) -
 [ ] Validación de READMEs (TASK-056) - [ ] Validación de metadatos YAML
@@ -756,6 +756,6 @@ Versión 1.0.0 (2025-11-18)
 
 --------------
 
-**Proceso creado:** 2025-11-18 **Última actualización:** 2025-11-18
-**Estado:** Activo **Responsable:** Equipo de Gobernanza **Próxima
+**Proceso creado:** 2025-11-18**Última actualización:** 2025-11-18
+**Estado:** Activo**Responsable:** Equipo de Gobernanza**Próxima
 revisión:** 2025-12-18

@@ -31,7 +31,7 @@ Niveles de Testing
 1. Tests Unitarios (Desarrolladores)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Responsable**: Desarrollador **Cuándo**: Durante desarrollo (TDD)
+**Responsable**: Desarrollador**Cuándo**: Durante desarrollo (TDD)
 **Cobertura objetivo**: 80%+
 
 .. code:: bash
@@ -48,7 +48,7 @@ Niveles de Testing
 2. Tests de Integración (Desarrolladores + QA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Responsable**: Desarrollador (crea), QA (valida) **Cuándo**: Antes de
+**Responsable**: Desarrollador (crea), QA (valida)**Cuándo**: Antes de
 PR **Alcance**: Integración entre componentes
 
 .. code:: bash
@@ -62,7 +62,7 @@ PR **Alcance**: Integración entre componentes
 3. Tests End-to-End (QA)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Responsable**: QA **Cuándo**: En staging antes de release **Alcance**:
+**Responsable**: QA**Cuándo**: En staging antes de release**Alcance**:
 Flujos completos de usuario
 
 .. code:: bash
@@ -75,7 +75,7 @@ Flujos completos de usuario
 4. Tests de Aceptación (QA + Product Owner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Responsable**: QA y PO **Cuándo**: Antes de release a producción
+**Responsable**: QA y PO**Cuándo**: Antes de release a producción
 **Alcance**: Validación de criterios de aceptación
 
 Procedimiento de QA
@@ -438,8 +438,8 @@ Recursos Relacionados
 
 - :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
 - :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
-- `Procedimiento: Desarrollo
-  Local <procedimiento_desarrollo_local.rst>`__
+- :doc:`Procedimiento: Desarrollo
+  Local </normativa/procedimientos/proc-dev-003-desarrollo-local>`
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>`
 
 Referencias

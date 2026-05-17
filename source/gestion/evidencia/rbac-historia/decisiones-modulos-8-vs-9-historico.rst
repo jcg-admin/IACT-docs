@@ -233,13 +233,13 @@ Mapeo aproximado para SEC_RULES enforcers:
 **Cada ARQ_MOD individual:**
 
 - :doc:`/arquitectura-tecnica/modulos/auth/index`
-- :doc:`/arquitectura-tecnica/modulos/user-identity/index`
-- :doc:`/arquitectura-tecnica/modulos/rbac-core/index`
-- :doc:`/arquitectura-tecnica/modulos/etl-monitoring/index`
-- :doc:`/arquitectura-tecnica/modulos/vis-reports/index`
+- :doc:`/arquitectura-tecnica/modulos/users/index`
+- :doc:`/arquitectura-tecnica/modulos/permissions/index`
+- :doc:`/arquitectura-tecnica/modulos/pipeline/index`
+- :doc:`/arquitectura-tecnica/modulos/reports/index`
 - :doc:`/arquitectura-tecnica/modulos/alerts/index`
 - :doc:`/arquitectura-tecnica/modulos/audit/index`
-- :doc:`/arquitectura-tecnica/modulos/sys-logs/index`
+- :doc:`/arquitectura-tecnica/modulos/logs/index`
 
 **Modelo conceptual RBAC vigente:**
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.

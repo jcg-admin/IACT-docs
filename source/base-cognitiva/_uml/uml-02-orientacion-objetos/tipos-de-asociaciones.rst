@@ -197,7 +197,7 @@ Ejemplos:
    Animal <|-- Gato
    @enduml
 
-**Cardinalidad (o Multiplicidad)** — Define **cuántos objetos**
+**Cardinalidad (o Multiplicidad)** — Define**cuántos objetos**
 pueden participar en la asociación.
 
 Se puede definir como:

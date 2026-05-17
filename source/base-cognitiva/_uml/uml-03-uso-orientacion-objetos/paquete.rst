@@ -4,7 +4,7 @@ Paquete
 El **paquete** puede jugar un papel en el nombre de la clase.
 
 Un paquete es la manera en que UML **organiza un diagrama de
-elementos**. UML representa un paquete como una **carpeta
+elementos**. UML representa un paquete como una**carpeta
 tabular** cuyo nombre es una cadena de texto.
 
 .. uml::

@@ -159,7 +159,7 @@ Opción 3: Grupos Funcionales Sin Jerarquía (ELEGIDA)
 pueden combinar libremente. No hay jerarquía entre grupos. Un usuario
 puede tener múltiples grupos simultáneamente.
 
-**Conceptos clave:** - **Funciones:** Recursos del sistema (dashboards,
+**Conceptos clave:** -**Funciones:** Recursos del sistema (dashboards,
 usuarios, tickets, etc.) - **Capacidades:** Acciones sobre recursos
 (ver, crear, editar, eliminar) - **Grupos:** Colecciones de capacidades
 con nombres descriptivos - **Usuarios:** Pueden tener N grupos
@@ -415,5 +415,5 @@ Notas Adicionales
 
 --------------
 
-**Documento:** ADR-005 **Fecha:** 07 de Noviembre, 2025 **Estado:**
+**Documento:** ADR-005**Fecha:** 07 de Noviembre, 2025**Estado:**
 Aceptada **Próxima revisión:** 2026-02-07

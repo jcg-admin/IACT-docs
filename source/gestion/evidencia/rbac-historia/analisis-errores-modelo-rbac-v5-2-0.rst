@@ -489,7 +489,7 @@ Patron correcto:
 ----
 
 6. Errores en Nombres de Reglas de Separacion (3 reglas)
-==============================================
+==========================================================
 
 .. list-table::
  :header-rows: 1
@@ -599,7 +599,7 @@ CORRECTO (segun CIA-RBAC-002 DEC-001 — codename, no function_id):
 ----
 
 9. Errores en Modelos del Backend
-============================
+===================================
 
 9.1 help_text mezclados
 -----------------------

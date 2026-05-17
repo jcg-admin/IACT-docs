@@ -25,7 +25,7 @@ ARQ_MOD_001: Autenticacion y Sesiones (AUTH)
 1. Proposito
 ============
 
-El modulo AUTH gestiona la **autenticacion de usuarios** y el **ciclo de vida
+El modulo AUTH gestiona la **autenticacion de usuarios** y el**ciclo de vida
 de las sesiones** en el sistema IACT.
 
 **Pregunta clave que responde:**

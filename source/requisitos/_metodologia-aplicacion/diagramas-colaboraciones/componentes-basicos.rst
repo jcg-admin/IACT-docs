@@ -3,7 +3,7 @@
 
 Cuatro elementos canónicos: **objetos** (rectángulos con
 nombre), **enlaces** (líneas que conectan objetos),
-**mensajes numerados** sobre los enlaces, y **flechas** que
+**mensajes numerados** sobre los enlaces, y**flechas** que
 indican dirección.
 
 .. uml::

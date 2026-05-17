@@ -35,7 +35,7 @@ target ACTIVE, AGR con 8 funciones,
 - AuditEvent AGR_ASSIGN_NOOP
 
 9.3 CA-03: separacion violation 409 (EX-08)
-====================================
+=============================================
 
 **DADO** AGR contiene funcion que viola separacion
 con functions actuales del User,

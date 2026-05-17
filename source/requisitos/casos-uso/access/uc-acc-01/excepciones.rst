@@ -124,7 +124,7 @@ Parte 5 — Excepciones
      "inactive_ids":[15]}``
 
 5.8 EX-08: Violacion de separacion (CNST-005, BR-007)
-===========================================
+=======================================================
 
 .. list-table::
  :widths: 25 75

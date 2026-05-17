@@ -43,8 +43,8 @@ Generación de menú dinámico en cada login - Consultas frecuentes:
 “¿Usuario X tiene permiso Y?” - Auditoría de TODOS los accesos
 (write-heavy)
 
-**Trade-offs a considerar**: 1. **Performance** vs **Mantenibilidad** 2.
-**Portabilidad** vs **Optimización** 3. **DRY** vs **Especialización**
+**Trade-offs a considerar**: 1.**Performance** vs**Mantenibilidad** 2.
+**Portabilidad** vs**Optimización** 3.**DRY** vs**Especialización**
 
 **Pregunta clave**: ¿Implementar permisos con ORM Django, SQL nativo, o
 ambos?
@@ -134,7 +134,7 @@ Opción 3: Estrategia Híbrida (Seleccionada)
 
 **Descripcion:** Implementar AMBAS estrategias y elegir según caso de
 uso: - **ORM Django**: Para desarrollo, testing, operaciones CRUD -
-**Vistas SQL**: Para queries frecuentes de lectura - **Funciones SQL**:
+**Vistas SQL**: Para queries frecuentes de lectura -**Funciones SQL**:
 Para verificaciones ultra-rápidas
 
 **Pros:** - OK Performance óptimo donde importa - OK Mantenibilidad con
@@ -453,8 +453,8 @@ Referencias
 Documentación Interna
 ~~~~~~~~~~~~~~~~~~~~~
 
--  `Sistema de Permisos
-   Granular <../../backend/arquitectura/permisos-granular.rst>`__
+-  :doc:`Sistema de Permisos
+   Granular </backend/arquitectura/permisos-granular>`
 -  ``prioridad_01_estructura_base_datos.rst`` (documento histórico)
 -  ``rnf002_almacenamiento_sesiones.rst`` (documento histórico)
 
@@ -491,5 +491,5 @@ v1.0.0 (2025-11-09)
 
 --------------
 
-**Estado**: [OK] IMPLEMENTADO **Próxima revisión**: 2025-12-09 (1 mes)
+**Estado**: [OK] IMPLEMENTADO**Próxima revisión**: 2025-12-09 (1 mes)
 **Impacto**: Performance crítico optimizado (5-10x mejora)

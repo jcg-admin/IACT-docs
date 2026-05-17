@@ -278,7 +278,7 @@ STD_001: Estándar de Documentación Sin Emojis
    ---------------------------
 
    **REGLA REVISADA v2.0.0 (2026-04-29):** Distinguir entre flechas
-   **decorativas** (prohibidas) y flechas **técnicas semánticas**
+   **decorativas** (prohibidas) y flechas**técnicas semánticas**
    (permitidas con criterio). La revisión surge de validación
    empírica del corpus (549 ocurrencias de ``→`` en 74 archivos
    con uso semántico legítimo en taxonomías y mapeos).

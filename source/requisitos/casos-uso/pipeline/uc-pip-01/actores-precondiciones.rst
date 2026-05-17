@@ -7,9 +7,17 @@ Parte 2 — Actores y precondiciones
 Actores
 -------
 
-- **Supervisor de Operaciones** — usuario con permiso
-  ``view_pipeline_status``. Inicia el caso de uso consultando el
-  estado del Servicio ETL.
+- **PipelineAdmin** — usuario con permiso
+  ``view_pipeline_status`` (AGR-009 ``pipeline_admin_group``).
+  Inicia el caso de uso consultando el estado del Servicio ETL.
+
+  .. note::
+
+     ``PipelineAdmin`` es un rol IT/ops, distinto del actor
+     ``Supervisor`` (AGR-003 ``quality_supervisor_group`` /
+     AGR-012 ``call_center_supervisor_group``) que supervisa
+     agentes de call center en tiempo real (``MOD_Supervision``,
+     fuera de scope).
 - **Registro de Ejecuciones** — sistema secundario que
   provee los datos de ejecucion del Servicio ETL.
 

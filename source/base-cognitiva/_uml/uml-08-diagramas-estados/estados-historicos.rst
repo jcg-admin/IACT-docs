@@ -40,6 +40,6 @@ una punta de flecha que apunta a tal subestado.
   será **superficial**.
 
 El estado histórico y el estado inicial (representado por el
-círculo relleno) son conocidos como **pseudoestados**. *No
+círculo relleno) son conocidos como **pseudoestados**.*No
 tienen variables de estado ni actividades*, por lo que no son
 estados "completos".

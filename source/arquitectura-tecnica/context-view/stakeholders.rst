@@ -36,7 +36,9 @@ Grupos de usuario IACT
      asignacion de permisos temporales (CNST-031);
      visualizacion de separacion de funciones (separation of duties) (CNST-030).
  * - **AGR_OPERADOR**
-   - Operador / Supervisor de Operaciones
+   - PipelineAdmin (rol IT/ops — distinto del actor
+     ``Supervisor`` de call center, que es AGR-003 / AGR-012,
+     fuera de scope)
    - Disponibilidad del pipeline ETL (P-04);
      acceso a dashboards IVR en tiempo real;
      gestion de alertas y umbrales;

@@ -118,7 +118,7 @@ Modelo RBAC IACT — Implementacion
  comportamiento esperado, no la implementacion concreta.
 
 8.10 Datos Iniciales - 3 Reglas de Separacion
------------------------------------
+-----------------------------------------------
 
 
 

@@ -30,7 +30,7 @@ Plan de documentación de UCs con diagramas UML (PlantUML)
 1. Objetivo
 ===========
 
-Crear **13 documentos** que especifiquen los **97 casos de uso**
+Crear **13 documentos** que especifiquen los**97 casos de uso**
 del proyecto IACT con diagramas UML completos en PlantUML, usando
 los estilos centralizados del proyecto.
 
@@ -334,7 +334,7 @@ Por qué un SAD además del SRS
    arquitectónicas, patrones de diseño y detalles de
    implementación que no corresponden al SRS pero son
    esenciales para el desarrollo.
-2. **Complemento natural al SRS** — el SRS define **qué**
+2. **Complemento natural al SRS** — el SRS define**qué**
    hace el sistema; el SAD define **cómo** se construye.
    Es el puente entre requisitos e implementación.
 3. **Audiencia técnica** — el SAD se orienta al equipo de
@@ -562,7 +562,7 @@ codifica**:
    erróneos o condiciones que cambian.
 8. El diseño temprano tiende a agregar funcionalidades
    que luego resultan innecesarias (de ahí el principio
-   ágil **YAGNI** — *You Aren't Gonna Need It*).
+   ágil **YAGNI** —*You Aren't Gonna Need It*).
 9. Los desarrolladores se involucran más cuando tienen
    autonomía para tomar algunas decisiones de diseño.
 10. Si el diseño crece sin que ningún elemento se valide

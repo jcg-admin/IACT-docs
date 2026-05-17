@@ -267,7 +267,7 @@ Crear modelo ``Role`` con ``OneToOneField`` a
   desarrollador debe entender; refactor moderado pero no
   trivial; corpus IACT-docs ya documenta ``AccessGroup``
   directo en ~80 archivos.
-- **Veredicto:** considerar como **migración futura** si el
+- **Veredicto:** considerar como**migración futura** si el
   proyecto adopta ``django-guardian`` u otros paquetes
   dependientes de ``auth.Group``. Documentado como TD-RBAC-02
   para evaluación posterior.

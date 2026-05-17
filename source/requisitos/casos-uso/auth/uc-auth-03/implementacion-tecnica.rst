@@ -47,7 +47,7 @@ Parte 11 — Implementacion tecnica
  comportamiento esperado, no la implementacion concreta.
 
 11.4 ResetPasswordEndpoint
-======================
+============================
 
 .. note::
 

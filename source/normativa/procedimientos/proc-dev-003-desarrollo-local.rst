@@ -30,7 +30,7 @@ Pre-requisitos
 --------------
 
 - [ ] Vagrant instalado (ver
-  ``procedimiento_instalacion_entorno.rst`` (no migrado a source))
+  ``/normativa/procedimientos/proc-ops-003-instalacion-entorno.rst`` (no migrado a source))
 - [ ] Git configurado
 - [ ] IDE/Editor de código (VS Code recomendado)
 - [ ] Acceso al repositorio GitHub
@@ -116,8 +116,8 @@ Verificar instalación:
 
  ./scripts/install-hooks.sh --verify
 
-Para más información sobre hooks: `Git Hooks
-README <../.github/hooks/README>`__
+Para más información sobre hooks: ver ``.github/hooks/README``
+en el repositorio.
 
 5. Ejecutar Servidor de Desarrollo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -196,8 +196,8 @@ Ver: :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (
  # Crear PR en GitHub
  gh pr create --title "feat: título del PR" --body "Descripción"
 
-Ver: `Procedimiento de Gestión de
-Cambios <procedimiento_gestion_cambios.rst>`__
+Ver: :doc:`Procedimiento de Gestión de
+Cambios </normativa/procedimientos/proc-gob-011-gestion-cambios>`
 
 Tareas Comunes
 --------------
@@ -320,14 +320,14 @@ Agregar a ``.vscode/settings.json``:
 Recursos Relacionados
 ---------------------
 
-- `Procedimiento: Instalación de
-  Entorno <procedimiento_instalacion_entorno.rst>`__
+- :doc:`Procedimiento: Instalación de
+  Entorno </normativa/procedimientos/proc-ops-003-instalacion-entorno>`
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
-- `Procedimiento: Gestión de
-  Cambios <procedimiento_gestion_cambios.rst>`__
+- :doc:`Procedimiento: Gestión de
+  Cambios </normativa/procedimientos/proc-gob-011-gestion-cambios>`
 - :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
 - ``lineamientos_codigo.rst`` (no migrado a source)
-- `Runbooks DevOps <../devops/runbooks/>`__
+- *Runbooks DevOps*
 
 Notas
 -----

@@ -1,5 +1,5 @@
 8.5 Diagrama de validacion de separacion
-==============================
+==========================================
 
 .. uml::
  :caption: Logica de validacion de separacion (PASO 10)

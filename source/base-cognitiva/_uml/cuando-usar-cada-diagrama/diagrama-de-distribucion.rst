@@ -4,7 +4,7 @@
 **Propósito:** arquitectura física del sistema (dónde se
 ejecuta cada cosa). Nodos (cubos) + conexiones + artefactos.
 
-**Cuándo usarlo:** cuando necesitas mostrar **cómo se
+**Cuándo usarlo:** cuando necesitas mostrar**cómo se
 despliega** el sistema en producción (dónde viven las
 máquinas, cómo se conectan).
 

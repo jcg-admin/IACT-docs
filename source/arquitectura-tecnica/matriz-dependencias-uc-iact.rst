@@ -140,7 +140,7 @@ de ellos el producto no entrega su propuesta de valor.
 
 A diferencia de un ecommerce (Login → Catalogo → Carrito → Pago), el
 flujo critico de IACT no es un unico pipeline lineal. IACT es una
-**plataforma de analytics IVR + RBAC** con **cuatro caminos criticos
+**plataforma de analytics IVR + RBAC** con**cuatro caminos criticos
 de Fase 1** segun el actor:
 
 **Ruta A — ETL (background)**: pre-requisito de todos los demas
@@ -155,7 +155,7 @@ caminos. Sin ETL no hay analytics.
         ↓
    Datos analiticos disponibles
 
-**Ruta B — Usuario con view_reports**: camino de **valor de negocio
+**Ruta B — Usuario con view_reports**: camino de**valor de negocio
 central** — reportes y dashboard IVR.
 
 ::
@@ -1212,13 +1212,13 @@ _02, UC_PERM_01..04, _06.
 
 **Performance target**: < 50 ms (per cabecera de UC_PERM_07).
 
-**Riesgo**: politica IACT es **fail-closed estricto** (CNST-030). Si
+**Riesgo**: politica IACT es**fail-closed estricto** (CNST-030). Si
 T-02 falla deniega — peor que T-01 pero mejor que bypass total RBAC.
 
 4.3 Dependencia T-03 — Emitir AuditEvent
 ----------------------------------------
 
-**Definicion**: toda operacion de **escritura** en cualquier cluster
+**Definicion**: toda operacion de**escritura** en cualquier cluster
 emite uno o mas ``AuditEvent`` inmutables (CNST-025).
 
 **Cobertura**: 39 / 80 UCs (los de escritura). Los 41 UCs restantes
@@ -1482,7 +1482,7 @@ PARTE 7 — Criterios OOD: cohesion y acoplamiento
 =================================================
 
 El criterio central para clasificar la criticidad de un UC en IACT
-es su posicion en los ejes de **cohesion** y **acoplamiento** del
+es su posicion en los ejes de **cohesion** y**acoplamiento** del
 modelo OOD (Object-Oriented Design).
 
 7.1 Cohesion

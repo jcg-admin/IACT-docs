@@ -246,7 +246,7 @@ Crear sección de activos críticos con clasificación:
 
  #### 2.1 Aplicar Categorías STRIDE
 
- **STRIDE** = **S**poofing, **T**ampering, **R**epudiation, **I**nformation Disclosure, **D**enial of Service, **E**levation of Privilege
+ **STRIDE** =**S**poofing,**T**ampering,**R**epudiation,**I**nformation Disclosure,**D**enial of Service,**E**levation of Privilege
 
  **Formato requerido:**
 
@@ -427,9 +427,9 @@ Crear sección de activos críticos con clasificación:
       - **ALTO**
       - IP whitelist, MFA obligatorio para admins
 
-**Niveles de Riesgo:** - **CRÍTICO**: Probabilidad Alta + Impacto
+**Niveles de Riesgo:** -**CRÍTICO**: Probabilidad Alta + Impacto
 Crítico - **ALTO**: Probabilidad Media/Alta + Impacto Alto/Crítico -
-**MEDIO**: Probabilidad Baja/Media + Impacto Medio/Alto - **BAJO**:
+**MEDIO**: Probabilidad Baja/Media + Impacto Medio/Alto -**BAJO**:
 Probabilidad Baja + Impacto Bajo/Medio
 
 **Checklist:** - [ ] Las 6 categorías STRIDE completadas - [ ] Cada

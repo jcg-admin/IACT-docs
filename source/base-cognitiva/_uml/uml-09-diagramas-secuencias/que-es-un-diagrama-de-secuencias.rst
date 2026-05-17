@@ -14,7 +14,7 @@ izquierda a derecha, acomodados de manera que simplifiquen el
 diagrama.
 
 La extensión que está debajo (en forma descendente) de cada
-objeto es una **línea discontinua** conocida como **la línea de
+objeto es una **línea discontinua** conocida como**la línea de
 vida del objeto**.
 
 Junto con la línea se encuentra un pequeño rectángulo conocido
@@ -38,7 +38,7 @@ vida de un objeto a la de otro. Un objeto puede enviarse un
 mensaje a sí mismo desde su línea de vida hacia su propia línea
 de vida.
 
-El mensaje puede ser **simple**, **sincrónico** o **asincrónico**:
+El mensaje puede ser **simple**,**sincrónico** o**asincrónico**:
 
 .. list-table::
  :widths: 22 48 30

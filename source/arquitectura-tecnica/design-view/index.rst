@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: DesignView
  :estado: Vigente
- :version: 3.1.0
+ :version: 4.0.0
  :fecha_creacion: 2026-05-03
- :ultimo_cambio: 2026-05-06
+ :ultimo_cambio: 2026-05-08
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -33,6 +33,18 @@ diagrams referencian las clases canonicas via ``:doc:``.
  en este DesignView**. Su construccion queda diferida a WP
  futuros si/cuando se decida implementarlos.
 
+.. note::
+
+ **Reorganizacion v4.0.0 (2026-05-08):** los archivos planos
+ ``class-X.rst``, ``seq-X.rst``, ``state-Y.rst`` y
+ ``act-Z.rst`` migraron a directorios por modulo
+ (``access/``, ``admin/``, ``alerts/``, ``audit/``, ``auth/``,
+ ``logs/``, ``permissions/``, ``pipeline/``, ``reports/``,
+ ``users/``), siguiendo la convencion ya establecida en
+ ``use-case-view/``. Cada modulo gana su ``index.rst``
+ (caja Kruchten) con vista panoramica curated y toctree a
+ sub-vistas (class, sequence, state, activity).
+
 Tipos de diagramas
 ==================
 
@@ -43,12 +55,17 @@ Tipos de diagramas
  * - Tipo
    - UML lesson
    - Proposito
+ * - Module box (caja)
+   - uml-04 + uml-07
+   - Vista panoramica del modulo: entidades centrales y
+     puntos de contacto inter-modulo. Punto de entrada.
  * - Package overview
    - uml-04
    - Vista global de modulos y dependencias inter-modulo.
  * - Class per modulo
    - uml-03 + uml-04 + uml-05
-   - Estructura cohesiva del bounded context.
+   - Estructura cohesiva del bounded context (con
+     repositories y servicios internos).
  * - Sequence per modulo
    - uml-09
    - Patron de interaccion canonico del modulo.
@@ -72,81 +89,34 @@ Vista global
 
 ----
 
-Class diagrams (estructura por modulo)
-=======================================
+Modulos del DesignView
+=======================
+
+Diez modulos en scope de implementacion. Cada modulo es
+una caja autonoma con su panorama, class diagram, sequence
+canonica, y opcionalmente state machine y activity flow.
 
 .. toctree::
- :maxdepth: 1
- :caption: Estructura de clases por modulo
+ :maxdepth: 2
+ :caption: Modulos (cajas por modulo)
 
- class-auth
- class-users
- class-access
- class-permissions
- class-admin
- class-audit
- class-pipeline
- class-reports
- class-alerts
- class-logs
-
-----
-
-Sequence diagrams (patrones de interaccion)
-============================================
-
-.. toctree::
- :maxdepth: 1
- :caption: Patrones de interaccion canonicos
-
- seq-auth
- seq-users
- seq-access
- seq-permissions
- seq-admin
- seq-audit
- seq-pipeline
- seq-reports
- seq-alerts
- seq-logs
-
-----
-
-Activity diagrams (flujos cross-modulo)
-========================================
-
-.. toctree::
- :maxdepth: 1
- :caption: Flujos de proceso
-
- act-rbac-effective-set-eval
- act-jwt-auth
- act-validacion-separacion
- act-etl-pipeline-execution
- act-alert-evaluation
- act-export-async
-
-----
-
-State diagrams (ciclos de vida)
-================================
-
-.. toctree::
- :maxdepth: 1
- :caption: Ciclos de vida de entidades
-
- state-session
- state-assignment
- state-pipeline-execution
- state-alert-event
- state-export-job
+ access/index
+ admin/index
+ alerts/index
+ audit/index
+ auth/index
+ logs/index
+ permissions/index
+ pipeline/index
+ reports/index
+ users/index
 
 ----
 
 .. seealso::
 
  - :doc:`/arquitectura-tecnica/domain-model/index` — vocabulario
-   canonico de las 85 clases del sistema.
+   canonico de las clases del sistema.
  - :doc:`/arquitectura-tecnica/use-case-view/index` — UCs por
    modulo (incluyendo los out-of-scope para implementacion).
  - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama/index`

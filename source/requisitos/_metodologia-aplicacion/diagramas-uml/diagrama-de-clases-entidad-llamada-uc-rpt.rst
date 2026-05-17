@@ -26,4 +26,4 @@
 ``perteneceA(segmento)`` antes de devolver filas. DOC-24
 integra ésta con todas las demás clases.
 
-**Perspectiva:** ESTÁTICA. **Audiencia:** Devs / Arquitectos.
+**Perspectiva:** ESTÁTICA.**Audiencia:** Devs / Arquitectos.

@@ -73,7 +73,7 @@ PASO 11 — Expandir funciones
 ``AGRRepository.list_functions(agr_id)``.
 
 PASO 12 — Validar separacion
----------------------
+------------------------------
 
 ``current_effective`` = funciones efectivas
 actuales del User (UC_ACC_03 internamente).

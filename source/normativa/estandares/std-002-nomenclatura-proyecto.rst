@@ -395,7 +395,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 
 .. important::
 
- **Separador especial:** FR usa **guión bajo + punto** (``_[NNN].[NN]_``)
+ **Separador especial:** FR usa**guión bajo + punto** (``_[NNN].[NN]_``)
 
 **Ejemplos:**
 

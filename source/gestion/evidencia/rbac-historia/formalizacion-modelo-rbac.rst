@@ -364,7 +364,7 @@ UC_PERM_05. Los predefinidos quedan como "system groups" no
 editables.
 
 8. Reglas de Separacion (3 atómicas)
-==========================
+======================================
 
 Origen: ``MODELO_RBAC_IACT_v5_2_1`` § 5.
 

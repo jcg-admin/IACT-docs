@@ -6,7 +6,7 @@ sabrá algunas cosas que podrá transferir a otras categorías. A
 esto se le conoce como **herencia**; UML también lo denomina
 **generalización**.
 
-Una clase (la **clase secundaria** o **subclase**) puede heredar
+Una clase (la **clase secundaria** o**subclase**) puede heredar
 los atributos y operaciones de otra (la **clase principal** o
 **superclase**).
 
@@ -23,7 +23,7 @@ apunte a la clase principal — esto se interpreta con la frase
 
 Ejemplo: un ``Mamifero`` es una clase secundaria de ``Animal``,
 y ``Caballo`` es una clase secundaria de ``Mamifero``. Un
-``Mamifero`` *es un tipo de* ``Animal``, y un ``Caballo`` *es un
+``Mamifero`` *es un tipo de* ``Animal``, y un ``Caballo``*es un
 tipo de* ``Mamifero``.
 
 .. uml::
@@ -63,9 +63,9 @@ tiene pelo y da leche — dos atributos que no se encuentran en la
 clase ``Animal``.
 
 Una clase puede no provenir de una clase principal, en cuyo caso
-será una **clase base** o **clase raíz**. En caso contrario,
+será una **clase base** o**clase raíz**. En caso contrario,
 una clase podría no tener clases secundarias, en cuyo caso será
-una **clase final** o **clase hoja**.
+una **clase final** o**clase hoja**.
 
 Si una clase tiene exactamente una clase principal, tendrá
 **herencia simple**. Si proviene de varias clases principales,

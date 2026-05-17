@@ -19,7 +19,7 @@ RuleValidator
 
 Validador de admisibilidad de una ``AlertRule`` antes de
 persistirla. Verifica que la regla sea **estructuralmente
-correcta**, **semánticamente coherente** y **autorizada**
+correcta**,**semánticamente coherente** y**autorizada**
 para el ``scope`` declarado por el usuario que la edita.
 
 Es invocado por el servicio de configuración antes del

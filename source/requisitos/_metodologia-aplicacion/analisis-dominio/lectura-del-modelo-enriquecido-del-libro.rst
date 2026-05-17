@@ -38,16 +38,16 @@ Análisis de las decisiones del modelo:
 - **``Title -- Genre : is associated with``** —
   asociación bidireccional. La descripción debe ser
   válida en ambos sentidos: un título *está asociado
-  con* un género y un género *está asociado con*
+  con* un género y un género*está asociado con*
   títulos.
 - **``Viewer --> Title : watches``** —
   asociación **direccional**. ``Viewer`` mantiene
   referencia a ``Title``; ``Title`` no necesita
   referencia inversa al espectador. Por eso el
   ``-->`` en lugar del ``--`` bidireccional.
-- **``Title *-- Season : has``**,
-  **``Title *-- Review : has``**,
-  **``Season *-- Episode : contains``** — composición
+- **``Title*-- Season : has``**,
+  **``Title*-- Review : has``**,
+  **``Season*-- Episode : contains``** — composición
   con etiqueta descriptiva desde el padre. ``contains``
   es más preciso que ``has`` en este caso.
 - **``Title o-- Actor : features``** — agregación con

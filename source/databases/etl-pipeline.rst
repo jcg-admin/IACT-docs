@@ -156,7 +156,7 @@ al servir las vistas de reportes IVR. No participan en el ETL.
 
 Django los invoca via ``cursor.callproc()`` sobre la conexion
 ``ivr`` (MariaDB). Ver patron en
-:doc:`/arquitectura-tecnica/modulos/vis-reports/componentes`.
+:doc:`/arquitectura-tecnica/modulos/reports/componentes`.
 
 5. Casos de uso relacionados
 =============================

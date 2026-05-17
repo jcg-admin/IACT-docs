@@ -19,7 +19,7 @@ tipos de componentes.
  tienen una vida útil propia.
 
  Ejemplo: el objeto **libreta** se construye de los objetos
- *espiral*, *pasta*, *hojas*, etc.
+ *espiral*,*pasta*,*hojas*, etc.
 
 .. uml::
 

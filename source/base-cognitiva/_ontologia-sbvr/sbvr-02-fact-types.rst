@@ -49,7 +49,7 @@ conectan los conceptos nucleares definidos en :ref:`sbvr-01`.
  **Notacion SBVR:**
 
  - **Conceptos** (sustantivos) se muestran subrayados: Usuario
- - **Verbos** se muestran en italica: *tiene*
+ - **Verbos** se muestran en italica:*tiene*
  - **Fact Type** = Concepto + Verbo + Concepto
  - Ejemplo: Usuario *tiene* Rol
 

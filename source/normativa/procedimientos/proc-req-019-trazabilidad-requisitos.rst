@@ -691,8 +691,8 @@ StRS cumple estructura Clause 9.4 - [ ] SyRS cumple estructura Clause
 9.5 - [ ] SRS cumple estructura Clause 9.6 - [ ] RTM bidireccional
 completa
 
-**Métricas:** - [ ] % de requisitos con trazabilidad upward: **Target
-100%** - [ ] % de requisitos con trazabilidad downward: **Target ≥95%**
+**Métricas:** - [ ] % de requisitos con trazabilidad upward:**Target
+100%** - [ ] % de requisitos con trazabilidad downward:**Target ≥95%**
 - [ ] % de tests que trazan a requisitos: **Target ≥90%** - [ ] Tiempo
 promedio de regeneración de índices: **Target <30 seg**
 

@@ -530,7 +530,7 @@ Nota: Esto ocurre en un UC separado o proceso temporal
  
  "Su reporte Q3 2024 esta listo.
  
- Ver reporte: https://iact.com/reports/12345
+ Ver reporte: ``https://iact.com/reports/12345`` (broken)
  
  Ejecutado: 2024-11-16 06:05 AM
  Registros: 25,120"

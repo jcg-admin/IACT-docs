@@ -12,7 +12,7 @@
 | 7 | 2026-04-28-00-19-57-source-references-audit | feature/repository-diagnostics | Phase 1 DISCOVER (audit-only, no fixes) |
 | 9 | 2026-04-28-03-59-01-bootstrap-hardening | feature/solve-problem-docs | Phase 1 DISCOVER (Makefile guard + venv fix commiteados; F-NEW-8 + F-NEW-9 pendientes) |
 | 10 | 2026-04-28-05-07-32-multi-wp-state-strategy | feature/solve-problem-docs | Phase 1 DISCOVER (creado, pausado — análisis preliminar heredado de ÉPICA 8) |
-| — | 16 WPs-hijos `source-rebuild-*` (de ÉPICA 8) | feature/solve-problem-docs | 14 CERRADO v1 (skeleton/amplia) + 2 DIFERIDO (#10 infrastructure, #12 operations). Ver `track/children-status-summary.md` del padre |
+| — | 16 WPs-hijos `source-rebuild-*` (de ÉPICA 8) | feature/solve-problem-docs | 14 CERRADO v1 (skeleton/amplia) + 2 COMPLETADO en `feature/integracion-wp-diferidos`: #10 infrastructure (skeleton: index + overview + conventions), #12 operations (4 runbooks + production checklist). Ver `track/children-status-summary.md` del padre |
 
 ## Completadas
 

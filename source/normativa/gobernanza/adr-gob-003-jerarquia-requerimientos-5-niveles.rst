@@ -616,13 +616,13 @@ Referencias
   processes — Requirements
   engineering <https://standards.ieee.org/standard/29148-2018.html>`__
 - `IIBA BABOK v3: Business Analysis Body of
-  Knowledge <https://www.iiba.org/business-analysis-certifications/babok/>`__
-- `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
-- `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
+  Knowledge ``https://www.iiba.org/business-analysis-certifications/babok/`` (broken)`__
+- :doc:`ADR-GOB-006: Clasificación y Documentación de Reglas de
+  Negocio </normativa/gobernanza/adr-gob-004-clasificacion-reglas-negocio>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
+- :doc:`ADR-GOB-009: Trazabilidad entre Artefactos de
+  Requisitos </normativa/gobernanza/adr-gob-007-trazabilidad-artefactos-requisitos>`
 
 Historial de Cambios
 --------------------

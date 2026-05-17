@@ -2,7 +2,7 @@ Aplicación: serie de Fibonacci
 ==============================
 
 La serie ``1, 1, 2, 3, 5, 8, 13, ...`` se conoce como **serie
-de Fibonacci**. Cada número es un *fib*: ``fib(1) = 1``,
+de Fibonacci**. Cada número es un*fib*: ``fib(1) = 1``,
 ``fib(2) = 1``, ``fib(3) = 2``, ... La regla: cada fib (excepto
 los dos primeros) es la suma del par anterior.
 

@@ -188,7 +188,7 @@ Ver thresholds de alerta en ADR-BACK-009 §6.3.
 
 **Recomendacion para produccion:**
 
-- **Redis Sentinel** o **Redis Cluster** segun escala.
+- **Redis Sentinel** o**Redis Cluster** segun escala.
 - Read replicas opcionales para reduccion de carga (cache
   de capabilities es read-heavy).
 - Backup no critico — el cache es reconstruible desde DB.

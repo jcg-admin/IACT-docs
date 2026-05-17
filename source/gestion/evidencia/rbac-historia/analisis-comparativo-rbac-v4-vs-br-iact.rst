@@ -73,7 +73,7 @@ Analisis Comparativo — Modelo RBAC v4.0 vs BR IACT (Genealogia)
    - Sin herencia (explicita)
    - Sin herencia (explicita)
    - CONSISTENTE
-  * - Separacion de deberes
+ * - Separacion de deberes
    - Estatico (SSD) con cardinalidad
    - Estatico simple
    - PARCIAL
@@ -177,7 +177,7 @@ Resolucion vigente (v5.2.1):
    42 funciones atomicas + 10 grupos predefinidos AGR-001..010
 
 7.3 Restricciones de separacion
----------------------
+---------------------------------
 
 ::
 

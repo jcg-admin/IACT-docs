@@ -24,7 +24,7 @@ proceso.
 Modelo SDLC Adoptado
 --------------------
 
-**Modelo**: **Agile + DevOps Hybrid**
+**Modelo**:**Agile + DevOps Hybrid**
 
 **Justificaci?n**: - Proyecto complejo con requisitos cambiantes ->
 Agile - Necesidad de CI/CD y deployment continuo -> DevOps - Compliance
@@ -56,7 +56,7 @@ Fase 1: Planning (Planificaci?n)
 Objetivo
 ~~~~~~~~
 
-Definir **QU?** se va a construir y **POR QU?**.
+Definir **QU?** se va a construir y**POR QU?**.
 
 Actividades
 ~~~~~~~~~~~
@@ -693,7 +693,7 @@ m?tricas empeoran
 **Opci?n C: Rolling Deployment** - Deploy a 1 nodo/pod - Validar -
 Deploy al siguiente - Repetir hasta completar cluster
 
-**Opci?n seleccionada para IACT**: **Canary** (para features grandes),
+**Opci?n seleccionada para IACT**:**Canary** (para features grandes),
 **Rolling** (para bug fixes)
 
 6.3 Deployment Checklist
@@ -769,7 +769,7 @@ Actividades
 7.1 Monitoring y Alerting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**M?tricas clave**: - **Golden Signals**: Latency, Traffic, Errors,
+**M?tricas clave**: -**Golden Signals**: Latency, Traffic, Errors,
 Saturation - **Business metrics**: Users activos, Conversi?n, Revenue -
 **Infrastructure**: CPU, Memory, Disk, Network
 
@@ -794,7 +794,7 @@ Infrastructure: Prometheus + Grafana - Logs: ELK Stack, CloudWatch
 7.2 Incident Response
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Severidad**: - **P0 (Critical)**: Sistema completamente ca?do ->
+**Severidad**: -**P0 (Critical)**: Sistema completamente ca?do ->
 Response: <15 min - **P1 (High)**: Funcionalidad cr?tica afectada ->
 Response: <1 hour - **P2 (Medium)**: Funcionalidad no cr?tica afectada
 -> Response: <4 hours - **P3 (Low)**: Issue menor -> Response: <24 hours
@@ -1155,5 +1155,5 @@ Cambios a Este Documento
 
 --------------
 
-**?ltima actualizaci?n**: 2025-11-06 **Versi?n**: 1.0 **Pr?xima
+**?ltima actualizaci?n**: 2025-11-06**Versi?n**: 1.0**Pr?xima
 revisi?n**: 2026-02-06 (Quarterly)

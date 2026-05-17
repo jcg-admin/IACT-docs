@@ -25,4 +25,4 @@ con su contexto de descripcion.
 
  flujo-monitoreo-tiempo-real
  barge-in-intervencion-tripartita
- componentes-mod-supervision
+ layer-structure

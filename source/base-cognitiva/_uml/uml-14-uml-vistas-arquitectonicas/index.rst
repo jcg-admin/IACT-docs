@@ -41,3 +41,4 @@ UML 14: UML para Vistas Arquitectónicas
  arquitecto-y-proceso
  proceso-definicion-arquitectonica
  concerns-principles-decisions
+ relaciones-dependencia-iact

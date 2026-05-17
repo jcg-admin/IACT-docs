@@ -452,7 +452,7 @@ Paso 4: Desarrollo de la Feature (TDD)
 4.1 Filosofía: Test-Driven Development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ciclo TDD:** 1. **Red**: Escribir test que falla 2. **Green**:
+**Ciclo TDD:** 1.**Red**: Escribir test que falla 2.**Green**:
 Escribir código mínimo para que pase 3. **Refactor**: Mejorar código
 manteniendo tests verdes
 
@@ -1964,10 +1964,10 @@ Recursos Relacionados
 Documentación Interna
 ~~~~~~~~~~~~~~~~~~~~~
 
-- `Procedimiento de Gestión de
-  Cambios <procedimiento_gestion_cambios.rst>`__ - Proceso formal
-- `Procedimiento de Desarrollo
-  Local <procedimiento_desarrollo_local.rst>`__ - Setup entorno
+- :doc:`Procedimiento de Gestión de
+  Cambios </normativa/procedimientos/proc-gob-011-gestion-cambios>` - Proceso formal
+- :doc:`Procedimiento de Desarrollo
+  Local </normativa/procedimientos/proc-dev-003-desarrollo-local>` - Setup entorno
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>` - Testing y calidad
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>` - Releases y
   deployment

@@ -13,7 +13,7 @@ obtiene una pequeña cantidad de energía del poste si se equipa
 con un adaptador especial.
 
 Los radios de microceldilla difunden señales a **Puntos de
-acceso cableados** que llevan la información a un **NIF**
+acceso cableados** que llevan la información a un**NIF**
 (*Network Interconnection Facility*).
 
 El NIF consta de un **servidor de nombres** (BD que valida las

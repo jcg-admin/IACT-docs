@@ -2,7 +2,7 @@
 --------------------
 
 Cuatro elementos canónicos: **límite del sistema**
-(rectángulo), **caso de uso** (elipse), **actor** (figura
+(rectángulo), **caso de uso** (elipse),**actor** (figura
 de palo) y **línea asociativa**.
 
 .. uml::

@@ -35,10 +35,10 @@ Documentación técnica (cuando incluya código)
 Documentación Relacionada
 -------------------------
 
-**Para scripts de shell**, consultar también: - `Shell Scripting Guide
-Completa <shell_scripting_guide.rst>`__ - Guía exhaustiva de shell
-scripting - `Plantillas de
-Scripts <../../scripts/templates/README>`__ - Templates
+**Para scripts de shell**, consultar también: - :doc:`Shell Scripting Guide
+Completa </normativa/estandares/shell-scripting-guide>` - Guía exhaustiva de shell
+scripting - ``Plantillas de
+Scripts`` - Templates
 estandarizados
 
 Tabla de Contenidos
@@ -581,7 +581,7 @@ Script de Validación
  echo ""
  echo "[FAIL] Emoji validation failed"
  echo "Remove emojis from production scripts"
- echo "See: docs/gobernanza/estandares_codigo.rst"
+ echo "See: docs/gobernanza//normativa/estandares/estandares-codigo.rst"
  exit 1
  fi
 

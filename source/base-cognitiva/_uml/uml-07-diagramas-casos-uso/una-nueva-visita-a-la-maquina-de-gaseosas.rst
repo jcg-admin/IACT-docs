@@ -1,8 +1,8 @@
 Una nueva visita a la máquina de gaseosas
 =========================================
 
-El caso de uso *"Comprar gaseosa"* se encuentra dentro del
-sistema junto con *"Reabastecer"* y *"Recolectar dinero"*. Los
+El caso de uso "Comprar gaseosa" se encuentra dentro del
+sistema junto con "Reabastecer" y"Recolectar dinero". Los
 actores son el ``Cliente``, el ``Representante del proveedor`` y
 el ``Recolector``.
 

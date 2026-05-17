@@ -415,7 +415,7 @@ Métricas de Calidad de Reviews
 ------------------------------
 
 Medir periódicamente: - **Tiempo promedio de review**: < 4 horas ideal -
-**Número de iteraciones**: < 3 ideal - **Bugs encontrados en review**:
+**Número de iteraciones**: < 3 ideal -**Bugs encontrados en review**:
 Más es mejor - **Bugs escapados a producción**: Menos es mejor
 
 --------------
@@ -425,10 +425,10 @@ Referencias
 
 - `Google Engineering Practices - Code
   Review <https://google.github.io/eng-practices/review/>`__
-- `PROC-QA-001: Actividades de Garantía
-  Documental <../procesos/PROC-QA-001-actividades_garantia_documental.rst>`__
-- `PROC-QA-002: Estrategia
-  QA <../procesos/PROC-QA-002-estrategia_qa.rst>`__
+- :doc:`PROC-QA-001: Actividades de Garantía
+  Documental </normativa/procedimientos/proc-qa-001-actividades-garantia-documental>`
+- :doc:`PROC-QA-002: Estrategia
+  QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 
 Historial de Cambios
 --------------------

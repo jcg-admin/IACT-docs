@@ -4,7 +4,7 @@
 **Propósito:** bloques de software reutilizables y sus
 dependencias. Componentes + interfaces + dependencias.
 
-**Cuándo usarlo:** cuando hablas de **arquitectura de
+**Cuándo usarlo:** cuando hablas de**arquitectura de
 software** (qué módulos/componentes existen y cómo dependen
 unos de otros).
 

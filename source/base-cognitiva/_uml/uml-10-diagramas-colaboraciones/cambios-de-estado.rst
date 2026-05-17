@@ -6,7 +6,7 @@ de colaboraciones.
 
 En el rectángulo del objeto indique su estado. Agregue otro
 rectángulo al diagrama que **haga las veces del objeto e indique
-el estado modificado**. Conecte a los dos con *una línea
+el estado modificado**. Conecte a los dos con*una línea
 discontinua* y etiquétela con un estereotipo ``«se toma»`` (o
 ``«becomes»``).
 

@@ -19,7 +19,7 @@ Modelo RBAC IACT
 Modelo conceptual canonico del control de acceso basado en funciones
 atomicas (RBAC) del sistema IACT — version 5.6.0.
 
-**Version:** 5.6.0 — Nuevo modulo **MOD_Admin** (3 funciones) que
+**Version:** 5.6.0 — Nuevo modulo**MOD_Admin** (3 funciones) que
 formaliza el plano de configuracion del modelo RBAC. Catalogo declara
 77 funciones distribuidas en:
 

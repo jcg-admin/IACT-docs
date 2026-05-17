@@ -46,6 +46,12 @@ high-level, vistas, modelos de datos y diagramas.
 
  modulos/index
 
+.. toctree::
+ :maxdepth: 2
+ :caption: Especificaciones de implementacion
+
+ pipeline-etl-iact/index
+
 .. note::
 
  Este cajon esta en construccion incremental. Los siguientes

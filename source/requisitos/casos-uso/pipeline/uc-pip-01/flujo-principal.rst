@@ -4,7 +4,7 @@
 Parte 3 — Flujo principal
 ==========================
 
-PASO 1 — El Supervisor de Operaciones envia GET a
+PASO 1 — El PipelineAdmin envia GET a
           ``/api/v1/etl/supervision/``.
 
 PASO 2 — El sistema valida el JWT y verifica que el usuario

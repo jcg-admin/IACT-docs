@@ -2,7 +2,7 @@
 --------------------------
 
 Cinco elementos canónicos: **participantes** (rectángulos
-arriba), **línea de vida** (punteada vertical), **activación**
+arriba), **línea de vida** (punteada vertical),**activación**
 (rectángulo en línea de vida), **mensaje** (flecha horizontal
 etiquetada), **tiempo** (eje vertical, arriba → abajo).
 

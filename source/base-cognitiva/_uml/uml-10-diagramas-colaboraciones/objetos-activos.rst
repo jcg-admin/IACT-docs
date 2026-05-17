@@ -31,7 +31,7 @@ reabastecer los libros, entre otras cosas.
  atender la misma solicitud.
 
 Al proceso de que **dos o más objetos activos hagan sus tareas
-al mismo tiempo** se le conoce como **concurrencia**. Trabajar
+al mismo tiempo** se le conoce como**concurrencia**. Trabajar
 en paralelo: por ejemplo, mientras un proceso espera datos de
 la red, otro puede estar realizando cálculos.
 

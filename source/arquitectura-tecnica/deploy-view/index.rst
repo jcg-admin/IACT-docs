@@ -32,6 +32,6 @@ El sistema IACT tiene tres variantes de topologia de despliegue:
  :maxdepth: 1
  :caption: Variantes de despliegue
 
- deploy-estandar
- deploy-auth-cache
- deploy-etl
+ standard-topology
+ auth-cache-topology
+ etl-pipeline-topology

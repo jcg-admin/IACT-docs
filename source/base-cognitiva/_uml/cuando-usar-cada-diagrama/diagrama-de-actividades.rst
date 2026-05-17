@@ -4,7 +4,7 @@
 **Propósito:** flujo de trabajo o decisiones dentro de un
 proceso. Actividades + decisiones (sí/no) + sincronización.
 
-**Cuándo usarlo:** cuando necesitas mostrar **procesos
+**Cuándo usarlo:** cuando necesitas mostrar**procesos
 complejos con decisiones** (similar a un diagrama de flujo).
 
 **Lección completa:** :doc:`/base-cognitiva/_uml/uml-11-diagramas-actividades/index`.

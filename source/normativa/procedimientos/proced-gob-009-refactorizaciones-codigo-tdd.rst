@@ -982,7 +982,7 @@ Referencias
 
 - Conventional Commits: https://www.conventionalcommits.org/
 - Angular Convention:
-  https://github.com/angular/angular/blob/main/CONTRIBUTING
+  ``https://github.com/angular/angular/blob/main/CONTRIBUTING`` (broken)
 - Commitlint: https://commitlint.js.org/
 
 14. Plantillas de Referencia
@@ -1025,6 +1025,6 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 
 --------------
 
-**Procedimiento creado:** 2025-11-17 **Ultima revision:** 2025-11-18
-**Próxima revisión:** 2026-11-17 (o después de 5 usos) **Mantenedor:**
+**Procedimiento creado:** 2025-11-17**Ultima revision:** 2025-11-18
+**Próxima revisión:** 2026-11-17 (o después de 5 usos)**Mantenedor:**
 Tech Lead Team

@@ -121,8 +121,8 @@ de nueva sesion en otro dispositivo (CNST-004).
 ----------------------------------
 
 UC_AUTH_01 es el **paso B.1 de la Ruta B
-Operador / Supervisor**, **C.1 de la Ruta C
-Administrador RBAC**, y **D.1 de la Ruta D
+Operador / Supervisor**,**C.1 de la Ruta C
+Administrador RBAC**, y**D.1 de la Ruta D
 Auditor** documentadas en
 :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`
 § 4.1.

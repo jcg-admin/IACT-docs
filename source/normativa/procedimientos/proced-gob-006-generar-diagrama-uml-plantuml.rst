@@ -235,8 +235,8 @@ Nomenclatura del Archivo
 
  UCD-DOMINIO-###-descripcion.puml
 
-Donde: - **UCD**: Use Case Diagram - **DOMINIO**: BACK, FRONT, DEVOPS,
-QA, AI, GOB - **###**: Número secuencial 001-999 - **descripcion**:
+Donde: - **UCD**: Use Case Diagram -**DOMINIO**: BACK, FRONT, DEVOPS,
+QA, AI, GOB - **###**: Número secuencial 001-999 -**descripcion**:
 Descripción del módulo en snake_case
 
 Ejemplos de Nombres Correctos
@@ -622,8 +622,8 @@ Ejemplo 1: UC-BACK-001 Iniciar Sesión
  UC001 --> ldap
  UC001 --> BaseDatosUsuarios
 
-**Interpretación**: - **Usuario** es el actor primario (ejecuta el caso
-de uso) - **LDAP** y **DB** son actores secundarios (proporcionan
+**Interpretación**: -**Usuario** es el actor primario (ejecuta el caso
+de uso) - **LDAP** y**DB** son actores secundarios (proporcionan
 autenticación y datos)
 
 Ejemplo 2: UC-BACK-004 Recuperar Contraseña
@@ -638,8 +638,8 @@ Ejemplo 2: UC-BACK-004 Recuperar Contraseña
  UC004 --> BaseDatosUsuarios
  UC004 --> email
 
-**Interpretación**: - **Usuario** ejecuta la recuperación de contraseña
-- **DB** proporciona verificación de usuario - **Email** envía el enlace
+**Interpretación**: -**Usuario** ejecuta la recuperación de contraseña
+- **DB** proporciona verificación de usuario -**Email** envía el enlace
 de recuperación
 
 ERROR Común
@@ -1628,7 +1628,7 @@ Problema 3: No sé si usar include o extend
      - NO SÍ
      - \ 
 
-**Ejemplos**: - “Procesar Venta” siempre calcula impuestos → **include**
+**Ejemplos**: - “Procesar Venta” siempre calcula impuestos →**include**
 - “Procesar Venta” puede aplicar descuento si cantidad > 10 → **extend**
 
 Problema 4: SVG no se genera
@@ -1656,14 +1656,14 @@ unos minutos o hacer refresh
 Referencias
 -----------
 
-- `ADR-GOB-004: PlantUML para
-  Diagramas </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.rst>`__
-- `ADR-GOB-007: Especificación de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.rst>`__
-- `ADR-GOB-008: Diagramas UML de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
-- `PROCED-GOB-004: Crear Caso de
-  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.rst>`__
+- :doc:`ADR-GOB-004: PlantUML para
+  Diagramas </normativa/gobernanza/adr-gob-002-plantuml-para-diagramas>`
+- :doc:`ADR-GOB-007: Especificación de Casos de
+  Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
+- :doc:`ADR-GOB-008: Diagramas UML de Casos de
+  Uso </normativa/gobernanza/adr-gob-006-diagramas-uml-casos-uso>`
+- :doc:`PROCED-GOB-004: Crear Caso de
+  Uso </normativa/procedimientos/proced-gob-004-crear-caso-uso>`
 - `PlantUML Use Case Diagram
   Documentation <https://plantuml.com/use-case-diagram>`__
 

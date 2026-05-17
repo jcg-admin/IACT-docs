@@ -4,7 +4,7 @@
 **Propósito:** cómo los objetos trabajan juntos para cumplir un
 objetivo. Objetos + enlaces + mensajes numerados.
 
-**Cuándo usarlo:** cuando quieres mostrar la **arquitectura de
+**Cuándo usarlo:** cuando quieres mostrar la**arquitectura de
 interacción** entre componentes (quién trabaja con quién).
 
 **Lección completa:** :doc:`/base-cognitiva/_uml/uml-10-diagramas-colaboraciones/index`.

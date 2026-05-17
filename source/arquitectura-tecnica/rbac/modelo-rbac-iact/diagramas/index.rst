@@ -23,7 +23,7 @@ del modelo RBAC canonico v5.6.0.
  :maxdepth: 1
  :caption: Diagramas RBAC
 
- clases-entidades-rbac
+ entity-model
  flujo-enforcement-rbac
  ciclo-vida-asignacion
  bootstrap-grupos-predefinidos

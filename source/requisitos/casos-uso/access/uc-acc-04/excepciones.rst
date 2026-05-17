@@ -43,7 +43,7 @@ activa. AuditEvent AGR_ASSIGN_FAILED ALERTA.
 400 ACCESS_GROUP_INACTIVE (PASO 9).
 
 5.8 EX-08: separacion violation
-========================
+=================================
 
 409 SEPARATION_VIOLATION (PASO 12). All-or-nothing.
 AuditEvent AGR_ASSIGN_FAILED.

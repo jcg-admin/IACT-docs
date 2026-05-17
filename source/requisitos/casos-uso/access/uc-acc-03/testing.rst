@@ -78,7 +78,7 @@ Parte 12 — Testing
    THEN  result incluye el Assignment
 
 12.2.5 SeparationRuleValidator info-mode no lanza
---------------------------------------
+---------------------------------------------------
 
 ::
 
@@ -215,7 +215,7 @@ Parte 12 — Testing
          el Assignment
 
 12.3.8 violaciones de separacion informativas (CA-08)
-------------------------------------------
+-------------------------------------------------------
 
 ::
 
@@ -257,7 +257,7 @@ Parte 12 — Testing
    THEN  ve sus permisos (self-view)
 
 12.4.3 Indicador visual de separacion
----------------------------
+---------------------------------------
 
 ::
 

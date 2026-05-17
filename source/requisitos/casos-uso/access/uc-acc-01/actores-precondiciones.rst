@@ -88,7 +88,7 @@ Responsabilidades:
 - Append-only en AuditEvent (CNST-025).
 
 2.2.4 SeparationRuleValidator (servicio interno)
--------------------------------------
+--------------------------------------------------
 
 - Consume SeparationRules vigentes (CNST-005).
 - Determina si una nueva asignacion crearia

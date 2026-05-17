@@ -51,7 +51,7 @@ PASO 9 — Validacion payload
      # politica MAX_EXCEPTIONAL_FUNCTIONS
 
 PASO 12 — validacion de separacion
-------------------------
+------------------------------------
 
 Identica a UC_ACC_01: construir
 ``effective_post_grant`` (current effective

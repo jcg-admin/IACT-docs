@@ -8,7 +8,7 @@ número** y el orden numérico determina cuál equipo obtendrá el
 token.
 
 Cada equipo se conecta a un **concentrador** (*hub*) que puede
-ser **activo** (amplifica la información) o **pasivo**
+ser **activo** (amplifica la información) o**pasivo**
 (transmite sin amplificar). A diferencia de los MSAU, los
 concentradores ARCnet **no mueven el token en un anillo**; los
 equipos se lo pasan entre sí.
