@@ -22,28 +22,19 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
-<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
+# Core Sphinx documentation engine (9.x — autodocsumm eliminado por ser
+# dependencia muerta; su función la cubre sphinx.ext.autosummary nativo
+# ya configurado en conf.py. Política RST-only: sin myst-parser/Markdown.)
 dependencies = [
-    "Sphinx>=9,<10",                              # Core documentation engine
-=======
-# Core Sphinx documentation engine (8.2.x — pinned por compatibilidad con autodocsumm==0.2.14
-# que aún no soporta Sphinx 9.x. Si se sube a 9.x, hay que subir también autodocsumm.)
-dependencies = [
-    "Sphinx>=8.2.3,<9.0",                          # Core documentation engine
->>>>>>> develop
+    "Sphinx>=9,<10",                               # Core documentation engine
 
     # Theme & UI
     "Furo==2025.12.19",                            # Professional documentation theme (supports Sphinx 9)
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
     "sphinx-design==0.7.0",                        # Card/grid layouts (supports Sphinx 9)
 
-<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
-    # Markdown & Content Parsing
-    "myst-parser==5.0.0",                          # Markdown support in Sphinx (supports Sphinx 9)
-=======
     # Content Parsing (RST only — Markdown removed por decisión de
     # rebuild de source/, ver F-NEW-5 en source-rebuild-strategy WP)
->>>>>>> develop
     "PyYAML==6.0.3",                               # YAML parsing
 
     # Documentation Features
@@ -63,12 +54,6 @@ dependencies = [
     # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
     "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
     "docutils==0.21.2",
-<<<<<<< dependabot/pip/sphinx-autodoc-typehints-3.6.1
-    "markdown-it-py==4.1.0",
-    "mdit-py-plugins==0.5.0",
-    "mdurl==0.1.2",
-=======
->>>>>>> develop
     "sphinx-autobuild==2025.8.25",
     "h11==0.16.0",
     "html5lib==1.1",
