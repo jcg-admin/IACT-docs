@@ -12,10 +12,6 @@ y las evidencias de pruebas y validaciones del sistema IACT.
 
 Este dominio responde a las preguntas: **"¿Cómo usar el sistema, cómo se gestiona el proyecto, y cuál es el flujo de trabajo de Git?"**
 
-[CONFLICT TEST: Alternative change on feature/project-setup for conflict validation]
-
-[CONFLICT TEST: Change made on develop branch for merge conflict validation test]
-
 Contenido
 =========
 

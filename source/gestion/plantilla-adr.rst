@@ -8,7 +8,11 @@
  :autor: Equipo IACT
  :clasificacion: Interno
 
-VALIDAR EL USO DE ESTA PLANTILLA,
+.. warning::
+
+   Plantilla de uso interno. Antes de crear un ADR, verificar que la
+   decision no esta ya cubierta por un ADR existente en
+   :doc:`/normativa/gobernanza/index`.
 
 ADR-YYYY-NNN: [Título Corto de la Decisión]
 ===========================================
