@@ -42,6 +42,7 @@ detalle completo.
    - Django REST Framework + Python 3.10+
  * - Infraestructura
    - Ubuntu Server + Apache + mod_wsgi
+     (ver :doc:`/infrastructure/overview`)
  * - Bases de datos
    - MySQL (operativa, RO) + PostgreSQL (analitica)
 
@@ -55,4 +56,6 @@ detalle completo.
 - :doc:`/requisitos/index` — casos de uso, BRs, FRs, NFRs.
 - :doc:`/arquitectura-tecnica/index` — modelo arquitectonico
   (RBAC, modulos).
+- :doc:`/infrastructure/index` — topologia del servidor,
+  convenciones de entorno (Ubuntu + Apache + mod_wsgi + Vagrant).
 - :doc:`/gestion/index` — gestion del proyecto, manuales, evidencias.

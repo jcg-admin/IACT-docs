@@ -19,6 +19,18 @@ proyecto IACT.
 1. Prerequisitos
 ================
 
+.. note::
+
+   El entorno oficial del proyecto usa **Vagrant + VirtualBox**
+   (ver :doc:`/infrastructure/overview` y
+   :doc:`/devops/adr-devops-001-vagrant-mod-wsgi-importante-produc`).
+   Con ``vagrant up`` se provisiona todo el entorno automaticamente
+   en una VM Ubuntu. Los pasos siguientes describen la configuracion
+   directa para entornos que no usan Vagrant.
+
+   Despues de ``vagrant up``, verificar servicios con
+   :doc:`/devops/runbooks/runbook-verificar-servicios`.
+
 - Ubuntu 22.04 LTS o equivalente.
 - Python 3.10+.
 - Node.js 18+.
