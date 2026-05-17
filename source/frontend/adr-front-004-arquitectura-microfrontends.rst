@@ -9,7 +9,10 @@
  :autor: Equipo IACT
  :clasificacion: Interno
 
-ESTO NO ES NECESARIO, AGREGA COMPLEJIDAD AL PROYECTO
+.. note::
+
+   Esta arquitectura agrega complejidad significativa. Evaluar si el
+   proyecto justifica microfrontends antes de adoptar esta decision.
 
 Contexto
 --------

@@ -209,4 +209,5 @@ Guías y procedimientos transversales
  proc-qa-004-qa
  proc-devops-002-release
  proc-gob-012-revision-documental
+ proc-gob-013-nueva-iniciativa-gestion
  proc-req-019-trazabilidad-requisitos
