@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/resolver-ramas-pendientes
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:46:00
    :ultimo_cambio: 2026-05-18T21:37:24
@@ -54,21 +54,37 @@ Estado de tareas
      - ``cd296cb7``
    * - T-007
      - Estructura PROC-GOB-013
-     - En ejecucion
-     - (este commit)
+     - Completada
+     - ``4e583b7a``
    * - T-008
      - Enlace en iniciativas/index
-     - Pendiente
-     - (proximo)
+     - Completada
+     - ``4e583b7a``
 
 Conteo
 ======
 
 * Total de tareas: 8
-* Completadas: 6
-* En ejecucion: 1 (T-007)
-* Pendientes: 1 (T-008)
+* Completadas: 8
+* En ejecucion: 0
+* Pendientes: 0
 * Bloqueadas: 0
+
+Fechas
+======
+
+* Inicio: 2026-05-18T18:46:00
+* Cierre: 2026-05-18T23:28:16
+* Estado final: COMPLETADA (8/8 tareas)
+
+Historial
+=========
+
+* 1.0.0 (2026-05-18T18:46:00) — Creacion de la iniciativa.
+* 1.1.0 (2026-05-18T23:28:16) — Cierre formal. 8/8 tareas
+  completadas. Integracion de wp-tmp registrada como deuda
+  tecnica formal (DEBT-008..011 en
+  :doc:`/risks-technical-debt/deuda-integracion-wp-tmp`).
 
 Estado de las ramas
 ===================

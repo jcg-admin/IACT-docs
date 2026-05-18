@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/resolver-ramas-pendientes
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:46:00
    :ultimo_cambio: 2026-05-18T21:37:24
@@ -61,12 +61,12 @@ Lista de tareas
      - Estructura PROC-GOB-013: alcance, tareas, progreso,
        decisiones, index del directorio.
      - 5 RST de la iniciativa
-     - En ejecucion
+     - Completada
    * - T-008
      - Enlazar la iniciativa en ``pm/iniciativas/index.rst``
        (seccion activas).
      - ``pm/iniciativas/index.rst``
-     - Pendiente
+     - Completada
 
 Resoluciones de rama (no son tareas de archivo)
 ================================================

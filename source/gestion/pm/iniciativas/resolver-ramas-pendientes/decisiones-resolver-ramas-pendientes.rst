@@ -145,25 +145,52 @@ real.
 Verificacion post-ejecucion con evidencia
 ==========================================
 
+Cada criterio de completitud del alcance, su resultado y la
+evidencia concreta:
+
 .. list-table::
    :header-rows: 1
-   :widths: 20 80
+   :widths: 44 12 44
 
-   * - Item
+   * - Criterio del alcance
+     - Resultado
      - Evidencia
-   * - Rescates wp-tmp/
-     - 94 archivos, hash verificado identico al origen
-       (R1: 1, R2: 12, R3: 79, + PROCEDENCIA por subdir).
-   * - Push limpio
-     - Rama remota con 5 commits; los mode-change/deleted
-       (ruido tar->Windows) NUNCA se commitearon ni
-       subieron (verificado contra remoto).
-   * - Integridad de ramas
-     - R1..R5 con resolucion documentada; ninguna se borra
-       sin su contenido preservado o verificado redundante.
-   * - Estructura PROC-GOB-013
-     - 5 documentos + index; pendiente solo el enlace en
-       ``pm/iniciativas/index.rst`` (T-008).
-   * - Build de la rama
-     - Pendiente: lo verifica el usuario antes del push
-       (Fase 3 paso 5). El clon no completa build PlantUML.
+   * - Cada rama R1..R5 con resolucion documentada con
+       evidencia
+     - PASA
+     - ``analisis-estado-ramas-pendientes`` +
+       ``analisis-rescate-thyrox-r1`` +
+       ``analisis-profundo-r2`` + ``analisis-profundo-r3``;
+       tabla de resoluciones en ``tareas-*``.
+   * - Contenido con valor de R1/R2/R3 preservado en
+       ``wp-tmp/`` verificado por hash
+     - PASA
+     - 94 archivos en ``wp-tmp/``, hash de objeto git
+       identico al origen (R1: 1, R2: 12, R3: 79, +
+       PROCEDENCIA por subdir).
+   * - Estructura PROC-GOB-013 completa (5 docs + index) y
+       enlazada en ``pm/iniciativas/index.rst``
+     - PASA
+     - 9 .rst (5 obligatorios + 4 analisis +
+       analisis-integracion); index toctree sin huerfanos;
+       enlace en ``pm/iniciativas/index.rst`` (T-008,
+       commit ``4e583b7a``).
+   * - Build 0 warnings de la rama
+     - PENDIENTE
+     - Lo verifica el usuario en su local antes del push
+       (PROC-GOB-013 Fase 3 paso 5). El clon de trabajo no
+       completa el build PlantUML. No bloquea el cierre
+       documental; es gate previo al push.
+
+Deuda registrada al cierre
+==========================
+
+La ejecucion de la integracion de ``wp-tmp/`` a ``source/``
+NO se realizo (decision D6: el analisis si, la ejecucion no).
+Para no dejar deuda oculta, se registro formalmente como
+:doc:`/risks-technical-debt/deuda-integracion-wp-tmp`
+(DEBT-008..011), con el analisis de como abordarla ya
+disponible como insumo. El cierre de esta iniciativa es
+limpio: cumplio su alcance real (resolver y preservar las
+ramas) y la deuda pendiente quedo con dueño y trazable, no
+silenciada.

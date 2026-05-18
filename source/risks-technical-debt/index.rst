@@ -25,3 +25,4 @@ o monitoreo.
 
  riesgos-conocidos
  deuda-tecnica-rebuild
+ deuda-integracion-wp-tmp
