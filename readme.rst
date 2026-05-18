@@ -112,7 +112,7 @@ Infraestructura
 Herramientas de Desarrollo
 ---------------------------
 
-* Sphinx 8.2.3 (documentación)
+* Sphinx 9 (documentación)
 * pytest (testing)
 * Black, Flake8, isort (calidad de código)
 * Bandit, Semgrep (seguridad)
@@ -211,8 +211,8 @@ Convenciones de Documentación
 Formato reStructuredText
 ------------------------
 
-Esta documentación utiliza reStructuredText (reST) como lenguaje de marcado,
-con soporte para Markdown mediante MyST Parser.
+Esta documentación utiliza reStructuredText (reST) como único lenguaje
+de marcado.
 
 Jerarquía de Encabezados
 -------------------------
