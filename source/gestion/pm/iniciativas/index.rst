@@ -25,11 +25,10 @@ Cada iniciativa sigue el ciclo definido en
 Iniciativas activas
 ===================
 
-.. note::
+.. toctree::
+   :maxdepth: 1
 
-   Sin iniciativas activas actualmente.
-   La proxima iniciativa se crea siguiendo
-   :doc:`/normativa/procedimientos/proc-gob-013-nueva-iniciativa-gestion`.
+   sanear-deuda-ci-y-normativa/index
 
 Iniciativas cerradas
 ====================
