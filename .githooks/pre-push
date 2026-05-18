@@ -1,36 +1,47 @@
 #!/bin/bash
 #
 # Git Hook: pre-push
-# Purpose: Prevent direct pushes to main or develop branches
+# Purpose: Prevent direct pushes of commits to main or develop branches
 #
-# This hook runs before push and aborts if you're trying to push
-# directly to main or develop (must use pull requests instead).
+# This hook reads the push refspec from stdin (standard pre-push
+# protocol) and aborts ONLY when pushing commits to a protected
+# branch. Branch deletions and pushes to non-protected branches are
+# always allowed.
+#
+# Stdin format (one line per ref being pushed):
+#   <local ref> <local sha> <remote ref> <remote sha>
 #
 # To bypass this hook: git push --no-verify
 #
 
-# Get the branch being pushed
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
+zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
 
-# Branches that are protected (must use PRs)
-PROTECTED_BRANCHES=("main" "develop")
+# Protected remote refs (commits must arrive via Pull Request)
+PROTECTED_REFS=("refs/heads/main" "refs/heads/develop")
 
-# Check if the branch being pushed is protected
-for protected in "${PROTECTED_BRANCHES[@]}"; do
-  if [ "$BRANCH" = "$protected" ]; then
-    echo "ERROR: Direct push to '$BRANCH' is not allowed!" >&2
-    echo "" >&2
-    echo "You must use a Pull Request to merge to '$BRANCH'." >&2
-    echo "" >&2
-    echo "Instead, please:" >&2
-    echo "  1. Push your feature branch: git push -u origin feature/your-branch" >&2
-    echo "  2. Create a Pull Request on GitHub" >&2
-    echo "  3. Get code review" >&2
-    echo "  4. Merge through GitHub UI" >&2
-    echo "" >&2
-    echo "To bypass this check: git push --no-verify" >&2
-    exit 1
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # Deletion: local_sha is all zeros -> always allow
+  if [ "$local_sha" = "$zero" ]; then
+    continue
   fi
+
+  for protected in "${PROTECTED_REFS[@]}"; do
+    if [ "$remote_ref" = "$protected" ]; then
+      branch="${protected#refs/heads/}"
+      echo "ERROR: Direct push to '$branch' is not allowed!" >&2
+      echo "" >&2
+      echo "You must use a Pull Request to merge to '$branch'." >&2
+      echo "" >&2
+      echo "Instead, please:" >&2
+      echo "  1. Push your feature branch: git push -u origin feature/your-branch" >&2
+      echo "  2. Create a Pull Request on GitHub" >&2
+      echo "  3. Get code review" >&2
+      echo "  4. Merge through GitHub UI" >&2
+      echo "" >&2
+      echo "To bypass this check: git push --no-verify" >&2
+      exit 1
+    fi
+  done
 done
 
 exit 0
