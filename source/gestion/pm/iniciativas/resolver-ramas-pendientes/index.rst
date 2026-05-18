@@ -31,6 +31,7 @@ sin perder trabajo no integrado.
    analisis-rescate-thyrox-r1
    analisis-profundo-r2
    analisis-profundo-r3
+   analisis-integracion-wp-tmp
    tareas-resolver-ramas-pendientes
    progreso-resolver-ramas-pendientes
    decisiones-resolver-ramas-pendientes

@@ -57,11 +57,13 @@ In-scope
 Out-of-scope
 ============
 
-* **Integracion real** del contenido de ``wp-tmp/`` a su
-  ubicacion final en ``source/``: es una fase posterior con su
-  propio analisis de sustancia (sustantivo vs trivial por
-  archivo, compatibilidad de nomenclatura/modelo). ``wp-tmp/``
-  solo preserva; no decide la integracion.
+* **Ejecucion** de la integracion del contenido de
+  ``wp-tmp/`` a ``source/``: el ANALISIS de como integrar SI
+  esta en alcance (ver ``analisis-integracion-wp-tmp``, decision
+  del usuario de 2026-05-18). La ejecucion archivo por archivo
+  con su verificacion de build se planifica a partir de ese
+  analisis; este documento la encuadra pero no la ejecuta en
+  bloque.
 * Borrado fisico de las ramas remotas: lo ejecuta el usuario
   en GitHub; esta iniciativa solo identifica cuales y cuando.
 * El ``source/`` de R1 (nomenclatura antigua ``UC_ACC_01``,

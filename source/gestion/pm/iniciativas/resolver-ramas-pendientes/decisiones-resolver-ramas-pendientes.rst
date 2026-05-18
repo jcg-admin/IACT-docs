@@ -64,6 +64,44 @@ sobre el material preservado. Los 34 identicos y ``ROADMAP.md``
 NO se copiaron (mismo hash que develop = ruido que dificultaria
 el analisis).
 
+D5 — Resolucion del conflicto en pm/iniciativas/index.rst
+----------------------------------------------------------
+
+Las iniciativas ``sanear-deuda-ci-y-normativa`` y
+``resolver-ramas-pendientes`` modifican ambas el toctree de
+"Iniciativas activas" en ``pm/iniciativas/index.rst``, cada una
+listando solo su propia entrada (salieron de develop por
+separado). Al integrar ambas a develop habra **conflicto de
+merge** en ese archivo.
+
+**Resolucion (opcion B, decision del usuario)**: al resolver
+el conflicto se conservan **AMBAS** entradas en el toctree de
+activas::
+
+   .. toctree::
+      :maxdepth: 1
+
+      sanear-deuda-ci-y-normativa/index
+      resolver-ramas-pendientes/index
+
+NO descartar ninguna. Descartar una dejaria su iniciativa como
+documento huerfano (warning de Sphinx). Se descarto la opcion A
+(que cada rama listara ambas) por acoplar el orden de
+integracion y arriesgar un toctree roto si una rama se integra
+sin la otra.
+
+D6 — Analisis de integracion wp-tmp incorporado al alcance
+-----------------------------------------------------------
+
+Decision del usuario (2026-05-18): el analisis de **como**
+integrar ``wp-tmp/`` a ``source/`` pasa a ser parte de esta
+iniciativa (documento ``analisis-integracion-wp-tmp``). El
+Alcance se corrigio en consecuencia (era contradictorio
+declararlo out-of-scope mientras se ejecutaba). La **ejecucion**
+de la integracion archivo por archivo sigue siendo trabajo
+planificado a partir de ese analisis, con verificacion de build
+por paso, no integracion en bloque.
+
 Hallazgos surgidos durante la ejecucion
 ========================================
 
