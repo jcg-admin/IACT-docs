@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/sanear-deuda-ci-y-normativa
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:21:29
    :ultimo_cambio: 2026-05-18T18:21:29
@@ -93,6 +93,14 @@ iniciativa dedicada. Medida local: esta iniciativa declara
 documentos. El diferimiento es alcance acotado con
 justificacion, no deuda oculta.
 
+**Registro formal de la deuda (cierre)**: para que el
+diferimiento no quede enterrado en este documento al cerrar la
+iniciativa, H-N2 y H-N3 se registraron como deuda tecnica
+formal DEBT-012/DEBT-013 en
+:doc:`/risks-technical-debt/deuda-proc-gob-013-multirepo`,
+con dueño y accion propuesta (iniciativa dedicada a
+PROC-GOB-013 multi-repo).
+
 Hallazgos surgidos durante la ejecucion
 ========================================
 
@@ -124,31 +132,63 @@ corrigio el documento de analisis en consecuencia.
 Verificacion post-ejecucion con evidencia
 ==========================================
 
+Cada criterio de completitud del alcance, su resultado y la
+evidencia concreta:
+
 .. list-table::
    :header-rows: 1
-   :widths: 24 76
+   :widths: 44 12 44
 
-   * - Item
+   * - Criterio del alcance
+     - Resultado
      - Evidencia
-   * - validate.yml
-     - 0 ocurrencias ``-j auto``; 2 de ``-j 2``; ``make clean``
-       solo en job completo; triggers ``[develop, main]``;
-       guard de visibilidad en ``validate-full``.
-   * - PROC-GOB-013
-     - Paso 1 usa ruta correcta; meta ``:version: 1.0.1``;
-       entrada de historial 1.0.1; unica mencion de la ruta
-       vieja es la cita historica (trazabilidad correcta, no
-       uso activo).
-   * - plantuml_cached.py
-     - ``python3 -m py_compile`` OK; ``parallel_write_safe:
-       False``; ``logger.info`` de hit; dos ``logger.warning``
-       de estilos; ``_diagram_hash`` sin cambios (cache
-       sincronizada).
-   * - D-01
-     - W1=1, W2=1, W3-cron=0, linea 79 ``.. code-block:: bash``;
-       build ``-W -j 2`` previo = ``build succeeded`` 0
-       warnings EXIT 0.
-   * - Build integrado final
-     - Pendiente: se ejecuta en el local del usuario antes del
-       push (PROC-GOB-013 Fase 3 paso 5). Criterio: ``build
-       succeeded`` 0 warnings con todos los cambios integrados.
+   * - ``validate.yml`` build incremental sin ``make clean``,
+       con cache de doctrees, 0 warnings bajo ``-W``
+     - PASA
+     - Job ``validate-incremental`` sin ``make clean``, con
+       ``actions/cache`` de ``build/doctrees``, ``-j 2``.
+       ``make clean`` solo en ``validate-full``.
+   * - Triggers no disparan build completo en cada push de
+       rama de trabajo; validacion en PR/push a develop/main
+     - PASA
+     - ``on.push.branches: [develop, main]``; sin
+       ``feature/**``. PR a develop/main conserva validacion.
+   * - Job de build completo con guard de visibilidad publica
+     - PASA
+     - ``validate-full`` con
+       ``if: ... github.event.repository.visibility ==
+       'public'``; no corre en repo privado.
+   * - Hallazgos A-01..A-06 resueltos o diferidos con
+       decision explicita
+     - PASA
+     - A-01/A-02/A-06 corregidos (``parallel_write_safe``
+       False, log de hit, warning de estilos).
+       A-03/A-04/A-05 descartados con evidencia verificada
+       (no son defectos; ver analisis y D-EJ1).
+   * - PROC-GOB-013 refleja la ruta real
+       ``source/gestion/pm/iniciativas/{nombre}/``
+     - PASA
+     - Paso 1 corregido; ``:version: 1.0.1``; entrada de
+       historial 1.0.1. Unica mencion de ruta vieja es la
+       cita historica (trazabilidad, no uso activo).
+   * - Todos los RST de la iniciativa existen, enlazados, y
+       el build produce 0 warnings
+     - PARCIAL
+     - 6 RST + index existen y enlazados en
+       ``pm/iniciativas/index.rst`` (toctree sin
+       huerfanos). El build 0 warnings con todo integrado
+       lo verifica el usuario en su local antes del push
+       (PROC-GOB-013 Fase 3 paso 5; el clon no completa
+       build PlantUML). El contenido D-01 ya se verifico
+       limpio (log ``d01-verif-j2-20260518T151329``).
+
+Cierre
+======
+
+5/6 criterios PASA con evidencia. El sexto es PARCIAL
+unicamente porque la verificacion final de build integrado
+requiere el entorno del usuario (restriccion conocida y
+documentada, no deuda oculta): el contenido individual ya se
+verifico y la estructura no tiene huerfanos. El cierre
+documental es valido; el build es gate previo al push, no
+condicion del cierre de la iniciativa.

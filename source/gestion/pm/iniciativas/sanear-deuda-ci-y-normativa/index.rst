@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:21:29
    :ultimo_cambio: 2026-05-18T18:21:29

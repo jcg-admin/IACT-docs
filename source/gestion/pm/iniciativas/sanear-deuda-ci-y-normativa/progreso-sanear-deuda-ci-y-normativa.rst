@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/sanear-deuda-ci-y-normativa
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:21:29
    :ultimo_cambio: 2026-05-18T18:21:29
@@ -61,10 +61,23 @@ Conteo
 ======
 
 * Total de tareas: 7
-* Completadas: 6
-* Pendientes: 1 (T-007, se completa al crear el commit de
-  estructura)
+* Completadas: 7
+* Pendientes: 0
 * Bloqueadas: 0
+
+Fechas
+======
+
+* Inicio: 2026-05-18T18:21:29
+* Cierre: 2026-05-18T23:28:16
+* Estado final: COMPLETADA (7/7 tareas)
+
+Historial
+=========
+
+* 1.0.0 (2026-05-18T18:21:29) — Creacion de la iniciativa.
+* 1.1.0 (2026-05-18T23:28:16) — Cierre formal PROC-GOB-013
+  Fase 5. 7/7 tareas completadas.
 
 Verificacion global pendiente
 =============================

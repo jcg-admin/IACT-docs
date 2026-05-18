@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/sanear-deuda-ci-y-normativa
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T18:21:29
    :ultimo_cambio: 2026-05-18T18:21:29
@@ -68,9 +68,9 @@ Lista de tareas
      - Completada
    * - T-007
      - Estructura de la iniciativa: enlazar el ``index.rst``
-       de la iniciativa en el toctree de gestion.
-     - ``source/gestion/index.rst``
-     - Pendiente
+       de la iniciativa en el toctree de iniciativas activas.
+     - ``source/gestion/pm/iniciativas/index.rst``
+     - Completada
 
 DAG de dependencias
 ===================
