@@ -4,10 +4,65 @@ on:
   pull_request:
     branches: [develop, main]
   push:
-    branches: ['feature/**', develop, main]
+    branches: [develop, main]
 
 jobs:
-  validate:
+  # Job incremental: PR a develop/main y push a develop.
+  # Sin make clean, con cache de doctrees. Rapido, gate agil.
+  validate-incremental:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        run: pip install --upgrade pip uv
+
+      - name: Install system deps (libenchant + Java)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libenchant-2-2 default-jre-headless
+
+      - name: Bootstrap project (uv sync + plantuml.jar + hooks)
+        run: bash scripts/setup.sh
+
+      - name: Restaurar cache de doctrees
+        uses: actions/cache@v4
+        with:
+          path: build/doctrees
+          key: sphinx-doctrees-${{ runner.os }}-${{ hashFiles('source/**/*.rst', 'source/conf.py') }}
+          restore-keys: |
+            sphinx-doctrees-${{ runner.os }}-
+
+      - name: Strict build incremental (warnings as errors)
+        run: |
+          source .venv/bin/activate
+          sphinx-build -W -j 2 -b html -d build/doctrees source build/html
+
+      - name: Validate PlantUML consistency
+        run: bash scripts/validate-plantuml.sh
+
+      - name: Upload build artifact (PR preview)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs-html-${{ github.event.pull_request.number || github.sha }}
+          path: build/html/
+          retention-days: 14
+
+  # Job completo limpio: solo push a main, solo si el repo es publico.
+  # Garantia total contra la zona gris del build incremental.
+  # Guard de visibilidad: en repo privado NO corre (cupo Actions limitado).
+  validate-full:
+    if: github.ref == 'refs/heads/main' && github.event.repository.visibility == 'public'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -31,19 +86,11 @@ jobs:
       - name: Bootstrap project (uv sync + plantuml.jar + hooks)
         run: bash scripts/setup.sh
 
-      - name: Strict build (warnings as errors)
+      - name: Strict build limpio completo (warnings as errors)
         run: |
           source .venv/bin/activate
           make clean
-          sphinx-build -W -j auto -b html -d build/doctrees source build/html
+          sphinx-build -W -j 2 -b html -d build/doctrees source build/html
 
       - name: Validate PlantUML consistency
         run: bash scripts/validate-plantuml.sh
-
-      - name: Upload build artifact (PR preview)
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v7
-        with:
-          name: docs-html-${{ github.event.pull_request.number || github.sha }}
-          path: build/html/
-          retention-days: 14
