@@ -75,8 +75,26 @@ class CachedUmlDirective(Directive):
         if styles_path.exists():
             try:
                 return styles_path.read_text(encoding="utf-8")
-            except (OSError, UnicodeDecodeError):
-                pass
+            except (OSError, UnicodeDecodeError) as exc:
+                # A-06: a silent "" alters the diagram hash for EVERY
+                # diagram, invalidating the whole cache and bringing
+                # back the OOM via mass miss. Warn loudly instead of
+                # failing silently.
+                logger.warning(
+                    "plantuml_cached: styles file unreadable (%s): %s. "
+                    "Diagram hashes will change and the cache will be "
+                    "fully invalidated.",
+                    styles_path, exc,
+                )
+                return ""
+        # A-06: missing styles file is also a silent cache-wide
+        # invalidation; surface it as a warning.
+        logger.warning(
+            "plantuml_cached: styles file not found at %s. Diagram "
+            "hashes will change and the cache will be fully "
+            "invalidated.",
+            styles_path,
+        )
         return ""
 
     def _build_image_node(self, uri: str) -> nodes.image:
@@ -141,6 +159,13 @@ class CachedUmlDirective(Directive):
 
         # Cache hit — emit image (or figure with caption) node.
         # URI is relative to the source dir so Sphinx resolves it via _static-style.
+        # A-02: log the hit so hit/miss ratio is observable. Without
+        # this, only misses were logged and cache degradation (e.g.
+        # mass invalidation) was undetectable until an OOM appeared.
+        logger.info(
+            "plantuml_cached: hit hash=%s docname=%s",
+            h, env.docname,
+        )
         uri = "/" + CACHE_DIR_NAME + "/" + h + ".svg"
         image_node = self._build_image_node(uri)
 
@@ -174,7 +199,13 @@ def setup(app):
     """
     app.add_directive("uml", CachedUmlDirective, override=True)
     return {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "parallel_read_safe": True,
-        "parallel_write_safe": True,
+        # A-01: el fallback de cache miss delega en
+        # sphinxcontrib.plantuml, que lanza un proceso Java por
+        # render. Declarar parallel_write_safe: True era falso y
+        # contribuia al OOM bajo -j auto (multiples JVM
+        # concurrentes). Se declara False: Sphinx serializa la
+        # escritura, eliminando esa causa raiz.
+        "parallel_write_safe": False,
     }
