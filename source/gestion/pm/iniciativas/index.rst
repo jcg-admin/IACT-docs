@@ -45,6 +45,7 @@ Iniciativas cerradas
    habilitar-pytest-iact-api/index
    preparar-entorno-mariadb-ivr-legacy/index
    preparar-entorno-postgresql-iact-analytics/index
+   sanear-deuda-runtime-multirepo/index
 
 Trazabilidad
 ============
