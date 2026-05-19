@@ -42,6 +42,7 @@ Iniciativas cerradas
    crear-infrastructure-skeleton/index
    evolucionar-proc-gob-013-multirepo/index
    preparar-entorno-mariadb-ivr-legacy/index
+   preparar-entorno-postgresql-iact-analytics/index
 
 Trazabilidad
 ============
