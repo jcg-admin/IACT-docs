@@ -5,9 +5,9 @@
    :subdominio: pm/iniciativas/auditar-conformidad-fr-tests-aceptacion
    :repo_objetivo: multiple
    :estado: COMPLETADA
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2026-05-19T20:46:37
-   :ultimo_cambio: 2026-05-19T20:46:37
+   :ultimo_cambio: 2026-05-19T20:55:00
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -130,6 +130,42 @@ Totales agregados verificados:
    # => 0
 
 **Resumen agregado:**
+
+.. admonition:: CORRECCION v1.1.0 (2026-05-19T20:55)
+   :class: important
+
+   Los conteos originales abajo asumieron grep
+   case-sensitive ``TST-FR`` (uppercase). La iniciativa
+   :doc:`/gestion/pm/iniciativas/declarar-tst-ref-en-58-frs-sin-marcar/index`
+   descubrio que **103/103 FRs declaran TST ref**, en
+   dos convenciones particionadas limpiamente por
+   dominio:
+
+   * 45 FRs con ``TST-FR-NNN.NN`` (uppercase + punto):
+     auth, users, access.
+   * 58 FRs con ``TST-fr-NNN-NN`` (lowercase + guion):
+     permissions, reports, logs, alerts, pipeline, audit.
+
+   Conteo corregido:
+
+   * **103 / 103 (100%)** FRs declaran TST ref.
+   * **103 / 103 (100%)** de los TST refs estan marcados
+     pendiente.
+   * **0 / 103** FRs sin declaracion.
+   * **0 / 103** FRs con test trazable en codigo
+     (este valor NO cambia con la correccion — la
+     trazabilidad codigo->FR sigue siendo nula).
+
+   La conclusion principal de esta auditoria (cobertura
+   FR -> test trazable = 0%) **no cambia**. Lo que
+   cambia: la brecha "58 FRs sin declaracion de test"
+   no existia; era artefacto de grep case-sensitive.
+   Deuda real identificada en su lugar: inconsistencia
+   de naming entre las dos convenciones — registrada en
+   iniciativa
+   ``normalizar-convencion-tst-ref-fr``.
+
+**Claim original (incorrecto — conservado para historial):**
 
 * **45 / 103 (43.7%)** FRs declaran un TST ref formal.
 * **45 / 45 (100%)** de los TST refs estan marcados
