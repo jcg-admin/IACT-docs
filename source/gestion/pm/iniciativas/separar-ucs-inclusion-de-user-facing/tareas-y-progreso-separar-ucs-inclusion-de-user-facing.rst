@@ -26,7 +26,7 @@ Tareas y Progreso: Separar UCs Inclusion de User-Facing
      - Resultado
    * - T-001
      - ``git mv`` uc-047 a
-       reports/inclusion/uc-047-*.
+       ``reports/inclusion/uc-047-...``.
      - Completada. Historial preservado.
    * - T-002
      - Crear reports/inclusion/index.rst con
