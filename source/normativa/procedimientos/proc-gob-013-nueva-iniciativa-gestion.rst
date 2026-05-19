@@ -4,9 +4,9 @@
    :dominio: normativa
    :subdominio: procedimientos
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.0.1
    :fecha_creacion: 2026-05-16T23:01:11
-   :ultimo_cambio: 2026-05-16T23:01:11
+   :ultimo_cambio: 2026-05-18T18:21:29
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -200,7 +200,8 @@ Ejemplo incorrecto: ``wp-infra-fase1``
 
 El orden de creacion es:
 
-1. Crear el directorio ``source/gestion/{nombre-iniciativa}/``
+1. Crear el directorio
+   ``source/gestion/pm/iniciativas/{nombre-iniciativa}/``
 2. Crear los documentos RST decididos en la Fase 2
 3. Crear el ``index.rst`` del directorio que los enlaza en el toctree
 4. Enlazar el ``index.rst`` de la iniciativa en
@@ -426,3 +427,14 @@ Historial
        ``risks-technical-debt`` y ``gestion/git-workflow``;
        eliminacion de referencias cruzadas inexistentes en este
        repositorio.
+   * - 1.0.1
+     - 2026-05-18T18:21:29
+     - Correccion de ruta (hallazgo H-N1, iniciativa
+       ``sanear-deuda-ci-y-normativa``): el paso 1 del orden de
+       creacion decia ``source/gestion/{nombre-iniciativa}/``
+       cuando la realidad de facto y el propio
+       ``iniciativas/index.rst`` usan
+       ``source/gestion/pm/iniciativas/{nombre-iniciativa}/``.
+       Se alinea el texto con la realidad. El soporte
+       multi-repositorio (H-N2, H-N3) queda fuera de alcance y
+       se difiere a una iniciativa dedicada.

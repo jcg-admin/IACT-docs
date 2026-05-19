@@ -29,6 +29,7 @@ Iniciativas activas
    :maxdepth: 1
 
    resolver-ramas-pendientes/index
+   sanear-deuda-ci-y-normativa/index
 
 Iniciativas cerradas
 ====================
