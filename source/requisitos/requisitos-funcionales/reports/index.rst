@@ -28,4 +28,9 @@ compartición y reportes por dominio (agentes, colas, campañas, IVR).
    uc-044-reporte-transferencias/index
    uc-045-reporte-menus-ivr/index
    uc-046-reporte-clientes-unicos/index
-   uc-047-resolver-segmento-usuario/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: UCs de inclusion
+
+   inclusion/index
