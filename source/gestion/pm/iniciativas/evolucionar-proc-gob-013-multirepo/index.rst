@@ -4,10 +4,10 @@
    :dominio: gestion
    :subdominio: pm/iniciativas
    :repo_objetivo: multiple
-   :estado: Pendiente
-   :version: 1.0.0
+   :estado: COMPLETADA
+   :version: 1.1.0
    :fecha_creacion: 2026-05-19T18:18:39
-   :ultimo_cambio: 2026-05-19T18:18:39
+   :ultimo_cambio: 2026-05-19T18:26:25
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -42,3 +42,4 @@ IACT-docs (normativa) y IACT (bootstrap del .claude/).
    analisis-evolucionar-proc-gob-013-multirepo
    tareas-evolucionar-proc-gob-013-multirepo
    progreso-evolucionar-proc-gob-013-multirepo
+   decisiones-evolucionar-proc-gob-013-multirepo
