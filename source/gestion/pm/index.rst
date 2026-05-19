@@ -6,7 +6,7 @@
    :estado: Vigente
    :version: 2.0.0
    :fecha_creacion: 2026-04-28
-   :ultimo_cambio: 2026-05-16T23:01:11
+   :ultimo_cambio: 2026-05-19
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -25,6 +25,22 @@ aprendidas y matrices de trazabilidad.
 
 Estructura
 ==========
+
+La gestion vertical por submodulo del sistema IACT (api, db, docs,
+server, ui) se rige por
+:doc:`/normativa/procedimientos/proc-gob-014-gestion-por-submodulo`.
+Cada submodulo tiene un indice propio con roadmap, iniciativas,
+decisiones, riesgos e indicadores.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Gestion por submodulo
+
+   api/index
+   db/index
+   docs/index
+   server/index
+   ui/index
 
 .. toctree::
    :maxdepth: 2
@@ -60,8 +76,10 @@ Trazabilidad
    :widths: 25 75
    :header-rows: 0
 
-   * - **Procedimiento rector**
+   * - **Procedimiento rector (iniciativas)**
      - :doc:`/normativa/procedimientos/proc-gob-013-nueva-iniciativa-gestion`
+   * - **Procedimiento rector (gestion por submodulo)**
+     - :doc:`/normativa/procedimientos/proc-gob-014-gestion-por-submodulo`
    * - **Skills documentales**
      - ``workflow-discover`` · ``workflow-scope`` · ``workflow-implement`` ·
        ``workflow-track`` · ``workflow-standardize``
