@@ -17,9 +17,9 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 6   Validar llamada activa (call_id, estado)      (Backend → Telephony)
    PASO 7   Validar reason ≥ 20 chars                     (Backend)
    PASO 8   Crear MonitorSession (INSERT)                  (Backend → BD)
-   PASO 9   Establecer bridge de audio (TelephonyClient)   (Backend → Telephony)
-   PASO 10  Emitir tono audible al agente                  (Telephony → Agente)
-   PASO 11  Emitir AuditEvent(CALL_MONITORED)              (Backend → BD)
+   PASO 9   Emitir AuditEvent(CALL_MONITORED)              (Backend → BD)
+   PASO 10  Establecer bridge de audio (TelephonyClient)   (Backend → Telephony)
+   PASO 11  Emitir tono audible al agente                  (Telephony → Agente)
    PASO 12  200 OK con monitor_session_id                  (BE → FE)
 
 3.2 Detalle paso a paso
