@@ -56,6 +56,7 @@ Iniciativas cerradas
    resolver-tests-dashboard-iact-api/index
    resolver-tests-dashboard-residual-iact-api/index
    resolver-tests-fallidos-pytest-iact-api/index
+   resolver-tests-pipeline-residual-iact-api/index
    sanear-deuda-runtime-multirepo/index
    verificar-mapping-docs-codigo-todos-los-dominios/index
 
