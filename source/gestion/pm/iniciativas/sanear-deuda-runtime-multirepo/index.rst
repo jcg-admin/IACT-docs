@@ -25,9 +25,9 @@ brecha real entre los 1397 tests colectados y los 223 que la
 iniciativa hermana ``habilitar-pytest-iact-api`` valido con
 ``-m unit``.
 
-:repo_objetivo: ``multiple`` (IACT-api + IACT-ui + IACT). La
-documentacion vive en IACT-docs por D3 Modelo C de
-PROC-GOB-013 v2.0.0.
+Tiene ``:repo_objetivo: multiple`` (IACT-api + IACT-ui +
+IACT). La documentacion vive en IACT-docs por D3 Modelo C
+de PROC-GOB-013 v2.0.0.
 
 .. toctree::
    :maxdepth: 1

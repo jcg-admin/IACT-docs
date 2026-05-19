@@ -39,6 +39,7 @@ Iniciativas cerradas
 .. toctree::
    :maxdepth: 1
 
+   aclarar-uc-047-resolver-segmento/index
    ampliar-devops-runbooks/index
    crear-infrastructure-skeleton/index
    evolucionar-proc-gob-013-multirepo/index
