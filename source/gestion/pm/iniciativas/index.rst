@@ -30,6 +30,7 @@ Iniciativas activas
 
    auditar-cobertura-uc-implementacion/index
    integrar-contenido-rescatado/index
+   plan-maestro-iniciativas-pendientes/index
    resolver-ramas-pendientes/index
    sanear-deuda-ci-y-normativa/index
 
