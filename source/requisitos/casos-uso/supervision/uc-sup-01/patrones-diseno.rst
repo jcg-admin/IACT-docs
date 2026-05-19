@@ -63,10 +63,10 @@ P-39 — Separation of Concerns (AuthGuard / SegmentFilter / Handler)
    - Middleware chain con responsabilidades separadas.
  * - **Aplicación en UC_SUP_01**
    - ``AuthGuard``: JWT + RBAC (``SUP-001``).
-   - ``SegmentFilter``: validación de segmento (CNST-008).
-   - ``MonitorEndpoint`` handler: lógica de negocio (PASOS 6-12).
-   - ``TelephonyClient``: abstracción del sistema externo.
-   - ``AuditService`` (implícito): escritura de ``AuditEvent``.
+     * ``SegmentFilter``: validación de segmento (CNST-008).
+     * ``MonitorEndpoint`` handler: lógica de negocio (PASOS 6-12).
+     * ``TelephonyClient``: abstracción del sistema externo.
+     * ``AuditService`` (implícito): escritura de ``AuditEvent``.
  * - **Beneficio**
    - Cada componente es testeable en aislamiento.
      ``SegmentFilter`` se puede cambiar sin tocar el handler.
