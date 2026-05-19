@@ -44,6 +44,7 @@ Iniciativas cerradas
    evolucionar-proc-gob-013-multirepo/index
    habilitar-jest-iact-ui/index
    habilitar-pytest-iact-api/index
+   implementar-uc-rpt-05-06-programacion-reportes/index
    preparar-entorno-mariadb-ivr-legacy/index
    preparar-entorno-postgresql-iact-analytics/index
    resolver-tests-dashboard-iact-api/index

@@ -5,9 +5,9 @@
    :subdominio: pm/iniciativas/auditar-cobertura-uc-implementacion
    :repo_objetivo: multiple
    :estado: COMPLETADA
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2026-05-19T20:13:49
-   :ultimo_cambio: 2026-05-19T20:13:49
+   :ultimo_cambio: 2026-05-19T20:25:00
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -337,6 +337,40 @@ a iniciativa
 
 H-A2 — UCs documentados sin marker en codigo
 ----------------------------------------------
+
+.. admonition:: CORRECCION v1.1.0 (2026-05-19T20:25)
+   :class: important
+
+   La afirmacion original de este hallazgo ("UC_RPT_05/06
+   sin implementacion") **resulto incorrecta** tras la
+   investigacion realizada por la iniciativa
+   :doc:`/gestion/pm/iniciativas/implementar-uc-rpt-05-06-programacion-reportes/index`.
+
+   El mapping docs <-> codigo asumido era lineal
+   (uc-032 = UC_RPT_01, uc-033 = UC_RPT_02, ...,
+   uc-036 = UC_RPT_05). El mapping real **no es lineal**:
+   el codigo salta de UC_RPT_04 a UC_RPT_07, dejando
+   05 y 06 como gaps de numeracion. Los UCs documentados
+   uc-036 y uc-037 estan implementados bajo los markers
+   ``UC_RPT_07`` y ``UC_RPT_08`` respectivamente
+   (``apps/reports/schedule_views.py``, 202 lineas).
+
+   **Estado real:** UC_RPT_05/06 son gaps de numeracion en
+   el codigo, no UCs sin implementar. La unica
+   implementacion **realmente incompleta** del dominio
+   reports es ``UC_RPT_02 = uc-033-ver-metricas-tiempo-real``,
+   declarada explicitamente como **STUB** por restriccion
+   arquitectonica CNST-004 (NO Channels, NO Celery, NO
+   Redis).
+
+   La asuncion de linearidad puede afectar tambien al
+   resto de hallazgos H-A1, H-A3 y H-A6 — todos
+   construidos sobre el mismo grep ciego de markers. Una
+   verificacion individual por dominio queda como
+   iniciativa pendiente
+   ``verificar-mapping-docs-codigo-todos-los-dominios``.
+
+**Claim original (incorrecto, conservado para historial):**
 
 In-scope sin marker en api:
 
