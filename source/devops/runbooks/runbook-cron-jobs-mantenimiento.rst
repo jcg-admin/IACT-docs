@@ -76,7 +76,7 @@ Runbook: Cron Jobs de Mantenimiento
 
 Agregar las siguientes entradas:
 
-.. code-block:: cron
+.. code-block:: bash
 
    # IACT — Automated Maintenance Jobs
 
