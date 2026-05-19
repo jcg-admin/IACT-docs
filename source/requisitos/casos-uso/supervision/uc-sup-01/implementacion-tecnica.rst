@@ -80,8 +80,8 @@ Parte 11 — Implementación técnica
          )
 
      try:
-         TelephonyClient.bridge_listen(session.id, mode)
          TelephonyClient.emit_tone(call.agent_channel, "MONITOR_ON")
+         TelephonyClient.bridge_listen(session.id, mode)
      except TelephonyError:
          with transaction.atomic():
              session.state = "FAILED"
