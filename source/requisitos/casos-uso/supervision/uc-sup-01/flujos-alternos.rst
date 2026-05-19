@@ -81,7 +81,7 @@ FA-02 — Stop monitor — cierre explícito
 **Punto de inserción:** Cualquier momento post-PASO 9.
 
 **Trigger:** Supervisor invoca
-``DELETE /api/supervisor/monitor/{session_id}/``
+``DELETE /api/supervisor/monitor/session/{session_id}/``
 con body ``{"reason": "<min 20 chars>"}`` (justificación de cierre).
 
 .. list-table::
