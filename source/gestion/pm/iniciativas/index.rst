@@ -28,7 +28,6 @@ Iniciativas activas
 .. toctree::
    :maxdepth: 1
 
-   preparar-entorno-mariadb-ivr-legacy/index
    integrar-contenido-rescatado/index
    resolver-ramas-pendientes/index
    sanear-deuda-ci-y-normativa/index
@@ -42,6 +41,7 @@ Iniciativas cerradas
    ampliar-devops-runbooks/index
    crear-infrastructure-skeleton/index
    evolucionar-proc-gob-013-multirepo/index
+   preparar-entorno-mariadb-ivr-legacy/index
 
 Trazabilidad
 ============

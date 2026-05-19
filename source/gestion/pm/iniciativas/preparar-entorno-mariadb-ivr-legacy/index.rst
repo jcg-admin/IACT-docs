@@ -4,10 +4,10 @@
    :dominio: gestion
    :subdominio: pm/iniciativas
    :repo_objetivo: IACT-db
-   :estado: Pendiente
-   :version: 1.0.0
+   :estado: COMPLETADA
+   :version: 1.1.0
    :fecha_creacion: 2026-05-19T18:31:19
-   :ultimo_cambio: 2026-05-19T18:31:19
+   :ultimo_cambio: 2026-05-19T18:35:48
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -42,3 +42,4 @@ contenedor de desarrollo.
    analisis-preparar-entorno-mariadb-ivr-legacy
    tareas-preparar-entorno-mariadb-ivr-legacy
    progreso-preparar-entorno-mariadb-ivr-legacy
+   decisiones-preparar-entorno-mariadb-ivr-legacy
