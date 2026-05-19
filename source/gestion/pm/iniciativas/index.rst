@@ -40,6 +40,7 @@ Iniciativas cerradas
 .. toctree::
    :maxdepth: 1
 
+   aclarar-duplicacion-perm-03-acc-08/index
    aclarar-uc-047-resolver-segmento/index
    adoptar-protocolo-grep-validado-en-auditorias/index
    alinear-numeracion-uc-api-ui/index
