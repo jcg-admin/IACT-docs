@@ -63,6 +63,7 @@ Iniciativas cerradas
    resolver-tests-fallidos-pytest-iact-api/index
    resolver-tests-pipeline-residual-iact-api/index
    sanear-deuda-runtime-multirepo/index
+   sanear-eslint-warnings-iact-ui/index
    sanear-pytest-config-iact-api/index
    separar-ucs-inclusion-de-user-facing/index
    verificar-mapping-docs-codigo-todos-los-dominios/index
