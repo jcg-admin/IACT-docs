@@ -43,14 +43,94 @@ UML_BLOCK_RE = re.compile(
     re.MULTILINE | re.DOTALL,
 )
 
+# Paths excluded from pre-render: working/backup areas that are also
+# excluded from the Sphinx build via exclude_patterns in conf.py.
+# Pre-render must match that exclusion or it reports phantom errors
+# on RST content that is not part of the published corpus.
+EXCLUDED_PATH_PARTS = (
+    "wp-tmp",
+    "temp-backup",
+    "temp-holding",
+    "_build",
+    ".venv",
+)
+
+# Directives whose content is *example text*, not real UML. @startuml
+# blocks appearing inside these directives must be skipped — they
+# are syntax examples shown to readers, not diagrams to render.
+CODE_DIRECTIVE_RE = re.compile(
+    r"^(?P<indent>[ \t]*)\.\. (?:code-block|code|sourcecode|highlight|literalinclude)::",
+)
+UML_DIRECTIVE_RE = re.compile(
+    r"^(?P<indent>[ \t]*)\.\. uml::",
+)
+
+
+def is_excluded_path(rst_path: Path) -> bool:
+    """Return True if the RST file lives under an excluded directory."""
+    parts = set(rst_path.parts)
+    return any(p in parts for p in EXCLUDED_PATH_PARTS)
+
 
 def find_rst_files(source: Path) -> Iterator[Path]:
-    """Yield all .rst files under source/, sorted for determinism."""
-    yield from sorted(source.rglob("*.rst"))
+    """Yield all .rst files under source/, sorted for determinism.
+
+    Files under EXCLUDED_PATH_PARTS (e.g. wp-tmp/) are skipped because
+    they are also excluded from the Sphinx build.
+    """
+    for path in sorted(source.rglob("*.rst")):
+        if is_excluded_path(path):
+            continue
+        yield path
+
+
+def _block_is_in_code_directive(text: str, start_pos: int) -> bool:
+    """True if the @startuml block at ``start_pos`` is inside a code-like
+    directive (``.. code-block::``, ``.. code::``, ``literalinclude``, etc.)
+    at *any* nesting depth. Such blocks are example text, not diagrams.
+
+    Strategy: walk backwards collecting every directive at strictly
+    decreasing indent level (each one is an ancestor of the block).
+    If any ancestor is a code-like directive, return True — even if a
+    closer ``.. uml::`` ancestor exists, because that ``.. uml::`` is
+    itself rendered as literal text inside the outer code-block.
+    """
+    line_start = text.rfind("\n", 0, start_pos) + 1
+    line_end = text.find("\n", line_start)
+    if line_end == -1:
+        line_end = len(text)
+    block_line = text[line_start:line_end]
+    block_indent = len(block_line) - len(block_line.lstrip())
+
+    pos = line_start - 1
+    current_max_indent = block_indent
+    while pos > 0:
+        prev_line_start = text.rfind("\n", 0, pos) + 1
+        line = text[prev_line_start:pos]
+        stripped = line.strip()
+        if stripped:
+            indent = len(line) - len(line.lstrip())
+            if indent < current_max_indent:
+                # Candidate ancestor directive (or content) at outer
+                # indent level.
+                if CODE_DIRECTIVE_RE.match(line):
+                    return True
+                # Keep walking to find still-outer ancestors. The
+                # `.. uml::` ancestor alone is not conclusive — it may
+                # itself be inside a code-block.
+                current_max_indent = indent
+                if current_max_indent == 0:
+                    # Cannot find a more-outer directive than column 0.
+                    break
+        pos = prev_line_start - 1
+    return False
 
 
 def extract_uml_blocks(rst_path: Path) -> list[str]:
-    """Extract @startuml..@enduml blocks from a single RST file.
+    """Extract real @startuml..@enduml blocks from a single RST file.
+
+    Skips blocks that appear inside code-like directives (those are
+    syntax examples, not diagrams to render).
 
     Returns the raw text of each block (including @startuml/@enduml).
     """
@@ -58,7 +138,12 @@ def extract_uml_blocks(rst_path: Path) -> list[str]:
         text = rst_path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError):
         return []
-    return UML_BLOCK_RE.findall(text)
+    out: list[str] = []
+    for m in UML_BLOCK_RE.finditer(text):
+        if _block_is_in_code_directive(text, m.start()):
+            continue
+        out.append(m.group(0))
+    return out
 
 
 def normalize_block(uml_block: str) -> str:

@@ -90,7 +90,12 @@ exclude_patterns = [
     'Thumbs.db',
     '.DS_Store',
     'venv',
-    '.git'
+    '.git',
+    # wp-tmp/ es un working directory de la iniciativa
+    # resolver-ramas-pendientes — backup de ramas pre-merge y artefactos
+    # rescatados antes de su normalizacion. No es corpus publicable.
+    # Ver PROC-GOB-013 (iniciativas) y PROC-GOB-014 (gestion por submodulo).
+    'gestion/pm/iniciativas/*/wp-tmp/**',
 ]
 
 # -- Configuración de Lenguaje --

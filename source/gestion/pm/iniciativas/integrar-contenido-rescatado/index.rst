@@ -13,9 +13,9 @@
 
 .. _iniciativa-integrar-contenido-rescatado:
 
-==================================================
+=====================================================
 Iniciativa: Integrar el contenido rescatado a source/
-==================================================
+=====================================================
 
 Resuelve parcialmente la deuda DEBT-008 y mantiene deuda residual en
 DEBT-009: integra a ``source/`` la spec UC-SUP-01 de R2 con 11

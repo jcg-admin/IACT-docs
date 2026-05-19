@@ -23,10 +23,10 @@ CA-01 — Activar monitor en modo silent
      con ``{"mode": "silent", "reason": "Verificación de calidad estándar"}``.
  * - **Entonces**
    - Responde 200 OK con ``{monitor_session_id, mode="silent", call_id, started_at}``.
-   - ``MonitorSession`` creada con ``state=ACTIVE``, ``mode=silent``.
-   - Bridge de audio establecido en TelephonyClient (solo escucha).
-   - Tono audible emitido al agente.
-   - ``AuditEvent(CALL_MONITORED)`` creado con
+     * ``MonitorSession`` creada con ``state=ACTIVE``, ``mode=silent``.
+     * Bridge de audio establecido en TelephonyClient (solo escucha).
+     * Tono audible emitido al agente.
+     * ``AuditEvent(CALL_MONITORED)`` creado con
      ``{call_id, agent_id, mode="silent", reason, monitor_session_id}``.
 
 ----
@@ -44,9 +44,9 @@ CA-02 — Activar monitor en modo whisper
    - Envía con ``{"mode": "whisper", "reason": "Coaching en tiempo real al agente"}``.
  * - **Entonces**
    - Responde 200 OK con ``mode="whisper"``.
-   - Bridge de audio bidireccional supervisor→agente (cliente no oye al supervisor).
-   - Tono audible emitido al agente.
-   - ``AuditEvent(CALL_MONITORED)`` con ``mode="whisper"``.
+     * Bridge de audio bidireccional supervisor→agente (cliente no oye al supervisor).
+     * Tono audible emitido al agente.
+     * ``AuditEvent(CALL_MONITORED)`` con ``mode="whisper"``.
 
 ----
 
@@ -64,10 +64,10 @@ CA-03 — Switch de modo en vivo (FA-01)
      con ``{"mode": "whisper"}``.
  * - **Entonces**
    - Responde 200 OK con ``{"session_id", "mode": "whisper"}``.
-   - ``MonitorSession.mode`` actualizado a ``whisper``.
-   - TelephonyClient reconfigura el bridge sin interrumpir la llamada.
-   - Tono audible re-emitido al agente.
-   - ``AuditEvent(MONITOR_MODE_SWITCHED)`` creado.
+     * ``MonitorSession.mode`` actualizado a ``whisper``.
+     * TelephonyClient reconfigura el bridge sin interrumpir la llamada.
+     * Tono audible re-emitido al agente.
+     * ``AuditEvent(MONITOR_MODE_SWITCHED)`` creado.
 
 ----
 
@@ -85,9 +85,9 @@ CA-04 — Stop monitor explícito (FA-02)
      con ``{"reason": "Monitoreo finalizado según protocolo"}``.
  * - **Entonces**
    - Responde 200 OK con ``{"session_id", "state": "ENDED", "ended_at"}``.
-   - ``MonitorSession.state = ENDED``, ``ended_at = NOW()``.
-   - Bridge de audio desconectado. La llamada continúa sin el supervisor.
-   - ``AuditEvent(MONITOR_ENDED)`` creado.
+     * ``MonitorSession.state = ENDED``, ``ended_at = NOW()``.
+     * Bridge de audio desconectado. La llamada continúa sin el supervisor.
+     * ``AuditEvent(MONITOR_ENDED)`` creado.
 
 ----
 
@@ -104,8 +104,8 @@ CA-05 — Tono audible obligatorio
    - El flujo principal completa el PASO 9 (bridge establecido).
  * - **Entonces**
    - TelephonyClient SIEMPRE emite el tono audible al canal del agente.
-   - El tono se emite ANTES de que el supervisor reciba el 200 OK.
-   - Si el tono falla, la sesión NO se activa y se retorna EX-07.
+     * El tono se emite ANTES de que el supervisor reciba el 200 OK.
+     * Si el tono falla, la sesión NO se activa y se retorna EX-07.
 
 ----
 
@@ -123,9 +123,9 @@ CA-06 — Rechazo por segmento cruzado (EX-03)
    - Envía ``POST /api/supervisor/monitor/{call_id}/`` con datos válidos.
  * - **Entonces**
    - Responde 403 con ``{"error": "SEGMENT_VIOLATION"}``.
-   - No se crea ``MonitorSession``.
-   - No se activa bridge de audio.
-   - ``AuditEvent(MONITOR_SEGMENT_BLOCKED)`` creado.
+     * No se crea ``MonitorSession``.
+     * No se activa bridge de audio.
+     * ``AuditEvent(MONITOR_SEGMENT_BLOCKED)`` creado.
 
 ----
 
@@ -142,7 +142,7 @@ CA-07 — Rechazo por reason inválido (EX-06)
    - Envía con ``{"mode": "silent", "reason": "corto"}`` (5 chars).
  * - **Entonces**
    - Responde 400 con ``{"error": "REASON_TOO_SHORT", "actual_length": 5, "required_length": 20}``.
-   - No se crea ``MonitorSession`` ni ``AuditEvent``.
+     * No se crea ``MonitorSession`` ni ``AuditEvent``.
 
 ----
 
@@ -165,8 +165,8 @@ CA-08 — AuditEvent CALL_MONITORED con datos completos
      ``payload.mode``,
      ``payload.reason``,
      ``payload.monitor_session_id``.
-   - ``occurred_at`` coincide con ``MonitorSession.started_at`` (misma transacción).
-   - El registro no puede modificarse ni borrarse (inmutable — BR-010).
+     * ``occurred_at`` coincide con ``MonitorSession.started_at`` (misma transacción).
+     * El registro no puede modificarse ni borrarse (inmutable — BR-010).
 
 9.2 Criterios de rechazo — sin función RBAC
 =============================================
@@ -186,7 +186,7 @@ CA-09 — Rechazo sin SUP-001
  * - **Entonces**
    - Responde 403 con ``{"error": "FUNCTION_MISSING",
      "detail": "Se requiere función SUP-001 monitor_live_calls"}``.
-   - No se crea ningún registro en BD.
+     * No se crea ningún registro en BD.
 
 9.3 Criterios de auto-cierre
 ==============================
@@ -205,7 +205,7 @@ CA-10 — Auto-cierre por fin de llamada (FA-03)
  * - **Entonces**
    - ``MonitorSession.state = AUTO_ENDED``, ``ended_at = NOW()``,
      ``end_reason = CALL_ENDED``.
-   - ``AuditEvent(MONITOR_AUTO_ENDED)`` creado.
-   - Frontend del supervisor recibe notificación WebSocket con
+     * ``AuditEvent(MONITOR_AUTO_ENDED)`` creado.
+     * Frontend del supervisor recibe notificación WebSocket con
      ``{"type": "MONITOR_SESSION_AUTO_ENDED"}``.
-   - La llamada misma NO se ve afectada (ya terminó).
+     * La llamada misma NO se ve afectada (ya terminó).
