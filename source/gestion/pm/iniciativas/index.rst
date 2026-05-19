@@ -28,6 +28,7 @@ Iniciativas activas
 .. toctree::
    :maxdepth: 1
 
+   integrar-contenido-rescatado/index
    resolver-ramas-pendientes/index
    sanear-deuda-ci-y-normativa/index
 
