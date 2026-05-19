@@ -53,6 +53,7 @@ Iniciativas cerradas
    preparar-entorno-mariadb-ivr-legacy/index
    preparar-entorno-postgresql-iact-analytics/index
    resolver-tests-dashboard-iact-api/index
+   resolver-tests-dashboard-residual-iact-api/index
    resolver-tests-fallidos-pytest-iact-api/index
    sanear-deuda-runtime-multirepo/index
    verificar-mapping-docs-codigo-todos-los-dominios/index
