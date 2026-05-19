@@ -28,6 +28,7 @@ Iniciativas activas
 .. toctree::
    :maxdepth: 1
 
+   preparar-entorno-mariadb-ivr-legacy/index
    integrar-contenido-rescatado/index
    resolver-ramas-pendientes/index
    sanear-deuda-ci-y-normativa/index
