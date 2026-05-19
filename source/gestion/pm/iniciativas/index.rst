@@ -46,6 +46,7 @@ Iniciativas cerradas
    auditar-conformidad-fr-tests-aceptacion/index
    crear-infrastructure-skeleton/index
    declarar-tst-ref-en-58-frs-sin-marcar/index
+   documentar-ucs-implementados-no-declarados/index
    evolucionar-proc-gob-013-multirepo/index
    habilitar-jest-iact-ui/index
    habilitar-pytest-iact-api/index

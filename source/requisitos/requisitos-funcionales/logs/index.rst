@@ -16,3 +16,4 @@ Requisitos Funcionales del módulo MOD_Logs.
    uc-063-ver-logs-infra/index
    uc-064-ver-estado-sistema/index
    uc-065-ver-metricas-rendimiento/index
+   uc-081-ver-eventos-pipeline-analitico/index

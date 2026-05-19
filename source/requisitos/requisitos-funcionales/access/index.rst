@@ -10,3 +10,6 @@ permisos temporales.
 
  uc-010-asignar-funciones/index
  uc-011-revocar-funciones/index
+ uc-078-permisos-efectivos-del-usuario/index
+ uc-079-asignar-agrupador-a-usuario/index
+ uc-080-reglas-de-separacion-de-funciones/index
