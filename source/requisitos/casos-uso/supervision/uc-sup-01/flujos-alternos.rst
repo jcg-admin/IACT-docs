@@ -39,7 +39,7 @@ FA-01 — Switch de modo en vivo
 
 **Punto de inserción:** Post-PASO 9 (bridge activo).
 
-**Trigger:** Supervisor invoca ``PATCH /api/supervisor/monitor/{session_id}/``
+**Trigger:** Supervisor invoca ``PATCH /api/supervisor/monitor/session/{session_id}/``
 con ``{"mode": "whisper"}`` (o ``"silent"``).
 
 .. list-table::
