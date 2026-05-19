@@ -52,6 +52,7 @@ Iniciativas cerradas
    implementar-uc-rpt-05-06-programacion-reportes/index
    preparar-entorno-mariadb-ivr-legacy/index
    preparar-entorno-postgresql-iact-analytics/index
+   resolver-tests-alerts-residual-iact-api/index
    resolver-tests-dashboard-iact-api/index
    resolver-tests-dashboard-residual-iact-api/index
    resolver-tests-fallidos-pytest-iact-api/index
