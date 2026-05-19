@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/integrar-contenido-rescatado
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T23:37:34
    :ultimo_cambio: 2026-05-18T23:37:34
@@ -29,47 +29,74 @@ Estado de tareas
      - Estado
      - Commit
    * - T-001
-     - Analisis
+     - Analisis (origen, alcance, estrategia)
      - Completada
      - ``a607ebd0``
    * - T-002
-     - Estructura PROC-GOB-013
-     - En ejecucion
-     - (este commit)
-   * - T-003..T-015
-     - Integrar R2 (12 archivos)
-     - Pendiente
-     - —
+     - Estructura PROC-GOB-013 + analisis pre-cierre +
+       deep analysis deuda
+     - Completada
+     - ``71c3f138`` / ``4e8e518b`` / ``7ef7daf7``
+   * - T-003..T-013
+     - Integrar R2 (11 archivos, hash verificado)
+     - Completada
+     - ``38260392``
+   * - T-014
+     - ``diagramas-uml.rst`` R2 — excluida (DEBT-015)
+     - Excluida
+     - ``38260392``
+   * - T-015
+     - Verif. toctree + build 0 warnings
+     - Preparada
+     - build: usuario
    * - T-016..T-022
-     - Integrar R3 nuevos (8 archivos)
-     - Pendiente
-     - —
+     - Integrar R3 nuevos — no integrables (DEBT-014)
+     - No integrada
+     - registrado en deuda
+   * - Cierre
+     - Reconciliacion documental + Fase 5
+     - Completada
+     - (este commit)
 
-Conteo
-======
+Conteo (real)
+=============
 
-* Total de tareas: 22
-* Completadas: 1
-* En ejecucion: 1 (T-002)
-* Pendientes: 20 (ejecucion de integracion)
+* Total de tareas planificadas: 22
+* Completadas: T-001, T-002, T-003..T-013 (13 efectivas) +
+  cierre
+* Excluida con deuda: T-014 (DEBT-015)
+* No integrada con deuda: T-016..T-022 (DEBT-014)
+* Preparada (build delegado al usuario): T-015
 * Bloqueadas: 0
 
-Nota sobre el estado "Pendiente" de la integracion
-====================================================
+Resultado: R2 integrado (11/11 archivos, hash verificado,
+cero huerfanos). R3 nuevos no integrables -> deuda registrada.
+La diferencia plan vs ejecutado esta reconciliada en
+``tareas-integrar-contenido-rescatado`` y justificada en
+``decisiones-...`` (H-EJ1) y ``deep-analisis-deuda-tecnica``.
 
-Las tareas de integracion (T-003..T-022) estan pendientes
-porque su ejecucion incluye verificacion de build
-``sphinx-build -W -j 2`` por grupo, que se realiza en el local
-del usuario (el clon no completa el build PlantUML). La
-preparacion (copia con hash verificado + enlace de toctree) se
-hace en el clon; el cierre de cada grupo depende de la
-confirmacion de build 0 warnings del usuario.
+Verificacion de build (restriccion de entorno)
+===============================================
 
-Inicio
+T-015 queda "Preparada": la verificacion
+``sphinx-build -W -j 2`` = 0 warnings la ejecuta el usuario en
+su local antes del push (el clon no completa el build
+PlantUML). No es deuda oculta: el deep analysis verifico
+estaticamente integridad de contenido, cero huerfanos y cero
+referencias rotas. El build es la confirmacion final, gate
+previo al push.
+
+Fechas
 ======
 
 * Inicio: 2026-05-18T23:37:34
-* Cierre: (pendiente)
+* Cierre: 2026-05-19T00:02:22
+* Estado final: COMPLETADA (R2 integrado; R3 -> deuda
+  registrada)
 
-Este documento se actualiza tras cada tarea y antes de cada
-commit.
+Historial
+=========
+
+* 1.0.0 (2026-05-18T23:37:34) — Creacion.
+* 1.1.0 (2026-05-19T00:02:22) — Cierre formal PROC-GOB-013
+  Fase 5. R2 integrado, R3 reclasificado a DEBT-014..016.

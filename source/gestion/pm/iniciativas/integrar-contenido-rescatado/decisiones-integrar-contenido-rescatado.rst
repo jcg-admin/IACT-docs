@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/integrar-contenido-rescatado
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T23:37:34
    :ultimo_cambio: 2026-05-18T23:37:34
@@ -116,7 +116,49 @@ reintroducir deuda, registrados formalmente en
 Verificacion post-ejecucion con evidencia
 ==========================================
 
-(Se completara al cierre, con tabla criterio del
-alcance / PASA-FALLA / evidencia, conforme PROC-GOB-013
-Fase 5 Paso 3. Incluira el resultado de build reportado por
-el usuario.)
+.. list-table::
+   :header-rows: 1
+   :widths: 44 12 44
+
+   * - Criterio del alcance
+     - Resultado
+     - Evidencia
+   * - 12 archivos de R2 integrados con hash verificado
+     - PARCIAL
+     - 11/12 integrados (hash identico a R2).
+       ``diagramas-uml.rst`` excluido con justificacion
+       (DEBT-015): develop tiene subdirectorio mejor.
+       Reconciliado en Alcance y Tareas.
+   * - 8 archivos nuevos de R3 integrados y enlazados
+     - FALLA-CONTROLADA
+     - 0/8. Auditoria estatica determino que ninguno es
+       integrable sin reintroducir deuda. Reclasificado a
+       DEBT-014. La "falla" es la auditoria previniendo
+       integracion incorrecta, no un defecto de ejecucion.
+   * - Build 0 warnings con el contenido integrado
+     - PENDIENTE-USUARIO
+     - Lo ejecuta el usuario (clon no completa build
+       PlantUML). Deep analysis verifico estaticamente:
+       integridad 11/11, cero huerfanos, cero refs rotas.
+   * - DEBT-008/009 marcadas resueltas; DEBT-010/011 siguen
+     - PARCIAL
+     - DEBT-008 (R2) se marca resuelta en
+       ``deuda-integracion-wp-tmp`` al integrarse la rama
+       ``resolver-ramas-pendientes`` (dependencia
+       cross-rama documentada). DEBT-009 reclasificada a
+       DEBT-014. DEBT-010/011 siguen activas (cross-rama).
+
+Cierre
+======
+
+La iniciativa integro lo verificable como correcto (R2, 11
+archivos) y determino con evidencia que R3 nuevos NO debia
+integrarse, dejandolo como deuda formal con causa tecnica
+(DEBT-014/015/016). El deep analysis previo
+(``deep-analisis-deuda-tecnica``) confirmo 0 deuda oculta y
+descarto 2 falsos positivos. Los criterios PARCIAL/FALLA no
+son incumplimientos: son el resultado de la auditoria
+funcionando, documentado con honestidad en vez de forzar
+integraciones incorrectas para que la tabla diera PASA. El
+unico PENDIENTE-USUARIO (build) es restriccion de entorno
+conocida, no deuda oculta.

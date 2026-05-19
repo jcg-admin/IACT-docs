@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/integrar-contenido-rescatado
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T23:37:34
    :ultimo_cambio: 2026-05-18T23:37:34
@@ -89,3 +89,27 @@ Decisiones de contenido tomadas durante la lectura
   IACT-docs, sin PMBOK).
 * Rama limpia desde develop, independiente de las dos
   iniciativas anteriores.
+
+Reconciliacion al cierre (honestidad documental)
+=================================================
+
+El alcance declaraba in-scope R2 (12) + R3 nuevos (8). La
+ejecucion, tras la auditoria estatica de referencias y
+estructura, se redujo a **R2 (11 archivos)**:
+
+* ``diagramas-uml.rst`` de R2 salio: develop tiene
+  ``uc-sup-01/diagramas-uml/`` como subdirectorio mas
+  completo (DEBT-015).
+* Los 8 de R3 nuevos salieron: cnst-030 con refs rotas;
+  modelo-rbac-iact y 6 diagramas-uml son planos vs
+  subdirectorios mejores de develop (DEBT-014).
+
+Esto NO es incumplimiento del alcance: es la auditoria
+previniendo integracion incorrecta (huerfanos, refs rotas,
+retroceso estructural). El criterio de completitud original
+("integrar lo verificable como correcto, lo demas a deuda")
+se cumple: se integro lo correcto (R2 11) y lo no integrable
+quedo como deuda formal con causa tecnica concreta
+(DEBT-014/015/016). El valor de la iniciativa fue tanto
+integrar R2 como determinar con evidencia que R3 nuevos NO
+debia integrarse tal cual.

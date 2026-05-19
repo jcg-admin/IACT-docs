@@ -4,7 +4,7 @@
    :dominio: gestion
    :subdominio: pm/iniciativas/integrar-contenido-rescatado
    :repo_objetivo: IACT-docs
-   :estado: Pendiente
+   :estado: COMPLETADA
    :version: 1.0.0
    :fecha_creacion: 2026-05-18T23:37:34
    :ultimo_cambio: 2026-05-18T23:37:34
@@ -46,159 +46,154 @@ Estructura
      - 5 RST + index
      - En ejecucion
 
-Grupo R2 — spec UC-SUP-01 (riesgo bajo)
-========================================
+Grupo R2 — spec UC-SUP-01 (ejecutado)
+======================================
 
-Destino: ``source/requisitos/casos-uso/supervision/uc-sup-01/``.
+Planificado: 12 archivos (T-003..T-014). **Ejecutado: 11.**
+``diagramas-uml.rst`` (T-014) se excluyo: develop ya tiene
+``uc-sup-01/diagramas-uml/`` como subdirectorio mas completo
+(integrar el plano seria huerfano + retroceso). Registrado
+como DEBT-015.
+
 Origen: R2 ``feature/arquitectura-tecnica-content``
-(``43250b49``). Una tarea por archivo (atomica).
+(``43250b49``). Reemplazo de stub por contenido completo,
+hash verificado contra la rama origen.
 
 .. list-table::
    :header-rows: 1
-   :widths: 8 56 18 18
+   :widths: 10 50 20 20
 
    * - ID
-     - Archivo (reemplaza stub salvo indicado)
+     - Archivo
      - Verif. hash
      - Estado
    * - T-003
      - ``actores-precondiciones.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-004
      - ``criterios-aceptacion.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-005
      - ``datos-involucrados.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-006
      - ``excepciones.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-007
      - ``flujo-principal.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-008
      - ``flujos-alternos.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-009
      - ``implementacion-tecnica.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-010
      - ``informacion-general.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-011
      - ``patrones-diseno.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-012
      - ``requisitos-no-funcionales.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-013
      - ``testing.rst``
-     - Pendiente
-     - Pendiente
+     - = R2
+     - Completada
    * - T-014
-     - ``diagramas-uml.rst`` (NUEVO; enlazar en
-       ``uc-sup-01/index`` toctree)
-     - Pendiente
-     - Pendiente
-   * - T-015
-     - Verificar toctree ``uc-sup-01/index`` referencia los
-       12; build 0 warnings (usuario).
+     - ``diagramas-uml.rst`` — NO integrado (develop tiene
+       subdirectorio mejor)
      - —
-     - Pendiente
+     - Excluida -> DEBT-015
+   * - T-015
+     - Verificar toctree ``uc-sup-01/index`` (los 11 ya
+       listados) y build 0 warnings
+     - —
+     - Preparada (build: usuario)
 
-Grupo R3 — archivos nuevos (riesgo medio)
-==========================================
+Grupo R3 — archivos nuevos (no integrable)
+===========================================
 
-Origen: R3 ``integration/backup-20260517_021658``
-(``bc112cfd``). Cada nuevo se crea Y se enlaza en el toctree
-de su seccion en la misma tarea (prevencion de huerfano).
+Planificado: 8 archivos (T-016..T-022). **Ejecutado: 0.** La
+auditoria estatica de referencias y estructura (H-EJ1 de
+decisiones) determino que ninguno es integrable sin
+reintroducir deuda:
+
+* ``cnst-030-sod.rst``: referencia cnst-029/031 inexistentes
+  en develop (``:doc:`` rotos).
+* ``modelo-rbac-iact.rst`` (plano) y los 6
+  ``diagramas-uml.rst`` (planos): develop ya tiene esas rutas
+  como subdirectorios mas completos. Integrar los planos =
+  huerfano + retroceso.
 
 .. list-table::
    :header-rows: 1
-   :widths: 8 60 16 16
+   :widths: 10 60 30
 
    * - ID
-     - Archivo nuevo + toctree a enlazar
-     - Verif. hash
-     - Estado
+     - Archivo planificado
+     - Resolucion
    * - T-016
-     - ``arquitectura-tecnica/rbac/modelo-rbac-iact.rst``
-       (2897 lin, v5.4.0) + toctree rbac
-     - Pendiente
-     - Pendiente
+     - ``modelo-rbac-iact.rst``
+     - No integrable -> DEBT-014
    * - T-017
-     - ``normativa/restricciones/cnst-030-...-sod.rst`` +
-       toctree restricciones
-     - Pendiente
-     - Pendiente
-   * - T-018
-     - ``casos-uso/access/uc-acc-01/diagramas-uml.rst`` +
-       toctree uc-acc-01
-     - Pendiente
-     - Pendiente
-   * - T-019
-     - ``casos-uso/access/uc-acc-03/diagramas-uml.rst`` +
-       ``uc-acc-04`` + ``uc-acc-05`` + toctrees
-     - Pendiente
-     - Pendiente
-   * - T-020
-     - ``casos-uso/access/uc-acc-08/diagramas-uml.rst`` +
-       toctree uc-acc-08
-     - Pendiente
-     - Pendiente
-   * - T-021
-     - ``casos-uso/permissions/uc-perm-06/diagramas-uml.rst``
-       + toctree uc-perm-06
-     - Pendiente
-     - Pendiente
+     - ``cnst-030-...-sod.rst``
+     - No integrable -> DEBT-014
+   * - T-018..T-021
+     - 6 ``diagramas-uml.rst`` (access/permissions)
+     - No integrables -> DEBT-014
    * - T-022
-     - Verificar cero huerfanos; build 0 warnings (usuario);
-       marcar DEBT-008/009 resueltas.
-     - —
-     - Pendiente
+     - Cierre de grupo R3
+     - N/A (grupo no integrado; deuda registrada)
 
-DAG de dependencias
-===================
+DAG de dependencias (real)
+===========================
 
-* T-001 -> T-002 -> (Grupo R2) -> (Grupo R3).
-* Dentro de R2: T-003..T-014 independientes entre si; T-015
-  depende de las 12.
-* Dentro de R3: T-016..T-021 independientes; T-022 depende de
-  todas y de T-015.
-* T-022 (cierre de deuda) depende de la verificacion de build
-  del usuario en ambos grupos.
+* T-001 -> T-002 -> Grupo R2 (ejecutado) -> Grupo R3
+  (auditado, no integrado).
+* Dentro de R2: T-003..T-013 independientes; T-014 excluida;
+  T-015 (verificacion build) depende de las 11 y la ejecuta
+  el usuario.
+* Grupo R3: la auditoria (parte de T-002/analisis) precedio a
+  cualquier intento de integracion y lo bloqueo correctamente.
 
-Tabla de cobertura
-==================
+Tabla de cobertura (real)
+==========================
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 20 60
+   :widths: 22 22 56
 
    * - Deuda
      - Tareas
-     - Criterio
+     - Resultado
    * - DEBT-008 (R2)
-     - T-003..T-015
-     - 12 archivos integrados, hash verificado, build 0
-       warnings.
+     - T-003..T-013, T-015
+     - 11 archivos integrados, hash verificado. Resolucion
+       sujeta a build 0 warnings (usuario). DEBT-008 vive en
+       ``deuda-integracion-wp-tmp`` (rama
+       ``resolver-ramas-pendientes``): se marca resuelta
+       alli al integrarse esa rama (dependencia cross-rama).
    * - DEBT-009 (R3 nuevos)
      - T-016..T-022
-     - 8 archivos integrados y enlazados en toctree, build
-       0 warnings.
-   * - DEBT-010 (R3 difieren)
+     - No integrados; reclasificados a DEBT-014
+       (residuales R3) en esta rama.
+   * - DEBT-014/015/016
+     - (esta iniciativa los genera)
+     - Registrados en
+       ``deuda-integracion-r3-residual``.
+   * - DEBT-010 (R3 difieren) / DEBT-011 (R1)
      - (ninguna)
-     - Out-of-scope; sigue activa.
-   * - DEBT-011 (R1)
-     - (ninguna)
-     - Out-of-scope; sigue activa.
+     - Cross-rama (``resolver-ramas-pendientes``); fuera
+       de alcance, siguen activas.
