@@ -41,6 +41,7 @@ Iniciativas cerradas
    ampliar-devops-runbooks/index
    crear-infrastructure-skeleton/index
    evolucionar-proc-gob-013-multirepo/index
+   habilitar-pytest-iact-api/index
    preparar-entorno-mariadb-ivr-legacy/index
    preparar-entorno-postgresql-iact-analytics/index
 
