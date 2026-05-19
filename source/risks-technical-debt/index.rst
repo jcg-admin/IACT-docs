@@ -25,4 +25,5 @@ o monitoreo.
 
  riesgos-conocidos
  deuda-tecnica-rebuild
+ deuda-integracion-wp-tmp
  deuda-proc-gob-013-multirepo
