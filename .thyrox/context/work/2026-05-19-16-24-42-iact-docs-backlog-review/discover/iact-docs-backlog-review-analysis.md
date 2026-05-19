@@ -266,6 +266,33 @@ Para avanzar necesito una decisión de las siguientes en este orden:
 
 ---
 
+## Anexo II — Verificación rápida con `sphinx-build -b dummy`
+
+El build HTML estricto (`make html SPHINXOPTS="-W -j auto"`) en este
+repo tarda ~60-80 minutos desde cache fría por el volumen del corpus
+y la escritura serial de PlantUML. Para verificación de cambios
+acotados (como esta normativa) se usa el **builder `dummy`**:
+
+```bash
+. .venv/bin/activate
+sphinx-build -b dummy -W -j auto source build/dummy
+```
+
+Características relevantes:
+
+- Parsea todo el corpus y chequea consistencia (refs cruzadas,
+  toctrees, directivas).
+- **No escribe HTML**, que es la fase costosa.
+- Soporta `-j auto` (parallel read), `-W` (warnings-as-errors),
+  `-n` (nitpicky para refs).
+- Documentado en `sphinx.builders.dummy`: el builder produce 0 files
+  y existe explícitamente para uso de syntax checkers / linters.
+
+**Resultado en este WP:** `sphinx-dummy-2026-05-19T16-58-34.log`
+finaliza en ~2 minutos con 182 warnings, **0 tocan los archivos
+creados aquí**. Todos los warnings son pre-existentes en `develop`
+(la mayoría en `source/gestion/pm/iniciativas/resolver-ramas-pendientes/wp-tmp/`).
+
 ## Anexo — Comandos de verificación usados
 
 ```bash
