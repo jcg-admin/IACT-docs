@@ -48,6 +48,7 @@ Iniciativas cerradas
    auditar-conformidad-fr-tests-aceptacion/index
    crear-infrastructure-skeleton/index
    declarar-tst-ref-en-58-frs-sin-marcar/index
+   dedupe-fixtures-alerts-iact-api/index
    documentar-stubs-en-rst-de-uc/index
    documentar-ucs-implementados-no-declarados/index
    enumerar-otros-ucs-inclusion/index
