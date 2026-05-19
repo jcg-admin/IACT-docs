@@ -22,3 +22,16 @@ Cubre desde setup del entorno local hasta primer contribucion.
  bienvenida
  setup-entorno
  primera-contribucion
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Setup por capa
+
+ setup-backend
+ prerequisitos-mariadb
+ prerequisitos-postgresql
+ configuracion-entornos
+ setup-frontend
+ quick-start-frontend
+ contribuir-frontend
+ quickstart-databases

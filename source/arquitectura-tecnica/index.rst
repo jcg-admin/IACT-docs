@@ -52,6 +52,14 @@ high-level, vistas, modelos de datos y diagramas.
 
  pipeline-etl-iact/index
 
+.. toctree::
+ :maxdepth: 2
+ :caption: Sub-arquitecturas por capa
+
+ frontend/index
+ databases/index
+ etl/index
+
 .. note::
 
  Este cajon esta en construccion incremental. Los siguientes
