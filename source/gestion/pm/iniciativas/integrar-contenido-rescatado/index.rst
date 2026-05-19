@@ -29,6 +29,7 @@ seria incorrecto.
 
    alcance-integrar-contenido-rescatado
    analisis-integrar-contenido-rescatado
+   analisis-precierre-pendientes
    tareas-integrar-contenido-rescatado
    progreso-integrar-contenido-rescatado
    decisiones-integrar-contenido-rescatado
