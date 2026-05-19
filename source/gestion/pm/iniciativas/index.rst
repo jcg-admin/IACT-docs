@@ -46,6 +46,7 @@ Iniciativas cerradas
    alinear-numeracion-uc-api-ui/index
    ampliar-devops-runbooks/index
    auditar-conformidad-fr-tests-aceptacion/index
+   auditoria-profunda-cierre-sesion/index
    crear-infrastructure-skeleton/index
    declarar-tst-ref-en-58-frs-sin-marcar/index
    dedupe-fixtures-alerts-iact-api/index
