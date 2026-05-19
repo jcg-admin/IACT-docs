@@ -74,9 +74,9 @@ DEBT-014 y DEBT-015 son contenido de R2/R3 que no se integro
 por reintroducir deuda (referencias rotas / huerfano +
 retroceso). DEBT-016 es deuda preexistente de develop
 descubierta durante la auditoria. Ninguna se silencia: la
-iniciativa integra solo lo verificado limpio (11 de R2 +
-R3 modelo-rbac + 6 diagramas-uml) y deja estas tres como
-deuda viva con accion concreta.
+iniciativa integra solo lo verificado limpio (11 de R2) y
+deja estas tres como deuda viva con accion concreta.
+
 
 Insumo
 ======
