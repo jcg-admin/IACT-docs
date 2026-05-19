@@ -40,6 +40,7 @@ Iniciativas cerradas
    :maxdepth: 1
 
    aclarar-uc-047-resolver-segmento/index
+   adoptar-protocolo-grep-validado-en-auditorias/index
    ampliar-devops-runbooks/index
    auditar-conformidad-fr-tests-aceptacion/index
    crear-infrastructure-skeleton/index
