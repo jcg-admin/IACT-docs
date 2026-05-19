@@ -42,6 +42,7 @@ Iniciativas cerradas
 
    aclarar-uc-047-resolver-segmento/index
    adoptar-protocolo-grep-validado-en-auditorias/index
+   alinear-numeracion-uc-api-ui/index
    ampliar-devops-runbooks/index
    auditar-conformidad-fr-tests-aceptacion/index
    crear-infrastructure-skeleton/index
