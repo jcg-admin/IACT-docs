@@ -68,7 +68,50 @@ como algo omitido.
 Hallazgos surgidos durante la ejecucion
 ========================================
 
-(Se completara durante la ejecucion de la integracion.)
+H-EJ1 — Auditoria estatica de referencias antes de integrar
+------------------------------------------------------------
+
+Antes de integrar se audito (sin compilar, por analisis de
+texto) cada ``:ref:``/``:doc:`` que el contenido introduce,
+verificando sus destinos contra develop:
+
+* **R2 (12)**: una sola ref externa
+  (``breq-006-operacion-continua-sla``), existe en develop.
+  Integrable limpio. Riesgo bajo confirmado con datos.
+* **R3 ``modelo-rbac-iact.rst``**: refs a ``std-006`` (OK),
+  ``restricciones/index`` (OK) y auto-ref (se resuelve al
+  integrarse en su propia ruta). Integrable.
+* **R3 6 ``diagramas-uml.rst``**: 0 refs externas; toctrees
+  padre (uc-acc-01/03/04/05/08, uc-perm-06) existen en
+  develop. Integrables limpios.
+* **R3 ``cnst-030-sod.rst``**: referencia
+  ``cnst-029-rbac-modelo-plano`` y
+  ``cnst-031-permisos-temporales-maximo-6-meses``, **ninguno
+  existe en develop**. Integrarlo daria 2 warnings ``:doc:``
+  rotos -> con ``-W`` rompe el build.
+
+Decision derivada: ``cnst-030-sod.rst`` sale de in-scope.
+La verificacion de hash NO habria detectado esto (el contenido
+es fiel a R3, pero R3 referencia archivos ausentes en develop);
+solo la auditoria estatica de referencias lo previno. Esto
+valida hacer la auditoria antes de integrar, no integrar y
+descubrir el warning en el build del usuario.
+
+H-EJ1 — Deuda derivada
+-----------------------
+
+La auditoria detecto tres residuales que NO se integran por
+reintroducir deuda, registrados formalmente en
+:doc:`/risks-technical-debt/deuda-integracion-r3-residual`:
+
+* DEBT-014: ``cnst-030-sod.rst`` referencia cnst-029/031
+  inexistentes en develop (2 warnings ``:doc:`` rotos).
+* DEBT-015: ``diagramas-uml.rst`` (R2) es plano pero develop
+  tiene ``diagramas-uml/`` subdirectorio mejor (seria
+  huerfano + retroceso).
+* DEBT-016: el ``index.rst`` de uc-sup-01 en develop tiene
+  nomenclatura antigua (deuda preexistente, no introducida
+  por esta iniciativa, detectada durante ella).
 
 Verificacion post-ejecucion con evidencia
 ==========================================
