@@ -41,6 +41,7 @@ Iniciativas cerradas
 
    aclarar-uc-047-resolver-segmento/index
    ampliar-devops-runbooks/index
+   auditar-conformidad-fr-tests-aceptacion/index
    crear-infrastructure-skeleton/index
    evolucionar-proc-gob-013-multirepo/index
    habilitar-jest-iact-ui/index
