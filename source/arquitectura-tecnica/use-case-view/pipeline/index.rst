@@ -117,6 +117,9 @@ individual (con `<<include>>` y `<<extend>>` per uml-07) en
  * - :doc:`UC_PIP_04 </requisitos/casos-uso/pipeline/uc-pip-04/index>`
    - Solicitar Reintento de Pipeline
    - :doc:`Diagrama </requisitos/casos-uso/pipeline/uc-pip-04/diagramas-uml/diagrama-de-caso-de-uso>`
+ * - :doc:`UC_PIP_05 <uc-pip-05-ejecucion-programada-etl-diario>`
+   - Ejecucion Programada ETL Diario (cron evt_etl_diario)
+   - Diagrama embebido (ver standalone)
 
 .. seealso::
 
@@ -135,3 +138,4 @@ Diagramas standalone uml-07 por UC (auto-explicativos):
  uc-pip-02-consultar-errores-etl
  uc-pip-03-consultar-disponibilidad-de-datos
  uc-pip-04-solicitar-reintento-de-pipeline
+ uc-pip-05-ejecucion-programada-etl-diario
