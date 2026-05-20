@@ -14,3 +14,4 @@ Requisitos Funcionales del módulo MOD_Pipeline.
    uc-073-ver-disponibilidad-datos/index
    uc-074-reintentar-pipeline/index
    uc-091-ejecucion-programada-etl-diario/index
+   uc-082-gestionar-configuracion-job-etl/index

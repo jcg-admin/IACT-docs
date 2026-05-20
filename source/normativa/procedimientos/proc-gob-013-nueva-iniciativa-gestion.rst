@@ -4,9 +4,9 @@
    :dominio: normativa
    :subdominio: procedimientos
    :estado: Aprobado
-   :version: 1.0.1
+   :version: 2.0.0
    :fecha_creacion: 2026-05-16T23:01:11
-   :ultimo_cambio: 2026-05-18T18:21:29
+   :ultimo_cambio: 2026-05-19T18:18:39
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -84,6 +84,101 @@ La mayoria de iniciativas en ``source/gestion/`` son documentales.
 El flujo PMBOK aplica cuando la iniciativa afecta multiples
 repositorios, tiene dependencias externas o requiere autorizacion
 formal de un sponsor.
+
+----
+
+Meta-modelo de la iniciativa
+==============================
+
+Toda iniciativa registrada bajo PROC-GOB-013 declara los siguientes
+campos en el bloque ``.. meta::`` del ``index.rst`` y de cada
+artefacto principal (alcance, analisis, tareas, progreso,
+decisiones). Los campos en negrita son obligatorios; el resto son
+recomendados.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 22 18 60
+
+   * - Campo
+     - Obligatoriedad
+     - Semantica y dominio
+   * - ``artefacto``
+     - **Obligatorio**
+     - Identificador unico en mayusculas, kebab-case. Ejemplos:
+       ``INICIATIVA-EVOLUCIONAR-PROC-GOB-013-MULTIREPO``,
+       ``ALCANCE-SANEAR-DEUDA-CI-Y-NORMATIVA``.
+   * - ``tipo``
+     - **Obligatorio**
+     - ``Iniciativa`` para el ``index.rst``; el tipo del artefacto
+       para el resto (``Alcance``, ``Analisis``, ``Tareas``,
+       ``Progreso``, ``Decisiones``).
+   * - ``dominio``
+     - **Obligatorio**
+     - ``gestion`` para iniciativas registradas bajo
+       ``source/gestion/pm/iniciativas/``.
+   * - ``subdominio``
+     - **Obligatorio**
+     - Ruta jerarquica desde el dominio. Para iniciativas
+       transversales: ``pm/iniciativas/{nombre}``.
+   * - ``repo_objetivo``
+     - **Obligatorio**
+     - Repositorio sobre el que se ejecuta el cambio principal.
+       Dominio enumerado: ``IACT``, ``IACT-api``, ``IACT-db``,
+       ``IACT-docs``, ``IACT-ui``, ``multiple``. El valor
+       ``multiple`` indica que la iniciativa toca dos o mas
+       repos del sistema; el alcance debe documentar cuales y
+       por que.
+   * - ``estado``
+     - **Obligatorio**
+     - Ciclo de vida: ``Pendiente`` (abierta sin ejecutar),
+       ``En ejecucion``, ``COMPLETADA`` (cerrada con
+       decisiones). Otros valores (``Bloqueada``, ``Cancelada``)
+       se permiten con justificacion explicita en el progreso.
+   * - ``version``
+     - **Obligatorio**
+     - SemVer 2.0.0 del documento (``MAJOR.MINOR.PATCH``).
+   * - ``fecha_creacion``
+     - **Obligatorio**
+     - Timestamp ISO 8601 real del sistema:
+       ``YYYY-MM-DDTHH:MM:SS``.
+   * - ``ultimo_cambio``
+     - **Obligatorio**
+     - Timestamp ISO 8601 real del ultimo update. Se refresca
+       en cada edicion del artefacto.
+   * - ``autor``
+     - **Obligatorio**
+     - Nombre o handle del autor responsable.
+   * - ``clasificacion``
+     - **Obligatorio**
+     - Politica de visibilidad: ``Publico``, ``Interno``,
+       ``Confidencial``. Por defecto: ``Interno``.
+
+Regla operativa del campo ``repo_objetivo``
+---------------------------------------------
+
+* El campo declara **donde se aplica** el cambio principal, no
+  donde vive la documentacion. La documentacion de toda iniciativa
+  transversal vive en IACT-docs (este repo). Lo que cambia segun
+  el valor del campo es donde se ejecutan y commitean las tareas.
+* Cuando ``:repo_objetivo:`` es ``multiple``, el alcance lista
+  explicitamente que repos se tocan y por que. Las tareas declaran
+  su repo en la tabla de tareas (columna ``Repo``).
+* Los valores ``IACT``, ``IACT-api``, ``IACT-db``, ``IACT-ui``
+  refieren a los cuatro submodulos definidos en
+  :doc:`/normativa/procedimientos/proc-gob-014-gestion-por-submodulo`
+  y al orquestador IACT. Cualquier nuevo repo del sistema se anade
+  a esta enumeracion al introducirlo.
+
+Compatibilidad con iniciativas previas
+----------------------------------------
+
+Iniciativas creadas con PROC-GOB-013 v1.0.x sin declarar
+``:repo_objetivo:`` formalmente quedan validas: el campo se
+introdujo en v2.0.0 con efecto prospectivo. No se reescriben las
+iniciativas cerradas para retro-cumplir. Las iniciativas activas
+en el momento del bump v2.0.0 actualizan su meta en el siguiente
+commit que las toque.
 
 ----
 
@@ -200,12 +295,19 @@ Ejemplo incorrecto: ``wp-infra-fase1``
 
 El orden de creacion es:
 
-1. Crear el directorio
-   ``source/gestion/pm/iniciativas/{nombre-iniciativa}/``
+1. **Crear el directorio de la iniciativa.** La documentacion de
+   toda iniciativa transversal vive en IACT-docs, independientemente
+   del valor de ``:repo_objetivo:``: la ruta canonica es
+   ``source/gestion/pm/iniciativas/{nombre-iniciativa}/`` en
+   IACT-docs. Para iniciativas con ``:repo_objetivo:`` distinto de
+   ``IACT-docs``, los artefactos producidos por la ejecucion
+   (codigo, configuracion, scripts) se commitean en el repo
+   objetivo; la trazabilidad de esos commits se referencia desde
+   ``progreso-{nombre}.rst`` (hash y rama).
 2. Crear los documentos RST decididos en la Fase 2
 3. Crear el ``index.rst`` del directorio que los enlaza en el toctree
 4. Enlazar el ``index.rst`` de la iniciativa en
-   ``source/gestion/index.rst``
+   ``source/gestion/pm/iniciativas/index.rst`` bajo "Iniciativas activas"
 5. Compilar el build y verificar 0 warnings antes de commitear
 
 El commit de estructura es independiente del commit de ejecucion.
@@ -390,19 +492,42 @@ Trazabilidad
    :widths: 25 75
    :header-rows: 0
 
-   * - **Skills documentales**
+   * - **Skills documentales (IACT-docs)**
      - ``workflow-discover`` · ``workflow-scope`` ·
        ``workflow-implement`` · ``workflow-track`` ·
-       ``workflow-standardize`` · ``sphinx``
+       ``workflow-standardize`` · ``sphinx``.
+       Aplican a iniciativas con ``:repo_objetivo:`` igual a
+       ``IACT-docs`` o ``multiple`` cuando el componente
+       documental sea principal.
    * - **Skills de proyecto**
      - ``pm-initiating`` · ``pm-planning`` · ``pm-executing`` ·
-       ``pm-monitoring`` · ``pm-closing``
+       ``pm-monitoring`` · ``pm-closing``. Aplican a iniciativas
+       clasificadas como iniciativa de proyecto (con Project
+       Charter), independientemente del repo objetivo.
+   * - **Skills por repo objetivo**
+     - Para iniciativas con ``:repo_objetivo:`` igual a ``IACT``,
+       ``IACT-api``, ``IACT-db`` o ``IACT-ui``, los skills
+       tecnicos del repo (cuando existan en ``.claude/skills/``
+       de ese repo o del orquestador IACT) sustituyen al
+       conjunto ``workflow-*`` documental. Mientras no existan
+       skills propios por repo, se aplica el conjunto
+       documental con el cambio ejecutado fisicamente en el repo
+       objetivo y referenciado desde el progreso de la
+       iniciativa.
    * - **Procedimientos relacionados**
      - :doc:`proc-gob-009-auditoria-documental` ·
        :doc:`proc-gob-011-gestion-cambios` ·
-       :doc:`proc-doc-013-validacion-sphinx`
+       :doc:`proc-doc-013-validacion-sphinx` ·
+       :doc:`proc-gob-014-gestion-por-submodulo` (estructura
+       vertical por submodulo, complementario al eje multi-repo
+       de este procedimiento)
    * - **Dominio de salida**
-     - ``source/gestion/`` (exclusivamente ``.rst``)
+     - ``source/gestion/`` en IACT-docs (exclusivamente ``.rst``)
+       para la documentacion. Los artefactos de ejecucion viven
+       en el repo declarado por ``:repo_objetivo:``.
+   * - **Deuda tecnica cerrada por v2.0.0**
+     - :doc:`/risks-technical-debt/deuda-proc-gob-013-multirepo`
+       (DEBT-012, DEBT-013)
 
 ----
 
@@ -438,3 +563,20 @@ Historial
        Se alinea el texto con la realidad. El soporte
        multi-repositorio (H-N2, H-N3) queda fuera de alcance y
        se difiere a una iniciativa dedicada.
+   * - 2.0.0
+     - 2026-05-19T18:18:39
+     - Evolucion estructural multi-repo (iniciativa
+       ``evolucionar-proc-gob-013-multirepo``). Cierra DEBT-012
+       y DEBT-013. Cambio incompatible: introduce el campo
+       obligatorio ``:repo_objetivo:`` en el meta-modelo de
+       toda iniciativa (dominio enumerado ``IACT`` /
+       ``IACT-api`` / ``IACT-db`` / ``IACT-docs`` / ``IACT-ui``
+       / ``multiple``). Anade la seccion "Meta-modelo de la
+       iniciativa" con tabla canonica de campos. Generaliza el
+       paso 1 de la Fase 3 (la documentacion vive en IACT-docs,
+       la ejecucion en el repo objetivo). Reformula las
+       Trazabilidades de skills como referencia para IACT-docs
+       y abre la enumeracion a skills por repo. Anade
+       cross-reference a PROC-GOB-014. Iniciativas previas
+       quedan validas (compatibilidad documentada en la propia
+       seccion Meta-modelo).

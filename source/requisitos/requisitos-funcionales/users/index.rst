@@ -56,6 +56,14 @@ Requisitos Funcionales - MOD_Users
  uc-009-listar-usuarios/fr-009-03-ordenar-resultados
  uc-009-listar-usuarios/fr-009-04-mostrar-indicador-inactividad
 
+.. toctree::
+ :maxdepth: 1
+ :caption: UCs documentados retroactivamente (alinear-numeracion-uc-api-ui)
+
+ uc-083-bloquear-usuario/index
+ uc-084-desbloquear-usuario/index
+ uc-085-editar-perfil-propio/index
+
 ----
 
 Resumen Estadístico

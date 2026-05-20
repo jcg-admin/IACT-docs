@@ -2,10 +2,10 @@
    :artefacto: DEBT_003
    :tipo: Deuda Tecnica
    :dominio: risks-technical-debt
-   :estado: Vigente
-   :version: 1.0.0
+   :estado: Resuelta
+   :version: 1.1.0
    :fecha_creacion: 2026-05-18T23:28:16
-   :ultimo_cambio: 2026-05-18T23:28:16
+   :ultimo_cambio: 2026-05-19T18:26:25
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -45,7 +45,11 @@ Catalogo
        aplicada: las iniciativas declaran
        ``:repo_objetivo:`` en su meta, pero el procedimiento
        no lo formaliza ni lo exige.
-     - Activa
+     - **Resuelta** por iniciativa
+       :doc:`/gestion/pm/iniciativas/evolucionar-proc-gob-013-multirepo/index`
+       en PROC-GOB-013 v2.0.0 (2026-05-19): el campo
+       ``:repo_objetivo:`` es obligatorio del meta-modelo
+       con dominio enumerado.
    * - DEBT-013
      - sanear-deuda-ci-y-normativa
      - H-N3: PROC-GOB-013 esta redactado como exclusivo de
@@ -54,7 +58,11 @@ Catalogo
        (IACT-api, IACT-ui, IACT-db). Una iniciativa cuya
        ejecucion sea en otro repo no tiene encuadre en el
        procedimiento actual.
-     - Activa
+     - **Resuelta** por iniciativa
+       :doc:`/gestion/pm/iniciativas/evolucionar-proc-gob-013-multirepo/index`
+       en PROC-GOB-013 v2.0.0 (2026-05-19): documentacion
+       siempre en IACT-docs, ejecucion en el repo objetivo
+       declarado; skills enumerados por repo.
 
 Accion propuesta
 ================
@@ -74,6 +82,25 @@ Absorberlo en ``sanear-deuda-ci-y-normativa`` habria
 desbordado su alcance (saneamiento de CI + plantuml +
 correccion puntual de normativa). El procedimiento mismo
 (Fase 5 Paso 4) prevee diferir y registrar hallazgos fuera de
-alcance en lugar de absorberlos. Este registro cumple ese
-paso: la deuda queda con dueño y trazable, no silenciada
+alcance en lugar de absorberlos. Este registro cumplio ese
+paso: la deuda quedo con dueno y trazable, no silenciada
 dentro de una iniciativa cerrada.
+
+Resolucion (2026-05-19)
+=======================
+
+La iniciativa
+:doc:`/gestion/pm/iniciativas/evolucionar-proc-gob-013-multirepo/index`
+ejecuto el cambio estructural diferido. PROC-GOB-013 paso de
+v1.0.1 a v2.0.0 con: (a) seccion "Meta-modelo de la
+iniciativa" con tabla de 11 campos obligatorios, incluido
+``:repo_objetivo:`` (dominio enumerado IACT, IACT-api,
+IACT-db, IACT-docs, IACT-ui, multiple); (b) generalizacion
+del paso 1 de la Fase 3 (documentacion siempre en IACT-docs,
+ejecucion en el repo objetivo); (c) trazabilidad de skills
+abierta por repo objetivo; (d) cross-reference a
+PROC-GOB-014; (e) entrada de historial 2.0.0.
+
+Iniciativas previas quedan validas; el campo se introduce
+con efecto prospectivo (compatibilidad documentada en la
+propia seccion Meta-modelo de PROC-GOB-013 v2.0.0).
