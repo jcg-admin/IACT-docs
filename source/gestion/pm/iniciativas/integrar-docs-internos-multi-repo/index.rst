@@ -108,3 +108,12 @@ Criterio de cierre
 * Bucket 4 INTEGRAR: 100% reflejado en IACT-docs.
 * Buckets 1-2: README archival declarado en cada repo.
 * Sphinx build ``-W`` sin warnings nuevos.
+
+Estado de progreso: ver
+:doc:`progreso-integrar-docs-internos-multi-repo`.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   progreso-integrar-docs-internos-multi-repo
