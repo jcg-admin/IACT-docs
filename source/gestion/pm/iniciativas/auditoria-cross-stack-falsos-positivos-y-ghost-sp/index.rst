@@ -34,7 +34,14 @@ SPECULATIVE camuflado de PROVEN.
 Resultado de la verificacion
 =============================
 
-7 de 8 gaps son **falsos positivos** del agent. 1 gap es real.
+Tras verificacion completa: 7/8 fueron falsos positivos
+(detectados antes de abrir iniciativas inutiles), 1 fue gap
+real (cerrado), y el unico gap parcial (GAP-03) se cerro al
+100% tras el sponsor exigir implementacion completa (no
+parcial).
+
+Estado final: **0 gaps abiertos**, 2 commits remediadores en
+codigo (e454295 db, 2145b22 api), 1 iniciativa de registro.
 
 .. list-table::
    :header-rows: 1
@@ -53,9 +60,10 @@ Resultado de la verificacion
      - 22 skips son data-dependent ("No hay funciones en BD"),
        no features sin implementar. Skip correcto.
    * - GAP-03 (85 viewsets sin UC)
-     - PARCIAL FP
+     - CERRADO (era PARCIAL FP)
      - Agent dijo 174 vistas (47 reales) y 85 sin marker (10
-       reales). Es un P3 documental, no P1.
+       reales). Los 10 reales fueron taggeados con marker UC
+       en commit ``2145b22`` (IACT-api), llegando a 47/47.
    * - GAP-04 (AuditLog.emit() inexistente)
      - FALSO POSITIVO
      - ``AuditLogService.emit()`` existe en
@@ -79,9 +87,14 @@ Resultado de la verificacion
        Documentadas como "Funciones internas — solo las usan
        los SPs" en HALLAZGOS-FASE6-FINAL.
    * - GAP-08 (170 serializers sin docs)
-     - P3 backlog
-     - 174 serializers, 4 con marker. Es deuda documental
-       baja prioridad, no bloqueante.
+     - FALSO POSITIVO
+     - Verificacion: TODOS los campos sensibles (password,
+       password_confirm, new_password, etc.) tienen ``write_only=True``
+       declarado correctamente. El grep del agent miraba 4
+       coincidencias literales en una sola linea, ignorando
+       declaraciones multi-linea donde ``serializers.CharField(``
+       y ``write_only=True,`` viven en lineas separadas. La
+       cobertura real de field-boundaries es 100% donde aplica.
 
 Gap real cerrado
 ================
