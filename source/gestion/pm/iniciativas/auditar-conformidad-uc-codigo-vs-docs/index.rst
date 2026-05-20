@@ -4,10 +4,10 @@
    :dominio: gestion
    :subdominio: pm/iniciativas
    :repo_objetivo: multiple
-   :estado: EN-CURSO
-   :version: 1.0.0
+   :estado: COMPLETADA
+   :version: 1.1.0
    :fecha_creacion: 2026-05-20T01:30:00
-   :ultimo_cambio: 2026-05-20T01:30:00
+   :ultimo_cambio: 2026-05-20T04:30:00
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -165,3 +165,17 @@ Tareas operativas pre-cierre
 * T-009: revisar UC_ACC_01..09 — asignacion + revocacion.
 * T-010: revisar UC_PERM_01..10 — grupos + auditoria.
 * T-011: revisar UC_PIP_01..05 — monitor + retry.
+
+Cierre
+======
+
+Iniciativa CERRADA. Ver
+:doc:`cierre-auditar-conformidad-uc-codigo-vs-docs` para
+resumen ejecutivo, branches creadas, gaps remediados y
+lecciones aplicadas.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   cierre-auditar-conformidad-uc-codigo-vs-docs
