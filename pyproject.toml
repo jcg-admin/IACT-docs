@@ -80,7 +80,7 @@ dependencies = [
     "charset-normalizer==3.4.7",
     "click==8.4.1",
     "typing-extensions==4.15.0",
-    "more-itertools==10.8.0",
+    "more-itertools==11.1.0",
     "natsort==8.4.0",
     "six==1.17.0",
     "watchfiles==1.2.0",
