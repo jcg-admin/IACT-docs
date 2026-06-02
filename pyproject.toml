@@ -83,7 +83,7 @@ dependencies = [
     "more-itertools==10.8.0",
     "natsort==8.4.0",
     "six==1.17.0",
-    "watchfiles==1.1.1",
+    "watchfiles==1.2.0",
     "domdf-python-tools==3.10.0",
     "deepmerge==2.0",
     "alabaster==1.0.0",
