@@ -35,7 +35,7 @@ jobs:
         run: bash scripts/setup.sh
 
       - name: Restaurar cache de doctrees
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: build/doctrees
           key: sphinx-doctrees-${{ runner.os }}-${{ hashFiles('source/**/*.rst', 'source/conf.py') }}
