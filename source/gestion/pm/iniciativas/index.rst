@@ -6,7 +6,7 @@
    :estado: Vigente
    :version: 1.0.0
    :fecha_creacion: 2026-05-16T23:01:11
-   :ultimo_cambio: 2026-05-19T18:18:39
+   :ultimo_cambio: 2026-07-03T22:15:30
    :autor: NestorMonroy
    :clasificacion: Interno
 
@@ -47,6 +47,7 @@ Iniciativas cerradas
    alinear-numeracion-uc-api-ui/index
    ampliar-devops-runbooks/index
    auditar-conformidad-fr-tests-aceptacion/index
+   auditar-implementacion-ucs-api-ui/index
    auditoria-profunda-cierre-sesion/index
    crear-infrastructure-skeleton/index
    declarar-tst-ref-en-58-frs-sin-marcar/index

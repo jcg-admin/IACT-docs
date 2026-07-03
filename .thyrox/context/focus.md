@@ -1,9 +1,9 @@
 ```yml
 type: Estado Operacional
 project: IACT-docs
-version: 2.0.0
+version: 2.1.0
 created_at: 2026-04-23 09:00:00
-updated_at: 2026-04-29 06:35:00
+updated_at: 2026-07-03 22:29:30
 ```
 
 # Focus — IACT-docs
@@ -14,9 +14,14 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 ## Iniciativa Actual
 
-**Estado:** entre iniciativas. Última ÉPICA cerrada el 2026-04-29 06:00.
-**Branch:** `feature/solve-problem-docs`
-**Build status:** `make clean && make html` → `build succeeded` con 0 WARN / 0 ERR / 0 CRIT.
+**Estado:** `auditar-implementacion-ucs-api-ui` — auditoría completada,
+pendiente decisión del ejecutor sobre iniciativas derivadas F-03..F-07
+y cierre del WP.
+**WP:** `.thyrox/context/work/2026-07-03-22-15-30-auditar-implementacion-ucs-api-ui/`
+**Branch:** `feature/auditar-implementacion-ucs-api-ui`
+**Resultado:** 88 UCs docs · 18 OUT · 70/70 api · 69/69 ui aplicables ·
+0 gaps docs→código. Deuda inversa y conformidad de markers en
+F-03..F-07 (ver deep-analisis de la iniciativa).
 
 ---
 
