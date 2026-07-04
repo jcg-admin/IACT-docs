@@ -47,12 +47,15 @@ Iniciativas cerradas
    alinear-numeracion-uc-api-ui/index
    ampliar-devops-runbooks/index
    auditar-conformidad-fr-tests-aceptacion/index
+   auditar-conformidad-uc-codigo-vs-docs/index
    auditar-implementacion-ucs-api-ui/index
+   auditoria-cross-stack-falsos-positivos-y-ghost-sp/index
    auditoria-profunda-cierre-sesion/index
    crear-infrastructure-skeleton/index
    declarar-tst-ref-en-58-frs-sin-marcar/index
    dedupe-fixtures-alerts-iact-api/index
    documentar-stubs-en-rst-de-uc/index
+   documentar-uc-adm-01-05/index
    documentar-ucs-implementados-no-declarados/index
    enumerar-otros-ucs-inclusion/index
    evolucionar-proc-gob-013-multirepo/index

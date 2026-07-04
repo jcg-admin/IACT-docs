@@ -22,6 +22,25 @@ author: NestorMonroy
   verificado de PRs abiertos (5, todos dependabot) y ramas por repo,
   con SHAs de respaldo de las ramas eliminadas.
 
+## Fixed
+
+- 3 iniciativas huérfanas de toctree registradas en
+  `gestion/pm/iniciativas/index.rst`
+  (`auditar-conformidad-uc-codigo-vs-docs`,
+  `auditoria-cross-stack-falsos-positivos-y-ghost-sp`,
+  `documentar-uc-adm-01-05`) — eliminan 3 de los 21 warnings
+  pre-existentes del strict build.
+
+## Build (evidencia)
+
+- Strict build completo (`sphinx -W`):
+  `track/build-logs/sphinx-strict-auditar-implementacion-ucs-2026-07-03T22-28-59.log`
+  → `EXIT=1`, 21 warnings, **0 originados por los archivos de esta
+  iniciativa** (grep del log por `auditar-implementacion-ucs-api-ui`
+  = 0 hits). Deuda pre-existente: 4 sintaxis RST, 3 toctree huérfanos
+  (corregidos arriba), 3 highlighting, render PlantUML fallando en el
+  entorno de la sesión.
+
 ## Changed
 
 - `source/gestion/pm/iniciativas/index.rst` — registrada la nueva
