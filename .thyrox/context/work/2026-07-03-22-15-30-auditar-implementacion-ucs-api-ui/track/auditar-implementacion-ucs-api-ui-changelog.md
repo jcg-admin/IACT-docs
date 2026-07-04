@@ -40,6 +40,18 @@ author: NestorMonroy
   = 0 hits). Deuda pre-existente: 4 sintaxis RST, 3 toctree huérfanos
   (corregidos arriba), 3 highlighting, render PlantUML fallando en el
   entorno de la sesión.
+- Rebuild estricto incremental post-fix:
+  `track/build-logs/sphinx-strict-incremental-toctree-fix-2026-07-04T00-02-35.log`
+  → `EXIT=1` con solo 2 warnings, ambos avisos de infraestructura de
+  `plantuml_cached` ("not safe for parallel writing" / "doing serial
+  write") que se emiten en todo build `-W -j auto`. Los 3 huérfanos de
+  toctree quedaron resueltos (0 hits `toc.not_included`).
+- `make html` canónico: **bloqueado en este entorno** — el guard
+  `check-bootstrap` exige `tools/plantuml.jar` y el proxy de la sesión
+  retorna 403 al descargarlo de GitHub releases
+  (`make-html-canonico-2026-07-04T00-11-*.log`). Esto también explica
+  los 4 warnings "error while running plantuml" del build completo.
+  Verificación canónica pendiente en un entorno con bootstrap completo.
 
 ## Changed
 
