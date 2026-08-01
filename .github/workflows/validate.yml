@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -35,7 +35,7 @@ jobs:
         run: bash scripts/setup.sh
 
       - name: Restaurar cache de doctrees
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: build/doctrees
           key: sphinx-doctrees-${{ runner.os }}-${{ hashFiles('source/**/*.rst', 'source/conf.py') }}
@@ -68,10 +68,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
